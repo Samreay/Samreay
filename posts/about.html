@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>DJ Board</title>
+		<title>About Me</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -24,6 +24,7 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="../index.html">Home</a></li>
+							<li><a href="../posts/about.html">About Me</a></li>
 							<li><a href="../index.html#projects">Projects</a></li>
 							<li><a href="../index.html#others">Other</a></li>
 							<li><a href="../images/resume/resume.pdf">Resume</a></li>
@@ -68,37 +69,29 @@
 								</div>
 								<div class="9u 12u(mobile) important(mobile)">
 									<article id="content">
-										<h2>A DJ board with 16 whole buttons!</h2>
-										<p class="subtitle">Better than a board with 12 buttons.</p>
+										<h2>I am Sam</h2>
+										<p class="subtitle">I do not like green eggs and ham.</p>
+										<a href="#" class="image left"><img src="../images/githubProf.jpg" alt=""></a>
 
-										<p>My first team project was to make a pseudo-satellite. Two years later, better equipped, I was hoping the second
-										project would be to built the rocket. Instead, we got a DJ board. People said I had unrealistically high expectations.</p>
-										<p>Maybe.</p>
-										<p>The challenge of the DJ board was not conceptual, it was to be able to do it all on the tiny processor they gave us,
-										which had essentially no memory. Because polling the SD Card was slow, the goal was to minimise everything on the firmware such
-										that you can store as large an array of sound as possible.</p>
-										<p>Luckily for me, both of my team mates became seriously ill three weeks before the project was due, after we discovered our
-										circuit board was non-functional. To clarify, I am grateful of the things I learnt by shouldering the entire project, they have
-										been useful, especially the improvement in my soldering skills. The failure of the cirtcuit board lead to some last minute
-										creation of a verboard layout in Excel.</p>
-										<a href="#" class="image featured"><img src="../images/dj/veroboard.jpg" alt=""></a>
-										<p>It's nasty, but it works perfectly. You can see it wired, with the components inserted below.</p>
-										<a href="#" class="image featured"><img src="../images/dj/bottom.jpg" alt=""></a>
-										<p>From the top, it actually looks quite clean.</p>
-										<a href="#" class="image featured"><img src="../images/dj/top.jpg" alt=""></a>
-										<p>Now, such a board needs a lot of testing. With 16 buttons, that's enough to put the words of an entire daft punk song on the board. I'm not joking
-										when I say that the workshop room was filled with different pitches and effects of "Faster, Better, Stronger, Harder" mashed out for days non-stop, as
-										everyone frantically tested their product.</p>
-										<p>In addition, to the physical device, we had to be able to connect the board, via USB, to a Windows computer, and provide software to load on
-											MP3 files as well as provide certain filters. These filters, some of them shown below, is what gave us Daft Punk three octaves higher than normal.
-										I will also admit my passionate hatred of Java GUI's was cemented during the creation of this software. What an absolute nightmare.</p>
+										<p>To be honest, I only use this picture because it's been associated with my Github for so long I just
+										won't change it. It was taken at a picnic in Roma Street Parklands that Bec organised. But moving on...</p>
+										<p>I'm a software engineering and physics graduate starting my PhD this year. My main interests lie in cosmology,
+										machine learning, and generally just doing things <i>right</i>. Perhaps that's the software engineer in me speaking, but
+										a half implemented pipeline or an analysis that requires more than someone pressing the enter key to start seems to be to be
+										fundamentally lacking.</p>
+										<p>My PhD project is to perform a Bayesian analysis of supernova cosmology. To get myself across everything properly, I hope to update this
+										site with some good tutorials for starting Bayesian analysis with Python, because there is nothing like writing a tutorial to highlight all the
+										little things you actually don't understand.</p>
 
-										<a href="#" class="image featured"><img src="../images/dj/software.jpg" alt=""></a>
-										<p>Thankfully, the veroboard continued to work throughout my testing (unexpectedly), and I actually finished early.
-											I celebrated by buying several kilograms of Starburst lollies and bringing them in for the other guys still pulling late nights. Nothing like
-										a late night sugar party to get productivity flowing again.</p>
-
-
+										<p>If you have any specific questions, feel free to email me:</p>
+										<form id="contactform" action="//formspree.io/samuelreay@gmail.com" method="POST">
+											<input type="text" name="name" style="margin-bottom: 1em;" placeholder="Your name">
+											<input type="email" name="_replyto" style="margin-bottom: 1em;" placeholder="Your email">
+											<input type="hidden" name="_subject" value="Website contact" />
+											<textarea name="message" style="margin-bottom: 1em;" placeholder="Your message"></textarea>
+											<input type="text" name="_gotcha" style="display:none" />
+											<input type="submit" value="Send">
+										</form>
 									</article>
 								</div>
 							</div>
@@ -141,35 +134,35 @@
 				</div>
 
 			<!-- Footer Wrapper -->
-			<div id="footer-wrapper">
+				<div id="footer-wrapper">
 
-				<!-- Footer -->
-				<footer id="footer" class="container">
-					<section>
-						<h2>Contact</h2>
-						<div class="row">
-							<div class="6u 12u(mobile)">
-								<ul class="style3">
-									<li class="icon fa-envelope">
-										<a href="samuelreay@gmail.com" class="">samuelreay@gmail.com</a>
-									</li>
-								</ul>
+					<!-- Footer -->
+						<footer id="footer" class="container">
+							<section>
+								<h2>Contact</h2>
+								<div class="row">
+									<div class="6u 12u(mobile)">
+										<ul class="style3">
+											<li class="icon fa-envelope">
+												<a href="mailto:samuelreay@gmail.com" class="">samuelreay@gmail.com</a>
+											</li>
+										</ul>
+									</div>
+									<div class="6u 12u(mobile)">
+										<ul class="style3">
+											<li class="icon fa-github">
+												<a href="https://github.com/samreay">github.com/samreay</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</section>
+							<div id="copyright">
+								&copy; Samuel Hinton. All rights reserved.
 							</div>
-							<div class="6u 12u(mobile)">
-								<ul class="style3">
-									<li class="icon fa-github">
-										<a href="https://github.com/samreay">github.com/samreay</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<div id="copyright">
-						&copy; Samuel Hinton. All rights reserved.
-					</div>
-				</footer>
+						</footer>
 
-			</div>
+				</div>
 
 		</div>
 
