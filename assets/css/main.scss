@@ -86,6 +86,7 @@
 
 	a {
 		color: #0087cd;
+		text-decoration: none;
 	}
 
 	sub {
@@ -655,6 +656,16 @@
 		h3 {
 			font-weight: 300;
 		}
+
+		.tile {
+			display: block;
+			.inner {
+				height: 200px;
+				padding: 15px;
+				background-color: #f4f4f4;
+				border: 1px solid #f1f1f1;
+			}
+		}
 	}
 
 /* Footer */
@@ -742,6 +753,15 @@
 					color: #727272;
 				}
 			}
+
+		/* Main */
+		.homepage {
+			#main {
+				.image {
+					width: 150px;
+				}
+			}
+		}
 
 		/* Nav */
 
@@ -869,6 +889,7 @@
 				}
 
 				h3 {
+					padding-top: 1em;
 					font-size: 1.70em;
 				}
 
@@ -877,7 +898,7 @@
 				}
 
 				.image {
-					margin-bottom: 3em;
+					margin-bottom: 0em;
 				}
 			}
 
@@ -1475,6 +1496,14 @@
 
 			#featured h2 {
 				margin: 0 0 0.25em 0;
+			}
+			#featured .tile {
+				.image {
+					margin: 0;
+				}
+				.inner {
+					background-color: #ddd;
+				}
 			}
 
 		/* Sidebar */
