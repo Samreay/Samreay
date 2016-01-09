@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>DJ Board</title>
+		<title>Laser Satellite</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -67,35 +67,38 @@
 								</div>
 								<div class="9u 12u(mobile) important(mobile)">
 									<article id="content">
-										<h2>A DJ board with 16 whole buttons!</h2>
-										<p class="subtitle">Better than a board with 12 buttons.</p>
+										<h2>A laser shooting satellite</h2>
+										<p class="subtitle">Doesn't get much better than this</p>
 
-										<p>My first team project was to make a pseudo-satellite. Two years later, better equipped, I was hoping the second
-										project would be to built the rocket. Instead, we got a DJ board. People said I had unrealistically high expectations.</p>
-										<p>Maybe.</p>
-										<p>The challenge of the DJ board was not conceptual, it was to be able to do it all on the tiny processor they gave us,
-										which had essentially no memory. Because polling the SD Card was slow, the goal was to minimise everything on the firmware such
-										that you can store as large an array of sound as possible.</p>
-										<p>Luckily for me, both of my team mates became seriously ill three weeks before the project was due, after we discovered our
-										circuit board was non-functional. To clarify, I am grateful of the things I learnt by shouldering the entire project, they have
-										been useful, especially the improvement in my soldering skills. The failure of the cirtcuit board lead to some last minute
-										creation of a verboard layout in Excel.</p>
-										<a href="#" class="image featured"><img src="../images/dj/veroboard.jpg" alt=""></a>
-										<p>It's nasty, but it works perfectly. You can see it wired, with the components inserted below.</p>
-										<a href="#" class="image featured"><img src="../images/dj/bottom.jpg" alt=""></a>
-										<p>From the top, it actually looks quite clean.</p>
-										<a href="#" class="image featured"><img src="../images/dj/top.jpg" alt=""></a>
-										<p>Now, such a board needs a lot of testing. With 16 buttons, that's enough to put the words of an entire daft punk song on the board. I'm not joking
-										when I say that the workshop room was filled with different pitches and effects of "Faster, Better, Stronger, Harder" mashed out for days non-stop, as
-										everyone frantically tested their product.</p>
-										<p>In addition, to the physical device, we had to be able to connect the board, via USB, to a Windows computer, and provide software to load on
-											MP3 files as well as provide certain filters. These filters, some of them shown below, is what gave us Daft Punk three octaves higher than normal.
-										I will also admit my passionate hatred of Java GUI's was cemented during the creation of this software. What an absolute nightmare.</p>
+										<p>This was my first proper team project. Myself, Jeevan, Kiaran and David, tasked to built a device which, whilst suspended from a single thin wire,
+										would be able to detected infrared sources, target them, and then fire a laser back at them to hit a bullseye underneath.</p>
+										<p>In other words, an awesome project.</p>
+										<p>Like all good satellites, you try and keep mechanical design simple. Less moving parts means less points of failure.
+										Our meager budget backed this up. Moving parts are expensive. Our design was simple - given we were suspended and had to rotate only on one axis,
+										we'd simply throw a reaction wheel in the middle of the chassis. By dispersing a series of IR photodiodes over a relatively narrow field of view, we
+										could combine voltage readings with sensor angular position to determine the angular displacement of the target. This information would be fed
+										into the motor control, which was a simple <a href="https://en.wikipedia.org/wiki/PID_controller" target="_blank">PID controller</a>. Sounds simple, right?</p>
+										<p>But the devil is in the details. Luckily, our schematic gave us the mechanical parts we needed without hassle.</p>
+										<a href="#" class="image featured"><img src="../images/sat/schematic.jpg" alt=""></a>
+										<p>However, the first circuit board we ordered was missing the entire ground plane. That is not a good thing to have missing. Express shipping and a New Zealand
+										based fabrication plant later, and we had a circuit that worked. Given the narrow spaces, assembly was slow.</p>
+										<a href="#" class="image featured"><img src="../images/sat/assembly.jpg" alt=""></a>
+										<p>And thus the first half of the project came together. The second half - the firmware control, was my baby. I spent weeks on it, tuning the PID parameters,
+										adjusting the control code so that it was optimised for zero net spin (don't want to spin the wire if the swivel jammed), minimising the time to target,
+										accounting for the friction jerk in the reaction wheel when it stopped, I honed it to perfection. The image below shows my debug wire hooked into the
+										suspended satellite. Not shown is me with a PuTTY terminal open behind the camera.</p>
+										<a href="#" class="image featured"><img src="../images/sat/debug.jpg" alt=""></a>
+										<p>At one point, we tested our satellite against project standards. We blew them out of the water. We were so relieved, everything was perfect. Look at it fly around!</p>
+										<a href="#" class="image featured"><img src="../images/sat/spin.jpg" alt=""></a>
+										<p>And then we made a horrible mistake. You see, I had been testing the satellite for a while, and it has to be boxed up for a week before it gets
+										demoed. We were worried about battery drain, and our satellite just not working, so the last thing we did was replace the batteries, and then ship it.</p>
+										<p>One issue. Battery voltages changes over lifetime. The PID values tuned for the old, lower voltage, were completely wrong for the fresh batteries.</p>
+										<p>So, on demo day, instead of the satellite smoothing acquiring new targets, it appeared to go into a seizure when locking onto a target. The batteries were
+										supplying too much juice to the motors, and they were oscillating rapidly around the target. Given the bullseye score comes from the further ring you hit, not the
+										closest, this played havoc with our performance. To be clear, we still did well (we only lost first place by a single point), but, after seeing it work
+										so well, it was still disappointing. Moral of the story, <strong>always</strong> test something after swapping out a component.</p>
+										<p>Our lack of forsight notwithstanding, this was still by far the most interesting physical project I've had to do.</p>
 
-										<a href="#" class="image featured"><img src="../images/dj/software.jpg" alt=""></a>
-										<p>Thankfully, the veroboard continued to work throughout my testing (unexpectedly), and I actually finished early.
-											I celebrated by buying several kilograms of Starburst lollies and bringing them in for the other guys still pulling late nights. Nothing like
-										a late night sugar party to get productivity flowing again.</p>
 
 
 									</article>
