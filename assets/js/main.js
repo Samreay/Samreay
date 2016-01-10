@@ -82,6 +82,7 @@
 						.css('transition', 'none');
 
 		// Slider.
+		/*
 			var $slider = $('#slider');
 			if ($slider.length > 0) {
 
@@ -109,6 +110,7 @@
 					.trigger('resize');
 
 			}
+			*/
 
 	});
 

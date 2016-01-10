@@ -1463,17 +1463,15 @@ table {
     cursor: default; }
     #slider .viewer {
       margin: 0 auto; }
-      #slider .viewer .reel {
-        display: none; }
-        #slider .viewer .reel .slide {
-          position: relative;
-          width: 1200px !important; }
-          #slider .viewer .reel .slide img {
-            width: 1200px;
-            line-height: 0;
-            position: absolute;
-            top: 0;
-            left: 0; }
+      #slider .viewer .reel .slide {
+        position: relative;
+        width: 1200px !important; }
+        #slider .viewer .reel .slide img {
+          width: 1200px;
+          line-height: 0;
+          position: absolute;
+          top: 0;
+          left: 0; }
     #slider .info {
       position: absolute;
       z-index: 1;
@@ -1831,17 +1829,15 @@ table {
     margin: 0 0 20px 0; }
     #slider .viewer {
       margin: 0 auto; }
-      #slider .viewer .reel {
-        display: none; }
-        #slider .viewer .reel .slide {
-          position: relative;
-          height: auto; }
-          #slider .viewer .reel .slide img {
-            width: 225%;
-            line-height: 0;
-            position: absolute;
-            top: 0;
-            left: 0; }
+      #slider .viewer .reel .slide {
+        position: relative;
+        height: auto; }
+        #slider .viewer .reel .slide img {
+          width: 225%;
+          line-height: 0;
+          position: absolute;
+          top: 0;
+          left: 0; }
     #slider .info {
       width: 100%;
       background: rgba(0, 0, 0, 0.8);
