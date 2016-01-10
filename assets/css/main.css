@@ -1895,7 +1895,7 @@ table {
     margin: 0; }
   #featured .tile .inner {
     background-color: #ddd;
-    height: 125px; }
+    height: auto; }
 
   /* Sidebar */
   #sidebar ul.style2 li.first {
