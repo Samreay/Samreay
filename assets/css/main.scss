@@ -1026,7 +1026,9 @@
 			h3, .subtitle, .button.big {
 				font-size: 1.5em;
 			}
-
+			.highlight .image {
+				max-height: 180px;
+			}
 			.highlight header {
 				padding: 1.5em 80px 1.5em 1.5em;
 
@@ -1054,7 +1056,7 @@
 		/* Header */
 
 			#header {
-				padding: 3em 0 4em 0;
+				padding: 0.5em 0 1.5em 0;
 
 				h1 {
 					font-size: 2em;
@@ -1416,9 +1418,9 @@
 							height: auto;
 
 							img {
-								width: 225%;
+								width: 100%;
 								line-height: 0;
-								position: absolute;
+								//position: absolute;
 								top: 0;
 								left: 0;
 							}
@@ -1429,7 +1431,7 @@
 				.info {
 					width: 100%;
 					background: rgba(0, 0, 0, 0.8);
-					position: absolute;
+					//position: absolute;
 					bottom: 0;
 					text-align: center;
 					z-index: 1;
@@ -1503,6 +1505,7 @@
 				}
 				.inner {
 					background-color: #ddd;
+					height: 125px;
 				}
 			}
 
