@@ -1,0 +1,1 @@
+xelatex resume && biber resume && xelatex resume
