@@ -17,7 +17,7 @@
             {% else %}
             <div class="col-sm-6 wow {% if loopindex == 1 %} fadeInLeft {% else %} fadeInRight {% endif %}">
             {% endif %}
-              <div class="team-member {% if forloop.index > 2 %} addspace {% endif %}">
+              <div class="team-member addspace">
                   <a href="{{ project.url | prepend: 'https://github.com' }}" target="blank"><img src="{{ project.img | prepend: site.baseurl }}" class="img-responsive img-circle img-small" alt=""></a>
                   <h4><a href="{{ project.url | prepend: 'https://github.com' }}" target="blank"><span class="navy">{{ project.name }}</a></span></h4>
                   <p><span>{{ project.desc }}</span></p>

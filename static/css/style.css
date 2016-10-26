@@ -6854,7 +6854,7 @@ body.landing-page {
   text-align: center;
 }
 .landing-page .team-member.addspace {
-  margin-top: 30px;
+  margin-bottom: 50px;
 }
 .landing-page .team-member img {
   margin: auto;
@@ -6863,13 +6863,17 @@ body.landing-page {
   background: #3385FF;
   color: #fff;
   padding: 4px 8px;
-  height: 28px;
-  width: 28px;
+  height: 36px;
+  width: 37px;
   display: block;
   border-radius: 50px;
 }
 .landing-page .social-icon a:hover {
   background: #3385FF;
+}
+.landing-page .social-icon a i {
+  font-size: 1.8em;
+  line-height: 1.2em;
 }
 .landing-page .img-small {
   height: 120px;
