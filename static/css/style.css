@@ -6853,6 +6853,9 @@ body.landing-page {
 .landing-page .team-member {
   text-align: center;
 }
+.landing-page .team-member.addspace {
+  margin-top: 30px;
+}
 .landing-page .team-member img {
   margin: auto;
 }
