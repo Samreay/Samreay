@@ -26,6 +26,11 @@ sections:
     tpl: 'about.html'
     css: ''
 
+  - id: 'projects'
+    name: 'Projects'
+    tpl: 'projects.html'
+    css: 'project'
+
   - id: 'career'
     name: 'Career'
     tpl: 'career.html'
@@ -35,11 +40,6 @@ sections:
     name: 'Skills'
     tpl: 'skills.html'
     css: 'team'
-
-  - id: 'projects'
-    name: 'Projects'
-    tpl: 'projects.html'
-    css: 'project'
 
   - id: 'blog'
     name: 'Blog'
