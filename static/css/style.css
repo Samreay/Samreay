@@ -6888,6 +6888,10 @@ body.landing-page {
   height: 130px;
   display: inline-block;
 }
+.img-blog {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .landing-page .pricing-plan {
   margin: 20px 30px 0 30px;
   border-radius: 4px;
