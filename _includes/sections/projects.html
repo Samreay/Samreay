@@ -15,7 +15,7 @@
                         <i class="fa {{ project.icon }}"></i>
                     </div>
                     <div class="vertical-timeline-content wow {% if loopindex == 1 %} fadeInRight {% else %} fadeInLeft {% endif %}">
-                        <div {% if loopindex == 1 %} style="text-align: right" {% endif %}>
+                        <div {% if loopindex == 1 %} class="right-wide" {% endif %}>
                             <h2><a href="{{project.url}}">{{ project.title }}</a></h2>
                             <p><span>{{ project.desc }} </span></p>
                         </div>

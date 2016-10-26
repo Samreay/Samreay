@@ -1,19 +1,19 @@
 - name: 'Marz'
   url: '/samreay/Marz'
   img: 'static/img/blog/marz/thumb.jpg'
-  desc: 'Marz description.'
+  desc: 'An online application to redshift spectra all completely within your browser!'
 
 - name: 'ChainConsumer'
   url: '/samreay/ChainConsumer'
   img: 'static/img/blog/chainconsumer/thumb.png'
-  desc: "ChainConsumer description."
+  desc: "A library to consumer chains from Monte Carlo processes or grid searches to produce walks, likelihood surfaces and parameter summaries!"
 
 - name: 'Survey Visualiser'
   url: '/samreay/SurveyVisualiser'
   img: 'static/img/blog/surveyvis/thumb.png'
-  desc: "survey vis des."
+  desc: "A python project to easily produce scatter plots and video orbits of redshift surveys!"
 
 - name: 'Supernovae BHM'
   url: '/dessn/sn-bhm'
   img: 'static/img/landing/dessn.jpg'
-  desc: "dessn bhm description"
+  desc: "My current work in my PhD thesis to provide cosmological constraints using a Bayesian hierarchical framework with supernova data."

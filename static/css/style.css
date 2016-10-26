@@ -6875,6 +6875,11 @@ body.landing-page {
   height: 120px;
   width: 120px;
 }
+@media only screen and (min-width: 1170px) {
+  .right-wide {
+    text-align: right
+  }
+}
 .landing-page .img-project {
   height: 130px;
   display: inline-block;
