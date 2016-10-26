@@ -1,313 +1,82 @@
-<!DOCTYPE HTML>
-<!--
-	Momentum by Pixelarity
-	pixelarity.com @pixelarity
-	License: pixelarity.com/license
--->
-<html>
-	<head>
-		<title>Samuel Hinton</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="shortcut icon" href="images/favicon.ico" />
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-						(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+---
+layout: blog
+title: index
+permalink: /
+---
 
-			ga('create', 'UA-72691106-1', 'auto');
-			ga('send', 'pageview');
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top" id="i18_title"><span data-i18n="website.title">{{ site.title }}</span></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right" id="i18_navbar">
+                {% for section in site.sections %}
+                    <li>
+                      <a class="page-scroll" href="#{{ section.id }}">
+                        <span data-i18n="{{ section.i18n }}">{{ section.name }}</span>
+                      </a>
+                    </li>
+                {% endfor %}
 
-		</script>
-	</head>
-	<body class="homepage">
-		<div id="page-wrapper">
+                {% for language in site.languages %}
+                  <li>
+                    <a id="set_lang_{{ language.locale }}" class="btn btn-sm set_{{ language.locale }}" data-locale="{{ language.locale }}">
+                      <img src="{{ language.flag | prepend: site.baseurl }}" height="16px" width="16px">
+                    </a>
+                  </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one"></div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two"></div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
-			<!-- Header Wrapper -->
-				<div id="header-wrapper">
-					<div class="container">
-
-						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li><a href="posts/about.html">About Me</a></li>
-									<li><a href="index.html#projects">Projects</a></li>
-									<li><a href="index.html#others">Other</a></li>
-									<li><a href="resume/resume.pdf">Resume</a></li>
-								</ul>
-							</nav>
-
-						<!-- Header -->
-							<header id="header">
-								<h1><a href="index.html">Samreay <span>- Samuel Hinton</span></a></h1>
-							</header>
-
-					</div>
-				</div>
-
-			<!-- Banner Wrapper -->
-				<div id="banner-wrapper">
-
-					<!-- Banner -->
-						<div id="banner" class="container">
-							<div class="row">
-								<div class="12u">
-
-									<!-- Slider -->
-										<div id="slider">
-											<div class="viewer">
-												<div class="reel">
-													<a class="link" href="posts/gemini.html">
-														<div class="slide">
-															<div class="info">
-																<h2>Gemini Studentship</span></h2>
-																<span>La Serena based shenanigans</span>
-															</div>
-															<img src="images/laserena/imgSunsetPanel.jpg" alt="" />
-														</div>
-													</a>
-												</div>
-											</div>
-										</div>
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="4u 12u(mobile)">
-									<section class="highlight">
-										<a href="posts/marz.html">
-											<span class="image fit"><img src="images/marz/thumb.jpg" alt=""></span>
-											<header>
-												<h2>Marz</h2>
-												<p>A redshifting application</p>
-											</header>
-										</a>
-									</section>
-								</div>
-								<div class="4u 12u(mobile)">
-									<section class="highlight alt">
-										<a href="posts/about.html">
-											<span class="image fit"><img src="images/pic2.jpg" alt=""></span>
-											<header>
-												<h2>About Me</h2>
-												<p>Frivolous details</p>
-											</header>
-										</a>
-									</section>
-								</div>
-								<div class="4u 12u(mobile)">
-									<section class="highlight alt2">
-										<a target="_blank" href="resume/resume.pdf">
-											<span class="image fit"><img src="images/resume/screenshot.jpg" alt=""></span>
-											<header>
-												<h2>Resume</h2>
-												<p>Obligatory link</p>
-											</header>
-										</a>
-									</section>
-								</div>
-							</div>
-						</div>
-
-				</div>
-
-				<div id="featured-wrapper">
-
-					<!-- Featured -->
-						<div id="featured" class="container">
-							<div class="row">
-								<div class="12u">
-									<section>
-										<h2 name="projects" id="projects">Projects</h2>
-										<p class="subtitle">Thoughts and progress on old and current projects</p>
-									</section>
-								</div>
-							</div>
-							<div class="row">
-								<div class="3u 12u(mobile)">
-									<section class="tile">
-										<a href="posts/marz.html" class="image fit"><img src="images/marz/thumb.jpg" alt=""></a>
-										<div class="inner">
-											<h3>Marz</h3>
-											<p>Redshifting software developed for the OzDES team, which runs entirely inside your browser.</p>
-										</div>
-										<a href="posts/marz.html" class="12u button icon fa-arrow-circle-right">Learn More</a>
-									</section>
-								</div>
-								<div class="3u 12u(mobile)">
-									<section class="tile">
-										<a href="posts/gemini.html" class="image fit"><img src="images/laserena/thumb.jpg" alt=""></a>
-										<div class="inner">
-											<h3>Gemini</h3>
-											<p>A super brief summary of my time as a Gemini student in La Serena.</p>
-										</div>
-										<a href="posts/gemini.html" class="12u button icon alt2 fa-arrow-circle-right">Learn More</a>
-									</section>
-								</div>
-								<div class="3u 12u(mobile)">
-									<section class="tile">
-										<a href="posts/bao.html" class="image fit"><img src="images/bao/thumb.jpg" alt=""></a>
-										<div class="inner">
-											<h3>Wigglez 2D BAO</h3>
-											<p>An inappropriately short summary of my thesis which makes it look like it should have taken only a week.</p>
-										</div>
-										<a href="posts/bao.html" class="12u button icon fa-arrow-circle-right">Learn More</a>
-									</section>
-								</div>
-								<div class="3u 12u(mobile)">
-									<section class="tile">
-										<a href="posts/kubo.html" class="image fit"><img src="images/kubo/thumb.jpg" alt=""></a>
-										<div class="inner">
-											<h3>Kubo Oscillator</h3>
-											<p>The power of computers, and the perfection of mathematics. Combined.</p>
-										</div>
-										<a href="posts/kubo.html" class="12u button icon fa-arrow-circle-right">Learn More</a>
-									</section>
-								</div>
-							</div>
-							<div class="row">
-								<div class="3u 12u(mobile)">
-									<section class="tile">
-										<a href="posts/djboard.html" class="image fit"><img src="images/dj/thumb.jpg" alt=""></a>
-										<div class="inner">
-											<h3>DJ Board</h3>
-											<p>The worst DJ board in the world. And I made it. </p>
-										</div>
-										<a href="posts/djboard.html" class="12u button icon alt fa-arrow-circle-right">Learn More</a>
-									</section>
-								</div>
-								<div class="3u 12u(mobile)">
-									<section class="tile">
-										<a href="posts/satellite.html" class="image fit"><img src="images/sat/thumb.jpg" alt=""></a>
-										<div class="inner">
-											<h3>Satellite</h3>
-											<p>Make satellite. Lock onto IR source. Shoot laser at target. Awesome.</p>
-										</div>
-										<a href="posts/satellite.html" class="12u button icon alt fa-arrow-circle-right">Learn More</a>
-									</section>
-								</div>
-								<div class="3u 12u(mobile)">
-									<section class="tile">
-										<a href="posts/bottle.html" class="image fit"><img src="images/bottle/thumb.jpg" alt=""></a>
-										<div class="inner">
-											<h3>Mood bottle</h3>
-											<p>For mood lighting, I cannot recommend highly enough.</p>
-										</div>
-										<a href="posts/bottle.html" class="12u button icon alt fa-arrow-circle-right">Learn More</a>
-									</section>
-								</div>
-								<div class="3u 12u(mobile)">
-									<section class="tile">
-										<a href="posts/renders.html" class="image fit"><img src="images/renders/thumb.jpg" alt=""></a>
-										<div class="inner">
-											<h3>Computer Case</h3>
-											<p>A high school project involving CATIA, 3DS Max and Maxwell Render.</p>
-										</div>
-										<a href="posts/renders.html" class="12u button icon fa-arrow-circle-right">Learn More</a>
-									</section>
-								</div>
-
-							</div>
-						</div>
-
-				</div>
-
-				<div id="main-wrapper">
-
-					<!-- Main  -->
-						<div id="main" class="container">
-							<div class="row">
-								<div class="12u">
-									<article id="content">
-										<h2 name="others" id="others">Other</h2>
-										<p class="subtitle">If it's not a project, its here.</p>
-									</article>
-								</div>
-							</div>
-							<div class="row">
-								<div class="6u 12u(mobile)">
-									<section>
-										<ul class="style2">
-											<li class="first">
-												<a href="posts/planet.html" class="image left"><img src="images/planet/thumb.jpg" alt=""></a>
-												<h3><a href="posts/planet.html">Blue planet</a></h3>
-												<p><a href="posts/planet.html">My first attempt to teach myself how to use photoshop.</a></p>
-											</li>
-											<!--<li>
-												<a href="#" class="image left"><img src="images/pic10.jpg" alt=""></a>
-												<h3><a href="#">Wizard Tower</a></h3>
-												<p><a href="#">Phasellus sem tellus, consequat in euismod at, ultricies et eros. Duis amet urna imperdiet mattis. </a></p>
-											</li>-->
-										</ul>
-									</section>
-								</div>
-								<div class="6u 12u(mobile)">
-									<section>
-										<ul class="style2">
-											<li class="first">
-												<a href="posts/lightning.html" class="image left"><img src="images/lightning/thumb.jpg" alt=""></a>
-												<h3><a href="posts/lightning.html">Lightning Strike</a></h3>
-												<p><a href="posts/lightning.html">My first attempt at photomanipulation.</a></p>
-											</li>
-											<!--<li>
-												<a href="#" class="image left"><img src="images/pic12.jpg" alt=""></a>
-												<h3><a href="#">Ipsum et consequat</a></h3>
-												<p><a href="#">Phasellus sem tellus, consequat in euismod at, ultricies et eros. Duis amet urna imperdiet mattis. </a></p>
-											</li>-->
-										</ul>
-									</section>
-								</div>
-							</div>
-						</div>
-
-				</div>
-
-			<!-- Footer Wrapper -->
-				<div id="footer-wrapper">
-
-					<!-- Footer -->
-					<footer id="footer" class="container">
-						<section>
-							<h2>Contact</h2>
-							<div class="row">
-								<div class="6u 12u(mobile)">
-									<ul class="style3">
-										<li class="icon fa-envelope">
-											<a href="mailto:samuelreay@gmail.com" class="">samuelreay@gmail.com</a>
-										</li>
-									</ul>
-								</div>
-								<div class="6u 12u(mobile)">
-									<ul class="style3">
-										<li class="icon fa-github">
-											<a href="https://github.com/samreay">github.com/samreay</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<div id="copyright">
-							&copy; Samuel Hinton. All rights reserved.
-						</div>
-					</footer>
-
-				</div>
-
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<!--<script src="assets/js/jquery.slidertron.min.js"></script>-->
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/skel-viewport.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
+{% for section in site.sections %}
+  {% assign loopindex = forloop.index | modulo: 2 %}
+  <section id="{{ section.id }}" class="features {% if loopindex != 1 %} gray-section {% endif %} {{ section.css }}" style="margin-top: 0px;">
+    {% include sections/{{section.tpl}} %}
+  </section>
+{% endfor %}

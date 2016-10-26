@@ -1,0 +1,103 @@
+# Welcome to Jekyll!
+
+# Website settings
+title: "Samuel Hinton"
+description: "Personal website of Samuel Hinton"
+keywords: "Samuel,Hinton,samreay,samuelreay,Jekyll,github,gh-pages"
+baseurl: "/"
+# url: "https://samreay.github.io"
+url: "http://127.0.0.1:4000"
+
+# author
+author:
+  name: 'Samuel Hinton'
+  first_name: 'Samuel'
+  last_name: 'Hinton'
+  email: 'samuelreay@gmail.com'
+  facebook_username: 'samuelreay'
+  github_username: 'samreay'
+  head_img: 'static/img/landing/githubProf.jpg'
+  desc: 'Description of me.'
+
+# sections
+sections:
+  - id: 'about-me'
+    i18n: 'nav.about_me'
+    name: 'About'
+    tpl: 'about.html'
+    css: ''
+
+  - id: 'career'
+    i18n: 'nav.career'
+    name: 'Career'
+    tpl: 'career.html'
+    css: 'timeline'
+
+  - id: 'skills'
+    i18n: 'nav.skills'
+    name: 'Skills'
+    tpl: 'skills.html'
+    css: 'team'
+
+  - id: 'projects'
+    i18n: 'nav.projects'
+    name: 'Projects'
+    tpl: 'projects.html'
+    css: 'project'
+
+  - id: 'blog'
+    i18n: 'nav.blog'
+    name: 'Blog'
+    tpl: 'blog.html'
+    css: 'testimonials navy-section'
+
+  - id: 'links'
+    i18n: 'nav.link'
+    name: 'Links'
+    tpl: 'links.html'
+    css: 'contact'
+
+# localization
+languages:
+  - locale: 'en'
+    flag: 'static/img/flags/Australia.png'
+
+
+# blog img path
+img_path: 'https://samreay.github.io/static/img/blog'
+
+## donate
+#donate:
+#  wechat: 'static/img/pay/wechat.png'
+#  alipay: 'static/img/pay/alipay.png'
+
+
+disqus:
+#  name: jalpc
+#  public_key: tj2MPaNlHMONwTH5bGDNSXyaBpW7q282MeUzh5CwcjJerNhK8Kxk3aWo7IckzTX7
+
+# share
+bshare:
+#  uuid: 513f778e-a8f7-4c20-9ec2-d29cc2328d75
+
+# baidu analytics
+ba:
+  # uuid: 317acca9ef9255b934e46371e471431d
+
+# google analytics
+ga:
+#  id: UA-73784599-1
+
+# growingIO
+gio:
+#  id: a49d4901c7853da9
+
+# Build settings
+encoding: "utf-8"
+
+# other settings
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
