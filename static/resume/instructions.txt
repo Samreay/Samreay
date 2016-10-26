@@ -1,0 +1,5 @@
+1. Make sure you have Biber 2.4 installed
+2. Make sure Helvetica fonts are installed
+3. XeLaTeX
+4. biber resume
+5. XeLaTeX

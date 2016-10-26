@@ -13,6 +13,9 @@ $(document).ready(function() {
         event.preventDefault();
         $("#navbar").collapse('hide');
     });
+
+    // Activate WOW.js plugin for animation on scroll
+    new WOW({offset: 100}).init();
 });
 
 var cbpAnimatedHeader = (function() {
@@ -29,5 +32,4 @@ var cbpAnimatedHeader = (function() {
     window.addEventListener('scroll', function() { setTimeout(scrollPage, scrollDebounce); }, false);
 })();
 
-// Activate WOW.js plugin for animation on scroll
-new WOW({offset: 100}).init();
+
