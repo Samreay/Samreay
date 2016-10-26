@@ -1,19 +1,19 @@
 - name: 'Marz'
   url: '/samreay/Marz'
-  img: 'static/img/landing/saplatform.png'
+  img: 'static/img/blog/marz/thumb.jpg'
   desc: 'Marz description.'
 
-- name: 'Jalpc'
+- name: 'ChainConsumer'
   url: '/samreay/ChainConsumer'
-  img: 'static/img/landing/jekyll.png'
+  img: 'static/img/blog/chainconsumer/thumb.png'
   desc: "ChainConsumer description."
 
 - name: 'Survey Visualiser'
   url: '/samreay/SurveyVisualiser'
-  img: 'static/img/landing/angularjs.png'
+  img: 'static/img/blog/surveyvis/thumb.png'
   desc: "survey vis des."
 
-- name: 'Rsser'
+- name: 'Supernovae BHM'
   url: '/dessn/sn-bhm'
-  img: 'static/img/landing/rsser.png'
+  img: 'static/img/landing/dessn.jpg'
   desc: "dessn bhm description"

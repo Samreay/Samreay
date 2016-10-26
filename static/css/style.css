@@ -6869,8 +6869,12 @@ body.landing-page {
   background: #3385FF;
 }
 .landing-page .img-small {
-  height: 88px;
-  width: 88px;
+  height: 120px;
+  width: 120px;
+}
+.landing-page .img-project {
+  height: 130px;
+  display: inline-block;
 }
 .landing-page .pricing-plan {
   margin: 20px 30px 0 30px;
