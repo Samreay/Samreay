@@ -1,0 +1,19 @@
+- name: 'Marz'
+  url: '/samreay/Marz'
+  img: 'static/img/landing/saplatform.png'
+  desc: 'Marz description.'
+
+- name: 'Jalpc'
+  url: '/samreay/ChainConsumer'
+  img: 'static/img/landing/jekyll.png'
+  desc: "ChainConsumer description."
+
+- name: 'Survey Visualiser'
+  url: '/samreay/SurveyVisualiser'
+  img: 'static/img/landing/angularjs.png'
+  desc: "survey vis des."
+
+- name: 'Rsser'
+  url: '/dessn/sn-bhm'
+  img: 'static/img/landing/rsser.png'
+  desc: "dessn bhm description"

@@ -2707,6 +2707,7 @@ a.forum-item-title:hover {
   font-size: 16px;
   border: 3px solid #f1f1f1;
   text-align: center;
+  margin-top: 15px;
 }
 .vertical-timeline-icon i {
   display: block;

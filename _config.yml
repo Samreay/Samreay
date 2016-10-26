@@ -7,6 +7,9 @@ keywords: "Samuel,Hinton,samreay,samuelreay,Jekyll,github,gh-pages"
 baseurl: "/"
 # url: "https://samreay.github.io"
 url: "http://127.0.0.1:4000"
+repository: samreay/samreay.github.io
+github: [metadata]
+
 
 # author
 author:
@@ -26,30 +29,25 @@ sections:
     tpl: 'about.html'
     css: ''
 
+  - id: 'github'
+    name: 'Github'
+    tpl: 'github.html'
+    css: 'project'
+
   - id: 'projects'
     name: 'Projects'
     tpl: 'projects.html'
-    css: 'project'
-
-  - id: 'career'
-    name: 'Career'
-    tpl: 'career.html'
     css: 'timeline'
 
-  - id: 'skills'
-    name: 'Skills'
-    tpl: 'skills.html'
-    css: 'team'
-
-  - id: 'blog'
-    name: 'Blog'
-    tpl: 'blog.html'
-    css: 'testimonials navy-section'
-
-  - id: 'links'
-    name: 'Links'
-    tpl: 'links.html'
-    css: 'contact'
+#  - id: 'blog'
+#    name: 'Blog'
+#    tpl: 'blog.html'
+#    css: 'testimonials navy-section'
+#
+#  - id: 'links'
+#    name: 'Links'
+#    tpl: 'links.html'
+#    css: 'contact'
 
 
 # blog img path
@@ -66,19 +64,19 @@ disqus:
 #  public_key: tj2MPaNlHMONwTH5bGDNSXyaBpW7q282MeUzh5CwcjJerNhK8Kxk3aWo7IckzTX7
 
 # share
-bshare:
+#bshare:
 #  uuid: 513f778e-a8f7-4c20-9ec2-d29cc2328d75
 
 # baidu analytics
-ba:
+#ba:
   # uuid: 317acca9ef9255b934e46371e471431d
 
 # google analytics
-ga:
+#ga:
 #  id: UA-73784599-1
 
 # growingIO
-gio:
+#gio:
 #  id: a49d4901c7853da9
 
 # Build settings
