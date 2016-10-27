@@ -1,2 +1,5 @@
 - name: Projects
   href: '/projects/'
+
+- name: Trips
+  href: '/trips/'
