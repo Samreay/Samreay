@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Projects
+title: Trips
 permalink: /trips/
 ---
 
@@ -11,16 +11,20 @@ permalink: /trips/
     </div>
 </div>
 
-<div class="wrapper wrapper-content  animated fadeInRight blog">
+<div class="wrapper wrapper-content blog">
     <div class="row">
 		<ul id="pag-itemContainer" style="list-style:none;">
     {% assign counter = 0 %}
 		{% for post in site.categories['trip'] %}
 		{% assign counter = counter | plus: 1 %}
+        {% assign delay = forloop.index | times: 200 %}
 		<li>
         <div class="col-lg-8 col-lg-offset-2">
-            <div class="ibox">
+            <div class="ibox" data-wow-delay="{{ delay }}ms" class="animated fadeInRight ">
                 <div class="ibox-content">
+                    <div class="pull-left">
+                        <img class="img-circle img img-small" src="../{{ post.thumb }}">
+                    </div>
                     <a href="{{ post.url }}" class="btn-link">
                         <h2>
                             {{ post.title }}
@@ -32,7 +36,7 @@ permalink: /trips/
                     <p>
                     	{{ post.content | strip_html | truncate:100 }}
                     </p>
-                    <div class="row">
+                    <div class="row" style="margin-left: 150px;">
                         <div class="col-md-6">
                                 <h5 style="display: inline;">Tags:</h5>
                                 {% for tag in post.tags %}

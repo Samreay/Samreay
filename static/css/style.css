@@ -3792,6 +3792,9 @@ table.table-mail tr td {
 .ibox-content {
   clear: both;
 }
+.ibox-content .pull-left img {
+  margin-right: 30px;
+}
 .ibox-heading {
   background-color: #f3f6fb;
   border-bottom: none;
@@ -7407,4 +7410,10 @@ body.rtls.top-navigation .footer.fixed {
 
 section.trips .trip p {
   text-align: center;
+}
+@media (min-width: 1500px) {
+  .postwide {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
