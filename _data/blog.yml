@@ -3,3 +3,6 @@
 
 - name: Trips
   href: '/trips/'
+
+- name: Blogs
+  href: '/blogs/'
