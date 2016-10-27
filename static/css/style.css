@@ -7411,6 +7411,9 @@ body.rtls.top-navigation .footer.fixed {
 section.trips .trip p {
   text-align: center;
 }
+section.trips .trip {
+  margin-bottom: 50px;
+}
 @media (min-width: 1500px) {
   .postwide {
     margin-left: 10%;
