@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Draw our data
+# Sample our data
 n = 20000
 np.random.seed(0)
 x = np.random.normal(size=n)

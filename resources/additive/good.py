@@ -27,7 +27,7 @@ for i in range(layers):
     fig.canvas.draw()
     img = np.frombuffer(fig.canvas.buffer_rgba(), np.uint8).astype(np.int16).reshape(h, w, -1)
     img[img[:, :, -1] == 0] = 0
-    first += img   
+    first += img # Add these particles to the main layer
     
 first = np.clip(first, 0, 255) # Clip buffer back to int8 range
 
