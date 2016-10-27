@@ -40,8 +40,8 @@ sections:
     css: 'trips'
 
 disqus:
-#  name: jalpc
-#  public_key: tj2MPaNlHMONwTH5bGDNSXyaBpW7q282MeUzh5CwcjJerNhK8Kxk3aWo7IckzTX7
+  name: samreay
+  public_key: MYiCDJWlzq6IEkSXbAflF3DLdf1RmcjWGoOc3TBI3LoRNkmAemEiXyWhX0wOYPU8
 
 # google analytics
 #ga:
