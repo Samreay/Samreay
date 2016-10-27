@@ -6949,7 +6949,7 @@ body.landing-page {
   background-repeat: no-repeat;
   margin-top: 60px;
 }
-.landing-page section.timeline {
+.landing-page section.timeline, .landing-page section.trips {
   padding-bottom: 30px;
 }
 .landing-page section.comments {
@@ -7403,4 +7403,8 @@ body.rtls.top-navigation .footer.fixed {
 }
 .fourthree.featured {
   margin: 0 0 2em 0;
+}
+
+section.trips .trip p {
+  text-align: center;
 }

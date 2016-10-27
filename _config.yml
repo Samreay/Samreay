@@ -21,7 +21,6 @@ author:
   facebook_username: 'samuelreay'
   github_username: 'samreay'
   head_img: 'static/img/landing/face.jpg'
-  desc: 'Description of me.'
 
 # sections
 sections:
@@ -40,44 +39,18 @@ sections:
     tpl: 'projects.html'
     css: 'timeline'
 
-#  - id: 'blog'
-#    name: 'Blog'
-#    tpl: 'blog.html'
-#    css: 'testimonials navy-section'
-#
-#  - id: 'links'
-#    name: 'Links'
-#    tpl: 'links.html'
-#    css: 'contact'
-
-
-
-
-## donate
-#donate:
-#  wechat: 'static/img/pay/wechat.png'
-#  alipay: 'static/img/pay/alipay.png'
-
+  - id: 'trips'
+    name: 'Trips'
+    tpl: 'trips.html'
+    css: 'trips'
 
 disqus:
 #  name: jalpc
 #  public_key: tj2MPaNlHMONwTH5bGDNSXyaBpW7q282MeUzh5CwcjJerNhK8Kxk3aWo7IckzTX7
 
-# share
-#bshare:
-#  uuid: 513f778e-a8f7-4c20-9ec2-d29cc2328d75
-
-# baidu analytics
-#ba:
-  # uuid: 317acca9ef9255b934e46371e471431d
-
 # google analytics
 #ga:
 #  id: UA-73784599-1
-
-# growingIO
-#gio:
-#  id: a49d4901c7853da9
 
 # Build settings
 encoding: "utf-8"
