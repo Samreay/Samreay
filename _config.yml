@@ -1,12 +1,7 @@
-# Welcome to Jekyll!
-
-# Website settings
 title: "Samuel Hinton"
-description: "Personal website of Samuel Hinton"
-keywords: "Samuel,Hinton,samreay,samuelreay,Jekyll,github,gh-pages"
 baseurl: "/"
- url: "https://samreay.github.io"
- img_path: 'https://samreay.github.io/static/img/blog'
+url: "https://samreay.github.io"
+img_path: 'https://samreay.github.io/static/img/blog'
 #url: "http://127.0.0.1:4000"
 #img_path: 'http://127.0.0.1:4000/static/img/blog'
 repository: samreay/samreay.github.io
