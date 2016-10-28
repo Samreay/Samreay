@@ -7423,8 +7423,8 @@ section.trips .trip {
 }
 @media (min-width: 1170px) {
   .blogs .smaller {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 .blogs .post {
