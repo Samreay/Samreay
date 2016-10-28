@@ -21,6 +21,9 @@
                   <a href="{{ project.url | prepend: 'https://github.com' }}" target="blank"><img src="{{ project.img | prepend: site.baseurl }}" class="img-responsive img-circle img-small" alt=""></a>
                   <h4><a href="{{ project.url | prepend: 'https://github.com' }}" target="blank"><span class="navy">{{ project.name }}</a></span></h4>
                   <p><span>{{ project.desc }}</span></p>
+                  {% if project.doco %}
+                  <a href="{{ project.doco }}" target="blank"><p><span class="navy">Github Pages</span></p></a>
+                  {% endif %}
 <!--                  <ul class="list-inline">
                       <li>
                           <a class="github-button" href="{{ project.url | prepend: 'https://github.com'}}" data-icon="octicon-star" data-count-href="{{ project.url | append: '/stargazers' }}" data-count-api="{{ project.url | prepend: '/repos' | append: '#stargazers_count' }}" data-count-aria-label="# stargazers on GitHub" aria-label="Star hydepress/jekyll-install on GitHub">Star</a>

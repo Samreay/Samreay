@@ -2,11 +2,13 @@
   url: '/samreay/Marz'
   img: 'static/img/blog/marz/thumb.jpg'
   desc: 'An online application to redshift spectra all completely within your browser!'
+  doco: "https://samreay.github.io/Marz/"
 
 - name: 'ChainConsumer'
   url: '/samreay/ChainConsumer'
   img: 'static/img/blog/chainconsumer/thumb.png'
   desc: "A library to consume chains from Monte Carlo processes or grid searches to produce walks, likelihood surfaces and parameter summaries!"
+  doco: "https://samreay.github.io/ChainConsumer/"
 
 - name: 'Survey Visualiser'
   url: '/samreay/SurveyVisualiser'
@@ -17,3 +19,4 @@
   url: '/dessn/sn-bhm'
   img: 'static/img/landing/dessn.jpg'
   desc: "My current work in my PhD thesis to provide cosmological constraints using a Bayesian hierarchical framework with supernova data."
+  doco: "https://dessn.github.io/sn-doc"
