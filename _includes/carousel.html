@@ -5,7 +5,7 @@
 <div id="myCarousel" class="markdown carousel slide carousel-fade" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        {% for item in imgs %}
+        {% for item in data %}
         <li data-target="#myCarousel" data-slide-to="{{ forloop.index }}" {% if forloop.first %} class="active" {% endif %}></li>
         {% endfor %}
     </ol>
