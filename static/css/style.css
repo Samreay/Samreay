@@ -7413,10 +7413,33 @@ section.trips .trip p {
 }
 section.trips .trip {
   margin-bottom: 50px;
+  min-height: 200px;
 }
 @media (min-width: 1500px) {
   .postwide {
     margin-left: 10%;
     margin-right: 10%;
   }
+}
+@media (min-width: 1170px) {
+  .blogs .smaller {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+.blogs .post {
+  margin-bottom: 20px;
+  min-height: 120px;
+}
+.blogs .post img {
+  height: 90px;
+  width: 90px;
+}
+.blogs .post .block-content.lleft {
+  margin-right: 100px;
+  text-align: right;
+
+}
+.blogs .post .block-content.rright {
+  margin-left: 100px;
 }

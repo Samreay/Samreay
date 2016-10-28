@@ -8,11 +8,6 @@ $(function(){
         this.className = this.className.indexOf("collapse") === -1 ?
             ( "collapse " + this.className ) : this.className.replace("collapse ", "");
     });
-    
-    /* apply code highlight */
-    $('pre code').each( function(i, e) {
-        hljs.highlightBlock(e, '    ');
-    });
 
 });
 

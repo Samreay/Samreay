@@ -15,7 +15,7 @@ $(document).ready(function() {
     });
 
     // Activate WOW.js plugin for animation on scroll
-    new WOW({offset: 100}).init();
+    new WOW({offset: 50}).init();
 });
 
 var cbpAnimatedHeader = (function() {

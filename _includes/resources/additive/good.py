@@ -16,7 +16,7 @@ fig.subplots_adjust(0, 0, 1, 1)
 fig.canvas.draw()
 w, h = fig.canvas.get_width_height()
 buffer = np.frombuffer(fig.canvas.buffer_rgba(), np.uint8)
-first = buffer.astype(np.int16).reshape(h, w, -1).copy() #int16 so we dont overflow
+first = buffer.astype(np.int16).reshape(h, w, -1) #int16 so we dont overflow
 first[first[:, :, -1] == 0] = 0 # Set transparent pixels to 0
 
 layers = 20 # Number of layers to add. Higher numbers are better but slower

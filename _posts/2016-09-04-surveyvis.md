@@ -4,7 +4,7 @@ title:  "Survey Visualiser"
 desc: "A small python project to visualise cosmological surveys."
 date: 2016-09-04
 categories: [project]
-tags: [blog]
+tags: [matplotlib,python,visualisation,surveys]
 icon: fa-bookmark-o
 thumb: 'static/img/blog/surveyvis/thumb.png'
 ---
