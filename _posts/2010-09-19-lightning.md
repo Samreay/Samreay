@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Blue Planet"
+title:  "Lightning Strike"
 desc: "First attempt at photoshop stock manipulation."
 date: 2010-09-19
 categories: [blog]
