@@ -49,8 +49,8 @@ disqus:
   public_key: MYiCDJWlzq6IEkSXbAflF3DLdf1RmcjWGoOc3TBI3LoRNkmAemEiXyWhX0wOYPU8
 
 # google analytics
-#ga:
-#  id: UA-73784599-1
+ga:
+  id: UA-72691106-1
 
 # Build settings
 encoding: "utf-8"
