@@ -2,7 +2,7 @@
 layout: post
 title:  "LBNL - California"
 desc: "LA, San Francisco, Berkeley and Yosemite."
-date: 2015-07-08
+date: 2016-07-08
 categories: [trip]
 tags: [trip,international,yosemite]
 icon: fa-bookmark-o

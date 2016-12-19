@@ -21,7 +21,7 @@ OzDES, 6dF, 2dFLenS and TAIPAN.
 
 Here's the figure I ended up creating with all datasets:
 
-{% include image.html url="/surveyvis/all.png"  %}
+{% include carousel.html imgs="All|all.jpg;WiggleZ|wigglez.jpg;SDSS|sdss.jpg;6dF|6df.jpg;2dF|2df.jpg" folder="surveyvis" %}
 
 Each point on the plot is a galaxy. Blue is WiggleZ, yellow is
 6dFGRS, red is 2dFGRS, purple is SDSS, green is GAMA and the 
@@ -32,6 +32,9 @@ I decided to make everything spin.
 
 Twenty hours of work later, and here we are. Best to watch it on repeat,
 if that's even possible.
+
+
+
 
 {% include youtube.html url="https://www.youtube.com/embed/Zmy-ycEHY8k"  %}
 
