@@ -21,7 +21,8 @@
 
 \documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
 \usepackage[backend=biber]{biblatex}
-\addbibresource{bib.bib} % Specify the bibliography file to include publications
+\addbibresource{bib_primary.bib} % Specify the bibliography file to include publications
+\addbibresource{bib_secondary.bib} % Specify the bibliography file to include publications
 \usepackage{aas_macros}
 
 \begin{document}
@@ -369,7 +370,19 @@ Utilised photometric data of Maffei 1 to determine globular cluster candidates a
 \section{Publications}
 
 
-\printbibsection{article}{Articles} % Print all articles from the bibliography
+\begin{refsection}
+    \nocite{*}
+    \printbibliography[heading=none, keyword={primary}]
+\end{refsection}
+\vspace{5mm}
+\begin{refsection}
+    \nocite{*}
+    \printbibliography[heading=none, keyword={secondary}]
+\end{refsection}
+
+
+%\printbibsection{article}{Articles}{primary} % Print all articles from the bibliography
+%\printbibsection{article}{Articles}{secondary}
 
 %\printbibsection{misc}{other publications} % Print all miscellaneous entries from the bibliography
 

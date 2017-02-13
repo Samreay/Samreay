@@ -314,11 +314,10 @@
 
 
 
-\newcommand{\printbibsection}[2]{
+\newcommand{\printbibsection}[3]{
   \begin{refsection}
     \nocite{*}
-    \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=none]
-    %\printbibliography[sorting=chronological]
+    \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=none, keyword={#3}]
   \end{refsection}
 }
 
