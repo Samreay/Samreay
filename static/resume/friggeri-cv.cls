@@ -54,7 +54,7 @@
 %%%%%%%%%
 
 \RequirePackage[quiet]{fontspec}
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\RequirePackage[math-style=TeX]{unicode-math}
 
 \newfontfamily\bodyfont[]{Helvetica}
 \newfontfamily\thinfont[]{Helvetica Light}
@@ -160,13 +160,13 @@
     \textbf{#2} \ \ {\addfontfeature{Color=lightgray} #4}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
-  } \vspace{0mm}}
+  } \vspace{1mm}}
 \newcommand{\entryInlineSmall}[4]{%
   #1&\parbox[t]{12.8cm}{%
     \textbf{#2} %
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
-  } \vspace{0mm}}
+  } \vspace{1mm}}
 \newcommand{\entrysmall}[4]{%
   #1&\parbox[t]{11.8cm}{%
     \textbf{#2}%
