@@ -6,7 +6,7 @@ date: 2016-08-01
 categories: [project]
 tags: [python,visualisation,modelling]
 icon: fa-bookmark-o
-thumb: 'static/img/blog/chainconsumer/thumb.png'
+thumb: 'static/img/blog/chainconsumer/thumb.jpg'
 ---
 
 I was working with some chains one day and wanted to plot different cosmologies

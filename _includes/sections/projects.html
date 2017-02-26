@@ -1,4 +1,4 @@
-<div class="container" id="i18_career">
+<div class="container smaller" id="i18_career">
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
@@ -7,22 +7,19 @@
     </div>
     <div class="row features-block">
         <div class="col-lg-12">
-            <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+            <div class="vertical-container center-orientation">
             {% for project in site.categories['project'] %}
-            {% assign loopindex = forloop.index | modulo: 2 %}
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon navy-bg wow rotateIn">
-                        <i class="fa {{ project.icon }}"></i>
-                    </div>
-                    <div class="vertical-timeline-content wow {% if loopindex == 1 %} fadeIn {% else %} fadeIn {% endif %}">
-                        <div {% if loopindex == 1 %} class="right-wide" {% endif %}>
+            {% assign loopindex = forloop.index %}
+                <div class="portfolio-block horizontal-bar-bottom {% if loopindex == 1 %} horizontal-bar-top {% endif %} wow fadeIn" >
+                    <div class="portfolio-content">
+                        <div class="thumbimg">
+                            <a href="{{project.url}}"><img class="img-responsive img-project"src="{{ project.thumb }}"></a>
+                        </div>
+                        <div class="portfolio-text">
                             <h2><a href="{{project.url}}">{{ project.title }}</a></h2>
                             <p><span>{{ project.desc }} </span></p>
                         </div>
-
-                        <span data-wow-delay="0.4s" class="vertical-date wow fadeIn ">
-                            <a href="{{project.url}}"><img class="img-responsive img-thumbnail img-project"src="{{ project.thumb }}"></a>
-                        </span>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             {% endfor %}

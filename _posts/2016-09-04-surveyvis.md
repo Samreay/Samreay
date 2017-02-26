@@ -6,7 +6,7 @@ date: 2016-09-04
 categories: [project]
 tags: [matplotlib,python,visualisation,surveys]
 icon: fa-bookmark-o
-thumb: 'static/img/blog/surveyvis/thumb.png'
+thumb: 'static/img/blog/surveyvis/thumb.jpg'
 ---
 
 I was making a poster for the CAASTRO annual retreat on my BAO work,

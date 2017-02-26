@@ -7462,3 +7462,38 @@ section.trips .trip {
   text-align: center;
   font-size: 1.5em;
 }
+
+.horizontal-bar-top {
+  border-top: 1px solid #CCCCCC;
+}
+.horizontal-bar-bottom {
+  border-bottom: 1px solid #CCCCCC;
+}
+.portfolio-block {
+  padding: 10px;
+}
+.portfolio-block .portfolio-content .thumbimg img {
+  height: 200px;
+}
+.portfolio-block  .portfolio-content .portfolio-text h2 {
+  font-weight: 700;
+}
+.portfolio-block  .portfolio-content .portfolio-text p {
+  font-size: 1.2em;
+}
+@media (min-width: 768px) {
+  .portfolio-content .thumbimg {
+    float: left;
+    margin-right: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .portfolio-content .portfolio-text {
+    padding-top: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .container.smaller {
+    width: 970px;
+  }
+}
