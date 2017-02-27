@@ -41,7 +41,19 @@ And the above code gives the following contour:
 
 {% include image.html url="/chainconsumer/two.png"  %}
 
-I've tried to build in a lot of plotting options to make customisation
-easy:
+The largest use of the library is to create corner plots like this one, and so most of the customisation 
+methods, such that you can get the plot below.
 
 {% include image.html url="/chainconsumer/mixed.png"  %}
+
+Upon request by various users, ChainConsumer now has extra functionality:
+
+* Plot walks to provide a visual check for convergence
+* Run converge diagnostics - the Gelman-Rubin statistic and Geweke diagnostic.
+* Get parameter correlations and covariance - as a matrix or as a LaTeX table.
+* Get parameter summaries, either as a python object or a LaTeX table.
+* Compare models use the AIC, BIC and DIC tests.
+
+Most of this is detailed in the glorious post I made but have yet had a chance to use!
+
+{% include poster.html url="/chainconsumer/poster.jpg"  %}
