@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Laser Satellite"
-desc: "Our mechatronics group project was to create a satellite to target IR sources and shoot a laser at them. How cool."
+desc: "Our mechatronics group project was to create a satellite to target IR sources and shoot a laser at them. The bulk of the operation consists of an array of IR sensors that feed into a PID controlled reaction wheel, giving surprisingly good accuracy in the end."
 date: 2012-06-01
 categories: [project]
 tags: [hardware,project]

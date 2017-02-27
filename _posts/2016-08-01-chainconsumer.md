@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ChainConsumer"
-desc: "A library I wrote for better consumer chains and grids to get parameter summaries."
+desc: "A library I wrote for better consumer chains and grids to get parameter summaries. I had wanted to keep this project small, but after open-sourcing it and then promoting it to the Dark Energy Survey, a got many requests for extensions. So now it can do many things, from LaTeX tables, convergence statistics to many other things. If you have Monte Carlo chains, check it out."
 date: 2016-08-01
 categories: [project]
 tags: [python,visualisation,modelling]

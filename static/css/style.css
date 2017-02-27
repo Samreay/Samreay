@@ -7470,16 +7470,18 @@ section.trips .trip {
   border-bottom: 1px solid #CCCCCC;
 }
 .portfolio-block {
-  padding: 10px;
+  padding: 10px 0 13px 0;
 }
 .portfolio-block .portfolio-content .thumbimg img {
   height: 200px;
 }
 .portfolio-block  .portfolio-content .portfolio-text h2 {
   font-weight: 700;
+  padding-bottom: 1em;
 }
 .portfolio-block  .portfolio-content .portfolio-text p {
   font-size: 1.2em;
+  color: #6b6b6b;
 }
 @media (min-width: 768px) {
   .portfolio-content .thumbimg {
@@ -7490,10 +7492,5 @@ section.trips .trip {
 @media (max-width: 768px) {
   .portfolio-content .portfolio-text {
     padding-top: 10px;
-  }
-}
-@media (min-width: 1200px) {
-  .container.smaller {
-    width: 970px;
   }
 }
