@@ -3,3 +3,10 @@ _site
 .jekyll-metadata
 .idea
 Thumbs.db
+*.aux
+*.run.xml
+*.blg
+*.out
+*.log
+*.bcf
+*.bbl
