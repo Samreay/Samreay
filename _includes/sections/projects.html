@@ -10,7 +10,7 @@
             <div class="vertical-container center-orientation">
             {% for project in site.categories['project'] %}
             {% assign loopindex = forloop.index %}
-                <div class="portfolio-block horizontal-bar-bottom {% if loopindex == 1 %} horizontal-bar-top {% endif %} wow fadeIn" >
+                <div class="portfolio-block horizontal-bar-top  wow fadeIn" >
                     <div class="portfolio-content">
                         <div class="thumbimg">
                             <a href="{{project.url}}"><img class="img-responsive img-project"src="{{ project.thumb }}"></a>

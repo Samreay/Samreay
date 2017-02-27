@@ -7464,13 +7464,10 @@ section.trips .trip {
 }
 
 .horizontal-bar-top {
-  border-top: 1px solid #CCCCCC;
-}
-.horizontal-bar-bottom {
-  border-bottom: 1px solid #CCCCCC;
+  border-top: 1px solid #dadada;
 }
 .portfolio-block {
-  padding: 10px 0 13px 0;
+  padding: 20px 0 23px 0;
 }
 .portfolio-block .portfolio-content .thumbimg img {
   height: 200px;
@@ -7481,7 +7478,6 @@ section.trips .trip {
 }
 .portfolio-block  .portfolio-content .portfolio-text p {
   font-size: 1.2em;
-  color: #6b6b6b;
 }
 @media (min-width: 768px) {
   .portfolio-content .thumbimg {
