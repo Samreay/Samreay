@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Refractorium"
-desc: "A small side project to model light transport. Inspired by Tantulum, I wanted a light transport simulator that had dynamic scenes and allowed the user to play around and see the light bouncing around the scene!"
+desc: "A small side project to model light transport. Inspired by Tantalum, I wanted a light transport simulator that had dynamic scenes and allowed the user to play around and see the light bouncing around the scene!"
 date: 2017-03-07
 categories: [project]
 tags: [visualisation,online]
@@ -20,7 +20,7 @@ onto a project by [Benedikt Bitterli](https://benedikt-bitterli.me/index.html) c
 It was a GPU accelerated 2D light transport simulator, and I spent at least an hour playing around with it 
 and producing some beautiful caustics. But with Tantalum, you can only control the position and angle of the
 light source - the rest of the scene was static. And so, obviously, the solution was for me to build my
-own light transport simulator with a dynamic scene. The staticness of Tantulum make's sense as a dynamic
+own light transport simulator with a dynamic scene. The staticness of Tantalum make's sense as a dynamic
 scene would require painful dynamic shader compilation. Difficult, and definitely over my head as I have
 no experience with WebGL. And so a completely CPU based javascript project was born.
 
