@@ -4,7 +4,7 @@ title:  "LBNL - California"
 desc: "LA, San Francisco, Berkeley and Yosemite."
 date: 2016-07-08
 categories: [trip]
-tags: [trip,international,yosemite]
+tags: [trip,international,yosemite,usa]
 icon: fa-bookmark-o
 thumb: 'static/img/blog/california/thumb.jpg'
 ---
