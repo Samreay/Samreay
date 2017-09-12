@@ -6685,7 +6685,7 @@ body.landing-page {
   padding: 25px 10px 15px 10px;
 }
 .landing-page .navbar-scroll .navbar-nav > li > a {
-  padding: 20px 10px;
+  padding: 10px 10px;
 }
 .landing-page .navbar-default .navbar-nav > .active > a,
 .landing-page .navbar-default .navbar-nav > .active > a:hover {
@@ -6698,10 +6698,10 @@ body.landing-page {
   border-bottom: 1px solid #e7eaec !important;
 }
 .landing-page .navbar.navbar-scroll .navbar-brand {
-  margin-top: 15px;
+  margin-top: 7px;
   border-radius: 5px;
   font-size: 12px;
-  padding: 10px;
+  padding: 7px 15px;
   height: auto;
 }
 .landing-page .header-back {
