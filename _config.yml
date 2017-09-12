@@ -7,9 +7,6 @@ img_path: 'https://samreay.github.io/static/img/blog'
 repository: samreay/samreay.github.io
 github: [metadata]
 
-github:
-  url: http://localhost:4000
-  
 # author
 author:
   name: 'Samuel Hinton'
