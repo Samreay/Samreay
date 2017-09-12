@@ -63,8 +63,8 @@ Slapping a bit of CSS around everything and providing some basic tools to contro
 it online, and I'm fairly happy with how it turned out. I'd like to see if I can parcel light ray
 simulation out to web workers, but I'm happy with the results so far!
 
-{% include image.html url="/refractorium/bounce.jpg"  %}
-{% include image.html url="/refractorium/mixed.jpg"  %}
-{% include image.html url="/refractorium/cylinder.jpg"  %}
+{% include poster.html url="/refractorium/bounce.jpg"  %}
+{% include poster.html url="/refractorium/mixed.jpg"  %}
+{% include poster.html url="/refractorium/cylinder.jpg"  %}
 
 
