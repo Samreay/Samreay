@@ -6725,7 +6725,7 @@ body.landing-page {
   .darkbg {
     position: absolute;
     width: 100%;
-    background-color: #d4d4d4;
+    background-color: #eeeeee;
     height: 400px;
   }
 }
