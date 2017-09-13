@@ -6705,20 +6705,21 @@ body.landing-page {
   height: auto;
 }
 .landing-page .header-back {
-  height: 100px;
+  height: 80px;
   width: 100%;
 }
 .landing-page .header-back.one {
   background: url('../img/landing/header_one.jpg') 50% 0 no-repeat;
+  filter: blur(2px);
 }
 .landing-page .header.carousel {
-  height: 100px;
+  height: 80px;
 }
 .landing-page .carousel-caption {
   z-index: 10;
 }
 .landing-page .header.carousel .item {
-  height: 100px;
+  height: 80px;
   background-color: #777;
 }
 @media only screen and (min-width: 1170px) {
