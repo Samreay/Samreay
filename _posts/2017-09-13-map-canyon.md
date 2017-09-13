@@ -28,8 +28,19 @@ Following Mark's outline, I sketched out an outline, and scanned it (with my pho
 
 {% include image.html url="/map_canyon/map_outline.jpg"  %}
 
-Then, I spent a fun time adding a base colour and texture, adding detailing, then shadowing, then the 
-highlights. I need to get better at the small details, and figure out what a wood bridge is supposed
+Then, I spent a fun time adding a base colour and texture:
+
+{% include image.html url="/map_canyon/map_colouronly.jpg"  %}
+
+Then shadows:
+
+{% include image.html url="/map_canyon/map_withshadows.jpg"  %}
+
+And then finally the highlights:
+
+{% include image.html url="/map_canyon/map_withhighlights.jpg"  %}
+
+I need to get better at the small details, and figure out what a wood bridge is supposed
 to actually look like! But for a first attempt for three hours of map making, it's not too bad.
 
 I hope!
