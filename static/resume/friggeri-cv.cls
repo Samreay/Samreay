@@ -160,13 +160,13 @@
     \textbf{#2} \ \ {\addfontfeature{Color=lightgray} #4}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
-  } \vspace{1mm}}
+  } \vspace{0mm}}
 \newcommand{\entryInlineSmall}[4]{%
   #1&\parbox[t]{12.8cm}{%
     \textbf{#2} %
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
-  } \vspace{1mm}}
+  } \vspace{0mm}}
 \newcommand{\entrysmall}[4]{%
   #1&\parbox[t]{11.8cm}{%
     \textbf{#2}%
