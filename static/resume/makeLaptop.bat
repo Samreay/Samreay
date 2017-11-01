@@ -1,1 +1,1 @@
-xelatex resume && biber2.exe resume && xelatex resume
+xelatex resume && biber2.exe resume && xelatex resume && xelatex resume
