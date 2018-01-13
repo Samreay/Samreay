@@ -19,7 +19,7 @@
             {% endif %}
               <div class="team-member addspace">
                   <a href="{{ project.url | prepend: 'https://github.com' }}" target="blank"><img src="{{ project.img | prepend: site.baseurl }}" class="img-responsive img-circle img-small" alt=""></a>
-                  <h4><a href="{{ project.url | prepend: 'https://github.com' }}" target="blank"><span class="navy">{{ project.name }}</a></span></h4>
+                  <h4><a href="{{ project.url | prepend: 'https://github.com' }}" target="blank"><span class="navy">{{ project.name }}</span></a></h4>
                   <p><span>{{ project.desc }}</span></p>
                   {% if project.doco %}
                   <a href="{{ project.doco }}" target="blank"><p><span class="navy">Github Pages</span></p></a>

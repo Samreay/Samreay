@@ -2615,6 +2615,11 @@ a.forum-item-title:hover {
   max-width: 1170px;
   margin: 0 auto;
 }
+@media (max-width: 992px) {
+  .vertical-container.vertical-container-small {
+    width: 100%;
+  }
+}
 .vertical-container::after {
   /* clearfix */
   content: '';
@@ -6907,6 +6912,24 @@ body.landing-page {
   height: 130px;
   display: inline-block;
 }
+.landing-page .img-outreach {
+  height: 130px;
+  display: inline-block;
+}
+.landing-page .pull-left .img-outreach {
+  margin-right: 20px;
+}
+.landing-page .pull-right .img-outreach {
+  margin-left: 20px;
+}
+.block-content.lleft {
+  text-align: right;
+}
+.outreach .post {
+  margin-bottom: 20px;
+  min-height: 130px;
+}
+
 .img-blog {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -6960,7 +6983,7 @@ body.landing-page {
   background-repeat: no-repeat;
   margin-top: 60px;
 }
-.landing-page section.timeline, .landing-page section.trips {
+.landing-page section.timeline, .landing-page section.trips, .landing-page section.outreach {
   padding-bottom: 30px;
 }
 .landing-page section.comments {

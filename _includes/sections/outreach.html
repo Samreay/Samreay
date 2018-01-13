@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1><span>My Outreach</span></h1>
+        </div>
+    </div>
+    <div class="vertical-container vertical-container-small">
+    <div class="row features-block">
+        <div class="">
+        {% for post in site.categories['outreach'] %}
+        {% assign loopindex = forloop.index  | modulo: 2 %}
+            <div class="post col-sm-6 wow fadeIn">
+                <div class="portfolio-content">
+                    <div>
+                        <a href="{{post.url}}" class="{% if loopindex == 1 %} pull-right {% else %} pull-left {% endif %} ">
+                            <img class="img-responsive img-outreach img-thumbnail" src="{{ post.thumb }}">
+                        </a>
+                    </div>
+                    <div class="block-content {% if loopindex == 1 %} lleft {% else %} rright {% endif %}">
+                        <a href="{{post.url}}"><h3>{{post.title}}</h3></a>
+                        <p>{{post.desc}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div></div>
+</div>
