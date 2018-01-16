@@ -1,0 +1,119 @@
+- title: 'The Dark Energy Survey Data Release 1'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv180103181A'
+  authors: 'T. M. C. Abbott <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "January"
+  highlight: True
+
+- title: 'OzDES multifibre spectroscopy for the Dark Energy Survey: 3-yr results and first data release'
+  url: 'http://dx.doi.org/10.1093/mnras/stx1872'
+  authors: 'M. J. Childress <em>et. al.</em>'
+  journal: "MNRAS"
+  year: "2017"
+  month: "November"
+  highlight: False
+
+- title: 'Dark Energy Survey Year 1 Results: Cross-Correlation Redshifts - Methods and Systematics Characterization'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170900992G'
+  authors: 'M. Gatti <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2017"
+  month: "September"
+  highlight: False
+
+- title: 'The Taipan Galaxy Survey: Scientific Goals and Observing Strategy'
+  url: 'http://dx.doi.org/10.1017/pasa.2017.41'
+  authors: 'E. da Cunha <em>et. al.</em>'
+  journal: "PASA"
+  year: "2017"
+  month: "October"
+  highlight: False
+
+- title: 'DES Science Portal: I - Computing Photometric Redshifts'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170805643G'
+  authors: 'J. Gschwend <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2017"
+  month: "August"
+  highlight: False
+
+- title: 'Dark Energy Survey Year 1 Results: Galaxy clustering for combined probes'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170801536E'
+  authors: 'J. Elvin-Poole <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2017"
+  month: "August"
+  highlight: False
+
+- title: 'Dark Energy Survey Year 1 Results: Redshift distributions of the weak lensing source galaxies'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170801532H'
+  authors: 'B. Hoyle <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2017"
+  month: "August"
+  highlight: False
+
+- title: 'Dark Energy Survey Year 1 Results: Cosmological Constraints from Galaxy Clustering and Weak Lensing'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170801530D'
+  authors: 'DES Collaboration <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2017"
+  month: "August"
+  highlight: True
+
+- title: 'Discovery of a z = 0.65 post-starburst BAL quasar in the DES supernova fields'
+  url: 'http://dx.doi.org/10.1093/mnras/stx708'
+  authors: 'D. Mudd <em>et. al.</em>'
+  journal: "MNRAS"
+  year: "2017"
+  month: "July"
+  highlight: False
+
+- title: 'A Study of Quasar Selection in the Dark Energy Survey Supernova fields'
+  url: 'http://dx.doi.org/10.3847/1538-3881/aa5b8d'
+  authors: 'S. S. Tie <em>et. al.</em>'
+  journal: "AJ"
+  year: "2017"
+  month: "March"
+  highlight: False
+
+- title: 'Measuring the 2D baryon acoustic oscillation signal of galaxies in WiggleZ: cosmological constraints'
+  url: 'http://dx.doi.org/10.1093/mnras/stw2725'
+  authors: '<strong>S.R. Hinton</strong> <em>et. al.</em>'
+  journal: "MNRAS"
+  year: "2017"
+  month: "February"
+  highlight: True
+
+- title: 'The 2-degree Field Lensing Survey: design and clustering measurements'
+  url: 'http://dx.doi.org/10.1093/mnras/stw1990'
+  authors: 'C. Blake <em>et. al.</em>'
+  journal: "MNRAS"
+  year: "2016"
+  month: "Novermber"
+  highlight: False
+
+- title: 'ChainConsumer'
+  url: 'http://dx.doi.org/10.21105/joss.00045'
+  authors: '<strong>S.R. Hinton</strong>'
+  journal: "JOSS"
+  year: "2016"
+  month: "August"
+  highlight: True
+
+- title: 'Marz: Manual and automatic redshifting software'
+  url: 'http://dx.doi.org/10.1016/j.ascom.2016.03.001'
+  authors: '<strong>S.R. Hinton</strong> <em>et. al.</em>'
+  journal: "A&C"
+  year: "2016"
+  month: "April"
+  highlight: True
+
+- title: 'OzDES multifibre spectroscopy for the Dark Energy Survey: first-year operation and results'
+  url: 'http://dx.doi.org/10.1093/mnras/stv1507'
+  authors: 'F. Yuan <em>et. al.</em>'
+  journal: "MNRAS"
+  year: "2015"
+  month: "September"
+  highlight: False

@@ -6871,7 +6871,7 @@ body.landing-page {
   padding: 20px 0;
 }
 .landing-page .gray-section {
-  background: #f4f4f4;
+  background: #f6f6f6;
   margin-top: 60px;
 }
 .landing-page .team-member {
@@ -7493,6 +7493,9 @@ section.trips .trip {
 .portfolio-block {
   padding: 20px 0 23px 0;
 }
+.papers .portfolio-block {
+  padding: 10px 0 10px 0;
+}
 .portfolio-block .portfolio-content .thumbimg img {
   height: 200px;
 }
@@ -7513,4 +7516,47 @@ section.trips .trip {
   .portfolio-content .portfolio-text {
     padding-top: 10px;
   }
+}
+
+.papers .paper-block {
+
+}
+.papers .paper-block .paper-content p strong {
+  color: #7d7d7d;
+}
+.papers .paper-block .paper-content p span.spacer {
+  padding-right: 10px;
+}
+.papers .paper-block .paper-content p {
+  margin: 0;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  left: 15px;
+  font-size: 1.1em;
+}
+.papers .paper-block .paper-content {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #fafafa;
+  border: 1px solid #dddddd;
+  min-height: 100px;
+  position: relative;
+}
+.papers .paper-block .paper-content.highlight {
+  background-color: #f6fbff;
+}
+.papers .paper-block .paper-content:hover {
+  background-color: #f6f6fa;
+  border-color: #7599b1;
+  transition: background-color 0.2s linear;
+  transition: border-color 0.2s linear;
+}
+@media (max-width: 992px) {
+  .papers .paper-block .paper-content {
+    min-height: 130px;
+  }
+}
+.papers {
+  padding-bottom: 30px;
 }

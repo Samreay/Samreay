@@ -42,6 +42,11 @@ sections:
     tpl: 'trips.html'
     css: 'trips'
 
+  - id: 'papers'
+    name: 'Papers'
+    tpl: 'papers.html'
+    css: 'papers'
+
   - id: 'blogs'
     name: 'Blogs'
     tpl: 'blogs.html'
