@@ -8,7 +8,7 @@
     <div class="row features-block">
     {% for project in site.data.papers %}
     {% assign loopindex = forloop.index %}
-        <div class="paper-block wow fadeIn col-sm-6" >
+        <div class="paper-block wow fadeIn col-sm-6 col-lg-4" >
             <a href="{{project.url}}">
                 <div class="paper-content {% if project.highlight %} highlight {% endif %}">
                     <div class="portfolio-text">

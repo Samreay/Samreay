@@ -7540,7 +7540,7 @@ section.trips .trip {
   padding: 15px;
   background-color: #fafafa;
   border: 1px solid #dddddd;
-  min-height: 100px;
+  min-height: 120px;
   position: relative;
 }
 .papers .paper-block .paper-content.highlight {
@@ -7551,11 +7551,6 @@ section.trips .trip {
   border-color: #7599b1;
   transition: background-color 0.2s linear;
   transition: border-color 0.2s linear;
-}
-@media (max-width: 992px) {
-  .papers .paper-block .paper-content {
-    min-height: 130px;
-  }
 }
 .papers {
   padding-bottom: 30px;
