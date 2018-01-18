@@ -7566,3 +7566,7 @@ section.trips .trip {
   font-weight: bold;
   font-style: italic;
 }
+
+.img {
+  object-fit: cover;
+}
