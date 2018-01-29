@@ -52,9 +52,9 @@ sections:
     tpl: 'blogs.html'
     css: 'blogs'
 
-disqus:
-  name: samreay
-  public_key: MYiCDJWlzq6IEkSXbAflF3DLdf1RmcjWGoOc3TBI3LoRNkmAemEiXyWhX0wOYPU8
+#disqus:
+#  name: samreay
+#  public_key: MYiCDJWlzq6IEkSXbAflF3DLdf1RmcjWGoOc3TBI3LoRNkmAemEiXyWhX0wOYPU8
 
 # google analytics
 ga:
