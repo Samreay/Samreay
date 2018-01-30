@@ -1,6 +1,7 @@
 title: "Samuel Hinton"
 baseurl: ""
 url: "https://samreay.github.io"
+content_path: "static/img/blog"
 img_path: 'https://samreay.github.io/static/img/blog'
 repository: samreay/samreay.github.io
 github: [metadata]
