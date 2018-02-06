@@ -9,7 +9,7 @@
         {% for trip in site.categories['trip'] %}
         {% assign loopindex = forloop.index  | modulo: 3 %}
             <div class="trip col-sm-4 team-member wow fadeIn">
-                <a href="{{trip.url}}"><img class="img-responsive img-circle img-small" src="{{ trip.thumb }}"></a>
+                <a href="{{trip.url}}"><img class="img-responsive img-circle img-small" src="{{site.img_path}}{{ trip.loc }}thumb_blog.jpg"></a>
                 <a href="{{trip.url}}"><h4>{{trip.title}}</h4></a>
                 <p>{{trip.desc}}</p>
             </div>

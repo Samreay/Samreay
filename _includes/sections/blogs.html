@@ -10,7 +10,7 @@
         {% for post in site.categories['blog'] %}
         {% assign loopindex = forloop.index  | modulo: 2 %}
             <div class="post col-sm-6 wow fadeIn">
-                <a href="{{post.url}}" class="{% if loopindex == 1 %} pull-right {% else %} pull-left {% endif %} "><img class="img-responsive img-thumbnail img-small" src="{{ post.thumb }}"></a>
+                <a href="{{post.url}}" class="{% if loopindex == 1 %} pull-right {% else %} pull-left {% endif %} "><img class="img-responsive img-thumbnail img-small" src="{{site.img_path}}{{ post.loc }}thumb_blog.jpg"></a>
                 <div class="block-content {% if loopindex == 1 %} lleft {% else %} rright {% endif %}">
                     <a href="{{post.url}}"><h4>{{post.title}}</h4></a>
                     <p>{{post.desc}}</p>

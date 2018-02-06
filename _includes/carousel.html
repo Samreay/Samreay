@@ -20,7 +20,7 @@
                 {% if forloop.first %}
                     <h4 class="carousel-caption2">{{ thing }}</h4>
                 {% else %}
-                    <img src="{{site.img_path}}/{{include.folder}}/{{thing}}">
+                    <img src="{{site.img_path}}{{page.loc}}{{thing}}">
                 {% endif %}
             {% endfor %}
         </div>

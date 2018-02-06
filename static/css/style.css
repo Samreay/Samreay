@@ -63,6 +63,7 @@ h4,
 h5,
 h6 {
   font-weight: 100;
+  line-height: 1.5em;
 }
 h1 {
   font-size: 30px;
@@ -3813,6 +3814,9 @@ code {
   border-image: none;
   border-style: solid solid none;
   border-width: 1px 0;
+  max-width: 830px;
+  margin: auto;
+  box-shadow: 0 0 20px 0px #cccccc;
 }
 .ibox-footer {
   color: inherit;
@@ -5201,9 +5205,16 @@ dd.project-people {
   font-weight: 700;
   color: #2F4050;
 }
+.article p, .article li {
+  font-size: 17px;
+  line-height: 1.7em;
+}
 .article p {
-  font-size: 15px;
-  line-height: 26px;
+  margin: 0 0 1.6em;
+  text-align: justify;
+}
+.article pre {
+  margin: 0 0 20px;
 }
 .article-title {
   text-align: center;
@@ -6784,7 +6795,7 @@ body.landing-page {
   .darkbg {
     position: absolute;
     width: 100%;
-    background-color: #eeeeee;
+    background-color: #e6eefd;
     height: 400px;
   }
 }
@@ -6966,7 +6977,7 @@ body.landing-page {
   display: inline-block;
 }
 .landing-page .img-outreach {
-  height: 130px;
+  height: 120px;
   display: inline-block;
 }
 .landing-page .pull-left .img-outreach {
@@ -6984,8 +6995,8 @@ body.landing-page {
 }
 
 .img-blog {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 .landing-page .pricing-plan {
   margin: 20px 30px 0 30px;
@@ -7513,19 +7524,16 @@ section.trips .trip {
 }
 .blogs .post {
   margin-bottom: 20px;
-  min-height: 120px;
+  min-height: 150px;
 }
-.blogs .post img {
-  height: 90px;
-  width: 90px;
-}
+
 .blogs .post .block-content.lleft {
-  margin-right: 100px;
+  margin-right: 130px;
   text-align: right;
 
 }
 .blogs .post .block-content.rright {
-  margin-left: 100px;
+  margin-left: 130px;
 }
 
 .markdown.carousel {
@@ -7622,4 +7630,14 @@ section.trips .trip {
 
 .img {
   object-fit: cover;
+}
+
+.img-poster {
+  /*margin-left: -5%;*/
+  margin-left: -10%;
+  /*max-width: 110%;*/
+  max-width: 120%;
+  /*width: 110%;*/
+  width: 120%;
+  box-shadow: 0 0 10px 0px #757575;
 }
