@@ -41,7 +41,7 @@ after Yosemite we got to visit other places, one a nice, sulphury hot
 spring. Some of the other places (such as Halfdome, below) are truly 
 idyllic.
 
-{% include image.html url="field.jpg"  %}
+{% include image.html url="field.jpg" class="img-poster"  %}
 
 Whilst nothing could top that tour, Santa Monica was nice too,
 albeit absolutely filled with people playing Pokemon Go, which had
