@@ -9,6 +9,9 @@
   <meta name="keywords" content="{{ page.keywords }}">
   {% endif %}
   <meta name="author" content="{{ site.author.name }}">
+  {% if page.thumb %}
+  <meta property="og:image" content="{{site.url}}/{{page.thumb}}">
+  {% endif %}
 
   <title>
     {% if page.title != "index" %}
