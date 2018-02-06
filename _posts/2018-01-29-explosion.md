@@ -20,5 +20,5 @@ in the second still. For an afternoons work, I was pretty happy!
 {% include image.html url="/explosion/0030.jpg"  %}
 {% include image.html url="/explosion/0046.jpg"  %}
 
-{% include video.html url="/explosion/explosion.mp4"  %}
+{% include video.html url="/explosion/explosion.mp4" autoplay="true"  %}
 

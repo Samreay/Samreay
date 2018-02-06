@@ -1,5 +1,5 @@
 <div class="video featured">
-    <video playsinline controls autoplay loop>
+    <video playsinline controls   {% if include.autoplay %}autoplay{% endif %} loop>
         <source src="{{site.img_path}}{{ include.url }}" type="video/mp4">
     </video>
 </div>

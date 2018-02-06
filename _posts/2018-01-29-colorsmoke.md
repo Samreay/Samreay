@@ -25,5 +25,5 @@ And the actual product in the end:
 {% include image.html url="/colorsmoke/0034.jpg"  %}
 {% include image.html url="/colorsmoke/0044.jpg"  %}
 
-{% include video.html url="/colorsmoke/smoke.mp4"  %}
+{% include video.html url="/colorsmoke/smoke.mp4" autoplay="true" %}
 
