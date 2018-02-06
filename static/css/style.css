@@ -89,6 +89,10 @@ h5 {
   margin-top: 5px;
   font-weight: 600;
 }
+p {
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
@@ -6642,7 +6646,6 @@ body.landing-page {
 }
 .landing-page section p {
   color: #aeaeae;
-  font-size: 13px;
 }
 .landing-page address {
   font-size: 13px;
@@ -7602,7 +7605,7 @@ section.trips .trip {
   background-color: #fafafa;
   border: 1px solid #90bfe8;
   border-left-width: 10px;
-  min-height: 120px;
+  min-height: 140px;
   position: relative;
 }
 .papers .paper-block .paper-content.highlight {
