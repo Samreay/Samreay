@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "CAASTRO Code Workshop"
-desc: "Bringing a finer appreciation of software style and open-source development to the astronomical masses!"
+title:  "Code Workshop"
+desc: "Bringing a finer appreciation of open-source development to the astronomical masses!"
 date: 2017-12-05
 categories: [outreach]
 tags: []

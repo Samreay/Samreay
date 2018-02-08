@@ -93,6 +93,12 @@ p {
   font-size: 1.1em;
   line-height: 1.5em;
 }
+@media (max-width: 450px) {
+  p {
+    font-size: 1em;
+    line-height: 1.3em;
+  }
+}
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
@@ -6994,7 +7000,7 @@ body.landing-page {
 }
 .outreach .post {
   margin-bottom: 20px;
-  min-height: 130px;
+  min-height: 140px;
 }
 
 .img-blog {
