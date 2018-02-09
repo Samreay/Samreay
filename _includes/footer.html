@@ -1,6 +1,6 @@
 <script src="{{ '/bower_components/jquery/dist/jquery.min.js'| prepend: site.baseurl }}"></script>
 <script src="{{ '/static/js/jPages.js' | prepend: site.baseurl}}"></script>
-<script src="{{ '/static/js/layzr.min.js' | prepend: site.baseurl}}"></script>
+<script src="{{ '/static/js/lazyload.min.js' | prepend: site.baseurl}}"></script>
 
   <script type="text/javascript">
     var cbpAnimatedHeader = (function() {
@@ -13,16 +13,7 @@
       }
       window.addEventListener('scroll', function() { setTimeout(scrollPage, scrollDebounce); }, false);
     })();
-    const instance = Layzr({
-      normal: 'data-layzr',
-      threshold: 200
-    });
-    document.addEventListener('DOMContentLoaded', event = function() {
-      instance
-            .update()           // track initial elements
-            .check()            // check initial elements
-            .handlers(true);    // bind scroll and resize handlers
-    });
+    var myLazyLoad = new LazyLoad({threshold: 1000});
     $(function(){
       /* initiate the plugin */
       $("div.pag-holder").jPages({

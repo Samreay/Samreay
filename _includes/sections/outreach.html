@@ -16,7 +16,7 @@
                     <div>
                         <a href="{{post.url}}" class="{% if loopindex == 1 %} pull-right {% else %} pull-left {% endif %} ">
                             <!--<img class="img-responsive img-outreach img-thumbnail" src="{{site.img_path}}{{ post.loc }}thumb_outreach.jpg">-->
-                            <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-layzr="{{site.img_path}}{{post.loc}}thumb_outreach.jpg" class="img img-responsive img-outreach img-thumbnail" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
+                            <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{post.loc}}thumb_outreach.jpg" class="img img-responsive img-outreach img-thumbnail" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
                         </a>
                     </div>
                     <div class="block-content {% if loopindex == 1 %} lleft {% else %} rright {% endif %}">

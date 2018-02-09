@@ -12,7 +12,7 @@
         <div class="trip col-sm-4 team-member wow fadeIn">
                 <a href="{{trip.url}}">
                     <!--<img class="img-responsive img-circle img-small" src="{{site.img_path}}{{ trip.loc }}thumb_blog.jpg">-->
-                    <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-layzr="{{site.img_path}}{{trip.loc}}thumb_blog.jpg" class="img img-responsive img-circle img-small" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
+                    <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{trip.loc}}thumb_blog.jpg" class="img img-responsive img-circle img-small" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
                 </a>
                 <a href="{{trip.url}}"><h4>{{trip.title}}</h4></a>
                 <p>{{trip.desc}}</p>

@@ -15,9 +15,7 @@
                     <div class="portfolio-content">
                         <div class="thumbimg">
                             <a href="{{project.url}}">
-                                <!--<img class="img-responsive img-project" src="{{site.img_path}}{{ project.loc }}thumb_project.jpg">-->
-                                <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-layzr="{{site.img_path}}{{project.loc}}thumb_project.jpg" class="img img-responsive img-project" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
-
+                                <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{project.loc}}thumb_project.jpg" class="img img-responsive img-project" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
                             </a>
                         </div>
                         <div class="portfolio-text">

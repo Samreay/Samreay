@@ -1,6 +1,6 @@
 <link href="{{ '/bower_components/animate.css/animate.min.css'| prepend: site.baseurl }}" rel="stylesheet">
 <script src="{{ '/bower_components/wow/dist/wow.min.js' | prepend: site.baseurl }}"></script>
-<script src="{{ '/static/js/layzr.min.js' | prepend: site.baseurl}}"></script>
+<script src="{{ '/static/js/lazyload.min.js' | prepend: site.baseurl}}"></script>
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -16,16 +16,8 @@
     }
     window.addEventListener('scroll', function() { setTimeout(scrollPage, scrollDebounce); }, false);
   })();
-  const instance = Layzr({
-    normal: 'data-layzr',
-    threshold: 40
-  });
-  document.addEventListener('DOMContentLoaded', event = function() {
-    instance
-            .update()           // track initial elements
-            .check()            // check initial elements
-            .handlers(true);    // bind scroll and resize handlers
-  });
+  var myLazyLoad = new LazyLoad({threshold: 1000});
+
 </script>
 
 

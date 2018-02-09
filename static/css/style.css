@@ -7806,6 +7806,9 @@ section.trips .trip {
   box-shadow: 0 0 10px 0px #757575;
 }
 
-.img[data-layzr] {
+.img[data-src] {
   filter: blur(10px);
+}
+.img[data-src].loaded {
+  filter: none;
 }
