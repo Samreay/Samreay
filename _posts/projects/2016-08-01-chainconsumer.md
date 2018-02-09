@@ -38,12 +38,12 @@ if __name__ == "__main__":
 
 And the above code gives the following contour:
 
-{% include image.html url="two.png"  %}
+{% include image.html url="two.jpg"  %}
 
 The largest use of the library is to create corner plots like this one, and so most of the customisation 
 methods, such that you can get the plot below.
 
-{% include image.html url="mixed.png"  %}
+{% include image.html url="mixed.jpg"  %}
 
 Upon request by various users, ChainConsumer now has extra functionality:
 

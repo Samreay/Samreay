@@ -1,18 +1,21 @@
+<link href="{{ '/bower_components/animate.css/animate.min.css'| prepend: site.baseurl }}" rel="stylesheet">
 <script src="{{ '/bower_components/wow/dist/wow.min.js' | prepend: site.baseurl }}"></script>
-<script src="{{ "static/js/scroll.js" | absolute_url }}"></script>
+<script src="{{ 'static/js/scroll.js' | absolute_url }}"></script>
+<script src="{{ '/static/js/layzr.min.js' | prepend: site.baseurl}}"></script>
 
-<!-- Baidu analytics -->
-{% if site.ba %}
-  <script>
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?{{ site.ba.uuid }}";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-  </script>
-{% endif %}
+<script type="text/javascript">
+  const instance = Layzr({
+    normal: 'data-layzr',
+    threshold: 40
+  });
+  document.addEventListener('DOMContentLoaded', event = function() {
+    instance
+            .update()           // track initial elements
+            .check()            // check initial elements
+            .handlers(true);    // bind scroll and resize handlers
+  });
+</script>
+
 
 <!-- Google analytics -->
 {% if site.ga %}

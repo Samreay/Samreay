@@ -10,10 +10,15 @@
             <div class="vertical-container center-orientation">
             {% for project in site.categories['project'] %}
             {% assign loopindex = forloop.index %}
+            {% assign key = project.loc | append: "thumb_project.jpg" %}
                 <div class="portfolio-block horizontal-bar-top  wow fadeIn" >
                     <div class="portfolio-content">
                         <div class="thumbimg">
-                            <a href="{{project.url}}"><img class="img-responsive img-project" src="{{site.img_path}}{{ project.loc }}thumb_project.jpg"></a>
+                            <a href="{{project.url}}">
+                                <!--<img class="img-responsive img-project" src="{{site.img_path}}{{ project.loc }}thumb_project.jpg">-->
+                                <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-layzr="{{site.img_path}}{{project.loc}}thumb_project.jpg" class="img img-responsive img-project" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
+
+                            </a>
                         </div>
                         <div class="portfolio-text">
                             <h2><a href="{{project.url}}">{{ project.title }}</a></h2>

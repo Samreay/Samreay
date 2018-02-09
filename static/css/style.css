@@ -7650,3 +7650,7 @@ section.trips .trip {
   width: 120%;
   box-shadow: 0 0 10px 0px #757575;
 }
+
+.img[data-layzr] {
+  filter: blur(10px);
+}

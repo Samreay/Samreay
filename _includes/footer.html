@@ -1,9 +1,21 @@
 <script src="{{ '/bower_components/jquery/dist/jquery.min.js'| prepend: site.baseurl }}"></script>
-<script async src="{{ '/bower_components/wow/dist/wow.min.js' | prepend: site.baseurl }}"></script>
+<!--<script async src="{{ '/bower_components/wow/dist/wow.min.js' | prepend: site.baseurl }}"></script>-->
 <link href="{{ '/static/css/pygments.css'| prepend: site.baseurl }}" rel="stylesheet">
 <script src="{{ '/static/js/scroll.js' | absolute_url }}"></script>
 <script src="{{ '/static/js/jPages.js' | prepend: site.baseurl}}"></script>
+<script src="{{ '/static/js/layzr.min.js' | prepend: site.baseurl}}"></script>
+
   <script type="text/javascript">
+    const instance = Layzr({
+      normal: 'data-layzr',
+      threshold: 200
+    });
+    document.addEventListener('DOMContentLoaded', event = function() {
+      instance
+            .update()           // track initial elements
+            .check()            // check initial elements
+            .handlers(true);    // bind scroll and resize handlers
+    });
     $(function(){
       /* initiate the plugin */
       $("div.pag-holder").jPages({
