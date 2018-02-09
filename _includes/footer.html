@@ -1,9 +1,21 @@
 <script src="{{ '/bower_components/jquery/dist/jquery.min.js'| prepend: site.baseurl }}"></script>
-<script src="{{ '/static/js/scroll.js' | absolute_url }}"></script>
 <script src="{{ '/static/js/jPages.js' | prepend: site.baseurl}}"></script>
 <script src="{{ '/static/js/layzr.min.js' | prepend: site.baseurl}}"></script>
 
   <script type="text/javascript">
+    $(document).ready(function() {
+      new WOW({offset: 50}).init();
+    });
+    var cbpAnimatedHeader = (function() {
+      var changeHeaderOn = 100, scrollDebounce = 250;
+      function scrollPage() {
+        $('.navbar-default').toggleClass('navbar-scroll', scrollY() >= changeHeaderOn);
+      }
+      function scrollY() {
+        return window.pageYOffset || document.documentElement.scrollTop;
+      }
+      window.addEventListener('scroll', function() { setTimeout(scrollPage, scrollDebounce); }, false);
+    })();
     const instance = Layzr({
       normal: 'data-layzr',
       threshold: 200
