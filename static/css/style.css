@@ -7815,7 +7815,8 @@ section.trips .trip {
   padding-top: 75%;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 4px 0px #ababab;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 #ababab;
 }
 .card .img-card {
   position: absolute;
@@ -7859,4 +7860,18 @@ section.trips .trip {
 .card .card-footer .card-desc p {
   text-align:  center;
   color: #dddddd;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 8px 0 #ababab;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.card:hover::after {
+  opacity: 1;
 }
