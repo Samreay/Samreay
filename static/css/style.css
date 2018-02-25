@@ -7682,13 +7682,12 @@ section.trips .trip {
 }
 @media (min-width: 1170px) {
   .blogs .smaller {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 .blogs .post {
-  margin-bottom: 20px;
-  min-height: 150px;
+  margin-bottom: 30px;
 }
 
 .blogs .post .block-content.lleft {
@@ -7811,4 +7810,53 @@ section.trips .trip {
 }
 .img[data-src].loaded {
   filter: none;
+}
+.card {
+  padding-top: 75%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0px #ababab;
+}
+.card .img-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.card:hover .card-footer {
+  height: 100%;
+  padding-top: 1.5em;
+}
+
+.card .card-footer {
+  background-color: #000000BB;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 1em;
+  height: 2.5em;
+  transition: height 0.15s ease-in, padding 0.15s ease-in;
+}
+
+.card .card-footer .card-title {
+  text-align: center;
+}
+
+.card a {
+  color: #3e9be5;
+}
+.card .card-footer .card-desc {
+  opacity : 0;
+  margin-top: 1em;
+  transition: opacity 0.1s ease-in;
+}
+.card:hover  .card-footer .card-desc {
+  opacity : 1;
+}
+.card .card-footer .card-desc p {
+  text-align:  center;
+  color: #dddddd;
 }

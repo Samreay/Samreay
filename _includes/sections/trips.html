@@ -8,7 +8,7 @@
     <div class="row features-block">
         {% for trip in site.categories['trip'] %}
         {% assign loopindex = forloop.index  | modulo: 3 %}
-        {% assign key = trip.loc | append: "thumb_blog.jpg" %}
+        {% assign key = trip.loc | append: "thumb_tiny.jpg" %}
         <div class="trip col-sm-4 team-member wow fadeIn">
                 <a href="{{trip.url}}">
                     <!--<img class="img-responsive img-circle img-small" src="{{site.img_path}}{{ trip.loc }}thumb_blog.jpg">-->

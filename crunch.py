@@ -9,6 +9,7 @@ from PIL import Image
 cur_dir = os.path.dirname(os.path.abspath(inspect.stack()[0][1]))
 print(cur_dir)
 
+data_file = cur_dir + "/_data/imgdata.json"
 with open(data_file) as f:
     try:
         d = json.load(f)
@@ -38,6 +39,5 @@ for category in categories:
                 encoded = base64.b64encode(f.read()).decode("utf-8")
             d[key] = {"width": width, "height": height, "data": encoded}
             
-data_file = cur_dir + "/_data/imgdata.json"
 with open(data_file, "w") as f:
     json.dump(d, f, indent=4, sort_keys=True)
