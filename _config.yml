@@ -23,10 +23,10 @@ sections:
     tpl: 'about.html'
     css: ''
 
-  - id: 'github'
-    name: 'Github'
-    tpl: 'github.html'
-    css: 'project'
+#  - id: 'github'
+#    name: 'Github'
+#    tpl: 'github.html'
+#    css: 'project'
 
   - id: 'projects'
     name: 'Projects'
@@ -38,11 +38,6 @@ sections:
     tpl: 'outreach.html'
     css: 'outreach'
 
-  - id: 'trips'
-    name: 'Trips'
-    tpl: 'trips.html'
-    css: 'trips'
-
   - id: 'papers'
     name: 'Papers'
     tpl: 'papers.html'
@@ -52,6 +47,11 @@ sections:
     name: 'Blogs'
     tpl: 'blogs.html'
     css: 'blogs'
+
+  - id: 'trips'
+    name: 'Trips'
+    tpl: 'trips.html'
+    css: 'trips'
 
 #disqus:
 #  name: samreay

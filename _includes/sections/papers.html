@@ -5,14 +5,14 @@
             <h1><span>My Papers</span></h1>
         </div>
     </div>
-    <div class="row features-block">
+    <div id="paper-content" class="row features-block">
     {% for project in site.data.papers %}
     {% assign loopindex = forloop.index %}
-        <div class="paper-block wow fadeIn col-sm-6 col-lg-4" >
+        <div class="paper-block col-sm-6 col-lg-4" >
             <a href="{{project.url}}">
                 <div class="paper-content {% if project.highlight %} highlight {% endif %}">
                     <div class="portfolio-text">
-                        <h3>{{ project.title }}</h3>
+                        <h4>{{ project.title | truncate:110 }}</h4>
                         <p class="bottom"><span class="spacer">{{ project.desc }} {{ project.authors }}</span> {{ project.journal }}<span class="pull-right">{{ project.month }} {{ project.year }} </span></p>
                     </div>
                     <div class="clearfix"></div>
@@ -20,5 +20,8 @@
             </a>
         </div>
     {% endfor %}
+    </div>
+    <div class="row features-block col-sm-6 col-sm-offset-3" id="paper-button-div">
+        <button id="paperButton" class="btn btn-default btn-block btn-lg">Show Papers</button>
     </div>
 </div>

@@ -18,6 +18,13 @@
   })();
   var myLazyLoad = new LazyLoad({threshold: 1000});
 
+  $(function() {
+    $('#paperButton').click(function() {
+      $('#paper-content').toggle();
+      $('#paper-button-div').toggle();
+    });
+    $('#paper-content').toggle();
+  });
 </script>
 
 
