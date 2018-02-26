@@ -7832,7 +7832,7 @@ section.trips .trip {
 }
 
 .card .card-footer {
-  background-color: #000000BB;
+  background-color: rgba(0,0,0,.6);
   position: absolute;
   bottom: 0;
   left: 0;
