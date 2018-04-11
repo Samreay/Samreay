@@ -7780,9 +7780,9 @@ section.trips .trip {
 .papers {
   padding-bottom: 30px;
 }
-.img-vertical {
-  max-height: 600px;
-}
+/*.img-vertical {*/
+  /*max-height: 600px;*/
+/*}*/
 .highlighted {
   text-align: center;
   color: #2a8ef9;
