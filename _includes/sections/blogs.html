@@ -10,22 +10,20 @@
         {% for post in site.categories['blog'] %}
         {% assign loopindex = forloop.index  | modulo: 2 %}
         {% assign key = post.loc | append: "thumb_blog.jpg" %}
-            <div class="post col-xs-6 col-sm-4 col-md-4 col-lg-3 wow fadeIn" >
+            <div class="post col-sm-4 col-md-4 col-lg-3 wow fadeIn" >
+                <a href="{{post.url}}">
                     <div class="card">
-                        <a href="{{post.url}}">
-                            <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{post.loc}}thumb_blog.jpg" class="img-card img" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
-                        </a>
-                        <a href="{{post.url}}">
-                            <div class="card-footer block-content">
-                                <div class="card-title">
-                                    <h4>{{post.title}}</h4>
-                                </div>
-                                <div class="card-desc">
-                                   <p>{{post.desc}}</p>
-                                </div>
+                        <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{post.loc}}thumb_blog.jpg" class="img-card img" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
+                        <div class="card-footer block-content">
+                            <div class="card-title">
+                                <h4>{{post.title}}</h4>
                             </div>
-                        </a>
-                </div>
+                            <div class="card-desc">
+                               <p>{{post.desc}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         {% endfor %}
         </div>

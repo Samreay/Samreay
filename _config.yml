@@ -38,15 +38,15 @@ sections:
     tpl: 'outreach.html'
     css: 'outreach'
 
-  - id: 'papers'
-    name: 'Papers'
-    tpl: 'papers.html'
-    css: 'papers'
-
   - id: 'blogs'
     name: 'Blogs'
     tpl: 'blogs.html'
     css: 'blogs'
+
+  - id: 'papers'
+    name: 'Papers'
+    tpl: 'papers.html'
+    css: 'papers'
 
   - id: 'trips'
     name: 'Trips'

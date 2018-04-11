@@ -4,7 +4,7 @@ title:  "Coloured Smoke"
 desc: "Playing around with attributes to see what weird stuff I can do!"
 date: 2018-01-29
 categories: [blog]
-tags: []
+tags: [blender, simulation]
 loc: 'blog/colorsmoke/'
 ---
 
@@ -25,6 +25,6 @@ So yeah, it's not exactly sensible, but it was fun to make. Here's the smoke sha
 And the actual product in the end:
 
 {% include image.html url="0034.jpg"  %}
-{% include image.html url="0044.jpg"  %}
+{% include image.html url="main.jpg"  %}
 
 

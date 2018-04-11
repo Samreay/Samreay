@@ -7796,11 +7796,8 @@ section.trips .trip {
 }
 
 .img-poster {
-  /*margin-left: -5%;*/
   margin-left: -10%;
-  /*max-width: 110%;*/
   max-width: 120%;
-  /*width: 110%;*/
   width: 120%;
   box-shadow: 0 0 10px 0px #757575;
 }
@@ -7812,66 +7809,64 @@ section.trips .trip {
   filter: none;
 }
 .card {
-  padding-top: 75%;
+  background-color: white;
   position: relative;
-  overflow: hidden;
   border-radius: 2px;
-  box-shadow: 0 2px 4px 0 #ababab;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  height: 25em;
 }
 .card .img-card {
-  position: absolute;
-  left: 0;
-  top: 0;
+  border-radius: 2px 2px 0 0;
   width: 100%;
-  height: auto;
-}
-
-.card:hover .card-footer {
-  height: 100%;
-  padding-top: 1.5em;
+  height: 175px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .card .card-footer {
-  background-color: #000000BB;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 0 1em;
-  height: 2.5em;
-  transition: height 0.15s ease-in, padding 0.15s ease-in;
+  padding: 0.5em 1.4em;
 }
 
-.card .card-footer .card-title {
-  text-align: center;
-}
-
-.card a {
-  color: #3e9be5;
-}
 .card .card-footer .card-desc {
-  opacity : 0;
-  margin-top: 1em;
-  transition: opacity 0.1s ease-in;
-}
-.card:hover  .card-footer .card-desc {
-  opacity : 1;
+  max-height: 7em;
+  overflow: hidden;
 }
 .card .card-footer .card-desc p {
-  text-align:  center;
-  color: #dddddd;
+  font-size: 1.1em;
 }
-
 .card::after {
   content: '';
   position: absolute;
-  z-index: -1;
+  z-index: 10;
   width: 100%;
   height: 100%;
-  box-shadow: 0 5px 8px 0 #ababab;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 .card:hover::after {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: 10em;
+  }
+  .card .img-card {
+    height: 100%;
+    width: 40%;
+    border-radius: 2px 0 0 2px;
+    border-bottom: 0;
+    border-right: 1px solid rgba(0,0,0,0.05);
+
+  }
+  .card .card-footer {
+    float: right;
+    height: 100%;
+    width: 60%;
+  }
+  .blogs .post {
+    margin-bottom: 15px;
+  }
 }
