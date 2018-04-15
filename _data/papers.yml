@@ -1,3 +1,11 @@
+- title: 'Rapidly evolving transients in the Dark Energy Survey'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv180304869P'
+  authors: 'M. Pursiainen <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "March"
+  highlight: False
+
 - title: 'The WiggleZ Dark Energy Survey: final data release and the metallicity of UV-luminous galaxies'
   url: 'http://adsabs.harvard.edu/abs/2018MNRAS.474.4151D'
   authors: 'M. J. Drinkwater <em>et. al.</em>'
@@ -25,7 +33,7 @@
 - title: 'Dark Energy Survey Year 1 Results: Cross-Correlation Redshifts - Methods and Systematics Characterization'
   url: 'http://adsabs.harvard.edu/abs/2017arXiv170900992G'
   authors: 'M. Gatti <em>et. al.</em>'
-  journal: "arXiv"
+  journal: "MNRAS"
   year: "2017"
   month: "September"
   highlight: False
@@ -103,7 +111,7 @@
   highlight: False
 
 - title: 'ChainConsumer'
-  url: 'http://dx.doi.org/10.21105/joss.00045'
+  url: 'http://adsabs.harvard.edu/abs/2016JOSS....1...45H'
   authors: '<strong>S.R. Hinton</strong>'
   journal: "JOSS"
   year: "2016"
