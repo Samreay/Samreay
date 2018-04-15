@@ -7846,10 +7846,10 @@ section.trips .trip {
   margin-bottom: 3px;
 }
 @media (max-width: 768px) {
-  .card {
+  .blog .card {
     height: 10em;
   }
-  .card .img-card {
+  .blog .card .img-card {
     height: 100%;
     width: 40%;
     border-radius: 2px 0 0 2px;
