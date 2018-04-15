@@ -7743,7 +7743,7 @@ section.trips .trip {
 }
 
 .papers .paper-block {
-
+  margin: 15px 0;
 }
 .papers .paper-block .paper-content p strong {
   color: #7d7d7d;
@@ -7760,29 +7760,17 @@ section.trips .trip {
   font-size: 1.1em;
 }
 .papers .paper-block .paper-content {
-  margin: 15px 0;
   padding: 15px;
-  background-color: #fafafa;
-  border: 1px solid #90bfe8;
-  border-left-width: 10px;
   min-height: 140px;
   position: relative;
 }
 .papers .paper-block .paper-content.highlight {
   background-color: #eef8ff;
 }
-.papers .paper-block .paper-content:hover {
-  background-color: #f6f6fa;
-  border-color: #7599b1;
-  transition: background-color 0.2s linear;
-  transition: border-color 0.2s linear;
-}
 .papers {
-  padding-bottom: 30px;
+  padding-bottom: 130px;
 }
-/*.img-vertical {*/
-  /*max-height: 600px;*/
-/*}*/
+
 .highlighted {
   text-align: center;
   color: #2a8ef9;
@@ -7813,14 +7801,18 @@ section.trips .trip {
   position: relative;
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-  height: 25em;
   transition: margin 200ms;
+}
+.blog .card{
+  height: 25em;
 }
 .card .img-card {
   border-radius: 2px 2px 0 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.blog .card .img-card {
   width: 100%;
   height: 175px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .card .card-footer {

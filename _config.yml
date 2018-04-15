@@ -43,15 +43,15 @@ sections:
     tpl: 'blogs.html'
     css: 'blogs'
 
-  - id: 'papers'
-    name: 'Papers'
-    tpl: 'papers.html'
-    css: 'papers'
-
   - id: 'trips'
     name: 'Trips'
     tpl: 'trips.html'
     css: 'trips'
+
+  - id: 'papers'
+    name: 'Papers'
+    tpl: 'papers.html'
+    css: 'papers'
 
 #disqus:
 #  name: samreay
