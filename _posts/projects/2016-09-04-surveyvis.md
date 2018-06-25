@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Survey Visualiser"
-desc: "A small python project to visualise cosmological surveys. In the normal vein of over-engineering things, what started as a simple idea for a single plot for a poster I was making eventually turned into a score of plots, video animations, a student project, and an open-source GitHub repository. I regret nothing."
+desc: "A small python project to visualise cosmological surveys. What started as a simple idea for a single plot for a poster turned into a score of plots, video animations, a student project, and an open-source GitHub repository. I regret nothing."
 date: 2016-09-04
 categories: [project]
 tags: [matplotlib,python,visualisation,surveys]
