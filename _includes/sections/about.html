@@ -11,8 +11,9 @@
         <div class="col-nxl-3"></div>
         <div class="col-nxl-6">
             <div class="team-member wow fadeIn">
-                <a target="_blank" href="static/resume/resume.pdf"><img src="{{ site.author.head_img | prepend: site.baseurl }}" height="200" width="200" class="img-responsive img-circle" alt=""></a>
-                <a target="_blank" href="static/resume/resume.pdf"><h2>{{ site.author.first_name }} <span class="navy">{{ site.author.last_name }}</span> </h2></a>
+                <a target="_blank" class="hide-if-not-big" href="static/resume/resume.pdf"><h2><span class="navy"  style="font-size: 24px;">{{ site.author.first_name }} {{ site.author.last_name }}</span> </h2></a>
+                <a target="_blank" href="static/resume/resume.pdf"><img src="{{ site.author.head_img | prepend: site.baseurl }}" height="200" width="200" class="img-responsive img-circle" alt="" style="filter: grayscale(1.0);"></a>
+                <a target="_blank" class="hide-if-big" href="static/resume/resume.pdf"><span class="navy"><h2>{{ site.author.first_name }} {{ site.author.last_name }}</span> </h2></a>
             </div>
         </div>
         <div class="col-nxl-3"></div>
@@ -20,7 +21,12 @@
     <div class="row">
         <div class="col-nxl-3"></div>
         <div class="text-center desc col-nxl-6">
-            <p>Astrophysics, cosmology, software engineering. My interests lie in Bayesian modelling, machine learning, and generally just doing things <em>right</em>. Click above for my resume.</p>
+            <p class="hide-if-big">Astrophysics, cosmology, software engineering. My interests lie in Bayesian modelling, machine learning, and generally just doing things <em>right</em>. Click above for my resume.</p>
+            <p class="hide-if-not-big">Astrophysics.
+            Cosmology.
+            Software engineering.</p>
+            <p class="hide-if-not-big">My interests lie in Bayesian modelling, machine learning, and generally just doing things <em>right</em>.</p>
+            <p class="hide-if-not-big">Click above for my resume.</p>
             <ul class="list-inline social-icon" style="margin-top: 2em;">
                 <li>
                     <a href="https://github.com/{{ site.author.github_username }}" target="blank">
