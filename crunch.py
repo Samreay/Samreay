@@ -10,14 +10,17 @@ cur_dir = os.path.dirname(os.path.abspath(inspect.stack()[0][1]))
 print(cur_dir)
 
 data_file = cur_dir + "/_data/imgdata.json"
-with open(data_file) as f:
-    try:
-        d = json.load(f)
-    except json.JSONDecodeError:
-        d = {}
- 
+if os.path.exists(data_file):
+    with open(data_file) as f:
+        try:
+            d = json.load(f)
+        except json.JSONDecodeError:
+            d = {}
+else:
+    d = {}
+
 #folder = sys.argv[1]
-categories = ["blog/", "outreach/", "projects/", "trips/"]
+categories = ["blog/", "outreach/", "projects/"]
 for category in categories:
     full = cur_dir + "/static/img/" + category
     print("Looking at %s" % category)

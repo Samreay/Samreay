@@ -3,7 +3,6 @@ layout: blog
 title: index
 permalink: /
 ---
-
 <div class="navbar-wrapper">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -14,29 +13,31 @@ permalink: /
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top" id="i18_title"><span>{{ site.title }}</span></a>
+                <a class="navbar-brand" href="/">{{ site.title }}</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right" id="i18_navbar">
-                {% for section in site.sections %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="page-scroll" href="/blog/">{{ site.index.home }}</a></li>
+                    {% for tag in site.data.blog %}
+                    {% if page.title == tag.name %}
+                    <li class="active">
+                        {% else %}
                     <li>
-                      <a class="page-scroll" href="#{{ section.id }}">
-                        <span>{{ section.name }}</span>
-                      </a>
-                    </li>
-                {% endfor %}
+                        {% endif %}
+                        <a class="page-scroll" href="{{ tag.href }}">{{ tag.name }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
     </nav>
 </div>
-<div id="inSlider" class="header carousel carousel-fade" data-ride="carousel">
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <div class="container">
                 <div class="carousel-caption">
                 </div>
-                <div class="carousel-image wow zoomIn">
+                <div class="carousel-image wow fadeIn">
                     <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
                 </div>
             </div>
