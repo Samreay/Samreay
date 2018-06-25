@@ -10,7 +10,7 @@ cur_dir = os.path.dirname(os.path.abspath(inspect.stack()[0][1]))
 print(cur_dir)
 
 #folder = sys.argv[1]
-categories = ["blog/", "outreach/", "projects/", "trips/"]
+categories = ["blog/", "outreach/", "projects/"]
 for category in categories:
     full = cur_dir + "/static/img/" + category
     print("Looking at %s" % category)

@@ -4,7 +4,7 @@
 
   <script type="text/javascript">
     var cbpAnimatedHeader = (function() {
-      var changeHeaderOn = 100, scrollDebounce = 250;
+      var changeHeaderOn = 50, scrollDebounce = 100;
       function scrollPage() {
         $('.navbar-default').toggleClass('navbar-scroll', scrollY() >= changeHeaderOn);
       }
@@ -25,6 +25,66 @@
         endRange     : 1
       });
     });
+
+
+    var elements = $('.blog-nav .nav li');
+    var active = {};
+    if (elements != undefined) {
+      var set_class = function (cls) {
+        var value = active[cls];
+        var element = $('.blog-nav .nav li.' + cls);
+        if (value) {
+          element.addClass("active");
+        } else {
+          element.removeClass("active");
+        }
+        var posts = $('.blogs .blog.' + cls);
+        for (var j=0; j<posts.length; j++) {
+          var post = posts[j];
+          if (value) {
+            post.style.display = "block";
+          } else {
+            post.style.display = "none";
+          }
+        }
+      };
+      var toggle_nav = function (cls) {
+        // Check if all off or all on
+        var allOn = true;
+        var numOn = 0;
+        for (var key in active) {
+          if (active[key]) {
+            numOn++;
+          } else {
+            allOn = false;
+          }
+        }
+
+        if (allOn) {
+          for (key in active) {
+            if (key != cls) {
+              active[key] = !active[key];
+            }
+          }
+        } else if (numOn == 1 && active[cls]) {
+          for (key in active) {
+            active[key] = true;
+          }
+        } else {
+          active[cls] = !active[cls];
+        }
+        for (key in active) {
+          set_class(key);
+        }
+        myLazyLoad.update();
+      };
+      for (var i = 0; i < elements.length; i++) {
+        var cls = elements[i].classList[1];
+        active[cls] = true;
+        set_class(cls);
+      }
+
+    }
   </script>
 <!-- Google analytics -->
 {% if site.ga %}

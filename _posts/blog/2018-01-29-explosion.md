@@ -4,7 +4,7 @@ title:  "Gas Explosion"
 desc: "From rigid body sims to smoke sims, Blender is growing on me!"
 date: 2018-01-29
 categories: [blog]
-tags: []
+tags: [creative]
 loc: 'blog/explosion/'
 ---
 

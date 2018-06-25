@@ -4,7 +4,7 @@ title:  "Coloured Smoke"
 desc: "Playing around with attributes to see what weird stuff I can do!"
 date: 2018-01-29
 categories: [blog]
-tags: [blender, simulation]
+tags: [creative]
 loc: 'blog/colorsmoke/'
 ---
 

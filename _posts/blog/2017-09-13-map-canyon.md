@@ -4,7 +4,7 @@ title:  "Desert Canyon Map"
 desc: "For a desert campaign, you always need another map!"
 date: 2017-09-13
 categories: [blog]
-tags: [map]
+tags: [creative]
 loc: 'blog/map_canyon/'
 ---
 

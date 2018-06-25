@@ -46,9 +46,11 @@ permalink: /
     </div>
 </div>
 
-{% for section in site.sections %}
-  {% assign loopindex = forloop.index | modulo: 2 %}
-  <section id="{{ section.id }}" class="features {% if loopindex != 1 %} gray-section {% endif %} {{ section.css }}" style="margin-top: 0px;">
-    {% include sections/{{section.tpl}} %}
-  </section>
-{% endfor %}
+<div class="primary-content">
+    {% for section in site.sections %}
+    {% assign loopindex = forloop.index | modulo: 2 %}
+    <section id="{{ section.id }}" class="features {% if loopindex != 1 %} gray-section {% endif %} {{ section.css }}" style="margin-top: 0;">
+        {% include sections/{{section.tpl}} %}
+    </section>
+    {% endfor %}
+</div>

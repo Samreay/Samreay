@@ -23,35 +23,21 @@ sections:
     tpl: 'about.html'
     css: ''
 
-#  - id: 'github'
-#    name: 'Github'
-#    tpl: 'github.html'
-#    css: 'project'
+  - id: 'academia'
+    name: 'Academia'
+    tpl: 'academia.html'
+    css: 'academia'
 
-  - id: 'projects'
-    name: 'Projects'
-    tpl: 'projects.html'
-    css: 'timeline'
+  - id: 'cta'
+    name: 'Talks'
+    tpl: 'cta.html'
+    css: 'cta'
 
-  - id: 'outreach'
-    name: 'Outreach'
-    tpl: 'outreach.html'
-    css: 'outreach'
+  - id: 'personal'
+    name: 'Personal'
+    tpl: 'personal.html'
+    css: 'personal'
 
-  - id: 'blogs'
-    name: 'Blogs'
-    tpl: 'blogs.html'
-    css: 'blogs'
-
-  - id: 'trips'
-    name: 'Trips'
-    tpl: 'trips.html'
-    css: 'trips'
-
-  - id: 'papers'
-    name: 'Papers'
-    tpl: 'papers.html'
-    css: 'papers'
 
 #disqus:
 #  name: samreay

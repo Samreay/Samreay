@@ -4,7 +4,7 @@ title:  "Lightning Strike"
 desc: "First attempt at photoshop stock manipulation."
 date: 2010-09-19
 categories: [blog]
-tags: [photoshop,manipulation]
+tags: [creative]
 loc: 'blog/lightning/'
 ---
 

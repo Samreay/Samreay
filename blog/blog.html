@@ -3,67 +3,46 @@ layout: blog
 title: Blog
 permalink: /blogs/
 ---
-
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <div class="navy-line"></div>
-        <h1>Blog</h1>
-    </div>
-</div>
-
-<div class="wrapper wrapper-content blog" >
-    <div class="row">
-		<ul id="pag-itemContainer" style="list-style:none;">
-    {% assign counter = 0 %}
-		{% for post in site.categories['blog'] %}
-		{% assign counter = counter | plus: 1 %}
-        {% assign delay = forloop.index | times: 200 %}
-		<li>
-        <div class="col-lg-8 col-lg-offset-2">
-            <div class="ibox" data-wow-delay="{{ delay }}ms" class="animated fadeIn ">
-                <div class="ibox-content">
-                    <div class="pull-left">
-                        <a href="{{ post.url }}"><img class="img img-small" src="{{site.img_path}}{{ post.loc }}thumb_blog.jpg"></a>
-                    </div>
-                    <a href="{{ post.url }}" class="btn-link">
-                        <h2>
-                            {{ post.title }}
-                        </h2>
-                    </a>
-                    <div class="small m-b-xs">
-                        <strong>{{ site.author.name }}</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> {{ post.date | date: "%-d %b %Y" }}</span>
-                    </div>
-                    <p>
-                    	{{ post.content | strip_html | truncate:80 }}
-                    </p>
-                    <div class="row" style="margin-left: 150px;">
-                        <div class="col-md-9">
-                                <h5 style="display: inline;">Tags:</h5>
-                                {% for tag in post.tags %}
-                                    <button class="btn btn-white btn-xs" type="button">{{ tag }}</button>
-                                {% endfor %}
-                        </div>
-                        <div class="col-md-3">
-                            <div class="small text-right">
-                                <!--<h5>Stats:</h5>-->
-                                <div> 
-                                {% if site.changyan %}
-                                    <i class="fa fa-comments-o"> </i> <span id = "url::{{post.url | prepend: site.url}}" class = "cy_cmt_count" ></span> comments
-                                {% endif %}
-                                {% if site.disqus %}
-                                <i class="fa fa-comments-o"> </i> <span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}">0</span> comments
-                                {% endif %}
+<div class="gray-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1><span>Blog</span></h1>
+            </div>
+        </div>
+        <div class="row features-block">
+            <div class="smaller blogs">
+                {% assign categories =  site.categories['blog'] | map: 'tags' | uniq | sort %}
+                <div class="blog-nav bottom-spaced-sm">
+                    <ul class="nav nav-tabs">
+                        {% for cat in categories %}
+                        <li class="text-capitalize {{ cat }}"><a onclick="toggle_nav('{{ cat }}');">{{ cat }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% for post in site.categories['blog'] %}
+                {% assign key = post.loc | append: "thumb_blog.jpg" %}
+                <div class="post blog col-sm-4 col-md-4 col-lg-3 wow fadeIn {{post.tags}}" >
+                    <a href="{{post.url}}">
+                        <div class="card">
+                            <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{post.loc}}thumb_blog.jpg" class="img-card img" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
+                            <div class="card-footer block-content">
+                                <div class="card-title">
+                                    <h4>{{post.title}}</h4>
+                                </div>
+                                <div class="card-desc">
+                                    <p>{{post.desc}}</p>
+                                </div>
+                                <div class="card-tag">
+                                    <p class="{{ post.tags }}">{{post.tags}}</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+                {% endfor %}
             </div>
         </div>
-        </li>
-        {% endfor %}
-        </ul>
-        {% include pagination.html %}
-
     </div>
 </div>

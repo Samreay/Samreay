@@ -1,0 +1,144 @@
+---
+layout: blog
+title: Talks
+permalink: /talks/
+---
+<div class="">
+    <div class="row">
+        <div class="col-lg-12 text-center bottom-spaced-sm">
+            <div class="navy-line"></div>
+            <h1>Popular Topics</h1>
+        </div>
+    </div>
+    <div class="row bottom-spaced">
+        <div class="container">
+        {% for topic in site.data.topics %}
+            <div class="wow fadeIn col-sm-6 bottom-spaced-xs">
+                <div class="topic">
+                    <div class="card">
+                        <h1>{{ topic.title }}</h1>
+                        <p>{{ topic.desc }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+            <div class="col-sm-4 col-sm-offset-4">
+                <button class="cta btn btn-block btn-primary">
+                    <h4>Request a talk!</h4>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row blogs gray-section">
+        <div class="container">
+            <div class="col-lg-12 text-center bottom-spaced-sm">
+                <div class="navy-line"></div>
+                <h1>Outreach</h1>
+            </div>
+            {% for post in site.categories['outreach'] %}
+            {% assign loopindex = forloop.index  | modulo: 2 %}
+            {% assign key = post.loc | append: "thumb_outreach.jpg" %}
+            <div class="post blog col-sm-4 col-md-4 col-lg-3 wow fadeIn" >
+                <a href="{{post.url}}">
+                    <div class="card">
+                        <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{post.loc}}thumb_blog.jpg" class="img-card img" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
+                        <div class="card-footer block-content">
+                            <div class="card-title">
+                                <h4>{{post.title}}</h4>
+                            </div>
+                            <div class="card-desc">
+                                <p>{{post.desc}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="container bottom-spaced">
+            <div class="col-lg-12 text-center bottom-spaced-sm">
+                <div class="navy-line"></div>
+                <h1>Talks</h1>
+            </div>
+            <div>
+                <ul class="talk-list">
+                    {% for talk in site.data.talks %}
+                    <li>
+                        <div>
+                            <span class="date">{{talk.date}}</span>
+                            <span class="title">{{talk.topic}}</span>
+                        </div>
+                        <div class="line-two bottom-spaced-xs">
+                            <span class="type {{talk.type}}">{{talk.type}} talk,</span>
+                            <span class="location">{{talk.event}}</span>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--
+<div class="wrapper wrapper-content blog" >
+    <div class="row">
+		<ul id="pag-itemContainer" style="list-style:none;">
+    {% assign counter = 0 %}
+		{% for post in site.categories['outreach'] %}
+		{% assign counter = counter | plus: 1 %}
+        {% assign delay = forloop.index | times: 200 %}
+		<li>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="ibox" data-wow-delay="{{ delay }}ms" class="animated fadeIn ">
+                <div class="ibox-content">
+                    <div class="pull-left">
+                        <a href="{{ post.url }}"><img class="img img-small" src="{{site.img_path}}{{ post.loc }}thumb_outreach.jpg"></a>
+                    </div>
+                    <a href="{{ post.url }}" class="btn-link">
+                        <h2>
+                            {{ post.title }}
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
+                        <strong>{{ site.author.name }}</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> {{ post.date | date: "%-d %b %Y" }}</span>
+                    </div>
+                    <p>
+                    	{{ post.content | strip_html | truncate:80 }}
+                    </p>
+                    <div class="row" style="margin-left: 150px;">
+                        <div class="col-md-9">
+                                <h5 style="display: inline;">Tags:</h5>
+                                {% for tag in post.tags %}
+                                    <button class="btn btn-white btn-xs" type="button">{{ tag }}</button>
+                                {% endfor %}
+                        </div>
+                        <div class="col-md-3">
+                            <div class="small text-right">
+                                &lt;!&ndash;<h5>Stats:</h5>&ndash;&gt;
+                                <div>
+                                {% if site.changyan %}
+                                    <i class="fa fa-comments-o"> </i> <span id = "url::{{post.url | prepend: site.url}}" class = "cy_cmt_count" ></span> comments
+                                {% endif %}
+                                {% if site.disqus %}
+                                <i class="fa fa-comments-o"> </i> <span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}">0</span> comments
+                                {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>-->
+</div>
