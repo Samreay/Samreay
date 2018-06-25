@@ -4,7 +4,7 @@ title:  "ChainConsumer"
 desc: "A library I wrote to consumer chains to get parameter summaries and contours. I wanted to keep this project small, but after promoting it to the Dark Energy Survey, a got many requests for extensions. So now it can do many things, from LaTeX tables, convergence statistics, and so much more."
 date: 2016-08-01
 categories: [project]
-tags: [python,visualisation,modelling]
+tags: [python,visualisation]
 loc: 'projects/chainconsumer/'
 ---
 
