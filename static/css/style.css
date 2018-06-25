@@ -7862,6 +7862,7 @@ section.trips .trip {
 }
 .card.card-horizontal .card-footer .card-title h4 {
   font-size: 1.3em;
+  margin-top: 10px;
 }
 .blog .card .card-footer .card-desc {
   max-height: 7em;
