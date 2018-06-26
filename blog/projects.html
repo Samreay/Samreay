@@ -15,7 +15,7 @@ permalink: /projects/
     <div class="row">
 		{% for post in site.categories['project'] %}
         {% assign delay = forloop.index | times: 100 %}
-        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 m-b-md animated fadeIn">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 m-b-md padding-bottom animated fadeIn">
             <a href="{{post.url}}">
                 <div class="card card-horizontal" data-wow-delay="{{ delay }}ms">
                     <img class="img img-card img-small" src="{{site.img_path}}{{ post.loc }}thumb_card.jpg">
@@ -30,7 +30,7 @@ permalink: /projects/
                         <div class="card-bottom pull-left text-muted">
                             <p>{{ post.date | date: "%-d %b %Y" }}</p>
                         </div>
-                        <div class="card-bottom pull-right text-muted">
+                        <div class="card-bottom pull-right text-muted hide-if-not-medium">
                             {% for tag in post.tags %}
                             <button class="btn btn-white btn-xs" type="button">{{ tag }}</button>
                             {% endfor %}

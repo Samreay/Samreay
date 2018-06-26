@@ -13,7 +13,7 @@ permalink: /talks/
     <div class="row bottom-spaced">
         <div class="container">
             {% for topic in site.data.topics %}
-            <div class="wow fadeIn col-lg-6 bottom-spaced-xs">
+            <div class="wow fadeIn col-lg-6 bottom-spaced-xs padding-bottom">
                 <div class="topic">
                     <div class="card">
                         <h1>{{ topic.title }}</h1>
@@ -23,8 +23,8 @@ permalink: /talks/
             </div>
             {% endfor %}
             <div class="col-sm-4 col-sm-offset-4 wow fadeIn text-center" >
-                <a href="#myModal" role="button" data-toggle="modal" onclick="conf_return()">
-                    <button class="cta btn btn-block btn-primary">
+                <a href="#myModal" role="button" class="cta" data-toggle="modal" onclick="conf_return()">
+                    <button class="btn btn-block btn-primary fancy-button">
                         <h4>Request a talk!</h4>
                     </button>
                 </a>
@@ -42,7 +42,7 @@ permalink: /talks/
             {% for post in site.categories['outreach'] %}
             {% assign loopindex = forloop.index  | modulo: 2 %}
             {% assign key = post.loc | append: "thumb_outreach.jpg" %}
-            <div class="post blog col-sm-4 col-md-4 col-lg-3 wow fadeIn" >
+            <div class="post blog col-sm-4 col-md-4 col-lg-3 wow fadeIn padding-bottom" >
                 <a href="{{post.url}}">
                     <div class="card">
                         <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{post.loc}}thumb_card.jpg" class="img-card img" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
@@ -66,19 +66,14 @@ permalink: /talks/
                 <div class="navy-line"></div>
                 <h1>Talks</h1>
             </div>
-            <div class="col-lg-10 col-lg-offset-1">
-                <ul class="talk-list">
+            <div class="talk-list col-lg-10 col-lg-offset-1">
                     {% for talk in site.data.talks %}
-                    <li class="list-unstyled">
-                        <div>
-                            <span class="date">{{talk.date}}</span>
-                            <span class="title">{{talk.topic}}</span>
-                        </div>
-                        <div class="line-two bottom-spaced-xs">
-                            <span class="type {{talk.type}}">{{talk.type}} talk</span>
-                            <span class="location pull-right">{{talk.event}}</span>
-                        </div>
-                    </li>
+                    <div class="talk-group clearfix">
+                        <div class="col-sm-3 date"><p>{{talk.date  | date: "%-d %b %Y" }}</p></div>
+                        <div class="col-sm-9 title"><p>{{talk.topic}}</p></div>
+                        <div class="col-sm-3 col-sm-offset-3 type {{talk.type}}"><p>{{talk.type}} talk</p></div>
+                        <div class="col-sm-6 location"><p>{{talk.event}}</p></div>
+                    </div>
                     {% endfor %}
                 </ul>
             </div>

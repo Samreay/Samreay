@@ -22,7 +22,7 @@ permalink: /papers/
                             {% for project in site.data.papers %}
                                 {% if project.year == year %}
                                     {% assign loopindex = forloop.index %}
-                                        <div class="paper-block col-sm-6" >
+                                        <div class="paper-block col-sm-6 padding-bottom" >
                                             <a href="{{project.url}}">
                                                 <div class="card paper-content {% if project.highlight %} highlight {% endif %}">
                                                     <div class="portfolio-text">
