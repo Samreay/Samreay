@@ -8,7 +8,7 @@
     new WOW({offset: 50}).init();
   });
   var cbpAnimatedHeader = (function() {
-    var changeHeaderOn = 50, scrollDebounce = 100;
+    var changeHeaderOn = 100, scrollDebounce = 250;
     function scrollPage() {
       $('.navbar-default').toggleClass('navbar-scroll', scrollY() >= changeHeaderOn);
     }

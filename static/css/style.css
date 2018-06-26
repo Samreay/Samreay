@@ -7752,6 +7752,9 @@ section.trips .trip {
 .papers .paper-block .paper-content p span.spacer {
   padding-right: 10px;
 }
+.papers ul {
+  padding: 20px;
+}
 .papers .paper-block .paper-content p {
   margin: 0;
   position: absolute;
@@ -8197,4 +8200,14 @@ section.trips .trip {
 
 .contact .modal-content label {
   margin-bottom: 10px;
+}
+
+@media (max-width: 450px) {
+  .wider-when-small {
+    margin-left: -50px;
+    margin-right: -50px;
+  }
+  .shrink-on-mobile {
+    font-size: 20px !important;
+  }
 }
