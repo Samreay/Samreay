@@ -7898,12 +7898,15 @@ section.trips .trip {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
-.card:hover::after {
+.card:not(.disabled):hover::after {
   opacity: 1;
 }
-.card:hover {
+.card:not(.disabled):hover {
   margin-top: -3px;
   margin-bottom: 3px;
+}
+.card.disabled {
+  cursor: default;
 }
 .card.faded img, .card.faded img.loaded {
   filter: grayscale(1.0);
