@@ -1,4 +1,3 @@
-<script src="{{ '/bower_components/jquery/dist/jquery.min.js'| prepend: site.baseurl }}"></script>
 <script src="{{ '/static/js/jPages.js' | prepend: site.baseurl}}"></script>
 <script src="{{ '/static/js/lazyload.min.js' | prepend: site.baseurl}}"></script>
 
@@ -86,9 +85,23 @@
 
     }
 
+    function conf_return() {
+      $("#_next")[0].value = window.location.href + "?success=true";
+    }
 
     window.scrollTo(window.scrollX, window.scrollY - 1);
     window.scrollTo(window.scrollX, window.scrollY + 1);
+
+    $(function() {
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("success");
+      if (c) {
+        $('#email_dialog').modal('show');
+        window.history.replaceState(null, null, window.location.pathname);
+
+      }
+    });
   </script>
 <!-- Google analytics -->
 {% if site.ga %}
