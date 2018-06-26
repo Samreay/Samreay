@@ -22,10 +22,13 @@ permalink: /talks/
                 </div>
             </div>
             {% endfor %}
-            <div class="col-sm-4 col-sm-offset-4">
-                <button class="cta btn btn-block btn-primary">
-                    <h4>Request a talk!</h4>
-                </button>
+            <div class="col-sm-4 col-sm-offset-4 wow fadeIn text-center" >
+                <a href="#myModal" role="button"  data-toggle="modal">
+                    <button class="cta btn btn-block btn-primary">
+                        <h4>Request a talk!</h4>
+                    </button>
+                </a>
+                {% include modal.html %}
             </div>
         </div>
     </div>

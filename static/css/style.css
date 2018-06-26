@@ -7206,12 +7206,12 @@ body.landing-page {
 .landing-page .features .big-icon {
   color: #3385FF !important;
 }
-.landing-page .contact {
+/*.landing-page .contact {
   background-image: url('../img/landing/word_map.png');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   margin-top: 60px;
-}
+}*/
 .landing-page section.timeline, .landing-page section.trips, .landing-page section.outreach {
   padding-bottom: 30px;
 }
@@ -8188,4 +8188,12 @@ section.trips .trip {
 
 .col-nxl-1,.col-nxl-10,.col-nxl-11,.col-nxl-12,.col-nxl-2,.col-nxl-3,.col-nxl-4,.col-nxl-5,.col-nxl-6,.col-nxl-7,.col-nxl-8,.col-nxl-9{position:relative;min-height:1px;padding-right:15px;padding-left:15px}
 
+@media (min-width: 992px) {
+  .contact .modal-dialog {
+    width: 800px;
+  }
+}
 
+.contact .modal-content label {
+  margin-bottom: 10px;
+}
