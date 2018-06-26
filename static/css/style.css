@@ -8085,11 +8085,12 @@ section.trips .trip {
   color: #888888;
 }
 .talk-list li .Public {
-  color: blue;
+  color: #4caf50;
 }
 .talk-list li .Academic {
-  color: green;
+  color: #2196f3;
 }
+
 .talk-list li span {
   margin-right: 20px;
 }

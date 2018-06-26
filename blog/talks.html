@@ -65,17 +65,17 @@ permalink: /talks/
                 <div class="navy-line"></div>
                 <h1>Talks</h1>
             </div>
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-10 col-lg-offset-1">
                 <ul class="talk-list">
                     {% for talk in site.data.talks %}
-                    <li>
+                    <li class="list-unstyled">
                         <div>
                             <span class="date">{{talk.date}}</span>
                             <span class="title">{{talk.topic}}</span>
                         </div>
                         <div class="line-two bottom-spaced-xs">
-                            <span class="type {{talk.type}}">{{talk.type}} talk,</span>
-                            <span class="location">{{talk.event}}</span>
+                            <span class="type {{talk.type}}">{{talk.type}} talk</span>
+                            <span class="location pull-right">{{talk.event}}</span>
                         </div>
                     </li>
                     {% endfor %}

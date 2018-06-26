@@ -1,19 +1,90 @@
+
+- topic: 'Coding Practises for the Busy Astronomer'
+  event: 'CAASTRO Retreat'
+  type: 'Academic'
+  date: '2017-11-17'
+
 - topic: 'The Brightest Fireworks in the Universe'
-  event: 'Pint of Science'
+  event: 'Physics in the Pub'
   type: 'Public'
-  date: '2018-01-01'
+  date: '2017-08-15'
 
 - topic: 'Hierachical Bayesian Models for Supernova Cosmology'
-  event: 'University of Cammbridge, Dark Energy Survey'
+  event: 'Lawrence Berkeley National Lab'
   type: 'Academic'
-  date: '2017-01-01'
+  date: '2017-06-22'
 
-- topic: 'The Brightest Fireworks in the Universe'
+- topic: 'Type Ia supernovae: fireworks in space'
   event: 'Pint of Science'
+  type: 'Public'
+  date: '2017-05-15'
+
+- topic: 'Hierachical Bayesian Models for Supernova Cosmology'
+  event: 'University of Cambridge, Dark Energy Survey'
+  type: 'Academic'
+  date: '2016-12-13'
+
+- topic: 'Supernova Cosmology: Now and for future surveys'
+  event: 'University of Southampton & University of Portsmouth'
+  type: 'Academic'
+  date: '2016-12-08'
+
+- topic: 'Introduction to git and code management'
+  event: 'University of Cambridge, Dark Energy Survey'
+  type: 'Academic'
+  date: '2016-12-07'
+
+- topic: 'Hierachical Bayesian Models for Supernova Cosmology'
+  event: 'University of Portsmouth'
+  type: 'Academic'
+  date: '2016-12-06'
+
+- topic: 'Heart of Darkness - the mystery of Black Holes'
+  event: 'CAASTRO Astronomer in Residence'
   type: 'Public'
   date: '2016-01-01'
 
-- topic: 'Hierachical Bayesian Models for Supernova Cosmology'
-  event: 'University of Cammbridge, Dark Energy Survey'
+- topic: 'Sound waves in Space: Wigglez and the BAO'
+  event: 'Swinburne University of Technology'
   type: 'Academic'
-  date: '2015-01-01'
+  date: '2016-11-18'
+
+- topic: 'The future of astronomy'
+  event: 'ThinkInc - An Evening With Lisa Randall'
+  type: 'Public'
+  date: '2016-11-17'
+
+- topic: 'GetLit: Ship it'
+  event: 'Atlassian'
+  type: 'Public'
+  date: '2016-09-09'
+
+- topic: 'Publishing Packages in Python'
+  event: 'University of Queensland'
+  type: 'Academic'
+  date: '2016-08-14'
+
+- topic: 'ChainConsumer: Plots and LaTeX from MCMC chains'
+  event: 'CAASTRO'
+  type: 'Academic'
+  date: '2016-08-07'
+
+- topic: 'Hierachical Bayesian Models for Supernova Cosmology'
+  event: 'Stanford University, Dark Energy Survey'
+  type: 'Academic'
+  date: '2016-05-13'
+
+- topic: 'Globular Clusters in Maffei 1'
+  event: 'Gemini Institute'
+  type: 'Academic'
+  date: '2016-02-10'
+
+- topic: 'Marz - Redshifting software inside your browser'
+  event: 'OzDES workshop'
+  type: 'Academic'
+  date: '2015-11-30'
+
+- topic: 'Analysing the 2D BAO signal in the Wigglez survey'
+  event: 'University of Queensland'
+  type: 'Academic'
+  date: '2015-10-22'
