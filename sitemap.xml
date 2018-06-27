@@ -31,10 +31,4 @@ title : Sitemap
         <priority>0.6</priority>
     </url>
     {% endfor %}
-    {% for page in site.pages %}
-    <url>
-        <loc>{{site.url}}{{ page.url }}</loc>
-        <priority>0.4</priority>
-    </url>
-    {% endfor %}
 </urlset>
