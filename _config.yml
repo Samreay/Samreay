@@ -1,8 +1,8 @@
-title: "Samuel Hinton"
+title: "CosmicCoding"
 baseurl: ""
-url: "https://samreay.github.io"
+url: "http://cosmiccoding.com.au"
 content_path: "static/img/blog"
-img_path: 'https://samreay.github.io/static/img/'
+img_path: 'http://cosmiccoding.com.au/static/img/'
 repository: samreay/samreay.github.io
 github: [metadata]
 
