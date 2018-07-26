@@ -4,7 +4,7 @@ baseurl: ""
 url: "http://cosmiccoding.com.au"
 content_path: "static/img/blog"
 img_path: 'http://cosmiccoding.com.au/static/img/'
-repository: samreay/samreay.github.io
+repository: samreay/samreay
 github: [metadata]
 
 # author
