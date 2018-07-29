@@ -21,7 +21,7 @@ permalink: /podcast/
             </p>
         </div>
     </div>
-    <div class="m-b-xl row podcast-links">
+    <div class="m-b-md row podcast-links">
         <div class="m-b-sm col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-3 wow fadeIn text-center">
             <a href="http://commutingthecosmos.com">
                 <button class="btn btn-block btn-lg btn-home">
@@ -43,6 +43,19 @@ permalink: /podcast/
                 </button>
             </a>
         </div>
+    </div>
+    <div class="row m-b-xl">
+        <div class="col-sm-8 col-sm-offset-2 wow fadeIn text-center">
+            <p class="personal-desc m-t-md" style="margin-bottom: 20px;">
+                If you would like to submit a question or scenario, please send me an email to <a class="email" href="mailto:commutingthecosmos@gmail.com">commutingthecosmos@gmail.com</a> or use the button below.
+            </p>
+            <a href="#myModal" role="button" class="cta" data-toggle="modal" onclick="conf_return()" style="display:inline;">
+                <button class="btn btn-primary fancy-button">Submit a question</button>
+            </a>
+        </div>
+
+        {% include modal2.html %}
+        {% include modal_thanks.html %}
     </div>
 </div>
 

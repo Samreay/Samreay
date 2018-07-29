@@ -8292,3 +8292,7 @@ section.trips .trip {
   font-size: 1.4em;
 }
 
+.email {
+  color: #3385FF;
+  font-style: italic;
+}
