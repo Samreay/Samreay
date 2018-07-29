@@ -73,7 +73,7 @@ permalink: /podcast/
 </div>
 
 
-<script src="http://static.sekandocdn.net/static/feednami/feednami-client-v1.1.js"></script>
+<script src="https://static.sekandocdn.net/static/feednami/feednami-client-v1.1.js"></script>
 
 <script>
     function get_html_from_entry(entry, index, load_order) {
@@ -117,7 +117,7 @@ permalink: /podcast/
                 </div>`;
             return html;
         }
-        const url = 'http://rss.simplecast.com/podcasts/6765/rss';
+        const url = 'https://rss.simplecast.com/podcasts/6765/rss';
         var list = $("#podcast-list");
         feednami.load(url).then(function(data) {
             var entries = data.entries;
