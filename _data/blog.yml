@@ -9,3 +9,6 @@
 
 - name: Blogs
   href: '/blogs/'
+
+- name: Podcast
+  href: '/podcast/'
