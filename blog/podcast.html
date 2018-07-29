@@ -78,14 +78,14 @@ permalink: /podcast/
 <script>
     function get_html_from_entry(entry, index, load_order) {
         var title = entry.title;
-        var desc = entry.summary;
-        var img = entry.image.url;
+        var desc = entry.summary[0].content;
+        var img = entry.image.href;
         img = img.replace(new RegExp("(.*image\/[0-9]*\/)([0-9]*)", "mg"), "\$1thumb_\$2");
         var options = {  year: 'numeric', month: 'short', day: 'numeric' };
-        var date = new Date(entry.pubdate).toLocaleDateString("en-US", options);
+        var date = new Date(entry.date).toLocaleDateString("en-US", options);
         var delay = 100 * load_order + 1000;
-        var url = entry.link;
-        var duration = entry["itunes:duration"]["#"];
+        var url = entry.link[0].href;
+        var duration = entry.duration.content;
         var d = duration.split(":").map(function(x){return parseInt(x)});
         var dd = "";
         if (d[0]) {
@@ -117,14 +117,26 @@ permalink: /podcast/
                 </div>`;
             return html;
         }
-        const url = 'https://rss.simplecast.com/podcasts/6765/rss';
         var list = $("#podcast-list");
-        feednami.load(url).then(function(data) {
-            var entries = data.entries;
+        function handleResponse(response) {
+            var entries = response.query.results.feed.entry;
             for (var i = 0; i < entries.length; i++) {
                 var entry = entries[i];
                 var html = get_html_from_entry(entry, entries.length - i - 1, i);
                 list.append(html);
             }
-        })
+        }
+        function injectScript(url) {
+            var scriptElement = document.createElement('script');
+            scriptElement.setAttribute('type', 'text/javascript');
+            scriptElement.setAttribute('src', url);
+            document.getElementsByTagName('head')[0].appendChild(scriptElement);
+        }
+        //document.location.protocol
+        url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feednormalizer%20where%20url%3D'";
+        url += encodeURIComponent('https://rss.simplecast.com/podcasts/6765/rss');
+        url += "'%20and%20output%3D'atom_1.0'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=handleResponse";
+        injectScript(url);
+
+
     </script>
