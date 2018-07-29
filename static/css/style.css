@@ -8281,8 +8281,14 @@ section.trips .trip {
   background-color: #1ed760;
   color: white;
 }
+.btn-spotify.btn:hover {
+  color: white;
+}
 .btn-itunes {
   background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+.btn-itunes.btn:hover {
   color: white;
 }
 .btn-home {

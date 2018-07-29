@@ -24,21 +24,21 @@ permalink: /podcast/
     <div class="m-b-md row podcast-links">
         <div class="m-b-sm col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-3 wow fadeIn text-center">
             <a href="http://commutingthecosmos.com">
-                <button class="btn btn-block btn-lg btn-home">
+                <button class="btn fancy-button btn-block btn-lg btn-home">
                     <i class="fas fa-home margin-right"></i>Home
                 </button>
             </a>
         </div>
         <div class="m-b-sm col-md-4 col-lg-2 wow fadeIn text-center">
             <a href="https://itunes.apple.com/au/podcast/commuting-the-cosmos/id1417809615">
-                <button class="btn btn-block btn-lg btn-itunes">
+                <button class="btn fancy-button btn-block btn-lg btn-itunes">
                     <i class="fab fa-apple margin-right"></i>iTunes
                 </button>
             </a>
         </div>
         <div class="m-b-sm col-md-3 col-lg-2 wow fadeIn text-center">
             <a href="https://open.spotify.com/show/0TLIjk9XRESeamrUUxHpXF">
-                <button class="btn btn-block btn-lg btn-spotify">
+                <button class="btn fancy-button btn-block btn-lg btn-spotify">
                     <i class="fab fa-spotify margin-right"></i>Spotify
                 </button>
             </a>
@@ -92,11 +92,9 @@ permalink: /podcast/
             dd += d[0] + "h ";
         }
         dd += d[1] + "m " + d[2] + "s";
-        console.log(entry);
         var html = `
             <div id="${name}" class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 m-b-md padding-bottom animated fadeIn">
-                <!--<a href="{{post.url}}">-->
-                <a href="${url}"></a>
+                <a href="${url}">
                 <div class="card card-horizontal" data-wow-delay="${delay}ms">
                 <img class="img img-card img-small" src="${img}">
                 <div class="card-footer block-content">
