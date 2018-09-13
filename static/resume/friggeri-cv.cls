@@ -80,9 +80,9 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
-      \fontsize{40pt}{72pt}\color{header}%
+      \fontsize{32pt}{48pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
     };
     \node [anchor=north] at (name.south) {%
@@ -90,7 +90,7 @@
       \thinfont #3%
     };
   \end{tikzpicture}
-  \vspace{2.5cm}
+  \vspace{1.5cm}
   \vspace{-2\parskip}
 }
 
@@ -149,26 +149,26 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{11.8cm}{%
+  #1&\parbox[t]{14.8cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
 \newcommand{\entryInline}[4]{%
-  #1&\parbox[t]{12.8cm}{%
+  #1&\parbox[t]{14.8cm}{%
     \textbf{#2} \ \ {\addfontfeature{Color=lightgray} #4}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
 \newcommand{\entryInlineSmall}[4]{%
-  #1&\parbox[t]{12.8cm}{%
+  #1&\parbox[t]{14.8cm}{%
     \textbf{#2} %
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
 \newcommand{\entrysmall}[4]{%
-  #1&\parbox[t]{11.8cm}{%
+  #1&\parbox[t]{14.8cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
@@ -185,7 +185,7 @@
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
   }
-  \begin{textblock}{4}(1.5, 4.33)
+  \begin{textblock}{3}(1.5, 4.33)
   \begin{flushright}
   \obeycr
 }{%
@@ -332,5 +332,5 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=2.1cm,top=2.1cm,right=2.1cm,bottom=1.5cm,nohead,nofoot]{geometry}
 \RequirePackage{hyperref}
