@@ -23,6 +23,7 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{bib_primary.bib} % Specify the bibliography file to include publications
 \addbibresource{bib_secondary.bib} % Specify the bibliography file to include publications
+\addbibresource{bib_draft.bib} % Specify the bibliography file to include publications
 \usepackage{aas_macros}
 
 
@@ -429,7 +430,101 @@ Developed business intelligence reporting solutions, designing and developing se
 %------------------------------------------------
 \end{entrylist}
 
-%\newpage
+
+
+
+
+
+\newpage
+
+\section{Academic Presentations}
+\begin{entrylist}
+	\entryInlineSmall
+	{Nov 2017}
+	{Coding Practises for the Busy Astronomer}
+	{CAASTRO}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Jun 2017}
+	{Hierachical Bayesian Models for Supernova Cosmology}
+	{Lawrence Berkeley National Lab}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Dec 2016}
+	{Introduction to git and code management}
+	{University of Cambridge}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Dec 2016}
+	{Hierachical Bayesian Models for Supernova Cosmology}
+	{University of Southampton}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Dec 2016}
+	{Hierachical Bayesian Models for Supernova Cosmology}
+	{University of Portsmouth}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Nov 2016}
+	{Sound waves in Space: Wigglez and the BAO}
+	{Swinburne University of Technology}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Aug 2016}
+	{Publishing Packages in Python}
+	{University of Queensland}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Aug 2016}
+	{ChainConsumer: Plots and LaTeX from MCMC chains}
+	{CAASTRO}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{May 2016}
+	{Hieracrhical Bayesian Models for Supernova Cosmology}
+	{Standford University, Dark Energy Survey}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Feb 2016}
+	{Detecting Globular Clusters in Maffei 1}
+	{Gemini Institute}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
+	{Nov 2015}
+	{Marz - Redshifting software inside your browser}
+	{OzDES Workshop}
+	{}
+\end{entrylist}
+
+
+
+
+
+
+
+
+
+
 
 \section{Publications}
 
@@ -440,10 +535,14 @@ Developed business intelligence reporting solutions, designing and developing se
 \end{refsection}
 \vspace{5mm}
 \begin{refsection}
-    \nocite{*}
-    \printbibliography[heading=none, keyword={secondary}]
+	\nocite{*}
+	\printbibliography[heading=none, keyword={secondary}]
 \end{refsection}
-
+\vspace{5mm}
+\begin{refsection}
+	\nocite{*}
+	\printbibliography[heading=none, keyword={draft}]
+\end{refsection}
 
 %\printbibsection{article}{Articles}{primary} % Print all articles from the bibliography
 %\printbibsection{article}{Articles}{secondary}
