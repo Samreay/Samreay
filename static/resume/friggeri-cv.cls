@@ -80,7 +80,7 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=2.6cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
       \fontsize{32pt}{48pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
@@ -149,26 +149,26 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{14.8cm}{%
+  #1&\parbox[t]{15.3cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
 \newcommand{\entryInline}[4]{%
-  #1&\parbox[t]{14.8cm}{%
+  #1&\parbox[t]{15.3cm}{%
     \textbf{#2} \ \ {\addfontfeature{Color=lightgray} #4}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
 \newcommand{\entryInlineSmall}[4]{%
-  #1&\parbox[t]{14.8cm}{%
+  #1&\parbox[t]{15.3cm}{%
     \textbf{#2} %
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
 \newcommand{\entrysmall}[4]{%
-  #1&\parbox[t]{14.8cm}{%
+  #1&\parbox[t]{15.3cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
@@ -221,8 +221,8 @@
     \printfield{pages}%
     \newunit%
     \printlist{publisher}%
-    \setunit*{\addcomma\space}%
-    \printfield{year}%
+    %\setunit*{\addcomma\space}%
+    %\printfield{year}%
     %\newunit%
   }
   \par%
@@ -332,5 +332,5 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=2.1cm,top=2.1cm,right=2.1cm,bottom=1.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=2.1cm,top=1.5cm,right=2.1cm,bottom=1.5cm,nohead,nofoot]{geometry}
 \RequirePackage{hyperref}
