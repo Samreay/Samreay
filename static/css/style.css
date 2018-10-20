@@ -8077,13 +8077,13 @@ section.trips .trip {
   margin: 0.5em 0;
 }
 .topic .card {
-  height: 14vh;
+  height: 10vh;
   text-align: center;
   background-color: #f4fcff;
 }
 .topic .card h1 {
   color: #222222;
-  line-height: 8vh;
+  line-height: 6vh;
   font-size: 2em;
   margin-bottom: 0;
   font-weight: 500;
