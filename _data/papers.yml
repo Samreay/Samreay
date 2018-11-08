@@ -1,3 +1,67 @@
+- title: 'First Cosmology Results using Type Ia Supernovae from the Dark Energy Survey: Constraints on Cosmological Parameters'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181102374A'
+  authors: 'DES Collaboration <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: True
+
+- title: 'Cosmological Constraints from Multiple Probes in the Dark Energy Survey'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181102375D'
+  authors: 'DES Collaboration <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: True
+
+- title: 'First Cosmological Results using Type Ia Supernovae from the Dark Energy Survey: Measurement of the Hubble Constant'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181102376M'
+  authors: 'E. Macaulay <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: False
+
+- title: 'First Cosmology Results Using Type Ia Supernovae From the Dark Energy Survey: Analysis, Systematic Uncertainties, and Validation'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181102377B'
+  authors: 'D. Brout <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: True
+
+- title: 'First Cosmology Results Using Type Ia Supernovae From the Dark Energy Survey: Photometric Pipeline and Light Curve Data Release'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181102378B'
+  authors: 'D. Brout <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: False
+
+- title: 'First Cosmology Results using Type Ia Supernova from the Dark Energy Survey: Simulations to Correct Supernova Distance Biases'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181102379K'
+  authors: 'R. Kessler <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: False
+
+- title: 'First cosmology results using type Ia supernovae from the dark energy survey: Effects of chromatic corrections to supernova photometry on measurements of cosmological parameters'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181102380L'
+  authors: 'J. Lasker <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: False
+
+- title: 'Steve: A hierarchical Bayesian model for Supernova Cosmology'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181102381H'
+  authors: 'S. R. Hinton <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: True
+
 - title: 'Rapidly evolving transients in the Dark Energy Survey'
   url: 'http://adsabs.harvard.edu/abs/2018arXiv180304869P'
   authors: 'M. Pursiainen <em>et. al.</em>'
