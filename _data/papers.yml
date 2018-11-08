@@ -62,6 +62,30 @@
   month: "November"
   highlight: True
 
+- title: 'DES Science Portal: I - Computing Photometric Redshifts'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170805643G'
+  authors: 'J. Gschwend <em>et. al.</em>'
+  journal: "Astronomy and Computing"
+  year: "2018"
+  month: "October"
+  highlight: False
+
+- title: 'Dark Energy Survey Year 1 Results: Galaxy clustering for combined probes'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170801536E'
+  authors: 'J. Elvin-Poole <em>et. al.</em>'
+  journal: "Phys. Rev. D"
+  year: "2018"
+  month: "August"
+  highlight: False
+
+- title: 'Dark Energy Survey Year 1 Results: Redshift distributions of the weak lensing source galaxies'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170801532H'
+  authors: 'B. Hoyle <em>et. al.</em>'
+  journal: "MNRAS"
+  year: "2018"
+  month: "April"
+  highlight: False
+
 - title: 'Rapidly evolving transients in the Dark Energy Survey'
   url: 'http://adsabs.harvard.edu/abs/2018arXiv180304869P'
   authors: 'M. Pursiainen <em>et. al.</em>'
@@ -78,6 +102,14 @@
   month: "March"
   highlight: False
 
+- title: 'Dark Energy Survey Year 1 Results: Cross-Correlation Redshifts - Methods and Systematics Characterization'
+  url: 'http://adsabs.harvard.edu/abs/2017arXiv170900992G'
+  authors: 'M. Gatti <em>et. al.</em>'
+  journal: "MNRAS"
+  year: "2018"
+  month: "February"
+  highlight: False
+
 - title: 'The Dark Energy Survey Data Release 1'
   url: 'http://adsabs.harvard.edu/abs/2018arXiv180103181A'
   authors: 'T. M. C. Abbott <em>et. al.</em>'
@@ -87,51 +119,20 @@
   highlight: True
 
 - title: 'OzDES multifibre spectroscopy for the Dark Energy Survey: 3-yr results and first data release'
-  url: 'http://dx.doi.org/10.1093/mnras/stx1872'
+  url: 'http://adsabs.harvard.edu/abs/2017MNRAS.472..273C'
   authors: 'M. J. Childress <em>et. al.</em>'
   journal: "MNRAS"
   year: "2017"
   month: "November"
   highlight: False
 
-- title: 'Dark Energy Survey Year 1 Results: Cross-Correlation Redshifts - Methods and Systematics Characterization'
-  url: 'http://adsabs.harvard.edu/abs/2017arXiv170900992G'
-  authors: 'M. Gatti <em>et. al.</em>'
-  journal: "MNRAS"
-  year: "2017"
-  month: "September"
-  highlight: False
 
 - title: 'The Taipan Galaxy Survey: Scientific Goals and Observing Strategy'
-  url: 'http://dx.doi.org/10.1017/pasa.2017.41'
+  url: 'http://adsabs.harvard.edu/abs/2017PASA...34...47D'
   authors: 'E. da Cunha <em>et. al.</em>'
   journal: "PASA"
   year: "2017"
   month: "October"
-  highlight: False
-
-- title: 'DES Science Portal: I - Computing Photometric Redshifts'
-  url: 'http://adsabs.harvard.edu/abs/2017arXiv170805643G'
-  authors: 'J. Gschwend <em>et. al.</em>'
-  journal: "arXiv"
-  year: "2017"
-  month: "August"
-  highlight: False
-
-- title: 'Dark Energy Survey Year 1 Results: Galaxy clustering for combined probes'
-  url: 'http://adsabs.harvard.edu/abs/2017arXiv170801536E'
-  authors: 'J. Elvin-Poole <em>et. al.</em>'
-  journal: "arXiv"
-  year: "2017"
-  month: "August"
-  highlight: False
-
-- title: 'Dark Energy Survey Year 1 Results: Redshift distributions of the weak lensing source galaxies'
-  url: 'http://adsabs.harvard.edu/abs/2017arXiv170801532H'
-  authors: 'B. Hoyle <em>et. al.</em>'
-  journal: "arXiv"
-  year: "2017"
-  month: "August"
   highlight: False
 
 - title: 'Dark Energy Survey Year 1 Results: Cosmological Constraints from Galaxy Clustering and Weak Lensing'
