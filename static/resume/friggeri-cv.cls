@@ -207,15 +207,14 @@
 \DeclareFieldFormat[misc]{title}{#1\par}
 \DeclareFieldFormat[report]{title}{#1\par}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareBibliographyDriver{article}{%
   \printfield{title}%
   \newblock%
   \printnames{author}%
-  \par%
-  \newblock%
+  \space\space\space
   {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \addfontfeature{Color=lightgray}\itshape%
     \usebibmacro{journal+issuetitle}%
     \setunit{\space}%
     \printfield{pages}%
@@ -232,9 +231,9 @@
     \printfield{note}%
     \newunit%
   }
-  \par\vspace{0.3\baselineskip}
+  \par\vspace{0.6\baselineskip}
 }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareBibliographyDriver{book}{%
   \printfield{title}%
   \newblock%
