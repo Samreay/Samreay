@@ -62,6 +62,22 @@
   month: "November"
   highlight: True
 
+- title: 'First Cosmology Results Using Type Ia Supernovae From the Dark Energy Survey: Survey Overview and Supernova Spectroscopy'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181109565D'
+  authors: "C. D'Andrea <em>et. al.</em>"
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: False
+
+- title: 'Quasar Accretion Disk Sizes from Continuum Reverberation Mapping in the DES Standard Star Fields'
+  url: 'http://adsabs.harvard.edu/abs/2018arXiv181103638Y'
+  authors: Z. Yu <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2018"
+  month: "November"
+  highlight: False
+
 - title: 'DES Science Portal: I - Computing Photometric Redshifts'
   url: 'http://adsabs.harvard.edu/abs/2017arXiv170805643G'
   authors: 'J. Gschwend <em>et. al.</em>'
