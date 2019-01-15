@@ -130,11 +130,19 @@ permalink: /podcast/
             scriptElement.setAttribute('src', url);
             document.getElementsByTagName('head')[0].appendChild(scriptElement);
         }
-        //document.location.protocol
-        url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feednormalizer%20where%20url%3D'";
-        url += encodeURIComponent('https://rss.simplecast.com/podcasts/6765/rss');
-        url += "'%20and%20output%3D'atom_1.0'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=handleResponse";
-        injectScript(url);
+        $.get('https://rss.simplecast.com/podcasts/6765/rss', function (data) {
+            console.log(data);
+            $(data).find("entry").each(function () { // or "item" or whatever suits your feed
+                var el = $(this);
+
+                console.log("------------------------");
+                console.log("title      : " + el.find("title").text());
+                console.log("author     : " + el.find("author").text());
+                console.log("description: " + el.find("description").text());
+            });
+        });
+
+        //injectScript(url);
 
 
     </script>
