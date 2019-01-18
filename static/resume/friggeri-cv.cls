@@ -20,6 +20,7 @@
 \definecolor{darkgray}{HTML}{333333}
 \definecolor{gray}{HTML}{444444}
 \definecolor{lightgray}{HTML}{777777}
+\definecolor{lightergray}{HTML}{EEEEEE}
 %%
 %%\definecolor{green}{HTML}{1E63D4} %C2E15F
 %%\definecolor{orange}{HTML}{1E63D4} %FDA333
@@ -40,11 +41,11 @@
   \colorlet{brown}{gray}
   \colorlet{red}{gray}
   \colorlet{blue}{gray}
-  \colorlet{fillheader}{white}
+  \colorlet{fillheader}{lightergray}
   \colorlet{header}{gray}
 \else
-  \colorlet{fillheader}{gray}
-  \colorlet{header}{white}
+  \colorlet{fillheader}{lightergray}
+  \colorlet{header}{gray}
 \fi
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{gray}
@@ -80,7 +81,7 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=2.9cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3.2cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
       \fontsize{32pt}{48pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
@@ -91,7 +92,6 @@
     };
   \end{tikzpicture}
   \vspace{1.5cm}
-  \vspace{-2\parskip}
 }
 
 
