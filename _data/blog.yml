@@ -7,8 +7,8 @@
 - name: Papers
   href: '/papers/'
 
-- name: Blogs
-  href: '/blogs/'
-
 - name: Podcast
   href: '/podcast/'
+
+- name: Blogs
+  href: '/blogs/'
