@@ -1,3 +1,11 @@
+- title: 'CIV Black Hole Mass Measurements with the Australian Dark Energy Survey (OzDES)'
+  url: 'http://adsabs.harvard.edu/abs/2019arXiv190204206H'
+  authors: 'Hoorman, J. K. <em>et. al.</em>'
+  journal: "arXiv"
+  year: "2019"
+  month: "February"
+  highlight: False
+
 - title: 'First Cosmology Results using Type Ia Supernovae from the Dark Energy Survey: Constraints on Cosmological Parameters'
   url: 'http://adsabs.harvard.edu/abs/2018arXiv181102374A'
   authors: 'DES Collaboration <em>et. al.</em>'
@@ -84,6 +92,14 @@
   journal: "Astronomy and Computing"
   year: "2018"
   month: "October"
+  highlight: False
+
+- title: 'Quasar Accretion Disk Sizes from Continuum Reverberation Mapping from the Dark Energy Survey'
+  url: 'http://adsabs.harvard.edu/abs/2018ApJ...862..123M'
+  authors: 'Mudd, D. <em>et. al.</em>'
+  journal: "ApJ"
+  year: "2018"
+  month: "August"
   highlight: False
 
 - title: 'Dark Energy Survey Year 1 Results: Galaxy clustering for combined probes'
