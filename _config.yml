@@ -29,10 +29,10 @@ sections:
     tpl: 'academia.html'
     css: 'academia'
 
-  - id: 'cta'
-    name: 'Talks'
-    tpl: 'cta.html'
-    css: 'cta'
+#  - id: 'cta'
+#    name: 'Talks'
+#    tpl: 'cta.html'
+#    css: 'cta'
 
   - id: 'personal'
     name: 'Personal'
