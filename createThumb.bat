@@ -8,7 +8,7 @@ set img=%2
 if not defined img set img="main.jpg"
 echo %img%
 for /R %%U in (*.png) do echo %%U && magick mogrify -resize "1000>" -sampling-factor 4:2:0 -interlace Plane -transparent white -alpha remove -path .. -strip -quality 80 -format jpg %%U
-for /R %%U in (*.png) do echo %%U && magick mogrify -resize "1000>" -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 50 -format png %%U
+for /R %%U in (*.png) do echo %%U && magick mogrify -resize "1000>" -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 95 -format png %%U
 for /R %%U in (*.jpg) do echo %%U && magick mogrify -resize "1000>" -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 80 -format jpg %%U
 cd ..
 rmdir thumbs

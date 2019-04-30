@@ -7794,6 +7794,13 @@ section.trips .trip {
   box-shadow: 0 0 10px 0px #757575;
 }
 
+.img-reduced, .img-vertical {
+  margin-left: 15%;
+  margin-right: 15%;
+  max-width: 70%;
+  width: 70%;
+}
+
 .img[data-src] {
   filter: blur(10px);
 }
