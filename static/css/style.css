@@ -7702,6 +7702,7 @@ section.trips .trip {
 
 .markdown.carousel {
   margin-top: 50px;
+  margin-bottom: 30px;
 }
 .markdown.carousel .carousel-caption2 {
   position: absolute;
@@ -7791,7 +7792,7 @@ section.trips .trip {
   margin-left: -10%;
   max-width: 120%;
   width: 120%;
-  box-shadow: 0 0 10px 0px #757575;
+  box-shadow: 0 0 10px 0px #c6c6c6;
 }
 
 .img-reduced, .img-vertical {
