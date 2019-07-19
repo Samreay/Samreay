@@ -57,13 +57,13 @@
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX]{unicode-math}
 
-\newfontfamily\bodyfont[]{Helvetica}
-\newfontfamily\thinfont[]{Helvetica Light}
-\newfontfamily\headingfont[]{Helvetica Bold}
+\newfontfamily\bodyfont[]{Open Sans}
+\newfontfamily\thinfont[]{Open Sans Light}
+\newfontfamily\headingfont[]{Open Sans Bold}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmathfont{latinmodern-math.otf}
-\setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Light}
+\setmainfont[Mapping=tex-text, Color=textcolor]{Open Sans Light}
 
 %\setmathfont{XITS Math}
 
