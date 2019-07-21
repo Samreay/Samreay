@@ -9,7 +9,8 @@ loc: 'blog/siefberlin/'
 ---
 
 After the Lindau Nobel Laureate Meeting all the Australian delegates packed up shop,
-jumped on a train and headed to Berlin. It was time for our industry tour.
+jumped on a train and headed to Berlin. It was time for our industry tour, [courtesy of the
+Science and Industry Endowment Fund in Australia](https://sief.org.au/csiro-gift/promotion-of-science/).
 
 There's one main takeaway here, its that actually providing proper funding to research has some amazing benefits.
 
