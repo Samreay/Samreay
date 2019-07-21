@@ -7998,8 +7998,12 @@ section.trips .trip {
 }
 
 .primary-content {
-  position: relative;
-
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80px;
+  bottom: 0;
+  background: #f6f6f6;
 }
 
 .intro {

@@ -33,11 +33,10 @@ sections:
 #    name: 'Talks'
 #    tpl: 'cta.html'
 #    css: 'cta'
-
-  - id: 'personal'
-    name: 'Personal'
-    tpl: 'personal.html'
-    css: 'personal'
+#  - id: 'personal'
+#    name: 'Personal'
+#    tpl: 'personal.html'
+#    css: 'personal'
 
 
 #disqus:
