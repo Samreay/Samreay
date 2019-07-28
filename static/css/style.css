@@ -5374,6 +5374,11 @@ dd.project-people {
   font-size: 16px;
   line-height: 1.6em;
 }
+.MathJax_Display {
+  font-size: 20px;
+  line-height: 1.6em;
+}
+
 .article p {
   margin: 0 0 1.6em;
   text-align: justify;
