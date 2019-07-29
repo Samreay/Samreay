@@ -35,6 +35,7 @@ with open(md_file, 'r') as fin:
 
 main_img = None
 img_index = None
+removing = False
 for i, l in enumerate(data):
     if l.startswith("!!!replace"):
         name2 = name.replace('\\', '/')
@@ -51,7 +52,17 @@ for i, l in enumerate(data):
         data[img_index] = data[img_index].replace(loc, "main.png")
         print(f"Found main image {loc}")
         data[i] = ""
-
+    if l.startswith("# Remove"):
+        print("Found a code block to remove")
+        data[i - 1] = ""
+        removing = True
+    if "RuntimeWarning" in l:
+        data[i] = ""
+        data[i + 1] = ""
+    if removing:
+        if l.startswith("```"):
+            removing = False
+        data[i] = ""
 with open(md_file, 'w') as fout:
     fout.writelines(data)
 
@@ -60,7 +71,7 @@ if main_img is None:
     print("WAT NO MAIN IMAGE FOUND, ADD A MARKDOWN '!!!main' after the image you want as the thumbnail")
 else:
     print(f"Main image is found as {main_img}")
-    shutil.move(os.path.join(desired_img_dir, loc), os.path.join(desired_img_dir, "main.png"))
+    shutil.move(os.path.join(desired_img_dir, main_img), os.path.join(desired_img_dir, "main.png"))
 
 # Process images
 print("Processing images")
