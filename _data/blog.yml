@@ -15,3 +15,6 @@
 
 - name: Blog
   href: '/blogs/'
+
+- name: Tutorials
+  href: '/tutorials/'

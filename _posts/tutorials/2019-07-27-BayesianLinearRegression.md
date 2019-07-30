@@ -3,9 +3,9 @@ layout: post
 title:  "Bayesian Linear Regression in Python"
 desc: "A tutorial from creating data to plotting confidence intervals."
 date: 2019-07-27
-categories: [blog]
-tags: [tutorial]
-loc: 'blog/bayesianlinearregression/'
+categories: [tutorial]
+tags: [bayesian]
+loc: 'tutorials/bayesianlinearregression/'
 math: true
 ---
 

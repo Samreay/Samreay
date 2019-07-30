@@ -8221,26 +8221,26 @@ section.trips .trip {
   margin: 0;
   font-size: 1em;
 }
-.card .card-tag p.science {
+.card .card-tag p.science, .card .card-tag p.plotting {
   background-color: #d1ffd9;
 }
-.card .card-tag p.hardware {
+.card .card-tag p.hardware, .card .card-tag p.environment {
   background-color: #ffc7c7;
 }
 .card .card-tag p.travel {
   background-color: #e0ccff;
 }
-.card .card-tag p.creative {
+.card .card-tag p.creative, .card .card-tag p.bayesian {
   background-color: #c3f1ff;
 }
 .card .card-tag p.tutorial {
   background-color: #fffac9;
 }
-.blog-nav .nav-tabs.nav-justified > li.science > a {
+.blog-nav .nav-tabs.nav-justified > li.science > a, .blog-nav .nav-tabs.nav-justified > li.plotting > a {
   border-color: #b9f6ca  ;
   /*border-color: #d1ffd9;*/
 }
-.blog-nav .nav-tabs.nav-justified > li.hardware > a {
+.blog-nav .nav-tabs.nav-justified > li.hardware > a, .blog-nav .nav-tabs.nav-justified > li.environment > a {
   border-color: #ff8a80   ;
   /*border-color: #ffc7c7;*/
 }
@@ -8248,7 +8248,7 @@ section.trips .trip {
   border-color: #b388ff   ;
   /*border-color: #e0ccff;*/
 }
-.blog-nav .nav-tabs.nav-justified > li.creative > a {
+.blog-nav .nav-tabs.nav-justified > li.creative > a, .blog-nav .nav-tabs.nav-justified > li.bayesian > a {
   border-color: #82b1ff  ;
   /*border-color: #c3f1ff;*/
 }
