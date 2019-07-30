@@ -5390,6 +5390,9 @@ dd.project-people {
   margin: 0 0 1.6em;
   text-align: justify;
 }
+.article :not(.language-python) > pre.highlight {
+  margin-top: -15px;
+}
 .article pre {
   margin: 0 0 20px;
   font-size: 16px;

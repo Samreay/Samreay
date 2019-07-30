@@ -28,12 +28,12 @@ err = np.sqrt(ys)
 ys += err * np.random.normal(size=num_points)
 ```
 
-
+Now, let's plot our generated data to make sure it all looks good.
 
 
 ```python
 fig, ax = plt.subplots(figsize=(8,3))
-ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", c="#2196F3")
+ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", ms=5)
 ax.legend(frameon=False, loc=2)
 ax.set_xlabel("x")
 ax.set_ylabel("y");
@@ -49,11 +49,6 @@ So, let's recall Bayes' theorem for a second:
 $$ P(\theta | d) \propto P(d|\theta)P(\theta), $$
 
 where $\theta$ is our model parametrisation and $d$ is our data. To sub in nomenclature, our posterior is proportional to our likelihood multiplied by our prior. So, we need to come up with a model to describe data, which one would think is fairly straightforward, given we just coded a model to *generate* our data. But before we jump the gun and code up $y = mx + c$, let us also consider the model $y = \tan(\phi) x + c$. Why would we care about whether we use a gradient or an angle? Well, it comes down to simplifying our prior - in our case with no background knowledge we'd want to sample all of our parameter space with the same probability. But what happens if we plot uniform probability in the two separate models?
-
-
-
-
-{% include image.html url="2019-07-27-BayesianLinearRegression_5_0.png"  %}
 
 Now it seems to me that uniformly sampling the angle, rather than the gradient, gives us an even distribution of coverage over our observational space.
 
@@ -140,14 +135,15 @@ Let's check the state of the burn in removal:
 
 
 ```python
+from chainconsumer import ChainConsumer
 c = ChainConsumer()
 c.add_chain(flat_chain, parameters=[r"$\phi$", "$c$"], color="b")
 c.add_chain(sampler.chain.reshape((-1, ndim)), color="r")
-c.plotter.plot_walks(truth=[np.pi/4, -1], figsize=(10,4));
+c.plotter.plot_walks(truth=[np.pi/4, -1], figsize=(8,4));
 ```
 
 
-{% include image.html url="2019-07-27-BayesianLinearRegression_15_0.png"  %}
+{% include image.html url="2019-07-27-BayesianLinearRegression_14_0.png"  %}
 
 So here we can see the walks plotted, also known as a trace plot. The blue contains all the samples from the chain we removed the burn in from, and the red doesn't have it removed. Notice all the little ticks in $\phi$ and $c$ - thats the random position of each walker (there will be fifty ticks, one for each walker) as they quickly converge to the right area of parameter space. The fact we don't see this in the blue means we've probably removed all burn in. There are diagnostics to check this in `ChainConsumer` too, but its not needed for this simple example.
 
@@ -155,8 +151,6 @@ Up next - let's get actual parameter constraints from this!
 
 
 ```python
-from chainconsumer import ChainConsumer
-
 c = ChainConsumer()
 c.add_chain(flat_chain, parameters=[r"$\phi$", "$c$"])
 c.configure(contour_labels="confidence")
@@ -166,14 +160,14 @@ for key, value in summary.items():
     print(key, " ", value)
 ```
 
-    $\phi$   [0.6811466283618266, 0.72069538122611, 0.7649793136070276]
-    $c$   [-0.7570833579247778, -0.2655500709177505, 0.18198132795109334]
+    $\phi$   [0.7790342803201921, 0.8196328080383966, 0.851012206049082]
+    $c$   [-1.5984878536180744, -1.1973686828716112, -0.6860708557827717]
     
 
     
 
 
-{% include image.html url="2019-07-27-BayesianLinearRegression_17_2.png"  %}
+{% include image.html url="2019-07-27-BayesianLinearRegression_16_2.png"  %}
 
 So how do we read this? Well, if you look at the summary printed, that gives the bounds for the lower uncertainty, maximum value, and upper uncertainty respectively (uncertainty being the 68% confidence levels). In the actual plot, you can see a 2D surface which represents our posterior. For example, the inner circle, labelled 68%, says that 68% of the time the true value for $\phi$ and $c$ will lie in that contour. 95% of the time it will lie in the broader contour. 
 
@@ -193,9 +187,9 @@ realisations = np.tan(flat_chain[:, 0][:, None]) * x_vals + flat_chain[:, 1][:, 
 bounds = np.percentile(realisations, 100 * norm.cdf([-2, 2]), axis=0)
 
 # Plot everything
-fig, ax = plt.subplots(figsize=(10,4))
-ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", c="#2196F3", alpha=0.4)
-ax.plot(x_vals, best_fit, label="Best Fit", c="#4CAF50", lw=2)
+fig, ax = plt.subplots()
+ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", alpha=0.4)
+ax.plot(x_vals, best_fit, label="Best Fit", lw=2)
 ax.plot(x_vals, x_vals - 1, label="Truth", c="k", ls=":", lw=1)
 plt.fill_between(x_vals, bounds[0, :], bounds[1, :], 
                  label="95\% uncertainty", fc="#8BC34A", alpha=0.4)
@@ -217,3 +211,80 @@ And that's it, those are the basics.
 2. Create a sampler and sample your parameter space
 3. Determine parameter constraints from your samples.
 4. Plot everything.
+
+Putting all the code in one place for convenience:
+
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+import emcee
+from scipy.stats import norm
+
+# Define data
+num_points = 100
+m, c = np.tan(np.pi / 4), -1
+xs = np.random.uniform(size=num_points) * 10 + 2
+ys = m * xs + c
+err = np.sqrt(ys)
+ys += err * np.random.normal(size=num_points)
+
+def log_prior(xs):
+    phi, c = xs
+    if np.abs(phi) > np.pi / 2:
+        return -np.inf
+    return 0
+
+def log_likelihood(xs, data):
+    phi, c = xs
+    xobs, yobs, eobs = data
+    model = np.tan(phi) * xobs + c
+    diff = model - yobs
+    return norm.logpdf(diff / eobs).sum()
+
+def log_posterior(xs, data):
+    prior = log_prior(xs)
+    if not np.isfinite(prior):
+        return prior
+    return prior + log_likelihood(xs, data)
+
+# Sample model
+ndim = 2  # How many parameters we are fitting
+nwalkers = 50  # Keep this well above your dimensionality.
+p0 = np.random.uniform(low=-1.5, high=1.5, size=(nwalkers, ndim))  # Start points
+sampler = emcee.EnsembleSampler(nwalkers, ndim, log_posterior, args=[(xs, ys, err)])
+state = sampler.run_mcmc(p0, 3000)  # Tell each walker to take 2000 steps
+chain = sampler.chain[:, 100:, :]  # Throw out the first hundred steps
+flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker 
+
+# Plot parameter constraints
+c = ChainConsumer()
+c.add_chain(flat_chain, parameters=[r"$\phi$", "$c$"])
+c.configure(contour_labels="confidence")
+c.plotter.plot(truth=[np.pi/4, -1], figsize=2.0)
+summary = c.analysis.get_summary()
+for key, value in summary.items():
+    print(key, " ", value)
+    
+# Map back onto observational space for visualisation
+x_vals = np.linspace(xs.min(), xs.max(), 20)
+# Calculate best fit
+phi_best = summary[r"$\phi$"][1]
+c_best = summary[r"$c$"][1]
+best_fit = np.tan(phi_best) * x_vals + c_best
+
+# Calculate range our uncertainty gives using 2D matrix multplication
+realisations = np.tan(flat_chain[:, 0][:, None]) * x_vals + flat_chain[:, 1][:, None]
+bounds = np.percentile(realisations, 100 * norm.cdf([-2, 2]), axis=0)
+
+# Plot everything
+fig, ax = plt.subplots()
+ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", alpha=0.4)
+ax.plot(x_vals, best_fit, label="Best Fit", lw=2)
+ax.plot(x_vals, x_vals - 1, label="Truth", c="k", ls=":", lw=1)
+plt.fill_between(x_vals, bounds[0, :], bounds[1, :], 
+                 label="95\% uncertainty", fc="#8BC34A", alpha=0.4)
+ax.legend(frameon=False, loc=2)
+ax.set_xlabel("x")
+ax.set_ylabel("y");
+```

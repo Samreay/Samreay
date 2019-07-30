@@ -13,7 +13,7 @@ print(f"Short name is {short_name}")
 
 basedir = f"_posts/blog/"
 print("Calling convert")
-subprocess.run(f"jupyter nbconvert {name} --to markdown --output-dir {basedir}", check=True)
+subprocess.run(f"jupyter nbconvert {name} --to markdown --output-dir {basedir} --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags=\"['remove']\"", check=True)
 
 
 print("Moving images around")
