@@ -207,6 +207,12 @@ textarea{overflow:auto;}
 .highlight .vi { color: #003333 } /* Name.Variable.Instance */
 .highlight .il { color: #FF6600 } /* Literal.Number.Integer.Long */
 
+pre.highlight {
+  font-family: "Source Code Pro", "Consolas", "monospace";
+  color: #444;
+  border: none;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.18)
+}
 
 
 

@@ -50,6 +50,9 @@ $$ P(\theta | d) \propto P(d|\theta)P(\theta), $$
 
 where $\theta$ is our model parametrisation and $d$ is our data. To sub in nomenclature, our posterior is proportional to our likelihood multiplied by our prior. So, we need to come up with a model to describe data, which one would think is fairly straightforward, given we just coded a model to *generate* our data. But before we jump the gun and code up $y = mx + c$, let us also consider the model $y = \tan(\phi) x + c$. Why would we care about whether we use a gradient or an angle? Well, it comes down to simplifying our prior - in our case with no background knowledge we'd want to sample all of our parameter space with the same probability. But what happens if we plot uniform probability in the two separate models?
 
+
+{% include image.html url="2019-07-27-BayesianLinearRegression_5_0.png"  %}
+
 Now it seems to me that uniformly sampling the angle, rather than the gradient, gives us an even distribution of coverage over our observational space.
 
 So, if we lock in that model, we have two parameters of interest: $\theta = \lbrace \phi, c \rbrace$. Next up, we should think about the priors on those two parameters. Luckily, with the little investigation we did before, we can comfortably set flat (uniform) priors on both $\phi$ and $c$ and they will be non-informative. Aka, they will not contribute at all to our fitting locations. Note that we could have pursued the model parametrised by gradient, and simply given a non-uniform prior, but this way is easier. More formally, we have that:
@@ -143,7 +146,7 @@ c.plotter.plot_walks(truth=[np.pi/4, -1], figsize=(8,4));
 ```
 
 
-{% include image.html url="2019-07-27-BayesianLinearRegression_14_0.png"  %}
+{% include image.html url="2019-07-27-BayesianLinearRegression_15_0.png"  %}
 
 So here we can see the walks plotted, also known as a trace plot. The blue contains all the samples from the chain we removed the burn in from, and the red doesn't have it removed. Notice all the little ticks in $\phi$ and $c$ - thats the random position of each walker (there will be fifty ticks, one for each walker) as they quickly converge to the right area of parameter space. The fact we don't see this in the blue means we've probably removed all burn in. There are diagnostics to check this in `ChainConsumer` too, but its not needed for this simple example.
 
@@ -167,7 +170,7 @@ for key, value in summary.items():
     
 
 
-{% include image.html url="2019-07-27-BayesianLinearRegression_16_2.png"  %}
+{% include image.html url="2019-07-27-BayesianLinearRegression_17_2.png"  %}
 
 So how do we read this? Well, if you look at the summary printed, that gives the bounds for the lower uncertainty, maximum value, and upper uncertainty respectively (uncertainty being the 68% confidence levels). In the actual plot, you can see a 2D surface which represents our posterior. For example, the inner circle, labelled 68%, says that 68% of the time the true value for $\phi$ and $c$ will lie in that contour. 95% of the time it will lie in the broader contour. 
 
