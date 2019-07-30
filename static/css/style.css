@@ -6835,7 +6835,7 @@ body.landing-page {
 .landing-page .navy-line {
   width: 60px;
   height: 1px;
-  margin: 50px auto 0;
+  margin: 30px auto 0;
   border-bottom: 2px solid #3385FF;
 }
 .landing-page .navbar-wrapper {
@@ -8027,7 +8027,7 @@ section.trips .trip {
 }
 
 .academia-links {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .box-img h1, .box-img2 h1 {
   font-size: 3em;
