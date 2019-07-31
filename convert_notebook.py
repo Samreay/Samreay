@@ -11,13 +11,13 @@ basename = os.path.basename(name).lower().split(".")[0]
 short_name = basename.split("-")[-1]
 print(f"Short name is {short_name}")
 
-basedir = f"_posts/blog/"
+basedir = f"_posts/tutorials/"
 print("Calling convert")
 subprocess.run(f"jupyter nbconvert {name} --to markdown --output-dir {basedir} --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags=\"['remove']\" --TagRemovePreprocessor.remove_input_tags=\"['remove_input']\"  --TagRemovePreprocessor.remove_all_outputs_tags=\"['remove_output']\"", check=True)
 
 
 print("Moving images around")
-img_dir = f"static/img/blog/{short_name}"
+img_dir = f"static/img/tutorials/{short_name}"
 if os.path.exists(img_dir):
     print("Removing images")
     shutil.rmtree(img_dir)
@@ -75,8 +75,8 @@ else:
 
 # Process images
 print("Processing images")
-subprocess.run(["createThumb.bat", f"blog/{short_name}"], check=True)
+subprocess.run(["createThumb.bat", f"tutorials/{short_name}"], check=True)
 
 print("Updating thumbs")
-subprocess.run("python crunch.py", check=True)
+subprocess.run("python crunch.py", check=False)
 
