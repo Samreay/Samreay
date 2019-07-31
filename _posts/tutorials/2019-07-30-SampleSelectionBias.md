@@ -15,7 +15,8 @@ In a perfect world our experiments would capture all the data that exists. This 
 Let's begin with a motivational dataset.
 
 
-{% include image.html url="2019-07-30-SampleSelectionBias_1_0.png"  %}
+{% include image.html url="main.png"  %}
+
 
 So it looks like for our example data, we've got some gaussian-like distribution of $x$ observations, but at some point it seems like our instrument is unable to pick up the observations. Maybe its brightness and its too dim! Or maybe something else, who knows! But regardless, we can work with this.
 
@@ -138,8 +139,7 @@ c.plotter.plot(truth=[mu, sigma], figsize=2.0);
     
 
 
-{% include image.html url="main.png"  %}
-
+{% include image.html url="2019-07-30-SampleSelectionBias_9_1.png"  %}
 
 Hopefully you can now see how the correction we applied to the likelihood unbiases its estimations.
 

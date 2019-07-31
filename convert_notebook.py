@@ -75,7 +75,7 @@ else:
 
 # Process images
 print("Processing images")
-subprocess.run(["createThumb.bat", f"tutorials/{short_name}"], check=True)
+subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
 
 print("Updating thumbs")
 subprocess.run("python crunch.py", check=False)
