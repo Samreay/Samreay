@@ -73,7 +73,7 @@ rest = [c for c in code_content if c not in imports]
 imports = sorted(imports)
 
 
-data.append("\nHere's the full code for convenience:\n")
+data.append("\nHere's the full code for convenience:\n\n")
 data.append("```python\n")
 data += imports
 data.append("\n")

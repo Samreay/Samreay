@@ -218,6 +218,7 @@ And that's it, those are the basics.
 4. Plot everything.
 
 Here's the full code for convenience:
+
 ```python
 from chainconsumer import ChainConsumer
 from scipy.stats import norm

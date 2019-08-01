@@ -150,6 +150,7 @@ But one thing that is *correct* about this approach that a lot of other approach
 
 
 Here's the full code for convenience:
+
 ```python
 from chainconsumer import ChainConsumer
 from scipy.special import erfc
