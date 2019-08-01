@@ -210,10 +210,28 @@ textarea{overflow:auto;}
 pre.highlight {
   font-family: "Source Code Pro", "Consolas", "monospace";
   color: #444;
-  border: none;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.18)
-}
+  /*border: none;*/
+  /*box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.18);*/
+  overflow-x: auto;
 
+  font-size: 16px;
+  margin: 0 0 20px;
+  border: none;
+  padding: 10px 20px;
+}
+@media only screen and (max-width: 768px) {
+  pre.highlight {
+    margin: 0 -20px 20px;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+  }
+}
+pre.highlight code {
+  white-space: pre;
+}
 
 
 h1,
@@ -3669,7 +3687,7 @@ video {
   padding: 0 20px;
 }
 .wrapper-content {
-  padding: 20px 10px 40px;
+  padding: 20px 15px 40px;
 }
 #page-wrapper {
   padding: 0 15px;
@@ -3986,7 +4004,8 @@ code {
   border-width: 1px 0;
   max-width: 880px;
   margin: auto;
-  box-shadow: 0 0 20px 0px #cccccc;
+  box-shadow: 0 0 8px 0px #cccccc7a;
+  position: relative;
 }
 .ibox-footer {
   color: inherit;
@@ -5388,10 +5407,16 @@ dd.project-people {
   line-height: 1.6em;
 }
 .mjx-chtml.MJXc-display {
-  font-size: 20px;
   line-height: 1.6em;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-
+@media (min-width: 768px) {
+  .mjx-chtml.MJXc-display {
+    font-size: 20px;
+  }
+}
 .article p {
   margin: 0 0 1.6em;
   text-align: justify;
@@ -5399,16 +5424,21 @@ dd.project-people {
 .article :not(.language-python) > pre.highlight {
   margin-top: -15px;
 }
-.article pre {
-  margin: 0 0 20px;
-  font-size: 16px;
-}
 .article-title {
   text-align: center;
   margin: 30px 0 60px 0;
 }
-.article .ibox-content {
-  padding: 40px;
+
+@media (max-width: 768px) {
+  .article .ibox-content {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+@media (min-width: 1170px) {
+  .article .ibox-content {
+    padding: 40px;
+  }
 }
 /* ISSUE TRACKER */
 .issue-tracker .btn-link {
