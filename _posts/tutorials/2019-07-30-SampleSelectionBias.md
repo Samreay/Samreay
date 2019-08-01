@@ -92,7 +92,6 @@ This is the same code used to generat the plot you saw up the top, just with les
 from scipy.stats import norm
 from scipy.special import erfc
 
-
 def uncorrected_likelihood(xs, data):
     mu, sigma = xs
     if sigma < 0:
@@ -149,19 +148,20 @@ Thinking about the problem in this way allows us to neatly separate out the sele
 
 But one thing that is *correct* about this approach that a lot of other approaches miss (such as adding bias corrections to your data) is that the *correction* is dependent on where you are in parameter space. And this should make sense conceptually - the correction is just answering the question "How efficient are we *in general* given our current model parametrisation". If we've charactered our instrument cannot detect $d < 85$, we expect to lose more events if the population mean is close to $85$ and less events if the population mean is at $200$.
 
-Here's a full code example for convenience:
 
-
+Here's the full code for convenience:
 ```python
 from chainconsumer import ChainConsumer
+from scipy.special import erfc
+from scipy.stats import norm
 import emcee
 import numpy as np
-from scipy.stats import norm
-from scipy.special import erfc
 
+np.random.seed(3)
 mu, sigma, alpha, num_points = 100, 10, 85, 1000
 d_all = np.random.normal(mu, sigma, size=num_points)
 d = d_all[d_all > alpha]
+
 
 def uncorrected_likelihood(xs, data):
     mu, sigma = xs
@@ -192,4 +192,5 @@ for fn, name in zip(functions, names):
     c.add_chain(flat_chain, parameters=["$\mu$", "$\sigma$"], name=name)
 
 c.plotter.plot(truth=[mu, sigma], figsize=2.0);
+
 ```

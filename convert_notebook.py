@@ -35,7 +35,8 @@ with open(md_file, 'r') as fin:
 
 main_img = None
 img_index = None
-removing = False
+code_content = []
+in_code = False
 for i, l in enumerate(data):
     if l.startswith("!!!replace"):
         name2 = name.replace('\\', '/')
@@ -52,17 +53,32 @@ for i, l in enumerate(data):
         data[img_index] = data[img_index].replace(loc, "main.png")
         print(f"Found main image {loc}")
         data[i] = ""
-    if l.startswith("# Remove"):
-        print("Found a code block to remove")
-        data[i - 1] = ""
-        removing = True
     if "RuntimeWarning" in l:
         data[i] = ""
         data[i + 1] = ""
-    if removing:
+
+    if l.startswith("```python"):
+        in_code = True
+    elif in_code:
         if l.startswith("```"):
-            removing = False
-        data[i] = ""
+            in_code = False
+            code_content.append("\n")
+        else:
+            code_content.append(data[i])
+
+
+# Sort the import statements
+imports = [c for c in code_content if c.startswith("import ") or c.startswith("from ") and "import" in c]
+rest = [c for c in code_content if c not in imports]
+imports = sorted(imports)
+
+
+data.append("\nHere's the full code for convenience:\n")
+data.append("```python\n")
+data += imports
+data.append("\n")
+data += rest
+data.append("```\n")
 with open(md_file, 'w') as fout:
     fout.writelines(data)
 

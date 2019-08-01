@@ -20,8 +20,9 @@ Let's start by generating some experimental data. For simplicity, let us assume 
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
-num_points = 100
+num_points = 20
 m, c = np.tan(np.pi / 4), -1
+np.random.seed(0)
 xs = np.random.uniform(size=num_points) * 10 + 2
 ys = m * xs + c
 err = np.sqrt(ys)
@@ -160,11 +161,11 @@ c.configure(contour_labels="confidence")
 c.plotter.plot(truth=[np.pi/4, -1], figsize=2.0)
 summary = c.analysis.get_summary()
 for key, value in summary.items():
-    print(key, " ", value)
+    print(key, value)
 ```
 
-    $\phi$   [0.7790342803201921, 0.8196328080383966, 0.851012206049082]
-    $c$   [-1.5984878536180744, -1.1973686828716112, -0.6860708557827717]
+    $\phi$ [0.7748573496338486, 0.8471006274062293, 0.9120835757679305]
+    $c$ [-2.7656756970389766, -1.688298652533041, -0.7650561597828567]
     
 
     
@@ -179,7 +180,7 @@ Finally, one thing we might want to do is to plot the best fitting model and its
 
 
 ```python
-x_vals = np.linspace(xs.min(), xs.max(), 20)
+x_vals = np.linspace(2, 12, 30)
 # Calculate best fit
 phi_best = summary[r"$\phi$"][1]
 c_best = summary[r"$c$"][1]
@@ -187,25 +188,26 @@ best_fit = np.tan(phi_best) * x_vals + c_best
 
 # Calculate range our uncertainty gives using 2D matrix multplication
 realisations = np.tan(flat_chain[:, 0][:, None]) * x_vals + flat_chain[:, 1][:, None]
-bounds = np.percentile(realisations, 100 * norm.cdf([-2, 2]), axis=0)
+bounds = np.percentile(realisations, 100 * norm.cdf([-2, -1, 1, 2]), axis=0)
 
 # Plot everything
 fig, ax = plt.subplots()
-ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", alpha=0.4)
-ax.plot(x_vals, best_fit, label="Best Fit", lw=2)
+ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", ms=5, lw=1)
+ax.plot(x_vals, best_fit, label="Best Fit", c="#003459")
 ax.plot(x_vals, x_vals - 1, label="Truth", c="k", ls=":", lw=1)
-plt.fill_between(x_vals, bounds[0, :], bounds[1, :], 
-                 label="95\% uncertainty", fc="#8BC34A", alpha=0.4)
+plt.fill_between(x_vals, bounds[0, :], bounds[-1, :], 
+                 label="95\% uncertainty", fc="#03A9F4", alpha=0.4)
+plt.fill_between(x_vals, bounds[1, :], bounds[-2, :], 
+                 label="68\% uncertainty", fc="#0288D1", alpha=0.4)
 ax.legend(frameon=False, loc=2)
-ax.set_xlabel("x")
-ax.set_ylabel("y");
+ax.set_xlabel("x"), ax.set_ylabel("y"), ax.set_xlim(2, 12);
 ```
 
 
 {% include image.html url="main.png"  %}
 
 
-Notice how even with a linear model, our uncertainty is not just linear, it is smallest in the center of the dataset, as we might expect if we imagine the fit rocking the line like a see-saw during the fitting process. To reiterate, what we did to calculate the uncertainty was - instead of using some summary of the uncertainty like the standard deviation - we used the entire posterior surface to generate thousands of models, and looked at their uncertainty (using the `percentile`) function to get the $2\sigma$ bounds (the `norm.cdf` part) to display on the plot.
+Notice how even with a linear model, our uncertainty is not just linear, it is smallest in the center of the dataset, as we might expect if we imagine the fit rocking the line like a see-saw during the fitting process. To reiterate, what we did to calculate the uncertainty was - instead of using some summary of the uncertainty like the standard deviation - we used the entire posterior surface to generate thousands of models, and looked at their uncertainty (using the `percentile`) function to get the $1-$ and $2-$ $\sigma$ bounds (the `norm.cdf` part) to display on the plot.
 
 
 And that's it, those are the basics.
@@ -215,22 +217,27 @@ And that's it, those are the basics.
 3. Determine parameter constraints from your samples.
 4. Plot everything.
 
-Putting all the code in one place for convenience:
-
-
+Here's the full code for convenience:
 ```python
+from chainconsumer import ChainConsumer
+from scipy.stats import norm
+import emcee
 import matplotlib.pyplot as plt
 import numpy as np
-import emcee
-from scipy.stats import norm
 
-# Define data
-num_points = 100
+num_points = 20
 m, c = np.tan(np.pi / 4), -1
+np.random.seed(0)
 xs = np.random.uniform(size=num_points) * 10 + 2
 ys = m * xs + c
 err = np.sqrt(ys)
 ys += err * np.random.normal(size=num_points)
+
+fig, ax = plt.subplots(figsize=(8,3))
+ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", ms=5)
+ax.legend(frameon=False, loc=2)
+ax.set_xlabel("x")
+ax.set_ylabel("y");
 
 def log_prior(xs):
     phi, c = xs
@@ -251,7 +258,6 @@ def log_posterior(xs, data):
         return prior
     return prior + log_likelihood(xs, data)
 
-# Sample model
 ndim = 2  # How many parameters we are fitting
 nwalkers = 50  # Keep this well above your dimensionality.
 p0 = np.random.uniform(low=-1.5, high=1.5, size=(nwalkers, ndim))  # Start points
@@ -260,17 +266,20 @@ state = sampler.run_mcmc(p0, 3000)  # Tell each walker to take 2000 steps
 chain = sampler.chain[:, 100:, :]  # Throw out the first hundred steps
 flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker 
 
-# Plot parameter constraints
+c = ChainConsumer()
+c.add_chain(flat_chain, parameters=[r"$\phi$", "$c$"], color="b")
+c.add_chain(sampler.chain.reshape((-1, ndim)), color="r")
+c.plotter.plot_walks(truth=[np.pi/4, -1], figsize=(8,4));
+
 c = ChainConsumer()
 c.add_chain(flat_chain, parameters=[r"$\phi$", "$c$"])
 c.configure(contour_labels="confidence")
 c.plotter.plot(truth=[np.pi/4, -1], figsize=2.0)
 summary = c.analysis.get_summary()
 for key, value in summary.items():
-    print(key, " ", value)
-    
-# Map back onto observational space for visualisation
-x_vals = np.linspace(xs.min(), xs.max(), 20)
+    print(key, value)
+
+x_vals = np.linspace(2, 12, 30)
 # Calculate best fit
 phi_best = summary[r"$\phi$"][1]
 c_best = summary[r"$c$"][1]
@@ -278,16 +287,18 @@ best_fit = np.tan(phi_best) * x_vals + c_best
 
 # Calculate range our uncertainty gives using 2D matrix multplication
 realisations = np.tan(flat_chain[:, 0][:, None]) * x_vals + flat_chain[:, 1][:, None]
-bounds = np.percentile(realisations, 100 * norm.cdf([-2, 2]), axis=0)
+bounds = np.percentile(realisations, 100 * norm.cdf([-2, -1, 1, 2]), axis=0)
 
 # Plot everything
 fig, ax = plt.subplots()
-ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", alpha=0.4)
-ax.plot(x_vals, best_fit, label="Best Fit", lw=2)
+ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", ms=5, lw=1)
+ax.plot(x_vals, best_fit, label="Best Fit", c="#003459")
 ax.plot(x_vals, x_vals - 1, label="Truth", c="k", ls=":", lw=1)
-plt.fill_between(x_vals, bounds[0, :], bounds[1, :], 
-                 label="95\% uncertainty", fc="#8BC34A", alpha=0.4)
+plt.fill_between(x_vals, bounds[0, :], bounds[-1, :], 
+                 label="95\% uncertainty", fc="#03A9F4", alpha=0.4)
+plt.fill_between(x_vals, bounds[1, :], bounds[-2, :], 
+                 label="68\% uncertainty", fc="#0288D1", alpha=0.4)
 ax.legend(frameon=False, loc=2)
-ax.set_xlabel("x")
-ax.set_ylabel("y");
+ax.set_xlabel("x"), ax.set_ylabel("y"), ax.set_xlim(2, 12);
+
 ```
