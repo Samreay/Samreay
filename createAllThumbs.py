@@ -13,7 +13,7 @@ if len(sys.argv) > 1:
     selected = sys.argv[1]
 else:
     selected = None
-categories = ["blog/", "outreach/", "projects/"]
+categories = ["blog/", "outreach/", "projects/", "tutorials/"]
 for category in categories:
     full = cur_dir + "/static/img/" + category
     print("Looking at %s" % category)
