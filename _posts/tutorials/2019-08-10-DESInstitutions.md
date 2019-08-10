@@ -45,8 +45,8 @@ data.head()
       <th></th>
       <th>shortname</th>
       <th>longname</th>
-      <th>lat</th>
       <th>long</th>
+      <th>lat</th>
       <th>country</th>
     </tr>
   </thead>
@@ -199,13 +199,13 @@ def get_shaded():
         # Compute the mesh values
         z = np.zeros(X.shape)
         for row in subset.itertuples(index=False):
-            x, y = m(row.long, row.lat)
+            x, y = m(row.lat, row.long)
             dist = ((x - X)**2 + (y - Y)**2)**0.25 # Sharp falloff
             z += np.exp(-dist * scale)
         # Show the mesh and add the white dots
         m.imshow(z, origin="lower", extent=[x0,x1,y0,y1], 
                  cmap=cmap, vmax=vmax, zorder=2)
-        m.scatter(subset.long, subset.lat, latlon=True, c="#FFFFFF", 
+        m.scatter(subset.lat, subset.long, latlon=True, c="#FFFFFF", 
                   alpha=0.8, s=2, zorder=3)
     
     # Set the title, and make the background black
@@ -225,11 +225,6 @@ get_shaded();
 
 
 Great, well that's something I would call good enough for now. Of course... it would be better if it was animated. But that is definitely not something I intend to do in a notebook! In fact, I've done it already, you can see it below:
-
-
-```python
-
-```
 
 Here's the full code for convenience:
 
@@ -311,13 +306,13 @@ def get_shaded():
         # Compute the mesh values
         z = np.zeros(X.shape)
         for row in subset.itertuples(index=False):
-            x, y = m(row.long, row.lat)
+            x, y = m(row.lat, row.long)
             dist = ((x - X)**2 + (y - Y)**2)**0.25 # Sharp falloff
             z += np.exp(-dist * scale)
         # Show the mesh and add the white dots
         m.imshow(z, origin="lower", extent=[x0,x1,y0,y1], 
                  cmap=cmap, vmax=vmax, zorder=2)
-        m.scatter(subset.long, subset.lat, latlon=True, c="#FFFFFF", 
+        m.scatter(subset.lat, subset.long, latlon=True, c="#FFFFFF", 
                   alpha=0.8, s=2, zorder=3)
     
     # Set the title, and make the background black
@@ -328,7 +323,5 @@ def get_shaded():
     return m
 
 get_shaded();
-
-
 
 ```
