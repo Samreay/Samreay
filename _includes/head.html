@@ -11,6 +11,11 @@
   <meta name="author" content="{{ site.author.name }}">
   {% if page.loc %}
   <meta property="og:image" content="{{site.img_path}}{{page.loc}}thumb_fb.jpg">
+  <meta property="og:title" content="{{page.title}}">
+  <meta property="og:description" content="{{page.desc}}">
+  <meta property="og:site" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{site.author.twitter_username}}">
   {% endif %}
 
   <title>
