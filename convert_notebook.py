@@ -44,19 +44,34 @@ for i, l in enumerate(data):
         # data[i] = f"[Download the notebook here](https://cosmiccoding.com.au/{name2})"
     if l.startswith("![png]"):
         loc = l.split("[png]")[1][1:-2].split("/")[1]
-        replacement = f'{{% include image.html url="{loc}"  %}}'
+        e = ''
+        c = 1
+        while len(data) > i + c:
+            if data[i + c].strip() == "":
+                c += 1
+            else:
+                t = data[i+c]
+                if t.startswith("!!!") and "poster" in t:
+                    print("Turning image into poster")
+                    e = 'class="img-poster"'
+                break
+        replacement = f'{{% include image.html url="{loc}" {e} %}}'
         print(f"Replacing image insert {loc}")
         data[i] = replacement
         img_index = i
-    if l.startswith("!!!main"):
-        main_img = loc
-        data[img_index] = data[img_index].replace(loc, "main.png")
-        print(f"Found main image {loc}")
+    if l.startswith('<table border="1" class="dataframe"'):
+        data[i] = '<table class="table table-hover table-bordered">'
+    if l.startswith("!!!"):
+        if "main" in l:
+            main_img = loc
+            data[img_index] = data[img_index].replace(loc, "main.png")
+            print(f"Found main image {loc}")
         data[i] = ""
-    if "RuntimeWarning" in l:
+    if "RuntimeWarning" in l or "DeprecationWarning" in l:
         data[i] = ""
         data[i + 1] = ""
-
+    if "from ipykernel" in l:
+        data[i] = ""
     if l.startswith("```python"):
         in_code = True
     elif in_code:
