@@ -3622,6 +3622,9 @@ video {
   width: 100% !important;
   height: auto !important;
 }
+.video {
+  margin-bottom: 40px;
+}
 /* GALLERY */
 .gallery > .row > div {
   margin-bottom: 15px;
