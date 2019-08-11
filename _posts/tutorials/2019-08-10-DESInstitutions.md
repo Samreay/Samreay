@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Visualisating with Basemap"
-desc: "Plotting DES instituions in a beautiful way"
+title:  "Visualising with Basemap"
+desc: "Plotting DES institutions in a beautiful way"
 date: 2019-08-10
 categories: [tutorial]
 tags: [plotting]
