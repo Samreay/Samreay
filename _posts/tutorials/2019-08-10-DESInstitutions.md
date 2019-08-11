@@ -226,6 +226,12 @@ get_shaded();
 
 Great, well that's something I would call good enough for now. Of course... it would be better if it was animated. But that is definitely not something I intend to do in a notebook! In fact, I've done it already, you can see it below:
 
+
+
+
+{% include video.html url="des.mp4" autplay=True class="img-poster" %}
+
+
 Here's the full code for convenience:
 
 ```python

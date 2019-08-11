@@ -8,6 +8,7 @@ print(f"Converting {name}")
 
 assert os.path.exists(name)
 basename = os.path.basename(name).lower().split(".")[0]
+dir_name = os.path.dirname(name)
 short_name = basename.split("-")[-1]
 print(f"Short name is {short_name}")
 
@@ -37,6 +38,7 @@ main_img = None
 img_index = None
 code_content = []
 in_code = False
+to_copy = []
 for i, l in enumerate(data):
     if l.startswith("!!!replace"):
         name2 = name.replace('\\', '/')
@@ -72,6 +74,19 @@ for i, l in enumerate(data):
         data[i + 1] = ""
     if "from ipykernel" in l:
         data[i] = ""
+
+    if l.startswith("<video"):
+        file = l.split("src=")[1].split('"')[1]
+        to_copy.append(file)
+        basename = os.path.basename(file)
+        data[i] = f'{{% include video.html url="{basename}" autplay=True class="img-poster" %}}'
+        j = 1
+        while True:
+            if data[i+j].strip().startswith("</video"):
+                data[i+j] = ""
+                break
+            data[i + j] = ""
+            j += 1
     if l.startswith("```python"):
         in_code = True
     elif in_code:
@@ -104,6 +119,11 @@ else:
     print(f"Main image is found as {main_img}")
     shutil.move(os.path.join(desired_img_dir, main_img), os.path.join(desired_img_dir, "main.png"))
 
+for file in to_copy:
+    og = os.path.join(dir_name, file)
+    new_file = os.path.join(img_dir, os.path.basename(file))
+    shutil.copy(og, new_file)
+    print(f"Copied {og} to {new_file}")
 # Process images
 print("Processing images")
 subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
