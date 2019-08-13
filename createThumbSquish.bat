@@ -13,7 +13,7 @@ for /R %%U in (*.jpg) do echo %%U && magick mogrify -resize "1000>" -sampling-fa
 cd ..
 rmdir thumbs
 mkdir thumbs
-magick %img% -sampling-factor 4:2:0 -strip -quality 70 -resize 255x175\! -interlace Plane -crop 255x175+0+0 +repage thumb_card.jpg
-magick %img% -sampling-factor 4:2:0 -strip -quality 70 -resize 500x250\! -interlace Plane -crop 600x335+0+0 +repage thumb_fb.jpg
+magick %img% -sampling-factor 4:2:0 -strip -quality 70 -resize "255x175!" -interlace Plane thumb_card.jpg
+magick %img% -sampling-factor 4:2:0 -strip -quality 70 -resize "600x335!" -interlace Plane thumb_fb.jpg
 for /R %%U in (*.jpg) do echo %%U && magick mogrify -resize "16x16" -sampling-factor 4:2:0 -format jpg -path thumbs -strip -quality 60 %%U
 
