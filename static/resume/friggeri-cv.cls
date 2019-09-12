@@ -157,7 +157,7 @@
   }\\}
 \newcommand{\entryInline}[4]{%
   #1&\parbox[t]{15.3cm}{%
-    \textbf{#2} \ \ {\addfontfeature{Color=lightgray} #4}%
+    \textbf{#2} \ \ {\footnotesize\addfontfeature{Color=lightgray} #4}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
