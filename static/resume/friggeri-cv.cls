@@ -331,5 +331,5 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=2.1cm,top=1.5cm,right=2.1cm,bottom=1.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=2.1cm,top=1.5cm,right=2.1cm,bottom=1.5cm,nohead,footskip=20pt]{geometry}
 \RequirePackage{hyperref}
