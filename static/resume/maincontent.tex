@@ -1,72 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Friggeri Resume/CV
-% XeLaTeX Template
-% Version 1.0 (5/5/13)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Adrien Friggeri (adrien@friggeri.net)
-% https://github.com/afriggeri/CV
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Important notes:
-% This template needs to be compiled with XeLaTeX and the bibliography, if used,
-% needs to be compiled with biber rather than bibtex.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
-\usepackage[backend=biber]{biblatex}
-\addbibresource{bib_primary.bib} % Specify the bibliography file to include publications
-\addbibresource{bib_science.bib} % Specify the bibliography file to include publications
-\addbibresource{bib_infrastructure.bib} % Specify the bibliography file to include publications
-\addbibresource{bib_draft.bib} % Specify the bibliography file to include publications
-\usepackage{aas_macros}
-
-
-\def\makenamesetup{%
-  \def\bibnamedelima{~}%
-  \def\bibnamedelimb{ }%
-  \def\bibnamedelimc{ }%
-  \def\bibnamedelimd{ }%
-  \def\bibnamedelimi{ }%
-  \def\bibinitperiod{.}%
-  \def\bibinitdelim{~}%
-  \def\bibinithyphendelim{.-}}
-\newcommand*{\makename}[2]{\begingroup\makenamesetup\xdef#1{#2}\endgroup}
-
-\newcommand*{\boldname}[3]{%
-  \def\lastname{#1}%
-  \def\firstname{#2}%
-  \def\firstinit{#3}}
-\boldname{}{}{}
-
-% Patch new definitions
-\renewcommand{\mkbibnamegiven}[1]{%
-  \ifboolexpr{ test {\ifdefequal{\lastname}{\namepartfamily}} }
-  {\mkbibbold{#1}}{#1}%
-}
-
-\renewcommand{\mkbibnamefamily}[1]{%
-  \ifboolexpr{ test {\ifdefequal{\lastname}{\namepartfamily}} }
-  {\mkbibbold{#1}}{#1}%
-}
-
-\boldname{Hinton}{Samuel}{S}
-
-\begin{document}
-\pagestyle{plain}
-
-\header{Samuel}{ Hinton}{PhD Candidate, samuelreay@gmail.com} % Your name and current job title/field
-
-%----------------------------------------------------------------------------------------
-%	SIDEBAR SECTION
-%----------------------------------------------------------------------------------------
-
 
 
 %----------------------------------------------------------------------------------------
@@ -483,6 +414,13 @@ Developed business intelligence reporting solutions, designing and developing se
 \section{Teaching}
 \begin{entrylist}
 	\entryInlineSmall
+	{2019}
+	{Frontiers of Astrophysics Guest Lecturer}
+	{University of Queensland}
+	{}
+\end{entrylist}
+\begin{entrylist}
+	\entryInlineSmall
 	{2018}
 	{Introduction to Astrophysics Guest Lecturer}
 	{University of Queensland}
@@ -537,6 +475,9 @@ Developed business intelligence reporting solutions, designing and developing se
 
 
 \section{Academic Presentations}
+\begin{entrylist}
+	\entryInlineSmall{October 2019}{Pippin: A pipeline for SN~Ia cosmology}{SCAM}{}
+\end{entrylist}
 \begin{entrylist}
 	\entryInlineSmall{July 2019}{Barry - A BAO model fitting framework}{Python in Astronomy}{}
 \end{entrylist}
@@ -621,87 +562,3 @@ Developed business intelligence reporting solutions, designing and developing se
 \end{entrylist}
 
 
-
-
-
-
-
-
-
-
-
-\section{Publications}
-
-
-\subsection{Primary Author}
-
-\newrefcontext[sorting=ydnt]
-\begin{refsection}
-    \nocite{*}
-    \printbibliography[heading=none, keyword={primary}]
-\end{refsection}
-
-
-\subsection{Science Contributions}
-\begin{refsection}
-	\nocite{*}
-	\printbibliography[heading=none, keyword={science}]
-\end{refsection}
-
-
-\subsection{Infrastructure / Data Contributions}
-\begin{refsection}
-	\nocite{*}
-	\printbibliography[heading=none, keyword={infrastructure}]
-\end{refsection}
-
-
-\subsection{In Journal Review}
-\begin{refsection}
-	\nocite{*}
-	\printbibliography[heading=none, keyword={draft}]
-\end{refsection}
-
-%\printbibsection{article}{Articles}{primary} % Print all articles from the bibliography
-%\printbibsection{article}{Articles}{secondary}
-
-%\printbibsection{misc}{other publications} % Print all miscellaneous entries from the bibliography
-
-%\printbibsection{report}{research reports} % Print all research reports from the bibliography
-%\begin{entrylist}
-%------------------------------------------------
-
-%------------------------------------------------
-%\end{entrylist}
-
-%----------------------------------------------------------------------------------------
-%	INTERESTS SECTION
-%----------------------------------------------------------------------------------------
-
-
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS SECTION
-%----------------------------------------------------------------------------------------
-
-
-
-%%
-%\clearpage
-%\section{Referees}
-%\begin{entrylist}
-%\entry
-%{Cosmology}
-%{Prof. Tamara Davis}
-%{Physics Department, University of Queensland}
-%{Tamara Davis is an Australian Research Council Future Fellow and researches fundamental physics, such as the properties of dark matter and dark energy.\\Contactable at 0432 526 989 \& tamarad@physics.uq.edu.au.}
-%\end{entrylist}
-%\begin{entrylist}
-%\entry
-%{Cosmology}
-%{Prof. Michael Drinkwater}
-%{Physics Department, University of Queensland}
-%{Michael Drinkwater obtained his PhD in Cambridge and currently holds position in the University of Queensland's Physics Department as a Professor of Astrophysics.\\Contactable at 0432 887 642 \& m.drinkwater@uq.edu.au.}
-%\end{entrylist}
-
-
-\end{document}
