@@ -4,7 +4,9 @@
 \addbibresource{bib_infrastructure.bib} % Specify the bibliography file to include publications
 \addbibresource{bib_draft.bib} % Specify the bibliography file to include publications
 \usepackage{aas_macros}
-
+\usepackage{hyperref}
+\urlstyle{same}
+\newcommand{\urlNewWindow}[1]{\href[pdfnewwindow=true]{#1}{\nolinkurl{#1}}}
 
 \def\makenamesetup{%
   \def\bibnamedelima{~}%
