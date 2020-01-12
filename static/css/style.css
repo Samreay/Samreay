@@ -8260,7 +8260,7 @@ section.trips .trip {
 .card .card-tag p.hardware, .card .card-tag p.environment {
   background-color: #ffc7c7;
 }
-.card .card-tag p.travel {
+.card .card-tag p.travel, .card .card-tag p.statistics {
   background-color: #e0ccff;
 }
 .card .card-tag p.creative, .card .card-tag p.bayesian {
@@ -8277,7 +8277,7 @@ section.trips .trip {
   border-color: #ff8a80   ;
   /*border-color: #ffc7c7;*/
 }
-.blog-nav .nav-tabs.nav-justified > li.travel > a {
+.blog-nav .nav-tabs.nav-justified > li.travel > a, .blog-nav .nav-tabs.nav-justified > li.statistics > a {
   border-color: #b388ff   ;
   /*border-color: #e0ccff;*/
 }
