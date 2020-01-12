@@ -70,7 +70,7 @@ permalink: /podcast/
 <div class="wrapper wrapper-content projects gray-section" >
     <div class="row" id="podcast-list">
         {% for ep in site.data.podcasts %}
-        {% assign delay = 100 * forloop.index %}
+        {% assign delay = forloop.index | times: 100 %}
 
         <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 m-b-md padding-bottom animated fadeIn">
             <a href="{{ep.link}}">

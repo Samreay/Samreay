@@ -61,6 +61,23 @@ for i, l in enumerate(data):
         print(f"Replacing image insert {loc}")
         data[i] = replacement
         img_index = i
+    if l.startswith("![jpeg]"):
+        loc = l.split("[jpeg]")[1][1:-2].split("/")[1].replace("jpeg", "jpg")
+        e = ''
+        c = 1
+        while len(data) > i + c:
+            if data[i + c].strip() == "":
+                c += 1
+            else:
+                t = data[i+c]
+                if t.startswith("!!!") and "poster" in t:
+                    print("Turning image into poster")
+                    e = 'class="img-poster"'
+                break
+        replacement = f'{{% include image.html url="{loc}" {e} %}}'
+        print(f"Replacing image insert {loc}")
+        data[i] = replacement
+        img_index = i
     if l.startswith('<table border="1" class="dataframe"'):
         data[i] = '<table class="table table-hover table-bordered">'
     if l.startswith("!!!"):
@@ -109,6 +126,9 @@ data += imports
 data.append("\n")
 data += rest
 data.append("```\n")
+
+if "---" not in data[0]:
+	data.insert(0, "---\n")
 with open(md_file, 'w') as fout:
     fout.writelines(data)
 
