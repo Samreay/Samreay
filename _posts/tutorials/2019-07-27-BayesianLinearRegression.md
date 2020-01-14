@@ -21,7 +21,7 @@ Let's start by generating some experimental data. For simplicity, let us assume 
 import matplotlib.pyplot as plt
 import numpy as np
 num_points = 20
-m, c = np.tan(np.pi / 4), -1
+m, c = np.tan(np.pi / 4), -1  # So our angle is 45 degrees, m = 1
 np.random.seed(0)
 xs = np.random.uniform(size=num_points) * 10 + 2
 ys = m * xs + c
@@ -43,13 +43,17 @@ ax.set_ylabel("y");
 
 {% include image.html url="2019-07-27-BayesianLinearRegression_3_0.png"  %}
 
+And it does. Notice that in this data, the further you are along the x-axis, the more uncertainty we have.
+
 ## Defining a model
 
 So, let's recall Bayes' theorem for a second:
 
 $$ P(\theta | d) \propto P(d|\theta)P(\theta), $$
 
-where $\theta$ is our model parametrisation and $d$ is our data. To sub in nomenclature, our posterior is proportional to our likelihood multiplied by our prior. So, we need to come up with a model to describe data, which one would think is fairly straightforward, given we just coded a model to *generate* our data. But before we jump the gun and code up $y = mx + c$, let us also consider the model $y = \tan(\phi) x + c$. Why would we care about whether we use a gradient or an angle? Well, it comes down to simplifying our prior - in our case with no background knowledge we'd want to sample all of our parameter space with the same probability. But what happens if we plot uniform probability in the two separate models?
+where $\theta$ is our model parametrisation and $d$ is our data. To sub in nomenclature, our posterior is proportional to our likelihood multiplied by our prior. So, we need to come up with a model to describe data, which one would think is fairly straightforward, given we just coded a model to *generate* our data. But before we jump the gun and code up $y = mx + c$, let us also consider the model $y = \tan(\phi) x + c$. 
+
+Why would we care about whether we use a gradient or an angle? Well, it comes down to simplifying our prior - in our case with no background knowledge we'd want to sample all of our parameter space with the same probability. But what happens if we plot uniform probability in the two separate models?
 
 
 {% include image.html url="2019-07-27-BayesianLinearRegression_5_0.png"  %}
@@ -118,18 +122,18 @@ There are so many ways of doing this. Using some MCMC algorithm, using nested sa
 
 ```python
 import emcee
-ndim = 2  # How many parameters we are fitting
+ndim = 2  # How many parameters we are fitting. This is our dimensionality.
 nwalkers = 50  # Keep this well above your dimensionality.
 p0 = np.random.uniform(low=-1.5, high=1.5, size=(nwalkers, ndim))  # Start points
 sampler = emcee.EnsembleSampler(nwalkers, ndim, log_posterior, args=[(xs, ys, err)])
-state = sampler.run_mcmc(p0, 3000)  # Tell each walker to take 2000 steps
-chain = sampler.chain[:, 100:, :]  # Throw out the first hundred steps
+state = sampler.run_mcmc(p0, 4000)  # Tell each walker to take 4000 steps
+chain = sampler.chain[:, 200:, :]  # Throw out the first 200 steps
 flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker 
 ```
 
 So let's break this down. `ndim` is the number of parameters we have to fit, and we want to make sure that we have multiple times this for our `nwalkers` value, where each walker is a tracked position in parameter space that gets explored in a probabilistic fashion. I usually make sure there are a minimum of thirty or so walkers, but the more the merrier.
 
-Next up, `p0` - each walker in the process needs to start somewhere! In this case, we pick a random position, it'll move from this quickly. We then make the `sampler`, and tell each walker in the sampler to take 1000 steps. The walkers should move around the parameter space in a way thats informed by the posterior (given our data). Now, the initial phase where the walkers move from the random positions we set to exploring the space properly is known as burn in, and we want to get rid of it, so we throw out the first 100 of the 1000 steps. How many you throw out depends on your problem, see the `emcee` documentation for more discussion on this, or just keep reading. Finally, we take the 3D chain (num walkers x num steps x num dimensions) and squish it down to 2D.
+Next up, `p0` - each walker in the process needs to start somewhere! In this case, we pick a random position, it'll move from this quickly. We then make the `sampler`, and tell each walker in the sampler to take 4000 steps. The walkers should move around the parameter space in a way thats informed by the posterior (given our data). Now, the initial phase where the walkers move from the random positions we set to exploring the space properly is known as burn in, and we want to get rid of it, so we throw out the first 200 of the 4000 steps. How many you throw out depends on your problem, see the `emcee` documentation for more discussion on this, or just keep reading. Finally, we take the 3D chain (num walkers x num steps x num dimensions) and squish it down to 2D.
 
 ## Interpreting chains
 
@@ -164,14 +168,12 @@ for key, value in summary.items():
     print(key, value)
 ```
 
-    $\phi$ [0.7748573496338486, 0.8471006274062293, 0.9120835757679305]
-    $c$ [-2.7656756970389766, -1.688298652533041, -0.7650561597828567]
+    $\phi$ [0.7726110275094517, 0.8463251378245243, 0.9095535101305535]
+    $c$ [-2.71495855668443, -1.8055414255827276, -0.7402022694695001]
     
 
-    
 
-
-{% include image.html url="2019-07-27-BayesianLinearRegression_17_2.png"  %}
+{% include image.html url="2019-07-27-BayesianLinearRegression_17_1.png"  %}
 
 So how do we read this? Well, if you look at the summary printed, that gives the bounds for the lower uncertainty, maximum value, and upper uncertainty respectively (uncertainty being the 68% confidence levels). In the actual plot, you can see a 2D surface which represents our posterior. For example, the inner circle, labelled 68%, says that 68% of the time the true value for $\phi$ and $c$ will lie in that contour. 95% of the time it will lie in the broader contour. 
 
@@ -196,7 +198,7 @@ ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", ms=5, lw=1)
 ax.plot(x_vals, best_fit, label="Best Fit", c="#003459")
 ax.plot(x_vals, x_vals - 1, label="Truth", c="k", ls=":", lw=1)
 plt.fill_between(x_vals, bounds[0, :], bounds[-1, :], 
-                 label="95\% uncertainty", fc="#03A9F4", alpha=0.4)
+                 label="95\% uncertainty", fc="#03A9F4", alpha=0.2)
 plt.fill_between(x_vals, bounds[1, :], bounds[-2, :], 
                  label="68\% uncertainty", fc="#0288D1", alpha=0.4)
 ax.legend(frameon=False, loc=2)
@@ -207,7 +209,7 @@ ax.set_xlabel("x"), ax.set_ylabel("y"), ax.set_xlim(2, 12);
 {% include image.html url="main.png"  %}
 
 
-Notice how even with a linear model, our uncertainty is not just linear, it is smallest in the center of the dataset, as we might expect if we imagine the fit rocking the line like a see-saw during the fitting process. To reiterate, what we did to calculate the uncertainty was - instead of using some summary of the uncertainty like the standard deviation - we used the entire posterior surface to generate thousands of models, and looked at their uncertainty (using the `percentile`) function to get the $1-$ and $2-$ $\sigma$ bounds (the `norm.cdf` part) to display on the plot.
+Notice how even with a linear model, our uncertainty is not just linear, it is smallest in the center of the dataset, as we might expect if we imagine the fit rocking the line like a see-saw during the fitting process. To reiterate, what we did to calculate the uncertainty was - instead of using some summary of the uncertainty like the standard deviation - we used the entire posterior surface to generate thousands of models, and looked at their uncertainty (using the `percentile`) function to get the $1-$ and $2-$ $\sigma$ bounds (the `norm.cdf` part) to display on the plot. [For more examples on this methd of propagating uncertainty, see here](https://cosmiccoding.com.au/tutorial/2019/08/02/Propagating.html).
 
 
 And that's it, those are the basics.
@@ -227,7 +229,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 num_points = 20
-m, c = np.tan(np.pi / 4), -1
+m, c = np.tan(np.pi / 4), -1  # So our angle is 45 degrees, m = 1
 np.random.seed(0)
 xs = np.random.uniform(size=num_points) * 10 + 2
 ys = m * xs + c
@@ -259,12 +261,12 @@ def log_posterior(xs, data):
         return prior
     return prior + log_likelihood(xs, data)
 
-ndim = 2  # How many parameters we are fitting
+ndim = 2  # How many parameters we are fitting. This is our dimensionality.
 nwalkers = 50  # Keep this well above your dimensionality.
 p0 = np.random.uniform(low=-1.5, high=1.5, size=(nwalkers, ndim))  # Start points
 sampler = emcee.EnsembleSampler(nwalkers, ndim, log_posterior, args=[(xs, ys, err)])
-state = sampler.run_mcmc(p0, 3000)  # Tell each walker to take 2000 steps
-chain = sampler.chain[:, 100:, :]  # Throw out the first hundred steps
+state = sampler.run_mcmc(p0, 4000)  # Tell each walker to take 4000 steps
+chain = sampler.chain[:, 200:, :]  # Throw out the first 200 steps
 flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker 
 
 c = ChainConsumer()
@@ -296,7 +298,7 @@ ax.errorbar(xs, ys, yerr=err, fmt='.', label="Observations", ms=5, lw=1)
 ax.plot(x_vals, best_fit, label="Best Fit", c="#003459")
 ax.plot(x_vals, x_vals - 1, label="Truth", c="k", ls=":", lw=1)
 plt.fill_between(x_vals, bounds[0, :], bounds[-1, :], 
-                 label="95\% uncertainty", fc="#03A9F4", alpha=0.4)
+                 label="95\% uncertainty", fc="#03A9F4", alpha=0.2)
 plt.fill_between(x_vals, bounds[1, :], bounds[-2, :], 
                  label="68\% uncertainty", fc="#0288D1", alpha=0.4)
 ax.legend(frameon=False, loc=2)
