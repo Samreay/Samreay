@@ -6,6 +6,7 @@ date: 2019-08-10
 categories: [tutorial]
 tags: [plotting]
 loc: 'tutorials/desinstitutions/'
+permalink: /tutorials/des_instituions
 math: true
 ---
 

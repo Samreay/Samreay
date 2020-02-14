@@ -6,6 +6,7 @@ date: 2019-07-27
 categories: [tutorial]
 tags: [bayesian]
 loc: 'tutorials/bayesianlinearregression/'
+permalink: /tutorials/bayes_lin_reg
 math: true
 ---
 

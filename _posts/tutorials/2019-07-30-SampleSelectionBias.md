@@ -6,6 +6,7 @@ date: 2019-07-30
 categories: [tutorial]
 tags: [bayesian]
 loc: 'tutorials/sampleselectionbias/'
+permalink: /tutorials/sample_selection
 math: true
 ---
 

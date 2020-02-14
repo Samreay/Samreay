@@ -6,6 +6,7 @@ date: 2019-08-02
 categories: [tutorial]
 tags: [bayesian]
 loc: 'tutorials/propagating/'
+permalink: /tutorials/propagating_error
 math: true
 ---
 
