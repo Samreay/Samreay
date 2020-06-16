@@ -4,7 +4,7 @@ title:  "Forward Modelling for Supernova Cosmology"
 desc: "A toy model implementation"
 date: 2020-04-08
 categories: [tutorial]
-tags: [bayesian]
+tags: [statistics]
 loc: 'tutorials/forwardmodelling/'
 permalink: /tutorials/forwardmodelling
 math: true
