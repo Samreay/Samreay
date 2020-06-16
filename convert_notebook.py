@@ -17,15 +17,21 @@ print("Calling convert")
 subprocess.run(f"jupyter nbconvert {name} --to markdown --output-dir {basedir} --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags=\"['remove']\" --TagRemovePreprocessor.remove_input_tags=\"['remove_input']\"  --TagRemovePreprocessor.remove_all_outputs_tags=\"['remove_output']\"", check=True)
 
 
-print("Moving images around")
 img_dir = f"static/img/tutorials/{short_name}"
+print(f"Moving images around and into {img_dir}")
 if os.path.exists(img_dir):
-    print("Removing images")
+    print(f"Removing images from {img_dir}")
     shutil.rmtree(img_dir)
+    
+print(f"Making directory {img_dir}")
 os.makedirs(img_dir, exist_ok=True)
+
 output_img_dir = os.path.join(basedir, f"{basename}_files")
 desired_img_dir = os.path.join(img_dir, "original")
-shutil.move(output_img_dir, desired_img_dir)
+
+if os.path.exists(output_img_dir):
+    print(f"Moving from {output_img_dir} to {desired_img_dir}")
+    shutil.move(output_img_dir, desired_img_dir)
 
 # Process MD file
 print("Processing file")
@@ -93,17 +99,34 @@ for i, l in enumerate(data):
         data[i] = ""
 
     if l.startswith("<video"):
-        file = l.split("src=")[1].split('"')[1]
-        to_copy.append(file)
-        basename = os.path.basename(file)
-        data[i] = f'{{% include video.html url="{basename}" autplay=True class="img-poster" %}}'
-        j = 1
-        while True:
-            if data[i+j].strip().startswith("</video"):
-                data[i+j] = ""
-                break
-            data[i + j] = ""
-            j += 1
+        if "src" in l:
+            file = l.split("src=")[1].split('"')[1]
+            to_copy.append(file)
+            basename = os.path.basename(file)
+            data[i] = f'{{% include video.html url="{basename}" autplay=True class="img-poster" %}}'
+            j = 1
+            while True:
+                if data[i+j].strip().startswith("</video"):
+                    data[i+j] = ""
+                    break
+                data[i + j] = ""
+                j += 1
+        else:
+            data[i] = ""
+            j = 1
+            while True:
+                l2 = data[i + j]
+                if "<source" in l2:
+                    file = l2.split("src=")[1].split('"')[1]
+                    to_copy.append(file)
+                    basename = os.path.basename(file)
+                    data[i + j] = f'{{% include video.html url="{basename}" autplay=True class="img-poster" %}}'
+                elif "</video>" in data[i + j]:
+                    data[i + j] = ""
+                    break
+                else:
+                    data[i + j] = ""
+                j += 1
     if l.startswith("```python"):
         in_code = True
     elif in_code:
@@ -112,6 +135,27 @@ for i, l in enumerate(data):
             code_content.append("\n")
         else:
             code_content.append(data[i])
+
+
+# Remove empty code cells
+in_code = False
+had_code = False
+start_code = 0
+
+
+for i, l in enumerate(data):
+    if l.startswith("```python"):
+        in_code = True
+        had_code = False
+        start_code = i
+    elif in_code:
+        if l.startswith("```"):
+            in_code = False
+            if not had_code:
+                for x in range(start_code, 1 + i):
+                    data[x] = ""
+        elif l.strip():
+            had_code = True
 
 
 # Sort the import statements
@@ -146,8 +190,8 @@ for file in to_copy:
     print(f"Copied {og} to {new_file}")
 # Process images
 print("Processing images")
-subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
+#subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
 
 print("Updating thumbs")
-subprocess.run("python crunch.py", check=False)
+#subprocess.run("python crunch.py", check=False)
 
