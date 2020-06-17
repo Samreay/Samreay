@@ -45,15 +45,17 @@ with open(md_file, 'r') as fin:
     data = fin.read().splitlines(True)
 
 
-def get_carbon_image(file, is_main, watermark=False):
+def get_carbon_image(file, name, is_main, watermark=False):
     if is_main:
         name = f"main.png"
+        config = "carbon_config_square.json"
     else:
-        name = f"carbon_{start}.png"
+        name = f"{name}.png"
+        config = "carbon_config.json"
     if watermark:
         name = name.replace(".png", "_share.png")
 
-    command = f"carbon-now --config carbon_config.json -h -l {desired_img_dir} -t {name.replace('.png', '')} {file}"
+    command = f"carbon-now --config {config} -h -l {desired_img_dir} -t {name.replace('.png', '')} {file}"
     print(f"Executing command: {command}")
     subprocess.run(command, check=False, shell=True)
     return name
@@ -202,12 +204,16 @@ for i, l in enumerate(data):
         for x in range(code_start - 1, code_end + 1):
             data[x] = ""
         is_main = "main" in l
-        img = get_carbon_image(tmp, is_main, watermark=False)
-        img2 = get_carbon_image(tmp2, is_main, watermark=True)
-
-        data[i] = f'{{% include image.html url="{img}" class="img-carbon" %}}'
+        name = l.split()[-1]
         if is_main:
-            main_img = img
+            main_img = get_carbon_image(tmp, name, True, watermark=False)
+
+        img = get_carbon_image(tmp, name, False, watermark=False)
+        get_carbon_image(tmp2, name, False, watermark=True)
+
+
+        data[i] = f'{{% include image.html url="{img}" class="img-carbon" %}}\n'
+
 
 for i, l in enumerate(data):
     if l.startswith("!!!"):
@@ -248,5 +254,5 @@ print("Processing images")
 subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
 
 print("Updating thumbs")
-#subprocess.run("python crunch.py", check=False)
+subprocess.run("python crunch.py", check=False)
 

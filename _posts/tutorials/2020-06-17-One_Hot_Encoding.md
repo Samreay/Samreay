@@ -78,7 +78,8 @@ I've seen enough different implementations of one-hot But in machine learning fr
 
 
 
-{% include image.html url="main.png" class="img-carbon" %}
+{% include image.html url="one_hot_snippet.png" class="img-carbon" %}
+
 You can see if we invoke the method on our dataframe from before, it automatically pulls out the index (as melt doesn't preserve the index), and then uses a pivot to determine whether or not you get a one or a zero in your encoded columns.
 
 

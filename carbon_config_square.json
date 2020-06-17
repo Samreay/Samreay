@@ -1,0 +1,23 @@
+{
+  "latest-preset": {
+    "t": "one-dark",
+    "l": "python",
+    "bg": "#282c34",
+    "wt": "none",
+    "wc": true,
+    "fm": "Hack",
+    "fs": "18px",
+    "ln": false,
+    "ds": false,
+    "dsyoff": "20px",
+    "dsblur": "68px",
+    "wa": true,
+    "lh": "133%",
+    "pv": "40px",
+    "ph": "0px",
+    "si": false,
+    "wm": false,
+    "es": "2x",
+    "type": "png"
+  }
+}
