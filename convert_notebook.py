@@ -2,6 +2,7 @@ import os
 import subprocess
 import shutil
 import sys
+import tempfile
 
 name = sys.argv[1]
 print(f"Converting {name}")
@@ -17,7 +18,7 @@ print("Calling convert")
 subprocess.run(f"jupyter nbconvert {name} --to markdown --output-dir {basedir} --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags=\"['remove']\" --TagRemovePreprocessor.remove_input_tags=\"['remove_input']\"  --TagRemovePreprocessor.remove_all_outputs_tags=\"['remove_output']\"", check=True)
 
 
-img_dir = f"static/img/tutorials/{short_name}"
+img_dir = f"static\\img\\tutorials\\{short_name}"
 print(f"Moving images around and into {img_dir}")
 if os.path.exists(img_dir):
     print(f"Removing images from {img_dir}")
@@ -33,12 +34,29 @@ if os.path.exists(output_img_dir):
     print(f"Moving from {output_img_dir} to {desired_img_dir}")
     shutil.move(output_img_dir, desired_img_dir)
 
+if not os.path.exists(desired_img_dir):
+    os.makedirs(desired_img_dir, exist_ok=True)
+
 # Process MD file
 print("Processing file")
 
-md_file = f"{basedir}/{basename}.md"
+md_file = os.path.join(basedir, f"{basename}.md")
 with open(md_file, 'r') as fin:
-    data = fin.read().splitlines(True)[1:]
+    data = fin.read().splitlines(True)
+
+
+def get_carbon_image(file, is_main, watermark=False):
+    if is_main:
+        name = f"main.png"
+    else:
+        name = f"carbon_{start}.png"
+    if watermark:
+        name = name.replace(".png", "_share.png")
+
+    command = f"carbon-now --config carbon_config.json -h -l {desired_img_dir} -t {name.replace('.png', '')} {file}"
+    print(f"Executing command: {command}")
+    subprocess.run(command, check=False, shell=True)
+    return name
 
 main_img = None
 img_index = None
@@ -87,11 +105,11 @@ for i, l in enumerate(data):
     if l.startswith('<table border="1" class="dataframe"'):
         data[i] = '<table class="table table-hover table-bordered">'
     if l.startswith("!!!"):
-        if "main" in l:
+        if "main" in l and "carbon" not in l:
             main_img = loc
             data[img_index] = data[img_index].replace(loc, "main.png")
             print(f"Found main image {loc}")
-        data[i] = ""
+            data[i] = ""
     if "RuntimeWarning" in l or "DeprecationWarning" in l:
         data[i] = ""
         data[i + 1] = ""
@@ -103,7 +121,7 @@ for i, l in enumerate(data):
             file = l.split("src=")[1].split('"')[1]
             to_copy.append(file)
             basename = os.path.basename(file)
-            data[i] = f'{{% include video.html url="{basename}" autplay=True class="img-poster" %}}'
+            data[i] = f'{{% include video.html url="{basename}" autoplay="true" class="img-poster" %}}'
             j = 1
             while True:
                 if data[i+j].strip().startswith("</video"):
@@ -120,7 +138,7 @@ for i, l in enumerate(data):
                     file = l2.split("src=")[1].split('"')[1]
                     to_copy.append(file)
                     basename = os.path.basename(file)
-                    data[i + j] = f'{{% include video.html url="{basename}" autplay=True class="img-poster" %}}'
+                    data[i + j] = f'{{% include video.html url="{basename}" autoplay="true" class="img-poster" %}}'
                 elif "</video>" in data[i + j]:
                     data[i + j] = ""
                     break
@@ -157,6 +175,43 @@ for i, l in enumerate(data):
         elif l.strip():
             had_code = True
 
+# Go through and detect any carbon content
+code_start, code_end = None, None
+in_code = False
+for i, l in enumerate(data):
+    if l.startswith("```python"):
+        code_start = i + 1
+        in_code = True
+    elif in_code:
+        if l.startswith("```"):
+            in_code = False
+            code_end = i
+    if l.startswith("!!!") and "carbon" in l:
+        tmp = tempfile.NamedTemporaryFile(suffix='.py').name
+        tmp2 = tempfile.NamedTemporaryFile(suffix='.py').name
+        with open(tmp, "w") as f:
+            for x in range(code_start, code_end):
+                f.write(data[x])
+
+        with open(tmp2, "w") as f:
+            for x in range(code_start, code_end):
+                f.write(data[x])
+            f.write("\n")
+            f.write(f"# Details at cosmiccoding.com.au/tutorials/{short_name}")
+
+        for x in range(code_start - 1, code_end + 1):
+            data[x] = ""
+        is_main = "main" in l
+        img = get_carbon_image(tmp, is_main, watermark=False)
+        img2 = get_carbon_image(tmp2, is_main, watermark=True)
+
+        data[i] = f'{{% include image.html url="{img}" class="img-carbon" %}}'
+        if is_main:
+            main_img = img
+
+for i, l in enumerate(data):
+    if l.startswith("!!!"):
+        data[i] = ""
 
 # Sort the import statements
 imports = [c for c in code_content if c.startswith("import ") or c.startswith("from ") and "import" in c]
@@ -172,7 +227,7 @@ data += rest
 data.append("```\n")
 
 if "---" not in data[0]:
-	data.insert(0, "---\n")
+    data.insert(0, "---\n")
 with open(md_file, 'w') as fout:
     fout.writelines(data)
 
@@ -190,7 +245,7 @@ for file in to_copy:
     print(f"Copied {og} to {new_file}")
 # Process images
 print("Processing images")
-#subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
+subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
 
 print("Updating thumbs")
 #subprocess.run("python crunch.py", check=False)

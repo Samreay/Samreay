@@ -5421,7 +5421,7 @@ dd.project-people {
   }
 }
 .article p {
-  margin: 0 0 1.6em;
+  margin: 0 0 2.6em;
   text-align: justify;
 }
 .article :not(.language-python) > pre.highlight {
@@ -7850,6 +7850,14 @@ section.trips .trip {
   box-shadow: 0 0 10px 0px #c6c6c6;
 }
 
+.img-carbon {
+  margin-left: -10%;
+  max-width: 120%;
+  width: 120%;
+  box-shadow: 0 0 10px 0px #c6c6c6;
+  border-radius: 10px;
+}
+
 .img-reduced, .img-vertical {
   margin-left: 15%;
   margin-right: 15%;
@@ -8266,6 +8274,9 @@ section.trips .trip {
 .card .card-tag p.creative, .card .card-tag p.bayesian {
   background-color: #c3f1ff;
 }
+.card .card-tag p.creative, .card .card-tag p.snippet {
+  background-color: #ffdd79;
+}
 .card .card-tag p.tutorial {
   background-color: #fffac9;
 }
@@ -8275,6 +8286,10 @@ section.trips .trip {
 }
 .blog-nav .nav-tabs.nav-justified > li.hardware > a, .blog-nav .nav-tabs.nav-justified > li.environment > a {
   border-color: #ff8a80   ;
+  /*border-color: #ffc7c7;*/
+}
+.blog-nav .nav-tabs.nav-justified > li.hardware > a, .blog-nav .nav-tabs.nav-justified > li.snippet > a {
+  border-color: #ffdd79;
   /*border-color: #ffc7c7;*/
 }
 .blog-nav .nav-tabs.nav-justified > li.travel > a, .blog-nav .nav-tabs.nav-justified > li.statistics > a {
