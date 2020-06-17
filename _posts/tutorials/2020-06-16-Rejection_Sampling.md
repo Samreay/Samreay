@@ -30,9 +30,9 @@ def f(x):
 xs = np.linspace(0, 1, 1000)
 ys = f(xs)
 
-plt.plot(xs, ys), 
+plt.plot(xs, ys, label="Function") 
 plt.fill_between(xs, ys, 0, alpha=0.2)
-plt.xlim(0, 1), plt.ylim(0, 1.25), plt.xlabel("x"), plt.ylabel("f(x)");
+plt.xlim(0, 1), plt.ylim(0, 1.25), plt.xlabel("x"), plt.ylabel("y"), plt.legend();
 ```
 
 
@@ -75,7 +75,7 @@ samps = [sample(f) for i in range(10000)]
 
 plt.plot(xs, ys, label="Function")
 plt.hist(samps, density=True, alpha=0.2, label="Sample distribution")
-plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("f(x)"), plt.legend();
+plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("y"), plt.legend();
 ```
 
 
@@ -110,7 +110,7 @@ Whats the speed difference you ask?
 %timeit [sample(f) for i in range(10000)]
 ```
 
-    64.2 ms ± 1.77 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+    72.6 ms ± 2.45 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
     
 
 
@@ -118,7 +118,7 @@ Whats the speed difference you ask?
 %timeit batch_sample(f, 10000)
 ```
 
-    1.12 ms ± 4.7 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+    1.48 ms ± 69.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
     
 
 64 milliseconds down to 1 millisecond. And we could go even lower if we stop turn numpy arrays into lists and concatenating them, but you get the idea. You may be wondering why we didn't just do it all in one go, why break it into batches. Turns out there is a sweet spot for generating vectors - too small and you waste too much time creating them, too big and things start to slow down as well. 1000 is definitely not the sweet spot, but its sweeter than nothing!
@@ -161,12 +161,13 @@ x, y, passed = batch_sample_2(gauss, 10000)
 
 plt.plot(xs, ys)
 plt.fill_between(xs, ys, 0, alpha=0.2)
-plt.scatter(x, y, c=passed, cmap="RdYlGn", alpha=0.5)
-plt.xlabel("x"), plt.ylabel("f(x)"), plt.xlim(-10, 10), plt.ylim(0, 1);
+plt.scatter(x, y, c=passed, cmap="RdYlGn", vmin=-0.1, vmax=1.1, lw=0, s=2)
+plt.xlabel("x"), plt.ylabel("y"), plt.xlim(-10, 10), plt.ylim(0, 1);
 
+print(f"Efficiency is only {passed.mean() * 100:0.1f}%")
 ```
 
-    Efficiency is only 4.8%
+    Efficiency is only 5.0%
     
 
 
@@ -190,9 +191,9 @@ def f(x):
 xs = np.linspace(0, 1, 1000)
 ys = f(xs)
 
-plt.plot(xs, ys), 
+plt.plot(xs, ys, label="Function") 
 plt.fill_between(xs, ys, 0, alpha=0.2)
-plt.xlim(0, 1), plt.ylim(0, 1.25), plt.xlabel("x"), plt.ylabel("f(x)");
+plt.xlim(0, 1), plt.ylim(0, 1.25), plt.xlabel("x"), plt.ylabel("y"), plt.legend();
 
 def sample(function, xmin=0, xmax=1, ymax=1.2):
     while True:
@@ -205,7 +206,7 @@ samps = [sample(f) for i in range(10000)]
 
 plt.plot(xs, ys, label="Function")
 plt.hist(samps, density=True, alpha=0.2, label="Sample distribution")
-plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("f(x)"), plt.legend();
+plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("y"), plt.legend();
 
 def batch_sample(function, num_samples, xmin=0, xmax=1, ymax=1.2, batch=1000):
     samples = []
@@ -245,8 +246,9 @@ x, y, passed = batch_sample_2(gauss, 10000)
 
 plt.plot(xs, ys)
 plt.fill_between(xs, ys, 0, alpha=0.2)
-plt.scatter(x, y, c=passed, cmap="RdYlGn", alpha=0.5)
-plt.xlabel("x"), plt.ylabel("f(x)"), plt.xlim(-10, 10), plt.ylim(0, 1);
+plt.scatter(x, y, c=passed, cmap="RdYlGn", vmin=-0.1, vmax=1.1, lw=0, s=2)
+plt.xlabel("x"), plt.ylabel("y"), plt.xlim(-10, 10), plt.ylim(0, 1);
 
+print(f"Efficiency is only {passed.mean() * 100:0.1f}%")
 
 ```
