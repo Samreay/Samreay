@@ -21,7 +21,7 @@ import pandas as pd
 
 df = pd.DataFrame({
     "Person": ["Sam", "Ali", "Jane", "John"], 
-    "FavFood": ["Pizza", "Vegetables", "Cake", "Hapiness"]
+    "FavFood": ["Pizza", "Vegetables", "Cake", "Happiness"]
 }).set_index("Person")
 
 display(df)
@@ -67,7 +67,7 @@ display(df)
     </tr>
     <tr>
       <th>John</th>
-      <td>Hapiness</td>
+      <td>Happiness</td>
     </tr>
   </tbody>
 </table>
@@ -86,8 +86,6 @@ You can see if we invoke the method on our dataframe from before, it automatical
 ```python
 display(one_hot(df))
 ```
-
-
 
 
 <div>
@@ -116,12 +114,12 @@ display(one_hot(df))
     <tr>
       <th>value</th>
       <th>Cake</th>
-      <th>Hapiness</th>
+      <th>Happiness</th>
       <th>Pizza</th>
       <th>Vegetables</th>
     </tr>
     <tr>
-      <th>index</th>
+      <th>Person</th>
       <th></th>
       <th></th>
       <th></th>
@@ -162,7 +160,6 @@ display(one_hot(df))
 </div>
 
 
-
 Amazing and super simple!
 
 Here's the full code for convenience:
@@ -173,7 +170,7 @@ import pandas as pd
 
 df = pd.DataFrame({
     "Person": ["Sam", "Ali", "Jane", "John"], 
-    "FavFood": ["Pizza", "Vegetables", "Cake", "Hapiness"]
+    "FavFood": ["Pizza", "Vegetables", "Cake", "Happiness"]
 }).set_index("Person")
 
 display(df)
