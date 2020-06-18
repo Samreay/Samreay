@@ -7843,19 +7843,35 @@ section.trips .trip {
   object-fit: cover;
 }
 
-.img-poster {
-  margin-left: -10%;
-  max-width: 120%;
-  width: 120%;
-  box-shadow: 0 0 10px 0px #c6c6c6;
+@media (min-width: 1050px) {
+  .img-poster {
+    margin-left: -10%;
+    max-width: 120%;
+    width: 120%;
+    box-shadow: 0 0 10px 0px #c6c6c6;
+  }
+  .img-carbon {
+    margin-left: -10%;
+    max-width: 120%;
+    width: 120%;
+    box-shadow: 0 0 10px 0px #c6c6c6;
+    border-radius: 10px;
+  }
 }
-
-.img-carbon {
-  margin-left: -10%;
-  max-width: 120%;
-  width: 120%;
-  box-shadow: 0 0 10px 0px #c6c6c6;
-  border-radius: 10px;
+@media (max-width: 1050px) {
+  .img-poster {
+    margin-left: 0;
+    max-width: 100%;
+    width: 100%;
+    box-shadow: 0 0 10px 0px #c6c6c6;
+  }
+  .img-carbon {
+    margin-left: 0;
+    max-width: 100%;
+    width: 100%;
+    box-shadow: 0 0 10px 0px #c6c6c6;
+    border-radius: 10px;
+  }
 }
 
 .img-reduced, .img-vertical {
