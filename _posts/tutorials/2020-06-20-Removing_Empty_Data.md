@@ -7,6 +7,7 @@ categories: [tutorial]
 tags: [snippet]
 loc: 'tutorials/removing_empty_data/'
 permalink: /tutorials/removing_empty_data
+redirect_from: "/removing_empty"
 math: true
 ---
 

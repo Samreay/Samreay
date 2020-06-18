@@ -7,6 +7,7 @@ categories: [tutorial]
 tags: [snippet]
 loc: 'tutorials/one_hot_encoding/'
 permalink: /tutorials/one_hot_encoding
+redirect_from: "/one_hot"
 math: true
 ---
 
@@ -347,7 +348,9 @@ display(hot_encode_col(df2, "Nationality"))
 </table>
 </div>
 
-Very, very simple. Whether you want go with the simple `get_dummies` or the `melt+pivot` probably depends on whether you are wanting to do this on an entire dataframe at once or not. I leave the choice in your hands! And if for some reason, `get_dummies` is not behaving nicely, or you really want those multi-level indexes, you can do it manually using melt and pivot:
+
+Very, very simple. And if for some reason, `get_dummies` is not behaving nicely, or you really want those multi-level indexes, you can do it manually using melt and pivot:
+
 
 ```python
 def one_hot_melt_pivot(df):

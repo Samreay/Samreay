@@ -45,12 +45,11 @@ with open(md_file, 'r') as fin:
     data = fin.read().splitlines(True)
 
 
-def get_carbon_image(file, name, is_main, watermark=False):
-    if is_main:
-        name = f"main.png"
+def get_carbon_image(file, name, spacing, watermark=False):
+    name = f"{name}.png"
+    if spacing:
         config = "carbon_config_square.json"
     else:
-        name = f"{name}.png"
         config = "carbon_config.json"
     if watermark:
         name = name.replace(".png", "_share.png")
@@ -65,6 +64,7 @@ img_index = None
 code_content = []
 in_code = False
 to_copy = []
+url = "/tutorials/{short_name}"
 for i, l in enumerate(data):
     if l.startswith("!!!replace"):
         name2 = name.replace('\\', '/')
@@ -87,6 +87,10 @@ for i, l in enumerate(data):
         print(f"Replacing image insert {loc}")
         data[i] = replacement
         img_index = i
+    if l.startswith("redirect_from"):
+        redirect = l.split(":")[-1].strip().replace('"', "")
+        if len(redirect) < len(url):
+            url = redirect
     if l.startswith("![jpeg]"):
         loc = l.split("[jpeg]")[1][1:-2].split("/")[1].replace("jpeg", "jpg")
         e = ''
@@ -199,17 +203,18 @@ for i, l in enumerate(data):
             for x in range(code_start, code_end):
                 f.write(data[x])
             f.write("\n")
-            f.write(f"# Details at cosmiccoding.com.au/tutorials/{short_name}")
+            f.write(f"# Details at cosmiccoding.com.au{url}")
 
         for x in range(code_start - 1, code_end + 1):
             data[x] = ""
         is_main = "main" in l
         name = l.split()[-1]
         if is_main:
-            main_img = get_carbon_image(tmp, name, True, watermark=False)
+            main_img = get_carbon_image(tmp, "main", True, watermark=False)
 
         img = get_carbon_image(tmp, name, False, watermark=False)
         get_carbon_image(tmp2, name, False, watermark=True)
+        get_carbon_image(tmp2, name + "_spaced", True, watermark=True)
 
 
         data[i] = f'{{% include image.html url="{img}" class="img-carbon" %}}\n'

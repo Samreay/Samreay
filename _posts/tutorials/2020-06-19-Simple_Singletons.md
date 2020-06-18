@@ -7,6 +7,7 @@ categories: [tutorial]
 tags: [snippet]
 loc: 'tutorials/simple_singletons/'
 permalink: /tutorials/simple_singletons
+redirect_from: "/singletons"
 math: true
 ---
 
