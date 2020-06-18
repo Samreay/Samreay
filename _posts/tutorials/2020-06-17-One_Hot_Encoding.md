@@ -80,7 +80,7 @@ I've seen enough different implementations of one-hot But in machine learning fr
 
 {% include image.html url="one_hot_snippet.png" class="img-carbon" %}
 
-Where we can see the difference between the two is how the column name is preserved using the 
+Where we can see the difference between the two is how the column name is preserved using the generic version of `get_dummies`.
 
 
 ```python
@@ -434,8 +434,6 @@ display(one_hot_melt_pivot(df))
 </div>
 
 
-
-
 Here's the full code for convenience:
 
 ```python
@@ -477,7 +475,5 @@ def one_hot_melt_pivot(df):
                               fill_value=0)
 
 display(one_hot_melt_pivot(df))
-
-
 
 ```
