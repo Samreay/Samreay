@@ -167,7 +167,7 @@ plt.xlabel("x"), plt.ylabel("y"), plt.xlim(-10, 10), plt.ylim(0, 1);
 print(f"Efficiency is only {passed.mean() * 100:0.1f}%")
 ```
 
-    Efficiency is only 5.0%
+    Efficiency is only 5.1%
     
 
 
