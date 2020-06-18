@@ -11,6 +11,7 @@ assert os.path.exists(name)
 basename = os.path.basename(name).lower().split(".")[0]
 dir_name = os.path.dirname(name)
 short_name = basename.split("-")[-1]
+date = "-".join(basename.split("-")[:3])
 print(f"Short name is {short_name}")
 
 basedir = f"_posts/tutorials/"
@@ -65,11 +66,22 @@ code_content = []
 in_code = False
 to_copy = []
 url = "/tutorials/{short_name}"
+
+replaces = [
+    ("###DATE", date),
+    ("###LOC", f"'tutorials/{short_name}/'"),
+    ("###LINK", f"tutorials/{short_name}"),
+]
 for i, l in enumerate(data):
     if l.startswith("!!!replace"):
         name2 = name.replace('\\', '/')
         data[i] = ""
         # data[i] = f"[Download the notebook here](https://cosmiccoding.com.au/{name2})"
+        
+    for a, b in replaces:
+        l = l.replace(a, b)
+        
+    data[i] = l
     if l.startswith("![png]"):
         loc = l.split("[png]")[1][1:-2].split("/")[1]
         e = ''
@@ -209,6 +221,7 @@ for i, l in enumerate(data):
             data[x] = ""
         is_main = "main" in l
         name = l.split()[-1]
+
         if is_main:
             main_img = get_carbon_image(tmp, "main", True, watermark=False)
 
@@ -239,8 +252,32 @@ data.append("```\n")
 
 if "---" not in data[0]:
     data.insert(0, "---\n")
+
+# Remove duplicate empty lines in code sections
+print("Removing duplicate whitespace")
+in_code = False
+in_pre = False
+prev_empty = False
+data2 = []
+for i, l in enumerate(data):
+    add = True
+    if l.strip().startswith("```"):
+        in_code = not in_code
+    in_pre = l.startswith("    ")
+    is_empty = not bool(l.strip().replace("\n", ""))
+
+
+    add = True
+    if not in_code and is_empty and prev_empty:
+        add = False
+
+    prev_empty = is_empty
+
+    if add:
+        data2.append(l)
+
 with open(md_file, 'w') as fout:
-    fout.writelines(data)
+    fout.writelines(data2)
 
 # Rename the right image to main
 if main_img is None:

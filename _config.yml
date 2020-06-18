@@ -62,5 +62,5 @@ kramdown:
   syntax_highlighter: rouge
   math_engine: mathjax
 
-gems:
+plugins:
   - jekyll-redirect-from
