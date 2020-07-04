@@ -130,7 +130,10 @@ for i, l in enumerate(data):
             include_code = False
         if "main" in l and "carbon" not in l:
             main_img = loc
-            data[img_index] = data[img_index].replace(loc, "main.png")
+            if "remove_main" in l:
+                data[img_index] = ""
+            else:
+                data[img_index] = data[img_index].replace(loc, "main.png")
             print(f"Found main image {loc}")
             data[i] = ""
     if "RuntimeWarning" in l or "DeprecationWarning" in l:
