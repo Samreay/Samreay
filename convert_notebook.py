@@ -66,6 +66,7 @@ code_content = []
 in_code = False
 to_copy = []
 url = "/tutorials/{short_name}"
+include_code = True
 
 replaces = [
     ("###DATE", date),
@@ -125,6 +126,8 @@ for i, l in enumerate(data):
     if l.startswith('<table border="1" class="dataframe"'):
         data[i] = '<table class="table table-hover table-bordered">'
     if l.startswith("!!!"):
+        if "nofinalcode" in l:
+            include_code = False
         if "main" in l and "carbon" not in l:
             main_img = loc
             data[img_index] = data[img_index].replace(loc, "main.png")
@@ -244,13 +247,13 @@ imports = [c for c in code_content if c.startswith("import ") or c.startswith("f
 rest = [c for c in code_content if c not in imports]
 imports = sorted(imports)
 
-
-data.append("\nHere's the full code for convenience:\n\n")
-data.append("```python\n")
-data += imports
-data.append("\n")
-data += rest
-data.append("```\n")
+if include_code:
+    data.append("\nHere's the full code for convenience:\n\n")
+    data.append("```python\n")
+    data += imports
+    data.append("\n")
+    data += rest
+    data.append("```\n")
 
 if "---" not in data[0]:
     data.insert(0, "---\n")
