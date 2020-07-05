@@ -64,8 +64,7 @@ As the incident rate is cumulative, we take the difference to the previous day, 
 
 ```python
 # Pivot into a 2D format and sort the columns
-df_wide = df_long.pivot(index="date", columns="state")
-df_wide.columns = df_wide.columns.droplevel()
+df_wide = df_long.pivot(index="date", columns="state", values="rate")
 ```
 
 ```python
@@ -171,8 +170,7 @@ def load_data(directory):
 df_long = load_data(data_directory)
 
 # Pivot into a 2D format and sort the columns
-df_wide = df_long.pivot(index="date", columns="state")
-df_wide.columns = df_wide.columns.droplevel()
+df_wide = df_long.pivot(index="date", columns="state", values="rate")
 
 # Take the difference to get the change in incidence. 
 # Drop the first row as its all NaN
