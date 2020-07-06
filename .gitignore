@@ -11,3 +11,5 @@ Thumbs.db
 *.bcf
 *.bbl
 *.lock
+.ipynb_checkpoints/
+*.crdownload
