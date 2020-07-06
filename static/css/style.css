@@ -7909,14 +7909,35 @@ section.trips .trip {
   position: relative;
   margin-bottom: 2.6em;
 }
-.card-badge .card-title {
-  margin-top: 10px;
-}
+
+
 .card-badge .card-title h3 {
   display: inline;
   color: #0b2b42;
   margin-right: 10px;
   font-size: 1.4em;
+}
+.card-badge .card-footer p {
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .card-badge .card-title span {
+    display: block;
+  }
+  .card-badge {
+    height: 185px;
+  }
+  .img-badge {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    margin-bottom: -20px;
+  }
+  .card-badge .connect {
+    margin: 20px auto;
+    width: 150px;
+  }
 }
 .card-badge .card-desc {
   margin-top: 3px;
@@ -7930,21 +7951,31 @@ section.trips .trip {
   padding: 10px;
   position: relative;
 }
+.card-badge .card-title {
+  margin-top: 10px;
+}
 .img-badge {
   height: 80px;
   width: 80px;
-  float: left;
 }
-.card-badge .connect {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: 20px;
+@media (min-width: 768px) {
+  .img-badge {
+    float: left;
+  }
+  .card-badge .connect {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 20px;
+  }
+  .card-badge .card-footer {
+    margin-left: 110px;
+  }
 }
+
 .card-badge .card-footer {
   height: 100%;
-  margin-left: 110px;
 }
 .frontpage .card .card-footer {
   text-align: center;
