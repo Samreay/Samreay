@@ -948,7 +948,7 @@ for (city, avg), ax in zip(city_order.iteritems(), axes.flatten()):
 
 
 # Add the custom colorbar
-fig.subplots_adjust(top=0.83, bottom=0.03)
+fig.subplots_adjust(top=0.83, bottom=0.04)
 cbar_ax = fig.add_axes([0.2, 0.9, 0.6, 0.015])
 cbar_ax.set_title("Yearly weather trends for major US cities", pad=25, fontsize=18)
 cb = mpl.colorbar.ColorbarBase(cbar_ax, cmap=cmap, orientation='horizontal', 
@@ -961,9 +961,8 @@ plt.annotate('Using completely arbitrary temperature preferences',
                     (0.5,1), (0, 15), xycoords='axes fraction', color="#a19a92",
                     textcoords='offset points', size=10, va='top', ha="center")
 plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516)', 
-                    (0.5,0.01), (0, 0), xycoords='figure fraction', color="#a19a92",
+                    (0.5,0.024), (0, 0), xycoords='figure fraction', color="#a19a92",
                     textcoords='offset points', size=10, va='bottom', ha="center")
-
 
 ```
 
@@ -1108,7 +1107,7 @@ for (city, avg), ax in zip(city_order.iteritems(), axes.flatten()):
 
 
 # Add the custom colorbar
-fig.subplots_adjust(top=0.83, bottom=0.03)
+fig.subplots_adjust(top=0.83, bottom=0.04)
 cbar_ax = fig.add_axes([0.2, 0.9, 0.6, 0.015])
 cbar_ax.set_title("Yearly weather trends for major US cities", pad=25, fontsize=18)
 cb = mpl.colorbar.ColorbarBase(cbar_ax, cmap=cmap, orientation='horizontal', 
@@ -1121,9 +1120,8 @@ plt.annotate('Using completely arbitrary temperature preferences',
                     (0.5,1), (0, 15), xycoords='axes fraction', color="#a19a92",
                     textcoords='offset points', size=10, va='top', ha="center")
 plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516)', 
-                    (0.5,0.01), (0, 0), xycoords='figure fraction', color="#a19a92",
+                    (0.5,0.024), (0, 0), xycoords='figure fraction', color="#a19a92",
                     textcoords='offset points', size=10, va='bottom', ha="center")
-
 
 
 ```
