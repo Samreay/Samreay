@@ -205,6 +205,9 @@ plot(bounds, "Iterative non-uniform-weight sample construction")
 
 And you should notice that all three mothods have produced exactly the same plot. Which is good. Hopefully these methods are useful!
 
+{% include badge.html %}
+
+
 Here's the full code for convenience:
 
 ```python

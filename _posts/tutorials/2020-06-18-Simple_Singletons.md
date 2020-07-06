@@ -111,6 +111,8 @@ Then it goes to two, and `x=2` is a new input, so the function runs. Same for `x
 
 `lru_cache` is a great way of defining both singletons, and providing a cheap and easy way of speeding up your code if you are doing things over and over!
 
+{% include badge.html %}
+
 Here's the full code for convenience:
 
 ```python

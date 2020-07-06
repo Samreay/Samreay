@@ -436,6 +436,7 @@ display(one_hot_melt_pivot(df))
 </table>
 </div>
 
+{% include badge.html %}
 
 Here's the full code for convenience:
 

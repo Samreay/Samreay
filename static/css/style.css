@@ -7898,6 +7898,54 @@ section.trips .trip {
   padding: 0;
   height: 175px;
 }
+.card-border {
+  border: 1px solid #e8f0fb;
+  border-radius: 5px;
+  background-color: #F5F8FF;
+}
+.card-badge {
+  padding: 0;
+  height: 100px;
+  position: relative;
+  margin-bottom: 2.6em;
+}
+.card-badge .card-title {
+  margin-top: 10px;
+}
+.card-badge .card-title h3 {
+  display: inline;
+  color: #0b2b42;
+  margin-right: 10px;
+  font-size: 1.4em;
+}
+.card-badge .card-desc {
+  margin-top: 3px;
+}
+.card-badge .card-desc p {
+  font-size: 1.2em;
+}
+.card-badge .buffer {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  position: relative;
+}
+.img-badge {
+  height: 80px;
+  width: 80px;
+  float: left;
+}
+.card-badge .connect {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 20px;
+}
+.card-badge .card-footer {
+  height: 100%;
+  margin-left: 110px;
+}
 .frontpage .card .card-footer {
   text-align: center;
 }
@@ -7954,6 +8002,7 @@ section.trips .trip {
   float: right;
   position: relative;
 }
+
 .card .card-footer {
   padding: 0.5em 1.4em;
 }

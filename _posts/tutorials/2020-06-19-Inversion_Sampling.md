@@ -120,6 +120,8 @@ Beautiful. Now to try and tie it all together, here is one final, more complicat
 {% include image.html url="main.png"  %}
 So you can see - hopefully fairly clearly - how our uniform sampling on the CDF, after being traced horizontally to the CDF and then vertically down to the $x$ value, gives us samples which are distributed according to the underlying PDF.
 
+{% include badge.html %}
+
 Here's the full code for convenience:
 
 ```python

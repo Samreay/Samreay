@@ -178,6 +178,8 @@ And you can see that we reject 19 out of 20 samples! Super inefficient, and it w
 
 Anyway, thats rejection sampling. Super simple!
 
+{% include badge.html %}
+
 Here's the full code for convenience:
 
 ```python

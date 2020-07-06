@@ -250,6 +250,8 @@ imports = [c for c in code_content if c.startswith("import ") or c.startswith("f
 rest = [c for c in code_content if c not in imports]
 imports = sorted(imports)
 
+data.append(f"{{% include badge.html %}}\n")
+
 if include_code:
     data.append("\nHere's the full code for convenience:\n\n")
     data.append("```python\n")

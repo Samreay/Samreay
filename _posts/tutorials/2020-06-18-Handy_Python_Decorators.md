@@ -153,6 +153,8 @@ In python functions are objects too, so we can attack attributes to them, like `
 
 Anyway, I hope this has given you some useful ideas. Having a `decorators` utility file to throw around can add value to any project you have!
 
+{% include badge.html %}
+
 Here's the full code for convenience:
 
 ```python

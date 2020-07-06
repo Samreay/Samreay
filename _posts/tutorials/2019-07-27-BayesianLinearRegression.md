@@ -220,6 +220,8 @@ And that's it, those are the basics.
 3. Determine parameter constraints from your samples.
 4. Plot everything.
 
+{% include badge.html %}
+
 Here's the full code for convenience:
 
 ```python

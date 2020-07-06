@@ -212,6 +212,8 @@ So hopefully you can see how this would be useful. To summarise, the general pro
 
 Finally, obviously I've kept the examples here to 1D for simplicity, but I really should stress that MC integration shines in higher dimensions. If you have a 10 dimensional function that looks roughly Gaussian (like a normal), you can sample from a 10 dimensional normal, and apply all the same steps above, nothing at all changes. 
 
+{% include badge.html %}
+
 Here's the full code for convenience:
 
 ```python

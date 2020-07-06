@@ -149,6 +149,7 @@ Thinking about the problem in this way allows us to neatly separate out the sele
 
 But one thing that is *correct* about this approach that a lot of other approaches miss (such as adding bias corrections to your data) is that the *correction* is dependent on where you are in parameter space. And this should make sense conceptually - the correction is just answering the question "How efficient are we *in general* given our current model parametrisation". If we've charactered our instrument cannot detect $d < 85$, we expect to lose more events if the population mean is close to $85$ and less events if the population mean is at $200$.
 
+{% include badge.html %}
 
 Here's the full code for convenience:
 

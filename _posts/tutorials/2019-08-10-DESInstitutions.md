@@ -232,6 +232,7 @@ Great, well that's something I would call good enough for now. Of course... it w
 
 {% include video.html url="des.mp4" autplay=True class="img-poster" %}
 
+{% include badge.html %}
 
 Here's the full code for convenience:
 

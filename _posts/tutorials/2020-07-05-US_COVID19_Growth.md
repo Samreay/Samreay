@@ -131,6 +131,7 @@ plot_evolution(df_sorted)
 {% include image.html url="2020-07-05-US_COVID19_Growth_11_0.png" class="img-poster" %}
 And there we have it. Not as beautiful as the original, but hopefully a better representation of the data. I also talk about this in the comments, but there really does seem to be an awful artifact in the data for almost all states in the month of May, where the **cumulative** incident rate drops. Which is, you know, impossible. But without the sources, I don't know what is going on here.
 
+{% include badge.html %}
 
 Here's the full code for convenience:
 

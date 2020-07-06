@@ -222,7 +222,7 @@ And *bam*, column C is gone!
 
 That's it for this post, wanted to keep this one super short because I know I've seen at least a dozen different implementations to remove empty columns, and some of them are definitely better than others. May this hopefully be a useful snippet!
 
-
+{% include badge.html %}
 
 Here's the full code for convenience:
 

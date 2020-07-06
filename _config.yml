@@ -18,6 +18,7 @@ author:
   twitter_username: 'samreayh'
   linkedin_username: 'samuelreay'
   head_img: 'static/img/landing/face.jpg'
+  profile_img: 'static/img/landing/profile.jpg'
 
 # sections
 sections:
