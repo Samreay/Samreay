@@ -801,7 +801,8 @@ df_weather["rating"] = minmax_scale(df_weather["rating"].clip(-1, 1))
 ```
 
 ```python
-df_weather["rating"].hist(bins=100, log=True);
+ax = df_weather["rating"].hist(bins=100, log=True, figsize=(8, 4))
+ax.set_xlabel("Rating"), ax.set_ylabel("Frequency");
 ```
 
 {% include image.html url="2020-07-06-US_Weather_21_0.png"  %}
@@ -1071,7 +1072,8 @@ df_weather["rating_temp"] = df_weather.cold + df_weather.hot + 0.001
 df_weather["rating"] = np.sign(df_weather.rating_temp) * df_weather.rating_weather + df_weather.rating_temp
 df_weather["rating"] = minmax_scale(df_weather["rating"].clip(-1, 1))
 
-df_weather["rating"].hist(bins=100, log=True);
+ax = df_weather["rating"].hist(bins=100, log=True, figsize=(8, 4))
+ax.set_xlabel("Rating"), ax.set_ylabel("Frequency");
 
 df_weather["day"] = df_weather.DATE.dt.dayofyear
 df = df_weather.groupby(["city", "day"]).rating.mean().reset_index()
