@@ -64,31 +64,31 @@ cities.head()
       <th>0</th>
       <td>New York</td>
       <td>40.6635</td>
-      <td>-73.9387</td>
+      <td>-73.938700</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Los Angeles</td>
       <td>34.0194</td>
-      <td>-118.4108</td>
+      <td>-118.410800</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Chicago</td>
       <td>41.8376</td>
-      <td>-87.6818</td>
+      <td>-87.681800</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Houston</td>
-      <td>29.7866</td>
-      <td>-95.3909</td>
+      <td>Washington</td>
+      <td>38.9041</td>
+      <td>-77.017200</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Phoenix</td>
-      <td>33.5722</td>
-      <td>-112.0901</td>
+      <td>San Francisco</td>
+      <td>37.7775</td>
+      <td>-122.416389</td>
     </tr>
   </tbody>
 </table>
@@ -99,7 +99,7 @@ Then, lets find all the csv files for the US states and load them in.
 Great. Now lets open one of the weather files as an example:
 
 ```python
-pd.read_csv(data_root / "2020/71076099999.csv").describe().T[["mean", "std", "min", "max"]]
+pd.read_csv(root / "2020/71076099999.csv").describe().T[["mean", "std", "min", "max"]]
 ```
 
 <div>
@@ -382,7 +382,7 @@ station_df.head()
 Okay, first issue down. Now what we can do is filter that list to determine which stations are in the cities we care about. So we want a method to map a station to a city, if it is close enough
 
 ```python
-def check_station(row, threshold=0.05):
+def check_station(row, threshold=0.1):
     station, lat, long, *_ = row
     found = False
     distance = (cities.lat - lat)**2 + (cities.long - long)**2
@@ -448,22 +448,22 @@ final_stations.head()
       <td>Detroit</td>
     </tr>
     <tr>
+      <th>72029153970</th>
+      <td>32.746940</td>
+      <td>-96.530560</td>
+      <td>Dallas</td>
+    </tr>
+    <tr>
       <th>72030464752</th>
       <td>40.100000</td>
       <td>-75.266670</td>
       <td>Philadelphia</td>
     </tr>
     <tr>
-      <th>72055399999</th>
-      <td>40.701214</td>
-      <td>-74.009028</td>
-      <td>New York</td>
-    </tr>
-    <tr>
-      <th>72059400188</th>
-      <td>29.717000</td>
-      <td>-95.383000</td>
-      <td>Houston</td>
+      <th>72033493764</th>
+      <td>39.166670</td>
+      <td>-77.166670</td>
+      <td>Washington</td>
     </tr>
   </tbody>
 </table>
@@ -575,7 +575,7 @@ df_weather
       <td>...</td>
     </tr>
     <tr>
-      <th>225441</th>
+      <th>426336</th>
       <td>99849999999</td>
       <td>2020-06-26</td>
       <td>3.3</td>
@@ -584,7 +584,7 @@ df_weather
       <td>Chicago</td>
     </tr>
     <tr>
-      <th>225442</th>
+      <th>426337</th>
       <td>99849999999</td>
       <td>2020-06-27</td>
       <td>4.8</td>
@@ -593,7 +593,7 @@ df_weather
       <td>Chicago</td>
     </tr>
     <tr>
-      <th>225443</th>
+      <th>426338</th>
       <td>99849999999</td>
       <td>2020-06-28</td>
       <td>3.1</td>
@@ -602,7 +602,7 @@ df_weather
       <td>Chicago</td>
     </tr>
     <tr>
-      <th>225444</th>
+      <th>426339</th>
       <td>99849999999</td>
       <td>2020-06-29</td>
       <td>2.9</td>
@@ -611,7 +611,7 @@ df_weather
       <td>Chicago</td>
     </tr>
     <tr>
-      <th>225445</th>
+      <th>426340</th>
       <td>99849999999</td>
       <td>2020-06-30</td>
       <td>3.1</td>
@@ -621,7 +621,7 @@ df_weather
     </tr>
   </tbody>
 </table>
-<p>225446 rows × 6 columns</p>
+<p>426341 rows × 6 columns</p>
 </div>
 
 Alright, now we're getting somewhere, 225k rows! Except, oh boy, I can see that 999 is being used as a NaN value. Lets fix that up.
@@ -713,7 +713,7 @@ df_weather
       <td>...</td>
     </tr>
     <tr>
-      <th>225441</th>
+      <th>426336</th>
       <td>99849999999</td>
       <td>2020-06-26</td>
       <td>3.3</td>
@@ -722,7 +722,7 @@ df_weather
       <td>Chicago</td>
     </tr>
     <tr>
-      <th>225442</th>
+      <th>426337</th>
       <td>99849999999</td>
       <td>2020-06-27</td>
       <td>4.8</td>
@@ -731,7 +731,7 @@ df_weather
       <td>Chicago</td>
     </tr>
     <tr>
-      <th>225443</th>
+      <th>426338</th>
       <td>99849999999</td>
       <td>2020-06-28</td>
       <td>3.1</td>
@@ -740,7 +740,7 @@ df_weather
       <td>Chicago</td>
     </tr>
     <tr>
-      <th>225444</th>
+      <th>426339</th>
       <td>99849999999</td>
       <td>2020-06-29</td>
       <td>2.9</td>
@@ -749,7 +749,7 @@ df_weather
       <td>Chicago</td>
     </tr>
     <tr>
-      <th>225445</th>
+      <th>426340</th>
       <td>99849999999</td>
       <td>2020-06-30</td>
       <td>3.1</td>
@@ -759,7 +759,7 @@ df_weather
     </tr>
   </tbody>
 </table>
-<p>225446 rows × 6 columns</p>
+<p>426341 rows × 6 columns</p>
 </div>
 
 ## Data engineering
@@ -839,33 +839,33 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td>Austin</td>
+      <td>Atlanta</td>
       <td>1</td>
-      <td>0.417907</td>
+      <td>0.411146</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Austin</td>
+      <td>Atlanta</td>
       <td>2</td>
-      <td>0.374362</td>
+      <td>0.349296</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Austin</td>
+      <td>Atlanta</td>
       <td>3</td>
-      <td>0.441442</td>
+      <td>0.442816</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Austin</td>
+      <td>Atlanta</td>
       <td>4</td>
-      <td>0.473205</td>
+      <td>0.491880</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Austin</td>
+      <td>Atlanta</td>
       <td>5</td>
-      <td>0.475186</td>
+      <td>0.398219</td>
     </tr>
     <tr>
       <th>...</th>
@@ -874,38 +874,38 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>8779</th>
+      <th>10975</th>
       <td>Washington</td>
       <td>362</td>
-      <td>0.435083</td>
+      <td>0.423438</td>
     </tr>
     <tr>
-      <th>8780</th>
+      <th>10976</th>
       <td>Washington</td>
       <td>363</td>
-      <td>0.404806</td>
+      <td>0.404648</td>
     </tr>
     <tr>
-      <th>8781</th>
+      <th>10977</th>
       <td>Washington</td>
       <td>364</td>
-      <td>0.369343</td>
+      <td>0.357907</td>
     </tr>
     <tr>
-      <th>8782</th>
+      <th>10978</th>
       <td>Washington</td>
       <td>365</td>
-      <td>0.348139</td>
+      <td>0.335265</td>
     </tr>
     <tr>
-      <th>8783</th>
+      <th>10979</th>
       <td>Washington</td>
       <td>366</td>
-      <td>0.371981</td>
+      <td>0.369574</td>
     </tr>
   </tbody>
 </table>
-<p>8784 rows × 3 columns</p>
+<p>10980 rows × 3 columns</p>
 </div>
 
 ## Make the plot
@@ -925,7 +925,7 @@ And then away we go plotting!
 # Get a nice dark figure
 bg = "#111111"
 plt.style.use("dark_background")
-fig, axes = plt.subplots(ncols=4, nrows=6, figsize=(8, 12))
+fig, axes = plt.subplots(ncols=5, nrows=6, figsize=(10, 12))
 fig.patch.set_facecolor(bg)
 
 # Make donut plots
@@ -990,7 +990,7 @@ root = Path("D:/data/weather/")
 cities = pd.read_csv(root / "cities.csv")
 cities.head()
 
-pd.read_csv(data_root / "2020/71076099999.csv").describe().T[["mean", "std", "min", "max"]]
+pd.read_csv(root / "2020/71076099999.csv").describe().T[["mean", "std", "min", "max"]]
 
 station_locations = root / "station_locations.csv"
 
@@ -1013,7 +1013,7 @@ else:
 # Checking everything looks alright
 station_df.head()
 
-def check_station(row, threshold=0.05):
+def check_station(row, threshold=0.1):
     station, lat, long, *_ = row
     found = False
     distance = (cities.lat - lat)**2 + (cities.long - long)**2
@@ -1084,7 +1084,7 @@ cmap = plt.get_cmap('cmr.fusion_r')
 # Get a nice dark figure
 bg = "#111111"
 plt.style.use("dark_background")
-fig, axes = plt.subplots(ncols=4, nrows=6, figsize=(8, 12))
+fig, axes = plt.subplots(ncols=5, nrows=6, figsize=(10, 12))
 fig.patch.set_facecolor(bg)
 
 # Make donut plots
