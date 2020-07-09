@@ -326,7 +326,7 @@ And now that we have a PNG sequence, lets render it out to an mp4 file. Im going
 ```
 ffmpeg -r 60 -i us_covid_evolution/png/%04d.png -i us_covid_evolution/mask.png -filter_complex "      [1]setsar=sar=0[p],
 [0]split[a][b],
-[a][p]overlay,lumakey=0:tolerance=100:softness=50[x];
+[a][p]overlay,lumakey=0:tolerance=0.5:softness=0.5[x];
 color=black,format=rgb24[c];
 [c][x]scale2ref[c][i];
 [c][i]overlay=format=auto:shortest=1,
