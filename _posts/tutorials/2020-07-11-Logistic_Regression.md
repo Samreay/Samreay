@@ -37,7 +37,8 @@ broke = 1/(1+np.exp(-20*height+5)) > np.random.random(100)
 
 plt.scatter(height, broke, c=broke)
 plt.xlabel("Height"), plt.ylabel("Did it break?!?")
-plt.annotate("Yep", (0.55, 0.85)), plt.annotate("Nah", (0.1, 0.1));
+plt.annotate("Yep", (0.55, 0.85)), plt.annotate("Nah", (0.1, 0.1))
+plt.title("Dropping eggs... will they break??")
 ```
 
 {% include image.html url="2020-07-11-Logistic_Regression_3_0.png"  %}
@@ -174,7 +175,8 @@ broke = 1/(1+np.exp(-20*height+5)) > np.random.random(100)
 
 plt.scatter(height, broke, c=broke)
 plt.xlabel("Height"), plt.ylabel("Did it break?!?")
-plt.annotate("Yep", (0.55, 0.85)), plt.annotate("Nah", (0.1, 0.1));
+plt.annotate("Yep", (0.55, 0.85)), plt.annotate("Nah", (0.1, 0.1))
+plt.title("Dropping eggs... will they break??")
 
 def logistic(x_1, beta_0, beta_1):
     X = beta_0 + beta_1 * x_1
