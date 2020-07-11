@@ -7844,6 +7844,10 @@ section.trips .trip {
 }
 
 @media (min-width: 1050px) {
+  .img-smaller {
+    width: 70%;
+    margin: 0 auto;
+  }
   .img-poster {
     margin-left: -10%;
     max-width: 120%;

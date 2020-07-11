@@ -42,7 +42,7 @@ plt.title("Dropping eggs... will they break??")
 ```
 
 {% include image.html url="2020-07-11-Logistic_Regression_3_0.png"  %}
-What logistic regression is going to do, is get us $P(\text{egg broke}\ \|\ \text{height it was dropped})$. The separator there is read in English as "given that", if the syntax is new. The nomenclature generally denotes the output at $Y$ and the input as $X$, so this would be $P(Y=1\|X)$.
+What logistic regression is going to do, is get us $P(\text{egg broke}\ \|\ \text{height it was dropped})$. The separator there is read in English as "given that", if the syntax is new. The nomenclature generally denotes the output at $Y$ and the input as $X$, so this would be $P(Y=1\|X)$. We call these sort of models that give the output condition on the input **"discriminative models"**.
 
 There is a small subtlety here. The input $X$ is not just the height - we want logistic regression to handle multiple inputs combined in different ways (and a bias), which means we define the input $X$ as
 $$ X = \beta_0 + \beta_1 X_1 + \beta_2 X_2 ... $$

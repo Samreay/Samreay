@@ -97,6 +97,9 @@ for i, l in enumerate(data):
                 if t.startswith("!!!") and "poster" in t:
                     print("Turning image into poster")
                     e = 'class="img-poster"'
+                if t.startswith("!!!") and "small" in t:
+                    print("Turning image smaller")
+                    e = 'class="img-smaller"'
                 break
         replacement = f'{{% include image.html url="{loc}" {e} %}}'
         print(f"Replacing image insert {loc}")
@@ -306,5 +309,5 @@ print("Processing images")
 subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
 
 print("Updating thumbs")
-subprocess.run("python crunch.py", check=False)
+subprocess.run("python crunch.py", check=False, stdout=subprocess.DEVNULL)
 
