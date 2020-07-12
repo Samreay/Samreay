@@ -42,9 +42,9 @@ print(df.columns)
     Index(['UID', 'iso2', 'iso3', 'code3', 'FIPS', 'Admin2', 'Province_State',
            'Country_Region', 'Lat', 'Long_',
            ...
-           '6/28/20', '6/29/20', '6/30/20', '7/1/20', '7/2/20', '7/3/20', '7/4/20',
-           '7/5/20', '7/6/20', '7/7/20'],
-          dtype='object', length=179)
+           '7/2/20', '7/3/20', '7/4/20', '7/5/20', '7/6/20', '7/7/20', '7/8/20',
+           '7/9/20', '7/10/20', '7/11/20'],
+          dtype='object', length=183)
     
 Right, so its sort of pivoted already. But I dont actually want this, because I want smooth interpolation. I want dates on the index, and FIPS on the columns. On top of that, I want the relative increase in number of cases per 100k residents, or we'll just be [replicating a population map](https://xkcd.com/1138/).
 
@@ -161,10 +161,10 @@ df2 = df2.pivot(columns="FIPS", index="date", values="value").diff(axis=0)
 df2 = df2.rolling(7).mean().iloc[50:, :]
 ```
 
-Great, so we've got the data in a format we want. But I'll also want to turn this into a shiny animation, probably around 10 seconds in length or more. At 60FPS for that buttery smooth goodness, thats 600+ frames. More than we have rows. So time for interpolation!
+We've got the data in a format we want. But I'll also want to turn this into a shiny animation, probably around 10 seconds in length or more. At 30FPS, thats 300+ frames. More than we have rows. So time for interpolation!
 
 ```python
-fr = 60  # frame rate
+fr = 30  # frame rate
 t = 12  # seconds
 new_index = pd.date_range(df2.index.min(), df2.index.max(), fr * t)
 
@@ -207,7 +207,7 @@ df3.iloc[:5, :5]
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2020-03-12 03:54:19.527121001</th>
+      <th>2020-03-12 08:05:20.891364902</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -215,7 +215,7 @@ df3.iloc[:5, :5]
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2020-03-12 07:48:39.054242002</th>
+      <th>2020-03-12 16:10:41.782729805</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -223,7 +223,7 @@ df3.iloc[:5, :5]
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2020-03-12 11:42:58.581363004</th>
+      <th>2020-03-13 00:16:02.674094707</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -231,7 +231,7 @@ df3.iloc[:5, :5]
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2020-03-12 15:37:18.108484005</th>
+      <th>2020-03-13 08:21:23.565459610</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -314,17 +314,323 @@ Image(fig.to_image(format="png", scale=2))
 ```
 
 {% include image.html url="main.png" class="img-poster" %}
-Great, got the base image that we can use. Now to save out a whole bunch of images. I'm doing this in a notebook, which makes using `joblib` hard, but its what I should be doing.
+What an image! Now to save out a whole bunch of images. I'm doing this in a notebook, but `joblib` still works with the threading back end.
 
 ```python
-for n in range(df3.shape[0]):
-    plot_row(df3, n)
+from joblib import Parallel, delayed
+Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]))
 ```
+
+    ---------------------------------------------------------------------------
+
+    KeyboardInterrupt                         Traceback (most recent call last)
+
+    <ipython-input-14-11e8d807fa0e> in <module>
+          1 from joblib import Parallel, delayed
+    ----> 2 Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]))
+    
+    D:\anaconda3\lib\site-packages\IPython\core\displayhook.py in __call__(self, result)
+        260             self.start_displayhook()
+        261             self.write_output_prompt()
+    --> 262             format_dict, md_dict = self.compute_format_data(result)
+        263             self.update_user_ns(result)
+        264             self.fill_exec_result(result)
+    
+    D:\anaconda3\lib\site-packages\IPython\core\displayhook.py in compute_format_data(self, result)
+        149 
+        150         """
+    --> 151         return self.shell.display_formatter.format(result)
+        152 
+        153     # This can be set to True by the write_output_prompt method in a subclass
+    
+    D:\anaconda3\lib\site-packages\IPython\core\formatters.py in format(self, obj, include, exclude)
+        178             md = None
+        179             try:
+    --> 180                 data = formatter(obj)
+        181             except:
+        182                 # FIXME: log the exception
+    
+    <decorator-gen-10> in __call__(self, obj)
+    
+    D:\anaconda3\lib\site-packages\IPython\core\formatters.py in catch_format_error(method, self, *args, **kwargs)
+        222     """show traceback on failed format call"""
+        223     try:
+    --> 224         r = method(self, *args, **kwargs)
+        225     except NotImplementedError:
+        226         # don't warn on NotImplementedErrors
+    
+    D:\anaconda3\lib\site-packages\IPython\core\formatters.py in __call__(self, obj)
+        700                 type_pprinters=self.type_printers,
+        701                 deferred_pprinters=self.deferred_printers)
+    --> 702             printer.pretty(obj)
+        703             printer.flush()
+        704             return stream.getvalue()
+    
+    D:\anaconda3\lib\site-packages\IPython\lib\pretty.py in pretty(self, obj)
+        375                 if cls in self.type_pprinters:
+        376                     # printer registered in self.type_pprinters
+    --> 377                     return self.type_pprinters[cls](obj, self, cycle)
+        378                 else:
+        379                     # deferred printer
+    
+    D:\anaconda3\lib\site-packages\IPython\lib\pretty.py in inner(obj, p, cycle)
+        553                 p.text(',')
+        554                 p.breakable()
+    --> 555             p.pretty(x)
+        556         if len(obj) == 1 and type(obj) is tuple:
+        557             # Special case for 1-item tuples.
+    
+    D:\anaconda3\lib\site-packages\IPython\lib\pretty.py in pretty(self, obj)
+        392                         if cls is not object \
+        393                                 and callable(cls.__dict__.get('__repr__')):
+    --> 394                             return _repr_pprint(obj, self, cycle)
+        395 
+        396             return _default_pprint(obj, self, cycle)
+    
+    D:\anaconda3\lib\site-packages\IPython\lib\pretty.py in _repr_pprint(obj, p, cycle)
+        682     """A pprint that just redirects to the normal repr function."""
+        683     # Find newlines and replace them with p.break_()
+    --> 684     output = repr(obj)
+        685     lines = output.splitlines()
+        686     with p.group():
+    
+    D:\anaconda3\lib\site-packages\plotly\basedatatypes.py in __repr__(self)
+        420 
+        421         repr_str = BasePlotlyType._build_repr_for_class(
+    --> 422             props=props, class_name=self.__class__.__name__
+        423         )
+        424 
+    
+    D:\anaconda3\lib\site-packages\plotly\basedatatypes.py in _build_repr_for_class(props, class_name, parent_path_str)
+       3583         else:
+       3584             pprinter = ElidedPrettyPrinter(threshold=200, width=120)
+    -> 3585             pprint_res = pprinter.pformat(props)
+       3586 
+       3587             # pprint_res is indented by 1 space. Add extra 3 spaces for PEP8
+    
+    D:\anaconda3\lib\pprint.py in pformat(self, object)
+        142     def pformat(self, object):
+        143         sio = _StringIO()
+    --> 144         self._format(object, sio, 0, 0, {}, 0)
+        145         return sio.getvalue()
+        146 
+    
+    D:\anaconda3\lib\site-packages\plotly\utils.py in _format(self, val, stream, indent, allowance, context, level)
+        127         else:
+        128             return PrettyPrinter._format(
+    --> 129                 self, val, stream, indent, allowance, context, level
+        130             )
+        131 
+    
+    D:\anaconda3\lib\pprint.py in _format(self, object, stream, indent, allowance, context, level)
+        165             if p is not None:
+        166                 context[objid] = 1
+    --> 167                 p(self, object, stream, indent, allowance, context, level + 1)
+        168                 del context[objid]
+        169                 return
+    
+    D:\anaconda3\lib\pprint.py in _pprint_dict(self, object, stream, indent, allowance, context, level)
+        187             items = sorted(object.items(), key=_safe_tuple)
+        188             self._format_dict_items(items, stream, indent, allowance + 1,
+    --> 189                                     context, level)
+        190         write('}')
+        191 
+    
+    D:\anaconda3\lib\pprint.py in _format_dict_items(self, items, stream, indent, allowance, context, level)
+        344             self._format(ent, stream, indent + len(rep) + 2,
+        345                          allowance if last else 1,
+    --> 346                          context, level)
+        347             if not last:
+        348                 write(delimnl)
+    
+    D:\anaconda3\lib\site-packages\plotly\utils.py in _format(self, val, stream, indent, allowance, context, level)
+        127         else:
+        128             return PrettyPrinter._format(
+    --> 129                 self, val, stream, indent, allowance, context, level
+        130             )
+        131 
+    
+    D:\anaconda3\lib\pprint.py in _format(self, object, stream, indent, allowance, context, level)
+        165             if p is not None:
+        166                 context[objid] = 1
+    --> 167                 p(self, object, stream, indent, allowance, context, level + 1)
+        168                 del context[objid]
+        169                 return
+    
+    D:\anaconda3\lib\pprint.py in _pprint_list(self, object, stream, indent, allowance, context, level)
+        208         stream.write('[')
+        209         self._format_items(object, stream, indent, allowance + 1,
+    --> 210                            context, level)
+        211         stream.write(']')
+        212 
+    
+    D:\anaconda3\lib\pprint.py in _format_items(self, items, stream, indent, allowance, context, level)
+        387             self._format(ent, stream, indent,
+        388                          allowance if last else 1,
+    --> 389                          context, level)
+        390 
+        391     def _repr(self, object, context, level):
+    
+    D:\anaconda3\lib\site-packages\plotly\utils.py in _format(self, val, stream, indent, allowance, context, level)
+        127         else:
+        128             return PrettyPrinter._format(
+    --> 129                 self, val, stream, indent, allowance, context, level
+        130             )
+        131 
+    
+    D:\anaconda3\lib\pprint.py in _format(self, object, stream, indent, allowance, context, level)
+        165             if p is not None:
+        166                 context[objid] = 1
+    --> 167                 p(self, object, stream, indent, allowance, context, level + 1)
+        168                 del context[objid]
+        169                 return
+    
+    D:\anaconda3\lib\pprint.py in _pprint_dict(self, object, stream, indent, allowance, context, level)
+        187             items = sorted(object.items(), key=_safe_tuple)
+        188             self._format_dict_items(items, stream, indent, allowance + 1,
+    --> 189                                     context, level)
+        190         write('}')
+        191 
+    
+    D:\anaconda3\lib\pprint.py in _format_dict_items(self, items, stream, indent, allowance, context, level)
+        344             self._format(ent, stream, indent + len(rep) + 2,
+        345                          allowance if last else 1,
+    --> 346                          context, level)
+        347             if not last:
+        348                 write(delimnl)
+    
+    D:\anaconda3\lib\site-packages\plotly\utils.py in _format(self, val, stream, indent, allowance, context, level)
+        127         else:
+        128             return PrettyPrinter._format(
+    --> 129                 self, val, stream, indent, allowance, context, level
+        130             )
+        131 
+    
+    D:\anaconda3\lib\pprint.py in _format(self, object, stream, indent, allowance, context, level)
+        165             if p is not None:
+        166                 context[objid] = 1
+    --> 167                 p(self, object, stream, indent, allowance, context, level + 1)
+        168                 del context[objid]
+        169                 return
+    
+    D:\anaconda3\lib\pprint.py in _pprint_dict(self, object, stream, indent, allowance, context, level)
+        187             items = sorted(object.items(), key=_safe_tuple)
+        188             self._format_dict_items(items, stream, indent, allowance + 1,
+    --> 189                                     context, level)
+        190         write('}')
+        191 
+    
+    D:\anaconda3\lib\pprint.py in _format_dict_items(self, items, stream, indent, allowance, context, level)
+        344             self._format(ent, stream, indent + len(rep) + 2,
+        345                          allowance if last else 1,
+    --> 346                          context, level)
+        347             if not last:
+        348                 write(delimnl)
+    
+    D:\anaconda3\lib\site-packages\plotly\utils.py in _format(self, val, stream, indent, allowance, context, level)
+        127         else:
+        128             return PrettyPrinter._format(
+    --> 129                 self, val, stream, indent, allowance, context, level
+        130             )
+        131 
+    
+    D:\anaconda3\lib\pprint.py in _format(self, object, stream, indent, allowance, context, level)
+        165             if p is not None:
+        166                 context[objid] = 1
+    --> 167                 p(self, object, stream, indent, allowance, context, level + 1)
+        168                 del context[objid]
+        169                 return
+    
+    D:\anaconda3\lib\pprint.py in _pprint_list(self, object, stream, indent, allowance, context, level)
+        208         stream.write('[')
+        209         self._format_items(object, stream, indent, allowance + 1,
+    --> 210                            context, level)
+        211         stream.write(']')
+        212 
+    
+    D:\anaconda3\lib\pprint.py in _format_items(self, items, stream, indent, allowance, context, level)
+        387             self._format(ent, stream, indent,
+        388                          allowance if last else 1,
+    --> 389                          context, level)
+        390 
+        391     def _repr(self, object, context, level):
+    
+    D:\anaconda3\lib\site-packages\plotly\utils.py in _format(self, val, stream, indent, allowance, context, level)
+        127         else:
+        128             return PrettyPrinter._format(
+    --> 129                 self, val, stream, indent, allowance, context, level
+        130             )
+        131 
+    
+    D:\anaconda3\lib\pprint.py in _format(self, object, stream, indent, allowance, context, level)
+        159             self._readable = False
+        160             return
+    --> 161         rep = self._repr(object, context, level)
+        162         max_width = self._width - indent - allowance
+        163         if len(rep) > max_width:
+    
+    D:\anaconda3\lib\pprint.py in _repr(self, object, context, level)
+        391     def _repr(self, object, context, level):
+        392         repr, readable, recursive = self.format(object, context.copy(),
+    --> 393                                                 self._depth, level)
+        394         if not readable:
+        395             self._readable = False
+    
+    D:\anaconda3\lib\pprint.py in format(self, object, context, maxlevels, level)
+        403         and whether the object represents a recursive construct.
+        404         """
+    --> 405         return _safe_repr(object, context, maxlevels, level)
+        406 
+        407     def _pprint_default_dict(self, object, stream, indent, allowance, context, level):
+    
+    D:\anaconda3\lib\pprint.py in _safe_repr(object, context, maxlevels, level)
+        512         for k, v in items:
+        513             krepr, kreadable, krecur = saferepr(k, context, maxlevels, level)
+    --> 514             vrepr, vreadable, vrecur = saferepr(v, context, maxlevels, level)
+        515             append("%s: %s" % (krepr, vrepr))
+        516             readable = readable and kreadable and vreadable
+    
+    D:\anaconda3\lib\pprint.py in _safe_repr(object, context, maxlevels, level)
+        512         for k, v in items:
+        513             krepr, kreadable, krecur = saferepr(k, context, maxlevels, level)
+    --> 514             vrepr, vreadable, vrecur = saferepr(v, context, maxlevels, level)
+        515             append("%s: %s" % (krepr, vrepr))
+        516             readable = readable and kreadable and vreadable
+    
+    D:\anaconda3\lib\pprint.py in _safe_repr(object, context, maxlevels, level)
+        544         level += 1
+        545         for o in object:
+    --> 546             orepr, oreadable, orecur = _safe_repr(o, context, maxlevels, level)
+        547             append(orepr)
+        548             if not oreadable:
+    
+    D:\anaconda3\lib\pprint.py in _safe_repr(object, context, maxlevels, level)
+        544         level += 1
+        545         for o in object:
+    --> 546             orepr, oreadable, orecur = _safe_repr(o, context, maxlevels, level)
+        547             append(orepr)
+        548             if not oreadable:
+    
+    D:\anaconda3\lib\pprint.py in _safe_repr(object, context, maxlevels, level)
+        544         level += 1
+        545         for o in object:
+    --> 546             orepr, oreadable, orecur = _safe_repr(o, context, maxlevels, level)
+        547             append(orepr)
+        548             if not oreadable:
+    
+    D:\anaconda3\lib\pprint.py in _safe_repr(object, context, maxlevels, level)
+        491     typ = type(object)
+        492     if typ in _builtin_scalars:
+    --> 493         return repr(object), True, False
+        494 
+        495     r = getattr(typ, "__repr__", None)
+    
+    KeyboardInterrupt: 
 
 And now that we have a PNG sequence, lets render it out to an mp4 file. Im going to also add a mask (which is black but transparent over the country and colorbar that I want to glow, I threw it together in photoshop) and some complex filters to emulate a glow effect without having to throw it in After Effects, and it also makes it pause on the last frame for a bit without having to rend out things over and over.
 
 ```
-ffmpeg -r 60 -i us_covid_evolution/png/%04d.png -i us_covid_evolution/mask.png -filter_complex "      [1]setsar=sar=0[p],
+ffmpeg -r 30 -i us_covid_evolution/png/%04d.png -i us_covid_evolution/mask.png -filter_complex "      [1]setsar=sar=0[p],
 [0]split[a][b],
 [a][p]overlay,lumakey=0:tolerance=0.5:softness=0.5[x];
 color=black,format=rgb24[c];
@@ -359,6 +665,7 @@ Here's the full code for convenience:
 ```python
 from IPython.display import Image
 from functools import lru_cache
+from joblib import Parallel, delayed
 from matplotlib.colors import to_hex
 import cmasher as cmr
 import matplotlib.pyplot as plt
@@ -398,7 +705,7 @@ df2 = df2.pivot(columns="FIPS", index="date", values="value").diff(axis=0)
 # Smooth it out a touch and remove some 0 rows
 df2 = df2.rolling(7).mean().iloc[50:, :]
 
-fr = 60  # frame rate
+fr = 30  # frame rate
 t = 12  # seconds
 new_index = pd.date_range(df2.index.min(), df2.index.max(), fr * t)
 
@@ -472,7 +779,8 @@ fig = plot_row(df3, n, show=True)
 # Want a PNG, not interactive
 Image(fig.to_image(format="png", scale=2))
 
-for n in range(df3.shape[0]):
-    plot_row(df3, n)
+Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]))
+
+
 
 ```
