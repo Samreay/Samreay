@@ -13,6 +13,9 @@ redirect_from: "/usweather"
 
 Like many people, I might one day be moving to the United States for work. However, I would like to know where I should move too. Where is too hot? Where is it too wet? Where is my little slice of paradise??
 
+This is what we'll be making:
+
+{% include image.html url="2020-07-06-US_Weather_1_0.png"  %}
 So using the [NOAA Global Summary of the Day](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516) and the [top 25 most populated cities in the US](https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population), we've got enough to make a plot.
 
 But first, we have to smack this data format into something useable.
@@ -780,7 +783,7 @@ We can see the distributions here:
 df_weather[["MAX", "PRCP", "WDSP"]].hist(bins=100, log=True, layout=(1, 3), figsize=(10, 4));
 ```
 
-{% include image.html url="2020-07-06-US_Weather_18_0.png"  %}
+{% include image.html url="2020-07-06-US_Weather_20_0.png"  %}
 So let's add in that feature:
 
 ```python
@@ -805,7 +808,7 @@ ax = df_weather["rating"].hist(bins=100, log=True, figsize=(8, 4))
 ax.set_xlabel("Rating"), ax.set_ylabel("Frequency");
 ```
 
-{% include image.html url="2020-07-06-US_Weather_21_0.png"  %}
+{% include image.html url="2020-07-06-US_Weather_23_0.png"  %}
 Obiously **this is all completely dependent on arbitrary choices on weather**. Let's not get caught up on that. We can come back to this feature later if we need. For now, we want to take all the datapoints we have and take the average for each day in the year.
 
 ```python
@@ -966,7 +969,7 @@ plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.n
 
 ```
 
-{% include image.html url="2020-07-06-US_Weather_27_0.png" class="img-poster" %}
+{% include image.html url="2020-07-06-US_Weather_29_0.png" class="img-poster" %}
 There we go! Its not perfect, but I think it's pretty, and certainly San Jose is looking like a real nice place to go! And lets not go live in Phoenix. I don't know if its just stupidly hot or theres bad weather as well (a failing of the plot I admit), either way - nope.
 
 {% include badge.html %}

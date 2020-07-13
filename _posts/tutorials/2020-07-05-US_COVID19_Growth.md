@@ -15,6 +15,9 @@ One of my favourite subreddits is [/r/dataisbeautiful](https://reddit.com/r/data
 
 So I decided to make an admittedly not-as-good-looking plot, but hopefully one that's easier to digest accurately. Remember, for plotting, function comes first. Always.
 
+Here's what we'll be making:
+
+{% include image.html url="2020-07-05-US_COVID19_Growth_1_0.png"  %}
 To start, I cloned down the Johns Hopkins COVID-19 repo, and initally set the same states to exclude as the original post (which has [source code here](https://github.com/DavidMorton/COVID-19-Analysis/blob/master/COVID-19%20Confirmed%20Percentage%20Heatmap.ipynb)).
 
 ```python
@@ -128,7 +131,7 @@ def plot_evolution(dfo, smooth=7, cmap=None):
 plot_evolution(df_sorted)
 ```
 
-{% include image.html url="2020-07-05-US_COVID19_Growth_11_0.png" class="img-poster" %}
+{% include image.html url="2020-07-05-US_COVID19_Growth_13_0.png" class="img-poster" %}
 And there we have it. Not as beautiful as the original, but hopefully a better representation of the data. I also talk about this in the comments, but there really does seem to be an awful artifact in the data for almost all states in the month of May, where the **cumulative** incident rate drops. Which is, you know, impossible. But without the sources, I don't know what is going on here.
 
 {% include badge.html %}
