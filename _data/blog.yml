@@ -1,20 +1,11 @@
+- name: Tutorials
+  href: '/tutorials/'
+
 - name: Projects
   href: '/projects/'
 
 - name: Talks
   href: '/talks/'
 
-- name: Papers
-  href: 'https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3A%20astronomy&q=pubdate%3A%5B2015-01%20TO%209999-12%5D%20author%3A(%22Hinton%2C%20S%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0'
-
-- name: Podcast
-  href: '/podcast/'
-
-- name: Course
-  href: 'https://www.udemy.com/course/python-for-statistical-analysis/?referralCode=76158B46FA5EB57C38EB'
-
 - name: Blog
   href: '/blogs/'
-
-- name: Tutorials
-  href: '/tutorials/'

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Naive Bayes - Introduction, Assumptions, and Pitfalls"
-desc: "An beginners introduction to Naive Bayes in python."
+desc: "A beginners introduction to Naive Bayes in python."
 date: 2020-07-11
 categories: [tutorial]
 tags: [statistics]
