@@ -137,7 +137,7 @@ And you can now see that its a much better fit to the data (in terms of probabil
 
 ## Assumptions that go into logistic regression
 
-Its time to get our hands dirty and talk about assumptions. First, you can incorporate uncertainty into `sklearns` implementation of LogisticRegression by changing the sample weights. These can be passed in when you fit the model. The standard way of doing this is to assume Gaussian errors, and the weight of each sample is the inverse of its variance. This is a choice you make, not one the regression makes. Furthermore, the regression does not assume:
+Its time to get our hands dirty and talk about assumptions. First, you can incorporate uncertainty into `sklearns` implementation of LogisticRegression by changing the sample weights of each sample (if one sample has twice as much uncertainty as another, it has half the weight), which can be passed in when you fit the model. This is a choice you make, not one the regression makes. Furthermore, the regression does not assume:
 
 * **Linearity**: You do not need to have a linear relationship between dependent and independent variables (output and input).
 * **Normality**: Your uncertainty does not have to be normally distribution.
