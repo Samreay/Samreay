@@ -5,8 +5,15 @@
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}%
 }
+
+\def\@@ptsize{10pt}
+\DeclareOption{10pt}{\def\@@ptsize{10pt}}
+\DeclareOption{11pt}{\def\@@ptsize{11pt}}
+\DeclareOption{12pt}{\def\@@ptsize{12pt}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
+
 \ProcessOptions\relax
-\LoadClass{article}
+\LoadClass[\@@ptsize]{article}
 
 
 %%%%%%%%%%
@@ -149,25 +156,56 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{15.3cm}{%
+  #1&\parbox[t][][t]{14.0cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
 \newcommand{\entryInline}[4]{%
-  #1&\parbox[t]{15.3cm}{%
+  #1&\parbox[t]{14.0cm}{%
     \textbf{#2} \ \ {\footnotesize\addfontfeature{Color=lightgray} #4}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
 \newcommand{\entryInlineSmall}[4]{%
-  #1&\parbox[t]{15.3cm}{%
+  #1&\parbox[t]{14.0cm}{%
     \textbf{#2} %
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
 \newcommand{\entrysmall}[4]{%
+  #1&\parbox[t]{14.0cm}{%
+    \textbf{#2}%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}%
+  }\\}
+  
+  
+%%%%%%%%%%%%%%%%%%%%
+% List environment %
+%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\wentry}[4]{%
+  #1&\parbox[t][][t]{15.3cm}{%
+    \textbf{#2}%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
+    #4\vspace{\parsep}%
+  }\\}
+\newcommand{\wentryInline}[4]{%
+  #1&\parbox[t]{15.3cm}{%
+    \textbf{#2} \ \ {\footnotesize\addfontfeature{Color=lightgray} #4}%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}%
+  } \vspace{0mm}}
+\newcommand{\wentryInlineSmall}[4]{%
+  #1&\parbox[t]{15.3cm}{%
+    \textbf{#2} %
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}%
+  } \vspace{0mm}}
+\newcommand{\wentrysmall}[4]{%
   #1&\parbox[t]{15.3cm}{%
     \textbf{#2}%
     \hfill%
