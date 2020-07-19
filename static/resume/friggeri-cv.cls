@@ -39,7 +39,7 @@
 \definecolor{orange}{HTML}{FDA333} %FDA333
 \definecolor{purple}{HTML}{A33FF3} %D3A4F9
 \definecolor{red}{HTML}{FB4485} %FB4485
-\definecolor{blue}{HTML}{22ADF2} %6CE0F1
+\definecolor{blue}{HTML}{0874bd} %6CE0F1
 
 \ifdefined\@cv@print
   \colorlet{green}{gray}
@@ -211,6 +211,20 @@
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   }\\}
+  
+  
+  
+  
+  %%%%%%%%%%%%%%%%%%%
+% SMALL %
+%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\wbindent}[2]{\textbf{#1}&\parbox[t]{14.0cm}{#2}\\ \vspace{3mm}}
+\newcommand{\bindent}[2]{\textbf{#1}&\parbox[t]{13.0cm}{#2}\\ \vspace{3mm}}
+
+
+
+
 %%%%%%%%%%%%%%
 % Side block %
 %%%%%%%%%%%%%%
