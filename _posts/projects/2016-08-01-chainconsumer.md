@@ -6,6 +6,7 @@ date: 2016-08-01
 categories: [project]
 tags: [python,visualisation]
 loc: 'projects/chainconsumer/'
+permalink: /projects/chainconsumer
 ---
 
 I was working with some chains one day and wanted to plot different cosmologies

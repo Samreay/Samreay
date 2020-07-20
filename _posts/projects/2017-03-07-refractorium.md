@@ -6,6 +6,7 @@ date: 2017-03-07
 categories: [project]
 tags: [visualisation,online]
 loc: 'projects/refractorium/'
+permalink: /projects/refractorium
 ---
 
 <h2 style="font-weight: 800; text-align: center; margin-bottom: 50px;">

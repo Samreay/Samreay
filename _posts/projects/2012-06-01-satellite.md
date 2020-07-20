@@ -6,7 +6,7 @@ date: 2012-06-01
 categories: [project]
 tags: [hardware]
 loc: 'projects/sat/'
-
+permalink: /projects/satellite
 ---
 
 This was my first proper team project. Myself, Jeevan, Kiaran and David, tasked to built a device which, whilst suspended from a single thin wire,
