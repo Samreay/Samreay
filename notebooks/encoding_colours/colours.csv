@@ -1,0 +1,661 @@
+﻿Color Name,Credits,R;G;B Dec,RGB Hex,CSS Hex,BG/FG color sample
+Grey,N,84;84;84,545454,,### SAMPLE ###
+"Grey, Silver",V,192;192;192,C0C0C0,,### SAMPLE ###
+grey,X,190;190;190,BEBEBE,,### SAMPLE ###
+LightGray,X,211;211;211,D3D3D3,,### SAMPLE ###
+LightSlateGrey,X,119;136;153,778899,789,### SAMPLE ###
+SlateGray,X,112;128;144,708090,,### SAMPLE ###
+SlateGray1,X,198;226;255,C6E2FF,,### SAMPLE ###
+SlateGray2,X,185;211;238,B9D3EE,,### SAMPLE ###
+SlateGray3,X,159;182;205,9FB6CD,,### SAMPLE ###
+SlateGray4,X,108;123;139,6C7B8B,,### SAMPLE ###
+black,"N,V,X",0;0;0,0,0,### SAMPLE ###
+grey0,X,0;0;0,0,0,### SAMPLE ###
+grey1,X,3;3;3,30303,,### SAMPLE ###
+grey2,X,5;5;5,50505,,### SAMPLE ###
+grey3,X,8;8;8,80808,,### SAMPLE ###
+grey4,X,10;10;10,0A0A0A,,### SAMPLE ###
+grey5,X,13;13;13,0D0D0D,,### SAMPLE ###
+grey6,X,15;15;15,0F0F0F,,### SAMPLE ###
+grey7,X,18;18;18,121212,,### SAMPLE ###
+grey8,X,20;20;20,141414,,### SAMPLE ###
+grey9,X,23;23;23,171717,,### SAMPLE ###
+grey10,X,26;26;26,1A1A1A,,### SAMPLE ###
+grey11,X,28;28;28,1C1C1C,,### SAMPLE ###
+grey12,X,31;31;31,1F1F1F,,### SAMPLE ###
+grey13,X,33;33;33,212121,,### SAMPLE ###
+,,34;34;34,222222,222,### SAMPLE ###
+grey14,X,36;36;36,242424,,### SAMPLE ###
+grey15,X,38;38;38,262626,,### SAMPLE ###
+grey16,X,41;41;41,292929,,### SAMPLE ###
+grey17,X,43;43;43,2B2B2B,,### SAMPLE ###
+grey18,X,46;46;46,2E2E2E,,### SAMPLE ###
+grey19,X,48;48;48,303030,,### SAMPLE ###
+grey20,X,51;51;51,333333,333,### SAMPLE ###
+grey21,X,54;54;54,363636,,### SAMPLE ###
+grey22,X,56;56;56,383838,,### SAMPLE ###
+grey23,X,59;59;59,3B3B3B,,### SAMPLE ###
+grey24,X,61;61;61,3D3D3D,,### SAMPLE ###
+grey25,X,64;64;64,404040,,### SAMPLE ###
+grey26,X,66;66;66,424242,,### SAMPLE ###
+grey27,X,69;69;69,454545,,### SAMPLE ###
+grey28,X,71;71;71,474747,,### SAMPLE ###
+grey29,X,74;74;74,4A4A4A,,### SAMPLE ###
+grey30,X,77;77;77,4D4D4D,,### SAMPLE ###
+grey31,X,79;79;79,4F4F4F,,### SAMPLE ###
+grey32,X,82;82;82,525252,,### SAMPLE ###
+grey33,X,84;84;84,545454,,### SAMPLE ###
+,,85;85;85,555555,555,### SAMPLE ###
+grey34,X,87;87;87,575757,,### SAMPLE ###
+grey35,X,89;89;89,595959,,### SAMPLE ###
+grey36,X,92;92;92,5C5C5C,,### SAMPLE ###
+grey37,X,94;94;94,5E5E5E,,### SAMPLE ###
+grey38,X,97;97;97,616161,,### SAMPLE ###
+grey39,X,99;99;99,636363,,### SAMPLE ###
+grey40,X,102;102;102,666666,666,### SAMPLE ###
+"grey41, DimGrey",X,105;105;105,696969,,### SAMPLE ###
+grey42,X,107;107;107,6B6B6B,,### SAMPLE ###
+grey43,X,110;110;110,6E6E6E,,### SAMPLE ###
+grey44,X,112;112;112,707070,,### SAMPLE ###
+grey45,X,115;115;115,737373,,### SAMPLE ###
+grey46,X,117;117;117,757575,,### SAMPLE ###
+,,119;119;119,777777,777,#©2006 walsh@njit.edu#
+grey47,X,120;120;120,787878,,### SAMPLE ###
+grey48,X,122;122;122,7A7A7A,,### SAMPLE ###
+grey49,X,125;125;125,7D7D7D,,### SAMPLE ###
+grey50,X,127;127;127,7F7F7F,,### SAMPLE ###
+grey51,X,130;130;130,828282,,### SAMPLE ###
+grey52,X,133;133;133,858585,,### SAMPLE ###
+grey53,X,135;135;135,878787,,### SAMPLE ###
+,,136;136;136,888888,888,### SAMPLE ###
+grey54,X,138;138;138,8A8A8A,,### SAMPLE ###
+grey55,X,140;140;140,8C8C8C,,### SAMPLE ###
+grey56,X,143;143;143,8F8F8F,,### SAMPLE ###
+grey57,X,145;145;145,919191,,### SAMPLE ###
+grey58,X,148;148;148,949494,,### SAMPLE ###
+grey59,X,150;150;150,969696,,### SAMPLE ###
+grey60,X,153;153;153,999999,999,### SAMPLE ###
+grey61,X,156;156;156,9C9C9C,,### SAMPLE ###
+grey62,X,158;158;158,9E9E9E,,### SAMPLE ###
+grey63,X,161;161;161,A1A1A1,,### SAMPLE ###
+grey64,X,163;163;163,A3A3A3,,### SAMPLE ###
+grey65,X,166;166;166,A6A6A6,,### SAMPLE ###
+grey66,X,168;168;168,A8A8A8,,### SAMPLE ###
+grey67,X,171;171;171,ABABAB,,### SAMPLE ###
+grey68,X,173;173;173,ADADAD,,### SAMPLE ###
+grey69,X,176;176;176,B0B0B0,,### SAMPLE ###
+grey70,X,179;179;179,B3B3B3,,### SAMPLE ###
+grey71,X,181;181;181,B5B5B5,,### SAMPLE ###
+grey72,X,184;184;184,B8B8B8,,### SAMPLE ###
+,,187;187;187,BBBBBB,bbb,### SAMPLE ###
+grey73,X,186;186;186,BABABA,,### SAMPLE ###
+grey74,X,189;189;189,BDBDBD,,### SAMPLE ###
+grey75,X,191;191;191,BFBFBF,,### SAMPLE ###
+grey76,X,194;194;194,C2C2C2,,### SAMPLE ###
+grey77,X,196;196;196,C4C4C4,,### SAMPLE ###
+grey78,X,199;199;199,C7C7C7,,### SAMPLE ###
+grey79,X,201;201;201,C9C9C9,,### SAMPLE ###
+grey80,X,204;204;204,CCCCCC,ccc,### SAMPLE ###
+grey81,X,207;207;207,CFCFCF,,### SAMPLE ###
+grey82,X,209;209;209,D1D1D1,,### SAMPLE ###
+grey83,X,212;212;212,D4D4D4,,### SAMPLE ###
+grey84,X,214;214;214,D6D6D6,,### SAMPLE ###
+grey85,X,217;217;217,D9D9D9,,### SAMPLE ###
+grey86,X,219;219;219,DBDBDB,,### SAMPLE ###
+grey87,X,222;222;222,DEDEDE,,### SAMPLE ###
+,,221;221;221,DDDDDD,ddd,### SAMPLE ###
+grey88,X,224;224;224,E0E0E0,,### SAMPLE ###
+grey89,X,227;227;227,E3E3E3,,### SAMPLE ###
+grey90,X,229;229;229,E5E5E5,,### SAMPLE ###
+grey91,X,232;232;232,E8E8E8,,### SAMPLE ###
+grey92,X,235;235;235,EBEBEB,,### SAMPLE ###
+grey93,X,237;237;237,EDEDED,,### SAMPLE ###
+,,238;238;238,EEEEEE,eee,### SAMPLE ###
+grey94,X,240;240;240,F0F0F0,,### SAMPLE ###
+grey95,X,242;242;242,F2F2F2,,### SAMPLE ###
+grey96,X,245;245;245,F5F5F5,,### SAMPLE ###
+grey97,X,247;247;247,F7F7F7,,### SAMPLE ###
+grey98,X,250;250;250,FAFAFA,,### SAMPLE ###
+grey99,X,252;252;252,FCFCFC,,### SAMPLE ###
+"grey100, White",X,255;255;255,FFFFFF,fff,### SAMPLE ###
+Dark Slate Grey,N,47;79;79,2F4F4F,,### SAMPLE ###
+Dim Grey,N,84;84;84,545454,,### SAMPLE ###
+Very Light Grey,N,205;205;205,CDCDCD,,### SAMPLE ###
+Free Speech Grey,F,99;86;136,635688,,### SAMPLE ###
+AliceBlue,X,240;248;255,F0F8FF,,### SAMPLE ###
+BlueViolet,X,138;43;226,8A2BE2,,### SAMPLE ###
+Cadet Blue,N,95;159;159,5F9F9F,,### SAMPLE ###
+CadetBlue,X,95;158;160,5F9EA0,,### SAMPLE ###
+CadetBlue,X,95;158;160,5F9EA0,,### SAMPLE ###
+CadetBlue1,X,152;245;255,98F5FF,,### SAMPLE ###
+CadetBlue2,X,142;229;238,8EE5EE,,### SAMPLE ###
+CadetBlue3,X,122;197;205,7AC5CD,,### SAMPLE ###
+CadetBlue4,X,83;134;139,53868B,,### SAMPLE ###
+Corn Flower Blue,N,66;66;111,42426F,,### SAMPLE ###
+CornflowerBlue,X,100;149;237,6495ED,,### SAMPLE ###
+DarkSlateBlue,X,72;61;139,483D8B,,### SAMPLE ###
+DarkTurquoise,X,0;206;209,00CED1,,### SAMPLE ###
+DeepSkyBlue,X,0;191;255,00BFFF,,### SAMPLE ###
+DeepSkyBlue1,X,0;191;255,00BFFF,,### SAMPLE ###
+DeepSkyBlue2,X,0;178;238,00B2EE,,### SAMPLE ###
+DeepSkyBlue3,X,0;154;205,009ACD,,### SAMPLE ###
+DeepSkyBlue4,X,0;104;139,00688B,,### SAMPLE ###
+DodgerBlue,X,30;144;255,1E90FF,,### SAMPLE ###
+DodgerBlue1,X,30;144;255,1E90FF,,### SAMPLE ###
+DodgerBlue2,X,28;134;238,1C86EE,,### SAMPLE ###
+DodgerBlue3,X,24;116;205,1874CD,,### SAMPLE ###
+DodgerBlue4,X,16;78;139,104E8B,,### SAMPLE ###
+,,170;187;204,AABBCC,abc,### SAMPLE ###
+LightBlue,X,173;216;230,ADD8E6,,### SAMPLE ###
+LightBlue1,X,191;239;255,BFEFFF,,### SAMPLE ###
+LightBlue2,X,178;223;238,B2DFEE,,### SAMPLE ###
+LightBlue3,X,154;192;205,9AC0CD,,### SAMPLE ###
+LightBlue4,X,104;131;139,68838B,,### SAMPLE ###
+LightCyan,X,224;255;255,E0FFFF,,### SAMPLE ###
+LightCyan1,X,224;255;255,E0FFFF,,### SAMPLE ###
+LightCyan2,X,209;238;238,D1EEEE,,### SAMPLE ###
+LightCyan3,X,180;205;205,B4CDCD,,### SAMPLE ###
+LightCyan4,X,122;139;139,7A8B8B,,### SAMPLE ###
+LightSkyBlue,X,135;206;250,87CEFA,,### SAMPLE ###
+LightSkyBlue1,X,176;226;255,B0E2FF,,### SAMPLE ###
+LightSkyBlue2,X,164;211;238,A4D3EE,,### SAMPLE ###
+LightSkyBlue3,X,141;182;205,8DB6CD,,### SAMPLE ###
+LightSkyBlue4,X,96;123;139,607B8B,,### SAMPLE ###
+LightSlateBlue,X,132;112;255,8470FF,,### SAMPLE ###
+,,153;204;255,99CCFF,9cf,### SAMPLE ###
+LightSteelBlue,X,176;196;222,B0C4DE,,### SAMPLE ###
+LightSteelBlue1,X,202;225;255,CAE1FF,,### SAMPLE ###
+LightSteelBlue2,X,188;210;238,BCD2EE,,### SAMPLE ###
+LightSteelBlue3,X,162;181;205,A2B5CD,,### SAMPLE ###
+LightSteelBlue4,X,110;123;139,6E7B8B,,### SAMPLE ###
+Aquamarine,N,112;219;147,70DB93,,### SAMPLE ###
+MediumBlue,X,0;0;205,0000CD,,### SAMPLE ###
+MediumSlateBlue,X,123;104;238,7B68EE,,### SAMPLE ###
+MediumTurquoise,X,72;209;204,48D1CC,,### SAMPLE ###
+MidnightBlue,X,25;25;112,191970,,### SAMPLE ###
+NavyBlue,X,0;0;128,80,,### SAMPLE ###
+PaleTurquoise,X,175;238;238,AFEEEE,,### SAMPLE ###
+PaleTurquoise1,X,187;255;255,BBFFFF,bff,### SAMPLE ###
+PaleTurquoise2,X,174;238;238,AEEEEE,,### SAMPLE ###
+PaleTurquoise3,X,150;205;205,96CDCD,,### SAMPLE ###
+PaleTurquoise4,X,102;139;139,668B8B,,### SAMPLE ###
+PowderBlue,X,176;224;230,B0E0E6,,### SAMPLE ###
+RoyalBlue,X,65;105;225,4.17E+04,,### SAMPLE ###
+RoyalBlue1,X,72;118;255,4876FF,,### SAMPLE ###
+RoyalBlue2,X,67;110;238,436EEE,,### SAMPLE ###
+RoyalBlue3,X,58;95;205,3A5FCD,,### SAMPLE ###
+RoyalBlue4,X,39;64;139,27408B,,### SAMPLE ###
+RoyalBlue5,X,0;34;102,2266,26,### SAMPLE ###
+SkyBlue,X,135;206;235,87CEEB,,### SAMPLE ###
+SkyBlue1,X,135;206;255,87CEFF,,### SAMPLE ###
+SkyBlue2,X,126;192;238,7EC0EE,,### SAMPLE ###
+SkyBlue3,X,108;166;205,6CA6CD,,### SAMPLE ###
+SkyBlue4,X,74;112;139,4A708B,,### SAMPLE ###
+SlateBlue,X,106;90;205,6A5ACD,,### SAMPLE ###
+SlateBlue1,X,131;111;255,836FFF,,### SAMPLE ###
+SlateBlue2,X,122;103;238,7A67EE,,### SAMPLE ###
+SlateBlue3,X,105;89;205,6959CD,,### SAMPLE ###
+SlateBlue4,X,71;60;139,473C8B,,### SAMPLE ###
+SteelBlue,X,70;130;180,4682B4,,### SAMPLE ###
+SteelBlue1,X,99;184;255,63B8FF,,### SAMPLE ###
+SteelBlue2,X,92;172;238,5CACEE,,### SAMPLE ###
+SteelBlue3,X,79;148;205,4F94CD,,### SAMPLE ###
+SteelBlue4,X,54;100;139,36648B,,### SAMPLE ###
+,,51;102;153,336699,369,### SAMPLE ###
+,,51;153;204,3399CC,39c,### SAMPLE ###
+,,102;153;204,6699CC,69c,### SAMPLE ###
+aquamarine,X,127;255;212,7FFFD4,,### SAMPLE ###
+aquamarine1,X,127;255;212,7FFFD4,,### SAMPLE ###
+aquamarine2,X,118;238;198,76EEC6,,### SAMPLE ###
+"aquamarine3, MediumAquamarine",X,102;205;170,66CDAA,,### SAMPLE ###
+aquamarine4,X,69;139;116,458B74,,### SAMPLE ###
+azure,X,240;255;255,F0FFFF,,### SAMPLE ###
+azure1,X,240;255;255,F0FFFF,,### SAMPLE ###
+azure2,X,224;238;238,E0EEEE,,### SAMPLE ###
+azure3,X,193;205;205,C1CDCD,,### SAMPLE ###
+azure4,X,131;139;139,838B8B,,### SAMPLE ###
+blue,"N,V,X",0;0;255,0000FF,00f,### SAMPLE ###
+blue1,X,0;0;255,0000FF,00f,### SAMPLE ###
+blue2,X,0;0;238,0000EE,00e,### SAMPLE ###
+blue3,X,0;0;205,0000CD,,### SAMPLE ###
+blue4,X,0;0;139,00008B,,### SAMPLE ###
+aqua,V,0;255;255,00FFFF,0ff,### SAMPLE ###
+True Iris Blue,,3;180;204,03B4CC,,#©2007 walsh@njit.edu#
+cyan,"N,X",0;255;255,00FFFF,0ff,### SAMPLE ###
+cyan1,X,0;255;255,00FFFF,0ff,### SAMPLE ###
+cyan2,X,0;238;238,00EEEE,0ee,### SAMPLE ###
+cyan3,X,0;205;205,00CDCD,,### SAMPLE ###
+cyan4,X,0;139;139,008B8B,,### SAMPLE ###
+navy,"V,X",0;0;128,80,,### SAMPLE ###
+teal,V,0;128;128,8080,,### SAMPLE ###
+turquoise,X,64;224;208,40E0D0,,### SAMPLE ###
+turquoise1,X,0;245;255,00F5FF,,### SAMPLE ###
+turquoise2,X,0;229;238,00E5EE,,### SAMPLE ###
+turquoise3,X,0;197;205,00C5CD,,### SAMPLE ###
+turquoise4,X,0;134;139,00868B,,### (c) 1999 walsh@njit.edu ###
+DarkSlateGray,X,47;79;79,2F4F4F,,### SAMPLE ###
+DarkSlateGray1,X,151;255;255,97FFFF,,### SAMPLE ###
+DarkSlateGray2,X,141;238;238,8DEEEE,,### SAMPLE ###
+DarkSlateGray3,X,121;205;205,79CDCD,,### SAMPLE ###
+DarkSlateGray4,X,82;139;139,528B8B,,### SAMPLE ###
+Dark Slate Blue,N,36;24;130,241882,,### SAMPLE ###
+Dark Turquoise,N,112;147;219,7093DB,,### SAMPLE ###
+Medium Slate Blue,N,127;0;255,7F00FF,,### SAMPLE ###
+Medium Turquoise,N,112;219;219,70DBDB,,### SAMPLE ###
+Midnight Blue,N,47;47;79,2F2F4F,,### SAMPLE ###
+Navy Blue,N,35;35;142,23238E,,### SAMPLE ###
+Neon Blue,N,77;77;255,4D4DFF,,### SAMPLE ###
+New Midnight Blue,N,0;0;156,00009C,,### SAMPLE ###
+Rich Blue,N,89;89;171,5959AB,,### SAMPLE ###
+Sky Blue,N,50;153;204,3299CC,,### SAMPLE ###
+Slate Blue,N,0;127;255,007FFF,,### SAMPLE ###
+Summer Sky,N,56;176;222,38B0DE,,### SAMPLE ###
+Iris Blue,,3;180;200,03B4C8,,#©2007 walsh@njit.edu#
+Free Speech Blue,F,65;86;197,4156C5,,### SAMPLE ###
+RosyBrown,X,188;143;143,BC8F8F,,### SAMPLE ###
+RosyBrown1,X,255;193;193,FFC1C1,,### SAMPLE ###
+RosyBrown2,X,238;180;180,EEB4B4,,### SAMPLE ###
+RosyBrown3,X,205;155;155,CD9B9B,,### SAMPLE ###
+RosyBrown4,X,139;105;105,8B6969,,### SAMPLE ###
+SaddleBrown,X,139;69;19,8B4513,,### SAMPLE ###
+SandyBrown,X,244;164;96,F4A460,,### SAMPLE ###
+beige,X,245;245;220,F5F5DC,,### SAMPLE ###
+brown,X,165;42;42,A52A2A,,### SAMPLE ###
+brown,N,166;42;42,A62A2A,,### SAMPLE ###
+brown1,X,255;64;64,FF4040,,### SAMPLE ###
+brown2,X,238;59;59,EE3B3B,,### SAMPLE ###
+brown3,X,205;51;51,CD3333,,### SAMPLE ###
+brown4,X,139;35;35,8B2323,,### SAMPLE ###
+dark brown,N,92;64;51,5C4033,,### SAMPLE ###
+burlywood,X,222;184;135,DEB887,,### SAMPLE ###
+burlywood1,X,255;211;155,FFD39B,,### SAMPLE ###
+burlywood2,X,238;197;145,EEC591,,### SAMPLE ###
+burlywood3,X,205;170;125,CDAA7D,,### SAMPLE ###
+burlywood4,X,139;115;85,8B7355,,### SAMPLE ###
+baker's chocolate,N,92;51;23,5C3317,,### SAMPLE ###
+chocolate,X,210;105;30,D2691E,,### SAMPLE ###
+chocolate1,X,255;127;36,FF7F24,,### SAMPLE ###
+chocolate2,X,238;118;33,EE7621,,### SAMPLE ###
+chocolate3,X,205;102;29,CD661D,,### SAMPLE ###
+chocolate4,X,139;69;19,8B4513,,### SAMPLE ###
+peru,X,205;133;63,CD853F,,### SAMPLE ###
+tan,X,210;180;140,D2B48C,,### SAMPLE ###
+tan1,X,255;165;79,FFA54F,,### SAMPLE ###
+tan2,X,238;154;73,EE9A49,,### SAMPLE ###
+tan3,X,205;133;63,CD853F,,### SAMPLE ###
+tan4,X,139;90;43,8B5A2B,,### (c) 1999 walsh@njit.edu ###
+Dark Tan,N,151;105;79,97694F,,### SAMPLE ###
+Dark Wood,N,133;94;66,8.55E+44,,### SAMPLE ###
+Light Wood,N,133;99;99,856363,,### SAMPLE ###
+Medium Wood,N,166;128;100,A68064,,### SAMPLE ###
+New Tan,N,235;199;158,EBC79E,,### SAMPLE ###
+Semi-Sweet Chocolate,N,107;66;38,6B4226,,### SAMPLE ###
+Sienna,N,142;107;35,8E6B23,,### SAMPLE ###
+Tan,N,219;147;112,DB9370,,### SAMPLE ###
+Very Dark Brown,N,92;64;51,5C4033,,### SAMPLE ###
+Dark Green,N,47;79;47,2F4F2F,,### SAMPLE ###
+DarkGreen,X,0;100;0,6400,,### SAMPLE ###
+dark green copper,N,74;118;110,4A766E,,### SAMPLE ###
+DarkKhaki,X,189;183;107,BDB76B,,### SAMPLE ###
+DarkOliveGreen,X,85;107;47,556B2F,,### SAMPLE ###
+DarkOliveGreen1,X,202;255;112,CAFF70,,### SAMPLE ###
+DarkOliveGreen2,X,188;238;104,BCEE68,,### SAMPLE ###
+DarkOliveGreen3,X,162;205;90,A2CD5A,,### SAMPLE ###
+DarkOliveGreen4,X,110;139;61,6E8B3D,,### SAMPLE ###
+olive,V,128;128;0,808000,,### SAMPLE ###
+DarkSeaGreen,X,143;188;143,8FBC8F,,### SAMPLE ###
+DarkSeaGreen1,X,193;255;193,C1FFC1,,### SAMPLE ###
+DarkSeaGreen2,X,180;238;180,B4EEB4,,### SAMPLE ###
+DarkSeaGreen3,X,155;205;155,9BCD9B,,### SAMPLE ###
+DarkSeaGreen4,X,105;139;105,698B69,,### SAMPLE ###
+ForestGreen,X,34;139;34,228B22,,### SAMPLE ###
+GreenYellow,X,173;255;47,ADFF2F,,### SAMPLE ###
+LawnGreen,X,124;252;0,7CFC00,,### SAMPLE ###
+LightSeaGreen,X,32;178;170,20B2AA,,### SAMPLE ###
+LimeGreen,X,50;205;50,32CD32,,### SAMPLE ###
+MediumSeaGreen,X,60;179;113,3CB371,,### SAMPLE ###
+MediumSpringGreen,X,0;250;154,00FA9A,,### SAMPLE ###
+MintCream,X,245;255;250,F5FFFA,,### SAMPLE ###
+OliveDrab,X,107;142;35,6B8E23,,### SAMPLE ###
+OliveDrab1,X,192;255;62,C0FF3E,,### SAMPLE ###
+OliveDrab2,X,179;238;58,B3EE3A,,### SAMPLE ###
+OliveDrab3,X,154;205;50,9ACD32,,### SAMPLE ###
+OliveDrab4,X,105;139;34,698B22,,### SAMPLE ###
+PaleGreen,X,152;251;152,98FB98,,### SAMPLE ###
+PaleGreen1,X,154;255;154,9AFF9A,,### SAMPLE ###
+PaleGreen2,X,144;238;144,90EE90,,### SAMPLE ###
+PaleGreen3,X,124;205;124,7CCD7C,,### SAMPLE ###
+PaleGreen4,X,84;139;84,548B54,,### SAMPLE ###
+"SeaGreen, SeaGreen4",X,46;139;87,2E8B57,,### SAMPLE ###
+SeaGreen1,X,84;255;159,54FF9F,,### SAMPLE ###
+SeaGreen2,X,78;238;148,4EEE94,,### SAMPLE ###
+SeaGreen3,X,67;205;128,43CD80,,### SAMPLE ###
+SpringGreen,X,0;255;127,00FF7F,,### SAMPLE ###
+SpringGreen1,X,0;255;127,00FF7F,,### SAMPLE ###
+SpringGreen2,X,0;238;118,00EE76,,### SAMPLE ###
+SpringGreen3,X,0;205;102,00CD66,,### SAMPLE ###
+SpringGreen4,X,0;139;69,008B45,,#©2006 walsh@njit.edu#
+YellowGreen,X,154;205;50,9ACD32,,### SAMPLE ###
+chartreuse,X,127;255;0,7FFF00,,### SAMPLE ###
+chartreuse1,X,127;255;0,7FFF00,,### SAMPLE ###
+chartreuse2,X,118;238;0,76EE00,,### SAMPLE ###
+chartreuse3,X,102;205;0,66CD00,,### SAMPLE ###
+chartreuse4,X,69;139;0,458B00,,### SAMPLE ###
+green,"N,X",0;255;0,00FF00,0f0,### SAMPLE ###
+green,V,0;128;0,8000,,### SAMPLE ###
+lime,V,0;255;0,00FF00,0f0,### SAMPLE ###
+green1,X,0;255;0,00FF00,0f0,### SAMPLE ###
+green2,X,0;238;0,00EE00,0.00E+00,### SAMPLE ###
+green3,X,0;205;0,00CD00,,### SAMPLE ###
+green4,X,0;139;0,008B00,,### SAMPLE ###
+khaki,X,240;230;140,F0E68C,,### SAMPLE ###
+khaki1,X,255;246;143,FFF68F,,### SAMPLE ###
+khaki2,X,238;230;133,EEE685,,### SAMPLE ###
+khaki3,X,205;198;115,CDC673,,### SAMPLE ###
+khaki4,X,139;134;78,8B864E,,### SAMPLE ###
+Dark Olive Green,N,79;79;47,4F4F2F,,### SAMPLE ###
+Green Yellow [sic],N,209;146;117,D19275,,### SAMPLE ###
+Hunter Green [sic],N,142;35;35,8E2323,,### SAMPLE ###
+"Forest Green, Khaki, Medium Aquamarine",N,35;142;35,2.38E+25,,### SAMPLE ###
+Medium Forest Green,N,219;219;112,DBDB70,,### SAMPLE ###
+Medium Sea Green,N,66;111;66,426F42,,### SAMPLE ###
+Medium Spring Green,N,127;255;0,7FFF00,,### SAMPLE ###
+Pale Green,N,143;188;143,8FBC8F,,### SAMPLE ###
+Sea Green,N,35;142;104,2.38E+70,,### SAMPLE ###
+Spring Green,N,0;255;127,00FF7F,,### SAMPLE ###
+Free Speech Green,F,9;249;17,09F911,,### SAMPLE ###
+Free Speech Aquamarine,F,2;157;116,029D74,,### SAMPLE ###
+DarkOrange,X,255;140;0,FF8C00,,### SAMPLE ###
+DarkOrange1,X,255;127;0,FF7F00,,### SAMPLE ###
+DarkOrange2,X,238;118;0,EE7600,,### SAMPLE ###
+DarkOrange3,X,205;102;0,CD6600,,### SAMPLE ###
+DarkOrange4,X,139;69;0,8B4500,,### SAMPLE ###
+DarkSalmon,X,233;150;122,E9967A,,### SAMPLE ###
+LightCoral,X,240;128;128,F08080,,### SAMPLE ###
+LightSalmon,X,255;160;122,FFA07A,,### SAMPLE ###
+LightSalmon1,X,255;160;122,FFA07A,,### SAMPLE ###
+LightSalmon2,X,238;149;114,EE9572,,### SAMPLE ###
+LightSalmon3,X,205;129;98,CD8162,,### SAMPLE ###
+LightSalmon4,X,139;87;66,8B5742,,### SAMPLE ###
+PeachPuff,X,255;218;185,FFDAB9,,### SAMPLE ###
+PeachPuff1,X,255;218;185,FFDAB9,,### SAMPLE ###
+PeachPuff2,X,238;203;173,EECBAD,,### SAMPLE ###
+PeachPuff3,X,205;175;149,CDAF95,,### SAMPLE ###
+PeachPuff4,X,139;119;101,8B7765,,### SAMPLE ###
+bisque,X,255;228;196,FFE4C4,,### SAMPLE ###
+bisque1,X,255;228;196,FFE4C4,,### SAMPLE ###
+bisque2,X,238;213;183,EED5B7,,### SAMPLE ###
+bisque3,X,205;183;158,CDB79E,,### SAMPLE ###
+bisque4,X,139;125;107,8B7D6B,,### SAMPLE ###
+coral,N,255;127;0,FF7F00,,### SAMPLE ###
+coral,X,255;127;80,FF7F50,,### SAMPLE ###
+coral1,X,255;114;86,FF7256,,### SAMPLE ###
+coral2,X,238;106;80,EE6A50,,### SAMPLE ###
+coral3,X,205;91;69,CD5B45,,### SAMPLE ###
+coral4,X,139;62;47,8B3E2F,,### SAMPLE ###
+honeydew,X,240;255;240,F0FFF0,,### SAMPLE ###
+honeydew1,X,240;255;240,F0FFF0,,### SAMPLE ###
+honeydew2,X,224;238;224,E0EEE0,,### SAMPLE ###
+honeydew3,X,193;205;193,C1CDC1,,### SAMPLE ###
+honeydew4,X,131;139;131,838B83,,### SAMPLE ###
+orange,X,255;165;0,FFA500,,### SAMPLE ###
+orange1,X,255;165;0,FFA500,,### SAMPLE ###
+orange2,X,238;154;0,EE9A00,,### SAMPLE ###
+orange3,X,205;133;0,CD8500,,### SAMPLE ###
+orange4,X,139;90;0,8B5A00,,### SAMPLE ###
+salmon,X,250;128;114,FA8072,,### SAMPLE ###
+salmon1,X,255;140;105,FF8C69,,### SAMPLE ###
+salmon2,X,238;130;98,EE8262,,### SAMPLE ###
+salmon3,X,205;112;84,CD7054,,### SAMPLE ###
+salmon4,X,139;76;57,8B4C39,,### SAMPLE ###
+sienna,X,160;82;45,A0522D,,### SAMPLE ###
+sienna1,X,255;130;71,FF8247,,### SAMPLE ###
+sienna2,X,238;121;66,EE7942,,### SAMPLE ###
+sienna3,X,205;104;57,CD6839,,### SAMPLE ###
+sienna4,X,139;71;38,8B4726,,### SAMPLE ###
+Mandarian Orange,N,142;35;35,8E2323,,### SAMPLE ###
+Orange,N,255;127;0,FF7F00,,### SAMPLE ###
+Orange Red,N,255;36;0,FF2400,,### SAMPLE ###
+DeepPink,X,255;20;147,FF1493,,### SAMPLE ###
+DeepPink1,X,255;20;147,FF1493,,### SAMPLE ###
+DeepPink2,X,238;18;137,EE1289,,### SAMPLE ###
+DeepPink3,X,205;16;118,CD1076,,### SAMPLE ###
+DeepPink4,X,139;10;80,8B0A50,,### SAMPLE ###
+HotPink,X,255;105;180,FF69B4,,### SAMPLE ###
+HotPink1,X,255;110;180,FF6EB4,,### SAMPLE ###
+HotPink2,X,238;106;167,EE6AA7,,### SAMPLE ###
+HotPink3,X,205;96;144,CD6090,,### SAMPLE ###
+HotPink4,X,139;58;98,8B3A62,,### SAMPLE ###
+IndianRed,X,205;92;92,CD5C5C,,### SAMPLE ###
+IndianRed1,X,255;106;106,FF6A6A,,### SAMPLE ###
+IndianRed2,X,238;99;99,EE6363,,### SAMPLE ###
+IndianRed3,X,205;85;85,CD5555,,### SAMPLE ###
+IndianRed4,X,139;58;58,8B3A3A,,### SAMPLE ###
+LightPink,X,255;182;193,FFB6C1,,### SAMPLE ###
+LightPink1,X,255;174;185,FFAEB9,,### SAMPLE ###
+LightPink2,X,238;162;173,EEA2AD,,### SAMPLE ###
+LightPink3,X,205;140;149,CD8C95,,### SAMPLE ###
+LightPink4,X,139;95;101,8B5F65,,### SAMPLE ###
+MediumVioletRed,X,199;21;133,C71585,,### SAMPLE ###
+MistyRose,X,255;228;225,FFE4E1,,### SAMPLE ###
+MistyRose1,X,255;228;225,FFE4E1,,### SAMPLE ###
+MistyRose2,X,238;213;210,EED5D2,,### SAMPLE ###
+MistyRose3,X,205;183;181,CDB7B5,,### SAMPLE ###
+MistyRose4,X,139;125;123,8B7D7B,,### SAMPLE ###
+OrangeRed,X,255;69;0,FF4500,,### SAMPLE ###
+OrangeRed1,X,255;69;0,FF4500,,### SAMPLE ###
+OrangeRed2,X,238;64;0,EE4000,,### SAMPLE ###
+OrangeRed3,X,205;55;0,CD3700,,### SAMPLE ###
+OrangeRed4,X,139;37;0,8B2500,,### SAMPLE ###
+PaleVioletRed,X,219;112;147,DB7093,,### SAMPLE ###
+PaleVioletRed1,X,255;130;171,FF82AB,,### SAMPLE ###
+PaleVioletRed2,X,238;121;159,EE799F,,### SAMPLE ###
+PaleVioletRed3,X,205;104;137,CD6889,,### SAMPLE ###
+PaleVioletRed4,X,139;71;93,8B475D,,### SAMPLE ###
+VioletRed,X,208;32;144,D02090,,### SAMPLE ###
+VioletRed1,X,255;62;150,FF3E96,,### SAMPLE ###
+VioletRed2,X,238;58;140,EE3A8C,,### SAMPLE ###
+VioletRed3,X,205;50;120,CD3278,,### SAMPLE ###
+VioletRed4,X,139;34;82,8B2252,,### SAMPLE ###
+firebrick,X,178;34;34,B22222,,### SAMPLE ###
+firebrick1,X,255;48;48,FF3030,,### SAMPLE ###
+firebrick2,X,238;44;44,EE2C2C,,### SAMPLE ###
+firebrick3,X,205;38;38,CD2626,,### SAMPLE ###
+firebrick4,X,139;26;26,8B1A1A,,### SAMPLE ###
+pink,X,255;192;203,FFC0CB,,### SAMPLE ###
+pink1,X,255;181;197,FFB5C5,,### SAMPLE ###
+pink2,X,238;169;184,EEA9B8,,### SAMPLE ###
+pink3,X,205;145;158,CD919E,,### SAMPLE ###
+pink4,X,139;99;108,8B636C,,### SAMPLE ###
+Flesh,N,245;204;176,F5CCB0,,### SAMPLE ###
+Feldspar,N,209;146;117,D19275,,### SAMPLE ###
+,,204;51;51,CC3333,c33,### SAMPLE ###
+red,"N,V,X",255;0;0,FF0000,f00,### SAMPLE ###
+red1,X,255;0;0,FF0000,f00,### SAMPLE ###
+red2,X,238;0;0,EE0000,e00,### SAMPLE ###
+red3,X,205;0;0,CD0000,,### SAMPLE ###
+red4,X,139;0;0,8B0000,,### SAMPLE ###
+tomato,X,255;99;71,FF6347,,### SAMPLE ###
+tomato1,X,255;99;71,FF6347,,### SAMPLE ###
+tomato2,X,238;92;66,EE5C42,,### SAMPLE ###
+tomato3,X,205;79;57,CD4F39,,### SAMPLE ###
+tomato4,X,139;54;38,8B3626,,### SAMPLE ###
+Dusty Rose,N,133;99;99,856363,,### SAMPLE ###
+Firebrick,N,142;35;35,8E2323,,### SAMPLE ###
+Indian Red,N,245;204;176,F5CCB0,,### SAMPLE ###
+Pink,N,188;143;143,BC8F8F,,### SAMPLE ###
+Salmon,N,111;66;66,6F4242,,### SAMPLE ###
+Scarlet,N,140;23;23,8C1717,,### SAMPLE ###
+Spicy Pink,N,255;28;174,FF1CAE,,### SAMPLE ###
+Free Speech Magenta,F,227;91;216,E35BD8,,### SAMPLE ###
+Free Speech Red,F,192;0;0,C00000,,### SAMPLE ###
+DarkOrchid,X,153;50;204,9932CC,,### SAMPLE ###
+DarkOrchid1,X,191;62;255,BF3EFF,,### SAMPLE ###
+DarkOrchid2,X,178;58;238,B23AEE,,### SAMPLE ###
+DarkOrchid3,X,154;50;205,9A32CD,,### SAMPLE ###
+DarkOrchid4,X,104;34;139,68228B,,### SAMPLE ###
+DarkViolet,X,148;0;211,9400D3,,### SAMPLE ###
+LavenderBlush,X,255;240;245,FFF0F5,,### SAMPLE ###
+LavenderBlush1,X,255;240;245,FFF0F5,,### SAMPLE ###
+LavenderBlush2,X,238;224;229,EEE0E5,,### SAMPLE ###
+LavenderBlush3,X,205;193;197,CDC1C5,,### SAMPLE ###
+LavenderBlush4,X,139;131;134,8B8386,,### SAMPLE ###
+MediumOrchid,X,186;85;211,BA55D3,,### SAMPLE ###
+MediumOrchid1,X,224;102;255,E066FF,,### SAMPLE ###
+MediumOrchid2,X,209;95;238,D15FEE,,### SAMPLE ###
+MediumOrchid3,X,180;82;205,B452CD,,### SAMPLE ###
+MediumOrchid4,X,122;55;139,7A378B,,### SAMPLE ###
+MediumPurple,X,147;112;219,9370DB,,### SAMPLE ###
+Medium Orchid,N,147;112;219,9370DB,,### SAMPLE ###
+MediumPurple1,X,171;130;255,AB82FF,,### SAMPLE ###
+Dark Orchid,N,153;50;205,9932CD,,### SAMPLE ###
+MediumPurple2,X,159;121;238,9F79EE,,### SAMPLE ###
+MediumPurple3,X,137;104;205,8968CD,,### SAMPLE ###
+MediumPurple4,X,93;71;139,5D478B,,### SAMPLE ###
+lavender,X,230;230;250,E6E6FA,,### SAMPLE ###
+magenta,"N,X",255;0;255,FF00FF,f0f,### SAMPLE ###
+fuchsia,V,255;0;255,FF00FF,f0f,### SAMPLE ###
+magenta1,X,255;0;255,FF00FF,f0f,### SAMPLE ###
+magenta2,X,238;0;238,EE00EE,e0e,### SAMPLE ###
+magenta3,X,205;0;205,CD00CD,,### SAMPLE ###
+magenta4,X,139;0;139,8B008B,,### SAMPLE ###
+maroon,X,176;48;96,B03060,,### SAMPLE ###
+maroon1,X,255;52;179,FF34B3,,### SAMPLE ###
+maroon2,X,238;48;167,EE30A7,,### SAMPLE ###
+maroon3,X,205;41;144,CD2990,,### SAMPLE ###
+maroon4,X,139;28;98,8B1C62,,### SAMPLE ###
+orchid,X,218;112;214,DA70D6,,### SAMPLE ###
+Orchid,N,219;112;219,DB70DB,,### SAMPLE ###
+orchid1,X,255;131;250,FF83FA,,### SAMPLE ###
+orchid2,X,238;122;233,EE7AE9,,### SAMPLE ###
+orchid3,X,205;105;201,CD69C9,,### SAMPLE ###
+orchid4,X,139;71;137,8B4789,,### SAMPLE ###
+plum,X,221;160;221,DDA0DD,,### SAMPLE ###
+plum1,X,255;187;255,FFBBFF,fbf,### SAMPLE ###
+plum2,X,238;174;238,EEAEEE,,### SAMPLE ###
+plum3,X,205;150;205,CD96CD,,### SAMPLE ###
+plum4,X,139;102;139,8B668B,,### SAMPLE ###
+,,153;102;204,9966CC,96c,### SAMPLE ###
+purple,X,160;32;240,A020F0,,### SAMPLE ###
+purple,V,128;0;128,800080,,### SAMPLE ###
+purple1,X,155;48;255,9B30FF,,### SAMPLE ###
+purple2,X,145;44;238,912CEE,,### SAMPLE ###
+purple3,X,125;38;205,7D26CD,,### SAMPLE ###
+purple4,X,85;26;139,551A8B,,### SAMPLE ###
+thistle,X,216;191;216,D8BFD8,,### SAMPLE ###
+thistle1,X,255;225;255,FFE1FF,,### SAMPLE ###
+thistle2,X,238;210;238,EED2EE,,### SAMPLE ###
+thistle3,X,205;181;205,CDB5CD,,### SAMPLE ###
+thistle4,X,139;123;139,8B7B8B,,### SAMPLE ###
+violet,X,238;130;238,EE82EE,,### SAMPLE ###
+violet blue,N,159;95;159,9F5F9F,,### SAMPLE ###
+Dark Purple,N,135;31;120,871F78,,### SAMPLE ###
+Maroon,V,128;0;0,800000,,### SAMPLE ###
+Medium Violet Red,N,219;112;147,DB7093,,### SAMPLE ###
+Neon Pink,N,255;110;199,FF6EC7,,### SAMPLE ###
+Plum,N,234;173;234,EAADEA,,### SAMPLE ###
+Thistle,N,216;191;216,D8BFD8,,### SAMPLE ###
+Turquoise,N,173;234;234,ADEAEA,,### SAMPLE ###
+Violet,N,79;47;79,4F2F4F,,### SAMPLE ###
+Violet Red,N,204;50;153,CC3299,,### SAMPLE ###
+AntiqueWhite,X,250;235;215,FAEBD7,,### SAMPLE ###
+AntiqueWhite1,X,255;239;219,FFEFDB,,### SAMPLE ###
+AntiqueWhite2,X,238;223;204,EEDFCC,,### SAMPLE ###
+AntiqueWhite3,X,205;192;176,CDC0B0,,### SAMPLE ###
+AntiqueWhite4,X,139;131;120,8B8378,,### SAMPLE ###
+FloralWhite,X,255;250;240,FFFAF0,,### SAMPLE ###
+GhostWhite,X,248;248;255,F8F8FF,,### SAMPLE ###
+NavajoWhite,X,255;222;173,FFDEAD,,### SAMPLE ###
+NavajoWhite1,X,255;222;173,FFDEAD,,### SAMPLE ###
+NavajoWhite2,X,238;207;161,EECFA1,,### SAMPLE ###
+NavajoWhite3,X,205;179;139,CDB38B,,### SAMPLE ###
+NavajoWhite4,X,139;121;94,8B795E,,### SAMPLE ###
+OldLace,X,253;245;230,FDF5E6,,### SAMPLE ###
+WhiteSmoke,X,245;245;245,F5F5F5,,### SAMPLE ###
+gainsboro,X,220;220;220,DCDCDC,,### SAMPLE ###
+ivory,X,255;255;240,FFFFF0,,### SAMPLE ###
+ivory1,X,255;255;240,FFFFF0,,### SAMPLE ###
+ivory2,X,238;238;224,EEEEE0,,### SAMPLE ###
+ivory3,X,205;205;193,CDCDC1,,### SAMPLE ###
+ivory4,X,139;139;131,8B8B83,,### SAMPLE ###
+linen,X,250;240;230,FAF0E6,,### SAMPLE ###
+seashell,X,255;245;238,FFF5EE,,### SAMPLE ###
+seashell1,X,255;245;238,FFF5EE,,### SAMPLE ###
+seashell2,X,238;229;222,EEE5DE,,### SAMPLE ###
+seashell3,X,205;197;191,CDC5BF,,### SAMPLE ###
+seashell4,X,139;134;130,8B8682,,### SAMPLE ###
+snow,X,255;250;250,FFFAFA,,### SAMPLE ###
+snow1,X,255;250;250,FFFAFA,,### SAMPLE ###
+snow2,X,238;233;233,EEE9E9,,### SAMPLE ###
+snow3,X,205;201;201,CDC9C9,,### SAMPLE ###
+snow4,X,139;137;137,8B8989,,### SAMPLE ###
+wheat,X,245;222;179,F5DEB3,,### SAMPLE ###
+wheat1,X,255;231;186,FFE7BA,,### SAMPLE ###
+wheat2,X,238;216;174,EED8AE,,### SAMPLE ###
+wheat3,X,205;186;150,CDBA96,,### SAMPLE ###
+wheat4,X,139;126;102,8B7E66,,### SAMPLE ###
+white,"N,V,X",255;255;255,FFFFFF,fff,### SAMPLE ###
+Quartz,N,217;217;243,D9D9F3,,### SAMPLE ###
+Wheat,N,216;216;191,D8D8BF,,### SAMPLE ###
+BlanchedAlmond,X,255;235;205,FFEBCD,,### SAMPLE ###
+DarkGoldenrod,X,184;134;11,B8860B,,### SAMPLE ###
+DarkGoldenrod1,X,255;185;15,FFB90F,,### SAMPLE ###
+DarkGoldenrod2,X,238;173;14,EEAD0E,,### SAMPLE ###
+DarkGoldenrod3,X,205;149;12,CD950C,,### SAMPLE ###
+DarkGoldenrod4,X,139;101;8,8B6508,,### SAMPLE ###
+LemonChiffon,X,255;250;205,FFFACD,,### SAMPLE ###
+LemonChiffon1,X,255;250;205,FFFACD,,### SAMPLE ###
+LemonChiffon2,X,238;233;191,EEE9BF,,### SAMPLE ###
+LemonChiffon3,X,205;201;165,CDC9A5,,### SAMPLE ###
+LemonChiffon4,X,139;137;112,8B8970,,### SAMPLE ###
+LightGoldenrod,X,238;221;130,EEDD82,,### SAMPLE ###
+LightGoldenrod1,X,255;236;139,FFEC8B,,### SAMPLE ###
+LightGoldenrod2,X,238;220;130,EEDC82,,### SAMPLE ###
+LightGoldenrod3,X,205;190;112,CDBE70,,### SAMPLE ###
+LightGoldenrod4,X,139;129;76,8B814C,,### SAMPLE ###
+LightGoldenrodYellow,X,250;250;210,FAFAD2,,### SAMPLE ###
+LightYellow,X,255;255;224,FFFFE0,,### SAMPLE ###
+LightYellow1,X,255;255;224,FFFFE0,,### SAMPLE ###
+LightYellow2,X,238;238;209,EEEED1,,### SAMPLE ###
+LightYellow3,X,205;205;180,CDCDB4,,### SAMPLE ###
+LightYellow4,X,139;139;122,8B8B7A,,### SAMPLE ###
+PaleGoldenrod,X,238;232;170,EEE8AA,,### SAMPLE ###
+PapayaWhip,X,255;239;213,FFEFD5,,### SAMPLE ###
+cornsilk,X,255;248;220,FFF8DC,,### SAMPLE ###
+cornsilk1,X,255;248;220,FFF8DC,,### SAMPLE ###
+cornsilk2,X,238;232;205,EEE8CD,,### SAMPLE ###
+cornsilk3,X,205;200;177,CDC8B1,,### SAMPLE ###
+cornsilk4,X,139;136;120,8B8878,,### SAMPLE ###
+goldenrod,X,218;165;32,DAA520,,### SAMPLE ###
+goldenrod1,X,255;193;37,FFC125,,### SAMPLE ###
+goldenrod2,X,238;180;34,EEB422,,### SAMPLE ###
+goldenrod3,X,205;155;29,CD9B1D,,### SAMPLE ###
+goldenrod4,X,139;105;20,8B6914,,### SAMPLE ###
+moccasin,X,255;228;181,FFE4B5,,### SAMPLE ###
+yellow,"N,V,X",255;255;0,FFFF00,ff0,### SAMPLE ###
+yellow1,X,255;255;0,FFFF00,ff0,### SAMPLE ###
+yellow2,X,238;238;0,EEEE00,ee0,### SAMPLE ###
+yellow3,X,205;205;0,CDCD00,,### SAMPLE ###
+yellow4,X,139;139;0,8B8B00,,### SAMPLE ###
+gold,X,255;215;0,FFD700,,### SAMPLE ###
+gold1,X,255;215;0,FFD700,,### SAMPLE ###
+gold2,X,238;201;0,EEC900,,### SAMPLE ###
+gold3,X,205;173;0,CDAD00,,### SAMPLE ###
+gold4,X,139;117;0,8B7500,,### SAMPLE ###
+Goldenrod,N,219;219;112,DBDB70,,### SAMPLE ###
+Medium Goldenrod,N,234;234;174,EAEAAE,,### SAMPLE ###
+Yellow Green,N,153;204;50,99CC32,,### SAMPLE ###
+copper,N,184;115;51,B87333,,### SAMPLE ###
+cool copper,N,217;135;25,D98719,,### SAMPLE ###
+Green Copper,N,133;99;99,856363,,### SAMPLE ###
+brass,N,181;166;66,B5A642,,### SAMPLE ###
+bronze,N,140;120;83,8C7853,,### SAMPLE ###
+bronze II,N,166;125;61,A67D3D,,### SAMPLE ###
+bright gold,N,217;217;25,D9D919,,### SAMPLE ###
+Old Gold,N,207;181;59,CFB53B,,### SAMPLE ###
+CSS Gold,,204;153;0,CC9900,c90,### SAMPLE ###
+gold,N,205;127;50,CD7F32,,### SAMPLE ###
+silver,N,230;232;250,E6E8FA,,### SAMPLE ###
+"Silver, Grey",V,192;192;192,C0C0C0,,### SAMPLE ###
+Light Steel Blue,N,84;84;84,545454,,### SAMPLE ###
+Steel Blue,N,35;107;142,236B8E,,
