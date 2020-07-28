@@ -42,9 +42,9 @@ print(df.columns)
     Index(['UID', 'iso2', 'iso3', 'code3', 'FIPS', 'Admin2', 'Province_State',
            'Country_Region', 'Lat', 'Long_',
            ...
-           '7/2/20', '7/3/20', '7/4/20', '7/5/20', '7/6/20', '7/7/20', '7/8/20',
-           '7/9/20', '7/10/20', '7/11/20'],
-          dtype='object', length=183)
+           '7/17/20', '7/18/20', '7/19/20', '7/20/20', '7/21/20', '7/22/20',
+           '7/23/20', '7/24/20', '7/25/20', '7/26/20'],
+          dtype='object', length=198)
     
 Right, so its sort of pivoted already. But I dont actually want this, because I want smooth interpolation. I want dates on the index, and FIPS on the columns. On top of that, I want the relative increase in number of cases per 100k residents, or we'll just be [replicating a population map](https://xkcd.com/1138/).
 
@@ -161,11 +161,11 @@ df2 = df2.pivot(columns="FIPS", index="date", values="value").diff(axis=0)
 df2 = df2.rolling(7).mean().iloc[50:, :]
 ```
 
-We've got the data in a format we want. But I'll also want to turn this into a shiny animation, probably around 10 seconds in length or more. At 30FPS, thats 300+ frames. More than we have rows. So time for interpolation!
+We've got the data in a format we want. But I'll also want to turn this into a shiny animation, probably around 20 seconds in length or more. At 30FPS, thats 600+ frames. More than we have rows. So time for interpolation!
 
 ```python
 fr = 30  # frame rate
-t = 12  # seconds
+t = 20  # seconds
 new_index = pd.date_range(df2.index.min(), df2.index.max(), fr * t)
 
 # Combine index, interp, remove original index
@@ -207,7 +207,7 @@ df3.iloc[:5, :5]
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2020-03-12 08:05:20.891364902</th>
+      <th>2020-03-12 05:26:56.694490818</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -215,7 +215,7 @@ df3.iloc[:5, :5]
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2020-03-12 16:10:41.782729805</th>
+      <th>2020-03-12 10:53:53.388981636</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -223,7 +223,7 @@ df3.iloc[:5, :5]
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2020-03-13 00:16:02.674094707</th>
+      <th>2020-03-12 16:20:50.083472454</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -231,7 +231,7 @@ df3.iloc[:5, :5]
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2020-03-13 08:21:23.565459610</th>
+      <th>2020-03-12 21:47:46.777963272</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -302,7 +302,8 @@ def plot_row(df, row, vmax=50, show=False):
                         scope="usa", range_color=(0, vmax), template='plotly_dark')
     default_configure(fig, date, vmax)
     save_fig(fig, row)
-    return fig
+    if show:
+        return fig
         
 # Lets just plot the final frame to make sure it looks good   
 n = df3.shape[0] - 1
@@ -318,7 +319,7 @@ What an image! Now to save out a whole bunch of images. I'm doing this in a note
 
 ```python
 from joblib import Parallel, delayed
-Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]))
+Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]));
 ```
 
 And now that we have a PNG sequence, lets render it out to an mp4 file. Im going to also add a mask (which is black but transparent over the country and colorbar that I want to glow, I threw it together in photoshop) and some complex filters to emulate a glow effect without having to throw it in After Effects, and it also makes it pause on the last frame for a bit without having to rend out things over and over.
@@ -336,7 +337,7 @@ curves=all='0/0 1/1'[d],
 [b]setsar=sar=1[e],
 [d][e]blend=all_mode=addition,
 scale=1920:-2,
-tpad=stop_mode=clone:stop_duration=2
+tpad=stop_mode=clone:stop_duration=4
 " -vcodec libx264 -crf 23 -movflags faststart -pix_fmt yuv420p us_covid_evolution/evolution.mp4
 ```
 
@@ -352,7 +353,7 @@ For a super brief explanation of the `-filter_complex`:
 
 After that has run, we should have a nice animated version of the PNG sequence! In fact, I'll put the video up the top as well. If you dont want the glow, the entire filter can just be the scaling the the `tpad`, much simpler. Heres the final product:
 
-{% include video.html url="evolution.mp4" autoplay="true" class="img-poster" %}{% include badge.html %}
+{% include badge.html %}
 
 Here's the full code for convenience:
 
@@ -400,7 +401,7 @@ df2 = df2.pivot(columns="FIPS", index="date", values="value").diff(axis=0)
 df2 = df2.rolling(7).mean().iloc[50:, :]
 
 fr = 30  # frame rate
-t = 12  # seconds
+t = 20  # seconds
 new_index = pd.date_range(df2.index.min(), df2.index.max(), fr * t)
 
 # Combine index, interp, remove original index
@@ -464,7 +465,8 @@ def plot_row(df, row, vmax=50, show=False):
                         scope="usa", range_color=(0, vmax), template='plotly_dark')
     default_configure(fig, date, vmax)
     save_fig(fig, row)
-    return fig
+    if show:
+        return fig
         
 # Lets just plot the final frame to make sure it looks good   
 n = df3.shape[0] - 1
@@ -473,7 +475,7 @@ fig = plot_row(df3, n, show=True)
 # Want a PNG, not interactive
 Image(fig.to_image(format="png", scale=2))
 
-Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]))
+Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]));
 
 
 
