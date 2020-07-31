@@ -77,7 +77,7 @@ ax.set_title("PR Curve");
 ```
 
 {% include image.html url="2020-07-15-PR_vs_ROC_Curves_3_0.png"  %}
-The "AP" in the plot is the average precision, weighted by the change in recall. [See this link for details](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html). The important thing is to note the characteristic curve we see, and that what you want is for your curve to get as high up in the upper right corner as possible. Here, we can see that we could pick a classification threshold for the Random Forest Classifier that would grant us a precision of > 90% and still have a recall of also above 95% (the dashed lines are at the 90% mark, and you can see the curve gets aboe both of them).
+The "AP" in the plot is the average precision, weighted by the change in recall. [See this link for details](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html). The important thing is to note the characteristic curve we see, and that what you want is for your curve to get as high up in the upper right corner as possible. Here, we can see that we could pick a classification threshold for the Random Forest Classifier that would grant us a precision of > 90% and still have a recall of also above 90% (the dashed lines are at the 90% mark, and you can see the curve gets aboe both of them).
 
 # What is a ROC curve?
 
