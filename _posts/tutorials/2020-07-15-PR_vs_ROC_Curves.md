@@ -121,7 +121,7 @@ When will this make a difference?
 
 When the classes are imbalanced, or you care more about getting a true positive than a false negative. Imagine the difference between a recommendor system that might not recommend you a movie you actually would have liked (no big deal), and medical imaging algorithm that failes to detect cancer when its present in the image (a very big deal).
 
-Imagine if we look at a dataset with 100 cases in it. Either movies you want to watch, or people with cancer. And there are 100000 negatives (bad movies, healthy patients). Two classifiers, A and B, are run, and both get 99 out of the 100 cases correct; their recall is the same. But classifier A gets predicts 150 outcomes in total (99 true positives, 51 false positives), and classifier B predicts 1000 cases (99 true positives, 901 false positives). Their precision and FPR is different.
+Imagine if we look at a dataset with 100 cases in it. Either movies you want to watch, or people with cancer. And there are 100000 negatives (bad movies, healthy patients). Two classifiers, A and B, are run, and both get 99 out of the 100 cases correct; their recall is the same. But classifier A predicts 150 outcomes in total (99 true positives, 51 false positives), and classifier B predicts 1000 cases (99 true positives, 901 false positives). Their precision and FPR is different.
 
 * **Classifier A**: Recall=0.99, Precision=99/150=0.66, FPR=51/(51+10000)=0.0005
 * **Classifier B**: Recall=0.99, Precision=99/1000=0.099, FPR=901/(901+10000)=0.008
