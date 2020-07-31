@@ -126,7 +126,7 @@ Imagine if we look at a dataset with 100 cases in it. Either movies you want to 
 * **Classifier A**: Recall=0.99, Precision=99/150=0.66, FPR=51/(51+10000)=0.0005
 * **Classifier B**: Recall=0.99, Precision=99/1000=0.099, FPR=901/(901+10000)=0.008
 
-By looking at the ROC curve (Recall and FPR), the two classifiers look like they have similarly great performance! Same recal, and the FPR is absolutely tiny! But if we look at the PR curve (Recall and Precision), they look totally difference - one has a precision of 0.66, the other <0.1!
+By looking at the ROC curve (Recall and FPR), the two classifiers look like they have similarly great performance! Same recall, and the FPR is absolutely tiny! But if we look at the PR curve (Recall and Precision), they look totally difference - one has a precision of 0.66, the other <0.1!
 
 With these sort of imbalanced class numbers, we can see why we might prefer PR curves in these cases.
 
