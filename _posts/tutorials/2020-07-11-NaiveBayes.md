@@ -148,7 +148,7 @@ The way we'd go through and classify the emails by hand, is for each email we'd 
 
 $$P(Y=1|X) = \frac{0.4 \times 0.0 \times 0.5}{0.2 \times 0.6} = 0.0 $$
 
-And yes, there is a slight issue here - we have a probability of zero that will turn **everything** to zero when we multiple it out, removing potentially useful information from other features! This is a pitfall to Naive Bayes, but is easily fixed. We generally implement something called Laplace Smoothing (a specific case of Lidstone smoothing), which is use here to ensure we don't get a zero probability.
+And yes, there is a slight issue here - we have a probability of zero that will turn **everything** to zero when we multiply it out, removing potentially useful information from other features! This is a pitfall to Naive Bayes, but is easily fixed. We generally implement something called Laplace Smoothing (a specific case of Lidstone smoothing), which is use here to ensure we don't get a zero probability.
 
 The way it works is instead of just taking the fraction, we add small amount to the denominator and numerator:
 
@@ -369,7 +369,7 @@ Now that you can see how easy it is to imlpement a Naive Bayes model, lets pause
 * Naive Baues is **fast**. It is a great tool to get off the ground.
 * It **does not** handle correlated features well, due to the assumption of independence.
 * It **doesn't need much data to train**, so great for small datasets.
-* It can be **misled easily** by irrelative features.
+* It can be **misled easily** by irrelevant features.
 * If you have a lot of data, [logistic regression](https://cosmiccoding.com.au/tutorials/logistic_regression) may be a [**better choice**](http://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf)
 
 ## How to improve our spam classifier
