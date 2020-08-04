@@ -500,8 +500,7 @@ def get_base_fig():
 get_base_fig();
 ```
 
-      # This is added back by InteractiveShellApp.init_path()
-{% include image.html url="2020-07-31-CCCC_Institutions_23_1.png"  %}
+{% include image.html url="2020-07-31-CCCC_Institutions_23_0.png"  %}
 ## Add each site
 
 Instead of randomly assigning colours, I've tried to make the colour for each country somewhat related to the country itself. Normally via primary flag colour, although the fact most flags only use a very small subset of colours is quite difficult to work with.
@@ -561,8 +560,7 @@ def get_scatter(data):
 get_scatter(test_row);
 ```
 
-      # This is added back by InteractiveShellApp.init_path()
-{% include image.html url="2020-07-31-CCCC_Institutions_25_1.png"  %}
+{% include image.html url="2020-07-31-CCCC_Institutions_25_0.png"  %}
 I mean... it's nice. But *cool* graphics glow and have changing colours. So I'll define a colormap that allows me to brighten the colour of each site when new patients come in, so that they flicker, glow and grow as they add patients into the system. 
 
 ```python
@@ -606,7 +604,6 @@ def get_shaded(data, date, frame=0, show=False):
 get_shaded(test_row, "2020-03-23", show=True);
 ```
 
-      # This is added back by InteractiveShellApp.init_path()
 {% include image.html url="main.png"  %}
 Now let's test this whole thing animated, so lets loop over every row and output a frame that I'll stitch together using `ffmpeg`. Normally I'd use `joblib` for this... but `basemap` really doesn't like that.
 
