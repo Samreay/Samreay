@@ -616,7 +616,6 @@ for i, date in enumerate(data_fixed.index):
     plot_date(i, date)
 ```
 
-      # This is added back by InteractiveShellApp.init_path()
 Now that we have a bunch of frames, lets turn it into a ncie MP4 video. But lets be fancy, and have this bad boy glow. To do this, Im going to load in a mask (to make sure the title doesnt glow), and run it through a filter complex that took me 4 hours to debug until it worked. It will also add a few seconds of pause at the end, so on looping players people can still see the final result.
 
 ```
