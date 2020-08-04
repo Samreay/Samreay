@@ -4,7 +4,7 @@ title:  "Visualising Patient Contributions for the CCCC"
 desc: "A visual thank you to our contributing sites"
 date: 2020-07-31
 categories: [tutorial]
-tags: [statistics]
+tags: [plotting]
 loc: 'tutorials/cccc_institutions/'
 permalink: /tutorials/cccc_enrolment
 math: true
