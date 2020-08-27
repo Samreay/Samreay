@@ -13,3 +13,6 @@ Thumbs.db
 *.lock
 .ipynb_checkpoints/
 *.crdownload
+
+0*.png
+*.synctex.gz
