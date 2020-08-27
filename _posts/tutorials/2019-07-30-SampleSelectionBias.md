@@ -33,7 +33,7 @@ where $S$ in colloquial English represents "we successfully observed the event".
 
 $$ P(d|\theta, S) = \frac{P(S|d,\theta) P(d|\theta)}{P(S|\theta)} $$
 
-So let's break that down. Our likelihood given our model and our selection effets is given by the chance we observed our experimenal data (which is going to be $1$ for deterministic processes given we **have** observed it already) multiplied by our standard likelihood where we ignore selection effects, divided by the chance of observing data in general at the area in parameter space.
+So let's break that down. Our likelihood given our model and our selection effects is given by the chance we observed our experimenal data (which is going to be $1$ for deterministic processes given we **have** observed it already) multiplied by our standard likelihood where we ignore selection effects, divided by the chance of observing data in general at the area in parameter space.
 
 Now the denominator here cannot be evaluated in its current state, we need to introduce an integral over all data (denoted $D$) such that we can apply the selection effect on it.
 
