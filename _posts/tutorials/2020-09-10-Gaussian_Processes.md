@@ -123,25 +123,27 @@ mean = rvs.mean(axis=0)
 std = np.std(rvs, axis=0)
 
 # Plot the mean and std
-plt.plot(x, mean, "o-", ms=5)
-plt.fill_between(x, mean + std, mean - std, alpha=0.4)
+plt.plot(x, mean, "o-", ms=5, label="mean")
+plt.fill_between(x, mean + std, mean - std, alpha=0.4, label="std")
 
 # And for fun, lets plot 100 of the data realisations
 for i in range(100):
     plt.plot(x, rvs[i, :], ls="-", c="k", alpha=0.2, lw=0.7)
-
+plt.legend();
 ```
 
 {% include image.html url="2020-09-10-Gaussian_Processes_9_0.png"  %}
-What we've done is effectively interpolated between these two points using some covariance matrix, and that covariance matrix has allowed us to produce not just the interpolation, but an uncertainty on it as well.
+What we've done is effectively interpolated between these two points using some covariance matrix, and that covariance matrix has allowed us to produce not just the interpolation, but an uncertainty on it as well (shown by the mean and std above). The small black lines are showing independent "realisations" of the random draws, the ensemble of which determine the mean and standard deviation of our output prediction.
 
 The keen eyed among you will have seen some form of problem - we have 20 points in the x-axis here, and our covariance matrix we generated before is a 20x20 matrix. There are infinite real numbers between 0 and 20, so how on earth will we construct an infinite matrix to do this in practise? This is in fact entirely what the "non-parametric" part of Gaussian Processes refers to. Not that there are no parameters, but that there are an infinite/arbitrary number of them. 
 
-To try and hammer this part home, by drawing over and over we can come up with some mean prediction and some standard deviation on it. This is dependent on our choice for covariance. The covariance we have used has only one parameter, its length scale. The larger $l$ gets the smoother and less changing the predictions become. This number that we 'pick' is known as a hyperparameter. And its something we have to fit for when creating a real GP. And in terms of nomenclature, moving from a multivariate Gaussian to a Gaussian process means we move from having a mean to having a mean function (because we can ask for the mean at any x). Similarly the covariance matrix depends on the input data points (in our previous example we didnt have any, just hack fixed the first and last point) and the points we want to evaluate at, so we have a covariance function. The shape of the covariance (ie we had squared distance if you look at the `get_cov` function) is called the kernel (you can have different functions, squared distance is just a useful one).
+To try and hammer this part home, by drawing over and over we can come up with some mean prediction and some standard deviation on it. This is dependent on our choice for covariance. The covariance we have used has only one parameter, its length scale. The larger $l$ gets the smoother and less changing the predictions become. This number that we 'pick' is a model parameter - it's something we fit when creating a real GP.
+
+And in terms of nomenclature, moving from a multivariate Gaussian to a Gaussian process means we move from having a mean to having a mean function (because we can ask for the mean at any x). Similarly the covariance matrix depends on the input data points (in our previous example we didnt have any, just hack fixed the first and last point) and the points we want to evaluate at, so we have a covariance function. The shape of the covariance (ie we had squared distance if you look at the `get_cov` function) is called the kernel (you can have different functions, squared distance is just a useful one).
 
 # Gaussian Processes
 
-Hopefully the above is enough of an introduction to covariance and correlated draws. Gaussian processes work by training a model, which is fitting the hyperparameters of the specific kernel that you provide.  The difficulty is in knowing what kernel to construct and then let the model train. This kernel essentially relates how every data point affects regions in parameter space.
+Hopefully the above is enough of an introduction to covariance and correlated draws. Gaussian processes work by training a model, which is fitting the parameters of the specific kernel that you provide.  The difficulty is in knowing what kernel to construct and then let the model train. This kernel essentially relates how every data point affects regions in parameter space.
 
 All this kernel says is that if you are interpolating at point x, which lies between point A and point B, you determine how much A contributes and then do the same for B (plus all other points too). This is another important concept - in normal interpolation, only A and B would affect your result if you ask for a point between A and B. In a Gaussian Process, every point affects you!
 
@@ -211,7 +213,7 @@ ax.set_title(f"RBF, length_scale={gp.kernel_.length_scale:0.3f}");
 ```
 
 {% include image.html url="2020-09-10-Gaussian_Processes_16_0.png"  %}
-But this is only talking about how to train hyperparameters. There are a ton of different kernels you can pick from, and thats the actual hard task. If you use deep gaussian processes they can do that for you too, but thats well beyond this write up.
+But this is only talking about how to train model parameters. There are a ton of different kernels you can pick from, and thats the actual hard task. If you use deep gaussian processes they can do that for you too, but thats well beyond this write up.
 
 Because kernels are really just functions, you can do multiple them, add them, combine them in fun ways. For example:
 
@@ -381,13 +383,13 @@ mean = rvs.mean(axis=0)
 std = np.std(rvs, axis=0)
 
 # Plot the mean and std
-plt.plot(x, mean, "o-", ms=5)
-plt.fill_between(x, mean + std, mean - std, alpha=0.4)
+plt.plot(x, mean, "o-", ms=5, label="mean")
+plt.fill_between(x, mean + std, mean - std, alpha=0.4, label="std")
 
 # And for fun, lets plot 100 of the data realisations
 for i in range(100):
     plt.plot(x, rvs[i, :], ls="-", c="k", alpha=0.2, lw=0.7)
-
+plt.legend();
 
 # To refresh your mind on our data
 plt.scatter(xs, ys, s=20, label="Samples", zorder=30)
