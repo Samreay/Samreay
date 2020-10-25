@@ -29,7 +29,7 @@ permalink: /tutorials/
                             <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{post.loc}}thumb_card.jpg" class="img-card img" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
                             <div class="card-footer block-content">
                                 <div class="card-title">
-                                    <h4>{{post.title}}</h4>
+                                    <h4>{{post.short_title | default: post.title }}</h4>
                                 </div>
                                 <div class="card-desc">
                                     <p>{{post.desc}}</p>

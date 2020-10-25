@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Logistic Regression - Introduction, Assumptions, and Pitfalls"
+short_title: "An Introduction to Logistic Regression"
 desc: "A beginners introduction to logistic regression in python."
 date: 2020-07-11
 categories: [tutorial]

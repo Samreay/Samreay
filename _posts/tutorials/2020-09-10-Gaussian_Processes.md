@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Gaussian Processes: A pythonic tutorial and introduction to GPs!"
+short_title: "An Introduction to Gaussian Processes"
 desc: "Welcome to the wonderful world of non-parametric models and kernel functions."
 date: 2020-09-10
 categories: [tutorial]
