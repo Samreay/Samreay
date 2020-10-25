@@ -2,6 +2,7 @@
 layout: post
 title:  "A visual tutorial of Rejection Sampling"
 desc: "Von Neumann rejection sampling explained with Python and animations."
+long_desc: "In this article, we'll explain Von Neumann rejection sampling with intuitive animations, explanations, and a simple Python implementation that you can adapt to sample an arbitrary function."
 date: 2020-06-16
 categories: [tutorial]
 tags: [statistics]

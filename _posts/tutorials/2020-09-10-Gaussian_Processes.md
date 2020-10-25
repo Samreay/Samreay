@@ -3,6 +3,7 @@ layout: post
 title:  "Gaussian Processes: A pythonic tutorial and introduction to GPs!"
 short_title: "An Introduction to Gaussian Processes"
 desc: "Welcome to the wonderful world of non-parametric models and kernel functions."
+long_desc: "In this article, we'll introduce Gaussian Processes, how they work conceptually using Python examples, and how you can fit and train one to use in your data analysis problems."
 date: 2020-09-10
 categories: [tutorial]
 tags: [statistics]

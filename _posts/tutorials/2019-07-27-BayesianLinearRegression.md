@@ -2,6 +2,7 @@
 layout: post
 title:  "Bayesian Linear Regression in Python"
 desc: "A tutorial from creating data to plotting confidence intervals."
+long_desc: In this article, we'll cover Bayesian Linear Regression in Python, dealing with how to construct our likelihood, choose our priors, fit our model, and quantify our uncertainties."
 date: 2019-07-27
 categories: [tutorial]
 tags: [bayesian]
