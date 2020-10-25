@@ -2,6 +2,7 @@
 layout: post
 title:  "Monte-Carlo Integration made easy"
 desc: "A practical Python explanation of Monte-Carlo integration"
+long_desc: "A simple tutorial on Monte Carlo integration using Python. In this article, we'll cover how MC integration works, when to use MC integration and also how to use it efficiently via importance sampling, all in easy to read Python."
 date: 2020-06-21
 categories: [tutorial]
 tags: [statistics]

@@ -2,6 +2,7 @@
 layout: post
 title:  "Fuzzy String Matching"
 desc: "Removing the hassle of misspelling from a dataset"
+long_desc: "In this article we'll utilise Fuzzy String matching in the fuzzywuzzy Python library to clean up and match some free form text input data with a disastrous amount of misspellings!"
 date: 2020-08-09
 categories: [tutorial]
 tags: [statistics]

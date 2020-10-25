@@ -2,6 +2,7 @@
 layout: post
 title:  "A visual tutorial of Inversion Sampling"
 desc: "Efficient inversion sampling explained with Python."
+long_desc: "In this article, we'll explore inversion sampling in Python. Covering the concepts behind it, analytic inversion and also a generalised Python method to invert arbitrary data and functions, everything you need to get up and running is here."
 date: 2020-06-19
 categories: [tutorial]
 tags: [statistics]

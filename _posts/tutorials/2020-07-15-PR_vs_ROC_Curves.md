@@ -2,6 +2,7 @@
 layout: post
 title:  "PR vs ROC Curves - Which to Use?"
 desc: "Exploring the difference between the graphs using python."
+long_desc: "In this article we'll look at the difference between PR and ROC curves, what they mean, when to use them, how to calculate them in Python, and why context matters in the most appropriate curve to display!"
 date: 2020-07-15
 categories: [tutorial]
 tags: [statistics]
