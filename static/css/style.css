@@ -7902,6 +7902,12 @@ section.trips .trip {
   padding: 0;
   height: 175px;
 }
+.card.card-horizontal-small {
+  padding: 0;
+  height: 100px;
+  width: 100%;
+
+}
 .card-border {
   border: 1px solid #e8f0fb;
   border-radius: 5px;
@@ -8033,6 +8039,10 @@ section.trips .trip {
   height: 100%;
   width: 255px;
 }
+.card.card-horizontal-small .img-card {
+  height: 100px;
+  width: 100px;
+}
 .blog .card .img-card {
   width: 100%;
   height: 175px;
@@ -8040,6 +8050,12 @@ section.trips .trip {
 .card.card-horizontal .card-footer {
   height: 100%;
   width: calc(100% - 255px);
+  float: right;
+  position: relative;
+}
+.card.card-horizontal-small .card-footer {
+  height: 100%;
+  width: calc(100% - 100px);
   float: right;
   position: relative;
 }

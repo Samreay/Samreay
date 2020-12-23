@@ -18,3 +18,28 @@
         </div>
     </div>
 </div>
+<div class="row padding-bottom m-b-md">
+    <div class="col-sm-12">
+        <p>Or if you want far, far more information, here are the courses I've made:</p>
+    </div>
+    {% for pair in site.data.courses %}
+    {% assign course = pair[1] %}
+    <div class="col-sm-12 m-b-md padding-bottom">
+        <a href="{{course.url}}">
+            <div class="card card-horizontal-small">
+                <img class="img img-card img-small" src="/{{course.img}}">
+                <div class="card-footer block-content">
+                    <div class="card-title">
+                        <h4>{{course.name}}</h4>
+                    </div>
+                    <div class="card-desc">
+                        <p>{{ course.desc | strip_html }}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    {% endfor %}
+
+</div>

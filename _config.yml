@@ -20,6 +20,9 @@ author:
   head_img: 'static/img/landing/face.jpg'
   profile_img: 'static/img/landing/profile.jpg'
 
+courses:
+  statistics: https://www.udemy.com/course/python-for-statistical-analysis/?referralCode=76158B46FA5EB57C38EB
+  datamanip: https://www.udemy.com/course/data-manipulation-in-python/?referralCode=76D0B64A481951B29E77
 # sections
 sections:
   - id: 'about-me'

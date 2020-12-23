@@ -1,0 +1,13 @@
+stat:
+  url: https://www.udemy.com/course/python-for-statistical-analysis/?referralCode=76158B46FA5EB57C38EB
+  name: Python for Statistical Analysis
+  desc: Statistics and hypothesis testing using modern tools and workflows.
+  desc2: Learn applied statistics in python!
+  img: static/img/landing/course.jpg
+
+data:
+  url: https://www.udemy.com/course/data-manipulation-in-python/?referralCode=76D0B64A481951B29E77
+  name: Data Manipulation in Python
+  desc: Data wranging with Pandas made fast, efficient, and easy.
+  desc2: Learn data mainpulation using Python and Pandas!
+  img: static/img/landing/pandascourse.jpg

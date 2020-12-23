@@ -119,36 +119,36 @@
                 </a>
             </div>
             <div class="col-sm-6 col-lg-3 wow fadeIn m-b-md padding-bottom" data-wow-delay="250ms">
-                <a href="https://www.udemy.com/course/python-for-statistical-analysis/?referralCode=76158B46FA5EB57C38EB">
+                <a href="{{ site.data.courses['stat'].url }}">
                     <div class="card">
-                        <img src="static/img/landing/course.jpg"
+                        <img src="{{ site.data.courses['stat'].img }}"
                              class="img-card img"
                              width="225"
                              height="175"/>
                         <div class="card-footer block-content">
                             <div class="card-title">
-                                <h2>Statistics Course</h2>
+                                <h2>{{ site.data.courses['stat'].name }}</h2>
                             </div>
                             <div class="card-desc">
-                                <p>Learn applied statistics in python!</p>
+                                <p>{{ site.data.courses['stat'].desc2 }}</p>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-sm-6 col-lg-3 wow fadeIn m-b-md padding-bottom" data-wow-delay="300ms">
-                <a href="https://www.udemy.com/course/data-manipulation-in-python/?referralCode=76D0B64A481951B29E77">
+                <a href="{{ site.data.courses['data'].url }}">
                     <div class="card">
-                        <img src="static/img/landing/pandascourse.jpg"
+                        <img src="{{ site.data.courses['data'].img }}"
                              class="img-card img"
                              width="225"
                              height="175"/>
                         <div class="card-footer block-content">
                             <div class="card-title">
-                                <h2>Data Manipulation Course</h2>
+                                <h2>{{ site.data.courses['data'].name }}</h2>
                             </div>
                             <div class="card-desc">
-                                <p>Learn data manipuation using Python and Pandas!</p>
+                                <p>{{ site.data.courses['data'].desc2 }}</p>
                             </div>
                         </div>
                     </div>
