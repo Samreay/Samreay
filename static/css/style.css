@@ -8506,3 +8506,7 @@ section.trips .trip {
   color: #3385FF;
   font-style: italic;
 }
+
+.ibox-content ol,.ibox-content ul {
+  margin-bottom: 30px;
+}
