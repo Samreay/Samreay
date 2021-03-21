@@ -18,7 +18,6 @@ basedir = f"_posts/tutorials/"
 print("Calling convert")
 subprocess.run(f"jupyter nbconvert {name} --to markdown --output-dir {basedir} --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags=\"['remove']\" --TagRemovePreprocessor.remove_input_tags=\"['remove_input']\"  --TagRemovePreprocessor.remove_all_outputs_tags=\"['remove_output']\"", check=True)
 
-
 img_dir = f"static\\img\\tutorials\\{short_name}"
 print(f"Moving images around and into {img_dir}")
 if os.path.exists(img_dir):
@@ -150,11 +149,19 @@ for i, l in enumerate(data):
             file = l.split("src=")[1].split('"')[1]
             to_copy.append(file)
             basename = os.path.basename(file)
-            data[i] = f'{{% include video.html url="{basename}" autoplay="true" class="img-poster" %}}'
+            data[i] = f'{{% include video.html url="{basename}" autoplay="true" class="img-poster" %}}\n'
             j = 1
             while True:
                 if data[i+j].strip().startswith("</video"):
                     data[i+j] = ""
+                    k = 1
+                    x = data[i + j + k]
+                    while x == "" or "!!!" in x or x == "\n":
+                        data[i + j +k] = ""
+                        if "!!!" in x:
+                            data[i] = data[i].replace("img-poster", x.replace("!!!", "").replace("\n", "").lstrip())
+                        k += 1
+                        x = data[i + j + k]
                     break
                 data[i + j] = ""
                 j += 1
@@ -167,9 +174,17 @@ for i, l in enumerate(data):
                     file = l2.split("src=")[1].split('"')[1]
                     to_copy.append(file)
                     basename = os.path.basename(file)
-                    data[i + j] = f'{{% include video.html url="{basename}" autoplay="true" class="img-poster" %}}'
+                    data[i + j] = f'{{% include video.html url="{basename}" autoplay="true" class="img-poster" %}}\n'
                 elif "</video>" in data[i + j]:
                     data[i + j] = ""
+                    k = 1
+                    x = data[i + j + k]
+                    while x == "" or "!!!" in x or x == "\n":
+                        data[i + j +k] = ""
+                        if "!!!" in x:
+                            data[i + j] = data[i + j].replace("img-poster", x.replace("!!!", ""))
+                        k += 1
+                        x = data[i + j + k]
                     break
                 else:
                     data[i + j] = ""
