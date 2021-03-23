@@ -15,6 +15,7 @@ plt.rcParams["axes.labelsize"] = 14
 plt.rcParams["ytick.labelsize"] = 12
 plt.rcParams["xtick.labelsize"] = 12
 plt.rcParams["font.size"] = 14
+plt.rcParams["image.cmap"] = "magma"
 
 plt.rc('text', usetex=False)
 plt.rc('font', family='sans-serif')
