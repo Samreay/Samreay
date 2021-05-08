@@ -4,74 +4,69 @@ layout: default
 <div class="darkbg">
 
 </div>
-<div class="wrapper wrapper-content animated fadeIn article postwide">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <div class="pull-right">
-                    	{% for category in page.categories %}
-                        	<button class="btn btn-white btn-xs" type="button">{{ category }}</button>
-                        {% endfor %}
+<div class="gray-section">
+    <div class="wrapper wrapper-content animated fadeIn article postwide">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 relative">
+                
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="pull-right">
+                            {% for category in page.categories %}
+                            <button class="btn btn-white btn-xs" type="button">{{ category }}</button>
+                            {% endfor %}
+                        </div>
+                        <div class="text-center article-title">
+                            <span class="text-muted"><i class="fa fa-clock-o"></i> {{ page.date | date: "%-d %b %Y" }},
+                            </span>
+                            <span class="text-muted"><a href="https://www.linkedin.com/in/samuelreay/"
+                                    target="_blank">Samuel Hinton</a></span>
+                            <h1>
+                                {{ page.title }}
+                            </h1>
+                            <br />
+                            <h3>
+                                {{ page.desc }}
+                            </h3>
+                        </div>
+                        {{ content }}
                     </div>
-                    <div class="text-center article-title">
-                    <span class="text-muted"><i class="fa fa-clock-o"></i> {{ page.date | date: "%-d %b %Y" }},  </span>
-                        <span class="text-muted"><a href="https://www.linkedin.com/in/samuelreay/" target="_blank">Samuel Hinton</a></span>
-                        <h1>
-                            {{ page.title }}
-                        </h1>
-                        <br/>
-                        <h3>
-                            {{ page.desc }}
-                        </h3>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <div class="sticky-sharebar">
+                    <div class="share-link hideshadow" style="background-color: transparent;">
+                        <i class="fa fa-share-alt" style="color:#b5bbc1; margin-left: -3px;"></i>
                     </div>
-                    	{{ content }}
-                    <!--<hr>-->
-                    <!--<div class="row">
-                        <div class="col-md-6">
-                                <h5 style="display: inline;">Tags:</h5>
-                                {% for tag in page.tags %}
-                                    <button class="btn btn-white btn-xs" type="button">{{ tag }}</button>
-                                {% endfor %}
+                    <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}%3A%20{{ page.permalink | absolute_url }}"
+                        target="_blank" title="Tweet this">
+                        <div class="share-link">
+                            <i class="fab fa-twitter" style="color:#1DA1F2; margin-left: 3px;"></i>
                         </div>
-                        <div class="col-md-6">
-                            <div class="small text-right">
-                                &lt;!&ndash;<h5>Stats:</h5>&ndash;&gt;
-                                <div> 
-                                {% if site.changyan %}
-                                    <i class="fa fa-comments-o"> </i> <span id = "url::{{post.url | prepend: page.url}}" class = "cy_cmt_count" ></span> comments
-                                {% endif %}
-                                {% if site.disqus %}
-                                <i class="fa fa-comments-o"> </i> <span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ page.url }}">0</span> comments
-                                {% endif %}
-                                </div>
-                            </div>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite?url={{ page.permalink | absolute_url }}"
+                        target="_blank" title="Share on LinkedIn">
+                        <div class="share-link">
+                            <i class="fab fa-linkedin-in" style="color:#0077B5; margin-top: -3px;"></i>
                         </div>
-                    </div>-->
-                    <!--<br>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            &lt;!&ndash; donate &ndash;&gt;
-                            {% if site.donate %}
-                                {% include donate.html %}
-                            {% endif %}
-                            <br>
-                            &lt;!&ndash; share &ndash;&gt;
-                            {% if site.bshare %}
-                                {% include share.html %}
-                            {% endif %}
-                            <br>
-                            &lt;!&ndash; comment &ndash;&gt;
-                            {% include comments.html %}
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.permalink | absolute_url }}"
+                        target="_blank" title="Share on Facebook">
+                        <div class="share-link">
+                            <i class="fab fa-facebook-f" style="color:#4267B2; margin-left: -1px;"></i>
                         </div>
-                    </div>-->
-
-
+                    </a>
+                    <a href="https://reddit.com/submit?url={{ page.permalink | absolute_url }}&title={{ page.title | uri_escape }}"
+                        target="_blank" title="Share on Reddit">
+                        <div class="share-link" style="margin-bottom: 0px;">
+                            <i class="fab fa-reddit-alien" style="color:#FF5700cc; margin-top: -2px;"></i>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
 </div>
 {% if page.math %}
 <script type="text/x-mathjax-config">
@@ -79,5 +74,6 @@ MathJax.Hub.Config({
   tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 });
 </script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 {% endif %}

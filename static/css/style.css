@@ -8510,3 +8510,66 @@ section.trips .trip {
 .ibox-content ol,.ibox-content ul {
   margin-bottom: 30px;
 }
+
+@media (max-width:1200px) {
+  .sticky-sharebar {
+    display: none !important;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky-sharebar {
+  position: fixed;
+  text-align: center;
+  font-size: 3em;
+  display: inline-block;
+  top: 106px;
+  padding: 10px;
+  width: 80px;
+  background-color: #FFFFFF;
+  border-radius: 100px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.share-link {
+  position: relative;
+  margin-bottom: 20px;
+  width: 60px;
+  height: 60px;
+  display: block;
+  background-color: #FFFFFF;
+  border-radius: 100px;
+  filter: saturate(0.3);
+  transition: filter 0.2s ease-in-out;
+}
+.share-link:not(.hideshadow):hover {
+  filter: saturate(1.0);
+}
+
+.share-link:not(.hideshadow) {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+}
+.share-link i {
+  height: 60px;
+  line-height: 60px;
+}
+
+.share-link::after {
+  content: '';
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.share-link:not(.hideshadow):hover::after {
+  opacity: 1;
+}
