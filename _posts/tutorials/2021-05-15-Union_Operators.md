@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Merging dictionaries Python 3.9's Union Operator"
+title:  "Merging dictionaries with Python 3.9's Union Operator"
 short_title: "Merging dicts with the union operator"
 desc: "Python 3.9 introduced a new operator to streamline unions."
 long_desc: "Python 3.9 introduced the new union operator, to allow for simpler and more obvious syntax for merging dictionary content."
