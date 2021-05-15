@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Merging dictionaries Pytohn 3.9's Union Operator"
+title:  "Merging dictionaries Python 3.9's Union Operator"
 short_title: "Merging dicts with the union operator"
 desc: "Python 3.9 introduced a new operator to streamline unions."
 long_desc: "Python 3.9 introduced the new union operator, to allow for simpler and more obvious syntax for merging dictionary content."
@@ -19,11 +19,13 @@ In **Python 3.9+**, merging two dictionaries is now staggeringly easy.
 
 {% include image.html url="union.png" class="img-carbon" %}
 
-Notice that the order of preference is left to right. So values from `y` will override values from `x`. Some may think this is a bit unintuitive - the `|` operator is tradionally used to represent bitwise `or`, and generally when we evaluate `or` expressions, we stop evaluation as soon as we get a `True`. Which, in our example, would mean to stop if the value is found in `x`. 
+Notice that the order of preference is right to left. So values from `y` will override values from `x`. Some may think this is a bit unintuitive - the `|` operator is tradionally used to represent bitwise `or`, and generally when we evaluate `or` expressions, we stop evaluation as soon as we get a `True`. Which, in our example, would mean to stop if the value is found in `x`. 
 
 Do not think of the union operator as an `or` operator.
 
 Start with `x`, and put `y` over the top.
+
+## Prior Solutions
 
 For completeness, if you don't have Python 3.9 yet (maybe because you're waiting for `tensorflow` support and docker images... please come soon), here are the other various ways of going about merging dictionaries.
 
