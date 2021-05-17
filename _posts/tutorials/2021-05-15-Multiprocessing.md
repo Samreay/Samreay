@@ -9,7 +9,7 @@ categories: [tutorial]
 tags: [snippet]
 loc: 'tutorials/multiprocessing/'
 permalink: tutorials/multiprocessing 
-redirect_from: "/union"
+redirect_from: "/multiprocessing"
 
 ---
 
