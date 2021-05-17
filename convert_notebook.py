@@ -280,7 +280,7 @@ imports = [
     c for c in code_content if c.startswith("import ") or c.startswith("from ") and "import" in c
 ]
 rest = [c for c in code_content if c not in imports]
-imports = sorted(imports)
+imports = sorted(list(set(imports)))
 
 data.append(f"{{% include badge.html %}}\n")
 

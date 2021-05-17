@@ -118,7 +118,7 @@ ray.get(results)
 ray.shutdown();
 ```
 
-Because this is also shipping your code elsewhere, it should run no issues in a Jupyter Notebook. Not that you'd normally want to do that, generally you'd put the ray server on a compute node somewhere, and then just connect to it, farming your jobs out. If that sounds like fun to you, also check out [`Dask`](https://dask.org/), which I am not showing in here simply because its a bit more setup to throw together a docker-compose with a dark master and workers.
+Because this is also shipping your code elsewhere, it should run no issues in a Jupyter Notebook. Not that you'd normally want to do that, generally you'd put the ray server on a compute node somewhere, and then just connect to it, farming your jobs out. 
 
 Anyway, the principle is straightforward. I set up a server, tell it that a specific function should be executed remotely (which in this case, is still my machine, but using all my cores now), and then send it off.
 
@@ -126,11 +126,28 @@ All up, this took `16s` to run, but of those, `4.89s` was on actual computation,
 
 Pretty impressive. Add onto that the fact that Ray has a ton of integrations (including some great [`HyperOptSearch`](https://docs.ray.io/en/latest/tune/api_docs/suggestion.html)) and I'm a fan.
 
+
+## Dask
+
+If you liked the sound of Ray, you'll probably like the sound of [`Dask`](https://dask.org/). Similar principle with workers and a controlling node. More focus on numerical computation, and it sits behind a lot of other distributed software (like `Prefect` as a single example). Note that if you're on windows, this may give you some issues, and for me [versioning mismatches in the conda release](https://github.com/dask/community/issues/150) made this a painful install, but hopefully this was just me getting unlucky with updating to a bugged version, and it doesn't affect anyone else.
+
+Once you have it installed, the rest is easy. Again, super basic usage only - making `Client()` set up a local client in the background isn't something you'd productioni
+
+
+```python
+from dask.distributed import Client
+client = Client()
+# Send off jobs
+futures = client.map(slow_fn, jobs)
+# Get their outputs
+results = client.gather(futures)
+```
+
+All up this took `7.4s`, with `5.8s` spent on compute and the rest launching the local cluster in the background.
+
 ## p_tqdm (aka Pathos + tqdm)
 
 [tqdm](https://github.com/tqdm/tqdm) is not an acronym, but it is a progress bar. [Pathos](https://pathos.readthedocs.io/en/latest/pathos.html) is a framework for heterogeneous computing. [p_tqdm](https://github.com/swansonk14/p_tqdm) is a library where @swansonk14 has stuck them both together. So think more a competitor to Ray than to Loky.
-
-
 
 
 ```python
@@ -223,13 +240,12 @@ Here's the full code for convenience:
 
 ```python
 from concurrent.futures import ProcessPoolExecutor
-from loky import get_reusable_executor
+from dask.distributed import Client
 from loky import get_reusable_executor
 from mpi4py.futures import MPIPoolExecutor
 from p_tqdm import p_map
 from pathos.multiprocessing import ProcessPool
 import numpy as np
-import ray
 import ray
 
 # Loky, great for single machine parallelism 
@@ -280,6 +296,12 @@ results = [workfn.remote(job) for job in jobs]
 ray.get(results)
 
 ray.shutdown();
+
+client = Client()
+# Send off jobs
+futures = client.map(slow_fn, jobs)
+# Get their outputs
+results = client.gather(futures)
 
 results = p_map(slow_fn, jobs);
 
