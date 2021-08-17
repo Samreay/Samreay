@@ -1,4 +1,4 @@
-google_analytics:
+google_analytics: UA-72691106-1
 
 title: "Samuel Hinton"
 global_title: "Samuel Hinton"
@@ -42,6 +42,8 @@ sections:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-redirect-from
+
 
 exclude: 
   - styles/index.css
