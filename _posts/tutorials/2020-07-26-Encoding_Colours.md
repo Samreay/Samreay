@@ -39,6 +39,7 @@ Let's get cracking!
 
 We'll source the colour dataset available from [Kaggle here](https://www.kaggle.com/ravikanth/colour-name-and-rgb-codes). Let's load it in and view a few samples from it.
 
+<div class="" markdown="1">
 ```python
 import pandas as pd
 import numpy as np
@@ -49,6 +50,7 @@ num_colours = df_original.shape[0]
 print(f"We have {num_colours} colours")
 df_original.sample(5)
 ```
+</div>
 
     We have 646 colours
     
@@ -66,7 +68,7 @@ df_original.sample(5)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>Color Name</th>
@@ -79,47 +81,47 @@ df_original.sample(5)
   </thead>
   <tbody>
     <tr>
-      <th>454</th>
-      <td>VioletRed1</td>
+      <th>398</th>
+      <td>honeydew4</td>
       <td>X</td>
-      <td>255;62;150</td>
-      <td>FF3E96</td>
+      <td>131;139;131</td>
+      <td>838B83</td>
       <td>NaN</td>
       <td>### SAMPLE ###</td>
     </tr>
     <tr>
-      <th>297</th>
-      <td>DarkKhaki</td>
+      <th>126</th>
+      <td>CadetBlue</td>
       <td>X</td>
-      <td>189;183;107</td>
-      <td>BDB76B</td>
+      <td>95;158;160</td>
+      <td>5F9EA0</td>
       <td>NaN</td>
       <td>### SAMPLE ###</td>
     </tr>
     <tr>
-      <th>276</th>
-      <td>chocolate2</td>
+      <th>335</th>
+      <td>SpringGreen4</td>
       <td>X</td>
-      <td>238;118;33</td>
-      <td>EE7621</td>
+      <td>0;139;69</td>
+      <td>008B45</td>
+      <td>NaN</td>
+      <td>#©2006 walsh@njit.edu#</td>
+    </tr>
+    <tr>
+      <th>310</th>
+      <td>GreenYellow</td>
+      <td>X</td>
+      <td>173;255;47</td>
+      <td>ADFF2F</td>
       <td>NaN</td>
       <td>### SAMPLE ###</td>
     </tr>
     <tr>
-      <th>522</th>
-      <td>maroon2</td>
+      <th>426</th>
+      <td>HotPink4</td>
       <td>X</td>
-      <td>238;48;167</td>
-      <td>EE30A7</td>
-      <td>NaN</td>
-      <td>### SAMPLE ###</td>
-    </tr>
-    <tr>
-      <th>480</th>
-      <td>tomato4</td>
-      <td>X</td>
-      <td>139;54;38</td>
-      <td>8B3626</td>
+      <td>139;58;98</td>
+      <td>8B3A62</td>
       <td>NaN</td>
       <td>### SAMPLE ###</td>
     </tr>
@@ -129,6 +131,7 @@ df_original.sample(5)
 
 So after dropping NaNs, we have 646 different colour names. Lets throw out columns we don't want, and split the R;G;B Dec into separate columns (and then normalise them to 1).
 
+<div class=" expanded-code" markdown="1">
 ```python
 df = df_original.loc[:, ["Color Name", "R;G;B Dec"]]
 df[["r", "g", "b"]] = df["R;G;B Dec"].str.split(";", expand=True).astype(int) / 255
@@ -137,6 +140,7 @@ df = df.rename(columns={"Color Name": "name"})
 df = df.reset_index(drop=True)
 df.sample(10)
 ```
+</div>
 
 <div>
 <style scoped>
@@ -152,7 +156,7 @@ df.sample(10)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>name</th>
@@ -163,74 +167,74 @@ df.sample(10)
   </thead>
   <tbody>
     <tr>
-      <th>483</th>
-      <td>LavenderBlush</td>
-      <td>1.000000</td>
-      <td>0.941176</td>
-      <td>0.960784</td>
+      <th>93</th>
+      <td>grey82</td>
+      <td>0.819608</td>
+      <td>0.819608</td>
+      <td>0.819608</td>
     </tr>
     <tr>
-      <th>562</th>
-      <td>ivory2</td>
-      <td>0.933333</td>
-      <td>0.933333</td>
-      <td>0.878431</td>
-    </tr>
-    <tr>
-      <th>462</th>
-      <td>red4</td>
+      <th>556</th>
+      <td>NavajoWhite4</td>
       <td>0.545098</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.474510</td>
+      <td>0.368627</td>
     </tr>
     <tr>
-      <th>168</th>
-      <td>PaleTurquoise2</td>
-      <td>0.682353</td>
-      <td>0.933333</td>
-      <td>0.933333</td>
+      <th>440</th>
+      <td>PaleVioletRed4</td>
+      <td>0.545098</td>
+      <td>0.278431</td>
+      <td>0.364706</td>
     </tr>
     <tr>
-      <th>449</th>
-      <td>firebrick3</td>
-      <td>0.803922</td>
+      <th>401</th>
+      <td>sienna4</td>
+      <td>0.545098</td>
+      <td>0.278431</td>
       <td>0.149020</td>
-      <td>0.149020</td>
     </tr>
     <tr>
-      <th>219</th>
-      <td>turquoise2</td>
+      <th>58</th>
+      <td>grey47</td>
+      <td>0.470588</td>
+      <td>0.470588</td>
+      <td>0.470588</td>
+    </tr>
+    <tr>
+      <th>392</th>
+      <td>salmon</td>
+      <td>0.980392</td>
+      <td>0.501961</td>
+      <td>0.447059</td>
+    </tr>
+    <tr>
+      <th>626</th>
+      <td>gold2</td>
+      <td>0.933333</td>
+      <td>0.788235</td>
       <td>0.000000</td>
-      <td>0.898039</td>
+    </tr>
+    <tr>
+      <th>240</th>
+      <td>Free Speech Blue</td>
+      <td>0.254902</td>
+      <td>0.337255</td>
+      <td>0.772549</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>cyan2</td>
+      <td>0.000000</td>
+      <td>0.933333</td>
       <td>0.933333</td>
     </tr>
     <tr>
-      <th>553</th>
-      <td>NavajoWhite1</td>
-      <td>1.000000</td>
-      <td>0.870588</td>
-      <td>0.678431</td>
-    </tr>
-    <tr>
-      <th>411</th>
-      <td>HotPink1</td>
-      <td>1.000000</td>
-      <td>0.431373</td>
-      <td>0.705882</td>
-    </tr>
-    <tr>
-      <th>177</th>
-      <td>RoyalBlue5</td>
+      <th>319</th>
+      <td>SpringGreen</td>
       <td>0.000000</td>
-      <td>0.133333</td>
-      <td>0.400000</td>
-    </tr>
-    <tr>
-      <th>281</th>
-      <td>Very Dark Brown</td>
-      <td>0.360784</td>
-      <td>0.250980</td>
-      <td>0.200000</td>
+      <td>1.000000</td>
+      <td>0.498039</td>
     </tr>
   </tbody>
 </table>
@@ -238,10 +242,12 @@ df.sample(10)
 
 Now theres just one more issue - you dont pass in strings or text to a neural network. You pass in numbers. So lets one-hot encode our colours to give them a numeric representation. We *could* use the Keras preprocessing `one_hot` here... but we've got this nice dataframe which already has an index... so we'll use that, and I'll make it explicit and add it as a column.
 
+<div class=" reduced-code" markdown="1">
 ```python
 df["num"] = df.index
 df.head(10)
 ```
+</div>
 
 <div>
 <style scoped>
@@ -257,7 +263,7 @@ df.head(10)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>name</th>
@@ -356,6 +362,7 @@ At this point, we have a nice data product, but it doesn't look like how you mig
 
 Words don't have a well defined mathematical representation to start with, instead we simply see certain words next to each other (or close to each other) more often, and we learn from that. So lets start by generating pairs of colours to emulate pairs of sequential words in what is now a colour-palette-like example.
 
+<div class=" expanded-code" markdown="1">
 ```python
 n = 100000 # Num samples
 colour_1 = df.sample(n=n, replace=True, random_state=0).reset_index(drop=True)
@@ -363,6 +370,7 @@ colour_2 = df.sample(n=n, replace=True, random_state=42).reset_index(drop=True)
 c = colour_1.merge(colour_2, left_index=True, right_index=True)
 c[["name_x", "name_y"]].sample(10)
 ```
+</div>
 
 <div>
 <style scoped>
@@ -378,7 +386,7 @@ c[["name_x", "name_y"]].sample(10)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>name_x</th>
@@ -387,54 +395,54 @@ c[["name_x", "name_y"]].sample(10)
   </thead>
   <tbody>
     <tr>
-      <th>77810</th>
-      <td>VioletRed1</td>
-      <td>DarkSeaGreen</td>
+      <th>9838</th>
+      <td>LightSalmon1</td>
+      <td>bright gold</td>
     </tr>
     <tr>
-      <th>51407</th>
-      <td>magenta</td>
-      <td>VioletRed3</td>
+      <th>44160</th>
+      <td>DarkSeaGreen2</td>
+      <td>goldenrod4</td>
     </tr>
     <tr>
-      <th>78627</th>
-      <td>tan2</td>
-      <td>grey0</td>
+      <th>38804</th>
+      <td>firebrick</td>
+      <td>CadetBlue</td>
     </tr>
     <tr>
-      <th>76338</th>
-      <td>grey66</td>
-      <td>brown</td>
+      <th>52395</th>
+      <td>DarkKhaki</td>
+      <td>grey76</td>
     </tr>
     <tr>
-      <th>25533</th>
-      <td>RoyalBlue5</td>
-      <td>gold4</td>
+      <th>80675</th>
+      <td>DarkOliveGreen</td>
+      <td>OliveDrab2</td>
     </tr>
     <tr>
-      <th>33303</th>
-      <td>Medium Wood</td>
-      <td>grey43</td>
+      <th>28397</th>
+      <td>Dark Turquoise</td>
+      <td>DarkGoldenrod</td>
     </tr>
     <tr>
-      <th>67564</th>
-      <td>magenta</td>
-      <td>DarkOliveGreen1</td>
+      <th>35853</th>
+      <td>aquamarine4</td>
+      <td>orange</td>
     </tr>
     <tr>
-      <th>14346</th>
-      <td>Neon Blue</td>
-      <td>grey27</td>
+      <th>67955</th>
+      <td>LightSalmon3</td>
+      <td>aquamarine3, MediumAquamarine</td>
     </tr>
     <tr>
-      <th>88983</th>
-      <td>grey25</td>
-      <td>turquoise4</td>
+      <th>42872</th>
+      <td>grey32</td>
+      <td>grey13</td>
     </tr>
     <tr>
-      <th>21582</th>
-      <td>CSS Gold</td>
-      <td>plum</td>
+      <th>68885</th>
+      <td>Neon Pink</td>
+      <td>coral1</td>
     </tr>
   </tbody>
 </table>
@@ -446,12 +454,14 @@ In a textual example, the pairs that come from words being next to each other ar
 
 In our case, we'll define a similarity metric ourselves, by just using the distance the two colours are from each other.
 
+<div class=" expanded-code" markdown="1">
 ```python
 # Calculate the distance, and drop the RGB columns.
 c["diff"] = ((c.r_x - c.r_y)**2 + (c.g_x - c.g_y)**2 + (c.b_x - c.b_y)**2) / 3
 c = c.drop(columns=["r_x", "r_y", "g_x", "g_y", "b_x", "b_y"])
 c
 ```
+</div>
 
 <div>
 <style scoped>
@@ -467,7 +477,7 @@ c
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>name_x</th>
@@ -573,12 +583,14 @@ c
 
 Now that we have a difference, lets turn that into a set of positive and negative examples. I'm just going to compare the difference to a random number, and you can see this will generate a bunch of predicted values of 1 and 0.
 
+<div class=" expanded-code" markdown="1">
 ```python
 np.random.seed(0)
 c["predict"] = (c["diff"] < 0.2 * np.random.random(c.shape[0]) ** 2).astype(int)
 print(f"{100 * c.predict.mean(): 0.1f}% positive values")
 c.sample(10)
 ```
+</div>
 
      22.5% positive values
     
@@ -596,7 +608,7 @@ c.sample(10)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>name_x</th>
@@ -706,6 +718,7 @@ Its common to have more negative values than positive, both because you can gene
 
 Now that we have a training dataset, let's make a Keras model!
 
+<div class=" expanded-code" markdown="1">
 ```python
 from tensorflow.random import set_seed
 from tensorflow import keras
@@ -730,6 +743,7 @@ def get_model(embedding_dims=2):
 def setseed(i):
     np.random.seed(i), set_seed(i)
 ```
+</div>
 
 Okay, lets step through this. In `get_model` we ask for a normal sequential model. The `Embedding` layer is a lookup table, which will have 646 rows (one for each colour), and will produce a 2D vector for each word. Because we generate two words at a time, we set `input_length=2` - which means the output of the embeding layer will be 2 2D vectors (aka a matrix of shape `(2,2)`). 
 
@@ -749,6 +763,7 @@ Finally, to make sure I can reproduce these plots exactly, I added the `setseed`
 
 Lets now instantiate the model, and fit it. Oh, I'll also save out the embedding weights using a custom callback as we go, so that we can see their evolution over epochs. 
 
+<div class="" markdown="1">
 ```python
 weights = []
 save = LambdaCallback(on_epoch_end=lambda batch, logs: 
@@ -760,6 +775,7 @@ setseed(7)
 model = get_model()
 model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 ```
+</div>
 
     Model: "sequential"
     _________________________________________________________________
@@ -781,6 +797,7 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 
 Now that we have a trained model, lets see how it performed. Below is an animation of the embeddings evolving.
 
+<div class=" expanded-code" markdown="1">
 ```python
 %%capture
 from matplotlib.animation import FuncAnimation
@@ -790,57 +807,67 @@ from IPython.display import HTML
 cs = df[["r", "g", "b"]].to_numpy()
 
 # Create the plots
-fig, ax = plt.subplots()
-fig.subplots_adjust(left=0.1, right=0.9, bottom=0.15, top=0.9)
-ax.set_xlabel("$x_0$"), ax.set_ylabel("$x_1$")
-ax.set_title("Training of 2D colour embeddings")
-scat = ax.scatter(weights[-1][:, 0], weights[-1][:, 1], color=cs, s=10);
+with plt.style.context("default"):
+    fig, ax = plt.subplots(figsize=(10, 5))
+    fig.subplots_adjust(left=0.1, right=0.9, bottom=0.15, top=0.9)
+    ax.set_xlabel("$x_0$"), ax.set_ylabel("$x_1$")
+    ax.set_title("Training of 2D colour embeddings")
+    scat = ax.scatter(weights[-1][:, 0], weights[-1][:, 1], color=cs, s=10);
 
-def init():
-    ax.set_xlim(weights[-1][:,0].min(), weights[-1][:,0].max())
-    ax.set_ylim(weights[-1][:,1].min(), weights[-1][:,1].max())
-    return scat,
-def update(i):
-    scat.set_offsets(weights[i])
-    return scat,
+    def init():
+        ax.set_xlim(weights[-1][:,0].min(), weights[-1][:,0].max())
+        ax.set_ylim(weights[-1][:,1].min(), weights[-1][:,1].max())
+        return scat,
+    def update(i):
+        scat.set_offsets(weights[i])
+        return scat,
 
-# Split our epochs into frames
-nw = len(weights) - 1
-nf, power = 30 * 10, 2
-frames = pd.unique((np.linspace(1, nw**(1 / power), nf)**power).astype(int))
-ani = FuncAnimation(fig, update, frames=frames, 
-                    init_func=init, blit=True, interval=33.3);
+    # Split our epochs into frames
+    nw = len(weights) - 1
+    nf, power = 30 * 10, 2
+    frames = pd.unique((np.linspace(1, nw**(1 / power), nf)**power).astype(int))
+    ani = FuncAnimation(fig, update, frames=frames, 
+                        init_func=init, blit=True, interval=33.3);
 ```
+</div>
 
+We can then use this ugly plotting code to output PNGs and turn them into a video using ffmpeg.
+
+<div class="" markdown="1">
 ```python
 from IPython.display import Video
 ani.save('encoding_colours/embed_2d.mp4', fps=30, 
-         extra_args=['-vcodec', 'libx264'])
+         extra_args=['-vcodec', 'libx264', '-crf', '26'])
 Video("encoding_colours/embed_2d.mp4")
 
 # If you're running this in a Jupyter notebook, the below will do the 
 # same without saving it to file
 # HTML(ani.to_html5_video())
 ```
+</div>
 
-{% include video.html url="embed_2d.mp4" autoplay="true" class="img-poster" %}This is beautiful. From the starting randomly initialised mess, quickly structure emerges. You can see the black to white gradient down the middle, with blue and red being split on either side. Green, being in between and limited by 2D space, gets stuck in between. 
+{% include video.html url="embed_2d.mp4" autoplay="true" class="img-poster" %}
+This is beautiful. From the starting randomly initialised mess, quickly structure emerges. You can see the black to white gradient down the middle, with blue and red being split on either side. Green, being in between and limited by 2D space, gets stuck in between. 
 
 And to give you something that isn't moving to look at better, here is the final embedding.
 
+<div class="" markdown="1">
 ```python
 fig, ax = plt.subplots()
 scat = ax.scatter(weights[-1][:, 0], weights[-1][:, 1], color=cs, s=20)
 ax.set_xlabel("$x_0$"), ax.set_ylabel("$x_1$")
 ax.set_title("2D Colour Embeddings");
 ```
+</div>
 
-{% include image.html url="main.png"  %}
+{% include image.html url="main.png" class="main" %}    
 And thats it! The embeddings are trained, and we could now save them out and use them in a future model where - for some unknown reason, we need to ascribe numeric value to colour names, such that similar colours are close to each other in that vector space.
 
 # 3D Embeddings
 
 Just for fun, lets move to 3D space. Many embeddings are normalised such that the magnitude of each embedded vector is one, so I was tempted to do that for this example... but then we'd be back to a 2D surface (the surface of the unit sphere). So no normalisation for this, but if you wanted to know how to do it, I've redefined the model and commented out an `l2_normalize` layer, which would enforce unit vectors across arbitrary dimensions.
 
+<div class=" expanded-code" markdown="1">
 ```python
 def get_model2(embedding_dims=3):
     model = keras.Sequential()
@@ -859,6 +886,7 @@ setseed(1)
 model = get_model2()
 model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 ```
+</div>
 
     Model: "sequential_1"
     _________________________________________________________________
@@ -878,7 +906,8 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
     
 And because the animation code for 3D plots is even uglier than the 2D, I've hidden it away. But here is the constrained 3D trained embeddings!
 
-{% include video.html url="embed_3d.mp4" autoplay="true" class="img-poster" %}And with the beauty of one more dimension, we can see that the RGB colour clusters can start to be separated independently.
+{% include video.html url="embed_3d.mp4" autoplay="true" class="img-poster" %}
+And with the beauty of one more dimension, we can see that the RGB colour clusters can start to be separated independently.
 
 # Summary
 
@@ -895,7 +924,7 @@ Have fun!
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from IPython.display import HTML
 from IPython.display import Video
 from matplotlib.animation import FuncAnimation
@@ -974,29 +1003,30 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 cs = df[["r", "g", "b"]].to_numpy()
 
 # Create the plots
-fig, ax = plt.subplots()
-fig.subplots_adjust(left=0.1, right=0.9, bottom=0.15, top=0.9)
-ax.set_xlabel("$x_0$"), ax.set_ylabel("$x_1$")
-ax.set_title("Training of 2D colour embeddings")
-scat = ax.scatter(weights[-1][:, 0], weights[-1][:, 1], color=cs, s=10);
+with plt.style.context("default"):
+    fig, ax = plt.subplots(figsize=(10, 5))
+    fig.subplots_adjust(left=0.1, right=0.9, bottom=0.15, top=0.9)
+    ax.set_xlabel("$x_0$"), ax.set_ylabel("$x_1$")
+    ax.set_title("Training of 2D colour embeddings")
+    scat = ax.scatter(weights[-1][:, 0], weights[-1][:, 1], color=cs, s=10);
 
-def init():
-    ax.set_xlim(weights[-1][:,0].min(), weights[-1][:,0].max())
-    ax.set_ylim(weights[-1][:,1].min(), weights[-1][:,1].max())
-    return scat,
-def update(i):
-    scat.set_offsets(weights[i])
-    return scat,
+    def init():
+        ax.set_xlim(weights[-1][:,0].min(), weights[-1][:,0].max())
+        ax.set_ylim(weights[-1][:,1].min(), weights[-1][:,1].max())
+        return scat,
+    def update(i):
+        scat.set_offsets(weights[i])
+        return scat,
 
-# Split our epochs into frames
-nw = len(weights) - 1
-nf, power = 30 * 10, 2
-frames = pd.unique((np.linspace(1, nw**(1 / power), nf)**power).astype(int))
-ani = FuncAnimation(fig, update, frames=frames, 
-                    init_func=init, blit=True, interval=33.3);
+    # Split our epochs into frames
+    nw = len(weights) - 1
+    nf, power = 30 * 10, 2
+    frames = pd.unique((np.linspace(1, nw**(1 / power), nf)**power).astype(int))
+    ani = FuncAnimation(fig, update, frames=frames, 
+                        init_func=init, blit=True, interval=33.3);
 
 ani.save('encoding_colours/embed_2d.mp4', fps=30, 
-         extra_args=['-vcodec', 'libx264'])
+         extra_args=['-vcodec', 'libx264', '-crf', '26'])
 Video("encoding_colours/embed_2d.mp4")
 
 # If you're running this in a Jupyter notebook, the below will do the 
@@ -1026,3 +1056,4 @@ model = get_model2()
 model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 
 ```
+</div>

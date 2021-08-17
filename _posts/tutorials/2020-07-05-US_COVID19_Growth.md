@@ -17,9 +17,10 @@ So I decided to make an admittedly not-as-good-looking plot, but hopefully one t
 
 Here's what we'll be making:
 
-{% include image.html url="2020-07-05-US_COVID19_Growth_1_0.png"  %}
+{% include image.html url="2020-07-05-US_COVID19_Growth_1_0.png" class="img-poster img-lighten" %}    
 To start, I cloned down the Johns Hopkins COVID-19 repo, and initally set the same states to exclude as the original post (which has [source code here](https://github.com/DavidMorton/COVID-19-Analysis/blob/master/COVID-19%20Confirmed%20Percentage%20Heatmap.ipynb)).
 
+<div class=" expanded-code" markdown="1">
 ```python
 import os
 import pandas as pd
@@ -37,9 +38,11 @@ states_to_drop = ['Puerto Rico', 'American Samoa', 'Guam', 'District of Columbia
                  'Recovered', "Grand Princess"]
 columns_to_keep = ["Province_State", "Incident_Rate"]
 ```
+</div>
 
 Then, lets find all the csv files for the US states and load them in.
 
+<div class=" expanded-code" markdown="1">
 ```python
 def load_csv(directory, filename):
     date = filename.replace(".csv", "")
@@ -58,6 +61,7 @@ def load_data(directory):
 # Load all the data into long format
 df_long = load_data(data_directory)
 ```
+</div>
 
 We now have the cumulative number of cases per 100k residents for each state.
 
@@ -65,11 +69,14 @@ With the long format data attained, we now pivot to separate state and date, and
 
 As the incident rate is cumulative, we take the difference to the previous day, dropping day 0.
 
+<div class="" markdown="1">
 ```python
 # Pivot into a 2D format and sort the columns
 df_wide = df_long.pivot(index="date", columns="state", values="rate")
 ```
+</div>
 
+<div class="" markdown="1">
 ```python
 # Take the difference to get the change in incidence. 
 # Drop the first row as its all NaN
@@ -83,21 +90,27 @@ df_diff = df_wide.diff().iloc[1:, :]
 # For now, Ill just clip the data
 df_diff = df_diff.clip(0, 20)
 ```
+</div>
 
 For this to look good, we want some smart sorting of the columns. Lets determine a linear slope from the incidence rate difference and sort by that.
 
+<div class="" markdown="1">
 ```python
 day_of_year = df_diff.index.dayofyear.to_numpy()
 day_weight = day_of_year - day_of_year.mean()
 sort_weight = (df_diff.T * day_weight).sum(axis=1)
 ```
+</div>
 
+<div class="" markdown="1">
 ```python
 df_sorted = df_diff.iloc[:, sort_weight.argsort()].T
 ```
+</div>
 
 Finally, let us plot everything nicely, and add an option to add some mean smoothing into the data.
 
+<div class=" expanded-code" markdown="1">
 ```python
 def plot_evolution(dfo, smooth=7, cmap=None):
     # Optionally smooth the data
@@ -130,15 +143,16 @@ def plot_evolution(dfo, smooth=7, cmap=None):
 
 plot_evolution(df_sorted)
 ```
+</div>
 
-{% include image.html url="2020-07-05-US_COVID19_Growth_13_0.png" class="img-poster" %}
+{% include image.html url="2020-07-05-US_COVID19_Growth_13_0.png" class="poster" %}    
 And there we have it. Not as beautiful as the original, but hopefully a better representation of the data. I also talk about this in the comments, but there really does seem to be an awful artifact in the data for almost all states in the month of May, where the **cumulative** incident rate drops. Which is, you know, impossible. But without the sources, I don't know what is going on here.
 
 {% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 import cmasher as cmr
 import matplotlib.pyplot as plt
 import numpy as np
@@ -226,3 +240,4 @@ def plot_evolution(dfo, smooth=7, cmap=None):
 plot_evolution(df_sorted)
 
 ```
+</div>

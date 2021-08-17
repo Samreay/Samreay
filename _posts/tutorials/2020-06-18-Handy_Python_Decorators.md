@@ -15,6 +15,7 @@ Decorators are something that are criminally underused in the analysis codes I h
 
 It's easier to explain in code.
 
+<div class="" markdown="1">
 ```python
 def decorator(fn):
     def wrapper(*args, **kwargs):
@@ -28,6 +29,7 @@ def add(a, b):
 
 add(1, 2)
 ```
+</div>
 
     Look, I've added something here!
     
@@ -35,6 +37,7 @@ add(1, 2)
 
 So you can see what is happening here is that by decoratoring the `add` function, when we now call `add`, we actually hit the `wrapper` function, which prints a statement, and *then* it hits the original `add` function. So the `@` syntax is the same for just a reassignment
 
+<div class=" reduced-code" markdown="1">
 ```python
 # Does the same thing:
 def add(a, b):
@@ -42,6 +45,7 @@ def add(a, b):
 add = decorator(add)
 add(1, 2)
 ```
+</div>
 
     Look, I've added something here!
     
@@ -51,6 +55,7 @@ So this allows us to do a bunch of things. We could use it for logging. For timi
 
 First, lets set up logging. I add the reload because if you run this in a notebook it will already have done the basic config for you, and you wont see any logging unless you reload and re-configure it.
 
+<div class=" expanded-code" markdown="1">
 ```python
 import logging
 import importlib
@@ -58,16 +63,35 @@ importlib.reload(logging)
 
 logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', level=logging.DEBUG, datefmt='%I:%M:%S')
 ```
+</div>
 
 Alright, so here is a useful debug decorator:
 
-{% include image.html url="debug.png" class="img-carbon" %}
+<div class="carbon-code  reduced-code" markdown="1">
+```python
+def debug(fn):
+    def wrapper(*args, **kwargs):
+        logging.debug(f"Invoking {fn.__name__}")
+        logging.debug(f"  args: {args}")
+        logging.debug(f"  kwargs: {kwargs}")
+        result = fn(*args, **kwargs)
+        logging.debug(f"  returned {result}")
+        return result
+    return wrapper
+    
+@debug
+def add(a, b):
+    return a + b
+```
+</div>
 
 And now in my code, when something looks... funky... I can just throw a quick `@debug` on the most suspicious function and ensure that it is functioning properly.
 
+<div class=" reduced-code" markdown="1">
 ```python
 add(1, 2)
 ```
+</div>
 
     10:03:37 DEBUG: Invoking add
     10:03:37 DEBUG:   args: (1, 2)
@@ -78,6 +102,7 @@ add(1, 2)
 
 Now lets get a function to figure out how long execution takes!
 
+<div class="" markdown="1">
 ```python
 import time
 
@@ -97,6 +122,7 @@ def add(a, b):
 
 add(3, 4)
 ```
+</div>
 
     10:03:37 DEBUG:   Took 0.0008 ms
     
@@ -104,6 +130,7 @@ add(3, 4)
 
 And note we can combine decorators! Want to debug **and** time the function?
 
+<div class=" reduced-code" markdown="1">
 ```python
 @debug
 @timer
@@ -112,6 +139,7 @@ def add(a, b):
 
 add(5, 6)
 ```
+</div>
 
     10:03:37 DEBUG: Invoking wrapper
     10:03:37 DEBUG:   args: (5, 6)
@@ -125,6 +153,7 @@ Note the importance of the order. Debug goes first, so its wrapper executes firs
 
 Finally as another handy decorator, what if we want to ensure a function is only run once?
 
+<div class=" reduced-code" markdown="1">
 ```python
 def run_once(fn):
     def wrapper(*args, **kwargs):
@@ -141,9 +170,9 @@ def add(a, b):
     return a + b
 
 print(add(6, 7))
-
 print(add(7, 8))
 ```
+</div>
 
     13
     NO! NOT ALLOWED!
@@ -152,12 +181,11 @@ print(add(7, 8))
 In python functions are objects too, so we can attack attributes to them, like `has_run`, and then check the attribute status when executing. In the output, you can see the first `add` works fine, but then the second time we try we get a mean print message and a result of `None`. You could make this an exception if you want, I just need it to be able to execute for the write up!
 
 Anyway, I hope this has given you some useful ideas. Having a `decorators` utility file to throw around can add value to any project you have!
-
 {% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 import importlib
 import logging
 import time
@@ -239,7 +267,7 @@ def add(a, b):
     return a + b
 
 print(add(6, 7))
-
 print(add(7, 8))
 
 ```
+</div>

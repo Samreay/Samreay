@@ -23,6 +23,7 @@ $$ CDF(x) = \int_0^x 2 x\  dx  = [x^2 - 0^2] = x^2 $$
 
 Let's visualise the PDF and the CDF quickly:
 
+<div class=" reduced-code" markdown="1">
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,8 +45,9 @@ axes[1].fill_between(xs, cdfs, 0, alpha=0.2)
 axes[0].set_xlabel("x"), axes[1].set_xlabel("x")
 axes[0].legend(), axes[1].legend();
 ```
+</div>
 
-{% include image.html url="2020-06-19-Inversion_Sampling_1_0.png"  %}
+{% include image.html url="2020-06-19-Inversion_Sampling_1_0.png"  %}    
 So in our case, the CDF looks pretty similar to the PDF, obviously this won't be the case if we picked something other than a simple polynomial, but you get the idea. The property that we are making use of is that the CDF will - by definition - go from 0 to 1 for any PDF. So for inversion sampling, we follow a simple procedure:
 
 1. Pick a number (our CDF value) between 0 and 1
@@ -58,6 +60,7 @@ The most common cause of confusion is "Why are we uniformly sampling the CDF?" T
 
 So let's write this up for our function above, and then we'll generalise to *any* function and remove the math.
 
+<div class="" markdown="1">
 ```python
 def inverse_cdf(cdf):
     return np.sqrt(cdf)  # cdf = x**2, so x = sqrt(cdf)
@@ -73,10 +76,12 @@ plt.fill_between(xs, ps, 0, alpha=0.2)
 plt.hist(samples, density=True, alpha=0.3, label="Samples")
 plt.legend(), plt.xlabel("x");
 ```
+</div>
 
-{% include image.html url="2020-06-19-Inversion_Sampling_3_0.png"  %}
+{% include image.html url="2020-06-19-Inversion_Sampling_3_0.png"  %}    
 Great, so this is obviously working well, the sample distribution closely follows the input PDF. So lets generalise this to be any function. We can use simple numeric integration to remove the requirement for us to be able to analytically integrate and then invert the PDF.
 
+<div class=" reduced-code" markdown="1">
 ```python
 xs = np.linspace(0, 6.06948, 1000)
 pdfs = ((1 + np.cos(xs)) / (1.5 * xs + 3))
@@ -85,10 +90,12 @@ plt.plot(xs, pdfs, label="PDF")
 plt.fill_between(xs, pdfs, 0, alpha=0.2)
 plt.xlabel("x"), plt.legend();
 ```
+</div>
 
-{% include image.html url="2020-06-19-Inversion_Sampling_5_0.png"  %}
+{% include image.html url="2020-06-19-Inversion_Sampling_5_0.png"  %}    
 Now lets determine the CDF, invert it, and return an interpolator we can use to sample it:
 
+<div class=" expanded-code" markdown="1">
 ```python
 from scipy.interpolate import interp1d
 from scipy.integrate import cumtrapz
@@ -105,27 +112,29 @@ def sample_fn(fn, n=1):
 fn = get_inverted_cdf(xs, pdfs)
 samples_2 = sample_fn(fn, n=100000)
 ```
+</div>
 
 Let's check it works by comparing the histogram of samples to the function:
 
+<div class="" markdown="1">
 ```python
 plt.plot(xs, pdfs, label="PDF") 
 plt.fill_between(xs, pdfs, 0, alpha=0.2)
 plt.hist(samples_2, density=True, alpha=0.3, label="Samples")
 plt.legend(), plt.xlabel("x");
 ```
+</div>
 
-{% include image.html url="2020-06-19-Inversion_Sampling_9_0.png"  %}
+{% include image.html url="2020-06-19-Inversion_Sampling_9_0.png"  %}    
 Beautiful. Now to try and tie it all together, here is one final, more complicated plot, showing the sampling of the CDF (on the top y axis), to figuring out what $x$ value it corresponds to, to where those samples lie in the PDF on the bottom.
 
-{% include image.html url="main.png"  %}
+{% include image.html url="main.png" class="main" %}    
 So you can see - hopefully fairly clearly - how our uniform sampling on the CDF, after being traced horizontally to the CDF and then vertically down to the $x$ value, gives us samples which are distributed according to the underlying PDF.
-
 {% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from scipy.integrate import cumtrapz
 from scipy.interpolate import interp1d
 import matplotlib.pyplot as plt
@@ -189,3 +198,4 @@ plt.hist(samples_2, density=True, alpha=0.3, label="Samples")
 plt.legend(), plt.xlabel("x");
 
 ```
+</div>

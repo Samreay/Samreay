@@ -15,7 +15,7 @@ Like many people, I might one day be moving to the United States for work. Howev
 
 This is what we'll be making:
 
-{% include image.html url="2020-07-06-US_Weather_1_0.png"  %}
+{% include image.html url="2020-07-06-US_Weather_1_0.png"  %}    
 So using the [NOAA Global Summary of the Day](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516) and the [top 25 most populated cities in the US](https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population), we've got enough to make a plot.
 
 But first, we have to smack this data format into something useable.
@@ -24,6 +24,7 @@ But first, we have to smack this data format into something useable.
 
 I downloaded the data from 2020-2013, and extract the list of a billion csv files into a directory per year. Ouch. We're going to have to pre-process this. Let's load in the list of cities first from `cities.csv`. [You can download that file here.](/static/notebooks/us_weather/cities.csv)
 
+<div class=" reduced-code" markdown="1">
 ```python
 import os
 import pandas as pd
@@ -39,6 +40,7 @@ root = Path("D:/data/weather/")
 cities = pd.read_csv(root / "cities.csv")
 cities.head()
 ```
+</div>
 
 <div>
 <style scoped>
@@ -54,7 +56,7 @@ cities.head()
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>name</th>
@@ -101,9 +103,11 @@ Then, lets find all the csv files for the US states and load them in.
 
 Great. Now lets open one of the weather files as an example:
 
+<div class=" expanded-code" markdown="1">
 ```python
 pd.read_csv(root / "2020/71076099999.csv").describe().T[["mean", "std", "min", "max"]]
 ```
+</div>
 
 <div>
 <style scoped>
@@ -119,7 +123,7 @@ pd.read_csv(root / "2020/71076099999.csv").describe().T[["mean", "std", "min", "
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>mean</th>
@@ -298,6 +302,7 @@ Alright, so we have one csv file per year, per station. And what we'd want to do
 
 Let's write up something that goes through and just extracts station, lat, long, and then filters down to the stations we want. Im only going to use stations from 2020 (but they'll have data from other years).
 
+<div class="" markdown="1">
 ```python
 station_locations = root / "station_locations.csv"
 
@@ -311,19 +316,23 @@ else:
     y = "2020"
     for f in os.listdir(root / y):
         path = root / y / f
-        res = pd.read_csv(path, nrows=1, usecols=["STATION", "LATITUDE", "LONGITUDE"])
+        cols = ["STATION", "LATITUDE", "LONGITUDE"]
+        res = pd.read_csv(path, nrows=1, usecols=cols)
         stations[f.replace(".csv", "")] = res
     station_df = pd.concat(list(stations.values()))
     station_df.columns = ["station", "lat", "long"]
     station_df.to_csv(station_locations, index=False)
 ```
+</div>
 
 Wow that took a long time to run. Lets save it out so we don't have to do that again. And then Im going to edit the code above to check that the `station_location.csv` doesn't exist, so this doesn't run whenever I start this notebook up.
 
+<div class=" reduced-code" markdown="1">
 ```python
 # Checking everything looks alright
 station_df.head()
 ```
+</div>
 
 <div>
 <style scoped>
@@ -339,7 +348,7 @@ station_df.head()
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>station</th>
@@ -384,6 +393,7 @@ station_df.head()
 
 Okay, first issue down. Now what we can do is filter that list to determine which stations are in the cities we care about. So we want a method to map a station to a city, if it is close enough
 
+<div class="" markdown="1">
 ```python
 def check_station(row, threshold=0.1):
     station, lat, long, *_ = row
@@ -398,16 +408,19 @@ def check_station(row, threshold=0.1):
 # Lets test this works, we should get New York out
 check_station(("New York", 40.6, -73.9))
 ```
+</div>
 
     'New York'
 
 Fantastic. Now lets run it over all stations:
 
+<div class="" markdown="1">
 ```python
 station_df["city"] = station_df.apply(check_station, axis=1)
 final_stations = station_df.set_index("station").dropna()
 final_stations.head()
 ```
+</div>
 
 <div>
 <style scoped>
@@ -423,7 +436,7 @@ final_stations.head()
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>lat</th>
@@ -474,6 +487,7 @@ final_stations.head()
 
 Great, so we've got matching weather stations now. In fact, we have 91 of them! Now for the super slow part. For each of these stations, I want to go through and load in the csv files for all available years, keeping the city information preserved.
 
+<div class=" expanded-code" markdown="1">
 ```python
 years = [y for y in os.listdir(root) if os.path.isdir(root / y)]
 cols = ["STATION", "DATE", "MAX", "WDSP", "PRCP"]
@@ -496,6 +510,7 @@ else:
     
 df_weather    
 ```
+</div>
 
 <div>
 <style scoped>
@@ -511,7 +526,7 @@ df_weather
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>STATION</th>
@@ -629,11 +644,13 @@ df_weather
 
 Alright, now we're getting somewhere, 225k rows! Except, oh boy, I can see that 999 is being used as a NaN value. Lets fix that up.
 
+<div class=" expanded-code" markdown="1">
 ```python
 # Yes it has all three variants -_-
 df_weather = df_weather.replace(999.9, np.NaN).replace(99.99, np.NaN).replace(9999.9, np.NaN)
 df_weather
 ```
+</div>
 
 <div>
 <style scoped>
@@ -649,7 +666,7 @@ df_weather
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>STATION</th>
@@ -779,13 +796,16 @@ I want to define two sliding scales, between -1 and 1, where -1 is a horrible co
 
 We can see the distributions here:
 
+<div class=" expanded-code" markdown="1">
 ```python
 df_weather[["MAX", "PRCP", "WDSP"]].hist(bins=100, log=True, layout=(1, 3), figsize=(10, 4));
 ```
+</div>
 
-{% include image.html url="2020-07-06-US_Weather_20_0.png"  %}
+{% include image.html url="2020-07-06-US_Weather_20_0.png"  %}    
 So let's add in that feature:
 
+<div class=" expanded-code" markdown="1">
 ```python
 from sklearn.preprocessing import minmax_scale
 
@@ -802,20 +822,25 @@ df_weather["rating_temp"] = df_weather.cold + df_weather.hot + 0.001
 df_weather["rating"] = np.sign(df_weather.rating_temp) * df_weather.rating_weather + df_weather.rating_temp
 df_weather["rating"] = minmax_scale(df_weather["rating"].clip(-1, 1))
 ```
+</div>
 
+<div class="" markdown="1">
 ```python
 ax = df_weather["rating"].hist(bins=100, log=True, figsize=(8, 4))
 ax.set_xlabel("Rating"), ax.set_ylabel("Frequency");
 ```
+</div>
 
-{% include image.html url="2020-07-06-US_Weather_23_0.png"  %}
+{% include image.html url="2020-07-06-US_Weather_23_0.png"  %}    
 Obiously **this is all completely dependent on arbitrary choices on weather**. Let's not get caught up on that. We can come back to this feature later if we need. For now, we want to take all the datapoints we have and take the average for each day in the year.
 
+<div class="" markdown="1">
 ```python
 df_weather["day"] = df_weather.DATE.dt.dayofyear
 df = df_weather.groupby(["city", "day"]).rating.mean().reset_index()
 df
 ```
+</div>
 
 <div>
 <style scoped>
@@ -831,7 +856,7 @@ df
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>city</th>
@@ -917,13 +942,16 @@ Again we're going to run into the issue that we've compressed two axes (temp and
 
 First thing is I'll just sort cities based on their average rating, and pick a colorset. I'm going to use a colormap from `cmasher` because I think it look great.
 
+<div class=" expanded-code" markdown="1">
 ```python
 city_order = df.groupby("city").rating.mean().sort_values(ascending=False)
 cmap = plt.get_cmap('cmr.fusion_r')
 ```
+</div>
 
 And then away we go plotting!
 
+<div class=" expanded-code" markdown="1">
 ```python
 # Get a nice dark figure
 bg = "#111111"
@@ -968,15 +996,16 @@ plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.n
                     textcoords='offset points', size=10, va='bottom', ha="center")
 
 ```
+</div>
 
-{% include image.html url="2020-07-06-US_Weather_29_0.png" class="img-poster" %}
+{% include image.html url="2020-07-06-US_Weather_29_0.png" class="img-large" %}    
 There we go! Its not perfect, but I think it's pretty, and certainly San Jose is looking like a real nice place to go! And lets not go live in Phoenix. I don't know if its just stupidly hot or theres bad weather as well (a failing of the plot I admit), either way - nope.
 
 {% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from pathlib import Path
 from sklearn.preprocessing import minmax_scale
 import cmasher as cmr
@@ -1007,7 +1036,8 @@ else:
     y = "2020"
     for f in os.listdir(root / y):
         path = root / y / f
-        res = pd.read_csv(path, nrows=1, usecols=["STATION", "LATITUDE", "LONGITUDE"])
+        cols = ["STATION", "LATITUDE", "LONGITUDE"]
+        res = pd.read_csv(path, nrows=1, usecols=cols)
         stations[f.replace(".csv", "")] = res
     station_df = pd.concat(list(stations.values()))
     station_df.columns = ["station", "lat", "long"]
@@ -1128,3 +1158,4 @@ plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.n
 
 
 ```
+</div>

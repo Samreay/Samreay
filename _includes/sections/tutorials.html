@@ -1,0 +1,18 @@
+<div class="content content-wide">
+
+    <div class="section-header">
+        <h1 data-aos="fade-up">Latest Tutorials</h1>
+        <p data-aos="fade-up">Visualisation, machine learning, modelling, statistics and other code tutorial and math
+            tutorials from over the years. <a class="under orange-under" href="/tutorials">Many more are available here!</a></p>
+    </div>
+
+    <div class="max-w-sm mx-auto md:max-w-none">
+        <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
+
+            <!-- 1st article -->
+            {% for post in site.categories['tutorial'] | limit: 6%}
+                {% include card.html %}
+            {% endfor %}
+    </div>
+</div>
+</div>

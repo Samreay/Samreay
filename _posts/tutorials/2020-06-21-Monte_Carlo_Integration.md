@@ -24,6 +24,7 @@ Let's just illustrate this with an example, starting with Simpson's rule. Let's 
 
 $$ \int_0^{1.5\pi} \sin(x) \ dx $$
 
+<div class="" markdown="1">
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -41,10 +42,12 @@ plt.fill_between(xs, 0, ys, alpha=0.1)
 plt.text(1, 0.75, f"Area from Simps is {area:0.3f}", fontsize=12)
 plt.xlabel("x"), plt.legend();
 ```
+</div>
 
-{% include image.html url="2020-06-21-Monte_Carlo_Integration_1_0.png"  %}
+{% include image.html url="2020-06-21-Monte_Carlo_Integration_1_0.png"  %}    
 Great, so how would we use Monte-Carlo integration to get another esimtate?
 
+<div class=" expanded-code" markdown="1">
 ```python
 width = 1.5 * np.pi - 0  # The width from 0 to 1.5pi
 samples = np.random.uniform(low=0, high=width, size=1000000)
@@ -56,8 +59,9 @@ plt.text(1, 0.75, f"Area from Simps is {area:0.3f}", fontsize=12)
 plt.text(1, 0.5, f"Area from MC Integration is {mc_area:0.3f}", fontsize=12)
 plt.xlabel("x"), plt.legend();
 ```
+</div>
 
-{% include image.html url="2020-06-21-Monte_Carlo_Integration_3_0.png"  %}
+{% include image.html url="2020-06-21-Monte_Carlo_Integration_3_0.png"  %}    
 Alright, so let's dig into this a bit:
 
 1. Why does this work?
@@ -98,6 +102,7 @@ $$ \text{error} = \frac{\sigma(x)}{\sqrt{N}}$$
 
 where $\sigma$ is the standard deviation, $x$ is what we average (so really our samples times our width), and $N$ is the number of points. For us, the plot should really look like this:
 
+<div class=" expanded-code" markdown="1">
 ```python
 error = np.std(samples * width) / np.sqrt(samples.size)
 
@@ -107,8 +112,9 @@ plt.text(0.7, 0.75, f"Area from Simps is {area:0.3f}", fontsize=12)
 plt.text(0.7, 0.5, f"Area from MC Integration is {mc_area:0.3f}±{error:0.3f}", fontsize=12)
 plt.xlabel("x"), plt.legend();
 ```
+</div>
 
-{% include image.html url="2020-06-21-Monte_Carlo_Integration_5_0.png"  %}
+{% include image.html url="2020-06-21-Monte_Carlo_Integration_5_0.png"  %}    
 Of course, Simpsons' rule has error too, let's not forget that!
 
 ## Importance sampling!
@@ -125,6 +131,7 @@ $$\int_{-\infty}^{\infty} (1+x^2) \ \ \mathcal{N}(0, 1)\ dx,$$
 
 where $\mathcal{N}(0,1)$ is a normal distribution, centered at 0, with a width of 1. And just like before, we now have two parts - the first part to calculate, and the second part we can sample from. To do this, and then create a plot showing each sample, is simple:
 
+<div class=" expanded-code" markdown="1">
 ```python
 # MC integration here
 samples_2 = np.random.normal(size=1000)
@@ -148,8 +155,9 @@ plt.plot((samples_2, samples_2), ([0 for i in samples_2], [fn2(i) for i in sampl
          c='#1c93e8', lw=0.2, ls='-', zorder=-1, alpha=0.5)
 plt.xlabel("x"), plt.legend();
 ```
+</div>
 
-{% include image.html url="main.png"  %}
+{% include image.html url="main.png" class="main" %}    
 Where each blue horiztonal line shows us one specific sample.
 You can see that for us to get close to Simpons' rule we need far less samples, because we're sampling more efficiently.
 
@@ -157,6 +165,7 @@ When using importance sampling, note that you don't need to have a probability f
 
 $$\int_{-\infty}^{\infty} \frac{1 + x^2}{\sqrt{2\pi}} e^{-x^4/4}\ dx.$$
 
+<div class="" markdown="1">
 ```python
 def fn3(xs):
     return (1 + xs**2) * np.exp(-(xs**4)/4) / np.sqrt(2 * np.pi)
@@ -166,8 +175,9 @@ plt.plot(xs, ys, label="Original")
 plt.plot(xs, ys3, label="Modified to be $x^4/4$")
 plt.legend(); plt.xlabel("x");
 ```
+</div>
 
-{% include image.html url="2020-06-21-Monte_Carlo_Integration_9_0.png"  %}
+{% include image.html url="2020-06-21-Monte_Carlo_Integration_9_0.png"  %}    
 That's fine! We can still use that normal distribution from before, we just add it into the equation. Normally, your function will not be nice and analytic like the one we've tried to use, so we can state in general:
 
 $$\begin{align} \text{integral} &= \int_{-\infty}^{\infty} f(x) dx\\
@@ -176,6 +186,7 @@ $$\begin{align} \text{integral} &= \int_{-\infty}^{\infty} f(x) dx\\
 
 where $p(x)$ in our example will be the normal distribution.
 
+<div class=" expanded-code" markdown="1">
 ```python
 from scipy.stats import norm
 
@@ -196,12 +207,13 @@ plt.plot(xs, ys, label="Function", lw=3)
 plt.fill_between(xs, 0, ys, alpha=0.1)
 plt.text(-4.8, 0.5, f"MC Area={area:0.2f}±{error:0.2f}", fontsize=12)
 plt.text(-4.8, 0.43, f"Simps Area={area_simps:0.2f}", fontsize=12)
-plt.plot((samps, samps), ([0 for i in samps], [fn4(i) for i in samps]), 
+plt.plot((x_samp, x_samp), ([0 for i in x_samp], [fn3(i) for i in x_samp]), 
          c='#e89a1c', lw=0.2, ls='-', zorder=-1, alpha=0.3)
 plt.xlabel("x"), plt.legend();
 ```
+</div>
 
-{% include image.html url="2020-06-21-Monte_Carlo_Integration_12_0.png"  %}
+{% include image.html url="2020-06-21-Monte_Carlo_Integration_12_0.png"  %}    
 So hopefully you can see how this would be useful. To summarise, the general process for Monte-Carlo integration is:
 
 1. Have your function to integrate. 1D, 2D, 3D, doesn't matter.
@@ -212,12 +224,11 @@ So hopefully you can see how this would be useful. To summarise, the general pro
 6. Celebrate
 
 Finally, obviously I've kept the examples here to 1D for simplicity, but I really should stress that MC integration shines in higher dimensions. If you have a 10 dimensional function that looks roughly Gaussian (like a normal), you can sample from a 10 dimensional normal, and apply all the same steps above, nothing at all changes. 
-
 {% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from scipy.integrate import simps
 from scipy.stats import norm
 import matplotlib.pyplot as plt
@@ -302,8 +313,9 @@ plt.plot(xs, ys, label="Function", lw=3)
 plt.fill_between(xs, 0, ys, alpha=0.1)
 plt.text(-4.8, 0.5, f"MC Area={area:0.2f}±{error:0.2f}", fontsize=12)
 plt.text(-4.8, 0.43, f"Simps Area={area_simps:0.2f}", fontsize=12)
-plt.plot((samps, samps), ([0 for i in samps], [fn4(i) for i in samps]), 
+plt.plot((x_samp, x_samp), ([0 for i in x_samp], [fn3(i) for i in x_samp]), 
          c='#e89a1c', lw=0.2, ls='-', zorder=-1, alpha=0.3)
 plt.xlabel("x"), plt.legend();
 
 ```
+</div>

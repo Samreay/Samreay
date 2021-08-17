@@ -21,12 +21,15 @@ In this write up, we'll figure out an easy way of fixing up these spelling issue
 
 We'll source [our copy of the PPP dataset from this Kaggle challenge](https://www.kaggle.com/susuwatari/ppp-loan-data-paycheck-protection-program). I've downloaded this into a local folder called `fuzzy_ppp`.
 
+<div class=" reduced-code" markdown="1">
 ```python
 import pandas as pd
+import numpy as np
 
 df = pd.read_csv("fuzzy_ppp/PPP_data_150k_plus.csv")
 df.info()
 ```
+</div>
 
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 661218 entries, 0 to 661217
@@ -56,19 +59,23 @@ Alright, so we've got a lot of data here. 600k rows, but really the one we care 
 
 For now, lets just see how many unique cities we have inour dataset.
 
+<div class=" expanded-code" markdown="1">
 ```python
 cities = np.sort(df.City.str.replace(",", "").str.strip().unique().astype(str))
 print(cities.size, cities)
 ```
+</div>
 
     15652 ['02155' '1026-02-006' '10550' ... 'ZUNI' 'ZWOLLE' 'nan']
     
 Almost sixteen thousand cities. That is a big number. And some interesting cities that appear to be entirely numeric. Perhaps they are postcodes? Here my lack of familiarity with the US system (as an Australian) means I lack a certain domain knowledge here, but let's push on! To simplify things and make output... readable... lets just look at cities starting with `"PH"`:
 
+<div class=" reduced-code" markdown="1">
 ```python
 cities_p = [c for c in cities if c.startswith("PH")]
 cities_p
 ```
+</div>
 
     ['PHARR',
      'PHEBA',
@@ -114,10 +121,12 @@ It's not 57 different spellings in our dataset, but oh boy do we have a lot of d
 
 Next up, lets get a proper list of cities from [this github repository](https://github.com/kelvins/US-Cities-Database/blob/master/csv/us_cities.csv). Unfortunately, this dataset is not comprehensive, but it will do for us!
 
+<div class="" markdown="1">
 ```python
 actual_cities = pd.read_csv("fuzzy_ppp/us_cities.csv")
 actual_cities
 ```
+</div>
 
 <div>
 <style scoped>
@@ -133,7 +142,7 @@ actual_cities
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>ID</th>
@@ -263,10 +272,12 @@ actual_cities
 
 For simplicity lets again look at just cities starting with `"PH"`.
 
+<div class=" expanded-code" markdown="1">
 ```python
 proper_names = np.unique([c.upper() for c in actual_cities.CITY if c.upper().startswith("PH")])
 proper_names
 ```
+</div>
 
     array(['PHARR', 'PHEBA', 'PHELAN', 'PHELPS', 'PHENIX', 'PHENIX CITY',
            'PHIL CAMPBELL', 'PHILADELPHIA', 'PHILIP', 'PHILIPP', 'PHILIPPI',
@@ -277,10 +288,12 @@ proper_names
 
 Great! So we have a list of input cities, and actual cities. We don't care about those that have the name correct, so lets pull out only things which **don't** match the name of a known city in our dataset.
 
+<div class="" markdown="1">
 ```python
 unknown = [c for c in cities_p if c not in proper_names]
 unknown
 ```
+</div>
 
     ['PHEONIX',
      'PHIADELPHIA',
@@ -307,19 +320,21 @@ Now time for the good stuff! Lets delve into the fantastic package [`fuzzywuzzy`
 
 So for an example unknown city in the list above, we'll see how similar it is to all the potential cities we could match them to.
 
+<div class="" markdown="1">
 ```python
 from fuzzywuzzy import fuzz
 
-example = inexact[5]
+example = unknown[5]
 for potential in proper_names:
     print(f"{example} -> {potential} = {fuzz.ratio(example, potential)}")
 ```
+</div>
 
     PHILADELKPHIA -> PHARR = 33
-    PHILADELKPHIA -> PHEBA = 44
-    PHILADELKPHIA -> PHELAN = 53
+    PHILADELKPHIA -> PHEBA = 33
+    PHILADELKPHIA -> PHELAN = 42
     PHILADELKPHIA -> PHELPS = 53
-    PHILADELKPHIA -> PHENIX = 42
+    PHILADELKPHIA -> PHENIX = 32
     PHILADELKPHIA -> PHENIX CITY = 33
     PHILADELKPHIA -> PHIL CAMPBELL = 54
     PHILADELKPHIA -> PHILADELPHIA = 96
@@ -330,7 +345,7 @@ for potential in proper_names:
     PHILADELKPHIA -> PHILLIPS = 57
     PHILADELKPHIA -> PHILLIPSBURG = 48
     PHILADELKPHIA -> PHILLIPSPORT = 48
-    PHILADELKPHIA -> PHILLIPSVILLE = 54
+    PHILADELKPHIA -> PHILLIPSVILLE = 38
     PHILADELKPHIA -> PHILMONT = 38
     PHILADELKPHIA -> PHILO = 44
     PHILADELKPHIA -> PHILOMATH = 55
@@ -339,28 +354,32 @@ for potential in proper_names:
     PHILADELKPHIA -> PHIPPSBURG = 35
     PHILADELKPHIA -> PHLOX = 33
     PHILADELKPHIA -> PHOENICIA = 45
-    PHILADELKPHIA -> PHOENIX = 40
+    PHILADELKPHIA -> PHOENIX = 30
     PHILADELKPHIA -> PHOENIXVILLE = 40
-    PHILADELKPHIA -> PHYLLIS = 50
+    PHILADELKPHIA -> PHYLLIS = 30
     
 We can see that the match with the highest similarity is, of course, `PHILADELPHIA`. So what if we just want to find the best match, instead of printing them all out of it, that's very easy to do!
 
+<div class="" markdown="1">
 ```python
 from fuzzywuzzy import process
 
 best_match = process.extractOne(example, proper_names)
 print(best_match)
 ```
+</div>
 
     ('PHILADELPHIA', 96)
     
 If we want more than one, also easy to do, let's pick a different work and get the top three matches:
 
+<div class="" markdown="1">
 ```python
-example2 = inexact[0]
+example2 = unknown[0]
 matches = process.extract(example2, proper_names, limit=3)
 print(matches)
 ```
+</div>
 
     [('PHENIX', 92), ('PHOENIX', 86), ('PHENIX CITY', 79)]
     
@@ -370,10 +389,12 @@ Secondly, at the moment all cities are weighted equally. But larger cities shoul
 
 So lets go through now and extract the best match for every city in our inexact list.
 
+<div class="" markdown="1">
 ```python
-for c in inexact:
+for c in unknown:
     print(f"{c} -> {process.extractOne(c, proper_names)[0]}")
 ```
+</div>
 
     PHEONIX -> PHENIX
     PHIADELPHIA -> PHILADELPHIA
@@ -402,54 +423,66 @@ Now, this is all great, but theres plenty more we can do with the `fuzzywuzzy` l
 
 Let's have a different example: acronyms.
 
+<div class="" markdown="1">
 ```python
 a = "National Aeronautics and Space Administration (NASA)"
 b = "NASA"
 ```
+</div>
 
 We know these refer to the same things, but if we tried a simple ratio similarity test we wouldn't look too good:
 
+<div class=" reduced-code" markdown="1">
 ```python
 print(fuzz.ratio(a, b))
 ```
+</div>
 
     14
     
 Of course, this compares the entire strings. We can ask for the partial ratio which will help us out a lot:
 
+<div class=" reduced-code" markdown="1">
 ```python
 print(fuzz.partial_ratio(a, b))
 ```
+</div>
 
-    75
+    100
     
 But we can go more complicated:
 
+<div class=" reduced-code" markdown="1">
 ```python
 a = "Machine Learning vs Artifical Intelligence"
 b = "Artifical Intelligence vs Machine Learning"
 
 print(fuzz.ratio(a, b), fuzz.partial_ratio(a, b))
 ```
+</div>
 
     52 52
     
 Obviously swapping the order has confused things. So lets tokenise!
 
+<div class=" reduced-code" markdown="1">
 ```python
 print(fuzz.token_sort_ratio(a, b))
 ```
+</div>
 
     100
     
 Oh yeah, thats what we want. Its broken the string down into tokens, sorted them, then taken the ratio so that we don't care about order. **But wait, there's more!**
 
+<div class=" expanded-code" markdown="1">
 ```python
 a = "Machine Learning vs Artifical Intelligence"
 b = "The Incredible and Often Semantic difference between Artifical Intelligence and Machine Learning"
 
 print(fuzz.token_sort_ratio(a, b), fuzz.token_set_ratio(a, b))
 ```
+</div>
 
     59 96
     
@@ -477,9 +510,10 @@ But there are plenty more, so go check out the library!
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
+import numpy as np
 import pandas as pd
 
 
@@ -502,7 +536,7 @@ unknown = [c for c in cities_p if c not in proper_names]
 unknown
 
 
-example = inexact[5]
+example = unknown[5]
 for potential in proper_names:
     print(f"{example} -> {potential} = {fuzz.ratio(example, potential)}")
 
@@ -510,11 +544,11 @@ for potential in proper_names:
 best_match = process.extractOne(example, proper_names)
 print(best_match)
 
-example2 = inexact[0]
+example2 = unknown[0]
 matches = process.extract(example2, proper_names, limit=3)
 print(matches)
 
-for c in inexact:
+for c in unknown:
     print(f"{c} -> {process.extractOne(c, proper_names)[0]}")
 
 a = "National Aeronautics and Space Administration (NASA)"
@@ -537,3 +571,4 @@ b = "The Incredible and Often Semantic difference between Artifical Intelligence
 print(fuzz.token_sort_ratio(a, b), fuzz.token_set_ratio(a, b))
 
 ```
+</div>

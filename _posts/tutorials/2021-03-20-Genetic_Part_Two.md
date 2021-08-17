@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Painting the Girl with a Pearl Earring with Genetic Algorithms: Part Two"
+title:  "Genetic Algorithms 2: Girl with a Pearl Earring"
 short_title: "Genetic Algorithms 2: Painting Vermeer"
 desc: "A gentle introduction to genetic algorithms by recreating painting classics"
 long_desc: "In this tutorial, we'll introduce a population based genetic algorithm to recreate classic art using simply geometry"
@@ -14,13 +14,14 @@ redirect_from: "/genetic2"
 math: true
 ---
 
-This is what we're going to make in this tutorial. Building on from the previous discussion in part one, we now add population and genetic mixing into the algorithm.
+This is what we're going to make in this tutorial. Building on from the previous discussion in [part one](/genetic1), we now add population and genetic mixing into the algorithm.
 
-{% include video.html url="output.mp4" autoplay="true" class="img-smaller" %}
+{% include video.html url="output.mp4" autoplay="true" class="img-small" %}
 In the [prior article](/genetic1) we evolved a painting by the process of having a single organism that we mutated over time. We aim to improve this algorithm in this step by adding multiple different organisms into the population, and allowing those organisms to mate and produce offspring.
 
 Let's write out our imports now to get them out of the way.
 
+<div class=" reduced-code" markdown="1">
 ```python
 import os
 import numpy as np
@@ -29,9 +30,11 @@ from colour import Color
 import json
 import pygame  # Pygame for nice fast drawing
 ```
+</div>
 
 As before, we define an organism. You'll note it looks very much like the one from the previous article, except that now I have increased the chance the when a gene mutates, its the hue of the cirlce that changes (hue being located in index 3).
 
+<div class=" expanded-code" markdown="1">
 ```python
 class Organism:
     def __init__(self, genes):
@@ -74,6 +77,7 @@ class Organism:
         return Organism(chromosome)
     
 ```
+</div>
 
 Here lie the main changes from the previous section - our population now acutally has a population. Dramatic stuff. Specifically for changes, we now have:
 
@@ -83,6 +87,7 @@ Here lie the main changes from the previous section - our population now acutall
 * `mutate_and_pick` which tries several times to mutate the organism to a better version
 * `step` which now generates childre, mutates them, and then picks the cream of the crop to survive.
 
+<div class=" expanded-code" markdown="1">
 ```python
 class Population:
     def __init__(self, path):
@@ -190,11 +195,13 @@ class Population:
         self.save(outdir + "save.json")
 
 ```
+</div>
 
 With this population, we can create a handy helper function (again) which points to a reference image, sets an output directup up, and then either loads the checkpoint, or starts anew if its not found!
 
 When I feel like I have enough samples I'll terminate the function myself - those are more steps than my laptop could ever generate.
 
+<div class="" markdown="1">
 ```python
 def evolve(rate, scale, add_chance, steps=700000):
     pop = Population("genetic2/earring.png")
@@ -210,35 +217,38 @@ def evolve(rate, scale, add_chance, steps=700000):
     for i in range(start, steps):
         pop.step(i, outdir, rate=rate, scale=scale, add=add_chance)
 ```
+</div>
 
 With this all set up, we can now call `evolve` and see what we get. Here's our starting point again:
 
-{% include image.html url="main.png" class="img-smaller" %}
+{% include image.html url="main.png" class="main small" %}    
 And now lets kick it off:
 
+<div class=" expanded-code" markdown="1">
 ```python
 # 1% chance of mutation, scale is a normal of std 0.1, and 1% chance to add or remove
 evolve(0.01, 0.1, 0.01)
 ```
+</div>
 
 I also grabbed some snapshots of the population at the start and then as we progress further. The three images are the population at the start, after 40 iterations, and much later one. Notice that even though the populations grow more similar, each organism is still unique.
 
-{% include image.html url="2021-03-20-Genetic_Part_Two_16_0.png"  %}
-{% include image.html url="2021-03-20-Genetic_Part_Two_17_0.png"  %}
-{% include image.html url="2021-03-20-Genetic_Part_Two_18_0.png"  %}
+{% include image.html url="2021-03-20-Genetic_Part_Two_16_0.png"  %}    
+{% include image.html url="2021-03-20-Genetic_Part_Two_17_0.png"  %}    
+{% include image.html url="2021-03-20-Genetic_Part_Two_18_0.png"  %}    
 Using our good friend `ffmpeg` to turn some of these PNGs into an animation, we get this:
 
 {% include video.html url="output.mp4" autoplay="true" class="img-poster" %}
 And heres a side by side:
 
-{% include image.html url="2021-03-20-Genetic_Part_Two_22_0.png"  %}
+{% include image.html url="2021-03-20-Genetic_Part_Two_22_0.png"  %}    
 This still took quite a whil to run on my laptop, and there are existing solutions out there. If you have a serious problem and require an efficient and sophisticated genetic algorithm to help you out, check out the [DEAP](https://deap.readthedocs.io/en/master/) python package.
 
 {% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from colour import Color
 from numpy.random import choice, random, normal
 import json
@@ -414,3 +424,4 @@ evolve(0.01, 0.1, 0.01)
 
 
 ```
+</div>

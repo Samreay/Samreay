@@ -10,15 +10,11 @@ permalink: /tutorials/sample_selection
 math: true
 ---
 
-
 In a perfect world our experiments would capture all the data that exists. This is not a perfect world, and we miss a lot of data. Let's consider one method of accounting for this in a Bayesian formalism - integrating it out.
 
 Let's begin with a motivational dataset.
 
-
-{% include image.html url="main.png"  %}
-
-
+{% include image.html url="main.png" class="main" %}    
 So it looks like for our example data, we've got some gaussian-like distribution of $x$ observations, but at some point it seems like our instrument is unable to pick up the observations. Maybe its brightness and its too dim! Or maybe something else, who knows! But regardless, we can work with this.
 
 To start at the beginning, let's write out the full formula for our posterior:
@@ -38,7 +34,6 @@ So let's break that down. Our likelihood given our model and our selection effec
 Now the denominator here cannot be evaluated in its current state, we need to introduce an integral over all data (denoted $D$) such that we can apply the selection effect on it.
 
 $$ P(d|\theta, S) = \frac{P(S|d,\theta) P(d|\theta)}{\int P(S|D, \theta) P(D|\theta) dD} $$
-
 
 ## The Simplest Gaussian Example
 
@@ -77,7 +72,7 @@ Finally, we should note this likelihood (and correction) is for one data point. 
 
 To do this, lets first generate a dataset, create a model, fit it with `emcee` and verify that our estimations of $\mu$ and $\sigma$ are unbiased. First, the dataset.
 
-
+<div class="" markdown="1">
 ```python
 import numpy as np
 np.random.seed(3)
@@ -85,10 +80,11 @@ mu, sigma, alpha, num_points = 100, 10, 85, 1000
 d_all = np.random.normal(mu, sigma, size=num_points)
 d = d_all[d_all > alpha]
 ```
+</div>
 
 This is the same code used to generat the plot you saw up the top, just with less datapoints! Let's create our model, one with the sample selection, and one without. Remember, we work in log space for probability, so that you don't get tripped up when reading the code implementation of the math above.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 from scipy.stats import norm
 from scipy.special import erfc
@@ -106,6 +102,7 @@ def corrected_likelihood(xs, data):
     correction = data.size * np.log(0.5 * erfc((alpha - mu)/(np.sqrt(2) * sigma)))
     return uncorrected_likelihood(xs, data) - correction
 ```
+</div>
 
 Note here that I've been cheeky and included flat priors and a prior boundary to keep $\sigma$ positive in the likehood, which means I should really call it the posterior, but let's not get bogged down on semantics.
 
@@ -114,15 +111,14 @@ With that, our model is fully defined. We can now try and fit it to the data to 
 ### Model Fitting
 Let's use my go-to solution, `emcee` to sample our likelihood given our dataset, and `ChainConsumer` to take those samples and turn them into handy plots. If you want more details check out the [Bayesian Linear Regression tutorial](/tutorial/2019/07/27/BayesianLinearRegression.html) for implementation details. 
 
-
+<div class=" expanded-code" markdown="1">
 ```python
-from chainconsumer import ChainConsumer
 import emcee
 
 ndim = 2
 nwalkers = 50
 p0 = np.array([95, 0]) + np.random.uniform(low=1, high=10, size=(nwalkers, ndim))
-c = ChainConsumer()
+results = {}
 
 functions = [corrected_likelihood, uncorrected_likelihood]
 names = ["Corrected Likelihood", "Uncorrected Likelihood"]
@@ -131,16 +127,25 @@ for fn, name in zip(functions, names):
     state = sampler.run_mcmc(p0, 2000)
     chain = sampler.chain[:, 300:, :]
     flat_chain = chain.reshape((-1, ndim))
-    c.add_chain(flat_chain, parameters=["$\mu$", "$\sigma$"], name=name)
+    results[name] = flat_chain
+```
+</div>
 
+And now to plot these samples:
+
+<div class=" expanded-code" markdown="1">
+```python
+from chainconsumer import ChainConsumer
+c = ChainConsumer()
+for name, flat_chain in results.items():
+    c.add_chain(flat_chain, parameters=["$\mu$", "$\sigma$"], name=name)
+c.configure()
+c.configure_truth(color='w') ### REMOVE
 c.plotter.plot(truth=[mu, sigma], figsize=2.0);
 ```
+</div>
 
-    
-
-
-{% include image.html url="2019-07-30-SampleSelectionBias_9_1.png"  %}
-
+{% include image.html url="2019-07-30-SampleSelectionBias_11_1.png"  %}    
 Hopefully you can now see how the correction we applied to the likelihood unbiases its estimations.
 
 You'll notice that the contours don't sit perfectly on the true value, but if we made a hundred realisations of the data and averaged out the contour positions, you'd see they would. [In fact, you can see it right here](https://arxiv.org/abs/1706.03856).
@@ -153,7 +158,7 @@ But one thing that is *correct* about this approach that a lot of other approach
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from chainconsumer import ChainConsumer
 from scipy.special import erfc
 from scipy.stats import norm
@@ -183,7 +188,7 @@ def corrected_likelihood(xs, data):
 ndim = 2
 nwalkers = 50
 p0 = np.array([95, 0]) + np.random.uniform(low=1, high=10, size=(nwalkers, ndim))
-c = ChainConsumer()
+results = {}
 
 functions = [corrected_likelihood, uncorrected_likelihood]
 names = ["Corrected Likelihood", "Uncorrected Likelihood"]
@@ -192,8 +197,14 @@ for fn, name in zip(functions, names):
     state = sampler.run_mcmc(p0, 2000)
     chain = sampler.chain[:, 300:, :]
     flat_chain = chain.reshape((-1, ndim))
-    c.add_chain(flat_chain, parameters=["$\mu$", "$\sigma$"], name=name)
+    results[name] = flat_chain
 
+c = ChainConsumer()
+for name, flat_chain in results.items():
+    c.add_chain(flat_chain, parameters=["$\mu$", "$\sigma$"], name=name)
+c.configure()
+c.configure_truth(color='w') ### REMOVE
 c.plotter.plot(truth=[mu, sigma], figsize=2.0);
 
 ```
+</div>

@@ -20,7 +20,9 @@ In this small write up, I'll be trying to fill a bit of a void I've seen online.
 2. A dataset with confounding variables. Not all of our features will be useful.
 3. A dataset with multicolinearity. Super high correlation in some of our features will cause issues.
 
-# A recap on the different regularization forms.
+# Regularization Recap
+
+There a few different types commonly employed.
 
 ## A normal linear model
 
@@ -64,6 +66,7 @@ To investigate this, we're going to run a few different models in each of the se
 
 But first, let's not get ahead of ourselves. Let's make some nice data with a super simple gradient of one. Yup, the simplest linear model possible.
 
+<div class="" markdown="1">
 ```python
 import numpy as np
 from scipy.stats import norm
@@ -78,26 +81,29 @@ ys = xs + es * norm.rvs(size=n)
 xs = np.atleast_2d(xs).T # As sklearn expects a 2D feature list
 
 plt.errorbar(xs, ys, yerr=es, fmt="o", label="Data", lw=0.7)
-plt.plot([0, 5], [0, 5], label="Truth", c="k")
+plt.plot([0, 5], [0, 5], label="Truth", c="w")
 plt.legend();
 ```
+</div>
 
-{% include image.html url="2020-12-27-Linear_Regression_Regularisation_3_0.png"  %}
+{% include image.html url="2020-12-27-Linear_Regression_Regularisation_3_0.png"  %}    
 Okay, so lets run our models over it now!
 
+<div class="" markdown="1">
 ```python
 from sklearn.linear_model import LinearRegression, Lasso, Ridge, ElasticNet
 
 plt.errorbar(xs, ys, yerr=es, fmt="o", label="Data", lw=0.7)
-plt.plot([0, 5], [0, 5], label="Truth", c="k", ls="--")
+plt.plot([0, 5], [0, 5], label="Truth", c="w", ls="--")
 
 for m in [LinearRegression(), Lasso(), Ridge(), ElasticNet()]:
     m.fit(xs, ys)
     plt.plot(xs, m.predict(xs), label=m.__class__.__name__)
 plt.legend(ncol=2);
 ```
+</div>
 
-{% include image.html url="2020-12-27-Linear_Regression_Regularisation_5_0.png"  %}
+{% include image.html url="2020-12-27-Linear_Regression_Regularisation_5_0.png"  %}    
 Unsurprisingly, with our perfect data, it seems like the regularization isn't helping us at all. But we can clearly see the impact of the penalties bringing our singular $
 \beta$ value down.
 
@@ -105,23 +111,26 @@ Unsurprisingly, with our perfect data, it seems like the regularization isn't he
 
 No more simple models for us now, lets preserve a nice simple relationship, but add in a bunch of useless variables. Here we'll mostly use the first feature, a hint of the second, and none of the other eight!
 
+<div class=" expanded-code" markdown="1">
 ```python
-# 50 observations of 20 features, assuming 0.1 uncertainty on observations
+# 50 observations of 20 features, assuming 0.2 uncertainty on observations
 np.random.seed(1)
 xs = norm.rvs(scale=2, size=(50, 20))
 xs = xs[xs[:, 0].argsort()] # Sort array by first dimension for easier plotting
-es = 0.1 * np.ones(shape=50)
+es = 0.2 * np.ones(shape=50)
 ys = 1 * xs[:, 0] + 0.1 * xs[:, 1] + es * norm.rvs(size=es.shape)
 
 plt.errorbar(xs[:, 0], ys, yerr=es, fmt="o", lw=0.7, label="Data (first dimension only)")
 plt.legend();
 ```
+</div>
 
-{% include image.html url="2020-12-27-Linear_Regression_Regularisation_8_0.png"  %}
+{% include image.html url="2020-12-27-Linear_Regression_Regularisation_8_0.png"  %}    
 So lets fit some more models, and note that even though X is now 20-dimensional, because plotting is hard, Im just going to show $X_0$ primarily, just like above.
 
 Lets now fit this, just like before, but making sure to save out the vaue of the coefficients so that we can see how the different models are treating their $\beta$ values.
 
+<div class="" markdown="1">
 ```python
 plt.errorbar(xs[:, 0], ys, yerr=es, fmt="o", lw=0.7, label="Data");
 
@@ -134,12 +143,14 @@ for m in [LinearRegression(), Lasso(), Ridge(), ElasticNet()]:
     plt.plot(xs[:, 0], predict, label=name)
 plt.legend(ncol=2);
 ```
+</div>
 
-{% include image.html url="2020-12-27-Linear_Regression_Regularisation_11_0.png"  %}
+{% include image.html url="2020-12-27-Linear_Regression_Regularisation_11_0.png"  %}    
 Another busy plot, but the take away here is that the models with regularization, are in general, *smoother* than the other models. That is, they are less prone to overfitting. You can see, for example, the ElasticNet and Lasso regularization models (with the two strongest penalties) show that the model that comes out at the end is essentially only dependent on our first feature (hence the straight line), with other smaller effects marginalised in the model fitting. 
 
 I saved the coefficient values out into `beta_dict` so we can see this plotted now:
 
+<div class=" expanded-code" markdown="1">
 ```python
 size=20
 for name, betas in beta_dict.items():
@@ -148,14 +159,16 @@ for name, betas in beta_dict.items():
 plt.axhline(0, c="k"), plt.ylabel(r"$\beta$"), plt.xlabel("Feature number")
 plt.legend();
 ```
+</div>
 
-{% include image.html url="main.png" class="img-smaller" %}
+{% include image.html url="main.png" class="main" %}    
 We can see how effectively methods like Lasso regression pull down the importance of features that aren't significant and try and stop overfitting, leading to a more generalised model at the end. When training these models, the $\lambda$ parameter would need to be tuned to try and make sure we are not losing information we want. For example, in the above plot, we might have too much penalty in the ElasticNet and Lasso models (as they have a 0 value for the second feature, instead of the 0.1), whilst the Ridge regression - even though it recovers that second feature at the right value - fails to constrain all the other superflous features!
 
 # Regularization on correlated data
 
 When our input features are very highly correlated with each other, we can start to run into issues. Whether its perfect correlation (accidentally input temperature in both Farenheit and Celcius) or natural correlations (difficulty of getting up in the morning vs temperature out of the bed), these things can be an issue. So, in normal fashion, lets make us some issues.
 
+<div class=" reduced-code" markdown="1">
 ```python
 from scipy.stats import multivariate_normal as mn
 n = 50
@@ -169,15 +182,18 @@ xs = np.vstack((x0, x1, x2)).T
 
 ys = x0 + es * norm.rvs(size=n)
 ```
+</div>
 
 Let's check the variance inflation factor. If this is above ten is generally means high correlation.
 
+<div class="" markdown="1">
 ```python
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 for index in range(xs.shape[1]):
     print(index, variance_inflation_factor(xs, index))
 ```
+</div>
 
     0 74563.33713200882
     1 74559.06668872922
@@ -185,6 +201,7 @@ for index in range(xs.shape[1]):
     
 Thats a lot of correlation. We shall proceed with the normal modelling fitting, which you can see below. Same thing as normal, except now instead of just plotting the predictions in our one-dimensional view, we also plot the distribution of $\beta_0$ values (just so we can see how important each model rated the first feature).
 
+<div class=" expanded-code" markdown="1">
 ```python
 def do_monte_carlo_fit(xs, ys, es, model, samps=100):
     """ A small function that perturbs the data and refits a model.
@@ -218,8 +235,9 @@ axes[1].set_xlabel(r"$\beta_0$")
 axes[2].set_xlabel(r"$\beta_1$")
 plt.tight_layout();
 ```
+</div>
 
-{% include image.html url="2020-12-27-Linear_Regression_Regularisation_20_0.png"  %}
+{% include image.html url="2020-12-27-Linear_Regression_Regularisation_20_0.png" class="img-large" %}    
 The takeaway here is that, **even though the predictions look to be pretty similar**, the methods which include regularization have much more consistent values for their $\beta$ values. To put this another way, the stock standard LinearRegression model, if we perturb our data, could have wildly changing coefficients. Because our input features are highly correlated, sometimes $\beta_0$ might be low, but it will be compensated for by $\beta_1$ being higher. This is why the top plot looks fine, but the red distribution in the histograms is spread out. Regularization will put a stop to that, as it will effectively select whatever feature fits the data with the lowest possible $\beta$ values, allowing (in this case), for a far better localisation of $\beta$. 
 
 This can become important in various machine learning pipelines. In some data sets, we have a huge number of potential features, and often we select a few of these features as ones of interest, and create models of those. These features can be extracted often by simple methods like checking the correlations with the dependent variable, but sometimes simple linear models are fit, and any with significant $\beta$ values are selected to continue down the pipeline. A correlation approach would pass all our incredibly correlated features down the line. Normal linear regression would constantly change what it is deciding to send down the line. But a nicely regularized linear regression will pass on features correlated with the dependent variable, whilst removing independent variables which are very highly correlated with each other.
@@ -243,7 +261,7 @@ Regularization on other models is, unsurprisingly, even more complicated.
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from scipy.stats import multivariate_normal as mn
 from scipy.stats import norm
 from sklearn.linear_model import LinearRegression, Lasso, Ridge, ElasticNet
@@ -261,23 +279,23 @@ ys = xs + es * norm.rvs(size=n)
 xs = np.atleast_2d(xs).T # As sklearn expects a 2D feature list
 
 plt.errorbar(xs, ys, yerr=es, fmt="o", label="Data", lw=0.7)
-plt.plot([0, 5], [0, 5], label="Truth", c="k")
+plt.plot([0, 5], [0, 5], label="Truth", c="w")
 plt.legend();
 
 
 plt.errorbar(xs, ys, yerr=es, fmt="o", label="Data", lw=0.7)
-plt.plot([0, 5], [0, 5], label="Truth", c="k", ls="--")
+plt.plot([0, 5], [0, 5], label="Truth", c="w", ls="--")
 
 for m in [LinearRegression(), Lasso(), Ridge(), ElasticNet()]:
     m.fit(xs, ys)
     plt.plot(xs, m.predict(xs), label=m.__class__.__name__)
 plt.legend(ncol=2);
 
-# 50 observations of 20 features, assuming 0.1 uncertainty on observations
+# 50 observations of 20 features, assuming 0.2 uncertainty on observations
 np.random.seed(1)
 xs = norm.rvs(scale=2, size=(50, 20))
 xs = xs[xs[:, 0].argsort()] # Sort array by first dimension for easier plotting
-es = 0.1 * np.ones(shape=50)
+es = 0.2 * np.ones(shape=50)
 ys = 1 * xs[:, 0] + 0.1 * xs[:, 1] + es * norm.rvs(size=es.shape)
 
 plt.errorbar(xs[:, 0], ys, yerr=es, fmt="o", lw=0.7, label="Data (first dimension only)")
@@ -349,3 +367,4 @@ axes[2].set_xlabel(r"$\beta_1$")
 plt.tight_layout();
 
 ```
+</div>

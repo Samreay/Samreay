@@ -5,7 +5,9 @@
 
 # Matplotlib imports
 import matplotlib.pyplot as plt
-plt.style.use("default")
+
+
+plt.style.use("dark_background")
 plt.rcParams['figure.figsize'] = (8, 4)
 plt.rcParams['figure.dpi'] = 200
 plt.rcParams['hist.bins'] = 50
@@ -21,8 +23,15 @@ plt.rc('text', usetex=False)
 plt.rc('font', family='sans-serif')
 plt.rcParams['legend.frameon'] = False
 
+plt.rcParams.update({
+    "figure.facecolor":  (0.0, 0.0, 0.0, 0.0),  # red   with alpha = 30%
+    "axes.facecolor":    (0.0, 0.0, 0.0, 0.0),  # green with alpha = 50%
+    "savefig.facecolor": (0.0, 0.0, 0.0, 0.0),  # blue  with alpha = 20%
+})
+
+
 from cycler import cycler	  
-plt.rcParams['axes.prop_cycle'] = (cycler(color=['#003049', '#D62828', '#F77F00', '#FCBF49', '#EAE2B7']) + cycler(linestyle=['-', '--', ':', '-.', '-']))
+plt.rcParams['axes.prop_cycle'] = (cycler(color=['#009aeb', '#f54545', '#ff890d', '#ffd075', '#96e879']) + cycler(linestyle=['-', '--', ':', '-.', '-']))
 
 #class DefaultScene(Scene):
 #    CONFIG={

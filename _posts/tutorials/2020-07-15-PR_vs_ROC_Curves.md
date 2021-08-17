@@ -21,6 +21,7 @@ So in the next few sections, we'll generate a mock dataset, generate PR and ROC 
 
 Let's utilise the `make_moon` function from `sklearn` to get some toy data, and then super quickly train both a logistic regression and random forest classifier on it.
 
+<div class="" markdown="1">
 ```python
 from sklearn.datasets import make_moons
 from sklearn.model_selection import train_test_split
@@ -42,14 +43,15 @@ for m in models:
 
 # Plot results
 fig, axes = plt.subplots(ncols=1 + len(models), sharey=True, figsize=(13, 5))
-axes[0].scatter(X[:, 0], X[:, 1], c=y)
+axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap="Spectral")
 axes[0].set_title("Actual data")
 for ax, m, r in zip(axes[1:], models, results):
     ax.scatter(X_test[:, 0], X_test[:, 1], c=(r == y_test), cmap="RdYlGn")
     ax.set_title(f"{m.__class__.__name__}\nCorrect classification");
 ```
+</div>
 
-{% include image.html url="2020-07-15-PR_vs_ROC_Curves_1_0.png"  %}
+{% include image.html url="2020-07-15-PR_vs_ROC_Curves_1_0.png"  %}    
 So here we have some simple moon data, two classifiers, one naively looks better than the other, we want to determine the threshold in which its internal "probability" results in us classifying into one group or another. Where we set that limit will determine, how much contamination is in the positives, vs positives we failed to get.
 
 # What is a PR Curve?
@@ -65,6 +67,7 @@ Now there is obviously going to be an inverse relationship out. If we have incre
 
 We can generate a PR curve easily in sklearn like so:
 
+<div class="" markdown="1">
 ```python
 from sklearn.metrics import plot_precision_recall_curve
 # Can do it manually by importing precision_recall_curve
@@ -72,12 +75,13 @@ from sklearn.metrics import plot_precision_recall_curve
 fig, ax = plt.subplots()
 for m in models:
     plot_precision_recall_curve(m, X_test, y_test, ax=ax)
-ax.axhline(0.9, c='k', ls="--", lw=1, alpha=0.5)
-ax.axvline(0.9, c='k', ls="--", lw=1, alpha=0.5)
+ax.axhline(0.9, c='w', ls="--", lw=1, alpha=0.5)
+ax.axvline(0.9, c='w', ls="--", lw=1, alpha=0.5)
 ax.set_title("PR Curve");
 ```
+</div>
 
-{% include image.html url="2020-07-15-PR_vs_ROC_Curves_3_0.png"  %}
+{% include image.html url="2020-07-15-PR_vs_ROC_Curves_3_0.png"  %}    
 The "AP" in the plot is the average precision, weighted by the change in recall. [See this link for details](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html). The important thing is to note the characteristic curve we see, and that what you want is for your curve to get as high up in the upper right corner as possible. Here, we can see that we could pick a classification threshold for the Random Forest Classifier that would grant us a precision of > 90% and still have a recall of also above 90% (the dashed lines are at the 90% mark, and you can see the curve gets aboe both of them).
 
 # What is a ROC curve?
@@ -91,6 +95,7 @@ To rephrase:
 
 We can generate a ROC curve easily using sklearn as well:
 
+<div class=" reduced-code" markdown="1">
 ```python
 from sklearn.metrics import plot_roc_curve
 # Can do it manually by importing roc_curve
@@ -98,12 +103,13 @@ from sklearn.metrics import plot_roc_curve
 fig, ax = plt.subplots()
 for m in models:
     plot_roc_curve(m, X_test, y_test, ax=ax)
-ax.axhline(0.9, c='k', ls="--", lw=1, alpha=0.5)
-ax.axvline(0.1, c='k', ls="--", lw=1, alpha=0.5)
+ax.axhline(0.9, c='w', ls="--", lw=1, alpha=0.5)
+ax.axvline(0.1, c='w', ls="--", lw=1, alpha=0.5)
 ax.set_title("ROC Curve");
 ```
+</div>
 
-{% include image.html url="2020-07-15-PR_vs_ROC_Curves_5_0.png"  %}
+{% include image.html url="2020-07-15-PR_vs_ROC_Curves_5_0.png"  %}    
 In this plot, we want to get in the top left corner, not the top right one. The dashed lines show us that our current RF model can achieve a true positive rate of >90%, with a false positive rate of <10%. 
 
 And all things considered, it looks very similar to the PR curve, just flipped around. But there is an important difference that isn't just semantics.
@@ -133,6 +139,7 @@ With these sort of imbalanced class numbers, we can see why we might prefer PR c
 
 In fact, lets quickly update the code above to produce an imbalanced set, and run two different classifiers, so we can compare the curves:
 
+<div class="" markdown="1">
 ```python
 # Generate some mock data
 X, y = make_moons(n_samples=(10000, 500), noise=0.2, random_state=42)
@@ -147,16 +154,18 @@ for m in models:
     
 # Plot results
 fig, axes = plt.subplots(ncols=len(models)+1, sharey=True, figsize=(13, 5))
-axes[0].scatter(X[:, 0], X[:, 1], c=y)
+axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap="Spectral")
 axes[0].set_title("Actual data")
 for ax, m, r in zip(axes[1:], models, results):
     ax.scatter(X_test[:, 0], X_test[:, 1], c=(r == y_test), cmap="RdYlGn")
     ax.set_title(f"{m.__class__.__name__}\nCorrect Classification");
 ```
+</div>
 
-{% include image.html url="2020-07-15-PR_vs_ROC_Curves_7_0.png"  %}
+{% include image.html url="2020-07-15-PR_vs_ROC_Curves_7_0.png"  %}    
 In this example, the classes are imbalanced by a factor of 20, so lets see if the imbalanced classes cause a large discrepancy now in the PR curve than in the ROC curve:
 
+<div class="" markdown="1">
 ```python
 fig, axes = plt.subplots(ncols=2, figsize=(12, 5))
 for m in models:
@@ -164,8 +173,9 @@ for m in models:
     plot_roc_curve(m, X_test, y_test, ax=axes[1])
 axes[0].set_title("PR Curve"), axes[1].set_title("ROC Curve");
 ```
+</div>
 
-{% include image.html url="main.png"  %}
+{% include image.html url="main.png" class="main" %}    
 Fantastic, just as we expect. The ROC shows that, in general, the Random Forest performs better than the Logistic Regression (if, of course, we choose to use the TPR and FPR to measure performance). And the PR curve takes our specific class imbalance into account and shows the larger difference between in performance between the two classifiers due to the large difference in precision between them.
 
 # Summary
@@ -183,7 +193,7 @@ I hope this page and the resources above are useful!
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from sklearn.datasets import make_moons
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
@@ -207,7 +217,7 @@ for m in models:
 
 # Plot results
 fig, axes = plt.subplots(ncols=1 + len(models), sharey=True, figsize=(13, 5))
-axes[0].scatter(X[:, 0], X[:, 1], c=y)
+axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap="Spectral")
 axes[0].set_title("Actual data")
 for ax, m, r in zip(axes[1:], models, results):
     ax.scatter(X_test[:, 0], X_test[:, 1], c=(r == y_test), cmap="RdYlGn")
@@ -218,8 +228,8 @@ for ax, m, r in zip(axes[1:], models, results):
 fig, ax = plt.subplots()
 for m in models:
     plot_precision_recall_curve(m, X_test, y_test, ax=ax)
-ax.axhline(0.9, c='k', ls="--", lw=1, alpha=0.5)
-ax.axvline(0.9, c='k', ls="--", lw=1, alpha=0.5)
+ax.axhline(0.9, c='w', ls="--", lw=1, alpha=0.5)
+ax.axvline(0.9, c='w', ls="--", lw=1, alpha=0.5)
 ax.set_title("PR Curve");
 
 # Can do it manually by importing roc_curve
@@ -227,8 +237,8 @@ ax.set_title("PR Curve");
 fig, ax = plt.subplots()
 for m in models:
     plot_roc_curve(m, X_test, y_test, ax=ax)
-ax.axhline(0.9, c='k', ls="--", lw=1, alpha=0.5)
-ax.axvline(0.1, c='k', ls="--", lw=1, alpha=0.5)
+ax.axhline(0.9, c='w', ls="--", lw=1, alpha=0.5)
+ax.axvline(0.1, c='w', ls="--", lw=1, alpha=0.5)
 ax.set_title("ROC Curve");
 
 # Generate some mock data
@@ -244,7 +254,7 @@ for m in models:
     
 # Plot results
 fig, axes = plt.subplots(ncols=len(models)+1, sharey=True, figsize=(13, 5))
-axes[0].scatter(X[:, 0], X[:, 1], c=y)
+axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap="Spectral")
 axes[0].set_title("Actual data")
 for ax, m, r in zip(axes[1:], models, results):
     ax.scatter(X_test[:, 0], X_test[:, 1], c=(r == y_test), cmap="RdYlGn")
@@ -257,3 +267,4 @@ for m in models:
 axes[0].set_title("PR Curve"), axes[1].set_title("ROC Curve");
 
 ```
+</div>

@@ -48,6 +48,7 @@ $$P(Y|X_1, X_2) = \frac{P(X_1| Y)\ P( X_2 | Y)\ P(Y)}{P(X_1)\ P(X_2)} $$
 
 Lets now make up 5 emails:
 
+<div class="" markdown="1">
 ```python
 import pandas as pd
 
@@ -66,6 +67,7 @@ df["has_name"] = df.content.str.lower().str.contains("sam")
 df["has_win"] = df.content.str.lower().str.contains("win")
 df
 ```
+</div>
 
 <div>
 <style scoped>
@@ -81,7 +83,7 @@ df
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>content</th>
@@ -162,6 +164,7 @@ If we are now checking both $P(Y=1\|X)$ and $P(Y=0\|X)$, then we can also not bo
 
 Lets write some super basic code to try and classify our emails:
 
+<div class="" markdown="1">
 ```python
 import numpy as np
 
@@ -196,6 +199,7 @@ def classify_emails(X, Y):
 df["prediction"] = classify_emails(df[["has_name", "has_win"]], df.spam)
 df
 ```
+</div>
 
 <div>
 <style scoped>
@@ -211,7 +215,7 @@ df
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>content</th>
@@ -272,6 +276,7 @@ Lets now graduate from bad explantory code, to using `scikit-learn`.
 
 ## Scikit-Learn Code
 
+<div class=" reduced-code" markdown="1">
 ```python
 from sklearn.naive_bayes import BernoulliNB
 
@@ -284,6 +289,7 @@ predictions = nb.predict(X)
 df["BernoulliNB_pred"] = predictions
 df
 ```
+</div>
 
 <div>
 <style scoped>
@@ -299,7 +305,7 @@ df
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>content</th>
@@ -389,12 +395,12 @@ Naive Bayes is a super faster, super simple classifier, that will work wonders e
 
 If theres one thing in general to take away from this, its Bayes theorem. I'll put it big down below to drum it home!
 
-{% include image.html url="main.png" class="img-smaller" %}
+{% include image.html url="main.jpg" class="main small img-screen" %}    
 {% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from sklearn.naive_bayes import BernoulliNB
 import numpy as np
 import pandas as pd
@@ -458,3 +464,4 @@ df["BernoulliNB_pred"] = predictions
 df
 
 ```
+</div>

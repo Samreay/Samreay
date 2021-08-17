@@ -1,45 +1,18 @@
-<div class="card-badge card-border">
-    <div class="buffer">
-        <img class="img img-badge img-circle" src="/{{site.author.profile_img }}">
-        <div class="card-footer block-content">
-            <div class="card-title">
-                <h3>Samuel Hinton</h3> <span class="text-muted">Astrophysicist | Data Scientist | Code Monkey</span>
-            </div>
-            <div class="card-desc">
-                <p>For future updates, connect on LinkedIn!</p>
-            </div>
-            <div class="connect">
-                <a href="https://au.linkedin.com/in/samuelreay" target="_blank">
-                    <button class="btn btn-block btn-primary fancy-button" style="height: 100%;">
-                        Visit Profile!
-                    </button>
-                </a>
-            </div>
+
+<div class="badge-leader">
+<p><em>Connect to stay in the loop for tutorials and posts.</em></p>
+</div>
+<div class="badge">
+    <div class="badge-inner grid grid-cols-1 md:grid-cols-5 md:gap-x-6 md:gap-y-8 items-center">
+        <figure class="flex mx-auto md:block hidden flex-col col-span-1">
+            <img src="/{{site.author.profile_img }}">
+        </figure>
+        <div class="title flex flex-col h-full col-span-3">
+            <h3>Samuel Hinton</h3>
+            <p>Astrophysicist & Data Scientist</p>
+        </div>
+        <div class="connect flex flex-col w-full col-span-1">
+            <a href="https://au.linkedin.com/in/{{site.author.linkedin_username}}" target="_blank" class="no-under">Visit Profile!</a>
         </div>
     </div>
-</div>
-<div class="row padding-bottom m-b-md">
-    <div class="col-sm-12">
-        <p>Or if you want far, far more information, here are the courses I've made:</p>
-    </div>
-    {% for pair in site.data.courses %}
-    {% assign course = pair[1] %}
-    <div class="col-sm-12 m-b-md padding-bottom">
-        <a href="{{course.url}}">
-            <div class="card card-horizontal-small">
-                <img class="img img-card img-small" src="/{{course.img}}">
-                <div class="card-footer block-content">
-                    <div class="card-title">
-                        <h4>{{course.name}}</h4>
-                    </div>
-                    <div class="card-desc">
-                        <p>{{ course.desc | strip_html }}</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    {% endfor %}
-
 </div>

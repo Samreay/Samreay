@@ -1,0 +1,3 @@
+- name: book1
+  cover: static/img/landing/book1.jpg
+  desc: Book One of The Blah Cycle

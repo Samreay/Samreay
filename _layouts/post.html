@@ -1,73 +1,22 @@
 ---
 layout: default
 ---
-<div class="darkbg">
 
-</div>
-<div class="gray-section">
-    <div class="wrapper wrapper-content animated fadeIn article postwide">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 relative">
-                
-                <div class="ibox">
-                    <div class="ibox-content">
-                        <div class="pull-right">
-                            {% for category in page.categories %}
-                            <button class="btn btn-white btn-xs" type="button">{{ category }}</button>
-                            {% endfor %}
-                        </div>
-                        <div class="text-center article-title">
-                            <span class="text-muted"><i class="fa fa-clock-o"></i> {{ page.date | date: "%-d %b %Y" }},
-                            </span>
-                            <span class="text-muted"><a href="https://www.linkedin.com/in/samuelreay/"
-                                    target="_blank">Samuel Hinton</a></span>
-                            <h1>
-                                {{ page.title }}
-                            </h1>
-                            <br />
-                            <h3>
-                                {{ page.desc }}
-                            </h3>
-                        </div>
-                        {{ content }}
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-1">
-                <div class="sticky-sharebar">
-                    <div class="share-link hideshadow" style="background-color: transparent;">
-                        <i class="fa fa-share-alt" style="color:#b5bbc1; margin-left: -3px;"></i>
-                    </div>
-                    <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}%3A%20{{ page.permalink | absolute_url }}"
-                        target="_blank" title="Tweet this">
-                        <div class="share-link">
-                            <i class="fab fa-twitter" style="color:#1DA1F2; margin-left: 3px; margin-top: 2px;"></i>
-                        </div>
-                    </a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite?url={{ page.permalink | absolute_url }}"
-                        target="_blank" title="Share on LinkedIn">
-                        <div class="share-link">
-                            <i class="fab fa-linkedin-in" style="color:#0077B5; margin-top: -2px;"></i>
-                        </div>
-                    </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.permalink | absolute_url }}"
-                        target="_blank" title="Share on Facebook">
-                        <div class="share-link">
-                            <i class="fab fa-facebook-f" style="color:#4267B2; margin-left: -1px;"></i>
-                        </div>
-                    </a>
-                    <a href="https://reddit.com/submit?url={{ page.permalink | absolute_url }}&title={{ page.title | uri_escape }}"
-                        target="_blank" title="Share on Reddit">
-                        <div class="share-link" style="margin-bottom: 0px;">
-                            <i class="fab fa-reddit-alien" style="color:#FF5700cc; margin-top: -1px;"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+<div class="content content-standard blog-post">
+    <div class="section-header blog">
 
+        <h1 class="title" data-aos="fade-up">{{page.title}}</h1>
+        <p data-aos="fade-up">{{ page.date | date: "%-d %b %Y" }}, <a href="https://www.linkedin.com/in/samuelreay/">Samuel Hinton</a></p>
+        <p data-aos="fade-up">{{page.desc}}</p>
     </div>
+
+
+    {{ content }}
+
 </div>
+
+
+
 {% if page.math %}
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({

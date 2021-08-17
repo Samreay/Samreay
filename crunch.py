@@ -20,7 +20,7 @@ else:
     d = {}
 
 #folder = sys.argv[1]
-categories = ["blog/", "outreach/", "projects/"]
+categories = ["blog/", "projects/"]
 for category in categories:
     full = cur_dir + "/static/img/" + category
     print("Looking at %s" % category)

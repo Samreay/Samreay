@@ -6,14 +6,14 @@ date: 2020-06-18
 categories: [tutorial]
 tags: [snippet]
 loc: 'tutorials/removing_empty_data/'
-permalink: /tutorials/removing_empty_data
+permalink: tutorials/removing_empty_data 
 redirect_from: "/removing_empty"
 math: true
 ---
 
 The sad reality of life as a data scientist is we spend too much time cleaning and processing data. And a lot of the time, our data contains some features which simply need to go in the bin. A column of 1000 values with only 2 entries is probably not going to be useful, after all. Let's make some data to illustrate this:
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 import pandas as pd
 import numpy as np
@@ -23,7 +23,7 @@ data[data[:, 2] < 0.95, 2] = np.nan  # Set most of the last column to NaN
 df = pd.DataFrame(data, columns=["A", "B", "C"])
 display(df)
 ```
-
+</div>
 
 <div>
 <style scoped>
@@ -39,7 +39,7 @@ display(df)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>A</th>
@@ -119,21 +119,24 @@ display(df)
 <p>100 rows × 3 columns</p>
 </div>
 
-
 Here is a handy snippet to remove columns which are more than `threshold` empty:
 
-
-
-{% include image.html url="empty.png" class="img-carbon" %}
+<div class="carbon-code " markdown="1">
+```python
+def remove_empty_columns(df, threshold=0.9):
+    column_mask = df.isnull().mean(axis=0) < threshold
+    return df.loc[:, column_mask]
+```
+</div>
 
 Super simple. Notice the use of `isnull` here instead of `isnan` - the former is more general.
 
-
+<div class=" reduced-code" markdown="1">
 ```python
 df2 = remove_empty_columns(df)
 display(df2)
 ```
-
+</div>
 
 <div>
 <style scoped>
@@ -149,7 +152,7 @@ display(df2)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>A</th>
@@ -217,7 +220,6 @@ display(df2)
 <p>100 rows × 2 columns</p>
 </div>
 
-
 And *bam*, column C is gone!
 
 That's it for this post, wanted to keep this one super short because I know I've seen at least a dozen different implementations to remove empty columns, and some of them are definitely better than others. May this hopefully be a useful snippet!
@@ -226,7 +228,7 @@ That's it for this post, wanted to keep this one super short because I know I've
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 import numpy as np
 import pandas as pd
 
@@ -244,3 +246,4 @@ df2 = remove_empty_columns(df)
 display(df2)
 
 ```
+</div>

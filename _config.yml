@@ -1,5 +1,7 @@
-title: "CosmicCoding"
-global_title: "CosmicCoding | Samuel Hinton"
+google_analytics:
+
+title: "Samuel Hinton"
+global_title: "Samuel Hinton"
 baseurl: ""
 url: "https://cosmiccoding.com.au"
 content_path: "static/img/blog"
@@ -20,51 +22,32 @@ author:
   head_img: 'static/img/landing/face.jpg'
   profile_img: 'static/img/landing/profile.jpg'
 
-courses:
-  statistics: https://www.udemy.com/course/python-for-statistical-analysis/?referralCode=76158B46FA5EB57C38EB
-  datamanip: https://www.udemy.com/course/data-manipulation-in-python/?referralCode=76D0B64A481951B29E77
-# sections
+
 sections:
-  - id: 'about-me'
-    name: 'About'
-    tpl: 'about.html'
-    css: ''
-
-  - id: 'academia'
-    name: 'Academia'
-    tpl: 'academia.html'
-    css: 'academia'
-
-#  - id: 'cta'
-#    name: 'Talks'
-#    tpl: 'cta.html'
-#    css: 'cta'
-#  - id: 'personal'
-#    name: 'Personal'
-#    tpl: 'personal.html'
-#    css: 'personal'
-
-
-#disqus:
-#  name: samreay
-#  public_key: MYiCDJWlzq6IEkSXbAflF3DLdf1RmcjWGoOc3TBI3LoRNkmAemEiXyWhX0wOYPU8
-
-# google analytics
-ga:
-  id: UA-72691106-1
-
-# Build settings
-encoding: "utf-8"
-exclude:
-    - node_modules
-
-# other settings
-highlighter: rouge
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  math_engine: mathjax
+  - id: about
+    tpl: about.html
+  - id: latest
+    tpl: latest.html
+  - id: books
+    tpl: books.html
+  - id: newsletter
+    tpl: newsletter.html
+  - id: tutorials
+    tpl: tutorials.html
+  - id: courses
+    tpl: courses.html
+  - id: other
+    tpl: other.html
+    
 
 plugins:
-  - jekyll-redirect-from
+  - jekyll-seo-tag
+
+exclude: 
+  - styles/index.css
+  - styles/syntax.css
+  - package.json
+  - package-lock.json
+  - postcss.config.js
+  - readme.md
+  - node_modules

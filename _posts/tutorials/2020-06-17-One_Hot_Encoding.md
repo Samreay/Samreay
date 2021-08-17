@@ -11,12 +11,11 @@ redirect_from: "/one_hot"
 math: true
 ---
 
-
 One hot encoding is something we do very commonly in machine learning, where we want to turn a categorical feature into a vector of ones and zeros that algorithms can make much easier sense of. 
 
 For example, take this toy example dataframe of people and their favourite food. At the moment, it's useless to us.
 
-
+<div class="" markdown="1">
 ```python
 import pandas as pd
 
@@ -27,7 +26,7 @@ df = pd.DataFrame({
 
 display(df)
 ```
-
+</div>
 
 <div>
 <style scoped>
@@ -43,7 +42,7 @@ display(df)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>FavFood</th>
@@ -74,20 +73,25 @@ display(df)
 </table>
 </div>
 
-
 I've seen enough different implementations of one-hot But in machine learning from first pricinples, that I thought I'd throw my own version into the ring. If you want a "big boy" solution, you can always just appeal to [scikit-learn's OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html), but the methods are even simpler. The first one operators on a dataframe as a whole, the second one operates on a specific column if that's all you care about.
 
+<div class="carbon-code  reduced-code" markdown="1">
+```python
+def one_hot_df(df):
+    return pd.get_dummies(df)
 
-
-{% include image.html url="one_hot_snippet.png" class="img-carbon" %}
+def one_hot_col(df, col):
+    return df[col].str.get_dummies()
+```
+</div>
 
 Where we can see the difference between the two is how the column name is preserved using the generic version of `get_dummies`.
 
-
+<div class="" markdown="1">
 ```python
 display(one_hot_df(df), one_hot_col(df, "FavFood"))
 ```
-
+</div>
 
 <div>
 <style scoped>
@@ -103,7 +107,7 @@ display(one_hot_df(df), one_hot_col(df, "FavFood"))
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>FavFood_Cake</th>
@@ -152,8 +156,6 @@ display(one_hot_df(df), one_hot_col(df, "FavFood"))
 </table>
 </div>
 
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -168,7 +170,7 @@ display(one_hot_df(df), one_hot_col(df, "FavFood"))
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>Cake</th>
@@ -217,14 +219,13 @@ display(one_hot_df(df), one_hot_col(df, "FavFood"))
 </table>
 </div>
 
-
 Amazing and super simple!
 
 ## Unnecessary complications
 
 But I've also seen survey results where there are multi-choice options, and the results have come back as lists. Like this:
 
-
+<div class="" markdown="1">
 ```python
 df2 = pd.DataFrame({
     "Person": ["Sam", "Ali", "Jane", "John"], 
@@ -232,7 +233,7 @@ df2 = pd.DataFrame({
 }).set_index("Person")
 display(df2)
 ```
-
+</div>
 
 <div>
 <style scoped>
@@ -248,7 +249,7 @@ display(df2)
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>Nationality</th>
@@ -279,17 +280,16 @@ display(df2)
 </table>
 </div>
 
-
 So now the question is "What is the simplest way we can hot encode this data?" And the answer is to change *nothing*! `get_dummies` already accepts a separator input!
 
-
+<div class=" reduced-code" markdown="1">
 ```python
 def hot_encode_col(df, col, sep="/"):
     return df[col].str.get_dummies(sep=sep)
 
 display(hot_encode_col(df2, "Nationality"))
 ```
-
+</div>
 
 <div>
 <style scoped>
@@ -305,7 +305,7 @@ display(hot_encode_col(df2, "Nationality"))
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>Australia</th>
@@ -348,10 +348,9 @@ display(hot_encode_col(df2, "Nationality"))
 </table>
 </div>
 
-
 Very, very simple. And if for some reason, `get_dummies` is not behaving nicely, or you really want those multi-level indexes, you can do it manually using melt and pivot:
 
-
+<div class="" markdown="1">
 ```python
 def one_hot_melt_pivot(df):
     names = df.index.names
@@ -363,7 +362,7 @@ def one_hot_melt_pivot(df):
 
 display(one_hot_melt_pivot(df))
 ```
-
+</div>
 
 <div>
 <style scoped>
@@ -383,7 +382,7 @@ display(one_hot_melt_pivot(df))
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr>
       <th>variable</th>
       <th colspan="4" halign="left">FavFood</th>
@@ -440,7 +439,7 @@ display(one_hot_melt_pivot(df))
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 import pandas as pd
 
 
@@ -481,3 +480,4 @@ def one_hot_melt_pivot(df):
 display(one_hot_melt_pivot(df))
 
 ```
+</div>

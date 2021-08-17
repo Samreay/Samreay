@@ -15,9 +15,9 @@ date = "-".join(basename.split("-")[:3])
 print(f"Short name is {short_name}")
 
 basedir = f"_posts/tutorials/"
-print("Calling convert")
+print("Calling convert PLEASE")
 subprocess.run(
-    f"jupyter nbconvert {name} --to markdown --output-dir {basedir} --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags=\"['remove']\" --TagRemovePreprocessor.remove_input_tags=\"['remove_input']\"  --TagRemovePreprocessor.remove_all_outputs_tags=\"['remove_output']\"",
+    f"jupyter nbconvert {name} --to markdown --output-dir {basedir} --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags remove --TagRemovePreprocessor.remove_input_tags remove_input --TagRemovePreprocessor.remove_all_outputs_tags remove_output",
     check=True,
 )
 
@@ -77,6 +77,10 @@ replaces = [
     ("###DATE", date),
     ("###LOC", f"'tutorials/{short_name}/'"),
     ("###LINK", f"tutorials/{short_name}"),
+    ("--------------------------------------------------------------", ""),
+    ("                               Traceback", " Traceback"),
+    ("       Traceback", " Traceback"),
+    ("   Traceback", " Traceback"),
 ]
 for i, l in enumerate(data):
     if l.startswith("!!!replace"):
@@ -99,12 +103,9 @@ for i, l in enumerate(data):
                 c += 1
             else:
                 t = data[i + c]
-                if t.startswith("!!!") and "poster" in t:
-                    print("Turning image into poster")
-                    e = 'class="img-poster"'
-                if t.startswith("!!!") and "small" in t:
-                    print("Turning image smaller")
-                    e = 'class="img-smaller"'
+                if "!!!" in t:
+                    classes = t.replace("!!!", "").strip()
+                    e = f'class="{classes}"'
                 break
         replacement = f'{{% include image.html url="{loc}" {e} %}}'
         print(f"Replacing image insert {loc}")
@@ -123,31 +124,32 @@ for i, l in enumerate(data):
                 c += 1
             else:
                 t = data[i + c]
-                if t.startswith("!!!") and "poster" in t:
-                    print("Turning image into poster")
-                    e = 'class="img-poster"'
+                if "!!!" in t:
+                    classes = t.replace("!!!", "").strip()
+                    e = f'class="{classes}"'
                 break
         replacement = f'{{% include image.html url="{loc}" {e} %}}'
         print(f"Replacing image insert {loc}")
         data[i] = replacement
         img_index = i
     if l.startswith('<table border="1" class="dataframe"'):
-        data[i] = '<table class="table table-hover table-bordered">'
+        data[i] = '<table class="table-auto">'
     if l.startswith("!!!"):
         if "nofinalcode" in l:
             include_code = False
         if "main" in l and "carbon" not in l:
             main_img = loc
+            extension = loc.split('.')[-1]
             if "remove_main" in l:
                 data[img_index] = ""
             else:
-                data[img_index] = data[img_index].replace(loc, "main.png")
+                data[img_index] = data[img_index].replace(loc, f"main.{extension}")
             print(f"Found main image {loc}")
             data[i] = ""
     if "RuntimeWarning" in l or "DeprecationWarning" in l:
         data[i] = ""
         data[i + 1] = ""
-    if "from ipykernel" in l:
+    if "from ipykernel" in l or "texmanager" in l:
         data[i] = ""
 
     if l.startswith("<video"):
@@ -231,17 +233,44 @@ for i, l in enumerate(data):
         elif l.strip():
             had_code = True
 
-# Go through and detect any carbon content
+# Go through and detect any carbon content plus add wrappers
 code_start, code_end = None, None
 in_code = False
-for i, l in enumerate(data):
+add_wrapper = False
+i = 0
+
+
+def add_wrapper_to_code(data, code_start, code_end, i, extra_class):
+    maxl = 0
+    for j in range(code_start, code_end):
+        maxl = max(maxl, len(data[j]))
+    if ("carbon-code" in extra_class and maxl < 30) or maxl < 50:
+        extra_class += " reduced-code"
+    elif maxl > 70:
+        extra_class += " expanded-code"
+    data.insert(code_start - 1, f'<div class="{extra_class}" markdown="1">\n')
+    data.insert(code_end + 2, '</div>\n')
+    i += 2
+    return i, extra_class
+
+
+while i < len(data):
+    l = data[i]
     if l.startswith("```python"):
+        if add_wrapper:
+            # If we get here then we need to wrap prior block
+            i, _ = add_wrapper_to_code(data, code_start, code_end, i, extra_class)
+            add_wrapper = False
         code_start = i + 1
         in_code = True
+        extra_class = ""
+
     elif in_code:
         if l.startswith("```"):
             in_code = False
             code_end = i
+            add_wrapper = True
+
     if l.startswith("!!!") and "carbon" in l:
         tmp = tempfile.NamedTemporaryFile(suffix=".py").name
         tmp2 = tempfile.NamedTemporaryFile(suffix=".py").name
@@ -255,12 +284,13 @@ for i, l in enumerate(data):
             f.write("\n")
             f.write(f"# Details at cosmiccoding.com.au{url}")
 
-        for x in range(code_start - 1, code_end + 1):
-            data[x] = ""
         is_main = "main" in l
-        name = l.split()[-1]
-        extra_class = l.split()[-2]
-
+        args = l.split()
+        name = args[-1]
+        if len(args) > 2:
+            extra_class = "carbon-code " + " ".join(args[3:])
+        else:
+            extra_class = "carbon-code"
         if is_main:
             main_img = get_carbon_image(tmp, "main", True, watermark=False)
 
@@ -268,7 +298,13 @@ for i, l in enumerate(data):
         get_carbon_image(tmp2, name, False, watermark=True)
         get_carbon_image(tmp2, name + "_spaced", True, watermark=True)
 
-        data[i] = f'{{% include image.html url="{img}" class="img-carbon {extra_class}" %}}\n'
+    if add_wrapper and i > code_end and l and not l.isspace():
+        add_wrapper = False
+        i, extra_class = add_wrapper_to_code(data, code_start, code_end, i, extra_class)
+        
+    i += 1
+
+        # data[i] = f'{{% include image.html url="{img}" class="img-carbon {extra_class}" %}}\n'
 
 
 for i, l in enumerate(data):
@@ -286,11 +322,13 @@ data.append(f"{{% include badge.html %}}\n")
 
 if include_code:
     data.append("\nHere's the full code for convenience:\n\n")
+    data.append('<div class="expanded-code" markdown="1">')
     data.append("```python\n")
     data += imports
     data.append("\n")
     data += rest
     data.append("```\n")
+    data.append('</div>')
 
 if "---" not in data[0]:
     data.insert(0, "---\n")
@@ -327,7 +365,8 @@ if main_img is None:
     )
 else:
     print(f"Main image is found as {main_img}")
-    shutil.move(os.path.join(desired_img_dir, main_img), os.path.join(desired_img_dir, "main.png"))
+    extension = main_img.split(".")[-1]
+    shutil.move(os.path.join(desired_img_dir, main_img), os.path.join(desired_img_dir, f"main.{extension}"))
 
 for file in to_copy:
     og = os.path.join(dir_name, file)
@@ -336,8 +375,8 @@ for file in to_copy:
     print(f"Copied {og} to {new_file}")
 # Process images
 print("Processing images")
-subprocess.run(["createThumbSquish.bat", f"tutorials/{short_name}"], check=True)
+subprocess.run(["createThumb.bat", f"tutorials/{short_name}"], check=True)
 
-print("Updating thumbs")
-subprocess.run("python crunch.py", check=False, stdout=subprocess.DEVNULL)
+# print("Updating thumbs")
+# subprocess.run("python crunch.py", check=False, stdout=subprocess.DEVNULL)
 

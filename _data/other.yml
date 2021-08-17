@@ -1,0 +1,12 @@
+- name: Blog
+  link: /blogs
+  desc: A collection of random thoughts, travel, outreach, random projects, and life updates.
+
+- name: Podcast
+  link: /podcast/
+  desc: My podcast <i>Commuting the Cosmos</i> on all things space-related. Now inactive, sadly.
+  
+- name: CV
+  link: /static/resume/HintonCV.pdf
+  desc: If you're a recruiter or just curious about the way I'm meandering through life, heres my CV.
+  

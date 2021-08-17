@@ -1,43 +1,100 @@
-<div class="navbar-wrapper">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">{{ site.title }}</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="page-scroll" href="/blog/">{{ site.index.home }}</a></li>
-                        {% for tag in site.data.blog %}
-                            {% if page.title == tag.name %}
-                            <li class="active">
-                            {% else %}
-                            <li>
-                            {% endif %}
-                            <a class="page-scroll" href="{{ tag.href }}">{{ tag.name }}</a></li>
-                        {% endfor %}
+<header class="absolute w-full z-30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-20">
+
+            <!-- Site branding -->
+            <div class="flex-shrink-0 mr-4">
+                <!-- Logo -->
+                <a class="block" href="/" aria-label="Samuel Hinton">
+                    <h2 class="logo">SRH</h2>
+                </a>
+            </div>
+
+            <!-- Desktop navigation -->
+            <nav class="hidden md:flex md:flex-grow">
+
+                <!-- Desktop menu links -->
+                <ul class="flex flex-grow justify-end flex-wrap items-center">
+                    <li>
+                        <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="/#books">Books</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="/tutorials">Tutorials</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="/#courses">Courses</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="/blogs">Blog</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" href="/podcast">Podcast</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out" target="_blank" href="/static/resume/HintonCV.pdf">CV</a>
+                    </li>
+                </ul>
+
+            </nav>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden" x-data="{ expanded: false }">
+
+                <!-- Hamburger button -->
+                <button
+                    class="hamburger"
+                    :class="{ 'active': expanded }"
+                    @click.stop="expanded = !expanded"
+                    aria-controls="mobile-nav"
+                    :aria-expanded="expanded"
+                >
+                    <span class="sr-only">Menu</span>
+                    <svg class="w-6 h-6 fill-current text-gray-300 hover:text-gray-200 transition duration-150 ease-in-out" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="4" width="24" height="2" rx="1" />
+                        <rect y="11" width="24" height="2" rx="1" />
+                        <rect y="18" width="24" height="2" rx="1" />
+                    </svg>
+                </button>
+
+                <!-- Mobile navigation -->
+                <nav
+                    id="mobile-nav"
+                    class="absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out"
+                    x-ref="mobileNav"
+                    :style="expanded ? 'max-height: ' + $refs.mobileNav.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: .8'"
+                    @click.away="expanded = false"
+                    @keydown.escape.window="expanded = false"
+                    x-cloak
+                >
+                    <ul class="bg-gray-800 px-4 py-2">
+                        <li>
+                            <a class="flex text-gray-300 hover:text-gray-200 py-2" href="/#books">Books</a>
+                        </li>
+                        <li>
+                            <a class="flex text-gray-300 hover:text-gray-200 py-2" href="/tutorials">Tutorials</a>
+                        </li>
+                        <li>
+                            <a class="flex text-gray-300 hover:text-gray-200 py-2" href="/#courses">Courses</a>
+                        </li>
+                        <li class="py-2 my-2 border-t border-b border-gray-700">
+                            <span class="flex text-gray-300 py-2">Other</span>
+                            <ul class="pl-4">
+                                <li>
+                                    <a class="text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2" href="/blogs">Blog</a>
+                                </li>
+                                <li>
+                                    <a class="text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2" href="/podcast">Podcast</a>
+                                </li>
+                                <li>
+                                    <a class="text-sm flex font-medium text-gray-400 hover:text-gray-200 py-2"  target="_blank" href="/static/resume/HintonCV.pdf">CV</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                </div>
+                </nav>
+
             </div>
-        </nav>
-</div>
-<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div class="container">
-                <div class="carousel-caption">
-                </div>
-                <div class="carousel-image wow fadeIn">
-                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
-                </div>
-            </div>
-            <!-- Set background for slide in css -->
-            <div class="header-back one"></div>
+
         </div>
     </div>
-</div>
+</header>

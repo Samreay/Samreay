@@ -17,7 +17,20 @@ Merging two python dictionaries is a [very](https://stackoverflow.com/questions/
 
 In **Python 3.9+**, merging two dictionaries is now staggeringly easy.
 
-{% include image.html url="union.png" class="img-carbon" %}
+<div class="carbon-code union" markdown="1">
+
+```python
+# New in Python 3.9
+
+x = {"hello": "there", "general": "kenobi"}
+y = {"general": "potato", "a": "b"}
+z = x | y
+
+# z = {'hello': 'there', 'general': 'potato', 'a': 'b'}
+```
+
+
+</div>
 
 Notice that the order of preference is right to left. So values from `y` will override values from `x`. Some may think this is a bit unintuitive - the `|` operator is tradionally used to represent bitwise `or`, and generally when we evaluate `or` expressions, we stop evaluation as soon as we get a `True`. Which, in our example, would mean to stop if the value is found in `x`. 
 
@@ -29,6 +42,8 @@ Start with `x`, and put `y` over the top.
 
 For completeness, if you don't have Python 3.9 yet (maybe because you're waiting for `tensorflow` support and docker images... please come soon), here are the other various ways of going about merging dictionaries.
 
+<div class=" reduced-code" markdown="1">
+
 ```python
 # Python 3.5+
 z = {**x, **y}
@@ -38,25 +53,38 @@ z = x.copy()
 z.update(y)
 ```
 
+
+</div>
+
 In terms of what **NOT** to do, *never* utilise the `dict` constructor when either merging or copying a dictionary.
+
+<div class=" reduced-code" markdown="1">
 
 ```python
 # Do not do this
 z = dict(x, **y)
 ```
 
+
+</div>
+
 Here I have used `dict(x)` to essentially copy the dictionary, and added in the extra keys from `y`.
 
 This works great, until you have *anything* but a string for a dictionary key.
+
+<div class=" reduced-code" markdown="1">
 
 ```python
 w = {"mixing": "types", 5: "danger"}
 z = dict(x, **w)
 ```
 
-    ---------------------------------------------------------------------------
 
-    TypeError                                 Traceback (most recent call last)
+</div>
+
+    -------------
+
+    TypeError Traceback (most recent call last)
 
     <ipython-input-7-7ebfe83d5cb9> in <module>
           1 w = {"mixing": "types", 5: "danger"}

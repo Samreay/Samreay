@@ -1,26 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.lang | default: " en-US" }}">
 
-	{% if page.title != 'index' %}
-	    {% include head.html %}
-	{% else %}
-		{% include index_head.html %}
-	{% endif %}
+<head>
+    {% include head.html %}
+</head>
 
-
-<body id="page-top" class="landing-page">
-
-	{% if page.title != 'index' %}
-	    {% include header.html %}
-	{% endif %}
-
-    {{ content }}
-
-	{% if page.title != 'index' %}
-	    {% include footer.html %}
-	{% else %}
-		{% include index_footer.html %}
-	{% endif %}
-
+<body>
+    <div class="flex flex-col min-h-screen overflow-hidden">
+        {% include header.html %}
+        <main class="flex-grow">
+            {{ content }}
+            {% include scripts.html %}
+        </main>
+    </div>
 </body>
+
 </html>

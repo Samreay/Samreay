@@ -15,8 +15,10 @@ This plot was first [inspired by this absolute masterpiece of a visualisation](h
 
 Here's what we'll be making:
 
-{% include video.html url="evolution.mp4" autoplay="true" class="img-poster" %}To start, I cloned down the Johns Hopkins [COVID-19 repo](https://github.com/CSSEGISandData/COVID-19). I then added into the `root` dir shown below both the [population counts](https://www.census.gov/data/datasets/time-series/demo/popest/2010s-counties-total.html) for ech county, and the [`geojson`](https://github.com/plotly/datasets/blob/master/geojson-counties-fips.json) file that allows us to plot said counties.
+{% include video.html url="evolution.mp4" autoplay="true" class="img-poster" %}
+To start, I cloned down the Johns Hopkins [COVID-19 repo](https://github.com/CSSEGISandData/COVID-19). I then added into the `root` dir shown below both the [population counts](https://www.census.gov/data/datasets/time-series/demo/popest/2010s-counties-total.html) for ech county, and the [`geojson`](https://github.com/plotly/datasets/blob/master/geojson-counties-fips.json) file that allows us to plot said counties.
 
+<div class="" markdown="1">
 ```python
 import os
 import pandas as pd
@@ -31,13 +33,16 @@ from functools import lru_cache
 # Dir where you clone out https://github.com/CSSEGISandData/COVID-19
 root = "D:/data/covid/COVID-19/csse_covid_19_data/csse_covid_19_time_series/"
 ```
+</div>
 
 Then, lets find all the csv files for the US states and load them in.
 
+<div class="" markdown="1">
 ```python
 df = pd.read_csv(os.path.join(root, "time_series_covid19_confirmed_US.csv"))
 print(df.columns)
 ```
+</div>
 
     Index(['UID', 'iso2', 'iso3', 'code3', 'FIPS', 'Admin2', 'Province_State',
            'Country_Region', 'Lat', 'Long_',
@@ -50,6 +55,7 @@ Right, so its sort of pivoted already. But I dont actually want this, because I 
 
 So first, lets get the estimate population of each FIPS:
 
+<div class=" expanded-code" markdown="1">
 ```python
 # Load the population for each county
 df_pop = pd.read_csv(os.path.join(root, "co-est2019-alldata.csv"), encoding="ISO-8859-1")
@@ -57,6 +63,7 @@ df_pop["FIPS"] = (df_pop["STATE"] * 1000 + df_pop["COUNTY"]).apply("{:0>5}".form
 df_pop = df_pop[["FIPS", "POPESTIMATE2019"]]
 df_pop
 ```
+</div>
 
 <div>
 <style scoped>
@@ -72,7 +79,7 @@ df_pop
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>FIPS</th>
@@ -142,6 +149,7 @@ df_pop
 
 Great, lets merge that in. In addition, you know, to melting, converting units and smoothing it out.
 
+<div class="" markdown="1">
 ```python
 # Determine useless columns
 drop = [x for x in df.columns if "/" not in x and x != "FIPS"]
@@ -160,9 +168,11 @@ df2 = df2.pivot(columns="FIPS", index="date", values="value").diff(axis=0)
 # Smooth it out a touch and remove some 0 rows
 df2 = df2.rolling(7).mean().iloc[50:, :]
 ```
+</div>
 
 We've got the data in a format we want. But I'll also want to turn this into a shiny animation, probably around 20 seconds in length or more. At 30FPS, thats 600+ frames. More than we have rows. So time for interpolation!
 
+<div class="" markdown="1">
 ```python
 fr = 30  # frame rate
 t = 20  # seconds
@@ -172,6 +182,7 @@ new_index = pd.date_range(df2.index.min(), df2.index.max(), fr * t)
 df3 = df2.reindex(new_index | df2.index).interpolate().loc[new_index]
 df3.iloc[:5, :5]
 ```
+</div>
 
 <div>
 <style scoped>
@@ -187,7 +198,7 @@ df3.iloc[:5, :5]
         text-align: right;
     }
 </style>
-<table class="table table-hover table-bordered">  <thead>
+<table class="table-auto">  <thead>
     <tr style="text-align: right;">
       <th>FIPS</th>
       <th>01001</th>
@@ -244,6 +255,7 @@ df3.iloc[:5, :5]
 
 Perfect. So now lets make a plot for this:
 
+<div class=" expanded-code" markdown="1">
 ```python
 @lru_cache(maxsize=1)
 def get_all_counties():
@@ -313,14 +325,17 @@ fig = plot_row(df3, n, show=True)
 from IPython.display import Image
 Image(fig.to_image(format="png", scale=2))
 ```
+</div>
 
-{% include image.html url="main.png" class="img-poster" %}
+{% include image.html url="main.png" class="main poster" %}    
 What an image! Now to save out a whole bunch of images. I'm doing this in a notebook, but `joblib` still works with the threading back end.
 
+<div class=" expanded-code" markdown="1">
 ```python
 from joblib import Parallel, delayed
 Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]));
 ```
+</div>
 
 And now that we have a PNG sequence, lets render it out to an mp4 file. Im going to also add a mask (which is black but transparent over the country and colorbar that I want to glow, I threw it together in photoshop) and some complex filters to emulate a glow effect without having to throw it in After Effects, and it also makes it pause on the last frame for a bit without having to rend out things over and over.
 
@@ -357,7 +372,7 @@ After that has run, we should have a nice animated version of the PNG sequence! 
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from IPython.display import Image
 from functools import lru_cache
 from joblib import Parallel, delayed
@@ -480,3 +495,4 @@ Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df
 
 
 ```
+</div>

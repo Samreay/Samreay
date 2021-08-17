@@ -10,16 +10,13 @@ permalink: /tutorials/forwardmodelling
 math: true
 ---
 
-
 So in this example, I'm simply trying to demonstrate the viability of forward models with supernova cosmology. In this, I'll be simplifying a lot, and in this case, ignoring proper treatment of uncertainty contributions from Monte-Carlo uncertainty. We'll start with a simple model in which simulated supernova have redshift, magnitude and colour, apply selection effects, and ensure that we can recover input cosmology without having to resimulate by exploiting the fact that our selection effects operate in the observer frame of reference.
-
-
 
 ## Generating Data
 
 First things first - lets generate some random data in a horrifically simplified toy model.
 
-
+<div class="" markdown="1">
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
@@ -37,8 +34,11 @@ def get_fake_dist(loc=0, scale=1, size=1):
     np.random.shuffle(vals)
     return vals
 ```
+</div>
 
+With a fake distance defined, we can plug that into generating fake data points.
 
+<div class=" expanded-code" markdown="1">
 ```python
 def get_events(om=0.3, MB=-19.3, sigma_int=0.1, mean_c=0, 
                sigma_c=0.1, beta=3.1, num=5000):
@@ -64,28 +64,26 @@ def get_events(om=0.3, MB=-19.3, sigma_int=0.1, mean_c=0,
 
 data_mbs, data_zs, data_cs = get_events()
 ```
+</div>
 
 Now, let's plot our generated data to make sure it all looks good.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 fig, ax = plt.subplots(figsize=(8,3))
 h = ax.scatter(data_zs, data_mbs, c=data_cs, cmap="coolwarm")
 plt.colorbar(h).set_label("colour"), ax.set_xlabel("$z$"), ax.set_ylabel("$m_B$");
 ```
+</div>
 
-
-{% include image.html url="main.png"  %}
-
-
-
+{% include image.html url="main.png" class="main" %}    
 Great, so we have "data". If we want to fit it using some importance-sampling ABC method we need to:
 
 1. Create a base simulation
 2. Reweight the simulation base on top-level parameters like Om, MB, sigma_int.
 3. Compare the data to the re-weighted simulation to get a likelihood.
 
-
+<div class="" markdown="1">
 ```python
 def get_sim_events(num=100000):
     MBs = uniform.rvs(-21.3, 4, size=num)
@@ -101,22 +99,22 @@ def get_sim_events(num=100000):
 
 sim_mbs, sim_zs, sim_betas, sim_cs = get_sim_events()
 ```
+</div>
 
 Lets check the spread of this broad simulation.
 
-
+<div class=" reduced-code" markdown="1">
 ```python
 fig, ax = plt.subplots(figsize=(8,3))
 ax.hist2d(sim_zs, sim_mbs, bins=50)
 ax.set_xlabel("$z$"), ax.set_ylabel("$m_B$");
 ```
+</div>
 
-
-{% include image.html url="2020-04-08-ForwardModelling_10_0.png"  %}
-
+{% include image.html url="2020-04-08-ForwardModelling_11_0.png"  %}    
 Hopefully, its broad enough. Now to reweight the simulation based on the top-level parameters.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 def reweight(sim_mbs, sim_zs, sim_cs, om, MB, sigma_int, mean_c, sigma_c, beta):
     # Step 1: Use om to move from observer frame to rest frame
@@ -127,29 +125,30 @@ def reweight(sim_mbs, sim_zs, sim_cs, om, MB, sigma_int, mean_c, sigma_c, beta):
     weights = norm.logpdf(sim_MBs, MB, sigma_int) + norm.logpdf(sim_cs, mean_c, sigma_c)
     return np.exp(weights)
 ```
+</div>
 
 Right, so we've got this, but it would be good if we could actually do some MCMC on this bad boy. Let's make a likelihood function. For simplicity in this notebook I'm going to break scope.
 
-
+<div class=" reduced-code" markdown="1">
 ```python
 # Define some histogram edges
-mb_edges = np.linspace(13, 26, 31), 
+mb_edges = np.linspace(13, 26, 31)
 z_edges = np.linspace(0.05, 1.05, 31)
 c_edges = np.linspace(-0.5, 0.5, 11)
-mbc, zc, cc = 0.5 * (mb_edges[:-1] + mb_edges[1:])
+mbc = 0.5 * (mb_edges[:-1] + mb_edges[1:])
 zc = 0.5 * (z_edges[:-1] + z_edges[1:])
 cc = 0.5 * (c_edges[:-1] + c_edges[1:])
 bins = [mb_edges, z_edges, c_edges]
 data = np.vstack((data_mbs, data_zs, data_cs)).T
 print(data.shape)
 ```
+</div>
 
     (3476, 3)
     
-
 So 3476 supernova in our little "data" sample, for each event we have the apparent magnitude, redshift and colour. Lets now bin these up.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 thresh = 2  # If you dont have more than 2 samples, dont count it
 hist, _ = np.histogramdd(data, bins=[mb_edges, z_edges, c_edges])
@@ -162,10 +161,11 @@ hist_err = hist_err / volume
 hist = hist / volume
 
 ```
+</div>
 
 And after binning the data, we need to now bin the simulations on the same grid.
 
-
+<div class="" markdown="1">
 ```python
 sim = np.vstack((sim_mbs, sim_zs, sim_cs)).T
 sim_count, _ = np.histogramdd(sim, bins=[mb_edges, z_edges, c_edges])
@@ -174,10 +174,11 @@ sim_num_err[sim_num_err < thresh] = np.inf
 sim_err_ratio = sim_num_err / sim_count
 sim_err_ratio[sim_count == 0] = np.inf
 ```
+</div>
 
 And we'll now add in functions to compute the $\chi^2$ value, and the log posterior as well (I'm nastily just hacking in parameter bounds that are just flat priors).
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 def get_chi2(x, plot=False):
     om, MB, sigma_int, mean_c, sigma_c, beta = x
@@ -204,10 +205,11 @@ def get_log_posterior(x):
         return -np.inf
     return val
 ```
+</div>
 
 Lets check a simple minimisation over a grid to ensure things look alright before shipping it off to sample.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 test_oms, test_MBs = np.meshgrid(np.linspace(0.1, 0.7, 30), np.linspace(-19.3-1, -19.3+1, 30))
 test_oms_flat, test_MBs_flat = test_oms.flatten(), test_MBs.flatten()
@@ -220,27 +222,25 @@ xs = np.vstack((test_oms_flat, test_MBs_flat, test_sigma_int,
                 test_mean_c, test_sigma_c, test_beta)).T
 chi2s = np.array([get_chi2(x) for x in xs]).reshape(test_oms.shape)
 ```
+</div>
 
-    
-
-
+<div class=" expanded-code" markdown="1">
 ```python
 plt.contour(test_oms, test_MBs, chi2s, levels=30)
 plt.scatter([0.3], [-19.3], c="r", marker="*", s=50)
 cbar = plt.colorbar()
 cbar.set_label(r"$\chi^2$"), plt.xlabel(r"$\Omega_m$"), plt.ylabel("$M_B$");
 ```
+</div>
 
-
-{% include image.html url="2020-04-08-ForwardModelling_23_0.png"  %}
-
+{% include image.html url="2020-04-08-ForwardModelling_24_0.png"  %}    
 Alright, doesn't look too bad, our true point (the red star) is roughly the place of minimum $\chi^2$ value.
 
 ## Sampling the likelihood
 
 Once again, we are turning to `emcee` to do the heavy lifting.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 import emcee
 ndim = 6  # How many parameters we are fitting. This is our dimensionality.
@@ -248,22 +248,27 @@ nwalkers = 20  # Keep this well above your dimensionality.
 p0 = np.random.uniform(low=0.2, high=0.4, size=(nwalkers, ndim))  # Start points
 p0 += np.array([0, -19, -0.1, -0.3, -0.1, 2.8])
 ```
+</div>
 
-
+<div class="" markdown="1">
 ```python
 sampler = emcee.EnsembleSampler(nwalkers, ndim, get_log_posterior)
 state = sampler.run_mcmc(p0, 2000)
 ```
+</div>
 
+We can then extra samples from our chain...
 
+<div class=" expanded-code" markdown="1">
 ```python
 chain = sampler.chain[:, 400:, :]
 flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker 
 ```
+</div>
 
 And with the samples on hand, lets throw them to ChainConsumer, to first confirm convergence of the walkers, and then check the posteriors.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 from chainconsumer import ChainConsumer
 c = ChainConsumer()
@@ -273,13 +278,12 @@ c.add_chain(flat_chain, parameters=params, color="b", kde=1.0)
 c.add_chain(sampler.chain.reshape((-1, ndim)), color="r", kde=1.0)
 c.plotter.plot_walks(truth=truth, figsize=(8,4));
 ```
+</div>
 
-
-{% include image.html url="2020-04-08-ForwardModelling_29_0.png"  %}
-
+{% include image.html url="2020-04-08-ForwardModelling_31_0.png" class="img-invert" %}    
 Looks like they all converged quickly, let's go ahead and plot some contours.
 
-
+<div class=" reduced-code" markdown="1">
 ```python
 c = ChainConsumer()
 c.add_chain(flat_chain, parameters=params)
@@ -289,6 +293,7 @@ summary = c.analysis.get_summary()
 for key, value in summary.items():
     print(key, value)
 ```
+</div>
 
     $\Omega_m$ [0.2631903131008057, 0.29061597591154054, 0.30997425330717543]
     $M_B$ [-19.321238731508483, -19.30171461622203, -19.288605748148946]
@@ -297,15 +302,13 @@ for key, value in summary.items():
     $\sigma_c$ [0.09716341194044988, 0.09960155368306237, 0.10317454723851435]
     $\beta$ [2.9498499986818523, 3.0479769146439795, 3.104881022084486]
     
-
-
-{% include image.html url="2020-04-08-ForwardModelling_31_1.png"  %}
-
+{% include image.html url="2020-04-08-ForwardModelling_33_1.png" class="img-invert" %}    
 Which looks pretty good for a first pass and proof of concept. We note the imperfect recovery of $\sigma_{int}$, which is a story as old as time for our field. Alas.
+{% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from astropy.cosmology import FlatLambdaCDM
 from chainconsumer import ChainConsumer
 from scipy.stats import binned_statistic
@@ -381,10 +384,10 @@ def reweight(sim_mbs, sim_zs, sim_cs, om, MB, sigma_int, mean_c, sigma_c, beta):
     return np.exp(weights)
 
 # Define some histogram edges
-mb_edges = np.linspace(13, 26, 31), 
+mb_edges = np.linspace(13, 26, 31)
 z_edges = np.linspace(0.05, 1.05, 31)
 c_edges = np.linspace(-0.5, 0.5, 11)
-mbc, zc, cc = 0.5 * (mb_edges[:-1] + mb_edges[1:])
+mbc = 0.5 * (mb_edges[:-1] + mb_edges[1:])
 zc = 0.5 * (z_edges[:-1] + z_edges[1:])
 cc = 0.5 * (c_edges[:-1] + c_edges[1:])
 bins = [mb_edges, z_edges, c_edges]
@@ -477,3 +480,4 @@ for key, value in summary.items():
     print(key, value)
 
 ```
+</div>

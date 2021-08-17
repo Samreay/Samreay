@@ -26,11 +26,12 @@ $$ f(x) = \frac{1}{1 + e^{-x}} $$
 
 and looks like this:
 
-{% include image.html url="2020-07-11-Logistic_Regression_1_0.png"  %}
+{% include image.html url="2020-07-11-Logistic_Regression_1_0.png"  %}    
 So this raises the question - now that we have some function which goes from 0 to 1... how do we actually use it? 
 
 Let's create a simple example with some data, something super easy to understand. How about the probability that an egg breaks when dropped from some distance. Our binary variable is whether the egg broke, and the single input is the height it was dropped. We can, of course, have multiple inputs.
 
+<div class="" markdown="1">
 ```python
 # Using a sigmiod to generate data for a sigmoid example
 # How uninspired!
@@ -42,8 +43,9 @@ plt.xlabel("Height"), plt.ylabel("Did it break?!?")
 plt.annotate("Yep", (0.55, 0.85)), plt.annotate("Nah", (0.1, 0.1))
 plt.title("Dropping eggs... will they break??")
 ```
+</div>
 
-{% include image.html url="2020-07-11-Logistic_Regression_3_0.png"  %}
+{% include image.html url="2020-07-11-Logistic_Regression_3_0.png"  %}    
 What logistic regression is going to do, is get us $P(\text{egg broke}\ \|\ \text{height it was dropped})$. The separator there is read in English as "given that", if the syntax is new. The nomenclature generally denotes the output at $Y$ and the input as $X$, so this would be $P(Y=1\|X)$. We call these sort of models that give the output condition on the input **"discriminative models"**.
 
 There is a small subtlety here. The input $X$ is not just the height - we want logistic regression to handle multiple inputs combined in different ways (and a bias), which means we define the input $X$ as
@@ -71,6 +73,7 @@ So what we normally do is **optimise using logit transformation**, and **report 
 
 Back on track, lets see what an abitrary fit to a logistic function would look like:
 
+<div class="" markdown="1">
 ```python
 def logistic(x_1, beta_0, beta_1):
     X = beta_0 + beta_1 * x_1
@@ -85,14 +88,16 @@ plt.scatter(height, probs, label=f"Prob | $\\beta_0={b0},\\ \\beta_1={b1}$")
 plt.scatter(height, broke, label="Data")
 plt.legend(loc=2), plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$")
 ```
+</div>
 
-{% include image.html url="2020-07-11-Logistic_Regression_5_0.png"  %}
+{% include image.html url="2020-07-11-Logistic_Regression_5_0.png"  %}    
 Notice that we are *comparing probabilities to binary outcomes here*. If we wanted outcomes, we'd add some threshold (like 0.5) that we would cut on. Over 0.5 and its a success, under 0.5 and its a failure. We'll see this down below.
 
 ## Using sklearn
 
 At this point, we now have - like any other form of regression - predictions vs data, and we could optimise the parameters ($\beta_i$) such that we fit the logistic as well as we can. Here is how you would do that using `sklearn`:
 
+<div class=" expanded-code" markdown="1">
 ```python
 from sklearn.linear_model import LogisticRegression
 
@@ -110,31 +115,36 @@ xs = np.linspace(0, 1, 100)
 pred_prob = model.predict_proba(xs[:, None])
 
 # Plotting code
-plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30, marker='x', zorder=0, c="#00796B")
-plt.scatter(X_1, Y, label="Data")
+plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30, 
+            marker='x', zorder=0, c="#00796B")
+plt.scatter(height, broke, label="Data")
 plt.plot(xs, pred_prob[:, 1], label="sklearn probability", c="#006156", zorder=-1)
 plt.legend(loc=2, mode="expand", ncol=3)
 plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$");
 ```
+</div>
 
-{% include image.html url="2020-07-11-Logistic_Regression_7_0.png"  %}
+{% include image.html url="2020-07-11-Logistic_Regression_7_0.png"  %}    
 Now if you're looking at the probability function and thinking "this doesnt look like a sigmoid at all", you're entirely right. Welcome to the world of **regularization**. For small data like we have, the default L2 regularisation is going to ensure that our $\beta$ values stay pretty low.
 
 If we want to see what happens without the penalty, we can turn it off, but note that in general, its good practise to keep it on because it helps with the generalisation of our models.
 
+<div class=" expanded-code" markdown="1">
 ```python
 model = LogisticRegression(random_state=0, penalty="none")
 model.fit(height[:, None], broke)
 pred_binary = model.predict(height[:, None])
 pred_prob = model.predict_proba(xs[:, None])
-plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30, marker='x', zorder=0, c="#00796B")
-plt.scatter(X_1, Y, label="Data")
+plt.scatter(height, pred_binary, label=f"sklearn prediction",
+            s=30, marker='x', zorder=0, c="#00796B")
+plt.scatter(height, broke, label="Data")
 plt.plot(xs, pred_prob[:, 1], label="sklearn probability", c="#006156", zorder=-1)
 plt.legend(loc=2, mode="expand", ncol=3)
 plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$");
 ```
+</div>
 
-{% include image.html url="main.png"  %}
+{% include image.html url="main.png" class="main" %}    
 And you can now see that its a much better fit to the data (in terms of probability, not necessarily in terms of predictions). Instead of turning it off, we can also modify the `C` value which controls the regularization strength. The larger you set `C`, the less regularization you get.
 
 ## Assumptions that go into logistic regression
@@ -167,7 +177,7 @@ I hope its useful!
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 from sklearn.linear_model import LogisticRegression
 
 # Using a sigmiod to generate data for a sigmoid example
@@ -208,8 +218,9 @@ xs = np.linspace(0, 1, 100)
 pred_prob = model.predict_proba(xs[:, None])
 
 # Plotting code
-plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30, marker='x', zorder=0, c="#00796B")
-plt.scatter(X_1, Y, label="Data")
+plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30, 
+            marker='x', zorder=0, c="#00796B")
+plt.scatter(height, broke, label="Data")
 plt.plot(xs, pred_prob[:, 1], label="sklearn probability", c="#006156", zorder=-1)
 plt.legend(loc=2, mode="expand", ncol=3)
 plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$");
@@ -218,10 +229,12 @@ model = LogisticRegression(random_state=0, penalty="none")
 model.fit(height[:, None], broke)
 pred_binary = model.predict(height[:, None])
 pred_prob = model.predict_proba(xs[:, None])
-plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30, marker='x', zorder=0, c="#00796B")
-plt.scatter(X_1, Y, label="Data")
+plt.scatter(height, pred_binary, label=f"sklearn prediction",
+            s=30, marker='x', zorder=0, c="#00796B")
+plt.scatter(height, broke, label="Data")
 plt.plot(xs, pred_prob[:, 1], label="sklearn probability", c="#006156", zorder=-1)
 plt.legend(loc=2, mode="expand", ncol=3)
 plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$");
 
 ```
+</div>

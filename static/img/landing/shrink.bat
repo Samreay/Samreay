@@ -1,1 +1,0 @@
-magick face2.jpg -sampling-factor 4:2:0 -strip -quality 80 -resize 400x400^^ -gravity center -interlace Plane -crop 400x400+0+0 +repage face.jpg

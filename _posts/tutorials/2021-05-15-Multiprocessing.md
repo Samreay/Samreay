@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Simple Multiprocessing In Python: Comparing core vs libraries"
+title:  "Multiprocessing In Python: Core vs libraries"
 short_title: "Simple Multiprocessing in Python"
 desc: "Comparing inbuilt solutions to a range of external libraries."
 long_desc: "A demonstration of Python's concurrent processing and comparison to external third-party libraries like loky, ray, and pathos"
@@ -17,7 +17,22 @@ In this short writeup I'll give examples of various multiprocessing libraries, h
 
 If you want a TL;DR - I recommend trying out `loky` for single machine tasks, check out Ray for larger tasks.
 
-{% include image.html url="multiprocess.png" class="img-carbon img-smalls" %}
+<div class="carbon-code multiprocess reduced-code" markdown="1">
+```python
+# Loky, great for single machine parallelism 
+from loky import get_reusable_executor
+executor = get_reusable_executor()
+results = list(executor.map(fn, jobs))
+
+# Ray, great for distributing over machines
+import ray
+ray.init()
+workfn = ray.remote(fn)
+results = [workfn.remote(job) for job in jobs]
+ray.get(results)
+ray.shutdown();
+```
+</div>
 
 # CPU bound tasks
 
@@ -25,6 +40,7 @@ Most of the jobs we (I) want to execute are CPU bound. All I'm doing is crunchin
 
 So let's simulate a common task, which is evaluating some arbitrarily slow function over and over again. Here I create a function which takes some array of parameters as input, and produces a single number as output. And then I create 512 different vectors in parameter space, and want to evaluate the function of each of the 512 sets of parameters.
 
+<div class="" markdown="1">
 ```python
 import numpy as np
 
@@ -49,6 +65,7 @@ jobs = get_jobs()
 for job in jobs:
     slow_fn(job)
 ```
+</div>
 
 On my struggling laptop, these 512 jobs took `20.30s` to complete when running the functions in serial.
 
@@ -56,11 +73,13 @@ On my struggling laptop, these 512 jobs took `20.30s` to complete when running t
 
 It's best to start with some of the provided options in the standard library.
 
+<div class="" markdown="1">
 ```python
 from concurrent.futures import ProcessPoolExecutor
 with ProcessPoolExecutor(max_workers=4) as executor:
     results = list(executor.map(slow_fn, jobs, chunksize=16));
 ```
+</div>
 
 With four workers and a chunksize of 16, this took me `6.47s`. If we disable chunking (which is a bad idea for small functions like this when you have a lot of them), it takes `6.57s`. Not much of a difference, but then again, 512 jobs isn't a particularly large number. Like effectively all of the multiprocessing options provided in the standard library, this method relies on process forking and **will not work inside a Jupyter notebook,** instead you'll need to throw the code into a python file and run it the good old `python yourfile.py` way.
 
@@ -68,11 +87,13 @@ With four workers and a chunksize of 16, this took me `6.47s`. If we disable chu
 
 [Loky](https://github.com/joblib/loky) (from the smart cookies at joblib) is a suped up version of the Executor pool above that features reusable executors and code serialisation.
 
+<div class="" markdown="1">
 ```python
 from loky import get_reusable_executor
 executor = get_reusable_executor(max_workers=4)
 results = list(executor.map(slow_fn, jobs, chunksize=16));
 ```
+</div>
 
 This ran in `6.31s` on my machine, the fastest yet. 
 
@@ -88,11 +109,13 @@ To try and make sure this point is clear, the function `slow_fn` is defined with
 
 [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface) (Mesasge Parsing Interface) is a super handy way of spreading computational load not just around on one CPU, but across multiple CPU. [mpi4py](https://mpi4py.readthedocs.io/en/stable/) is a python implementation making our lives easier. It is used commonly in super computers, where you use systems like PBS, SGE, Torque, or Slurm to request many CPUs that might be located on completely different nodes. If you are only looking at once CPU and have no plans to move off it, there are simpler methods than MPI. If you did want to use MPI, you would do something like this:
 
+<div class="" markdown="1">
 ```python
 from mpi4py.futures import MPIPoolExecutor
 with MPIPoolExecutor() as executor:
     results = list(executor.map(slow_fn, jobs, chunksize=16));
 ```
+</div>
 
 And you would execute the code not using `python yourfile.py`, but instead use `mpirun` or `mpiexec` and tell it how many cores you have. Like so:
 
@@ -107,6 +130,7 @@ Just keep in mind - the message parsing part is the expensive part. Minimise the
 Want to go a lot fancier and start bringing in some big guns? [Ray](https://docs.ray.io/en/master/index.html) is also great for distributing your tasks over more than one CPU, and the setup for it is also very minimal. That being said, don't think Ray is a simple piece of code, there is a LOT in it, and it can do a lot of things (dashboards, autoscaling, model serving, and a whole bunch more).
 
 
+<div class=" reduced-code" markdown="1">
 ```python
 import ray
 ray.init()
@@ -117,6 +141,7 @@ ray.get(results)
 
 ray.shutdown();
 ```
+</div>
 
 Because this is also shipping your code elsewhere, it should run no issues in a Jupyter Notebook. Not that you'd normally want to do that, generally you'd put the ray server on a compute node somewhere, and then just connect to it, farming your jobs out. 
 
@@ -131,9 +156,10 @@ Pretty impressive. Add onto that the fact that Ray has a ton of integrations (in
 
 If you liked the sound of Ray, you'll probably like the sound of [`Dask`](https://dask.org/). Similar principle with workers and a controlling node. More focus on numerical computation, and it sits behind a lot of other distributed software (like `Prefect` as a single example). Note that if you're on windows, this may give you some issues, and for me [versioning mismatches in the conda release](https://github.com/dask/community/issues/150) made this a painful install, but hopefully this was just me getting unlucky with updating to a bugged version, and it doesn't affect anyone else.
 
-Once you have it installed, the rest is easy. Again, super basic usage only - making `Client()` set up a local client in the background isn't something you'd productioni
+Once you have it installed, the rest is easy. Again, super basic usage only - making `Client()` set up a local client in the background isn't something you'd productionise!
 
 
+<div class=" reduced-code" markdown="1">
 ```python
 from dask.distributed import Client
 client = Client()
@@ -142,6 +168,7 @@ futures = client.map(slow_fn, jobs)
 # Get their outputs
 results = client.gather(futures)
 ```
+</div>
 
 All up this took `7.4s`, with `5.8s` spent on compute and the rest launching the local cluster in the background.
 
@@ -150,10 +177,12 @@ All up this took `7.4s`, with `5.8s` spent on compute and the rest launching the
 [tqdm](https://github.com/tqdm/tqdm) is not an acronym, but it is a progress bar. [Pathos](https://pathos.readthedocs.io/en/latest/pathos.html) is a framework for heterogeneous computing. [p_tqdm](https://github.com/swansonk14/p_tqdm) is a library where @swansonk14 has stuck them both together. So think more a competitor to Ray than to Loky.
 
 
+<div class=" reduced-code" markdown="1">
 ```python
 from p_tqdm import p_map
 results = p_map(slow_fn, jobs);
 ```
+</div>
 
     100%|██████████| 512/512 [00:05<00:00, 96.89it/s] 
     
@@ -165,11 +194,13 @@ And as you saw, its ridiculously easy to set up. If you want to see the other th
 If you don't care at all about the progress bar, to get stock pathos multiprocessing working, this will work:
 
 
+<div class=" reduced-code" markdown="1">
 ```python
 from pathos.multiprocessing import ProcessPool
 pool = ProcessPool()
 results = pool.map(slow_fn, jobs, chunksize=16);
 ```
+</div>
 
 # Memory Blocking
 
@@ -180,6 +211,7 @@ First, consider our original `slow_fn` - it took 20 seconds to run in serial, an
 Now consider a vectorised version of our `slow_fn`, like so:
 
 
+<div class=" reduced-code" markdown="1">
 ```python
 def slow_fn_malloc(args):
     n = 100000
@@ -192,25 +224,32 @@ def slow_fn_malloc(args):
 for job in jobs:
     slow_fn_malloc(job)
 ```
+</div>
 
 Now, by all accounts, this function is *better*.  Running this took `58ms`.  From 20 seconds down to a twentieth of a second... Vectorisation is great.
 
 Let me increase the number of jobs, now that we're burning through jobs so quickly. Oh, I'll also make `n` ten times larger, to increase the numerical precision of our function.
 
 
+<div class="" markdown="1">
 ```python
 def get_many_jobs(num_jobs=4096, num_args=5):
     return [j for j in np.random.random((num_jobs, num_args))]
 
 many_jobs = get_many_jobs()
 ```
+</div>
+
+And timing it we have:
 
 
+<div class=" reduced-code" markdown="1">
 ```python
 %%time
 for job in many_jobs:
     slow_fn_malloc(job)
 ```
+</div>
 
     Wall time: 3.56 s
     
@@ -218,11 +257,13 @@ for job in many_jobs:
 So with even more jobs, and an increase in `n`, this now takes `3.56s` to take. Still, very impressive considering this is all on one core now. So what happens if we try to ship it out to multiple cores? Any of the above libraries would work, I'll just use `loky`:
 
 
+<div class="" markdown="1">
 ```python
 %%time
 executor = get_reusable_executor(max_workers=4)
 results = list(executor.map(slow_fn_malloc, many_jobs, chunksize=16));
 ```
+</div>
 
     Wall time: 3.54 s
     

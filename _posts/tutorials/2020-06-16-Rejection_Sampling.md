@@ -8,9 +8,10 @@ categories: [tutorial]
 tags: [statistics]
 loc: 'tutorials/rejection_sampling/'
 permalink: /tutorials/rejection_sampling
+redirect_from: "/rejection_sampling"
+
 math: true
 ---
-
 
 Rejection sampling is the conceptually simplest way to generate samples of some arbitrary probability function without having to do any transformations. No integration, no trickery, you simply trade computational efficiency away to keep everything as simple as possible.
 
@@ -20,7 +21,7 @@ $$ f(x) = 1.2 - x^4 $$
 
 between 0 and 1. It just happens this does integrate to 1, what luck! Let's visualise this function very quickly:
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,10 +36,9 @@ plt.plot(xs, ys, label="Function")
 plt.fill_between(xs, ys, 0, alpha=0.2)
 plt.xlim(0, 1), plt.ylim(0, 1.25), plt.xlabel("x"), plt.ylabel("y"), plt.legend();
 ```
+</div>
 
-
-{% include image.html url="2020-06-16-Rejection_Sampling_1_0.png"  %}
-
+{% include image.html url="2020-06-16-Rejection_Sampling_1_0.png"  %}    
 We can see the function we care about goes from 0 to 1 in the x-axis, and 0 to 1.2 in the y-axis. So to sample from it using rejection sampling is simple:
 
 1. Pick two random numbers. One for $x$ (between 0 and 1), one for $y$ (between 0 and 1.2).
@@ -46,19 +46,12 @@ We can see the function we care about goes from 0 to 1 in the x-axis, and 0 to 1
 
 Simple! Play the animation below to see this in action!
 
-
-
-
-
 {% include video.html url="PlotDashed.mp4" autoplay="true" class="img-poster" %}
-
-
-
 So you can see that the reason this is so straightforward is that we get samples according to the function by simply throwing away the right number of samples when the function has a smaller value. In our function, this means if we get a small $x$ value, we'd normally keep the sample (and indeed the distribution is pretty flat for $x<0.5$), but for values close to $x=1$, we'd throw them out most of the time!
 
 Let's write a very simple function that gets us a single sample using this method. See how for rejection sampling, you have to specify an initial box to pick from (the x bounds and the maximum y bound). This does make the algorithm unsuited for distributions that have an infinite range of $x$ values, a pity!
 
-
+<div class="" markdown="1">
 ```python
 def sample(function, xmin=0, xmax=1, ymax=1.2):
     while True:
@@ -67,10 +60,11 @@ def sample(function, xmin=0, xmax=1, ymax=1.2):
         if y < function(x):
             return x
 ```
+</div>
 
 Let us use this inefficient algorithm to generate a ten thousand samples, and plot their distribution to make sure it looks like its working
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 samps = [sample(f) for i in range(10000)]
 
@@ -78,13 +72,12 @@ plt.plot(xs, ys, label="Function")
 plt.hist(samps, density=True, alpha=0.2, label="Sample distribution")
 plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("y"), plt.legend();
 ```
+</div>
 
-
-{% include image.html url="2020-06-16-Rejection_Sampling_7_0.png"  %}
-
+{% include image.html url="2020-06-16-Rejection_Sampling_7_0.png"  %}    
 Hurray, a working algorithm! Of course, this is incredibly slow, because we're asking for things one at a time. Let's improve that slowly and do batches of 1000 proposals at once.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 def batch_sample(function, num_samples, xmin=0, xmax=1, ymax=1.2, batch=1000):
     samples = []
@@ -98,30 +91,29 @@ samps = batch_sample(f, 10000)
 
 plt.plot(xs, ys, label="Function")
 plt.hist(samps, density=True, alpha=0.2, label="Sample distribution")
-plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("f(x)"), plt.legend();
+plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("f(x)"), plt.legend(); ##REMOVE
 ```
+</div>
 
-
-{% include image.html url="2020-06-16-Rejection_Sampling_9_0.png"  %}
-
+{% include image.html url="2020-06-16-Rejection_Sampling_9_0.png"  %}    
 Whats the speed difference you ask?
 
-
+<div class=" reduced-code" markdown="1">
 ```python
 %timeit [sample(f) for i in range(10000)]
 ```
+</div>
 
-    72.6 ms ± 2.45 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+    55.5 ms ± 2.96 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
     
-
-
+<div class=" reduced-code" markdown="1">
 ```python
 %timeit batch_sample(f, 10000)
 ```
+</div>
 
-    1.48 ms ± 69.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+    1.05 ms ± 108 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
     
-
 64 milliseconds down to 1 millisecond. And we could go even lower if we stop turn numpy arrays into lists and concatenating them, but you get the idea. You may be wondering why we didn't just do it all in one go, why break it into batches. Turns out there is a sweet spot for generating vectors - too small and you waste too much time creating them, too big and things start to slow down as well. 1000 is definitely not the sweet spot, but its sweeter than nothing!
 
 ## The compromises for rejection sampling
@@ -132,7 +124,7 @@ $$ f(x) = e^{-\pi x^2} $$
 
 This is defined over all $x$ values, and $\int_{-\infty}^{\infty} e^{-\pi x^2} = 1$, so it's a proper, normalised probability density function alright. What if we want to make sure that our sampling method can capture even extreme outliers?
 
-
+<div class=" reduced-code" markdown="1">
 ```python
 def gauss(x):
     return np.exp(-np.pi * x**2)
@@ -144,13 +136,12 @@ plt.plot(xs, ys)
 plt.fill_between(xs, ys, 0, alpha=0.2)
 plt.xlabel("x"), plt.ylabel("f(x)");
 ```
+</div>
 
-
-{% include image.html url="2020-06-16-Rejection_Sampling_15_0.png"  %}
-
+{% include image.html url="2020-06-16-Rejection_Sampling_15_0.png"  %}    
 Theres an awful lot of white space on that plot. Let's modify our batch sample function to just do a certain number of samples, but return whether they passed or failed.
 
-
+<div class=" expanded-code" markdown="1">
 ```python
 def batch_sample_2(function, num_samples, xmin=-10, xmax=10, ymax=1):
     x = np.random.uniform(low=xmin, high=xmax, size=num_samples)
@@ -167,23 +158,19 @@ plt.xlabel("x"), plt.ylabel("y"), plt.xlim(-10, 10), plt.ylim(0, 1);
 
 print(f"Efficiency is only {passed.mean() * 100:0.1f}%")
 ```
+</div>
 
-    Efficiency is only 5.1%
+    Efficiency is only 5.0%
     
-
-
-{% include image.html url="main.png"  %}
-
-
+{% include image.html url="main.png" class="main" %}    
 And you can see that we reject 19 out of 20 samples! Super inefficient, and it would only get worse if we set the x limits even wider. In principle, we'd them as narrow as we could without having to worry about seeing edges in our generated distributions.
 
 Anyway, thats rejection sampling. Super simple!
-
 {% include badge.html %}
 
 Here's the full code for convenience:
 
-```python
+<div class="expanded-code" markdown="1">```python
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -223,7 +210,7 @@ samps = batch_sample(f, 10000)
 
 plt.plot(xs, ys, label="Function")
 plt.hist(samps, density=True, alpha=0.2, label="Sample distribution")
-plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("f(x)"), plt.legend();
+plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("f(x)"), plt.legend(); ##REMOVE
 
 %timeit [sample(f) for i in range(10000)]
 
@@ -255,3 +242,4 @@ plt.xlabel("x"), plt.ylabel("y"), plt.xlim(-10, 10), plt.ylim(0, 1);
 print(f"Efficiency is only {passed.mean() * 100:0.1f}%")
 
 ```
+</div>
