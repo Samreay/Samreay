@@ -5,7 +5,7 @@ global_title: "Samuel Hinton"
 baseurl: ""
 url: "https://cosmiccoding.com.au"
 content_path: "static/img/blog"
-img_path: '/static/img/'
+img_path: 'https://cosmiccoding.com.au/static/img/'
 repository: samreay/samreay
 github: [metadata]
 
