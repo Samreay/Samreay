@@ -10,6 +10,7 @@ AOS.init({
   once: true,
   disable: 'phone',
   duration: 400,
+  offset: 40,
   easing: 'ease-out-sine',
 });
 
