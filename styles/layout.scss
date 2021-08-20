@@ -282,3 +282,23 @@ body {
 .blog-post .mjx-chtml.MJXc-display {
   font-size: 1.5rem !important;
 }
+
+.sticky-sharebar {
+  @apply fixed md:bottom-20 bottom-2 right-2 xl:right-40 lg:right-4 rounded-full bg-gray-800 p-2;
+
+  .share-link {
+    @apply h-12 w-12 text-3xl rounded-full text-center inline-block md:block;
+    filter: saturate(0.3);
+    transition: filter 0.2s ease-in-out;
+
+
+
+    &:not(.hideshadow) {
+      @apply bg-gray-700 transition md:mt-2 ml-2 md:ml-0;
+
+      &:hover {
+        filter: saturate(1.0) brightness(1.5);
+      }
+    }
+  }
+}
