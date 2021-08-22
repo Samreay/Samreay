@@ -79,34 +79,38 @@
   }
 }
 .tag-python {
-  @apply bg-main-600;
+  @apply bg-main-600 text-gray-100 font-medium;
 }
 .tag-snippet {
-  @apply bg-green-600;
+  @apply bg-green-600 text-gray-100 font-medium;
 }
 .tag-statistics {
-  @apply bg-blue-600;
+  @apply bg-blue-600 text-gray-100 font-medium;
 }
 .tag-plotting {
-  @apply bg-main-600;
+  @apply bg-main-600 text-gray-100 font-medium;
 }
 .tag-environment {
-  @apply bg-gray-600;
+  @apply bg-gray-600 text-gray-100 font-medium;
 }
 .tag-bayesian {
-  @apply bg-purple-600;
+  @apply bg-purple-600 text-gray-100 font-medium;
 }
 .tag-outreach {
-  @apply bg-green-600;
+  @apply bg-green-600 text-gray-100 font-medium;
 }
 .tag-project {
-  @apply bg-purple-600;
+  @apply bg-purple-600 text-gray-100 font-medium;
 }
 .tag-creative {
-  @apply bg-blue-500;
+  @apply bg-blue-500 text-gray-100 font-medium;
 }
 .tag-travel {
-  @apply bg-red-500;
+  @apply bg-red-500 text-gray-100 font-medium;
+}
+.tag-writing {
+  background-color: #edb404;
+  @apply text-gray-800 font-medium;
 }
 
 // Turn white images to dark mode

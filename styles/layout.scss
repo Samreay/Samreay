@@ -97,7 +97,7 @@ body {
   @apply flex flex-wrap justify-center -m-2 mb-12;
 
   button {
-    @apply flex items-center font-medium py-2 px-4 m-2 rounded-full group transition duration-500 text-gray-100;
+    @apply flex items-center font-medium py-2 px-4 m-2 rounded-full group transition duration-500;
 
     span {
       @apply group-hover:text-white transition-colors duration-150 ease-in-out;

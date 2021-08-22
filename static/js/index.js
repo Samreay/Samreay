@@ -1,21 +1,22 @@
 // Import Alpine.js
-import 'alpinejs';
+import "alpinejs";
 
-import { focusHandling } from 'cruip-js-toolkit';
+import { focusHandling } from "cruip-js-toolkit";
 
 // Import aos
-import AOS from 'aos';
+import AOS from "aos";
 
 AOS.init({
   once: true,
-  disable: 'phone',
-  duration: 400,
+  disable: "phone",
+  duration: 300,
   offset: 40,
-  easing: 'ease-out-sine',
+  easing: "ease-out-sine",
 });
 
+window.AOS = AOS;
 // import component from './components/component';
 
-document.addEventListener('DOMContentLoaded', () => {
-  focusHandling('outline');
+document.addEventListener("DOMContentLoaded", () => {
+  focusHandling("outline");
 });

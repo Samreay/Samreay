@@ -10,7 +10,7 @@
         <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
 
             <!-- 1st article -->
-            {% for post in site.categories['tutorial'] | limit: 6%}
+            {% for post in site.categories['tutorial'] | limit: 3%}
                 {% include card.html %}
             {% endfor %}
     </div>
