@@ -13,6 +13,10 @@ layout: default
 
     {{ content }}
 
+    {% if page.tags contains "writing" %}
+    {% include newsletter-blog.html %}
+    {% endif %}
+
 </div>
 
 

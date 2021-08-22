@@ -7,10 +7,10 @@ cd static\img\%1\original
 set img=%2
 if not defined img set img="main.jpg"
 echo %img%
-for /R %%U in (*.png) do echo %%U && magick mogrify -resize "1400>"  -background #0f1112 -sampling-factor 4:2:0 -interlace Plane -transparent white -alpha remove -path .. -strip -quality 85 -format jpg %%U
-for /R %%U in (*.png) do echo %%U && magick mogrify -resize "1400>" -background #0f1112 -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 95 -format png %%U
-for /R %%U in (*.jpg) do echo %%U && magick mogrify -resize "1400>" -background #0f1112 -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 90 -format jpg %%U
-for /R %%U in (*.jpeg) do echo %%U && magick mogrify -resize "1400>" -background #0f1112 -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 90 -format jpg %%U
+for /R %%U in (*.png) do echo %%U && magick mogrify -resize "1600>"  -background #0f1112 -sampling-factor 4:2:0 -interlace Plane -transparent white -alpha remove -path .. -strip -quality 85 -format jpg %%U
+for /R %%U in (*.png) do echo %%U && magick mogrify -resize "1600>" -background #0f1112 -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 95 -format png %%U
+for /R %%U in (*.jpg) do echo %%U && magick mogrify -resize "1600>" -background #0f1112 -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 90 -format jpg %%U
+for /R %%U in (*.jpeg) do echo %%U && magick mogrify -resize "1600>" -background #0f1112 -sampling-factor 4:2:0 -interlace Plane -path .. -strip -quality 90 -format jpg %%U
 cd ..
 rmdir thumbs
 mkdir thumbs

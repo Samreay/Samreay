@@ -30,3 +30,4 @@ __pycache__/
 
 # C extensions
 *.so
+styles/index.js
