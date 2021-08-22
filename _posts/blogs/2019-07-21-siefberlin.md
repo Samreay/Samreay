@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SIEF Berlin"
-desc: "An industry tour through Berlin"
+desc: "An industry tour through Berlin."
 date: 2019-07-20
 categories: [blog]
 tags: [travel]

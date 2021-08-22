@@ -6,6 +6,7 @@
         "preinstall": "npx npm-force-resolutions",
         "setup": "gem install bundler && bundle install && npm i",
         "start": "concurrently --kill-others \"npm run css:dev\" \"bundle exec jekyll serve --config _config.yml,_config-dev.yml\"",
+        "serve": "bundle exec jekyll serve --config _config.yml,_config-dev.yml",
         "build": "npm run css:rel && jekyll build",
         "css:dev": "parcel watch styles/index.scss static/js/index.js --out-dir static --no-source-maps",
         "css:rel": "parcel build styles/index.scss static/js/index.js --out-dir static --no-source-maps --experimental-scope-hoisting"
