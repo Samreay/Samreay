@@ -30,6 +30,9 @@ body {
   &.content-wide {
     @apply max-w-7xl;
   }
+  &.content-wider {
+    max-width: 90rem;
+  }
   &.content-shrink {
     @apply max-w-4xl;
   }
@@ -143,6 +146,9 @@ body {
   figure {
     @apply mx-auto my-12 max-w-4xl;
 
+    &.img-full {
+      @apply max-w-full;
+    }
     &.img-large {
       @apply max-w-7xl;
     }
@@ -284,7 +290,7 @@ body {
 }
 
 .sticky-sharebar {
-  @apply fixed md:bottom-20 bottom-2 right-2 xl:right-40 lg:right-4 rounded-full bg-gray-800 p-2;
+  @apply fixed md:bottom-20 bottom-2 right-2 xl:right-20 lg:right-4 rounded-full bg-gray-800 p-2;
 
   .share-link {
     @apply h-12 w-12 text-3xl rounded-full text-center inline-block md:block;
