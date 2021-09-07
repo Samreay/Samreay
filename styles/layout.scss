@@ -293,7 +293,8 @@ body {
   @apply fixed md:bottom-20 bottom-2 right-2 xl:right-20 lg:right-4 rounded-full bg-gray-800 p-2;
 
   .share-link {
-    @apply h-12 w-12 text-3xl rounded-full text-center inline-block md:block;
+    @apply h-12 w-12 text-2xl rounded-full text-center inline-block md:block;
+    line-height: 3rem;
     filter: saturate(0.3);
     transition: filter 0.2s ease-in-out;
 
