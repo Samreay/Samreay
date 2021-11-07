@@ -130,3 +130,13 @@
 .img-lighten {
   mix-blend-mode: lighten;
 }
+
+.writing-extract {
+  @apply bg-gray-800 max-w-2xl mx-auto px-8 py-4 text-white rounded-2xl mb-20 leading-relaxed;
+  text-indent: 3em;
+  font-family: 'Bookerly', 'Times New Roman', Times, serif;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
