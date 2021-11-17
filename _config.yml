@@ -34,6 +34,8 @@ sections:
     tpl: tutorials.html
   - id: blogs
     tpl: blogs.html
+  - id: reviews
+    tpl: reviews.html   
   - id: courses
     tpl: courses.html
   - id: other

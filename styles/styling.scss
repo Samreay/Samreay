@@ -134,9 +134,157 @@
 .writing-extract {
   @apply bg-gray-800 max-w-2xl mx-auto px-8 py-4 text-white rounded-2xl mb-20 leading-relaxed;
   text-indent: 3em;
-  font-family: 'Bookerly', 'Times New Roman', Times, serif;
-  -webkit-user-select: none; /* Safari */        
+  font-family: "Bookerly", "Times New Roman", Times, serif;
+  -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
+}
+
+.glow {
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    border-radius: 0.6rem;
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    z-index: -1;
+    will-change: background-position;
+  }
+}
+
+.review-S {
+  @extend .glow;
+
+  &:before,
+  &:after {
+    background: linear-gradient(
+      45deg,
+      rgb(110, 227, 231),
+      rgb(59, 130, 246),
+      rgb(147, 51, 234),
+      rgb(59, 130, 246),
+      rgb(110, 231, 183),
+      rgb(28, 145, 255),
+      rgba(95, 209, 249, 1)
+    );
+    background-size: 400%;
+    animation: steam 15s linear infinite;
+  }
+  &:after {
+    filter: blur(20px);
+  }
+}
+
+.review-A {
+  @extend .glow;
+
+  &:before,
+  &:after {
+    background: linear-gradient(
+      45deg,
+      #bf953f,
+      #fcf6ba,
+      #b38728,
+      #fbf5b7,
+      #aa771c,
+      #bf953f,
+      #fcf6ba,
+      #b38728
+    );
+    background-size: 400%;
+    animation: steam 20s linear infinite;
+  }
+  &:after {
+    filter: blur(7px);
+  }
+}
+
+.review-B {
+  @extend .glow;
+
+  &:before,
+  &:after {
+    background: linear-gradient(
+      45deg,
+      #dedede,
+      #ffffff,
+      #dedede,
+      #ffffff,
+      #7c7c7c,
+      #dedede,
+      #ffffff,
+      #ffffff,
+      #7c7c7c,
+      #ffffff,
+      #dedede
+    );
+    background-size: 400%;
+    animation: steam 42s linear infinite;
+  }
+  &:after {
+    filter: blur(4px);
+  }
+}
+
+.review-C {
+  @extend .glow;
+
+  &:before {
+    background: linear-gradient(
+      45deg,
+      #ca7345,
+      #ffdeca,
+      #ca7345,
+      #ffdeca,
+      #a14521,
+      #ca7345,
+      #ffdeca,
+      #ffdeca,
+      #ca7345,
+      #ffdeca,
+      #ca7345
+    );
+    background-size: 400%;
+    animation: steam 75s linear infinite;
+  }
+}
+
+.review-D {
+  @extend .glow;
+
+  &:before {
+    background: linear-gradient(
+      45deg,
+      rgb(145, 42, 42),
+      rgb(105, 19, 19),
+      rgb(145, 42, 42),
+      rgb(66, 7, 7),
+      rgb(145, 42, 42)
+    );
+    background-size: 400%;
+    animation: steam 80s linear infinite;
+  }
+}
+
+.tag-review {
+  @apply font-medium text-2xl text-main-500 bg-gray-800 text-center;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 300% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }

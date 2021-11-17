@@ -106,6 +106,15 @@ body {
       @apply group-hover:text-white transition-colors duration-150 ease-in-out;
     }
   }
+  &.review {
+    button {
+      @apply block relative rounded-lg px-0 py-0 mx-0 my-0;
+      span {
+        @apply text-center py-2 px-4;
+        min-width: 3em;
+      }
+    }
+  }
 }
 
 .blog-post {
@@ -307,5 +316,11 @@ body {
         filter: saturate(1.0) brightness(1.5);
       }
     }
+  }
+}
+.review {
+  figure {
+    @apply relative h-0 overflow-hidden rounded-lg;
+    padding-bottom: 150%;
   }
 }
