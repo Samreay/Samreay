@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: review_post
 title:  "A Review of Brent Weeks' Lightbringer Series."
 desc: "A great series with horrific ending."
 date: 2020-12-28

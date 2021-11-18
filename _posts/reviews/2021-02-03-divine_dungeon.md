@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: review_post
 title:  "A Review of Dakota Krout's Divine Dungeon Series."
 desc: "Great premise. Great start. Less than great ending."
 date: 2021-02-03

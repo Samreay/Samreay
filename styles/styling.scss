@@ -1,3 +1,63 @@
+:root {
+  --grad-s: linear-gradient(
+    45deg,
+    rgb(110, 227, 231),
+    rgb(59, 130, 246),
+    rgb(147, 51, 234),
+    rgb(59, 130, 246),
+    rgb(110, 231, 183),
+    rgb(28, 145, 255),
+    rgba(95, 209, 249, 1)
+  );
+  --grad-a: linear-gradient(
+    45deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c,
+    #bf953f,
+    #fcf6ba,
+    #b38728
+  );
+  --grad-b: linear-gradient(
+    45deg,
+    #dedede,
+    #ffffff,
+    #dedede,
+    #ffffff,
+    #7c7c7c,
+    #dedede,
+    #ffffff,
+    #ffffff,
+    #7c7c7c,
+    #ffffff,
+    #dedede
+  );
+  --grad-c: linear-gradient(
+    45deg,
+    #ca7345,
+    #ffdeca,
+    #ca7345,
+    #ffdeca,
+    #a14521,
+    #ca7345,
+    #ffdeca,
+    #ffdeca,
+    #ca7345,
+    #ffdeca,
+    #ca7345
+  );
+  --grad-d: linear-gradient(
+    45deg,
+    rgb(145, 42, 42),
+    rgb(105, 19, 19),
+    rgb(145, 42, 42),
+    rgb(66, 7, 7),
+    rgb(145, 42, 42)
+  );
+}
+
 .text-gradient {
   color: transparent;
   background-clip: text;
@@ -77,6 +137,45 @@
       box-shadow: 0 1px 0 4px #ff92381a, inset 0 -1.375em 0 #ff98381a;
     }
   }
+  .rating {
+    p {
+      @apply text-3xl;
+    }
+    
+    .rating-S {
+      background: var(--grad-s);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .rating-A {
+      background: var(--grad-a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .rating-B {
+      background: var(--grad-b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .rating-C {
+      background: var(--grad-c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .rating-D {
+      background: var(--grad-d);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .leader {
+      @apply font-bold;
+    }
+  }
 }
 .tag-python {
   @apply bg-main-600 text-gray-100 font-medium;
@@ -147,7 +246,7 @@
   &:before,
   &:after {
     position: absolute;
-    border-radius: 0.6rem;
+    border-radius: 0.75rem;
     content: "";
     position: absolute;
     left: -5px;
@@ -164,16 +263,7 @@
 
   &:before,
   &:after {
-    background: linear-gradient(
-      45deg,
-      rgb(110, 227, 231),
-      rgb(59, 130, 246),
-      rgb(147, 51, 234),
-      rgb(59, 130, 246),
-      rgb(110, 231, 183),
-      rgb(28, 145, 255),
-      rgba(95, 209, 249, 1)
-    );
+    background: var(--grad-s);
     background-size: 400%;
     animation: steam 15s linear infinite;
   }
@@ -187,17 +277,7 @@
 
   &:before,
   &:after {
-    background: linear-gradient(
-      45deg,
-      #bf953f,
-      #fcf6ba,
-      #b38728,
-      #fbf5b7,
-      #aa771c,
-      #bf953f,
-      #fcf6ba,
-      #b38728
-    );
+    background: var(--grad-a);
     background-size: 400%;
     animation: steam 20s linear infinite;
   }
@@ -211,20 +291,7 @@
 
   &:before,
   &:after {
-    background: linear-gradient(
-      45deg,
-      #dedede,
-      #ffffff,
-      #dedede,
-      #ffffff,
-      #7c7c7c,
-      #dedede,
-      #ffffff,
-      #ffffff,
-      #7c7c7c,
-      #ffffff,
-      #dedede
-    );
+    background: var(--grad-b);
     background-size: 400%;
     animation: steam 42s linear infinite;
   }
@@ -237,20 +304,7 @@
   @extend .glow;
 
   &:before {
-    background: linear-gradient(
-      45deg,
-      #ca7345,
-      #ffdeca,
-      #ca7345,
-      #ffdeca,
-      #a14521,
-      #ca7345,
-      #ffdeca,
-      #ffdeca,
-      #ca7345,
-      #ffdeca,
-      #ca7345
-    );
+    background: var(--grad-c);
     background-size: 400%;
     animation: steam 75s linear infinite;
   }
@@ -260,14 +314,7 @@
   @extend .glow;
 
   &:before {
-    background: linear-gradient(
-      45deg,
-      rgb(145, 42, 42),
-      rgb(105, 19, 19),
-      rgb(145, 42, 42),
-      rgb(66, 7, 7),
-      rgb(145, 42, 42)
-    );
+    background: var(--grad-d);
     background-size: 400%;
     animation: steam 80s linear infinite;
   }
@@ -276,6 +323,8 @@
 .tag-review {
   @apply font-medium text-2xl text-main-500 bg-gray-800 text-center;
 }
+
+
 
 @keyframes steam {
   0% {
@@ -288,3 +337,4 @@
     background-position: 0% 0%;
   }
 }
+
