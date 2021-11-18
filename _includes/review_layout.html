@@ -1,4 +1,4 @@
-{% assign posts = site.categories[cat] %}
+{% assign posts = site.categories[cat] | sort: 'val' %}
 {% assign categories = "S,A,B,C,D" | split: "," %}
 <div class="content content-full" x-data="register_tags([{% for cat in categories %} '{{cat}}',{% endfor %}])">
 
@@ -27,7 +27,6 @@
     <div class="mt-20 max-w-sm mx-auto md:max-w-6xl mb-12" data-aos="fade-up">
         <div
             class="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 md:gap-24 items-start">
-
             {% for post in posts %}
             {% assign key = post.loc | append: "thumb_cover.jpg" %}
             {% include card_cover.html %}

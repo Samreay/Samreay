@@ -7,6 +7,7 @@ long_desc: "After four books I put this series down because I was having trouble
 date: 2021-06-01
 categories: [reviews]
 review: D
+val: 42
 amazon: https://www.amazon.co.uk/gp/product/B07PKGSDDQ
 goodreads: https://www.goodreads.com/en/book/show/44327636-the-first-step
 loc: 'reviews/thousand_li/'

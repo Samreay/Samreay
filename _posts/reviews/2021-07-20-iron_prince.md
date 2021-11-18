@@ -7,6 +7,7 @@ long_desc: "I took a sick day to finish this massive book rather than wait eight
 date: 2021-07-20
 categories: [reviews]
 review: S
+val: 7
 loc: 'reviews/iron_prince/'
 permalink: /reviews/iron_prince
 ---
