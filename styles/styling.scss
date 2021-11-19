@@ -137,6 +137,11 @@
       box-shadow: 0 1px 0 4px #ff92381a, inset 0 -1.375em 0 #ff98381a;
     }
   }
+
+  blockquote p {
+    @apply my-4 py-4 px-8 italic border-l-4 border-main-300 text-gray-400;
+  }
+
   .rating {
     p {
       @apply text-3xl;
@@ -158,19 +163,19 @@
       background: var(--grad-b);
       background-clip: text;
       -webkit-background-clip: text;
-      color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.5);
     }
     .rating-C {
       background: var(--grad-c);
       background-clip: text;
       -webkit-background-clip: text;
-      color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.4);
     }
     .rating-D {
       background: var(--grad-d);
       background-clip: text;
       -webkit-background-clip: text;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 120, 120, 0.7);
     }
     .leader {
       @apply font-bold;
