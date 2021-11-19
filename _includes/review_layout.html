@@ -1,0 +1,73 @@
+{% assign posts = site.categories[cat] | sort: 'val' %}
+{% assign categories = "S,A,B,C,D" | split: "," %}
+<div class="content content-full" x-data="register_tags([{% for cat in categories %} '{{cat}}',{% endfor %}])">
+
+    <!-- Headers go here -->
+
+    <div class="section-header mt-12">
+        <h1 data-aos="fade-up">Book Reviews!</h1>
+        <p data-aos="fade-up">{{desc}}</p>
+        <p data-aos="fade-up">As normal, these are <em>my</em> opinions for the sort of books I enjoy reading. You may love things that I don't. In fact, I hope you like everything listed below and help establish these genres into mainstream media! You can use the buttons below to filter on ratings.</p>
+    </div>
+
+    <!-- Add the tags -->
+    <div class="tag-list review" data-aos="fade-up" data-aos-anchor="[data-aos-id-tabs]">
+        {% for cat in categories %}
+        <div class="mx-4 review-{{cat}}"  @click="click_tag('{{cat}}');" :class="{ 'opacity-30': is_hidden(['{{cat}}']) }">
+            <button class="tag-review tag-review-{{cat}}">
+                <span>{{cat}}</span>
+            </button>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <!-- And now the blog posts of course -->
+
+    <div class="mt-20 max-w-sm mx-auto md:max-w-6xl mb-12" data-aos="fade-up">
+        <div
+            class="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 md:gap-24 items-start">
+            {% for post in posts %}
+            {% assign key = post.loc | append: "thumb_cover.jpg" %}
+            {% include card_cover.html %}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // For alphine tag handling
+    function register_tags(tags) {
+        return {
+            tags: tags,
+            active: null,
+            click_tag(tag) {
+                // figure out if one tag is active
+                if (this.active == tag) {
+                    this.active = null;
+                } else {
+                    this.active = tag;
+                }
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 20)
+            },
+            is_active(tag) {
+                return this.active === null || this.active == tag;
+            },
+            is_hidden(tags) {
+                if (this.active === null) {
+                    return false;
+                }
+                for (var i = 0; i < tags.length; i++) {
+                    var t = tags[i];
+                    if (t == this.active) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+    }
+</script>

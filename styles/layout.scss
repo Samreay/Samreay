@@ -106,6 +106,15 @@ body {
       @apply group-hover:text-white transition-colors duration-150 ease-in-out;
     }
   }
+  &.review {
+    button {
+      @apply block relative rounded-lg px-0 py-0 mx-0 my-0;
+      span {
+        @apply text-center py-2 px-4;
+        min-width: 3em;
+      }
+    }
+  }
 }
 
 .blog-post {
@@ -167,6 +176,24 @@ body {
     img {
       @apply mx-auto;
     }
+  }
+
+  .review-summary {
+    p {
+      @apply mt-0 mb-4;
+    }
+    figure {
+      margin: 0;
+      max-width: none;
+      min-width: 250px;
+      img {
+        height: 375px;
+        width: 250px;
+        min-width: 250px;
+        aspect-ratio: 0.6667;
+      }
+    }
+
   }
 }
 
@@ -308,4 +335,20 @@ body {
       }
     }
   }
+}
+.review {
+  figure {
+    @apply relative h-0 overflow-hidden rounded-lg;
+    padding-bottom: 150%;
+  }
+}
+
+.search-text {
+  z-index: -10;
+  color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

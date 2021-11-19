@@ -1,3 +1,63 @@
+:root {
+  --grad-s: linear-gradient(
+    45deg,
+    rgb(110, 227, 231),
+    rgb(59, 130, 246),
+    rgb(147, 51, 234),
+    rgb(59, 130, 246),
+    rgb(110, 231, 183),
+    rgb(28, 145, 255),
+    rgba(95, 209, 249, 1)
+  );
+  --grad-a: linear-gradient(
+    45deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c,
+    #bf953f,
+    #fcf6ba,
+    #b38728
+  );
+  --grad-b: linear-gradient(
+    45deg,
+    #dedede,
+    #ffffff,
+    #dedede,
+    #ffffff,
+    #7c7c7c,
+    #dedede,
+    #ffffff,
+    #ffffff,
+    #7c7c7c,
+    #ffffff,
+    #dedede
+  );
+  --grad-c: linear-gradient(
+    45deg,
+    #ca7345,
+    #ffdeca,
+    #ca7345,
+    #ffdeca,
+    #a14521,
+    #ca7345,
+    #ffdeca,
+    #ffdeca,
+    #ca7345,
+    #ffdeca,
+    #ca7345
+  );
+  --grad-d: linear-gradient(
+    45deg,
+    rgb(145, 42, 42),
+    rgb(105, 19, 19),
+    rgb(145, 42, 42),
+    rgb(66, 7, 7),
+    rgb(145, 42, 42)
+  );
+}
+
 .text-gradient {
   color: transparent;
   background-clip: text;
@@ -77,6 +137,50 @@
       box-shadow: 0 1px 0 4px #ff92381a, inset 0 -1.375em 0 #ff98381a;
     }
   }
+
+  blockquote p {
+    @apply my-4 py-4 px-8 italic border-l-4 border-main-300 text-gray-400;
+  }
+
+  .rating {
+    p {
+      @apply text-3xl;
+    }
+    
+    .rating-S {
+      background: var(--grad-s);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .rating-A {
+      background: var(--grad-a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .rating-B {
+      background: var(--grad-b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .rating-C {
+      background: var(--grad-c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .rating-D {
+      background: var(--grad-d);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(255, 120, 120, 0.7);
+    }
+    .leader {
+      @apply font-bold;
+    }
+  }
 }
 .tag-python {
   @apply bg-main-600 text-gray-100 font-medium;
@@ -134,9 +238,108 @@
 .writing-extract {
   @apply bg-gray-800 max-w-2xl mx-auto px-8 py-4 text-white rounded-2xl mb-20 leading-relaxed;
   text-indent: 3em;
-  font-family: 'Bookerly', 'Times New Roman', Times, serif;
-  -webkit-user-select: none; /* Safari */        
+  font-family: "Bookerly", "Times New Roman", Times, serif;
+  -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 }
+
+.glow {
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    border-radius: 0.75rem;
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    z-index: -1;
+    will-change: background-position;
+  }
+}
+
+.review-S {
+  @extend .glow;
+
+  &:before,
+  &:after {
+    background: var(--grad-s);
+    background-size: 400%;
+    animation: steam 15s linear infinite;
+  }
+  &:after {
+    filter: blur(20px);
+  }
+}
+
+.review-A {
+  @extend .glow;
+
+  &:before,
+  &:after {
+    background: var(--grad-a);
+    background-size: 400%;
+    animation: steam 20s linear infinite;
+  }
+  &:after {
+    filter: blur(7px);
+  }
+}
+
+.review-B {
+  @extend .glow;
+
+  &:before,
+  &:after {
+    background: var(--grad-b);
+    background-size: 400%;
+    animation: steam 42s linear infinite;
+  }
+  &:after {
+    filter: blur(4px);
+  }
+}
+
+.review-C {
+  @extend .glow;
+
+  &:before {
+    background: var(--grad-c);
+    background-size: 400%;
+    animation: steam 75s linear infinite;
+  }
+}
+
+.review-D {
+  @extend .glow;
+
+  &:before {
+    background: var(--grad-d);
+    background-size: 400%;
+    animation: steam 80s linear infinite;
+  }
+}
+
+.tag-review {
+  @apply font-medium text-2xl text-main-500 bg-gray-800 text-center;
+}
+
+
+
+@keyframes steam {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 300% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+

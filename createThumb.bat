@@ -16,5 +16,6 @@ rmdir thumbs
 mkdir thumbs
 magick %img% -sampling-factor 4:2:0 -strip -quality 85 -resize 390x220^^ -background #0f1112 -gravity center -interlace Plane -crop 390x220+0+0 +repage thumb_card.jpg
 magick %img% -sampling-factor 4:2:0 -strip -quality 85 -resize 500x250^^ -background #0f1112 -gravity center -interlace Plane -crop 600x335+0+0 +repage thumb_fb.jpg
+magick %img% -sampling-factor 4:2:0 -strip -quality 85 -resize 250x375^^ -background #0f1112 -gravity center -interlace Plane -crop 250x375+0+0 +repage thumb_cover.jpg
 for /R %%U in (*.jpg) do echo %%U && magick mogrify -resize "16x16^" -sampling-factor 4:2:0 -format jpg -path thumbs -strip -quality 60 %%U
 

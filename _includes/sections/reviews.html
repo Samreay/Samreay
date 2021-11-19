@@ -1,0 +1,17 @@
+<div class="content content-wide">
+
+    <div class="section-header">
+        <h1 data-aos="fade-up">Book Reviews</h1>
+        <p data-aos="fade-up">For those loving progression fantasy and LitRPG, here are my latest reviews. <a class="under orange-under" href="/reviews">More available here, of course!</a></p>
+    </div>
+
+    <div class="max-w-sm mx-auto md:max-w-none">
+        <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
+
+            <!-- 1st article -->
+            {% for post in site.categories['reviews'] | limit: 3%}
+                {% include card_cover.html %}
+            {% endfor %}
+    </div>
+</div>
+</div>

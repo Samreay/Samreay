@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<div class="content content blog-post relative" data-aos="fade-up">
+    <div class="section-header blog">
+        <h1 class="title" data-aos="fade-up">{{page.short_title}}</h1>
+        <p data-aos="fade-up">{{page.desc}}</p>
+    </div>
+    {% include share.html %}
+
+    <div class="max-w-4xl mx-auto mt-12 mb-20">
+        <article class="w-full flex flex-col md:flex-row review-summary bg-gray-800 rounded-xl review-{{page.review}}">
+            <figure class="">
+                <img class="rounded-l-xl block flex-none bg-cover" src="{{site.img_path}}{{page.loc}}thumb_cover.jpg" width="250" height="375" />
+            </figure>
+
+            <div class="flex flex-col justify-between p-12 text-center md:text-left">
+                <div class="rating">
+                    <p class= "rating-{{page.review}}">
+                        <span class="leader">{{page.review}}:</span>
+                        {% if page.review == 'S' %}Special place in my heart{% endif %}
+                        {% if page.review == 'A' %}Amazing, definitely read{% endif %}
+                        {% if page.review == 'B' %}Fun read with some quibbles{% endif %}
+                        {% if page.review == 'C' %}Good read with flaws{% endif %}
+                        {% if page.review == 'D' %}Significant issues for me{% endif %}
+                    </p>
+                </div>
+                <p class="text-lg text-gray-400">{{page.long_desc}}</p>
+                <div class="text-base">
+                    <a class="no-under btn-sm text-white bg-main-600 hover:bg-main-700 mt-6 mr-4" href="{{page.amazon}}">
+                        <span>Amazon</span>
+                        <svg class="w-3 h-3 fill-current text-main-400 flex-shrink-0 ml-2" viewBox="0 0 12 12"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 5H0v2h6v4l6-5-6-5z" />
+                        </svg>
+                    </a>
+                    <a class="no-under btn-sm text-white bg-main-600 hover:bg-main-700 mt-6" href="{{page.goodreads}}">
+                        <span>Goodreads</span>
+                        <svg class="w-3 h-3 fill-current text-main-400 flex-shrink-0 ml-2" viewBox="0 0 12 12"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 5H0v2h6v4l6-5-6-5z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="max-w-xl2 mx-auto">
+    {{ content }}
+    </div>
+
+    <div class="mt-28">
+    {% include newsletter-blog.html %}
+    </div>
+</div>
+
