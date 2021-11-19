@@ -2,4 +2,5 @@
 title: robots
 ---
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://cosmiccoding.com.au/sitemap.xml
