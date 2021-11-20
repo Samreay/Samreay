@@ -322,7 +322,7 @@
   .bg1, .bg2  {
     .bg-inner .bg-paint {
       background: var(--grad-c);
-      animation: slide 75s linear infinite;
+      animation: slide 40s linear infinite;
     }
   }
   .bg2 {
@@ -335,7 +335,7 @@
   .bg1, .bg2  {
     .bg-inner .bg-paint {
       background: var(--grad-d);
-      animation: slide 80s linear infinite;
+      animation: slide 50s linear infinite;
     }
   }
   .bg2 {
@@ -352,7 +352,7 @@
     transform: translateX(0); 
   }
   50% { 
-    transform: translateX(-50%); 
+    transform: translateX(-75%); 
   }
   100% { 
     transform: translateX(0); 
