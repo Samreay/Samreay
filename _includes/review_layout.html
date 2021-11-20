@@ -14,6 +14,8 @@
     <div class="tag-list review" data-aos="fade-up" data-aos-anchor="[data-aos-id-tabs]">
         {% for cat in categories %}
         <div class="mx-4 review-{{cat}}"  @click="click_tag('{{cat}}');" :class="{ 'opacity-30': is_hidden(['{{cat}}']) }">
+            <div class="bg1"><div class="bg-inner"><div class="bg-paint"></div></div></div>
+            <div class="bg2"><div class="bg-inner"><div class="bg-paint"></div></div></div>
             <button class="tag-review tag-review-{{cat}}">
                 <span>{{cat}}</span>
             </button>
