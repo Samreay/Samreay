@@ -126,7 +126,7 @@
 
 .blog-post {
   .section-header .title {
-    @apply text-gradient gradient text-7xl pb-4;
+    @apply text-gradient gradient text-4xl md:text-7xl pb-4;
   }
   a:not(.no-under) {
     @apply under text-main-200;

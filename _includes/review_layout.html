@@ -13,7 +13,7 @@
     <!-- Add the tags -->
     <div class="tag-list review" data-aos="fade-up" data-aos-anchor="[data-aos-id-tabs]">
         {% for cat in categories %}
-        <div class="mx-4 review-{{cat}}"  @click="click_tag('{{cat}}');" :class="{ 'opacity-30': is_hidden(['{{cat}}']) }">
+        <div class="mx-4 my-4 review-{{cat}}"  @click="click_tag('{{cat}}');" :class="{ 'opacity-30': is_hidden(['{{cat}}']) }">
             <div class="bg1"><div class="bg-inner"><div class="bg-paint"></div></div></div>
             <div class="bg2"><div class="bg-inner"><div class="bg-paint"></div></div></div>
             <button class="tag-review tag-review-{{cat}}">
@@ -28,7 +28,7 @@
 
     <div class="mt-20 max-w-sm mx-auto md:max-w-6xl mb-12" data-aos="fade-up">
         <div
-            class="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 md:gap-24 items-start">
+            class="grid gap-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 md:gap-24 items-start">
             {% for post in posts %}
             {% assign key = post.loc | append: "thumb_cover.jpg" %}
             {% include card_cover.html %}
