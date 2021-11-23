@@ -5,6 +5,7 @@ short_title:  "A Review of Andrew Rowe's Arcane Ascension Series."
 desc: "Details, convincing, fun."
 long_desc: "One of my favourites. Intelligent, authentic characters using deep magic systems to creatively solve interesting and unexpected problems."
 date: 2021-01-30
+name: "Arcane Ascension"
 categories: [reviews]
 review: A
 val: 10

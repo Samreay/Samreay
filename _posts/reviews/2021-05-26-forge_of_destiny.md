@@ -8,6 +8,7 @@ date: 2021-05-26
 categories: [reviews]
 review: C
 val: 35
+name: "Forge of Destiny"
 amazon: https://www.amazon.com/Forge-Destiny-1-Yrsillar-ebook/dp/B08P8175Z1
 goodreads: https://www.goodreads.com/en/book/show/43461912-forge-of-destiny
 loc: 'reviews/forge_destiny/'
