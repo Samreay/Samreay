@@ -56,6 +56,17 @@
     rgb(66, 7, 7),
     rgb(145, 42, 42)
   );
+  --grad-f: linear-gradient(
+    45deg,
+    rgba(162, 171, 88, 1) 0%,
+    rgba(180, 198, 32, 1) 16%,
+    rgba(106, 161, 28, 1) 25%,
+    rgba(162, 171, 88, 1) 31%,
+    rgba(162, 171, 88, 1) 53%,
+    rgba(99, 99, 99, 1) 61%,
+    rgba(213, 211, 77, 1) 70%,
+    rgba(162, 171, 88, 1) 100%
+  );
 }
 
 .text-gradient {
@@ -139,14 +150,14 @@
   }
 
   blockquote p {
-    @apply my-4 py-4 px-8 italic border-l-4 border-main-300 text-gray-400;
+    @apply my-0 py-4 px-8 italic border-l-4 border-main-300 text-gray-400;
   }
 
   .rating {
     p {
       @apply text-3xl;
     }
-    
+
     .rating-S {
       background: var(--grad-s);
       background-clip: text;
@@ -176,6 +187,12 @@
       background-clip: text;
       -webkit-background-clip: text;
       color: rgba(255, 120, 120, 0.7);
+    }
+    .rating-F {
+      background: var(--grad-f);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: rgba(169, 255, 129, 0.7);
     }
     .leader {
       @apply font-bold;
@@ -248,7 +265,8 @@
 .glow {
   position: relative;
 
-  .bg1, .bg2 {
+  .bg1,
+  .bg2 {
     position: absolute;
     left: -5px;
     top: -5px;
@@ -274,11 +292,11 @@
   }
 }
 
-
 .review-S {
   @extend .glow;
 
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       background: var(--grad-s);
       animation: slide 5s linear infinite;
@@ -289,11 +307,11 @@
   }
 }
 
-
 .review-A {
   @extend .glow;
 
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       background: var(--grad-a);
       animation: slide 10s linear infinite;
@@ -306,7 +324,8 @@
 
 .review-B {
   @extend .glow;
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       background: var(--grad-b);
       animation: slide 20s linear infinite;
@@ -319,7 +338,8 @@
 
 .review-C {
   @extend .glow;
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       background: var(--grad-c);
       animation: slide 40s linear infinite;
@@ -332,9 +352,24 @@
 
 .review-D {
   @extend .glow;
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       background: var(--grad-d);
+      animation: slide 50s linear infinite;
+    }
+  }
+  .bg2 {
+    display: none;
+  }
+}
+
+.review-F {
+  @extend .glow;
+  .bg1,
+  .bg2 {
+    .bg-inner .bg-paint {
+      background: var(--grad-f);
       animation: slide 50s linear infinite;
     }
   }
@@ -348,127 +383,140 @@
 }
 
 @keyframes slide {
-  0% { 
-    transform: translateX(0); 
+  0% {
+    transform: translateX(0);
   }
-  50% { 
-    transform: translateX(-75%); 
+  50% {
+    transform: translateX(-75%);
   }
-  100% { 
-    transform: translateX(0); 
+  100% {
+    transform: translateX(0);
   }
 }
 
-
-
-
 .glow:nth-child(2) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -7s;
     }
   }
 }
 .glow:nth-child(3) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -11s;
     }
   }
 }
 .glow:nth-child(4) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -3s;
     }
   }
 }
 .glow:nth-child(5) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -9s;
     }
   }
 }
 .glow:nth-child(6) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -7s;
     }
   }
 }
 .glow:nth-child(7) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -2s;
     }
   }
 }
 .glow:nth-child(8) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -8s;
     }
   }
 }
 .glow:nth-child(9) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -13s;
     }
   }
 }
 .glow:nth-child(10) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -5s;
     }
   }
 }
 .glow:nth-child(11) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -1s;
     }
   }
 }
 .glow:nth-child(12) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -9s;
     }
   }
 }
 .glow:nth-child(13) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -4s;
     }
   }
 }
 .glow:nth-child(14) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -2s;
     }
   }
 }
 .glow:nth-child(15) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -8s;
     }
   }
 }
 .glow:nth-child(16) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -5s;
     }
   }
 }
 .glow:nth-child(17) {
-  .bg1, .bg2  {
+  .bg1,
+  .bg2 {
     .bg-inner .bg-paint {
       animation-delay: -11s;
     }

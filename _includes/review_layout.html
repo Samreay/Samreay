@@ -1,5 +1,5 @@
 {% assign posts = site.categories[cat] | sort: 'val' %}
-{% assign categories = "S,A,B,C,D" | split: "," %}
+{% assign categories = "S,A,B,C,D,F" | split: "," %}
 <div class="content content-full" x-data="register_tags([{% for cat in categories %} '{{cat}}',{% endfor %}])">
 
     <!-- Headers go here -->
