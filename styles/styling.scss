@@ -522,3 +522,13 @@
     }
   }
 }
+
+.spoiler {
+  color: transparent;
+  text-shadow: 0 0 10px #dedede;
+  transition: text-shadow 0.5s, color 0.5s;
+  &:hover {
+    @apply text-main-300;
+    text-shadow: none;
+  }
+}
