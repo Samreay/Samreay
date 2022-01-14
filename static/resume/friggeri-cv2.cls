@@ -21,12 +21,7 @@
 \definecolor{gray}{HTML}{444444}
 \definecolor{lightgray}{HTML}{777777}
 \definecolor{lightergray}{HTML}{EEEEEE}
-%%
-%%\definecolor{green}{HTML}{1E63D4} %C2E15F
-%%\definecolor{orange}{HTML}{1E63D4} %FDA333
-%%\definecolor{purple}{HTML}{1E63D4} %D3A4F9
-%%\definecolor{red}{HTML}{1E63D4} %FB4485
-%%\definecolor{blue}{HTML}{1E63D4} %6CE0F1
+
 
 \definecolor{green}{HTML}{C2E15F} %C2E15F
 \definecolor{orange}{HTML}{FDA333} %FDA333
@@ -153,7 +148,7 @@
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{\parsep}%
+    #4\vspace{3mm}%
   }\\}
 \newcommand{\entryInline}[4]{%
   #1&\parbox[t]{12.8cm}{%
