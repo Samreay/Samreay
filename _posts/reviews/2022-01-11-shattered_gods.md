@@ -8,7 +8,7 @@ date: 2022-01-11
 categories: [reviews]
 review: C
 val: 34
-name: "Shattered Gods Fomori Invasion"
+name: "Shattered Gods"
 amazon: https://www.amazon.com/Shattered-Gods-Epic-Fantasy-Progression-ebook/dp/B091QCZ75X
 goodreads: https://www.goodreads.com/en/book/show/57725133-shattered-gods
 loc: 'reviews/shattered_gods/'
