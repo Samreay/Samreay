@@ -6,8 +6,8 @@ desc: "Perfect wish fulfilment - a world wherein everyone's power is fixed, but 
 long_desc: "Serious writing issues aside, the opening is amazing, the first book very engaging, it only falters in the final volumes."
 date: 2022-01-08
 categories: [reviews]
-review: B
-val: 29
+review: C
+val: 38
 name: "Solo Levelling"
 amazon: https://www.amazon.com/Solo-Leveling-Vol-1-Novel/dp/B096YCZLTL
 goodreads: https://www.goodreads.com/en/book/show/52800465-solo-leveling---light-novel
