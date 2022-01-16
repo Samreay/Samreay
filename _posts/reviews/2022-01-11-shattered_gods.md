@@ -7,7 +7,7 @@ long_desc: "Fun action that doesn't make any sense, but it's still a great read,
 date: 2022-01-11
 categories: [reviews]
 review: C
-val: 34
+val: 33
 name: "Shattered Gods"
 amazon: https://www.amazon.com/Shattered-Gods-Epic-Fantasy-Progression-ebook/dp/B091QCZ75X
 goodreads: https://www.goodreads.com/en/book/show/57725133-shattered-gods
@@ -32,4 +32,4 @@ In Cradle, we have Monarchs or Lords presiding over fights, to ensure that peopl
 
 In terms of progression, Xal purchases better loots, his weapons and gear evolve as he gains new magic, and his own power grows as the number of Catalysations he has increases. Uncle Saghir, Xal gets highly sought-after passive abilities from later sources of magic, which is less fun (the passive skills function to just keep him alive better and don't allow him to improve his tactics a lot), but also simpler to keep track of. Some series go too far in presenting dozens of new abilities and powers and making a mess of it all. Shattered Gods might swing a bit too hard in the other direction.
 
-It's still fun though. I'll be buying and reading the third book when it comes out, and seeing if the Fomori plotline starts to make sense to me, but at the end of the day, even if it doesn't make sense, I'll still enjoy reading about Xal and Saghir, the budding romance with Li, and will be rooting for them in the god-level conflict that is being slowly built up over the works.
+It's still fun though. I'll be buying and reading the third book when it comes out, and seeing if the Fomori plotline starts to make sense to me, but at the end of the day, even if it doesn't make sense, I'll still enjoy reading about Xal and Saghir, the budding romance with Li, and will be rooting for them in the god-level conflict that is being slowly built up over the works. This review may come off as harsh, but honestly I *did* enjoy the series so far, I just wish there was more thought put into the super-structure.
