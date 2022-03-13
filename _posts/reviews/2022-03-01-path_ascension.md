@@ -3,7 +3,7 @@ layout: review_post
 title:  "A Review of C. Mantis' 'The Path of Ascension', a sci-fi wuxia novel with a staggering range of powers and power divides."
 short_title: "The Path of Ascension"
 desc: "It's not often we see wuxia in space. It's not common we see it done well, either."
-long_desc: "Regularly updated and with tons to read already, this is a wuxia/dungeon-rift/scifi crossover than of the cultivation genre will enjoy. The plot is classic power struggle the orphaned MC goes through in his quest to be stronger, but its done with a good trio of characters, and the supporting cast are mostly done well."
+long_desc: "This is a wuxia/dungeon-rift/scifi crossover fans of the cultivation genre will enjoy. The plot is classic power struggle the orphaned MC goes through in his quest to be stronger, but its done with a good trio of characters, and the supporting cast are mostly done well."
 date: 2022-03-01
 categories: [reviews]
 review: B
