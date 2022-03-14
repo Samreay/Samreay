@@ -20,9 +20,14 @@ def extra_info(loc):
 
 
 def format_post(p, url="https://cosmiccoding.com.au"):
-    return (
-        f"* **{p['name']}** ([review]({url}{p['permalink']}), [amazon]({p['amazon']})): {p['desc']}"
-    )
+    links_to_make = {"review": "permalink", "amazon": "amazon", "RoyalRoad": "royalroad"}
+    sb = f"* **{p['name']}** ("
+    for k, v in links_to_make.items():
+        if v in p:
+            sb += f"[{k}]({url}{p[v]}), "
+    sb = sb[:-2]
+    sb += f"): {p['desc']}"
+    return sb
 
 
 if __name__ == "__main__":
