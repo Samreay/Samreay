@@ -24,7 +24,10 @@ def format_post(p, url="https://cosmiccoding.com.au"):
     sb = f"* **{p['name']}** ("
     for k, v in links_to_make.items():
         if v in p:
-            sb += f"[{k}]({url}{p[v]}), "
+            link = p[v]
+            if "http" not in link:
+                link = url + link
+            sb += f"[{k}]({link}), "
     sb = sb[:-2]
     sb += f"): {p['desc']}"
     return sb
