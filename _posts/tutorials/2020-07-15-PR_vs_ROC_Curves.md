@@ -130,8 +130,8 @@ When the classes are imbalanced, or you care more about getting a true positive 
 
 Imagine if we look at a dataset with 100 cases in it. Either movies you want to watch, or people with cancer. And there are 100000 negatives (bad movies, healthy patients). Two classifiers, A and B, are run, and both get 99 out of the 100 cases correct; their recall is the same. But classifier A predicts 150 outcomes in total (99 true positives, 51 false positives), and classifier B predicts 1000 cases (99 true positives, 901 false positives). Their precision and FPR is different.
 
-* **Classifier A**: Recall=0.99, Precision=99/150=0.66, FPR=51/(51+10000)=0.0005
-* **Classifier B**: Recall=0.99, Precision=99/1000=0.099, FPR=901/(901+10000)=0.008
+* **Classifier A**: Recall=0.99, Precision=99/150=0.66, FPR=51/(51+100000)=0.0005
+* **Classifier B**: Recall=0.99, Precision=99/1000=0.099, FPR=901/(901+100000)=0.008
 
 By looking at the ROC curve (Recall and FPR), the two classifiers look like they have similarly great performance! Same recall, and the FPR is absolutely tiny! But if we look at the PR curve (Recall and Precision), they look totally difference - one has a precision of 0.66, the other <0.1!
 
