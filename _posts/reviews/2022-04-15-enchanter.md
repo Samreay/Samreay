@@ -4,7 +4,7 @@ title:  "A Review of Tobias Begley's progression fantasy work 'The Enchanter'"
 short_title: "The Enchanter"
 desc: "Crafting, intelligent protagonists, school settings, it's right up my alley."
 long_desc: "If you enjoy intelligent protagonists and academic settings, you'll love this book. It starts a little slow, but its well worth sticking with."
-date: 2022-03-25
+date: 2022-04-15
 categories: [reviews]
 review: A
 val: 19.9
