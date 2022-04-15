@@ -37,7 +37,7 @@ if __name__ == "__main__":
     posts = get_post_list()
     info = [extra_info(p) for p in posts]
 
-    info = sorted(info, key=lambda x: int(x["val"]))
+    info = sorted(info, key=lambda x: float(x["val"]))
     formatted = [format_post(p) for p in info]
 
     here = Path(__file__).parent
