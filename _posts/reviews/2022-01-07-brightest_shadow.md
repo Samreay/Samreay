@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Sarah Lin's The Brightest Shadow - great subversion of a genre trope."
 short_title: "Sarah Lin's The Brightest Shadow"
-desc: "The Chosen One trope is delightfully flipped on its head."
+desc: "Epic fantasy with some progression. The Chosen One trope is delightfully flipped on its head."
 long_desc: "A huge book covering multiple perspectives exploring the coming of the Hero. Kill the Hero, and another arises. Great premise, slower-paced read."
 date: 2022-01-07
 categories: [reviews]

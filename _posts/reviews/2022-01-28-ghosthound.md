@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Noret Flood's 'The Legend of Randidly Ghosthound', a great take on system takeover LitRPG."
 short_title: "The Legend of Randidly Ghosthound"
-desc: "The System takes over Earth, and Randidly becomes a Heretic."
+desc: "System apocalypse LitRPG. The System takes over Earth, and Randidly becomes a Heretic."
 long_desc: "A fun LitRPG adventure with great exploration of skills and systems. It eventual loses itself on Royal Road (well past the Amazon book), but the first book is fantastic."
 date: 2022-01-28
 categories: [reviews]

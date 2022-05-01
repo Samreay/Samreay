@@ -2,8 +2,8 @@
 layout: review_post
 title:  "A Review of Dakota Krout's Divine Dungeon Series."
 short_title:  "A Review of Dakota Krout's Divine Dungeon Series."
-desc: "Great premise. Great start. Less than great ending."
-long_desc: "Great premise. Great start. Less than great ending."
+desc: "LitRPG. Great into to dungeon core. First few books are great. The ending is a bit lacking."
+long_desc: "Great premise. Great start, and it was fun to watch the dungeon grow from a moss farm to something far more. Tarred by a less than great ending."
 date: 2021-02-03
 categories: [reviews]
 review: C

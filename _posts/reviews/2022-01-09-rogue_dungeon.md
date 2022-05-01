@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Jame A. Hunter's Rogue Dungeon. Light-hearted fun."
 short_title: "James A. Hunter's Rogue Dungeon"
-desc: "Not Dungeon Core despite the name, but a fun dungeon-based LitRPG."
+desc: "Reincarnation fantasy LitRPG. Not Dungeon Core despite the name, but a fun dungeon-based settings."
 long_desc: "This was a chill read, nothing revolutionary or exception, but no massive issues either."
 date: 2022-01-09
 categories: [reviews]

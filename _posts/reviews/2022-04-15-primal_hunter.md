@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Zogarth's LitRPG 'The Primal Hunter'"
 short_title: "The Primal Hunter"
-desc: "A system apocalypse LitRPG with all the normal bells and whistles."
+desc: "System apocalypse LitRPG, with all the normal bells and whistles."
 long_desc: "Welcome to the multiverse, and follow Jake as he comes into his unique bloodline and becomes a powerhouse. Plenty of chapters on Royal Road, though the story quickly becomes the MC being super OP and stomping literally everything."
 date: 2022-04-15
 categories: [reviews]

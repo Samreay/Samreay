@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Brent Weeks' Lightbringer Series. Such a promising beginning with such an awful ending."
 short_title:  "A Review of Brent Weeks' Lightbringer Series."
-desc: "A great series with horrific ending."
+desc: "A great fantasy series with horrific ending. Amazing magic system though."
 long_desc: "The magic system is unique, the characters great, and the progression from village boy to Blackguard member fantastic. So when the series ends with deus-ex-machina I was incredibly disappointed."
 name: Lightbringer
 date: 2020-12-28

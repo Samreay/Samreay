@@ -2,7 +2,7 @@
 layout: review_post
 title: A Review of Bryce O'Connor's Iron Prince. Scifi progression on actual digital steroids."
 short_title:  "Bryce O'Connor's Iron Prince."
-desc: "Who needs magic when you have funky alien tech that gives you  the best of fantasy and LitRPG in one swoop."
+desc: "Scifi/progression/LitRPG crossover in an academic settings. Who needs magic when you have funky alien tech that gives you  the best of fantasy and LitRPG in one swoop."
 long_desc: "I took a sick day to finish this massive book rather than wait eight hours to continue reading. That's all you need to know."
 date: 2021-07-20
 categories: [reviews]

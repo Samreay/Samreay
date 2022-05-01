@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of John Bierce's Mage Errant Series. A fun ride with a likeable cast."
 short_title: "John Bierce's Mage Errant Series"
-desc: "A struggling protagonist gets dragged into adventure."
+desc: "Progression fantasy, some academic focused books. A struggling protagonist gets dragged into adventure."
 long_desc: "The main strength of this series is its exploration and great character development. Characters are people who grow both in power, abilities, and as people. I appreciate this a lot."
 date: 2021-11-19
 categories: [reviews]

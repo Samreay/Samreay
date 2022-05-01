@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Chris Fox's Shattered Gods series. A great new entry into progression fantasy."
 short_title: "Chris Fox's Shattered Gods Series"
-desc: "A falling empire, oppressed populace, and gods being reincarnated. Fun times lie ahead."
+desc: "Progression fantasy. A falling empire, oppressed populace, and gods being reincarnated. Fun times lie ahead."
 long_desc: "Fun action that doesn't make any sense, but it's still a great read, with a strong core dynamic between Xal and Saghir."
 date: 2022-01-11
 categories: [reviews]

@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Chugong's Solo Levelling - an engaging take on the genre."
 short_title: "Chugong's Solo Levelling"
-desc: "Perfect wish fulfilment - a world wherein everyone's power is fixed, but you alone can grow stronger."
+desc: "System LitRPG...ish. Perfect wish fulfilment - a world wherein everyone's power is fixed, but you alone can grow stronger."
 long_desc: "Serious writing issues aside, the opening is amazing, the first book very engaging, it only falters in the final volumes."
 date: 2022-01-08
 categories: [reviews]
