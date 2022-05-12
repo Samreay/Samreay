@@ -21,6 +21,7 @@ layout: default
                 <div class="rating">
                     <p class= "rating-{{page.review}}">
                         <span class="leader">{{page.review}}:</span>
+                        {% if page.review == 'M' %}My own work, which means it's amazing, right?{% endif %}
                         {% if page.review == 'S' %}Special place in my heart.{% endif %}
                         {% if page.review == 'A' %}Amazing, definitely read.{% endif %}
                         {% if page.review == 'B' %}Great read with some quibbles.{% endif %}
