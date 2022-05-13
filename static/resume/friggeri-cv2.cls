@@ -19,7 +19,7 @@
 
 \definecolor{darkgray}{HTML}{333333}
 \definecolor{gray}{HTML}{444444}
-\definecolor{lightgray}{HTML}{777777}
+\definecolor{lightgray}{HTML}{999999}
 \definecolor{lightergray}{HTML}{EEEEEE}
 
 
@@ -28,6 +28,7 @@
 \definecolor{purple}{HTML}{A33FF3} %D3A4F9
 \definecolor{red}{HTML}{FB4485} %FB4485
 \definecolor{blue}{HTML}{22ADF2} %6CE0F1
+\definecolor{higlighted}{HTML}{000000} %6CE0F1
 
 \ifdefined\@cv@print
   \colorlet{green}{gray}
