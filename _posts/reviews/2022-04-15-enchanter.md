@@ -6,8 +6,8 @@ desc: "Progression fantasy. Crafting, intelligent protagonists, school setting, 
 long_desc: "If you enjoy intelligent protagonists and academic settings, you'll love this book. It starts a little slow, but its well worth sticking with."
 date: 2022-04-15
 categories: [reviews]
-review: A
-val: 19.9
+review: B
+val: 24.5
 name: "The Enchanter"
 amazon: https://www.amazon.com/Enchanter-Journals-Evander-Tailor-Book-ebook/dp/B09VNDHW49
 goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
