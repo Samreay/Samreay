@@ -6,8 +6,8 @@ desc: "LitRPG fantasy. A delightful and aggressively adorable take on the genre.
 long_desc: "If you thought people could be endearing, you were wrong. Sentient golem teddy bears searching for their kidnapped child, teaming up with the household cat. It's great."
 date: 2021-11-18
 categories: [reviews]
-review: B
-val: 26
+review: C
+val: 32
 name: "Threadbare"
 amazon: https://www.amazon.com/Threadbare-Stuff-Nonsense-Andrew-Seiple-ebook/dp/B078KGS4V4
 goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
