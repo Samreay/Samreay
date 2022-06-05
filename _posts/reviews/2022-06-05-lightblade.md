@@ -37,6 +37,7 @@ This is a frustrating review to write, because one of the best things about this
 
 Look at how diplomatic that heading is.
 
+* The concept of time-dilation in dreams means that Jyosh, as a brand new beginner, is fighting people with years, decades, or even centuries of combat experience. Somehow Jyosh wins these conflicts, and it feels like plot armour.
 * It's always good when the big reveals are foreshadowed and when it happens, everything clicks together. For anyone thats up to date with Cradle, you get this. Or Vader in Star Wars. All the foreshadowing makes sense, and you think "Damn, I knew it!" or "Damn, I should have seen that coming." There are two big reveals in this book, but I didn't think either of those two sentences, I thought "Damn, I wish there was some more buildup or foreshadowing to make this more impactful."
 
 The big, shining caveat to the above is that perhaps there *were* hints about these reveals, but either they passed over my head, or I just wasn't quite smart enough to figure it out.

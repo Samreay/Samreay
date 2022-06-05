@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Andrew Rowe's Arcane Ascension Series: hard magic done right"
 short_title:  "A Review of Andrew Rowe's Arcane Ascension Series."
-desc: "Progression fantasy. Great world, detailed magic, intelligent characters, extraordinarily fun."
+desc: "Progression fantasy in academic setting. Great world, detailed magic, intelligent characters, extraordinarily fun. Crafting and spire/dungeon focus."
 long_desc: "One of my favourites. Intelligent, authentic characters using deep magic systems to creatively solve interesting and unexpected problems."
 date: 2021-01-30
 name: "Arcane Ascension"
