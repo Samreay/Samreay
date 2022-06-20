@@ -42,7 +42,7 @@ sections:
     tpl: other.html
     
 feed:
-  posts_limit: 5
+  posts_limit: 10
   excerpt_only: true
   categories:
     - blog
