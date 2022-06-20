@@ -2,7 +2,6 @@
 {% assign sortedTags = post.tags | sort %}
 <article
   class="w-full flex flex-col review-summary md:flex-row bg-gray-800 rounded-xl review-{{post.review}}"
-  data-aos="fade-up"
   :class="{ 'hidden': is_hidden({{tagList}}) }"
 >
   <div class="bg1">
