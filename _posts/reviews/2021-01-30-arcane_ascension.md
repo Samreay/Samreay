@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/gp/product/B06XBFD7CB
 goodreads: https://www.goodreads.com/book/show/34403860-sufficiently-advanced-magic
 loc: 'reviews/arcane_ascension/'
 permalink: /reviews/arcane_ascension
+tags: [gamelit, crafting, magic-school, hard-magic, in-progress, lgbt]
+sentence: "Corin Cadence searches for his brother, who disappeared in the Serpent Spire."
 ---
 
 *My rating is for the series as a whole as of writing. It's amazing. I'll make sure this review focuses on Book One: Sufficiently Advanced Magic.*

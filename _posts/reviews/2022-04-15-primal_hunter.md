@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Primal-Hunter-LitRPG-Adventure-ebook/dp/B09MV3G8P
 goodreads: https://www.goodreads.com/en/book/show/60111529-the-primal-hunter
 loc: 'reviews/hunter/'
 permalink: /reviews/hunter
+tags: [in-progress, system-apocalypse, litRPG]
+sentence: "On just another average day, Jake finds himself in a forest filled with monsters, dangers, and opportunity..."
 ---
 
 I'm just going to come out and say it. If you've read *Defiance of the Fall* and enjoyed it, you will love *The Primal Hunter*. It has a similar premise, similar (minimal) base-building and progression, but with better characters and less deus ex machina.

@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Into-Labyrinth-Mage-Errant-Book-ebook/dp/B07J675X
 goodreads: https://www.goodreads.com/book/show/42267952-into-the-labyrinth
 loc: 'reviews/mage_errant/'
 permalink: /reviews/mage_errant
+tags: [in-progress, magic-school]
+sentence: "Hugh of Emblin is, so far as he's concerned, the worst student that the Academy at Skyhold has ever seen."
 ---
 
 *This review focuses on first volume. As of writing I've read all five released books and those flavour my opinion.*

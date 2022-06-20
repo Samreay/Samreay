@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Forge-Destiny-1-Yrsillar-ebook/dp/B08P8175Z1
 goodreads: https://www.goodreads.com/en/book/show/43461912-forge-of-destiny
 loc: 'reviews/forge_destiny/'
 permalink: /reviews/forge_destiny
+tags: [cultivation, female-lead, in-progress, magic-school]
+sentence: "A young girl from the slums is found to have the Talent to become an Immortal."
 ---
 
 *Forge of Destiny* starts like many cultivation novels. Plucky young girl from the streets, Ling Qi, has the talent and joins the Sect of Argent Peak. She then struggles to rise up in the inner rankings of the Sect. It has your normal progression systems, spiritual pills, removing impurities, it has moves and techniques, a vide cast of characters, but at the end of the day I wasn't drawn in.

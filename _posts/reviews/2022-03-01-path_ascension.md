@@ -13,6 +13,8 @@ royalroad: https://www.royalroad.com/fiction/40920/the-path-of-ascension
 goodreads: https://www.goodreads.com/book/show/58412607-the-path-of-ascension
 loc: 'reviews/path_ascension/'
 permalink: /reviews/path_ascension
+tags: [in-progress, cultivation, sci-fi]
+sentence: "Matt meets a mysterious couple, who sponsor him on the Path of Ascension."
 ---
 
 This was another read courtesy of recommendations from /r/ProgressionFantasy. It's only on Royal Road (at the time of writing), but I hope it reaches a wider audience soon when the author has a chance to go back and package it all up nicely.

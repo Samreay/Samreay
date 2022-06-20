@@ -180,57 +180,62 @@
     @apply my-0 py-4 px-8 italic border-l-4 border-main-300 text-gray-400;
   }
 
-  .rating {
-    p {
-      @apply text-3xl;
-    }
-    .rating-π {
-      background: var(--grad-m);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: rgba(255, 255, 255, 0.6);
-    }
-    .rating-S {
-      background: var(--grad-s);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: rgba(255, 255, 255, 0.6);
-    }
-    .rating-A {
-      background: var(--grad-a);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: rgba(255, 255, 255, 0.2);
-    }
-    .rating-B {
-      background: var(--grad-b);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: rgba(255, 255, 255, 0.5);
-    }
-    .rating-C {
-      background: var(--grad-c);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: rgba(255, 255, 255, 0.4);
-    }
-    .rating-D {
-      background: var(--grad-d);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: rgba(255, 120, 120, 0.7);
-    }
-    .rating-F {
-      background: var(--grad-f);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: rgba(169, 255, 129, 0.7);
-    }
-    .leader {
-      @apply font-bold;
-    }
+}
+
+.rating {
+  p.larger {
+    @apply text-3xl;
+  }
+  p.small {
+    @apply text-2xl;
+  }
+  .rating-π {
+    background: var(--grad-m);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .rating-S {
+    background: var(--grad-s);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .rating-A {
+    background: var(--grad-a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  .rating-B {
+    background: var(--grad-b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .rating-C {
+    background: var(--grad-c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .rating-D {
+    background: var(--grad-d);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(255, 120, 120, 0.7);
+  }
+  .rating-F {
+    background: var(--grad-f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(169, 255, 129, 0.7);
+  }
+  .leader {
+    @apply font-bold;
   }
 }
+
 .tag-python {
   @apply bg-main-600 text-gray-100 font-medium;
 }
@@ -265,7 +270,73 @@
   background-color: #edb404;
   @apply text-gray-800 font-medium;
 }
-
+.tag-small-author {
+  background-color: #18ad40;
+  @apply text-gray-100 font-medium;
+}
+.tag-time-loops {
+  @apply bg-green-600 text-gray-100 font-medium;
+}
+.tag-finished {
+  @apply bg-blue-600 text-gray-100 font-medium;
+}
+.tag-in-progress {
+  @apply bg-main-600 text-gray-100 font-medium;
+}
+.tag-magic-school {
+  @apply bg-gray-600 text-gray-100 font-medium;
+}
+.tag-gamelit {
+  @apply bg-purple-600 text-gray-100 font-medium;
+}
+.tag-litRPG {
+  @apply bg-green-600 text-gray-100 font-medium;
+}
+.tag-cultivation {
+  @apply bg-purple-600 text-gray-100 font-medium;
+}
+.tag-hard-magic {
+  @apply bg-blue-500 text-gray-100 font-medium;
+}
+.tag-lgbt {
+  @apply bg-red-500 text-gray-100 font-medium;
+}
+.tag-female-lead {
+  background-color: #edb404;
+  @apply text-gray-800 font-medium;
+}
+.tag-crafting {
+  background-color: #ad0a95;
+  @apply text-gray-100 font-medium;
+}
+.tag-sci-fi {
+  background-color: #361c9c;
+  @apply text-gray-100 font-medium;
+}
+.tag-system-apocalypse {
+  background-color: #961515;
+  @apply text-gray-100 font-medium;
+}
+.tag-wholesome {
+  background-color: #469605;
+  @apply text-gray-100 font-medium;
+}
+.tag-isekai {
+  background-color: #b88227;
+  @apply text-gray-100 font-medium;
+}
+.tag-dungeon-core {
+  background-color: #c04e07;
+  @apply text-gray-100 font-medium;
+}
+.tag-VRMMO {
+  background-color: #1a9183;
+  @apply text-gray-100 font-medium;
+}
+.tag-parody {
+  background-color: #911a67;
+  @apply text-gray-100 font-medium;
+}
 // Turn white images to dark mode
 .img-invert {
   filter: invert(1) hue-rotate(180deg) brightness(1.2) saturate(1.3);

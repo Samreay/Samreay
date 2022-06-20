@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Iron-Prince-Warformed-Stormweaver-Book-ebook/dp/B
 goodreads: https://www.goodreads.com/book/show/55559974-iron-prince
 loc: 'reviews/iron_prince/'
 permalink: /reviews/iron_prince
+tags: [gamelit, in-progress, magic-school, sci-fi]
+sentence: "Reidon Ward will become a god. He doesn't know it yet, of course."
 ---
 
 I normally approach scifi with skepticism. I studied astrophysics, and physics is a harsh mistress that is all to easy to try and abuse in works of science fiction. There's one surefire way around this - magical tech. Or in this case, alien tech that is so advanced it might as well be magic. And with the soft scifi setting established, this allows Bryce to draw the best from fantasy, the best from LitRPG levelling, and combine them to make one of the best progression fantasy stories I have read in years.

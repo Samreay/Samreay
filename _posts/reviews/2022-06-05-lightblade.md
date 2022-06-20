@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Lightblade-Progression-Fantasy-Epic-Saga-ebook/dp
 goodreads: https://www.goodreads.com/book/show/61122434-lightblade
 loc: 'reviews/lightblade/'
 permalink: /reviews/lightblade
+tags: [in-progress, sci-fi, small-author]
+sentence: "In three days, Jyosh will slay the God Emperor, or die trying."
 ---
 
 *Disclosure: I received this book in advance and without cost in exchange for an honest review. Counter-disclosure: I already pay for KU, so I would have been able to read it for 'free' anyway.*

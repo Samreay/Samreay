@@ -13,6 +13,8 @@ amazon: https://www.amazon.co.uk/Black-Prism-Book-Lightbringer/dp/1841499048
 goodreads: https://www.goodreads.com/series/291662-lightbringer
 loc: 'reviews/lightbringer/'
 permalink: /reviews/lightbringer
+tags: [finished, hard-magic]
+sentence: "Kip and the Prism face down the color-wights, but who's actually in the right?"
 ---
 
 *This review will have some light spoilers.*

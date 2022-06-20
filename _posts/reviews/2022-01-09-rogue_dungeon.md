@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Rogue-Dungeon-litRPG-Adventure-Book-ebook/dp/B07F
 goodreads: https://www.goodreads.com/series/239590-the-rogue-dungeon
 loc: 'reviews/rogue_dungeon/'
 permalink: /reviews/rogue_dungeon
+tags: [in-progress, isekai, litRPG]
+sentence: "Build. Evolve. Conquer. Welcome to the Dungeon..."
 ---
 
 *Review based on reading the first three books: Rogue Dungeon, Civil War, and Troll Nation.*

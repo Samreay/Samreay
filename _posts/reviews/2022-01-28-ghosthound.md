@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Legend-Randidly-Ghosthound-LitRPG-Adventure-ebook
 goodreads: https://www.goodreads.com/en/book/show/59089569-the-legend-of-randidly-ghosthound
 loc: 'reviews/ghosthound/'
 permalink: /reviews/ghosthound
+tags: [in-progress, system-apocalypse, litRPG]
+sentence: "Randidly wakes up to a new Earth, with Levels, Skills, monsters, and the possibility of death..."
 ---
 
 *Note: I've read the Amazon Book One, and then Royal Road chapters up to around Chapter 300 (ie many books worth). This review uses all of the content I've read, but I'll make sure to separate book vs royal road if you're thinking of buying. Actually, scrap that, just buy the first book, its great, and then continue on RR if you want.*

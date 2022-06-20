@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Enchanter-Journals-Evander-Tailor-Book-ebook/dp/B
 goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
 loc: 'reviews/enchanter/'
 permalink: /reviews/enchanter
+tags: [in-progress, crafting, magic-school, lgbt, small-author, hard-magic]
+sentence: "Evan heads to Yesgol Academy of Magic, a place filled with the children of the elite, and the occasional extraplanar horror."
 ---
 
 Let's get the obvious out the way and let me expand on the description above. If you've read the *Arcane Ascension* series and loved Corin's approach to life, just save yourself some time, click the amazon link above, and go and get this book. If you haven't, but you've read *Mother of Learning* and appreciated Zorian there, same comment.

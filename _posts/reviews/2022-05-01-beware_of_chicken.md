@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Beware-Chicken-Xianxia-Cultivation-Novel-ebook/dp
 goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
 loc: 'reviews/chicken/'
 permalink: /reviews/chicken
+tags: [in-progress, cultivation, wholesome]
+sentence: "A laugh-out-loud, slice-of-life martial-arts fantasy about . . . farming????"
 ---
 
 *As of writing this review, I have read all 212 published chapters on Royal Road.*

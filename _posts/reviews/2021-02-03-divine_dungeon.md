@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Divine-Dungeon-Complete-GameLit-Fantasy-ebook/dp/
 goodreads: https://www.goodreads.com/series/192510-the-divine-dungeon
 loc: 'reviews/divine_dungeon/'
 permalink: /reviews/divine_dungeon
+tags: [litRPG, crafting, finished, dungeon-core]
+sentence: "A powerful dungeon. A sheep-herder turned Noble. Their path to ascendance through cultivation."
 ---
 
 This is another series I've read which I got instantly hooked on with a great premise, only to feel a bit let down at the conclusion many books later.

@@ -8,11 +8,13 @@ date: 2022-06-05
 categories: [reviews]
 review: D
 val: 44
-name: "Lightblade"
+name: "The Last Physicist"
 amazon: https://www.amazon.com/Last-Physicist-Gamelit-Fantasy-Adventure-ebook/dp/B091P52QPM
 goodreads: https://www.goodreads.com/book/show/57699481-the-last-physicist
 loc: 'reviews/physicist/'
 permalink: /reviews/physicist
+tags: [in-progress, isekai, litRPG, small-author]
+sentence: "A particle physicist finds himself in a magical world."
 ---
 
 For those coming here from reddit or similar, I'll come clean. I had high expectations for this book. As a physicist myself, a book about a physicist using the scientific method to put some hard rules to magic and delve into the mechanics had me almost giddy with excitement. So I dove into this book, and, I'll be frank, came away disappointed.
@@ -40,7 +42,7 @@ Okay, so let's just break this down;.
 
 ### Things that made it fall apart:
 
-* **Progression isn't earned.** The MC literally starts his reincarnation per se with incredibly OP powers that trivialises all changes.
+* **Progression isn't earned.** The MC literally starts his reincarnation per se with incredibly OP powers that trivialises all challenges.
 * **Progression is made up and stats don't make sense.** The power scaling of the book is explicitly "Each level is twice as powerful as the prior one." And yet, right at the start of the book (literally less than 5% of the way in), Will hits something with the energy the energy of 400 kilograms of TNT. By the end of the book, when he is canonically more than a million times stronger, he's still hitting things this hard. His power is effectively as weak or strong as the plot needs. On top of this, if you are going to have power scales be exponential, but then constantly have Will defeat creatures which are explicitly stated to be a thousand to a million times stronger than him... the power scale sort of stops having any meaning?
 * **Will barely uses the scientific method.** All investigation is done by the prompting of the AI, and when will makes a breakthrough, it is *always* because of some intuition, or feeling, or some vague sense, and never by rational inquiry. If the whole point of the book is having someone come in and break down a magic system to exploit it, why is that pretty much absent from the book?
 

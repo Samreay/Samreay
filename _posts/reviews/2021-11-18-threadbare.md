@@ -13,6 +13,8 @@ amazon: https://www.amazon.com/Threadbare-Stuff-Nonsense-Andrew-Seiple-ebook/dp/
 goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
 loc: 'reviews/threadbare/'
 permalink: /reviews/threadbare
+tags: [finished, litRPG, small-author]
+sentence: "Meet Threadbare. He is twelve inches tall, full of fluff, and really, really bad at being a hero."
 ---
 
 *This review focuses on the trilogy as a whole, not subsequent entries.*
