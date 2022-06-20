@@ -41,10 +41,17 @@ sections:
   - id: other
     tpl: other.html
     
+feed:
+  posts_limit: 5
+  excerpt_only: true
+  categories:
+    - blog
+    - reviews
 
 plugins:
   - jekyll-seo-tag
   - jekyll-redirect-from
+  - jekyll-feed
 
 
 exclude: 
