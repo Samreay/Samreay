@@ -62,3 +62,6 @@ exclude:
   - postcss.config.js
   - readme.md
   - node_modules
+
+kramdown:
+  smart_quotes: apos,apos,quot,quot
