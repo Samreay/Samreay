@@ -4,13 +4,13 @@ title:  "Reflections on my own 'Soul Relic'"
 short_title: "Soul Relic"
 desc: "Female-lead cultivation novel with a hard magic system. A young woman with a broken soul joins her brother to find a solution in the wider world."
 long_desc: "My attempt at putting harder rules to the Cultivation genre, while also trying to avoid all the normal tropes."
-date: 2022-07-01
+date: 2022-06-20
 categories: [reviews]
 review: π
 val: 0
 name: "Soul Relic"
-amazon: link1
-goodreads: link2
+amazon: https://www.amazon.com/dp/B0B46Q18WK
+goodreads: https://www.goodreads.com/book/show/61324650-soul-relic
 loc: 'reviews/soul_relic/'
 permalink: /reviews/soul_relic
 ---
