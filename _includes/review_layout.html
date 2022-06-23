@@ -57,13 +57,19 @@
             tags: tags,
             active: [],
             click_tag(tag) {
-                console.log("CLICKING ON ", tag, " ACTIVE IS ", this.active);
                 // figure out if one tag is active
                 if (this.active.includes(tag)) {
                     this.active = this.active.filter(function(item) {
                         return item !== tag;
                     });
                 } else {
+                    // check to see if this is a single length string, in which case we would remove the other single length ones
+                    if (tag.length === 1) {
+                        this.active = this.active.filter(function(item) {
+                            return item.length > 1;
+                        });
+                    }
+
                     this.active.push(tag);
                 }
                 setTimeout(() => {
