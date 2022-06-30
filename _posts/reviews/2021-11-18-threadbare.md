@@ -7,14 +7,14 @@ long_desc: "If you thought people could be endearing, you were wrong. Sentient g
 date: 2021-11-18
 categories: [reviews]
 review: C
-val: 32
+val: 35
 name: "Threadbare"
 amazon: https://www.amazon.com/Threadbare-Stuff-Nonsense-Andrew-Seiple-ebook/dp/B078KGS4V4
 goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
 loc: 'reviews/threadbare/'
 permalink: /reviews/threadbare
 tags: [finished, litRPG, small-author]
-sentence: "Meet Threadbare. He is twelve inches tall, full of fluff, and really, really bad at being a hero."
+sentence: "Meetreadbare. He is twelve inches tall, full of fluff, and really, really bad at being a hero."
 ---
 
 *This review focuses on the trilogy as a whole, not subsequent entries.*

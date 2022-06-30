@@ -6,8 +6,8 @@ desc: "System apocalypse LitRPG. The System takes over Earth, and Randidly becom
 long_desc: "A fun LitRPG adventure with great exploration of skills and systems. It eventual loses itself on Royal Road (well past the Amazon book), but the first book is fantastic."
 date: 2022-01-28
 categories: [reviews]
-review: B
-val: 26
+review: C
+val: 33
 name: "The Legend of Randidly Ghosthound"
 amazon: https://www.amazon.com/Legend-Randidly-Ghosthound-LitRPG-Adventure-ebook/dp/B09BNSH5KG
 goodreads: https://www.goodreads.com/en/book/show/59089569-the-legend-of-randidly-ghosthound
