@@ -2,7 +2,7 @@
 layout: review_post
 title:  "Tao Wong's A Thousand Li - classical cultivation doled out sparingly"
 short_title: "Tao Wong's A Thousand Li Series"
-desc: "Cultivation with sect focus. Good premise ruined with incredibly slow pacing."
+desc: "Cultivation with sect focus. Good premise, slow pacing, tends towards slice-of-life."
 long_desc: "After four books I put this series down because I was having trouble connecting and staying interesting. I enjoyed the first book and hoped the series would pick up, but it lost itself in its scope."
 date: 2021-06-01
 categories: [reviews]
