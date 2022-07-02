@@ -6,8 +6,8 @@ desc: "Cultivation with sect focus. Good premise, slow pacing, tends towards sli
 long_desc: "After four books I put this series down because I was having trouble connecting and staying interesting. I enjoyed the first book and hoped the series would pick up, but it lost itself in its scope."
 date: 2021-06-01
 categories: [reviews]
-review: C
-val: 39.9
+review: D
+val: 43.9
 name: "A Thousand Li"
 amazon: https://www.amazon.co.uk/gp/product/B07PKGSDDQ
 goodreads: https://www.goodreads.com/en/book/show/44327636-the-first-step
@@ -16,6 +16,8 @@ permalink: /reviews/thousand_li
 tags: [cultivation, in-progress, magic-school]
 sentence: "Given a chance at immortality, can Wu Ying grasp the fleeting opportunity?"
 ---
+
+*Disclaimer: Due to Tao Wong [filing infringement notices against LitRPG authors](https://www.reddit.com/r/ProgressionFantasy/comments/vp7ork/tao_wong_author_of_a_thousand_li_the_first_step/) for using "System" and "Apocalypse", I'm not continuing with this series. There are plenty of authors who add positively to this community that I can support instead of someone who tries to tear it down.*
 
 I had heard great things about this series, and *A Thousand Li* is a staple on the cultivation and progression fantasy reading lists. So take this review with a grain of salt, that obviously my take here may not be reflective of the wider community.
 
