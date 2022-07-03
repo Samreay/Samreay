@@ -55,7 +55,7 @@ Here is what happened to me, for a great "Don't be like this"
 
 Save yourself the pain, get a custom email domain.
 
-# Oh no, my ARC readers cant leave a review
+# Oh no, my ARC readers can't leave a review
 
 **FUN** fact, but pre-order ebook listings are *not eligible for reviews.*
 
