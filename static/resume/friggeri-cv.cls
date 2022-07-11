@@ -63,6 +63,7 @@
 
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX]{unicode-math}
+\RequirePackage{setspace}
 
 \newfontfamily\bodyfont[]{Open Sans}
 \newfontfamily\thinfont[]{Open Sans Light}
@@ -71,6 +72,8 @@
 \defaultfontfeatures{Mapping=tex-text}
 \setmathfont{latinmodern-math.otf}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Open Sans Light}
+
+\renewcommand{\baselinestretch}{1.2} 
 
 %\setmathfont{XITS Math}
 
@@ -106,6 +109,7 @@
 % Structure %
 %%%%%%%%%%%%%
 \RequirePackage{parskip}
+\RequirePackage{enumitem}
 
 \newcounter{colorCounter}
 \def\@sectioncolor#1{%
@@ -156,26 +160,26 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t][][t]{14.0cm}{%
+  #1&\parbox[t][][t]{15cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
 \newcommand{\entryInline}[4]{%
-  #1&\parbox[t]{14.0cm}{%
+  #1&\parbox[t]{15.0cm}{%
     \textbf{#2} \ \ {\footnotesize\addfontfeature{Color=lightgray} #4}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
 \newcommand{\entryInlineSmall}[4]{%
-  #1&\parbox[t]{14.0cm}{%
+  #1&\parbox[t]{15.0cm}{%
     \textbf{#2} %
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   } \vspace{0mm}}
 \newcommand{\entrysmall}[4]{%
-  #1&\parbox[t]{14.0cm}{%
+  #1&\parbox[t]{15.0cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
