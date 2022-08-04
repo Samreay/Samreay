@@ -2,7 +2,7 @@
 layout: review_post
 title:  "A Review of Yrsillar's Forge of Destiny"
 short_title:  "A Review of Yrsillar's Forge of Destiny"
-desc: "Slice-of-life cultivation. Academia/sect focus. Interesting read, but quite slow."
+desc: "Slice-of-life cultivation. Academia/sect focus. Chill read with slower pacing and lower stakes."
 long_desc: "Sect focused cultivation novel with a cute pet, but ultimately highly predictable with no larger plot to draw you in."
 date: 2021-05-26
 categories: [reviews]
