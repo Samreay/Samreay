@@ -15,6 +15,8 @@ Thanks to John Bierce, Bryce O'Connor, Phil Tucker, J.R. Mathews, Tobias Begley,
 
 Some of this is obvious, others not as much. Here's a rough timeline of how I would go about things if I had to start over.
 
+Full disclosure here: I am a *debut* author. I am not an expert, and if someone with more experience reads this and thinks "No, no, no, you should do *this* instead," please reach out to me so I can update this write-up and learn something along the way.
+
 # 1. Write a draft
 
 Alright this is pretty obvious. For me this involves deeper and deeper outlines until I write the actual prose, but write however works for you.
