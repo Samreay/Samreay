@@ -9,7 +9,7 @@ loc: 'blog/publishing/'
 permalink: /blog/publishing
 ---
 
-While writing up Soul Relic, I reached out to a *lot* of authors for their advice in getting the novel off the ground.
+While writing up [**Soul Relic**](https://www.amazon.com/dp/B0B46Q18WK), I reached out to a *lot* of authors for their advice in getting the novel off the ground.
 
 Thanks to John Bierce, Bryce O'Connor, Phil Tucker, J.R. Mathews, Tobias Begley, Travis M. Riddle, and everyone I've also pestered on reddit.
 
@@ -17,7 +17,7 @@ Some of this is obvious, others not as much. Here's a rough timeline of how I wo
 
 # 1. Write a draft
 
-Alright this is pretty obvious.
+Alright this is pretty obvious. For me this involves deeper and deeper outlines until I write the actual prose, but write however works for you.
 
 # 2. Get a professional developmental and line edit done
 
