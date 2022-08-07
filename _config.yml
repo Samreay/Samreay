@@ -26,8 +26,8 @@ author:
 sections:
   - id: about
     tpl: about.html
-  - id: latest
-    tpl: latest.html
+  # - id: latest
+  #   tpl: latest.html
   - id: books
     tpl: books.html
   - id: blogs
