@@ -9,7 +9,7 @@ categories: [reviews]
 review: π
 val: 0
 name: "Soul Relic"
-amazon: https://www.amazon.com/dp/B0B46Q18WK
+amazon: https://mybook.to/SoulRelic
 goodreads: https://www.goodreads.com/book/show/61324650-soul-relic
 loc: 'reviews/soul_relic/'
 permalink: /reviews/soul_relic
