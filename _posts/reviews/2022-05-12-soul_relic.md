@@ -7,7 +7,7 @@ long_desc: "My attempt at putting harder rules to the Cultivation genre, while a
 date: 2022-06-20
 categories: [reviews]
 review: π
-val: 0
+val: 19.9
 name: "Soul Relic"
 amazon: https://mybook.to/SoulRelic
 goodreads: https://www.goodreads.com/book/show/61324650-soul-relic
