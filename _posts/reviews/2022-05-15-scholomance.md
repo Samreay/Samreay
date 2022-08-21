@@ -7,7 +7,7 @@ long_desc: "Amazing characters, a unique and refreshing take on magic schools, a
 date: 2022-05-15
 categories: [reviews]
 review: A
-val: 19.5
+val: 15
 name: "The Scholomance Series"
 amazon: https://www.amazon.com/Deadly-Education-Novel-Scholomance-Book-ebook/dp/B083RZC8KQ
 goodreads: https://www.goodreads.com/series/282152-the-scholomance

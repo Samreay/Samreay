@@ -7,7 +7,7 @@ long_desc: "The main strength of this series is its exploration and great charac
 date: 2021-11-19
 categories: [reviews]
 review: A
-val: 19
+val: 14
 name: "Mage Errant"
 amazon: https://www.amazon.com/Into-Labyrinth-Mage-Errant-Book-ebook/dp/B07J675X2C
 goodreads: https://www.goodreads.com/book/show/42267952-into-the-labyrinth

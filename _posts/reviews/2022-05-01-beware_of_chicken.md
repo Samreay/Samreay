@@ -7,7 +7,7 @@ long_desc: "After being reincarnated in the body of a cultivation student, Jin d
 date: 2022-05-01
 categories: [reviews]
 review: B
-val: 23
+val: 22
 name: "Beware of Chicken"
 amazon: https://www.amazon.com/Beware-Chicken-Xianxia-Cultivation-Novel-ebook/dp/B09Y6RQSHM
 goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
