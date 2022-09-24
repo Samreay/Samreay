@@ -2,3 +2,8 @@
   cover: static/img/landing/book1.jpg
   desc: "Manifestation 1: Soul Relic"
   link: https://mybook.to/SoulRelic
+
+- name: Scion of Storms
+  cover: static/img/landing/book2.jpg
+  desc: "Manifestation 2: Scion of Storms"
+  link: https://cosmiccoding.com.au/blog/scion_of_storms_prologue
