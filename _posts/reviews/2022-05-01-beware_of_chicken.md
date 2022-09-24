@@ -6,8 +6,8 @@ desc: "Slice of life cultivation novel, very wholesome, about a reincarnated per
 long_desc: "After being reincarnated in the body of a cultivation student, Jin decides to get as far away as possible. The second book has some slow pacing issues, but the first is incredibly wholesome and a pure delight to read."
 date: 2022-05-01
 categories: [reviews]
-review: B
-val: 22
+review: A
+val: 19
 name: "Beware of Chicken"
 amazon: https://www.amazon.com/Beware-Chicken-Xianxia-Cultivation-Novel-ebook/dp/B09Y6RQSHM
 goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
