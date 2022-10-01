@@ -18,7 +18,7 @@ tags: [litRPG, isekai, female-lead, in-progress, lgbt]
 sentence: "Broccoli Bunch goes on a cute and wholesome adventure."
 ---
 
-As readers of this genre know, LitRPG worlds can be a depressing, harrowing, and cut-throat place. Half of the MC's I've read in other works get ahead because this suits them just fine. They're happen to fight, happy get their hands dirty, happy to shake the system up. In many ways, that's part of the escapism. Having power. 
+As readers of this genre know, LitRPG worlds can be a depressing, harrowing, and cut-throat place. Half of the MC's I've read in other works get ahead because this suits them just fine.  They're happy to fight, happy to get their hands dirty, happy to shake the system up. In many ways, that's part of the escapism. Having power. 
 
 *Cinnamon Bun* has a slightly different take. The world is less apocalyptic in fashion, and our main character, Broccoli Bunch, just wants to go on cool adventures and make friends. She's been transported to a new world, but thankfully the original Earth is going fine. Her parents and friends haven't all died, never to be dealt with again. No, this is a wholesome story.
 
