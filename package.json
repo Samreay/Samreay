@@ -9,7 +9,7 @@
         "serve": "bundle exec jekyll serve --config _config.yml,_config-dev.yml",
         "build": "npm run css:rel && jekyll build",
         "css:dev": "parcel watch styles/index.scss static/js/index.js --out-dir static --no-source-maps",
-        "css:rel": "parcel build styles/index.scss static/js/index.js --out-dir static --no-source-maps"
+        "css:rel": "parcel build styles/index.scss static/js/index.js --out-dir static --no-source-maps --no-cache --experimental-scope-hoisting"
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^3.0.0",
