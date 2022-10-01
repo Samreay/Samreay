@@ -3,7 +3,7 @@ layout: review_post
 title:  "A review of RavensDagger's 'Cinnamon Bun'"
 short_title: "Cinnamon Bun"
 desc: "A wholesome isekai in a LitRPG world wherein our female lead goes on friendship-making adventures."
-long_desc: "If you're a burnt out with psychopathic MCs... this will cleanse your palette. Light-hearted, wholesome, incredibly cute, Broccoli Bunch is a joy to read about."
+long_desc: "If you're burnt out with psychopathic MCs... this will cleanse your palette. Light-hearted, wholesome, incredibly cute, Broccoli Bunch is a joy to read about."
 date: 2022-09-23
 categories: [reviews]
 review: B
