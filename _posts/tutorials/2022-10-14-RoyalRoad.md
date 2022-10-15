@@ -220,8 +220,8 @@ df = df.rename(columns={
     "ratingValue": "Rating"
 })
 df.columns = [x.replace('_', " ").replace("-", " ").title() for x in df.columns]
-df = df.sort_values(["Followers",  "Patron Count"], ascending=False).reset_index(drop=True)
-df = df.drop_duplicates(subset=["Title", "Author"], keep="first") 
+df = df.sort_values(["Followers",  "Patron Count"], ascending=False)
+df = df.drop_duplicates(subset=["Title", "Author"], keep="first").reset_index(drop=True)
 # Actually for some reason some of these explicit floats are being turned into strings?
 for c in df:
     try:
@@ -229,7 +229,7 @@ for c in df:
     except:
         pass
 df.to_csv(save_dir / "stats.csv", index=False)
-df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
+df.head(25)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
 ```
 </div>
 
@@ -275,7 +275,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>3031.0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>He Who Fights With Monsters</td>
       <td>Shirtaloon (Travis Deverell)</td>
       <td>19984.0</td>
@@ -283,7 +283,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>6932.0</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>The Primal Hunter</td>
       <td>Zogarth</td>
       <td>19511.0</td>
@@ -291,7 +291,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>3824.0</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>4</th>
       <td>Paranoid Mage</td>
       <td>InadvisablyCompelled</td>
       <td>18470.0</td>
@@ -299,7 +299,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>2390.0</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>5</th>
       <td>Delve</td>
       <td>SenescentSoul</td>
       <td>18291.0</td>
@@ -307,7 +307,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>1816.0</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>6</th>
       <td>Defiance of the Fall</td>
       <td>TheFirstDefier</td>
       <td>15283.0</td>
@@ -315,7 +315,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>3866.0</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>7</th>
       <td>Mark of the Fool</td>
       <td>J.M. Clarke (U Juggernaut)</td>
       <td>14415.0</td>
@@ -323,7 +323,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>993.0</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>8</th>
       <td>There is no Epic Loot here, Only Puns.</td>
       <td>stewart92</td>
       <td>14254.0</td>
@@ -331,7 +331,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>949.0</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>9</th>
       <td>Salvos (A Monster Evolution LitRPG)</td>
       <td>MelasDelta</td>
       <td>14088.0</td>
@@ -339,7 +339,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>1186.0</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>10</th>
       <td>Beneath the Dragoneye Moons</td>
       <td>Selkie</td>
       <td>13668.0</td>
@@ -347,7 +347,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>3338.0</td>
     </tr>
     <tr>
-      <th>17</th>
+      <th>11</th>
       <td>Chrysalis</td>
       <td>RinoZ</td>
       <td>13636.0</td>
@@ -355,7 +355,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>1365.0</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>12</th>
       <td>The Path of Ascension</td>
       <td>C_Mantis</td>
       <td>12491.0</td>
@@ -363,7 +363,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>1903.0</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>13</th>
       <td>Vainqueur the Dragon</td>
       <td>Maxime J. Durand (Void Herald)</td>
       <td>12394.0</td>
@@ -371,7 +371,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>464.0</td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>14</th>
       <td>Sylver Seeker</td>
       <td>Kennit Kenway</td>
       <td>12326.0</td>
@@ -379,7 +379,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>NaN</td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>15</th>
       <td>Blue Core</td>
       <td>InadvisablyCompelled</td>
       <td>12253.0</td>
@@ -387,7 +387,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>2390.0</td>
     </tr>
     <tr>
-      <th>28</th>
+      <th>16</th>
       <td>The New World</td>
       <td>Monsoon117</td>
       <td>11964.0</td>
@@ -395,7 +395,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>463.0</td>
     </tr>
     <tr>
-      <th>29</th>
+      <th>17</th>
       <td>The Runesmith</td>
       <td>Kuropon</td>
       <td>11501.0</td>
@@ -403,7 +403,7 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>567.0</td>
     </tr>
     <tr>
-      <th>31</th>
+      <th>18</th>
       <td>Forge of Destiny</td>
       <td>Yrsillar</td>
       <td>11469.0</td>
@@ -411,12 +411,52 @@ df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
       <td>418.0</td>
     </tr>
     <tr>
-      <th>33</th>
+      <th>19</th>
       <td>The Calamitous Bob</td>
       <td>Mecanimus</td>
       <td>11209.0</td>
       <td>4.733860</td>
       <td>2027.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Jackal Among Snakes</td>
+      <td>Nemorosus</td>
+      <td>11144.0</td>
+      <td>4.710550</td>
+      <td>805.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Metaworld Chronicles</td>
+      <td>Wutosama</td>
+      <td>11050.0</td>
+      <td>4.541275</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Tree of Aeons (An isekai story)</td>
+      <td>spaizzzer</td>
+      <td>10926.0</td>
+      <td>4.517970</td>
+      <td>819.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>A Journey of Black and Red</td>
+      <td>Mecanimus</td>
+      <td>10643.0</td>
+      <td>4.750410</td>
+      <td>2027.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>The Essence of Cultivation</td>
+      <td>Agranulocytosis</td>
+      <td>10546.0</td>
+      <td>4.727825</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
@@ -765,8 +805,8 @@ df = df.rename(columns={
     "ratingValue": "Rating"
 })
 df.columns = [x.replace('_', " ").replace("-", " ").title() for x in df.columns]
-df = df.sort_values(["Followers",  "Patron Count"], ascending=False).reset_index(drop=True)
-df = df.drop_duplicates(subset=["Title", "Author"], keep="first") 
+df = df.sort_values(["Followers",  "Patron Count"], ascending=False)
+df = df.drop_duplicates(subset=["Title", "Author"], keep="first").reset_index(drop=True)
 # Actually for some reason some of these explicit floats are being turned into strings?
 for c in df:
     try:
@@ -774,7 +814,7 @@ for c in df:
     except:
         pass
 df.to_csv(save_dir / "stats.csv", index=False)
-df.head(20)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
+df.head(25)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
 
 def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], qys=None, bins=50, xlim=None, qfmt="%0.0f", **kw):
     if xlim is None:
