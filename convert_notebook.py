@@ -139,14 +139,14 @@ for i, l in enumerate(data):
             include_code = False
         if "main" in l and "carbon" not in l:
             main_img = loc
-            extension = loc.split('.')[-1]
+            extension = loc.split(".")[-1]
             if "remove_main" in l:
                 data[img_index] = ""
             else:
                 data[img_index] = data[img_index].replace(loc, f"main.{extension}")
             print(f"Found main image {loc}")
             data[i] = ""
-    if "RuntimeWarning" in l or "DeprecationWarning" in l:
+    if "RuntimeWarning" in l or "DeprecationWarning" in l or "Anaconda" in l:
         data[i] = ""
         data[i + 1] = ""
     if "from ipykernel" in l or "texmanager" in l:
@@ -249,7 +249,7 @@ def add_wrapper_to_code(data, code_start, code_end, i, extra_class):
     elif maxl > 70:
         extra_class += " expanded-code"
     data.insert(code_start - 1, f'<div class="{extra_class}" markdown="1">\n')
-    data.insert(code_end + 2, '</div>\n')
+    data.insert(code_end + 2, "</div>\n")
     i += 2
     return i, extra_class
 
@@ -301,10 +301,10 @@ while i < len(data):
     if add_wrapper and i > code_end and l and not l.isspace():
         add_wrapper = False
         i, extra_class = add_wrapper_to_code(data, code_start, code_end, i, extra_class)
-        
+
     i += 1
 
-        # data[i] = f'{{% include image.html url="{img}" class="img-carbon {extra_class}" %}}\n'
+    # data[i] = f'{{% include image.html url="{img}" class="img-carbon {extra_class}" %}}\n'
 
 
 for i, l in enumerate(data):
@@ -328,7 +328,7 @@ if include_code:
     data.append("\n")
     data += rest
     data.append("```\n")
-    data.append('</div>')
+    data.append("</div>")
 
 if "---" not in data[0]:
     data.insert(0, "---\n")
@@ -366,7 +366,9 @@ if main_img is None:
 else:
     print(f"Main image is found as {main_img}")
     extension = main_img.split(".")[-1]
-    shutil.move(os.path.join(desired_img_dir, main_img), os.path.join(desired_img_dir, f"main.{extension}"))
+    shutil.move(
+        os.path.join(desired_img_dir, main_img), os.path.join(desired_img_dir, f"main.{extension}")
+    )
 
 for file in to_copy:
     og = os.path.join(dir_name, file)
