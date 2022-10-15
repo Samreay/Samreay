@@ -92,7 +92,7 @@ for i, l in enumerate(data):
         l = l.replace(a, b)
 
     data[i] = l
-    if "###REMOVE" in l:
+    if "###REMOVE" in l or "### REMOVE" in l:
         data[i] = ""
     if l.startswith("![png]"):
         loc = l.split("[png]")[1][1:-2].split("/")[1]

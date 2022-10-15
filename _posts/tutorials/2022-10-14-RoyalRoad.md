@@ -483,10 +483,6 @@ def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], qys=None, bins=50, xlim=N
         qstr = qfmt % q_val
         ax.axvline(q_val, alpha=0.5, ls=":", lw=1)
         ax.annotate(f"{1-q:0.0%} > {qstr} {c}", (q_val, max_y * qy))
-    ax.get_yaxis().set_visible(False) ### REMOVE
-    ax.spines.right.set_visible(False) ### REMOVE
-    ax.spines.top.set_visible(False) ### REMOVE
-    ax.spines.left.set_visible(False) ### REMOVE
     
 def plot_followers(df, ax, **kw):
     plot_hist(df, ax, "Followers", bins=100, qys=[1.01, 0.1, 0.01], xlim=(0, 6000), **kw)
@@ -565,7 +561,7 @@ The higher conversion rate numbers might be unreliable. This assumes that the RR
 
 <div class=" expanded-code" markdown="1">
 ```python
-# Covnersion between Followers/Favourites to Patreon count
+# Curious about the average value of each patron
 def plot_pvalue(df, ax):
     plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", qys=[1.01, 0.4, 0.1], color=pcolor)
 
@@ -829,10 +825,6 @@ def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], qys=None, bins=50, xlim=N
         qstr = qfmt % q_val
         ax.axvline(q_val, alpha=0.5, ls=":", lw=1)
         ax.annotate(f"{1-q:0.0%} > {qstr} {c}", (q_val, max_y * qy))
-    ax.get_yaxis().set_visible(False) ### REMOVE
-    ax.spines.right.set_visible(False) ### REMOVE
-    ax.spines.top.set_visible(False) ### REMOVE
-    ax.spines.left.set_visible(False) ### REMOVE
     
 def plot_followers(df, ax, **kw):
     plot_hist(df, ax, "Followers", bins=100, qys=[1.01, 0.1, 0.01], xlim=(0, 6000), **kw)
@@ -877,7 +869,7 @@ def plot_prate(df, ax):
 fig, ax = plt.subplots()
 plot_prate(df_established, ax)
 
-# Covnersion between Followers/Favourites to Patreon count
+# Curious about the average value of each patron
 def plot_pvalue(df, ax):
     plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", qys=[1.01, 0.4, 0.1], color=pcolor)
 
