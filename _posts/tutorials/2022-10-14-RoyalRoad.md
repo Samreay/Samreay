@@ -44,6 +44,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import numpy as np
 import pandas as pd
 import requests
+from scipy.interpolate import interp1d
 import seaborn as sb
 
 client = httpx.AsyncClient()
@@ -470,35 +471,36 @@ Let's just have a quick look at the distribution of Followers, because I imagine
 
 <div class=" expanded-code" markdown="1">
 ```python
-def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], qys=None, bins=50, xlim=None, qfmt="%0.0f", **kw):
+def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.0f", **kw):
+    if ax is None:
+        fig, ax = plt.subplots()
     if xlim is None:
         xlim = (df[col].min(), df[col].max())
     y, x, _ = ax.hist(df[col], bins=np.linspace(*xlim, bins), **kw)
+    xc = 0.5 * (x[1:] + x[:-1])
     ax.set_xlim(*xlim)
     ax.set_xlabel(col)
-    max_y = y.max()
-    if qys is None:
-        qys = [0] * len(quantiles)
-    for q, q_val, qy in zip(quantiles, df[col].quantile(quantiles), qys):
-        qstr = qfmt % q_val
-        ax.axvline(q_val, alpha=0.5, ls=":", lw=1)
-        ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, max_y * qy))
+    if quantiles:
+        interp = interp1d(xc, y, bounds_error=False, fill_value=(y[0], y[-1]))
+        for q, q_val in zip(quantiles, df[col].quantile(quantiles)):
+            qstr = qfmt % q_val
+            qy = interp(q_val) + 0.03 * y.max()
+            ax.axvline(q_val, alpha=0.5, ls=":", lw=1)
+            ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, qy))
     
 def plot_followers(df, ax, **kw):
-    plot_hist(df, ax, "Followers", bins=100, qys=[1.01, 0.1, 0.01], xlim=(0, 6000), **kw)
+    plot_hist(df, ax, "Followers", bins=100, xlim=(0, 6000), **kw)
     
-fig, ax = plt.subplots()
-plot_followers(df, ax)
+plot_followers(df, None)
 ```
 </div>
 
 {% include image.html url="2022-10-14-RoyalRoad_15_0.png"  %}    
 Let's zoom in on this distribution...
 
-<div class="" markdown="1">
+<div class=" expanded-code" markdown="1">
 ```python
-fig, ax = plt.subplots()
-plot_hist(df, ax, "Followers", bins=100, qys=[], xlim=(0, 100))
+plot_hist(df, None, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))
 ```
 </div>
 
@@ -543,31 +545,27 @@ Obviously we expect most of these correlations. The more views you have, the mor
 ```python
 # Look into avergae profit per patreon
 def plot_ratings(df, ax):
-    plot_hist(df, ax, "Rating", qfmt="%0.2f", qys=[1.01, 0.8, 0.5])
+    plot_hist(df, ax, "Rating", qfmt="%0.2f", bins=40)
 
-fig, ax = plt.subplots()
-plot_ratings(df_established, ax)
+plot_ratings(df_established, None)
 ```
 </div>
 
 {% include image.html url="2022-10-14-RoyalRoad_23_0.png"  %}    
 The standard 4.5 stars distribution seen everywhere with a 5 star rating system.
 
-<div class=" expanded-code" markdown="1">
+<div class="" markdown="1">
 ```python
-fig, ax = plt.subplots()
-plot_hist(df_established, ax, "Favourite Rate", qfmt="%0.2f", qys=[1.01, 0.8, 0.5])
-
+plot_hist(df_established, None, "Favourite Rate", qfmt="%0.2f")
 ```
 </div>
 
 {% include image.html url="2022-10-14-RoyalRoad_25_0.png"  %}    
 So for every 100 followers, the median story gains 24 favourites.
 
-<div class=" expanded-code" markdown="1">
+<div class="" markdown="1">
 ```python
-fig, ax = plt.subplots()
-plot_hist(df_established, ax, "Rating Rate", qfmt="%0.2f", qys=[1.01, 0.8, 0.5])
+plot_hist(df_established, None, "Rating Rate", qfmt="%0.2f")
 ```
 </div>
 
@@ -576,8 +574,7 @@ Looks like a similar story for the ratings. Median conversion of 23% from follow
 
 <div class=" expanded-code" markdown="1">
 ```python
-fig, ax = plt.subplots()
-plot_hist(df_established, ax, "Follow Rate (Avg)", qfmt="%0.2f", qys=[1.01, 0.8, 0.5], bins=100)
+plot_hist(df_established, None, "Follow Rate (Avg)", qfmt="%0.2f", bins=80)
 ```
 </div>
 
@@ -594,10 +591,9 @@ def plot_prate(df, ax):
     # Have to group authors with multiple stories leading to same patreon
     df2 = df.groupby("Patreon Link").sum(numeric_only=True).reset_index()
     df2 = df2[df2["Patron Rate"] < 1.0].copy()
-    plot_hist(df2, ax, "Patron Rate", qfmt="%0.2f", color=pcolor, xlim=(0, 0.5), qys=[0.5, 0.1], quantiles=[0.5, 0.9])
+    plot_hist(df2, ax, "Patron Rate", qfmt="%0.3f", color=pcolor, xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
 
-fig, ax = plt.subplots()
-plot_prate(df_established, ax)
+plot_prate(df_established, None)
 ```
 </div>
 
@@ -608,10 +604,9 @@ The higher conversion rate numbers might be unreliable. This assumes that the RR
 ```python
 # Curious about the average value of each patron
 def plot_pvalue(df, ax):
-    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", qys=[1.01, 0.4, 0.1], color=pcolor)
+    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", bins=40, quantiles=[0.5, 0.75, 0.9, 0.99], color=pcolor)
 
-fig, ax = plt.subplots()
-plot_pvalue(df_established, ax)
+plot_pvalue(df_established, None)
 ```
 </div>
 
@@ -697,6 +692,7 @@ Here's the full code for convenience:
 from bs4 import BeautifulSoup
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from pathlib import Path
+from scipy.interpolate import interp1d
 from typing import Iterable
 import asyncio
 import httpx
@@ -857,28 +853,29 @@ for c in df:
 df.to_csv(save_dir / "stats.csv", index=False)
 df.head(25)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
 
-def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], qys=None, bins=50, xlim=None, qfmt="%0.0f", **kw):
+def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.0f", **kw):
+    if ax is None:
+        fig, ax = plt.subplots()
     if xlim is None:
         xlim = (df[col].min(), df[col].max())
     y, x, _ = ax.hist(df[col], bins=np.linspace(*xlim, bins), **kw)
+    xc = 0.5 * (x[1:] + x[:-1])
     ax.set_xlim(*xlim)
     ax.set_xlabel(col)
-    max_y = y.max()
-    if qys is None:
-        qys = [0] * len(quantiles)
-    for q, q_val, qy in zip(quantiles, df[col].quantile(quantiles), qys):
-        qstr = qfmt % q_val
-        ax.axvline(q_val, alpha=0.5, ls=":", lw=1)
-        ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, max_y * qy))
+    if quantiles:
+        interp = interp1d(xc, y, bounds_error=False, fill_value=(y[0], y[-1]))
+        for q, q_val in zip(quantiles, df[col].quantile(quantiles)):
+            qstr = qfmt % q_val
+            qy = interp(q_val) + 0.03 * y.max()
+            ax.axvline(q_val, alpha=0.5, ls=":", lw=1)
+            ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, qy))
     
 def plot_followers(df, ax, **kw):
-    plot_hist(df, ax, "Followers", bins=100, qys=[1.01, 0.1, 0.01], xlim=(0, 6000), **kw)
+    plot_hist(df, ax, "Followers", bins=100, xlim=(0, 6000), **kw)
     
-fig, ax = plt.subplots()
-plot_followers(df, ax)
+plot_followers(df, None)
 
-fig, ax = plt.subplots()
-plot_hist(df, ax, "Followers", bins=100, qys=[], xlim=(0, 100))
+plot_hist(df, None, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))
 
 def get_established(df: pd.DataFrame, threshold=100) -> pd.DataFrame:
     df = df[df["Followers"] > threshold].copy()
@@ -903,20 +900,15 @@ plot_cor(df_established, ax)
 
 # Look into avergae profit per patreon
 def plot_ratings(df, ax):
-    plot_hist(df, ax, "Rating", qfmt="%0.2f", qys=[1.01, 0.8, 0.5])
+    plot_hist(df, ax, "Rating", qfmt="%0.2f", bins=40)
 
-fig, ax = plt.subplots()
-plot_ratings(df_established, ax)
+plot_ratings(df_established, None)
 
-fig, ax = plt.subplots()
-plot_hist(df_established, ax, "Favourite Rate", qfmt="%0.2f", qys=[1.01, 0.8, 0.5])
+plot_hist(df_established, None, "Favourite Rate", qfmt="%0.2f")
 
+plot_hist(df_established, None, "Rating Rate", qfmt="%0.2f")
 
-fig, ax = plt.subplots()
-plot_hist(df_established, ax, "Rating Rate", qfmt="%0.2f", qys=[1.01, 0.8, 0.5])
-
-fig, ax = plt.subplots()
-plot_hist(df_established, ax, "Follow Rate (Avg)", qfmt="%0.2f", qys=[1.01, 0.8, 0.5], bins=100)
+plot_hist(df_established, None, "Follow Rate (Avg)", qfmt="%0.2f", bins=80)
 
 # Covnersion between Followers/Favourites to Patreon count'
 pcolor = "#e37100"
@@ -924,17 +916,15 @@ def plot_prate(df, ax):
     # Have to group authors with multiple stories leading to same patreon
     df2 = df.groupby("Patreon Link").sum(numeric_only=True).reset_index()
     df2 = df2[df2["Patron Rate"] < 1.0].copy()
-    plot_hist(df2, ax, "Patron Rate", qfmt="%0.2f", color=pcolor, xlim=(0, 0.5), qys=[0.5, 0.1], quantiles=[0.5, 0.9])
+    plot_hist(df2, ax, "Patron Rate", qfmt="%0.3f", color=pcolor, xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
 
-fig, ax = plt.subplots()
-plot_prate(df_established, ax)
+plot_prate(df_established, None)
 
 # Curious about the average value of each patron
 def plot_pvalue(df, ax):
-    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", qys=[1.01, 0.4, 0.1], color=pcolor)
+    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", bins=40, quantiles=[0.5, 0.75, 0.9, 0.99], color=pcolor)
 
-fig, ax = plt.subplots()
-plot_pvalue(df_established, ax)
+plot_pvalue(df_established, None)
 
 #Create overview plot
 def plot_overview(df, ax, fig):
