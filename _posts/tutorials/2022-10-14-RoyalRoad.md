@@ -19,7 +19,9 @@ So I decided to try and extract some insights from Royal Road data about how pag
 
 # TL;DR
 
-**If you just want conclusions, please scroll to the bottom.**
+[**Click here for the plots**](#plotting)
+
+[**Click here for the final conclusions**](#summary)
 
 ## Scraping data
 
@@ -229,6 +231,13 @@ for c in df:
     except:
         pass
 df.to_csv(save_dir / "stats.csv", index=False)
+```
+</div>
+
+Alright, so let's grab the top 25 stories, ranked by number of followers.
+
+<div class=" expanded-code" markdown="1">
+```python
 df.head(25)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
 ```
 </div>
@@ -472,9 +481,8 @@ Let's just have a quick look at the distribution of Followers, because I imagine
 
 <div class=" expanded-code" markdown="1">
 ```python
-def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.0f", **kw):
-    if ax is None:
-        _, ax = plt.subplots()
+def plot_hist(df, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.0f", **kw):
+    _, ax = plt.subplots()
     if xlim is None:
         xlim = (df[col].min(), df[col].max())
     y, x, _ = ax.hist(df[col], bins=np.linspace(*xlim, bins), **kw)
@@ -488,24 +496,22 @@ def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt=
             ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, qy))
     ax.set_xlim(*xlim)
     ax.set_xlabel(col)
-    
-def plot_followers(df, ax, **kw):
-    plot_hist(df, ax, "Followers", bins=500, xlim=(0, 6000), **kw)
-    
-plot_followers(df, None)
-```
-</div>
+        
+plot_hist(df, "Followers", bins=500, xlim=(0, 6000))
 
-{% include image.html url="2022-10-14-RoyalRoad_15_0.png"  %}    
-Let's zoom in on this distribution...
-
-<div class=" expanded-code" markdown="1">
-```python
-plot_hist(df, None, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))
 ```
 </div>
 
 {% include image.html url="2022-10-14-RoyalRoad_17_0.png"  %}    
+Let's zoom in on this distribution...
+
+<div class=" expanded-code" markdown="1">
+```python
+plot_hist(df, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))
+```
+</div>
+
+{% include image.html url="2022-10-14-RoyalRoad_19_0.png"  %}    
 Ouch. So the majority of serials have essentially no followers. The median number of followers is 4. If you break 330, you're in the top 10%. You'll need around 5000 for the top 1%.
 
 <div class="" markdown="1">
@@ -528,57 +534,54 @@ I'm going to filter out a lot of stories with 100 followers when making some dis
 <div class=" expanded-code" markdown="1">
 ```python
 # Use correlation to show pages and rating are the weakest indicators of Followers
-def plot_cor(df, ax):
+def plot_cor(df):
     cor = df.corr(numeric_only=True)
-    sb.heatmap(cor, ax=ax, square=True)
+    ax = sb.heatmap(cor, square=True)
     ax.set_title("Correlations")
     
-fig, ax = plt.subplots()
-plot_cor(df_established, ax)
+plot_cor(df_established)
 ```
 </div>
 
-{% include image.html url="2022-10-14-RoyalRoad_21_0.png"  %}    
+{% include image.html url="2022-10-14-RoyalRoad_23_0.png"  %}    
 Obviously we expect most of these correlations. The more views you have, the more followers, means the more favourites, and the more ratings. And the more patrons, the higher your earnings, of course. Interestingly, page count does very little, along with Rating. So those aren't significant barriers to entry, rejoice those who have been review bombed!
 
 <div class="" markdown="1">
 ```python
 # Look into avergae profit per patreon
-def plot_ratings(df, ax):
-    plot_hist(df, ax, "Rating", qfmt="%0.2f", bins=40)
+plot_hist(df_established, "Rating", qfmt="%0.2f", bins=40)
 
-plot_ratings(df_established, None)
-```
-</div>
-
-{% include image.html url="2022-10-14-RoyalRoad_23_0.png"  %}    
-The standard 4.5 stars distribution seen everywhere with a 5 star rating system.
-
-<div class="" markdown="1">
-```python
-plot_hist(df_established, None, "Favourite Rate", qfmt="%0.2f")
 ```
 </div>
 
 {% include image.html url="2022-10-14-RoyalRoad_25_0.png"  %}    
-So for every 100 followers, the median story gains 24 favourites.
+The standard 4.5 stars distribution seen everywhere with a 5 star rating system.
 
 <div class="" markdown="1">
 ```python
-plot_hist(df_established, None, "Rating Rate", qfmt="%0.2f")
+plot_hist(df_established, "Favourite Rate", qfmt="%0.2f")
 ```
 </div>
 
 {% include image.html url="2022-10-14-RoyalRoad_27_0.png"  %}    
-Looks like a similar story for the ratings. Median conversion of 23% from follow to a rating.
+So for every 100 followers, the median story gains 24 favourites.
 
-<div class=" expanded-code" markdown="1">
+<div class="" markdown="1">
 ```python
-plot_hist(df_established, None, "Follow Rate (Avg)", qfmt="%0.2f", bins=80)
+plot_hist(df_established, "Rating Rate", qfmt="%0.2f")
 ```
 </div>
 
 {% include image.html url="2022-10-14-RoyalRoad_29_0.png"  %}    
+Looks like a similar story for the ratings. Median conversion of 23% from follow to a rating.
+
+<div class="" markdown="1">
+```python
+plot_hist(df_established, "Follow Rate (Avg)", qfmt="%0.2f", bins=80)
+```
+</div>
+
+{% include image.html url="2022-10-14-RoyalRoad_31_0.png"  %}    
 This is a bit harder to interpet, because I don't believe RR is giving us a total number of unique visitors (indeed its hard to determine that number without browser fingerprinting anyway). So instead we have the average views per chapter, and I'm curious how this translates into the number of followers. Note, I don't have the average number of followers *per* chapter, which would be a much better bit of data. So the plot above, in my mind, is almost useless. But what it does (maybe) show is that if an author gets 10k views per chapter, the median would have that translate into a story with 2.9k followers. 
 
 I also expect the above to be highly dependent on hiatus and gaps in the story, but again, don't have the data. Frustrated there's no official API.
@@ -586,30 +589,27 @@ I also expect the above to be highly dependent on hiatus and gaps in the story, 
 <div class=" expanded-code" markdown="1">
 ```python
 # Covnersion between Followers/Favourites to Patreon count'
-def plot_prate(df, ax):
+def plot_prate(df):
     # Have to group authors with multiple stories leading to same patreon
     df2 = df.groupby("Patreon Link").sum(numeric_only=True).reset_index()
     df2 = df2[df2["Patron Rate"] < 1.0].copy()
-    plot_hist(df2, ax, "Patron Rate", qfmt="%0.3f", xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
+    plot_hist(df2, "Patron Rate", qfmt="%0.3f", bins=100, xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
 
-plot_prate(df_established, None)
+plot_prate(df_established)
 ```
 </div>
 
-{% include image.html url="2022-10-14-RoyalRoad_31_0.png"  %}    
+{% include image.html url="2022-10-14-RoyalRoad_33_0.png"  %}    
 The higher conversion rate numbers might be unreliable. This assumes that the RR stories I've found are the only funnels into Patreon, and this might not be correct, especially for stories which are also released in other locations.
 
 <div class=" expanded-code" markdown="1">
 ```python
 # Curious about the average value of each patron
-def plot_pvalue(df, ax):
-    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", bins=40, quantiles=[0.5, 0.75, 0.9, 0.99])
-
-plot_pvalue(df_established, None)
+plot_hist(df_established, "Patron Value", qfmt="$%0.2f", bins=55, quantiles=[0.5, 0.75, 0.9, 0.99])
 ```
 </div>
 
-{% include image.html url="2022-10-14-RoyalRoad_33_0.png"  %}    
+{% include image.html url="2022-10-14-RoyalRoad_35_0.png"  %}    
 As a caveat, not all patreons have their income public, so this is only using that subset where we have both income and number of patrons.
 
 <div class=" expanded-code" markdown="1">
@@ -844,11 +844,11 @@ for c in df:
     except:
         pass
 df.to_csv(save_dir / "stats.csv", index=False)
+
 df.head(25)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
 
-def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.0f", **kw):
-    if ax is None:
-        _, ax = plt.subplots()
+def plot_hist(df, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.0f", **kw):
+    _, ax = plt.subplots()
     if xlim is None:
         xlim = (df[col].min(), df[col].max())
     y, x, _ = ax.hist(df[col], bins=np.linspace(*xlim, bins), **kw)
@@ -862,13 +862,11 @@ def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt=
             ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, qy))
     ax.set_xlim(*xlim)
     ax.set_xlabel(col)
-    
-def plot_followers(df, ax, **kw):
-    plot_hist(df, ax, "Followers", bins=500, xlim=(0, 6000), **kw)
-    
-plot_followers(df, None)
+        
+plot_hist(df, "Followers", bins=500, xlim=(0, 6000))
 
-plot_hist(df, None, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))
+
+plot_hist(df, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))
 
 def get_established(df: pd.DataFrame, threshold=100) -> pd.DataFrame:
     df = df[df["Followers"] > threshold].copy()
@@ -882,40 +880,34 @@ def get_established(df: pd.DataFrame, threshold=100) -> pd.DataFrame:
 df_established = get_established(df)
 
 # Use correlation to show pages and rating are the weakest indicators of Followers
-def plot_cor(df, ax):
+def plot_cor(df):
     cor = df.corr(numeric_only=True)
-    sb.heatmap(cor, ax=ax, square=True)
+    ax = sb.heatmap(cor, square=True)
     ax.set_title("Correlations")
     
-fig, ax = plt.subplots()
-plot_cor(df_established, ax)
+plot_cor(df_established)
 
 # Look into avergae profit per patreon
-def plot_ratings(df, ax):
-    plot_hist(df, ax, "Rating", qfmt="%0.2f", bins=40)
+plot_hist(df_established, "Rating", qfmt="%0.2f", bins=40)
 
-plot_ratings(df_established, None)
 
-plot_hist(df_established, None, "Favourite Rate", qfmt="%0.2f")
+plot_hist(df_established, "Favourite Rate", qfmt="%0.2f")
 
-plot_hist(df_established, None, "Rating Rate", qfmt="%0.2f")
+plot_hist(df_established, "Rating Rate", qfmt="%0.2f")
 
-plot_hist(df_established, None, "Follow Rate (Avg)", qfmt="%0.2f", bins=80)
+plot_hist(df_established, "Follow Rate (Avg)", qfmt="%0.2f", bins=80)
 
 # Covnersion between Followers/Favourites to Patreon count'
-def plot_prate(df, ax):
+def plot_prate(df):
     # Have to group authors with multiple stories leading to same patreon
     df2 = df.groupby("Patreon Link").sum(numeric_only=True).reset_index()
     df2 = df2[df2["Patron Rate"] < 1.0].copy()
-    plot_hist(df2, ax, "Patron Rate", qfmt="%0.3f", xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
+    plot_hist(df2, "Patron Rate", qfmt="%0.3f", bins=100, xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
 
-plot_prate(df_established, None)
+plot_prate(df_established)
 
 # Curious about the average value of each patron
-def plot_pvalue(df, ax):
-    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", bins=40, quantiles=[0.5, 0.75, 0.9, 0.99])
-
-plot_pvalue(df_established, None)
+plot_hist(df_established, "Patron Value", qfmt="$%0.2f", bins=55, quantiles=[0.5, 0.75, 0.9, 0.99])
 
 #Create overview plot
 def plot_overview(df, ax, fig):
