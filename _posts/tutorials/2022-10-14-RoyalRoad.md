@@ -43,7 +43,6 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import numpy as np
 import pandas as pd
-import requests
 from scipy.interpolate import interp1d
 import seaborn as sb
 
@@ -475,13 +474,11 @@ Let's just have a quick look at the distribution of Followers, because I imagine
 ```python
 def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.0f", **kw):
     if ax is None:
-        fig, ax = plt.subplots()
+        _, ax = plt.subplots()
     if xlim is None:
         xlim = (df[col].min(), df[col].max())
     y, x, _ = ax.hist(df[col], bins=np.linspace(*xlim, bins), **kw)
     xc = 0.5 * (x[1:] + x[:-1])
-    ax.set_xlim(*xlim)
-    ax.set_xlabel(col)
     if quantiles:
         interp = interp1d(xc, y, bounds_error=False, fill_value=(y[0], y[-1]))
         for q, q_val in zip(quantiles, df[col].quantile(quantiles)):
@@ -489,9 +486,11 @@ def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt=
             qy = interp(q_val) + 0.03 * y.max()
             ax.axvline(q_val, alpha=0.5, ls=":", lw=1)
             ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, qy))
+    ax.set_xlim(*xlim)
+    ax.set_xlabel(col)
     
 def plot_followers(df, ax, **kw):
-    plot_hist(df, ax, "Followers", bins=100, xlim=(0, 6000), **kw)
+    plot_hist(df, ax, "Followers", bins=500, xlim=(0, 6000), **kw)
     
 plot_followers(df, None)
 ```
@@ -520,7 +519,6 @@ def get_established(df: pd.DataFrame, threshold=100) -> pd.DataFrame:
     df["Follow Rate (Avg)"] = df["Followers"] / df["Average Views"]
     df["Rating Rate"] = df["Ratings"] / df["Followers"]
     return df
-df_one = get_established(df, threshold=1)
 df_established = get_established(df)
 ```
 </div>
@@ -588,12 +586,11 @@ I also expect the above to be highly dependent on hiatus and gaps in the story, 
 <div class=" expanded-code" markdown="1">
 ```python
 # Covnersion between Followers/Favourites to Patreon count'
-pcolor = "#e37100"
 def plot_prate(df, ax):
     # Have to group authors with multiple stories leading to same patreon
     df2 = df.groupby("Patreon Link").sum(numeric_only=True).reset_index()
     df2 = df2[df2["Patron Rate"] < 1.0].copy()
-    plot_hist(df2, ax, "Patron Rate", qfmt="%0.3f", color=pcolor, xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
+    plot_hist(df2, ax, "Patron Rate", qfmt="%0.3f", xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
 
 plot_prate(df_established, None)
 ```
@@ -606,7 +603,7 @@ The higher conversion rate numbers might be unreliable. This assumes that the RR
 ```python
 # Curious about the average value of each patron
 def plot_pvalue(df, ax):
-    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", bins=40, quantiles=[0.5, 0.75, 0.9, 0.99], color=pcolor)
+    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", bins=40, quantiles=[0.5, 0.75, 0.9, 0.99])
 
 plot_pvalue(df_established, None)
 ```
@@ -652,7 +649,7 @@ def plot_overview(df, ax, fig):
         t = replace.get(row['Title'], row['Title'])
         o = offset.get(t, (0,1))
         pos = x[i], y[i]
-        arrow = dict(arrowstyle="-", alpha=0.2, lw=0.5, shrinkA=0, shrinkB=3) if t in offset else None
+        arrow = dict(arrowstyle="-", alpha=0.3, lw=0.5, shrinkA=0, shrinkB=3) if t in offset else None
         ax.annotate(t, pos, (x[i] + o[0], (padding * o[1]) + y[i]), va="bottom", ha="center", arrowprops=arrow)
 
     for i, row in df.head(10).iterrows():
@@ -668,14 +665,9 @@ plot_overview(df_established, ax, fig)
 {% include image.html url="main.png" class="main" %}    
 Savage Divinity with that monstrous word count. If only The Wandering Inn was on RR, it would destroy everything. But apart from that, notice how asymmetric this distribution is, and how the higher follower stories shift higher in the ratings as well.
 
-Alright, I am getting tired now, so let's try and combine these into a single plot to make sharing easier.
+## Summary
 
-## Smacking it together with no finesse
-
-{% include image.html url="2022-10-14-RoyalRoad_37_1.png" class="img-poster" %}    
-Alright, I hate it. Normally when making an inforgraphic I'd get each plot, save it out, and then compose it in Illustrator/Photoshop. Trying to do it all in matplotlib, and without spending more time on it, is incredibly frustrating.
-
-So you know what, let's just run with this unholy abomination. Interesting things we note:
+Interesting things we note:
 
 1. Page count nor rating is useful in predicing followers, or income.
 2. In general, the more Followers you get, your average rating will be higher. This is probably just the fact you can average out rating bombs if you have enough people.
@@ -704,7 +696,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import re
-import requests
 import seaborn as sb
 
 
@@ -857,13 +848,11 @@ df.head(25)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
 
 def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.0f", **kw):
     if ax is None:
-        fig, ax = plt.subplots()
+        _, ax = plt.subplots()
     if xlim is None:
         xlim = (df[col].min(), df[col].max())
     y, x, _ = ax.hist(df[col], bins=np.linspace(*xlim, bins), **kw)
     xc = 0.5 * (x[1:] + x[:-1])
-    ax.set_xlim(*xlim)
-    ax.set_xlabel(col)
     if quantiles:
         interp = interp1d(xc, y, bounds_error=False, fill_value=(y[0], y[-1]))
         for q, q_val in zip(quantiles, df[col].quantile(quantiles)):
@@ -871,9 +860,11 @@ def plot_hist(df, ax, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt=
             qy = interp(q_val) + 0.03 * y.max()
             ax.axvline(q_val, alpha=0.5, ls=":", lw=1)
             ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, qy))
+    ax.set_xlim(*xlim)
+    ax.set_xlabel(col)
     
 def plot_followers(df, ax, **kw):
-    plot_hist(df, ax, "Followers", bins=100, xlim=(0, 6000), **kw)
+    plot_hist(df, ax, "Followers", bins=500, xlim=(0, 6000), **kw)
     
 plot_followers(df, None)
 
@@ -888,7 +879,6 @@ def get_established(df: pd.DataFrame, threshold=100) -> pd.DataFrame:
     df["Follow Rate (Avg)"] = df["Followers"] / df["Average Views"]
     df["Rating Rate"] = df["Ratings"] / df["Followers"]
     return df
-df_one = get_established(df, threshold=1)
 df_established = get_established(df)
 
 # Use correlation to show pages and rating are the weakest indicators of Followers
@@ -913,18 +903,17 @@ plot_hist(df_established, None, "Rating Rate", qfmt="%0.2f")
 plot_hist(df_established, None, "Follow Rate (Avg)", qfmt="%0.2f", bins=80)
 
 # Covnersion between Followers/Favourites to Patreon count'
-pcolor = "#e37100"
 def plot_prate(df, ax):
     # Have to group authors with multiple stories leading to same patreon
     df2 = df.groupby("Patreon Link").sum(numeric_only=True).reset_index()
     df2 = df2[df2["Patron Rate"] < 1.0].copy()
-    plot_hist(df2, ax, "Patron Rate", qfmt="%0.3f", color=pcolor, xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
+    plot_hist(df2, ax, "Patron Rate", qfmt="%0.3f", xlim=(0, 0.5), quantiles=[0.5, 0.7, 0.9])
 
 plot_prate(df_established, None)
 
 # Curious about the average value of each patron
 def plot_pvalue(df, ax):
-    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", bins=40, quantiles=[0.5, 0.75, 0.9, 0.99], color=pcolor)
+    plot_hist(df, ax, "Patron Value", qfmt="$%0.2f", bins=40, quantiles=[0.5, 0.75, 0.9, 0.99])
 
 plot_pvalue(df_established, None)
 
@@ -963,7 +952,7 @@ def plot_overview(df, ax, fig):
         t = replace.get(row['Title'], row['Title'])
         o = offset.get(t, (0,1))
         pos = x[i], y[i]
-        arrow = dict(arrowstyle="-", alpha=0.2, lw=0.5, shrinkA=0, shrinkB=3) if t in offset else None
+        arrow = dict(arrowstyle="-", alpha=0.3, lw=0.5, shrinkA=0, shrinkB=3) if t in offset else None
         ax.annotate(t, pos, (x[i] + o[0], (padding * o[1]) + y[i]), va="bottom", ha="center", arrowprops=arrow)
 
     for i, row in df.head(10).iterrows():
