@@ -113,7 +113,7 @@ def pairwise(iterable: Iterable) -> Iterable:
     a = iter(iterable)
     return zip(a, a)
 
-def get_plink(href):
+def get_plink(plink):
     # Alas some of the patreon links people have put cause redirects... so got to fix those
     plink = plink.replace("&", "?").replace("https://patreon", "https://www.patreon").replace("user=", "u=")
     if "patreon.com" not in plink:
@@ -550,7 +550,6 @@ Obviously we expect most of these correlations. The more views you have, the mor
 ```python
 # Look into avergae profit per patreon
 plot_hist(df_established, "Rating", qfmt="%0.2f", bins=40)
-
 ```
 </div>
 
@@ -748,7 +747,7 @@ def pairwise(iterable: Iterable) -> Iterable:
     a = iter(iterable)
     return zip(a, a)
 
-def get_plink(href):
+def get_plink(plink):
     # Alas some of the patreon links people have put cause redirects... so got to fix those
     plink = plink.replace("&", "?").replace("https://patreon", "https://www.patreon").replace("user=", "u=")
     if "patreon.com" not in plink:
@@ -889,7 +888,6 @@ plot_cor(df_established)
 
 # Look into avergae profit per patreon
 plot_hist(df_established, "Rating", qfmt="%0.2f", bins=40)
-
 
 plot_hist(df_established, "Favourite Rate", qfmt="%0.2f")
 
