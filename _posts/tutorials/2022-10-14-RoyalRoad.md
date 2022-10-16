@@ -662,7 +662,7 @@ plot_overview(df_established, ax, fig)
 ```
 </div>
 
-{% include image.html url="main.png" class="main" %}    
+{% include image.html url="main.png" class="main img-poster" %}    
 Savage Divinity with that monstrous word count. If only The Wandering Inn was on RR, it would destroy everything. But apart from that, notice how asymmetric this distribution is, and how the higher follower stories shift higher in the ratings as well.
 
 ## Summary
