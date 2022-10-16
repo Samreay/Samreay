@@ -31,3 +31,4 @@ __pycache__/
 # C extensions
 *.so
 static/styles/index.js
+**/*tmp*

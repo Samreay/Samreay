@@ -463,6 +463,8 @@ df.head(25)[["Title", "Author", "Followers", "Rating", "Patron Count"]]
 </table>
 </div>
 
+If you want the csv data, [I've uploaded it to here](https://gist.github.com/Samreay/93ed90bca741694095ec0cb07e1547b2).
+
 ## Plotting
 
 Alright, so we have our dataframe, which means we can now get to plotting.
@@ -570,7 +572,7 @@ plot_hist(df_established, None, "Rating Rate", qfmt="%0.2f")
 </div>
 
 {% include image.html url="2022-10-14-RoyalRoad_27_0.png"  %}    
-Looks like a similar story for the ratings. Median conversion of 23% from follow to a review.
+Looks like a similar story for the ratings. Median conversion of 23% from follow to a rating.
 
 <div class=" expanded-code" markdown="1">
 ```python
@@ -676,8 +678,8 @@ Alright, I hate it. Normally when making an inforgraphic I'd get each plot, save
 So you know what, let's just run with this unholy abomination. Interesting things we note:
 
 1. Page count nor rating is useful in predicing followers, or income.
-2. In general, the more Followers you get, your average review will be higher. This is probably just the fact you can average out review bombs if you have enough reviews.
-3. Typically about 30% of Followers will Review.
+2. In general, the more Followers you get, your average rating will be higher. This is probably just the fact you can average out rating bombs if you have enough people.
+3. Typically about 30% of Followers will leave a rating.
 4. Its hard to get Patreon conversion, 2% is the median, and even the top 10% aren't breaking 20%.
 5. However, each conversion represents about 5USD, which is nice.
 6. Beware of Chicken is absolutely *crushing* the Follower count.
