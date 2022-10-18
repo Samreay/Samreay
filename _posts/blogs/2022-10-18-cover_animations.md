@@ -37,8 +37,8 @@ I provided everyone with the layers separated, so I used that here - only animat
 with ffmpeg.
 
 ```bash
-ffmpeg -i motionleap3.mp4 -i SoulRelic_5_LayerAllNoAeon_small.jpg -filter_complex "[1:v][0:v]scale2ref[ckout][vid];[vid]format=gbrp[vid];[vid][ckout] blend=all_mode=screen[x];[x]format=yuv420p[y];[y]scale=-1:550 [out]" -map "[out]" -y soul_relic_small.mp4
-ffmpeg -i motionleap3.mp4 -i SoulRelic_5_LayerAllNoAeon_small.jpg -filter_complex "[1:v][0:v]scale2ref[ckout][vid];[vid]format=gbrp[vid];[vid][ckout] blend=all_mode=screen[x];[x]format=yuv420p [out]" -map "[out]" -y soul_relic.mp4
+ffmpeg -i m.mp4 -i SoulRelic_5_LayerAllNoAeon.jpg -filter_complex "[1:v][0:v]scale2ref[ckout][vid];[vid]format=gbrp[vid];[vid][ckout] blend=all_mode=screen[x];[x]format=yuv420p[y];[y]scale=-1:550 [out]" -map "[out]" -y soul_relic_small.mp4
+ffmpeg -i m.mp4 -i SoulRelic_5_LayerAllNoAeon.jpg -filter_complex "[1:v][0:v]scale2ref[ckout][vid];[vid]format=gbrp[vid];[vid][ckout] blend=all_mode=screen[x];[x]format=yuv420p [out]" -map "[out]" -y soul_relic.mp4
 ```
 
 S
