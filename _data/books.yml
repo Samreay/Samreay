@@ -1,5 +1,6 @@
 - name: Soul Relic
   cover: static/img/landing/book1.jpg
+  animated: static/img/landing/soul_relic_small.mp4
   desc: "Manifestation 1: Soul Relic"
   link: https://mybook.to/SoulRelic
 

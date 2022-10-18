@@ -15,8 +15,14 @@
                 <header>
                     <a class="block" href="{{book.link}}">
                         <figure class="relative h-0 aspect-book overflow-hidden rounded-sm">
+                            {% if book.animated %}
+                            <video preload="auto" playsinline plays-inline autoplay loop muted>
+                                <source src="{{book.animated}}" type="video/mp4">
+                            </video>
+                            {% else %}
                             <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
-                                src="{{book.cover}}" width="352" height="498" alt="News 01" />
+                                src="{{book.cover}}" width="352" height="498" alt="{{book.desc}}" />
+                            {% endif %}
                         </figure>
                     </a>
                     <!-- <h3 class="h4 mb-2">
