@@ -170,6 +170,9 @@ body {
     &.img-small {
       @apply max-w-lg;
     }
+    &.img-tiny {
+      @apply max-w-md;
+    }
     &.img-shrink {
       @apply max-w-2xl;
     }
