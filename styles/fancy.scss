@@ -13,6 +13,9 @@
   --radius: 4.55% / 3.5%;
   will-change: transform, visibility;
 
+  &.horizontal {
+    --radius: 1rem;
+  }
 
   * {
     transform-style: preserve-3d;
@@ -93,4 +96,30 @@
     mix-blend-mode: hard-light;
     z-index: 4;
   }
+}
+
+.card_overlay_s {
+  --space: 15%;
+  --angle: 22deg;
+  background-image: url(https://res.cloudinary.com/simey/image/upload/Dev/PokemonCards/rainbow2.jpg),
+    repeating-linear-gradient(
+      var(--angle),
+      #6ee3e7 calc(var(--space) * 1),
+      #3b82f6 calc(var(--space) * 2),
+      #9333ea calc(var(--space) * 3),
+      #6ee7b7 calc(var(--space) * 4),
+      #1c91ff calc(var(--space) * 5),
+      #6ee3e7 calc(var(--space) * 6),
+    ),
+    radial-gradient(
+      farthest-corner ellipse at calc(((var(--mx)) * 0.5) + 25%)
+        calc(((var(--my)) * 0.5) + 25%),
+      rgba(255, 255, 255, 0.6) 30%,
+      rgba(255, 255, 255, 0.2) 90%,
+    );;
+  background-size: 100% 100%, 400% 400%;
+  background-position: center, calc(var(--posx)) calc(2 * var(--posx) - 100%);
+  background-blend-mode: color-burn, soft-light, hard-light;
+  mix-blend-mode: color-dodge;
+  filter: brightness(calc((var(--hyp)*0.25) + 0.3)) contrast(1) saturate(.7);
 }
