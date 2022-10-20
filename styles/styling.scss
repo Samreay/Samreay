@@ -390,8 +390,18 @@
         top: 0;
         width: 400%;
         height: 100%;
+        animation: none !important;
       }
     }
+  }
+  .bg3 {
+    @apply bg-gray-800;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 0.75rem;
   }
 }
 
