@@ -11,26 +11,23 @@
 
             {% for book in site.data.books %}
             <!-- 1st article -->
-            <article class="flex flex-col h-full col-span-1" data-aos="fade-up">
-                <header>
-                    <a class="block" href="{{book.link}}">
-                        <figure class="relative h-0 aspect-book overflow-hidden rounded-sm">
+            <article class="flex flex-col h-full col-span-1 fancy_card aspect-book"  data-aos="fade-up" style="height: 498px;">
+                <div class="card_translator">
+                    <a class="card_rotator block card_layer" href="{{book.link}}">
+                        <figure class="card_layer">
                             {% if book.animated %}
                             <video preload="auto" playsinline plays-inline autoplay loop muted>
                                 <source src="{{book.animated}}" type="video/mp4">
                             </video>
                             {% else %}
-                            <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
+                            <img class="w-full h-full object-cover"
                                 src="{{book.cover}}" width="352" height="498" alt="{{book.desc}}" />
                             {% endif %}
                         </figure>
+                        <div class="card_layer card_effect card_glare"></div>
+                        <div class="card_layer card_effect card_shine"></div>
                     </a>
-                    <!-- <h3 class="h4 mb-2">
-                        <a class="hover:text-gray-100 transition duration-150 ease-in-out" href="blog-post.html">{{book.name}}</a>
-                    </h3> -->
-                </header>
-                <!-- <p class="text-lg text-gray-400 flex-grow">{{book.desc}}</p> -->
-
+                </div>
             </article>
             {% endfor %}
 

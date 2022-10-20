@@ -1,0 +1,96 @@
+:root {
+  --mx: 50%;
+  --my: 50%;
+  --o: 0;
+  --rx: 0deg;
+  --ry: 0deg;
+  --posx: 50%;
+  --posy: 50%;
+  --hyp: 0;
+}
+
+.fancy_card {
+  --radius: 4.55% / 3.5%;
+  will-change: transform, visibility;
+
+
+  * {
+    transform-style: preserve-3d;
+  }
+
+  .card_translator {
+    perspective: 600px;
+    display: grid;
+    grid-area: 1/1;
+    transform-origin: center;
+  }
+  .card_rotator {
+    transform: rotateY(var(--rx)) rotateX(var(--ry));
+    box-shadow: 0px 10px 20px -5px black;
+    border-radius: var(--radius);
+    overflow: hidden;
+    grid-area: 1/1;
+    perspective: 600px;
+    will-change: transform;
+  }
+
+  .card_layer {
+    display: grid;
+    grid-area: 1/1;
+  }
+
+  .card_effect {
+    opacity: var(--o);
+    width: 100%;
+    height: 100%;
+  }
+
+  .card_glare {
+    z-index: 10;
+    background: radial-gradient(
+      farthest-corner circle at var(--mx) var(--my),
+      rgba(255, 255, 255, 0.65) 10%,
+      rgba(255, 255, 255, 0.5) 20%,
+      rgba(100, 100, 100, 0.5) 90%
+    );
+    mix-blend-mode: overlay;
+  }
+
+  .card_shine {
+    --space: 5%;
+    --angle: -22deg;
+    --imgsize: 200% 400%;
+    background-image: repeating-linear-gradient(
+      var(--angle),
+      rgba(174, 102, 202, 0.75) calc(var(--space) * 1),
+      rgba(228, 77, 72, 0.75) calc(var(--space) * 2),
+      rgba(216, 197, 55, 0.75) calc(var(--space) * 3),
+      rgba(124, 201, 62, 0.75) calc(var(--space) * 4),
+      rgba(80, 177, 170, 0.75) calc(var(--space) * 5),
+      rgba(136, 160, 255, 0.75) calc(var(--space) * 6),
+      rgba(176, 105, 204, 0.75) calc(var(--space) * 7)
+    );
+    background-size: var(--imgsize), 400%, 400%;
+    background-position: calc(var(--posx)) calc(2 * var(--posx));
+    mix-blend-mode: color-dodge;
+    z-index: 3;
+    filter: brightness(calc((var(--hyp) * 0.2) + 0.3)) contrast(1.6)
+      saturate(1.1);
+  }
+  .card_shine:after {
+    content: "";
+    background-image: radial-gradient(
+      farthest-corner ellipse at calc(((var(--mx)) * 0.5) + 25%)
+        calc(((var(--my)) * 0.5) + 25%),
+      rgb(255, 255, 255) 5%,
+      rgba(55, 0, 55, 0.6) 25%,
+      rgb(55, 55, 55) 90%
+    );
+    background-position: center;
+    background-size: 200% 200%;
+    filter: brightness(calc((var(--hyp) * 0.3) + 0.3)) contrast(0.85)
+      saturate(1.1);
+    mix-blend-mode: hard-light;
+    z-index: 4;
+  }
+}
