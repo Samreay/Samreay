@@ -1,25 +1,19 @@
-<article class="review flex flex-col h-full rounded-xl bg-gray-800 review-{{post.review}}" data-aos="fade-up" :class="{ 'hidden': is_hidden('{{post.review}}') }">
+<article class="review flex flex-col h-full rounded-xl bg-gray-800 review-{{post.review}}" data-aos="fade-up"
+    :class="{ 'hidden': is_hidden('{{post.review}}') }">
     <a href="{{post.url}}">
-        <div class="bg1"><div class="bg-inner"><div class="bg-paint"></div></div></div>
-        <div class="bg2"><div class="bg-inner"><div class="bg-paint"></div></div></div>
-        <div class="h-full relative">
-            <figure class="relative h-0 overflow-hidden rounded-t-lg">
-                <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-300 ease-out"
-                    src="{{site.img_path}}{{post.loc}}thumb_cover.jpg" width="250" height="375" alt="{{post.short_title}}" />
-            </figure>
-            <div class="search-text">
-                <p>{{post.short_title}}</p>
-            </div>
-            <!-- <div class="px-4 pb-4">
-                <div class="mb-3">
-                    <ul class="flex flex-wrap text-xs font-medium -m-1">
-                        {% for tag in post.tags %}
-                        <li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{{tag}}">{{tag}}</li>
-                        {% endfor %}
-
-                    </ul>
+        <div class="bg2 rounded-xl">
+            <div class="bg-inner">
+                <div class="h-full relative">
+                    <figure class="relative h-0 overflow-hidden rounded-t-lg">
+                        <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-300 ease-out"
+                            src="{{site.img_path}}{{post.loc}}thumb_cover.jpg" width="250" height="375"
+                            alt="{{post.short_title}}" />
+                    </figure>
+                    <div class="search-text">
+                        <p>{{post.short_title}}</p>
+                    </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </a>
 
