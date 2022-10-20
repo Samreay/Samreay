@@ -70,7 +70,6 @@ function updateCardVars(card, x, y) {
     x: calcAngle(normCenter.x),
     y: calcAngle(normCenter.y),
   };
-  console.log("update");
   card.style.setProperty("--posx", background.x + "%");
   card.style.setProperty("--posy", background.y + "%");
   card.style.setProperty("--mx", percent.x + "%");
@@ -82,7 +81,6 @@ function updateCardVars(card, x, y) {
 }
 
 function removeCardVars(card) {
-  console.log("remove");
   card.style.removeProperty("--posx");
   card.style.removeProperty("--posy");
   card.style.removeProperty("--mx");

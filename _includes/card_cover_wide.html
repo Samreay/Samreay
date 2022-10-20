@@ -1,15 +1,13 @@
 {% assign tagList = post.tags | join: "','" | append: "','" | append:
 post.review | append: "']" | prepend: "['" %} {% assign sortedTags = post.tags |
 sort %}
-<div class="fancy_card horizontal">
+<div class="fancy_card horizontal" :class="{ 'hidden': is_hidden({{tagList}}) }">
   <div class="card_translator">
-    <a class="card_rotator card_layer block" href="{{post.url}}">
+    <a class="card_rotator small_rot card_layer block" href="{{post.url}}">
       <div class="card_layer">
-        <article class="review-summary review-{{post.review}}"
-          :class="{ 'hidden': is_hidden({{tagList}}) }">
+        <article class="review-summary review-{{post.review}}">
           <div class="bg2">
-            <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800 ">
-
+            <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
               <figure class="">
                 <img class="rounded-l-xl block flex-none bg-cover mx-auto"
                   src="{{site.img_path}}{{post.loc}}thumb_cover.jpg" width="250" height="375" />
@@ -37,10 +35,7 @@ sort %}
           </div>
         </article>
       </div>
-      {% if post.review == 'S' %}
-      <div class="card_layer card_effect card_overlay_s"></div>
-      {% else %}
-      {% endif %}
+      <div class="card_layer card_effect card_overlay_{{post.review}}"></div>
       <div class="card_layer card_effect card_glare"></div>
     </a>
   </div>
