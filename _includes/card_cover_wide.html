@@ -1,46 +1,42 @@
-{% assign tagList = post.tags | join: "','" | append: "','" | append: post.review | append: "']" | prepend: "['" %}
-{% assign sortedTags = post.tags | sort %}
-<article
-  class="w-full flex flex-col review-summary md:flex-row bg-gray-800 rounded-xl review-{{post.review}}"
-  :class="{ 'hidden': is_hidden({{tagList}}) }"
->
-  <div class="bg1">
-    <div class="bg-inner"><div class="bg-paint"></div></div>
-  </div>
-  <div class="bg2">
-    <div class="bg-inner"><div class="bg-paint"></div></div>
-  </div>
-
-  <figure class="">
-    <a href="{{post.url}}">
-      <img
-        class="rounded-l-xl block flex-none bg-cover mx-auto"
-        src="{{site.img_path}}{{post.loc}}thumb_cover.jpg"
-        width="250"
-        height="375"
-      />
-    </a>
-  </figure>
-
-  <div class="flex flex-col justify-between p-4 text-center">
-    <div class="rating">
-      <a href="{{post.url}}">
-        <p class="small rating-{{post.review}}">
-          <span class="leader">{{post.name}}</span>
-        </p>
-      </a>
-    </div>
-    <p class="text-lg text-gray-400 px-3">{{post.sentence}}</p>
-    <div class="">
-      <div class="mb-3">
-        <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
-          {% for tag in sortedTags %}
-          <li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{{tag}}">
-            {{tag}}
-          </li>
-          {% endfor %}
-        </ul>
+{% assign tagList = post.tags | join: "','" | append: "','" | append:
+post.review | append: "']" | prepend: "['" %} {% assign sortedTags = post.tags |
+sort %}
+<div class="fancy_card horizontal" :class="{ 'hidden': is_hidden({{tagList}}) }">
+  <div class="card_translator">
+    <a class="card_rotator small_rot card_layer block" href="{{post.url}}">
+      <div class="card_layer">
+        <article class="review-summary review-{{post.review}}">
+          <div class="bg2">
+            <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
+              <figure class="">
+                <img class="rounded-l-xl block flex-none bg-cover mx-auto"
+                  src="{{site.img_path}}{{post.loc}}thumb_cover.jpg" width="250" height="375" />
+              </figure>
+              <div class="flex flex-col justify-between p-4 text-center">
+                <div class="rating">
+                  <p class="small rating-{{post.review}}">
+                    <span class="leader">{{post.name}}</span>
+                  </p>
+                </div>
+                <p class="text-lg text-gray-400 px-3">{{post.sentence}}</p>
+                <div class="">
+                  <div class="mb-3">
+                    <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
+                      {% for tag in sortedTags %}
+                      <li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{{tag}}">
+                        {{tag}}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-    </div>
+      <div class="card_layer card_effect card_overlay_{{post.review}}"></div>
+      <div class="card_layer card_effect card_glare"></div>
+    </a>
   </div>
-</article>
+</div>
