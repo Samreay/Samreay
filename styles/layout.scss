@@ -89,11 +89,13 @@ body {
 }
 
 .newsletter {
-  @apply rounded-lg gradient;
-  padding: 0.1rem;
+  @apply gradient;
+  border-radius: var(--radius);
 }
 .newsletter-inner {
-  @apply p-8 rounded-lg bg-gray-900;
+  @apply p-8 bg-gray-900;
+  border-radius: var(--radius);
+  --tw-bg-opacity: 0.9;
 }
 
 .tag-list {

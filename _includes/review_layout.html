@@ -45,7 +45,7 @@
     <!-- And now the blog posts of course -->
 
     <div class="mt-20 max-w-sm mx-auto md:max-w-full mb-12" data-aos="fade-up">
-        <div class="grid gap-12 grid-cols-1 lg:grid-cols-2 4xl:grid-cols-3 7xl:grid-cols-4 md:gap-24 items-start">
+        <div class="grid gap-12 grid-cols-1 lg:grid-cols-2 4xl:grid-cols-3 7xl:grid-cols-4 md:gap-16 items-start">
             {% for post in posts %}
             {% assign key = post.loc | append: "thumb_cover.jpg" %}
             {% include card_cover_wide.html %}
