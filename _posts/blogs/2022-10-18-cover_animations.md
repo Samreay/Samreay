@@ -41,6 +41,4 @@ ffmpeg -i m.mp4 -i SoulRelic_5_LayerAllNoAeon.jpg -filter_complex "[1:v][0:v]sca
 ffmpeg -i m.mp4 -i SoulRelic_5_LayerAllNoAeon.jpg -filter_complex "[1:v][0:v]scale2ref[ckout][vid];[vid]format=gbrp[vid];[vid][ckout] blend=all_mode=screen[x];[x]format=yuv420p [out]" -map "[out]" -y soul_relic.mp4
 ```
 
-S
-
 If you know any other useful apps or services which could add to this, let me know!
