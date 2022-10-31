@@ -265,6 +265,10 @@ body {
   }
 }
 
+.badge-leader {
+  @apply mt-24;
+}
+
 .badge {
   @apply mx-auto max-w-2xl gradient relative rounded-lg mb-20;
   padding: 0.15rem;
@@ -302,7 +306,8 @@ body {
 
 // Table styling 
 .table-auto {
-  @apply w-full max-w-7xl divide-y divide-gray-700;
+  @apply divide-y divide-gray-700;
+  margin: 0 auto;
   thead {
     @apply bg-gray-800;
     
