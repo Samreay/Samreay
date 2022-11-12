@@ -1,0 +1,1 @@
+ffmpeg -i storm_scion_original.mov -filter:v scale=676:1080 -vcodec h264 -crf 26 storm_scion_small.mp4

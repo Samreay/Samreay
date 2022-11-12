@@ -6,5 +6,6 @@
 
 - name: Scion of Storms
   cover: static/img/landing/book2.jpg
+  animated: static/img/landing/storm_scion_small.mp4
   desc: "Manifestation 2: Scion of Storms"
   link: https://cosmiccoding.com.au/blog/scion_of_storms_prologue
