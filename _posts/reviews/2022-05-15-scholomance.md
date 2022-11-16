@@ -13,7 +13,7 @@ amazon: https://www.amazon.com/Deadly-Education-Novel-Scholomance-Book-ebook/dp/
 goodreads: https://www.goodreads.com/series/282152-the-scholomance
 loc: 'reviews/scholomance/'
 permalink: /reviews/scholomance
-tags: [in-progress, magic-school, female-lead]
+tags: [finished, magic-school, female-lead]
 sentence: "Forget the hordes of monsters and cursed artifacts in the Scholomance, El's the most dangerous thing in the place."
 ---
 
