@@ -1,6 +1,6 @@
 ---
 layout: review_post
-title:  "A review of Striker's 'Vrituous Sons'"
+title:  "A review of Striker's 'Virtuous Sons'"
 short_title: "Virtuous Sons"
 desc: "Cultivation in a Greco-Roman setting, with amazing characters and absolutely fantasy dynamics."
 long_desc: "Cultivation in a Greco-Roman setting, with amazing characters and absolutely fantasy dynamics."
