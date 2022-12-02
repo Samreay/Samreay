@@ -14,7 +14,7 @@ goodreads: https://www.goodreads.com/en/book/show/54311585-cinnamon-bun
 royalroad: https://www.royalroad.com/fiction/31429/cinnamon-bun
 loc: 'reviews/cinnamon/'
 permalink: /reviews/cinnamon
-tags: [litRPG, isekai, female-lead, in-progress, lgbt]
+tags: [litRPG, isekai, female-lead, wholesome, in-progress, lgbt]
 sentence: "Broccoli Bunch goes on a cute and wholesome adventure."
 ---
 
