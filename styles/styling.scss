@@ -279,13 +279,16 @@
 .tag-finished {
   @apply bg-blue-600 text-gray-100 font-medium;
 }
+.tag-manhua {
+  @apply bg-red-600 text-gray-100 font-medium;
+}
 .tag-in-progress {
   @apply bg-main-600 text-gray-100 font-medium;
 }
 .tag-magic-school {
   @apply bg-gray-600 text-gray-100 font-medium;
 }
-.tag-gamelit {
+.tag-slice-of-life {
   @apply bg-purple-600 text-gray-100 font-medium;
 }
 .tag-litRPG {

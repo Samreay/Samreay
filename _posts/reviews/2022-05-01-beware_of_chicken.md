@@ -13,7 +13,7 @@ amazon: https://www.amazon.com/Beware-Chicken-Xianxia-Cultivation-Novel-ebook/dp
 goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
 loc: 'reviews/chicken/'
 permalink: /reviews/chicken
-tags: [in-progress, cultivation, wholesome]
+tags: [in-progress, cultivation, wholesome, slice-of-life]
 sentence: "A laugh-out-loud, slice-of-life martial-arts fantasy about . . . farming????"
 ---
 

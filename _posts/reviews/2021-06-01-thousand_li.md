@@ -13,7 +13,7 @@ amazon: https://www.amazon.co.uk/gp/product/B07PKGSDDQ
 goodreads: https://www.goodreads.com/en/book/show/44327636-the-first-step
 loc: 'reviews/thousand_li/'
 permalink: /reviews/thousand_li
-tags: [cultivation, in-progress, magic-school]
+tags: [cultivation, in-progress, magic-school, slice-of-life]
 sentence: "Given a chance at immortality, can Wu Ying grasp the fleeting opportunity?"
 ---
 

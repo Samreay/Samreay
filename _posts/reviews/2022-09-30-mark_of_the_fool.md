@@ -14,7 +14,7 @@ goodreads: https://www.goodreads.com/book/show/58854991-mark-of-the-fool
 royalroad: https://www.royalroad.com/fiction/41618/mark-of-the-fool
 loc: 'reviews/markfool/'
 permalink: /reviews/markfool
-tags: [in-progress, magic-school, crafting, hard-magic]
+tags: [in-progress, magic-school, crafting, hard-magic, slice-of-life]
 sentence: "Alex Roth is called by the gods to be a hero. He declines."
 ---
 

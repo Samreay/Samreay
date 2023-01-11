@@ -13,7 +13,7 @@ amazon: https://www.amazon.com/Iron-Prince-Warformed-Stormweaver-Book-ebook/dp/B
 goodreads: https://www.goodreads.com/book/show/55559974-iron-prince
 loc: 'reviews/iron_prince/'
 permalink: /reviews/iron_prince
-tags: [gamelit, in-progress, magic-school, sci-fi]
+tags: [in-progress, magic-school, sci-fi]
 sentence: "Reidon Ward will become a god. He doesn't know it yet, of course."
 ---
 
