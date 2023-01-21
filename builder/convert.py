@@ -46,11 +46,14 @@ def wrap_code(lines: list[str]) -> list[str]:
                 start_line = len(content) + 1
                 max_width = 0
                 content.append("") # markdown has to have empty lines around divs
-                content.append("") # this becomes the div
+                content.append("") # this is our index
                 content.append("")
                 content.append(line)
             else:
                 # if we're coming out, add the end div
+                if max_width == 0:
+                    content[start_line + 2] = ""
+                    continue
                 content.append(line)
                 content.append("")
                 content.append("</div>")

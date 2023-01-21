@@ -427,13 +427,9 @@ After that has run, we should have a nice animated version of the PNG sequence! 
 
 
 
-<div class="reduced-code width-0" markdown=1>
 
-```python
 
-```
 
-</div>
 
 
 ******
@@ -552,5 +548,4 @@ from IPython.display import Image
 Image(fig.to_image(format="png", scale=2))
 from joblib import Parallel, delayed
 Parallel(prefer="threads", n_jobs=4)(delayed(plot_row)(df3, n) for n in range(df3.shape[0]));
-
 ```

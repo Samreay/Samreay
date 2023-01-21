@@ -1,6 +1,6 @@
 ---
-title:  "Naive Bayes - Introduction, Assumptions, and Pitfalls"
-description: "A beginners introduction to Naive Bayes in python."
+title:  "Introduction to Naive Bayes"
+description: "Overview, assumptions, and pitfalls."
 date: 2020-07-11
 categories: [tutorial]
 tags: [statistics]

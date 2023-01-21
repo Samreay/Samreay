@@ -824,13 +824,9 @@ Interesting things we note:
 
 
 
-<div class="reduced-code width-0" markdown=1>
 
-```python
 
-```
 
-</div>
 
 
 ******
@@ -1088,5 +1084,4 @@ def plot_overview(df, ax, fig):
     
 fig, ax = plt.subplots(figsize=(10, 8))
 plot_overview(df_established, ax, fig)
-
 ```

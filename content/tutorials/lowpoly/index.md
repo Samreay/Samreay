@@ -303,13 +303,9 @@ All in all, for a simplistic approach, I'm very happy with how this turned out.
 
 
 
-<div class="reduced-code width-0" markdown=1>
 
-```python
 
-```
 
-</div>
 
 
 ******
@@ -385,5 +381,4 @@ for i in range(0, 100):
     s = draw(tri, colours, screen, upscale)
     s = pygame.transform.smoothscale(s, (w, h))
     pygame.image.save(s, f"lowpoly/output/{i:04d}.png")
-
 ```

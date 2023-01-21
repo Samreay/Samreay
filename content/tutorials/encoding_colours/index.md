@@ -959,13 +959,9 @@ And because the animation code for 3D plots is even uglier than the 2D, I've hid
 
 
 
-<div class="reduced-code width-0" markdown=1>
 
-```python
 
-```
 
-</div>
 
 
 And with the beauty of one more dimension, we can see that the RGB colour clusters can start to be separated independently.
@@ -1104,5 +1100,4 @@ save = LambdaCallback(on_epoch_end=lambda batch, logs:
 setseed(1)
 model = get_model2()
 model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
-
 ```

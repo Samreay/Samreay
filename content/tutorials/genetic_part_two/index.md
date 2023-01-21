@@ -324,13 +324,9 @@ This still took quite a whil to run on my laptop, and there are existing solutio
 
 
 
-<div class="reduced-code width-0" markdown=1>
 
-```python
 
-```
 
-</div>
 
 
 ******
@@ -504,5 +500,4 @@ def evolve(rate, scale, add_chance, steps=700000):
         pop.step(i, outdir, rate=rate, scale=scale, add=add_chance)
 # 1% chance of mutation, scale is a normal of std 0.1, and 1% chance to add or remove
 evolve(0.01, 0.1, 0.01)
-
 ```
