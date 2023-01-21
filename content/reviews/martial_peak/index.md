@@ -1,6 +1,6 @@
 ---
 title:  "A review of Momo's 'Martial Peak'"
-long_description: "Traditional cultivation manhua packed with action-packed, gorgeous art... and multiple wives."
+description: "Traditional cultivation manhua packed with action-packed, gorgeous art... and multiple wives."
 date: 2023-01-10
 categories: [reviews]
 review: C

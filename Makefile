@@ -29,6 +29,9 @@ tailwind:
 blog:
 	hugo server -D --verbose
 
+summary:
+	poetry run builder/summary_generator.py
+
 install: install_casks install_poetry install_precommit install_tailwind tailwind precommit
 
 build: tailwind convert

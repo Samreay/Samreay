@@ -12,6 +12,7 @@ jupyter = "^1.0.0"
 nbconvert = "^7.2.4"
 jupyter-contrib-nbextensions = "^0.7.0"
 rich = "^13.2.0"
+python-frontmatter = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
