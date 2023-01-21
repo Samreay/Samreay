@@ -21,25 +21,25 @@ def process_notebook(file_path: Path):
 
     markdown_path = convert_notebook(file_path)
 
-    markdown_content = load_markdown(markdown_path)
+    lines = load_markdown(markdown_path)
 
-    for fn in [remove_pandas_html, remove_code, add_classes, style_tables, remove_dumb_shit, wrap_code]:
-        markdown_content = fn(markdown_content)
+    for fn in [remove_pandas_html, remove_code, swap_videos, add_classes, style_tables, remove_dumb_shit, wrap_code]:
+        lines = fn(lines)
 
-    markdown_content = add_thumbnail(markdown_content, file_path)
-    markdown_content = remove_main(markdown_content)
-    markdown_content = put_all_code_at_the_end(markdown_content)
+    lines = add_thumbnail(lines, file_path)
+    lines = remove_main(lines)
+    lines = put_all_code_at_the_end(lines)
 
     with open(markdown_path, "w") as f:
-        f.write("\n".join(markdown_content))
+        f.write("\n".join(lines))
 
-def wrap_code(markdown_content: list[str]) -> list[str]:
+def wrap_code(lines: list[str]) -> list[str]:
     logger.debug("\tFiguring out helpful code classes")
     content = []
     in_block = False
     start_line = 0
     max_width = 0
-    for line in markdown_content:
+    for line in lines:
         if line.startswith("```"):
             if not in_block:
                 # starting block, so keep track of line no
@@ -78,8 +78,16 @@ def clean(file_path: Path):
         if d.is_dir():
             shutil.rmtree(d.absolute())
     
-def remove_dumb_shit(markdown_content: list[str]) -> list[str]:
-    return [x for x in markdown_content if "texmanager" not in x]
+def remove_dumb_shit(lines: list[str]) -> list[str]:
+    remove = ["texmanager", "DeprecationWarnin", "InteractiveShellApp", "dedent function was deprecated"]
+    results = []
+    for l in lines:
+        for r in remove:
+            if r in l:
+                break
+        else:
+            results.append(l)
+    return results
 
 def convert_notebook(file_path: Path) -> Path:
     basedir = file_path.parent
@@ -106,10 +114,10 @@ def load_markdown(file_path: Path) -> list[str]:
         return f.read().splitlines()
 
 
-def remove_pandas_html(markdown_content: list[str]) -> list[str]:
+def remove_pandas_html(lines: list[str]) -> list[str]:
     newline_token = "|||"
     search = re.compile(r"(<style scoped.*?style>)")
-    content = newline_token.join(markdown_content)
+    content = newline_token.join(lines)
     matches = search.findall(content)
     logger.debug(f"\tRemoving {len(matches)} pandas table headers")
     for match in matches:
@@ -117,33 +125,43 @@ def remove_pandas_html(markdown_content: list[str]) -> list[str]:
     return content.split(newline_token)
 
 
-def remove_code(markdown_content: list[str]) -> list[str]:
+def remove_code(lines: list[str]) -> list[str]:
     logger.debug("\tRemoving unneeded python lines")
     remove_comment = "###remove"
-    return [x for x in markdown_content if remove_comment not in x.lower().replace(" ", "")]
+    return [x for x in lines if remove_comment not in x.lower().replace(" ", "")]
 
+def swap_videos(lines: list[str]) -> list[str]:
+    for i, line in enumerate(lines):
+        if "Your browser does not support the".lower() in line.lower():
+            lines[i] = ""
+        elif "</video>" in line:
+            lines[i] = ""
+        elif "<video src" in line:
+            src = line.split("src=\"")[1].split('"')[0]
+            lines[i] = f"![]({src})"
+    return lines
 
-def add_classes(markdown_content: list[str]) -> list[str]:
+def add_classes(lines: list[str]) -> list[str]:
     logger.debug("\tAdding classes to images blocks")
 
     current_classes = ""
-    markdown_content = markdown_content[::-1]
-    for i, line in enumerate(markdown_content):
+    lines = lines[::-1]
+    for i, line in enumerate(lines):
         if "!!!" in line:
             current_classes = line.replace("!", "").strip().replace(" ", ",")
-            markdown_content[i] = ""
+            lines[i] = ""
         if current_classes and line.startswith("!["):
-            markdown_content[i] = line[:-1] + f'?class="{current_classes}")'
+            lines[i] = line[:-1] + f'?class="{current_classes}")'
             current_classes = ""
-    return markdown_content[::-1]
+    return lines[::-1]
 
 
-def add_thumbnail(markdown_content: list[str], file_path: Path) -> list[str]:
+def add_thumbnail(lines: list[str], file_path: Path) -> list[str]:
     logger.debug("\tAdding thumbnail to frontmatter")
     base_dir = file_path.parent
 
-    def adjust(markdown_content, index):
-        line = markdown_content[index]
+    def adjust(lines, index):
+        line = lines[index]
         image_loc = line.split("](")[1].split(")")[0].split("?")[0]
         image_path = base_dir / image_loc
         if not image_path.exists():
@@ -152,30 +170,30 @@ def add_thumbnail(markdown_content: list[str], file_path: Path) -> list[str]:
         if new_path.exists():
             new_path.unlink()
         image_path.rename(new_path)
-        markdown_content[index] = markdown_content[index].replace(image_loc, new_path.name)
+        lines[index] = lines[index].replace(image_loc, new_path.name)
 
-    for i, line in enumerate(markdown_content):
+    for i, line in enumerate(lines):
         if "img-main" in line:
-            adjust(markdown_content, i)
-            return markdown_content
-    for i, line in enumerate(markdown_content):
+            adjust(lines, i)
+            return lines
+    for i, line in enumerate(lines):
             if "![" in line:
-                adjust(markdown_content, i)
+                adjust(lines, i)
                 break
-    return markdown_content
+    return lines
 
 
-def remove_main(markdown_content: list[str]) -> list[str]:
-    for i, line in enumerate(markdown_content):
+def remove_main(lines: list[str]) -> list[str]:
+    for i, line in enumerate(lines):
         if "![](" in line and "remove" in line:
-            markdown_content[i] = ""
-    return markdown_content
+            lines[i] = ""
+    return lines
 
-def put_all_code_at_the_end(markdown_content: list[str]) -> list[str]:
+def put_all_code_at_the_end(lines: list[str]) -> list[str]:
     logger.debug("\tAdding code at the end of the document")
     end_code = ["", "******", "", "For your convenience, here's the code in one block:", "", "```python"]
     in_code= False
-    for line in markdown_content:
+    for line in lines:
         if "```python" in line:
             in_code = True
             continue
@@ -184,16 +202,16 @@ def put_all_code_at_the_end(markdown_content: list[str]) -> list[str]:
         if in_code:
             end_code.append(line)
     end_code.append("```")
-    return markdown_content + end_code
+    return lines + end_code
 
     
 
-def style_tables(markdown_content: list[str]) -> list[str]:
+def style_tables(lines: list[str]) -> list[str]:
     logger.debug("\tAdding classes to tables")
-    for i, line in enumerate(markdown_content):
+    for i, line in enumerate(lines):
         if line.startswith("<table"):
-            markdown_content[i] = '<table class="table-auto table dataframe">'
-    return markdown_content
+            lines[i] = '<table class="table-auto table dataframe">'
+    return lines
 
 def load_hashes(file_path: Path) -> dict[str, str]:
     if not file_path.exists():
@@ -243,10 +261,7 @@ if __name__ == "__main__":
                 logger.info(f"Skipping {key} as hash is unchanged")
                 continue
             process_notebook(notebook_path.absolute())
-            count += 1
-            if count > 4:
-                break
-            # hashes[key] = hash
+            hashes[key] = hash
 
         if hashes != hashes_original:
             save_hashes(hash_file, hashes)

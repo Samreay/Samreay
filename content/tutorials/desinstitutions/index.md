@@ -127,11 +127,7 @@ get_base_fig();
 </div>
 
 
-    C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:15: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
       from ipykernel import kernelapp as app
-    C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:18: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
     
 
 
@@ -180,11 +176,7 @@ get_scatter();
 </div>
 
 
-    C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:15: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
       from ipykernel import kernelapp as app
-    C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:18: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
     
 
 
@@ -246,11 +238,7 @@ get_shaded();
 </div>
 
 
-    C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:15: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
       from ipykernel import kernelapp as app
-    C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:18: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
     
 
 
@@ -266,9 +254,9 @@ Great, well that's something I would call good enough for now. Of course... it w
 
 
 
-<video src="desinstitutions/des.mp4" controls  >
-      Your browser does not support the <code>video</code> element.
-    </video>
+![](desinstitutions/des.mp4)
+
+
 
 
 

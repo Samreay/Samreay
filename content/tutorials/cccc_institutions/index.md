@@ -17,9 +17,9 @@ This is what we're going to be making.
 
 
 
-<video src="cccc_enrolment/contributions.mp4" controls>
-      Your browser does not support the <code>video</code> element.
-    </video>
+![](contributions.mp4)
+
+
 
 
 
@@ -1912,11 +1912,6 @@ get_base_fig();
 </div>
 
 
-    /home/samreay/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:11: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
-      # This is added back by InteractiveShellApp.init_path()
-    /home/samreay/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:14: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
       
     
 
@@ -1995,11 +1990,6 @@ get_scatter(test_row);
 </div>
 
 
-    /home/samreay/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:11: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
-      # This is added back by InteractiveShellApp.init_path()
-    /home/samreay/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:14: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
       
     
 
@@ -2059,11 +2049,6 @@ get_shaded(test_row, "2020-03-23", show=True);
 </div>
 
 
-    /home/samreay/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:11: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
-      # This is added back by InteractiveShellApp.init_path()
-    /home/samreay/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:14: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
       
     
 
@@ -2093,11 +2078,6 @@ for i, date in enumerate(data_fixed.index):
 </div>
 
 
-    /home/samreay/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:11: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
-      # This is added back by InteractiveShellApp.init_path()
-    /home/samreay/miniconda3/lib/python3.7/site-packages/ipykernel_launcher.py:14: MatplotlibDeprecationWarning: 
-    The dedent function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use inspect.cleandoc instead.
       
     
 
@@ -2129,9 +2109,9 @@ tpad=stop_mode=clone:stop_duration=4
 
 
 
-<video src="cccc_enrolment/contributions.mp4" controls>
-      Your browser does not support the <code>video</code> element.
-    </video>
+![](cccc_enrolment/contributions.mp4)
+
+
 
 
 

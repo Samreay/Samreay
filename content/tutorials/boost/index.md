@@ -237,7 +237,7 @@ print(f"Sum is {sum} from {count} elements")
 
 
     
-![png](2020-07-04-Boost_files/2020-07-04-Boost_5_0.png?class="nofinalcode")
+![png](2020-07-04-Boost_files/2020-07-04-Boost_5_0.png)
     
 
 
@@ -247,9 +247,6 @@ You can see that we don't need to do anything else. Import the `.so` file, and c
 [**You can find the C++, Python and install.txt files here for convenience.**](/static/notebooks/boost/boost.zip)
 
 Good luck!
-
-
-
 
 
 
