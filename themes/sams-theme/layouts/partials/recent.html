@@ -1,0 +1,10 @@
+<div class="container recent-posts mx-auto mt-20 mb-28">
+    <div class="prose prose-slate text-center w-full mb-8">
+        <h2>Recent Posts</h2>
+    </div>
+    <div class="grid gap-12 md:grid-cols-2">
+    {{ range first 3 .Site.RegularPages }}
+      {{- partial "card.html" . -}}
+    {{ end }}
+    </div>
+</div>

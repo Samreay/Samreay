@@ -1,0 +1,30 @@
+<div class="content content-standard">
+    <div class="pt-10 pb-12 md:pt-16 md:pb-20">
+
+        <!-- Section header -->
+        <div class="section-header">
+            <h1 data-aos="fade-up">Other stuff</h1>
+            <p data-aos="fade-up">Not everything on the internet falls into nice little boxes. I've tried though, to some small amount of success.</p>
+        </div>
+        
+        <!-- Items -->
+        <div class="max-w-sm mx-auto grid gap-8 md:grid-cols-2 lg:gap-16 items-start md:max-w-none">
+
+            {{ range $item := site.Data.other }}
+            <a href="{{$item.link}}">
+                <div class="relative flex flex-col items-center" data-aos="fade-up">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <rect class="fill-current text-main-600" width="64" height="64" rx="32" />
+                        <path class="stroke-current text-main-300" stroke-width="2" stroke-linecap="square"
+                            d="M21 23h22v18H21z" fill="none" fill-rule="evenodd" />
+                        <path class="stroke-current text-main-100" d="M26 28h12M26 32h12M26 36h5" stroke-width="2"
+                            stroke-linecap="square" />
+                    </svg>
+                    <h4 class="h4 mb-2">{{$item.name}}</h4>
+                    <p class="text-lg text-gray-400 text-center">{{$item.desc}}</p>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</div>

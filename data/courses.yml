@@ -1,0 +1,9 @@
+- name: Python for Statistical Analysis
+  link: https://www.udemy.com/course/python-for-statistical-analysis/?referralCode=76158B46FA5EB57C38EB
+  desc: Statistics and hypothesis testing using modern tools and workflows all in Python. For those that want to brush up on their statistics and analytics using modern tools and practical problems.
+  img: landing/course_stat.jpg
+
+- name: Data Manipulation in Python
+  link: https://www.udemy.com/course/data-manipulation-in-python/?referralCode=76D0B64A481951B29E77
+  desc: Data wranging with Pandas made fast, efficient, and easy. Learn how to manipulate, transform, aggregate, visualise, and summarise data using best practices.
+  img: landing/course_pandas.jpg

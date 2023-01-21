@@ -1,0 +1,32 @@
+
+<div class="not-prose mt-12 mb-12">
+    <ul class="grid gap-6 w-full md:grid-cols-2">
+        <li>
+            <input checked type="radio" id="hide-code" name="code-toggle" value="hide-code" class="hidden peer" onchange="clickCheckbox(this)" required>
+            <label for="hide-code" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-arenkoblue peer-checked:text-white peer-checked:bg-arenkoblue hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                <div class="block">
+                    <div class="w-full text-lg font-semibold">Just the plots, please.</div>
+                    <div class="w-full text-sm">For non-developers wanting information.</div>
+                </div>
+            </label>
+        </li>
+        <li>
+            <input type="radio" id="show-code" name="code-toggle" value="show-code" class="hidden peer" onchange="clickCheckbox(this)">
+            <label for="show-code" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-arenkoblue peer-checked:text-white peer-checked:bg-arenkoblue hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="block">
+                    <div class="w-full text-lg font-semibold">Show me the code!</div>
+                    <div class="w-full text-sm">Yes, my code! Find those bugs for me!</div>
+                </div>
+            </label>
+        </li>
+    </ul>
+</div> 
+<script>
+function clickCheckbox(element) {
+    if (element.id == "show-code") {
+        document.getElementById("post-container").classList.remove("hide-code")
+    } else {
+        document.getElementById("post-container").classList.add("hide-code")
+    }
+}
+</script>

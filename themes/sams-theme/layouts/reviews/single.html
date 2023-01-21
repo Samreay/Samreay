@@ -1,0 +1,111 @@
+{{ define "main" }}
+
+
+<div class="content content blog-post relative" data-aos="fade-up">
+    <div class="section-header blog">
+        <h1 class="title" data-aos="fade-up">{{ .Params.short_title }}</h1>
+    </div>
+
+
+    <div class="max-w-4xl mx-auto mt-12 mb-20">
+        <article class="w-full review-summary bg-gray-800 rounded-xl review-{{.Params.review}}">
+            <div class="bg2 rounded-xl">
+                <div class="bg-inner flex flex-col md:flex-row bg-gray-800 rounded-xl overflow-hidden">
+
+
+                    {{ $img := resources.Get "img/placeholder_1.jpg" }}
+                    {{ if isset .Params "images" }}
+                        {{ $img = .Page.Resources.Get (index .Params.images 0) }}
+                    {{ else }}
+                        {{- $images := $.Resources.ByType "image" -}}
+                        {{ $featured := $images.GetMatch "{*cover*,*thumbnail*}" }}
+                        {{ if $featured }}
+                            {{ $img = $featured }}
+                        {{ end }}
+                    {{ end }}
+                    {{ with $img }}
+                    <figure class="">
+                        <picture>
+                            {{ with .Fill "250x375 Center webp q80 #000000" }}
+                                <source srcset="{{ .RelPermalink }}" type="image/webp">
+                            {{ end }}
+                            {{ with .Fill "250x375 Center q70 #000000" }}
+                                <source srcset="{{ .RelPermalink }}" type="image/png">
+                            {{ end }}
+                            <img class="rounded-l-xl block flex-none bg-cover" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="{{ .Params.short_title }}">
+                        </picture>
+                    </figure>
+                    {{ end }}
+                    <div class="flex flex-col justify-between p-12 text-center md:text-left">
+                        <div class="rating">
+                            <p class="larger rating-{{.Params.review}}">
+                                <span class="leader">{{ .Params.review }}:</span>
+                                {{ if eq .Params.review "π" }}My own work, which means it's amazing, right?{{ end }}
+                                {{ if eq .Params.review "S" }}Special place in my heart.{{ end }}
+                                {{ if eq .Params.review "A" }}Amazing, definitely read.{{ end }}
+                                {{ if eq .Params.review "B" }}Great read, highly recommend.{{ end }}
+                                {{ if eq .Params.review "C" }}Good read, tiny quibbles.{{ end }}
+                                {{ if eq .Params.review "D" }}Fun with some flaws.{{ end }}
+                                {{ if eq .Params.review "F" }}Significant issues, did not finish.{{ end }}
+                            </p>
+                        </div>
+                        <p class="text-lg text-gray-400">{{ .Params.long_desc}}</p>
+                        <div class="text-base">
+                            {{ if .Params.amazon }}
+                            <a class="no-under btn-sm text-white bg-main-600 hover:bg-main-700 mt-6 mr-4"
+                                href="{{.Params.amazon}}">
+                                <span>Amazon</span>
+                                <svg class="w-3 h-3 fill-current text-main-400 flex-shrink-0 ml-2" viewBox="0 0 12 12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 5H0v2h6v4l6-5-6-5z" />
+                                </svg>
+                            </a>
+                            {{ end }}
+                            {{ if .Params.royalroad }}
+                            <a class="no-under btn-sm text-white bg-main-600 hover:bg-main-700 mt-6 mr-4"
+                                href="{{.Params.royalroad}}">
+                                <span>Royal Road</span>
+                                <svg class="w-3 h-3 fill-current text-main-400 flex-shrink-0 ml-2" viewBox="0 0 12 12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 5H0v2h6v4l6-5-6-5z" />
+                                </svg>
+                            </a>
+                            {{ end }}
+                            {{ if .Params.goodreads }}
+                            <a class="no-under btn-sm text-white bg-main-600 hover:bg-main-700 mt-6"
+                                href="{{.Params.goodreads}}">
+                                <span>Goodreads</span>
+                                <svg class="w-3 h-3 fill-current text-main-400 flex-shrink-0 ml-2" viewBox="0 0 12 12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 5H0v2h6v4l6-5-6-5z" />
+                                </svg>
+                            </a>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="max-w-xl2 mx-auto">
+        {{ .Content }}
+    </div>
+
+    <div class="mt-20">
+        <p class="text-center">
+            <a href="/reviews">For more book reviews, click here!</a>
+        </p>
+    </div>
+
+    <div class="mt-20">
+        {{ partial "newsletter-blog.html" }}
+    </div>
+
+
+</div>
+
+
+
+
+{{ end }}

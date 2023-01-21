@@ -1,0 +1,38 @@
+<article class="review flex flex-col h-full rounded-xl bg-gray-800 review-{{ .Params.review }}" data-aos="fade-up" :class="{ 'hidden': is_hidden('{{ .Params.review }}') }">
+    <a href="{{ .Permalink }}">
+        <div class="bg2 rounded-xl">
+            <div class="bg-inner">
+                <div class="h-full relative">
+
+                    {{ $img := resources.Get "img/placeholder_1.jpg" }}
+                    {{ if isset .Params "images" }}
+                        {{ $img = .Page.Resources.Get (index .Params.images 0) }}
+                    {{ else }}
+                        {{- $images := $.Resources.ByType "image" -}}
+                        {{ $featured := $images.GetMatch "{*cover*,*thumbnail*}" }}
+                        {{ if $featured }}
+                            {{ $img = $featured }}
+                        {{ end }}
+                    {{ end }}
+                    {{ with $img }}
+                    <figure class="relative h-0 overflow-hidden rounded-t-lg">
+                        <picture>
+                            {{ with .Fill "250x375 Center webp q80 #000000" }}
+                                <source srcset="{{ .RelPermalink }}" type="image/webp">
+                            {{ end }}
+                            {{ with .Fill "250x375 Center q70 #000000" }}
+                                <source srcset="{{ .RelPermalink }}" type="image/png">
+                            {{ end }}
+                            <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-300 ease-out" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="{{ .Params.short_title }}">
+                        </picture>
+                    </figure>
+                    {{ end }}
+                    <div class="search-text">
+                        <p>{{ .Params.short_title }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+</article>

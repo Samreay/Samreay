@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{ $class := cond ( eq .Type "notebooks" ) "hide-code" "" }}
+<div id="post-container" class="content content-wider blog-post relative {{ $class }}">
+    <div class="section-header blog">
+        <h1 class="title">{{ .Title }}</h1>
+        <p>{{ .Date.Format "6th January 2006" }}</p>
+        <p>{{ .Description}}</p>
+    </div>
+
+            {{ if eq .Type "notebooks" }}
+                {{- partial "show-code.html" . -}}
+            {{ end }}
+
+
+            {{ .Content }}
+
+            {{ partial "newsletter-blog.html" . }}
+
+
+</div>
+
+
+{{ if .Params.math }}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+{{ $categories := site.Data.categories }}
+<div class="content content-full" x-data="window.register_tags()">
+
+  <div class="section-header mt-12 pb-2">
+    <h1>Book Reviews!</h1>
+    <p>As normal, these are <em>my</em> opinions for the sort of books I enjoy reading, 
+      limited to Progression Fantasy and LitRPG titles. You may
+        love things that I don't, or vice-versa. In fact, I hope you like everything listed below and help establish these genres
+        into mainstream media! You can use the buttons below to filter on ratings. The <strong>π</strong> category means it's one
+        of my books, as a heads up.</p>
+  </div>
+
+  <!-- Add the categories -->
+  <div class="tag-list review mb-4">
+    {{ range $cat := $categories }}
+    <div class="mx-4 my-4 review-{{$cat}}" @click="click_tag('{{$cat}}');" x-init="add_tag('{{$cat}}')"
+        :class="{ 'opacity-30': is_hidden_single('{{$cat}}') }">
+        <div class="bg2 rounded-xl">
+            <div class="bg-inner">
+                <button class="tag-review tag-review-{{$cat}}">
+                    <span>{{$cat}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+  </div>
+
+  <!-- Add the tags -->
+  <div class="tag-list max-w-7xl mx-auto">
+    {{ range  $tag, $taxonomy := where site.Taxonomies.tags ".Page.Section" .Type }}
+    <button class="tag-{{$tag}}" @click="click_tag('{{$tag}}');" x-init="add_tag('{{$tag}}')" :class="{ 'opacity-30': is_hidden_single('{{$tag}}') }">
+        <span>{{$tag}}</span>
+    </button>
+    {{ end }}
+  </div>
+
+
+  <!-- Add the posts -->
+  <div class="container mx-auto mt-20 grid gap-12 grid-cols-wide-cards">
+    {{ range ( where .Site.RegularPages.ByWeight "Type" .Type ) }}
+      {{- partial "card_cover_wide.html" . -}}
+    {{ end }}
+  </div>
+
+</div>
+
+{{ end }}

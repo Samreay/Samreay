@@ -1,0 +1,47 @@
+<article class="flex flex-col h-full rounded-lg bg-gray-800 {{.Params.tags}}" data-aos="fade-up" :class="{ 'hidden': is_hidden([{{ range $t := .Params.tags }}'{{$t}}', {{ end }}]) }">
+    <a href="{{ .RelPermalink }}">
+        <div class="h-full">
+            <header class="mb-4">
+                <figure class="relative h-0 pb-9/16 overflow-hidden rounded-t-lg">
+
+                {{ $img := resources.Get "img/placeholder_1.jpg" }}
+                {{ if isset .Params "images" }}
+                    {{ $img = .Page.Resources.Get (index .Params.images 0) }}
+                {{ else }}
+                    {{- $images := $.Resources.ByType "image" -}}
+                    {{ $featured := $images.GetMatch "{*cover*,*thumbnail*}" }}
+                    {{ if $featured }}
+                        {{ $img = $featured }}
+                    {{ end }}
+                {{ end }}
+                {{ with $img }}
+                <picture>
+                    {{ with .Fill "352x198 webp q80 #000000" }}
+                        <source srcset="{{ .RelPermalink }}" type="image/webp">
+                    {{ end }}
+                    {{ with .Fill "352x198 webp q80 #000000" }}
+                        <source srcset="{{ .RelPermalink }}" type="image/png">
+                    {{ end }}
+                    <img width="352" height="198" class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="">
+                </picture>
+                {{ end }}
+                </figure>
+            </header>
+
+            <div class="px-4 pb-4">
+                <div class="mb-3">
+                    <ul class="flex flex-wrap text-xs font-medium -m-1">
+                        {{ range $tag  := .Params.tags }}
+                        <li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{{$tag}}">{{$tag}}</li>
+                        {{ end }}
+
+                    </ul>
+                </div>
+                <h4 class="mb-2">{{ if .Params.short_title }}{{ .Params.short_title }}{{ else }}{{ .Title }}{{ end }}</h4>
+                <p class="text-lg text-gray-400 flex-grow">{{ .Description }}</p>
+
+            </div>
+        </div>
+    </a>
+
+</article>

@@ -1,0 +1,31 @@
+<div class="share-links"  data-aos="fade-in" data-aos-delay="3000">
+    <div class="sticky-sharebar">
+        <div class="share-link hideshadow" style="background-color: transparent;">
+            <i class="fa fa-share-alt" style="color:#b5bbc1;"></i>
+        </div>
+        <a href="https://twitter.com/intent/tweet?text={{ .Title | safeURL }}%3A%20{{ .Permalink }}"
+            target="_blank" title="Tweet this" class="no-under">
+            <div class="share-link">
+                <i class="fab fa-twitter" style="color:#1DA1F2; margin-left: 3px;"></i>
+            </div>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite?url={{ .Permalink }}"
+            target="_blank" title="Share on LinkedIn" class="no-under">
+            <div class="share-link">
+                <i class="fab fa-linkedin-in" style="color:#0077B5; margin-top: -3px;"></i>
+            </div>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{.Permalink }}"
+            target="_blank" title="Share on Facebook" class="no-under">
+            <div class="share-link">
+                <i class="fab fa-facebook-f" style="color:#4267B2; margin-top: 1px;"></i>
+            </div>
+        </a>
+        <a href="https://reddit.com/submit?url={{ .Permalink }}&title={{ .Title | safeURL }}"
+            target="_blank" title="Share on Reddit" class="no-under">
+            <div class="share-link" style="margin-bottom: 0px;">
+                <i class="fab fa-reddit-alien" style="color:#FF5700cc; margin-top: -1px;"></i>
+            </div>
+        </a>
+    </div>
+</div>
