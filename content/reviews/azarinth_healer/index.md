@@ -1,18 +1,15 @@
 ---
-
 title:  "A review of Rhaegar's 'Azarinth Healer'"
-short_title: "Azarinth Healer"
 description: "A lone-MC isekai with non-stop action, overpowered MC, and a massive backlog."
-long_description: "A lone-MC isekai with non-stop action, overpowered MC, and a massive backlog."
 date: 2022-12-04
 categories: [reviews]
 review: B
 weight: 21
 name: "Azarinth Healer"
-amazon: https://www.amazon.com/Azarinth-Healer-Book-LitRPG-Adventure-ebook/dp/B0BLRD8YPD
-royalroad: https://www.royalroad.com/fiction/16946/azarinth-healer
-goodreads: https://www.goodreads.com/en/book/show/45728081-azarinth-healer
-
+links:
+    amazon: https://www.amazon.com/Azarinth-Healer-Book-LitRPG-Adventure-ebook/dp/B0BLRD8YPD
+    royal_road: https://www.royalroad.com/fiction/16946/azarinth-healer
+    goodreads: https://www.goodreads.com/en/book/show/45728081-azarinth-healer
 aliases: [/reviews/azarinth]
 tags: [in-progress, isekai, female-lead]
 sentence: "Ilea adjusts to a new fantasy world by becoming a battle healer."

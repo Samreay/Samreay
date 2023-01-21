@@ -1,18 +1,15 @@
 ---
-
 title:  "A review of RavensDagger's 'Cinnamon Bun'"
-short_title: "Cinnamon Bun"
-description: "A wholesome isekai in a LitRPG world wherein our female lead goes on friendship-making adventures."
-long_description: "If you're burnt out with psychopathic MCs... this will cleanse your palette. Light-hearted, wholesome, incredibly cute, Broccoli Bunch is a joy to read about."
+description: "A wholesome isekai in a LitRPG world wherein our female lead goes on friendship-making adventures. If you're burnt out with psychopathic MCs... this will cleanse your palette. Light-hearted, wholesome, and incredibly cute."
 date: 2022-09-23
 categories: [reviews]
 review: B
 weight: 23
 name: "Cinnamon Bun"
-amazon: https://www.amazon.com.au/dp/B08BZ2NW67
-goodreads: https://www.goodreads.com/en/book/show/54311585-cinnamon-bun
-royalroad: https://www.royalroad.com/fiction/31429/cinnamon-bun
-
+links:
+    amazon: https://www.amazon.com.au/dp/B08BZ2NW67
+    goodreads: https://www.goodreads.com/en/book/show/54311585-cinnamon-bun
+    royal_road: https://www.royalroad.com/fiction/31429/cinnamon-bun
 aliases: [/reviews/cinnamon]
 tags: [litrpg, isekai, female-lead, wholesome, in-progress, lgbt]
 sentence: "Broccoli Bunch goes on a cute and wholesome adventure."

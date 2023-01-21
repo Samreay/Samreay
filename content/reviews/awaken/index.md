@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Travis Bagwell's Awaken Online. A necromancer MC games the system as much as he can."
 short_title: "Travis Bagwell's Awaken Online"
 description: "VR LitRPG with necromancer focus. Book one is excellent, so give it a shot and ignore the hate."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 34
 name: "Awaken Online"
-amazon: https://www.amazon.com/dp/B074CC5NDX
-goodreads: https://www.goodreads.com/series/196901-awaken-online
+links:
+    amazon: https://www.amazon.com/dp/B074CC5NDX
+    goodreads: https://www.goodreads.com/series/196901-awaken-online
 
 aliases: [/reviews/awaken]
 tags: [in-progress, litrpg, vrmmo]

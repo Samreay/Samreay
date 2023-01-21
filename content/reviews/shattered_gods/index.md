@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Chris Fox's Shattered Gods series. A great new entry into progression fantasy."
 short_title: "Chris Fox's Shattered Gods Series"
 description: "Progression fantasy. A falling empire, oppressed populace, and gods being reincarnated. Fun times lie ahead."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 33
 name: "Shattered Gods"
-amazon: https://www.amazon.com/Shattered-Gods-Epic-Fantasy-Progression-ebook/dp/B091QCZ75X
-goodreads: https://www.goodreads.com/en/book/show/57725133-shattered-gods
+links:
+    amazon: https://www.amazon.com/Shattered-Gods-Epic-Fantasy-Progression-ebook/dp/B091QCZ75X
+    goodreads: https://www.goodreads.com/en/book/show/57725133-shattered-gods
 
 aliases: [/reviews/shattered_gods]
 tags: [in-progress, magic-school, small-author]

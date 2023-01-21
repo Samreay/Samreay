@@ -1,5 +1,4 @@
 ---
-
 title:  "Reflections on my own 'Soul Relic'"
 description: "Female-lead cultivation novel with a hard magic system. A young woman with a broken soul joins her brother to find a solution in the wider world."
 date: 2022-06-20
@@ -11,7 +10,7 @@ links:
     amazon: https://mybook.to/SoulRelic
     goodreads: https://www.goodreads.com/book/show/61324650-soul-relic
 aliases: [/reviews/soul_relic]
-tags: [female-lead, cultivation, hard-magic, in-progress, small-author, kindle]
+tags: [female-lead, cultivation, hard-magic, in-progress, small-author]
 sentence: "Determined to fix her soul, Raysha ventures out into the world with her brother, only to stumble into events larger than they realise."
 video: cover.mp4
 ---

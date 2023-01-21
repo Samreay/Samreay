@@ -1,17 +1,14 @@
 ---
-
 title:  "A review of Naomi Novik's Scholomance Series"
-short_title: "The Scholomance Series"
-description: "Fantasy series, female lead in a magic school with an 50% mortality rate, because they get eaten by the maleficaria."
-long_description: "Amazing characters, a unique and refreshing take on magic schools, and an MC struggling to resist becoming a monster herself. Read it."
+description: "Fantasy series, female lead in a magic school with an 50% mortality rate, because they get eaten by the maleficaria. A unique and refreshing take on magic schools."
 date: 2022-05-15
 categories: [reviews]
 review: A
 weight: 15
 name: "The Scholomance Series"
-amazon: https://www.amazon.com/Deadly-Education-Novel-Scholomance-Book-ebook/dp/B083RZC8KQ
-goodreads: https://www.goodreads.com/series/282152-the-scholomance
-
+links:
+    amazon: https://www.amazon.com/Deadly-Education-Novel-Scholomance-Book-ebook/dp/B083RZC8KQ
+    goodreads: https://www.goodreads.com/series/282152-the-scholomance
 aliases: [/reviews/scholomance]
 tags: [finished, magic-school, female-lead]
 sentence: "Forget the hordes of monsters and cursed artifacts in the Scholomance, El's the most dangerous thing in the place."

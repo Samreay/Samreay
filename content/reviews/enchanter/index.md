@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Tobias Begley's progression fantasy work 'The Enchanter'"
 short_title: "The Enchanter"
 description: "Progression fantasy. Crafting, intelligent protagonists, school setting, it's right up my alley."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: B
 weight: 24.5
 name: "The Enchanter"
-amazon: https://www.amazon.com/Enchanter-Journals-Evander-Tailor-Book-ebook/dp/B09VNDHW49
-goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
+links:
+    amazon: https://www.amazon.com/Enchanter-Journals-Evander-Tailor-Book-ebook/dp/B09VNDHW49
+    goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
 
 aliases: [/reviews/enchanter]
 tags: [in-progress, crafting, magic-school, lgbt, small-author, hard-magic]

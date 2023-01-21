@@ -1,17 +1,16 @@
 ---
-
 title:  "A Review of CasualFarmer's Cultivation novel 'Beware of Chicken'"
 short_title: "Beware of Chicken"
-description: "Slice of life cultivation novel, very wholesome, about a reincarnated person trying to get away from Xianxia tropes."
-long_description: "After being reincarnated in the body of a cultivation student, Jin decides to get as far away as possible. The second book has some slow pacing issues, but the first is incredibly wholesome and a pure delight to read."
+description: "Slice of life cultivation novel, very wholesome, about a reincarnated person trying to get away from Xianxia tropes. Incredibly wholesome and a pure delight to read."
 date: 2022-05-01
 categories: [reviews]
 review: A
 weight: 19
 name: "Beware of Chicken"
-amazon: https://www.amazon.com/Beware-Chicken-Xianxia-Cultivation-Novel-ebook/dp/B09Y6RQSHM
-goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
-
+links:
+    amazon: https://www.amazon.com/Beware-Chicken-Xianxia-Cultivation-Novel-ebook/dp/B09Y6RQSHM
+    royal_road: https://www.royalroad.com/fiction/39408/beware-of-chicken
+    goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
 aliases: [/reviews/chicken]
 tags: [in-progress, cultivation, wholesome, slice-of-life]
 sentence: "A laugh-out-loud, slice-of-life martial-arts fantasy about . . . farming????"

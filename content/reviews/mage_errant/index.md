@@ -1,17 +1,14 @@
 ---
-
 title:  "A Review of John Bierce's Mage Errant Series. A fun ride with a likeable cast."
-short_title: "John Bierce's Mage Errant Series"
-description: "Progression fantasy, some academic focused books. A struggling protagonist gets dragged into adventure."
-long_description: "The main strength of this series is its exploration and great character development. Characters are people who grow both in power, abilities, and as people. I appreciate this a lot."
+description: "Progression fantasy, some academic focused books. A struggling protagonist gets dragged into adventure. Characters are people who grow both in power, abilities, and as people. I appreciate this a lot."
 date: 2021-11-19
 categories: [reviews]
 review: A
 weight: 14
 name: "Mage Errant"
-amazon: https://www.amazon.com/Into-Labyrinth-Mage-Errant-Book-ebook/dp/B07J675X2C
-goodreads: https://www.goodreads.com/book/show/42267952-into-the-labyrinth
-
+links:
+    amazon: https://www.amazon.com/Into-Labyrinth-Mage-Errant-Book-ebook/dp/B07J675X2C
+    goodreads: https://www.goodreads.com/book/show/42267952-into-the-labyrinth
 aliases: [/reviews/mage_errant]
 tags: [in-progress, magic-school]
 sentence: "Hugh of Emblin is, so far as he's concerned, the worst student that the Academy at Skyhold has ever seen."

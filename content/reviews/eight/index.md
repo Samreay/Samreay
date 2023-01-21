@@ -1,5 +1,4 @@
 ---
-
 title:  "A review of Samer Rabadi's 'Eight'"
 short_title: "Eight"
 description: "Isekai slice-of-life centred around Eight and the spirit he befriends."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 40
 name: "Eight"
-amazon: https://www.amazon.com/Eight-LitRPG-Novel-Magical-Survival-ebook/dp/B0B8XQXKFJ
-goodreads: https://www.goodreads.com/en/book/show/61938108-eight
+links:
+    amazon: https://www.amazon.com/Eight-LitRPG-Novel-Magical-Survival-ebook/dp/B0B8XQXKFJ
+    goodreads: https://www.goodreads.com/en/book/show/61938108-eight
 
 aliases: [/reviews/eight]
 tags: [in-progress, isekai]

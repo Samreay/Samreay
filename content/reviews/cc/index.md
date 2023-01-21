@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Dakota Krout's Completionist Chronicles and Ritualist from a grumpy LitRPG reader"
 short_title:  "A Review of Dakota Krout's Completionist Chronicles."
 description: "World-system LitRPG. Fun read with an interesting cast. Ignore the weird opening about Elon Musk."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: B
 weight: 26
 name: "Completionist Chronicles"
-amazon: https://www.amazon.com/Ritualist-Completionist-Chronicles-Book-1-ebook/dp/B07B27XQLF
-goodreads: https://www.goodreads.com/series/229735-the-completionist-chronicles
+links:
+    amazon: https://www.amazon.com/Ritualist-Completionist-Chronicles-Book-1-ebook/dp/B07B27XQLF
+    goodreads: https://www.goodreads.com/series/229735-the-completionist-chronicles
 
 aliases: [/reviews/cc]
 tags: [litrpg, in-progress, isekai]

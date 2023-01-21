@@ -1,5 +1,4 @@
 ---
-
 title:  "A review of Michael G. Manning's 'Art of the Adept'"
 short_title: "Art of the Adept"
 description: "A fantasy progression novel taking our wizard MC from child to global threat."
@@ -9,9 +8,9 @@ categories: [reviews]
 review: B
 weight: 27
 name: "Art of the Adept"
-amazon: https://www.amazon.com/gp/product/B07W7X9VY6
-goodreads: https://www.goodreads.com/series/269818-art-of-the-adept
-
+links:
+    amazon: https://www.amazon.com/gp/product/B07W7X9VY6
+    goodreads: https://www.goodreads.com/series/269818-art-of-the-adept
 aliases: [/reviews/adept]
 tags: [magic-school, finished]
 sentence: "In a world run by sorcerers, Will becomes the ultimate wizard."

@@ -1,5 +1,4 @@
 ---
-
 title:  "A review of Zamil Akhtar's Lightblade"
 short_title: "Lightblade"
 description: "Progression fantasy, inception/matrix themes mixed in with some hints of Indo-Persian mythology."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 31
 name: "Lightblade"
-amazon: https://www.amazon.com/Lightblade-Progression-Fantasy-Epic-Saga-ebook/dp/B0B1MNYTSB
-goodreads: https://www.goodreads.com/book/show/61122434-lightblade
+links:
+    amazon: https://www.amazon.com/Lightblade-Progression-Fantasy-Epic-Saga-ebook/dp/B0B1MNYTSB
+    goodreads: https://www.goodreads.com/book/show/61122434-lightblade
 
 aliases: [/reviews/lightblade]
 tags: [in-progress, sci-fi, small-author]

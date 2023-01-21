@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Brent Weeks' Lightbringer Series. Such a promising beginning with such an awful ending."
 short_title:  "A Review of Brent Weeks' Lightbringer Series."
 description: "A great fantasy series with horrific ending. Amazing magic system though."
@@ -9,8 +8,9 @@ date: 2020-12-28
 categories: [reviews]
 review: D
 weight: 49
-amazon: https://www.amazon.co.uk/Black-Prism-Book-Lightbringer/dp/1841499048
-goodreads: https://www.goodreads.com/series/291662-lightbringer
+links:
+    amazon: https://www.amazon.co.uk/Black-Prism-Book-Lightbringer/dp/1841499048
+    goodreads: https://www.goodreads.com/series/291662-lightbringer
 
 aliases: [/reviews/lightbringer]
 tags: [finished, hard-magic]

@@ -1,17 +1,14 @@
 ---
-
 title:  "A review of Striker's 'Virtuous Sons'"
-short_title: "Virtuous Sons"
 description: "Cultivation in a Greco-Roman setting, with amazing characters and absolutely fantasy dynamics."
-long_description: "Cultivation in a Greco-Roman setting, with amazing characters and absolutely fantasy dynamics."
 date: 2022-11-11
 categories: [reviews]
 review: B
 weight: 22
 name: "Virtuous Sons"
-amazon: https://www.amazon.com/Virtuous-Sons-Greco-Roman-Cultivation-Epic-ebook/dp/B0BGRLYB1R/
-goodreads: https://www.goodreads.com/en/book/show/62827259-virtuous-sons
-
+links:
+    amazon: https://www.amazon.com/Virtuous-Sons-Greco-Roman-Cultivation-Epic-ebook/dp/B0BGRLYB1R/
+    goodreads: https://www.goodreads.com/en/book/show/62827259-virtuous-sons
 aliases: [/reviews/virtuous_sons]
 tags: [in-progress, cultivation]
 sentence: "The Scarlett Son and Son of Rome shake the heavens."

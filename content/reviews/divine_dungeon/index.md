@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Dakota Krout's Divine Dungeon Series."
 short_title:  "A Review of Dakota Krout's Divine Dungeon Series."
 description: "LitRPG. Great into to dungeon core. First few books are great. The ending is a bit lacking."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 33
 name: "Divine Dungeon"
-amazon: https://www.amazon.com/Divine-Dungeon-Complete-GameLit-Fantasy-ebook/dp/B084RD9N97
-goodreads: https://www.goodreads.com/series/192510-the-divine-dungeon
+links:
+    amazon: https://www.amazon.com/Divine-Dungeon-Complete-GameLit-Fantasy-ebook/dp/B084RD9N97
+    goodreads: https://www.goodreads.com/series/192510-the-divine-dungeon
 
 aliases: [/reviews/divine_dungeon]
 tags: [litrpg, crafting, finished, dungeon-core]

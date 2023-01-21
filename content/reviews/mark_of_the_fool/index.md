@@ -1,18 +1,15 @@
 ---
-
 title:  "A review of J.M. Clarke's 'Mark of the Fool'"
-short_title: "Mark of the Fool"
-description: "Academic-focused progression fantasy with analytical MC, great characters and innovative thinking."
-long_description: "I am such a sucker for good magic academy books, and this is one of the greats. So much depth, so much character development, and done so gracefully."
+description: "Academic-focused progression fantasy with analytical MC, great characters and innovative thinking. I am such a sucker for good magic academy books, and this is one of the greats."
 date: 2022-09-30
 categories: [reviews]
 review: A
 weight: 15
 name: "Mark of the Fool"
-amazon: https://www.amazon.com/Mark-Fool-Progression-Fantasy-Epic-ebook/dp/B0B134YJYF
-goodreads: https://www.goodreads.com/book/show/58854991-mark-of-the-fool
-royalroad: https://www.royalroad.com/fiction/41618/mark-of-the-fool
-
+links:
+    amazon: https://www.amazon.com/Mark-Fool-Progression-Fantasy-Epic-ebook/dp/B0B134YJYF
+    goodreads: https://www.goodreads.com/book/show/58854991-mark-of-the-fool
+    royal_road: https://www.royalroad.com/fiction/41618/mark-of-the-fool
 aliases: [/reviews/markfool]
 tags: [in-progress, magic-school, crafting, hard-magic, slice-of-life]
 sentence: "Alex Roth is called by the gods to be a hero. He declines."

@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Andrew Seiple's Threadbare. Adorable, unique, and fascinating."
 short_title: "Andrew Seiple's Threadbare"
 description: "LitRPG fantasy. A delightful and aggressively adorable take on the genre."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 35
 name: "Threadbare"
-amazon: https://www.amazon.com/Threadbare-Stuff-Nonsense-Andrew-Seiple-ebook/dp/B078KGS4V4
-goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
+links:
+    amazon: https://www.amazon.com/Threadbare-Stuff-Nonsense-Andrew-Seiple-ebook/dp/B078KGS4V4
+    goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
 
 aliases: [/reviews/threadbare]
 tags: [finished, litrpg, small-author]

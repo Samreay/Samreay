@@ -1,17 +1,14 @@
 ---
-
 title:  "A review of Rob J. Hayes' 'Titan Hoppers'"
-short_title: "Titan Hoppers"
 description: "A character-driven sci-fi story about a fleet of ships surviving by scavenging off planet-sized titans."
-long_description: "A character-driven sci-fi story about a fleet of ships surviving by scavenging off planet-sized titans."
 date: 2022-12-12
 categories: [reviews]
 review: A
 weight: 19.4
 name: "Titan Hoppers"
-amazon: https://www.amazon.com/Titan-Hoppers-Rob-J-Hayes-ebook/dp/B0B5JDMLQV
-goodreads: https://www.goodreads.com/en/book/show/61261449-titan-hoppers
-
+links:
+    amazon: https://www.amazon.com/Titan-Hoppers-Rob-J-Hayes-ebook/dp/B0B5JDMLQV
+    goodreads: https://www.goodreads.com/en/book/show/61261449-titan-hoppers
 aliases: [/reviews/titan]
 tags: [in-progress, sci-fi, magic-school]
 sentence: "The fleet finds a titan, and Iro finds his power."

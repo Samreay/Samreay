@@ -1,5 +1,4 @@
 ---
-
 title:  "A review of J. McCoy's 'RE: Monarch'"
 short_title: "RE: Monarch"
 description: "A time-loop novel heavy on politics and intrigue with complex characters."
@@ -9,9 +8,10 @@ categories: [reviews]
 review: C
 weight: 34
 name: "RE: Monarch"
-amazon: https://www.amazon.com.au/Monarch-Prince-Time-Progression-Fantasy-ebook/dp/B09PQGG7VV
-goodreads: https://www.goodreads.com/series/343866-re-monarch
-royalroad: https://www.royalroad.com/fiction/37951/re-monarch
+links:
+    amazon: https://www.amazon.com.au/Monarch-Prince-Time-Progression-Fantasy-ebook/dp/B09PQGG7VV
+    goodreads: https://www.goodreads.com/series/343866-re-monarch
+    royal_road: https://www.royalroad.com/fiction/37951/re-monarch
 
 aliases: [/reviews/remonarch]
 tags: [in-progress, time-loops]
@@ -29,7 +29,7 @@ It’s hard to be a drunken idiot when the world keeps burning down around you. 
 Then, Cairn reawakens. It's a decade earlier and he's in his childhood body. But he remembers everything...
 There's much to accomplish. First, however, he'd really love to stop himself from dying.
 
-After cementing itself as one of the most beloved progression fantasy web serials on Royal Road, the RE: Monarch Series now comes to Kindle, Kindle Unlimited, and Audible (narrated by Luke Daniels). Perfect for fans of Bryce O'Connor, Luke Chmilenko, and Cale Plamann.
+After cementing itself as one of the most beloved progression fantasy web serials on Royal Road, the RE: Monarch Series now comes to Kindle Unlimited, and Audible (narrated by Luke Daniels). Perfect for fans of Bryce O'Connor, Luke Chmilenko, and Cale Plamann.
 
 
 ## Thoughts

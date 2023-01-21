@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Andrew Rowes's How to Defeat a Demon King in Ten Easy Steps. Hilarious love letter to Zelda."
 short_title: "How to Defeat a Demon King in Ten Easy Steps"
 description: "Hilarious LitRPG. Short, tongue-in-cheek parody of the genre, it's great fun."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: B
 weight: 24
 name: "How to Defeat a Demon King in Ten Easy Steps"
-amazon: https://www.amazon.com/Defeat-Demon-King-Easy-Steps/dp/B086R4N2YC
-goodreads: https://www.goodreads.com/en/book/show/53300479-how-to-defeat-a-demon-king-in-ten-easy-steps
+links:
+    amazon: https://www.amazon.com/Defeat-Demon-King-Easy-Steps/dp/B086R4N2YC
+    goodreads: https://www.goodreads.com/en/book/show/53300479-how-to-defeat-a-demon-king-in-ten-easy-steps
 
 aliases: [/reviews/ten_steps]
 tags: [finished, litrpg, parody]

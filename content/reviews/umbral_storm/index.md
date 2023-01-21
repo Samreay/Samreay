@@ -1,5 +1,4 @@
 ---
-
 title:  "A review of Alec Huston's 'Umbral Storm'"
 short_title: "Umbral Storm"
 description: "A sect style western cultivation with multiple PoVs and rich worldbuilding."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: B
 weight: 24
 name: "Umbral Storm"
-amazon: https://www.amazon.com/Umbral-Storm-Sharded-Few-Book-ebook/dp/B09ZBGFFYP
-goodreads: https://www.goodreads.com/book/show/60969058-the-umbral-storm
+links:
+    amazon: https://www.amazon.com/Umbral-Storm-Sharded-Few-Book-ebook/dp/B09ZBGFFYP
+    goodreads: https://www.goodreads.com/book/show/60969058-the-umbral-storm
 
 aliases: [/reviews/umbral_storm]
 tags: [in-progress, cultivation, magic-school]

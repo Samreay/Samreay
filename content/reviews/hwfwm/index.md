@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Shirtaloon's He Who Fights With Monsters, a great LitRPG with an opinionated protagonist."
 short_title:  "A Review of Shirtaloon's He Who Fights With Monsters"
 description: "Portal LitRPG. Humerous isekai with a big-mouthed protagonist."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 34
 name: "He Who Fights With Monsters"
-amazon: https://www.amazon.com/He-Who-Fights-Monsters-Adventure-ebook/dp/B08WCT9W26
-goodreads: https://www.goodreads.com/en/book/show/57189884-he-who-fights-with-monsters
+links:
+    amazon: https://www.amazon.com/He-Who-Fights-Monsters-Adventure-ebook/dp/B08WCT9W26
+    goodreads: https://www.goodreads.com/en/book/show/57189884-he-who-fights-with-monsters
 
 aliases: [/reviews/hwfwm]
 tags: [litrpg, in-progress, isekai]

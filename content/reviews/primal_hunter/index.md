@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Zogarth's LitRPG 'The Primal Hunter'"
 short_title: "The Primal Hunter"
 description: "System apocalypse LitRPG, with all the normal bells and whistles."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 34
 name: "The Primal Hunter"
-amazon: https://www.amazon.com/Primal-Hunter-LitRPG-Adventure-ebook/dp/B09MV3G8PG
-goodreads: https://www.goodreads.com/en/book/show/60111529-the-primal-hunter
+links:
+    amazon: https://www.amazon.com/Primal-Hunter-LitRPG-Adventure-ebook/dp/B09MV3G8PG
+    goodreads: https://www.goodreads.com/en/book/show/60111529-the-primal-hunter
 
 aliases: [/reviews/hunter]
 tags: [in-progress, system-apocalypse, litrpg]

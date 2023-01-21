@@ -1,17 +1,14 @@
 ---
-
 title:  "A review of Sarah Lin's 'The Weirkey Chronicles'"
-short_title: "The Weirkey Chronicles"
-description: "Soft cultivation / isekai crossover with a unique magic system and expansive setting."
-long_description: "If there's one thing I always love about Sarah Lin, its her worldbuilding. And now, she's written my favourite magic system as well."
+description: "Soft cultivation / isekai crossover with a unique magic system and expansive setting. If there's one thing I always love about Sarah Lin, its her worldbuilding. And now, she's written my favourite magic system as well."
 date: 2022-08-17
 categories: [reviews]
 review: A
 weight: 18
 name: "The Weirkey Chronicles"
-amazon: https://www.amazon.com/Soulhome-Weirkey-Chronicles-Book-1-ebook/dp/B08P7TYG41
-goodreads: https://www.goodreads.com/series/306753-the-weirkey-chronicles
-
+links:
+    amazon: https://www.amazon.com/Soulhome-Weirkey-Chronicles-Book-1-ebook/dp/B08P7TYG41
+    goodreads: https://www.goodreads.com/series/306753-the-weirkey-chronicles
 aliases: [/reviews/weirkey]
 tags: [isekai, cultivation, in-progress, hard-magic]
 sentence: "A truly unique cultivation system with an amazing setting."

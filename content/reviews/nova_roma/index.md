@@ -1,17 +1,14 @@
 ---
-
 title:  "A review of J.R. Mathews's 'Portal to Nova Roma'"
-short_title: "Portal to Nova Roma"
 description: "Portal fantasy with an AI MC who uses his technology knowledge to get ahead in a ravaged, magical world."
-long_description: "Portal fantasy with an AI MC who uses his technology knowledge to get ahead in a ravaged, magical world."
 date: 2022-11-22
 categories: [reviews]
 review: A
 weight: 19.9
 name: "Portal to Nova Roma"
-amazon: https://www.amazon.com/Portal-Nova-Roma-J-R-Mathews/dp/B09VLGSJ42
-goodreads: https://www.goodreads.com/book/show/60288155-portal-to-nova-roma
-
+links:
+    amazon: https://www.amazon.com/Portal-Nova-Roma-J-R-Mathews/dp/B09VLGSJ42
+    goodreads: https://www.goodreads.com/book/show/60288155-portal-to-nova-roma
 aliases: [/reviews/nova_roma]
 tags: [in-progress, isekai]
 sentence: "Alexander the AI makes a fresh start in a new magical dimension."

@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Chugong's Solo Levelling - an engaging take on the genre."
 short_title: "Chugong's Solo Levelling"
 description: "System LitRPG...ish. Perfect wish fulfilment - a world wherein everyone's power is fixed, but you alone can grow stronger."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: D
 weight: 47
 name: "Solo Levelling"
-amazon: https://www.amazon.com/Solo-Leveling-Vol-1-Novel/dp/B096YCZLTL
-goodreads: https://www.goodreads.com/en/book/show/52800465-solo-leveling---light-novel
+links:
+    amazon: https://www.amazon.com/Solo-Leveling-Vol-1-Novel/dp/B096YCZLTL
+    goodreads: https://www.goodreads.com/en/book/show/52800465-solo-leveling---light-novel
 
 aliases: [/reviews/solo_levelling]
 tags: [finished, litrpg, manhua]

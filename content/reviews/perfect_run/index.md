@@ -1,5 +1,4 @@
 ---
-
 title:  "A review of Maxime J. Durand's 'The Perfect Run'"
 short_title: "The Perfect Run"
 description: "Fantasy series focusing on time loops and a diverse cast of super-powered characters trying to save the world... or end it."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: B
 weight: 25
 name: "The Perfect Run"
-amazon: https://www.amazon.com.au/Perfect-Run-Maxime-J-Durand-ebook/dp/B08WL8CS8B
-goodreads: https://www.goodreads.com/en/book/show/57065516
+links:
+    amazon: https://www.amazon.com.au/Perfect-Run-Maxime-J-Durand-ebook/dp/B08WL8CS8B
+    goodreads: https://www.goodreads.com/en/book/show/57065516
 
 aliases: [/reviews/perfect_run]
 tags: [finished, system-apocalypse, time-loops]

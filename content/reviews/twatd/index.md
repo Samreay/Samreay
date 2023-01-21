@@ -1,5 +1,4 @@
 ---
-
 title:  "A review of Harmon Cooper's 'The World According to Dragons'"
 short_title: "The World According to Dragons"
 description: "Light progression featuring a relic hunting dragon-rider."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: B
 weight: 24
 name: "The World According to Dragons"
-amazon: https://www.amazon.com/World-According-Dragons-Chronicles-Progression-ebook/dp/B0BCBYYNQS
-goodreads: https://www.goodreads.com/book/show/62849176-the-world-according-to-dragons
+links:
+    amazon: https://www.amazon.com/World-According-Dragons-Chronicles-Progression-ebook/dp/B0BCBYYNQS
+    goodreads: https://www.goodreads.com/book/show/62849176-the-world-according-to-dragons
 
 aliases: [/reviews/twatd]
 tags: [in-progress, cultivation]

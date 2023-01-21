@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Yrsillar's Forge of Destiny"
 short_title:  "A Review of Yrsillar's Forge of Destiny"
 description: "Slice-of-life cultivation. Academia/sect focus. Chill read with slower pacing and lower stakes."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 35
 name: "Forge of Destiny"
-amazon: https://www.amazon.com/Forge-Destiny-1-Yrsillar-ebook/dp/B08P8175Z1
-goodreads: https://www.goodreads.com/en/book/show/43461912-forge-of-destiny
+links:
+    amazon: https://www.amazon.com/Forge-Destiny-1-Yrsillar-ebook/dp/B08P8175Z1
+    goodreads: https://www.goodreads.com/en/book/show/43461912-forge-of-destiny
 
 aliases: [/reviews/forge_destiny]
 tags: [cultivation, female-lead, in-progress, magic-school, slice-of-life]

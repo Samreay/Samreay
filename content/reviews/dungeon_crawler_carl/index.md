@@ -1,17 +1,14 @@
 ---
-
 title:  "A Review of Matt Dinniman's Dungeon Crawler Carl. Officially my favourite LitRPG."
-short_title: "Matt Dinninman's 'Dungeon Crawler Carl'"
-description: "System apocalypse LitRPG. Carl and Princess Donut are the real power couple I never knew I needed."
-long_description: "Great pair dynamics, crazy hijinks, and just the right amount of larger plot to keep me excited for future installments whilst keeping the pacing action-packed."
+description: "System apocalypse LitRPG. Carl and Princess Donut are the real power couple I never knew I needed. Great pair dynamics, crazy hijinks, and just the right amount of larger plot."
 date: 2022-01-10
 categories: [reviews]
 review: A
 weight: 17
 name: "Dungeon Crawler Carl"
-amazon: https://www.amazon.com/Dungeon-Crawler-Carl-Gamelit-Adventure-ebook/dp/B08BKGYQXW
-goodreads: https://www.goodreads.com/en/book/show/54659324-dungeon-crawler-carl
-
+links:
+    amazon: https://www.amazon.com/Dungeon-Crawler-Carl-Gamelit-Adventure-ebook/dp/B08BKGYQXW
+    goodreads: https://www.goodreads.com/en/book/show/54659324-dungeon-crawler-carl
 aliases: [/reviews/carl]
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "A man. His ex-girlfriend's cat. A sadistic game where survival depends on killing your prey in the most entertaining way possible."

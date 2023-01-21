@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of Jame A. Hunter's Rogue Dungeon. Light-hearted fun."
 short_title: "James A. Hunter's Rogue Dungeon"
 description: "Reincarnation fantasy LitRPG. Not Dungeon Core despite the name, but a fun dungeon-based settings."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 34
 name: "Rogue Dungeon"
-amazon: https://www.amazon.com/Rogue-Dungeon-litrpg-Adventure-Book-ebook/dp/B07FKYZFYD
-goodreads: https://www.goodreads.com/series/239590-the-rogue-dungeon
+links:
+    amazon: https://www.amazon.com/Rogue-Dungeon-litrpg-Adventure-Book-ebook/dp/B07FKYZFYD
+    goodreads: https://www.goodreads.com/series/239590-the-rogue-dungeon
 
 aliases: [/reviews/rogue_dungeon]
 tags: [in-progress, isekai, litrpg]

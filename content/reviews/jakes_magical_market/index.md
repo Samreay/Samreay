@@ -1,17 +1,14 @@
 ---
-
 title:  "A Review of J. R. Mathews's 'Jakes Magical Market', a fun LitRPG apocalypse romb with a card based system."
-short_title: "Jake's Magical Market"
-description: "System apocalypse LitRPG. If you think running a shop is all Jake does, think again."
-long_description: "Initially a card-based LitRPG system, Jake's Magical Market was an engaging read. It's two books stitched together, and my only gripe is the massive change in arc and system that occurs between the two books."
+description: "System apocalypse LitRPG. Initially a card-based LitRPG system, Jake's Magical Market was an engaging read. It's two books stitched together with different focuses in each."
 date: 2022-03-01
 categories: [reviews]
 review: A
 weight: 19
 name: "Jake's Magical Market"
-amazon: https://www.amazon.com/Jakes-Magical-Market-J-R-Mathews-ebook/dp/B09HWX11N9
-goodreads: https://www.goodreads.com/book/show/59236334-jake-s-magical-market
-
+links:
+    amazon: https://www.amazon.com/Jakes-Magical-Market-J-R-Mathews-ebook/dp/B09HWX11N9
+    goodreads: https://www.goodreads.com/book/show/59236334-jake-s-magical-market
 aliases: [/reviews/jmm]
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "Meddling gods. A magical card system. An apocalypse no one could have predicted."

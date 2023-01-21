@@ -1,5 +1,4 @@
 ---
-
 title:  "A review of Davis Ashura's 'The Eternal Ephemera'"
 short_title: "Eternal Ephemera"
 description: "Academy focused cultivation novel with strong emphasis on tactical fights."
@@ -9,7 +8,8 @@ categories: [reviews]
 review: B
 weight: 24
 name: "Eternal Ephemera"
-amazon: https://www.amazon.com/Blood-Novice-Anchored-Eternal-Ephemera-ebook/dp/B0B86KPPM1
+links:
+    amazon: https://www.amazon.com/Blood-Novice-Anchored-Eternal-Ephemera-ebook/dp/B0B86KPPM1
 
 aliases: [/reviews/ephemera]
 tags: [in-progress, magic-school, cultivation, hard-magic]

@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of C. Mantis' 'The Path of Ascension', a sci-fi wuxia novel with a staggering range of powers and power divides."
 short_title: "The Path of Ascension"
 description: "Scifi cultivation. It's not often we see wuxia in space. It's not common we see it done well, either."
@@ -9,8 +8,10 @@ categories: [reviews]
 review: B
 weight: 28
 name: "The Path of Ascension"
-royalroad: https://www.royalroad.com/fiction/40920/the-path-of-ascension
-goodreads: https://www.goodreads.com/book/show/58412607-the-path-of-ascension
+links:
+    amazon: https://www.amazon.com/Path-Ascension-LitRPG-Adventure-ebook/dp/B0B5WNDY21
+    royal_road: https://www.royalroad.com/fiction/40920/the-path-of-ascension
+    goodreads: https://www.goodreads.com/book/show/58412607-the-path-of-ascension
 
 aliases: [/reviews/path_ascension]
 tags: [in-progress, cultivation, sci-fi]

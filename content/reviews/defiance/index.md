@@ -1,5 +1,4 @@
 ---
-
 title:  "A Review of 'Defiance of the Fall', a system-apocalypse LitRPG / cultivation hybrid."
 short_title: "The Path of Ascension"
 description: "System apocalypse LitRPG. A multiverse spanning series with great hooks, even if there's some deus ex machina."
@@ -9,8 +8,9 @@ categories: [reviews]
 review: C
 weight: 36
 name: "Defiance of the Fall"
-amazon: https://www.amazon.com/Defiance-Fall-LitRPG-Adventure-TheFirstDefier-ebook/dp/B09168R29M
-goodreads: https://www.goodreads.com/en/book/show/57866482-defiance-of-the-fall
+links:
+    amazon: https://www.amazon.com/Defiance-Fall-LitRPG-Adventure-TheFirstDefier-ebook/dp/B09168R29M
+    goodreads: https://www.goodreads.com/en/book/show/57866482-defiance-of-the-fall
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "Zac was alone in the middle of the forest when the world changed..."
 ---
