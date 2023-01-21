@@ -6,7 +6,7 @@ long_description: "In this article, we'll cover Bayesian Linear Regression in Py
 date: 2019-07-27
 categories: [tutorial]
 tags: [bayesian]
-loc: 'tutorials/bayesianlinearregression/'
+
 aliases: [/tutorials/bayes_lin_reg]
 math: true
 ---

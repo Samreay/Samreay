@@ -5,7 +5,7 @@ description: "The best gift is a hand made one. Hence some hand made mood lighti
 date: 2011-06-01
 categories: [blog]
 tags: [creative]
-loc: 'blog/bottle/'
+
 ---
 
 *The image you see was sourced from [a similar Instructibles that I recommend you check out](http://www.instructables.com/id/Bawls-Blue-Crystal-LED-Light/).*

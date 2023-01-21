@@ -5,7 +5,7 @@ description: "A good chat with Kirill about COVID-19, pipelines, and data ethics
 date: 2020-05-21
 categories: [blog]
 tags: [outreach,python]
-loc: 'blog/sds_pipelines/'
+
 ---
 
 Shifting away from astrophysics briefly, I talk about my experience as a lead data analyst for the COVID-19 

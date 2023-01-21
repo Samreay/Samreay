@@ -5,7 +5,7 @@ description: "A light transport simulator written in vanilla javascript!"
 date: 2017-03-07
 categories: [blog]
 tags: [project]
-loc: 'blog/refractorium/'
+
 aliases: [/blog/refractorium]
 ---
 

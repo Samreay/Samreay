@@ -5,7 +5,7 @@ description: "Representing Australia at the Lindau Nobel Laureates Meeting 2019"
 date: 2019-07-20
 categories: [blog]
 tags: [outreach]
-loc: 'blog/lindau/'
+
 ---
 
 In the winter of 2019 I was one of the lucky students chosen to represent Australia and participate

@@ -11,7 +11,7 @@ weight: 31
 name: "Lightblade"
 amazon: https://www.amazon.com/Lightblade-Progression-Fantasy-Epic-Saga-ebook/dp/B0B1MNYTSB
 goodreads: https://www.goodreads.com/book/show/61122434-lightblade
-loc: 'reviews/lightblade/'
+
 aliases: [/reviews/lightblade]
 tags: [in-progress, sci-fi, small-author]
 sentence: "In three days, Jyosh will slay the God Emperor, or die trying."

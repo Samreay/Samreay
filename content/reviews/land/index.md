@@ -11,7 +11,7 @@ weight: 50
 name: "Chaos Seeds"
 amazon: https://www.amazon.com/Land-Founding-LitRPG-Chaos-Seeds-ebook/dp/B0172GEB68
 goodreads: https://www.goodreads.com/series/179187-chaos-seeds
-loc: 'reviews/land/'
+
 aliases: [/reviews/land]
 tags: [litrpg, in-progress, isekai]
 sentence: "Richter get's isekai'd, and learns the perils of the Land."

@@ -11,7 +11,7 @@ weight: 39.99
 name: "The Last Physicist"
 amazon: https://www.amazon.com/Last-Physicist-Gamelit-Fantasy-Adventure-ebook/dp/B091P52QPM
 goodreads: https://www.goodreads.com/book/show/57699481-the-last-physicist
-loc: 'reviews/physicist/'
+
 aliases: [/reviews/physicist]
 tags: [in-progress, isekai, litrpg, small-author]
 sentence: "A particle physicist finds himself in a magical world."

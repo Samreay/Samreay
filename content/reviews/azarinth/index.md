@@ -12,7 +12,7 @@ name: "Azarinth Healer"
 amazon: https://www.amazon.com/Azarinth-Healer-Book-LitRPG-Adventure-ebook/dp/B0BLRD8YPD
 royalroad: https://www.royalroad.com/fiction/16946/azarinth-healer
 goodreads: https://www.goodreads.com/en/book/show/45728081-azarinth-healer
-loc: 'reviews/azarinth/'
+
 aliases: [/reviews/azarinth]
 tags: [in-progress, isekai, female-lead]
 sentence: "Ilea adjusts to a new fantasy world by becoming a battle healer."

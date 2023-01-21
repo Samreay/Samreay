@@ -5,7 +5,7 @@ description: "Bringing a finer appreciation of open-source development to the as
 date: 2017-12-05
 categories: [blog]
 tags: [outreach]
-loc: 'blog/codeworkshop/'
+
 ---
 
 The idea to run a code workshop was born at the 2016 CAASTRO Annual Retreat. Fiona and I were talking to Elaine

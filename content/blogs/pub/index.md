@@ -5,7 +5,7 @@ description: "A fun night of physics talks, songs and verse with Dr Phil Dooley"
 date: 2017-08-15
 categories: [blog]
 tags: [outreach]
-loc: 'blog/pub/'
+
 math: true
 ---
 

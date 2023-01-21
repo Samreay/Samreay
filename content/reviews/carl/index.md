@@ -11,7 +11,7 @@ weight: 17
 name: "Dungeon Crawler Carl"
 amazon: https://www.amazon.com/Dungeon-Crawler-Carl-Gamelit-Adventure-ebook/dp/B08BKGYQXW
 goodreads: https://www.goodreads.com/en/book/show/54659324-dungeon-crawler-carl
-loc: 'reviews/carl/'
+
 aliases: [/reviews/carl]
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "A man. His ex-girlfriend's cat. A sadistic game where survival depends on killing your prey in the most entertaining way possible."

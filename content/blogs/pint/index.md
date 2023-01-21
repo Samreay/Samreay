@@ -5,7 +5,7 @@ description: "Turns out drinking and science is a winning combination for a lot 
 date: 2017-05-15
 categories: [blog]
 tags: [outreach]
-loc: 'blog/pintofscience/'
+
 ---
 
 During the week of the 14th of May there were a host of Pint of Science events 

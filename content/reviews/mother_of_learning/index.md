@@ -10,6 +10,7 @@ weight: 5
 links:
     amazon: https://www.amazon.com/dp/B09M2R6QLF
     royal_road: https://www.royalroad.com/fiction/21220/mother-of-learning
+    goodreads: https://www.goodreads.com/en/book/show/59661342-mother-of-learning-1
 aliases: [/reviews/mol]
 tags: [crafting, finished, magic-school, time-loops]
 ---

@@ -5,7 +5,7 @@ description: "Because a picture is worth a thousand words"
 date: 2022-10-25
 categories: [blog]
 tags: [writing]
-loc: 'blog/darian_nexus/'
+
 aliases: [/blog/darian_nexus]
 ---
 

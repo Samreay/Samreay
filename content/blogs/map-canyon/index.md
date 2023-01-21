@@ -5,7 +5,7 @@ description: "For a desert campaign, you always need another map!"
 date: 2017-09-13
 categories: [blog]
 tags: [creative]
-loc: 'blog/map_canyon/'
+
 ---
 
 Presenting, a desert canyon, with included creek, small rock pillars, and larger

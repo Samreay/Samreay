@@ -5,7 +5,7 @@ description: "To learn about Blender's compositing I decided to go all dramatic 
 date: 2018-02-06
 categories: [blog]
 tags: [creative]
-loc: 'blog/planets/'
+
 ---
 
 {% include youtube.html url="https://www.youtube.com/embed/JNPACDLSCTY)

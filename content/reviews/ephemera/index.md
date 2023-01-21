@@ -10,7 +10,7 @@ review: B
 weight: 24
 name: "Eternal Ephemera"
 amazon: https://www.amazon.com/Blood-Novice-Anchored-Eternal-Ephemera-ebook/dp/B0B86KPPM1
-loc: 'reviews/ephemera/'
+
 aliases: [/reviews/ephemera]
 tags: [in-progress, magic-school, cultivation, hard-magic]
 sentence: "Cam and his panda-friend head to the Ephemeral Academy."

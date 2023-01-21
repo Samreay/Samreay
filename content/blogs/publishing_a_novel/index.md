@@ -5,7 +5,7 @@ description: "A collection of advice, tips, and tricks."
 date: 2022-06-23
 categories: [blog]
 tags: [writing]
-loc: 'blog/publishing/'
+
 aliases: [/blog/publishing]
 ---
 

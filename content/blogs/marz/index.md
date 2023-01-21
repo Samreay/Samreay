@@ -5,7 +5,7 @@ description: "AngularJS project to do online redshifting of galactic spectra."
 date: 2014-10-20
 categories: [blog]
 tags: [project]
-loc: 'blog/marz/'
+
 aliases: [/blog/marz]
 math: true
 ---

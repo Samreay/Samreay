@@ -5,7 +5,7 @@ description: "Detecting stars and Globular Clusters in Maffei 1 using machine le
 date: 2016-02-20
 categories: [blog]
 tags: [python,project]
-loc: 'blog/globular/'
+
 aliases: [/blog/globular]
 ---
 

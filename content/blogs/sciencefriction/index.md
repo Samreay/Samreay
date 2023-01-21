@@ -5,7 +5,7 @@ description: "A chat with Natasha Mitchell on ABC's Science Friction about pivot
 date: 2020-04-26
 categories: [blog]
 tags: [outreach,python]
-loc: 'blog/sciencefriction/'
+
 ---
 
 During the early days of the COVID-19 outburst I was recruited into the COVID-19 Critical Care Consortium

@@ -5,7 +5,7 @@ description: "A weekend hackathon down at Atlassian, to make an academic search 
 date: 2016-04-18
 categories: [blog]
 tags: [python]
-loc: 'blog/getlit/'
+
 ---
 
 Thanks to the wonderful Kate Gunn, CAASTRO managed to participated in one of Atlassian's Ship-It hackathons. 

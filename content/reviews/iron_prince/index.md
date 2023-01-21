@@ -1,19 +1,17 @@
 ---
 
 title: A Review of Bryce O'Connor's Iron Prince. Scifi progression on actual digital steroids."
-short_title:  "Bryce O'Connor's Iron Prince."
 description: "Scifi/progression/LitRPG crossover in an academic settings. Who needs magic when you have funky alien tech that gives you  the best of fantasy and LitRPG in one swoop."
-long_description: "I took a sick day to finish this massive book rather than wait eight hours to continue reading. That's all you need to know."
 date: 2021-07-20
 categories: [reviews]
 review: S
 weight: 7
 name: "Iron Prince"
-amazon: https://www.amazon.com/Iron-Prince-Warformed-Stormweaver-Book-ebook/dp/B08KGT4CLQ
-goodreads: https://www.goodreads.com/book/show/55559974-iron-prince
-loc: 'reviews/iron_prince/'
+links:
+    amazon: https://www.amazon.com/Iron-Prince-Warformed-Stormweaver-Book-ebook/dp/B08KGT4CLQ
+    goodreads: https://www.goodreads.com/book/show/55559974-iron-prince
 aliases: [/reviews/iron_prince]
-tags: [in-progress, magic-school, sci-fi]
+tags: [in-progress, magic-school, sci-fi, kindle]
 sentence: "Reidon Ward will become a god. He doesn't know it yet, of course."
 ---
 

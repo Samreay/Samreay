@@ -11,7 +11,7 @@ weight: 33.5
 name: "Somnia Online"
 amazon: https://www.amazon.com.au/Initializing-Somnia-Online-Book-1-ebook/dp/B07CV1DZ3P
 goodreads: https://www.goodreads.com/en/book/show/40041373
-loc: 'reviews/somnia/'
+
 aliases: [/reviews/somnia]
 tags: [female-lead, finished, litrpg, vrmmo, small-author]
 sentence: "Somnia Online, the fully immersive vrmmo run by secretive AIs."

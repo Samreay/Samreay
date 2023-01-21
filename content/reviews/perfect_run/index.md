@@ -11,7 +11,7 @@ weight: 25
 name: "The Perfect Run"
 amazon: https://www.amazon.com.au/Perfect-Run-Maxime-J-Durand-ebook/dp/B08WL8CS8B
 goodreads: https://www.goodreads.com/en/book/show/57065516
-loc: 'reviews/perfect_run/'
+
 aliases: [/reviews/perfect_run]
 tags: [finished, system-apocalypse, time-loops]
 sentence: "Quicksave is an adventurer with a strange power: he can create a save-point in time and redo his life whenever he dies."

@@ -5,7 +5,7 @@ description: "Using 3DS and Maxwell to create and render a compute case."
 date: 2009-06-01
 categories: [blog]
 tags: [project]
-loc: 'blog/computer/'
+
 aliases: [/blog/computer]
 ---
 

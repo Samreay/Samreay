@@ -5,7 +5,7 @@ description: "First attempt at photoshop to create an image without stock images
 date: 2010-09-23
 categories: [blog]
 tags: [creative]
-loc: 'blog/planet/'
+
 ---
 
 I created this image using a ton of brushes, layers, stacking

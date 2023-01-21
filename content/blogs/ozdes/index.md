@@ -5,7 +5,7 @@ description: "Less science, more art."
 date: 2017-08-02
 categories: [blog]
 tags: [creative]
-loc: 'blog/ozdes/'
+
 ---
 
 Sometimes I think I get a big bogged down, lost in a maze of code

@@ -5,7 +5,7 @@ description: "LA, San Francisco, Berkeley and Yosemite."
 date: 2016-07-08
 categories: [blog]
 tags: [travel]
-loc: 'blog/california/'
+
 ---
 
 In the Australian summer of 2016 I went to study at

@@ -11,7 +11,7 @@ weight: 37
 name: "The Tower Unbroken"
 amazon: https://www.amazon.com/Tower-Unbroken-African-Progression-Architect-ebook/dp/B09M7PRTYS
 goodreads: https://www.goodreads.com/en/book/show/59653476-the-tower-unbroken
-loc: 'reviews/tower_unbroken/'
+
 aliases: [/reviews/tower_unbroken]
 tags: [cultivation, in-progress, lgbt, small-author]
 sentence: "African inspired cultivation. Somadina starts his journey."

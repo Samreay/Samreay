@@ -11,7 +11,7 @@ weight: 18
 name: "The Weirkey Chronicles"
 amazon: https://www.amazon.com/Soulhome-Weirkey-Chronicles-Book-1-ebook/dp/B08P7TYG41
 goodreads: https://www.goodreads.com/series/306753-the-weirkey-chronicles
-loc: 'reviews/weirkey/'
+
 aliases: [/reviews/weirkey]
 tags: [isekai, cultivation, in-progress, hard-magic]
 sentence: "A truly unique cultivation system with an amazing setting."

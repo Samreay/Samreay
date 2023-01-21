@@ -5,7 +5,7 @@ description: "A python framework for comparing BAO model implementations."
 date: 2020-03-01
 categories: [blog]
 tags: [python,project]
-loc: 'blog/barry/'
+
 aliases: [/blog/barry]
 ---
 

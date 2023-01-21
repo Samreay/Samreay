@@ -5,7 +5,7 @@ description: "Designing a satellite control system to shoot lasers at targets."
 date: 2012-06-01
 categories: [blog]
 tags: [project]
-loc: 'blog/sat/'
+
 aliases: [/blog/satellite]
 ---
 

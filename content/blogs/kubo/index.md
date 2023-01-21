@@ -5,7 +5,7 @@ description: "In the computational physics class I took we investigated the Kubo
 date: 2015-08-20
 categories: [blog]
 tags: [creative]
-loc: 'blog/kubo/'
+
 math: true
 ---
 

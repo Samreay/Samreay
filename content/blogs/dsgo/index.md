@@ -5,7 +5,7 @@ description: "For the DSGo 2020 Virtual Conference I put together a workshop on 
 date: 2020-06-20
 categories: [blog]
 tags: [python,outreach]
-loc: 'blog/dsgo/'
+
 ---
 
 Due to COVID-19 lots of conferences have moved online in 2020. DatascienceGo is one of those conferences, and I was invited to 

@@ -5,7 +5,7 @@ description: "An industry tour through Berlin."
 date: 2019-07-20
 categories: [blog]
 tags: [travel]
-loc: 'blog/siefberlin/'
+
 ---
 
 After the Lindau Nobel Laureate Meeting all the Australian delegates packed up shop,

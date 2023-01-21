@@ -5,7 +5,6 @@ description: "Thought I'd see if alcohol can help out with my driest research to
 date: 2019-05-21
 categories: [blog]
 tags: [outreach]
-loc: 'blog/pintofscience2019/'
 ---
 
 I did Pint of Science originally in 2017 and had a blast. For 2018, I was 

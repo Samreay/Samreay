@@ -5,7 +5,7 @@ description: "That's right, book two is on its way."
 date: 2022-09-22
 categories: [blog]
 tags: [writing]
-loc: 'blog/scion_of_storms_prologue/'
+
 aliases: [/blog/scion_of_storms_prologue]
 ---
 

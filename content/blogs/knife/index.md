@@ -5,7 +5,7 @@ description: "Because going to the shops is too easy."
 date: 2017-04-18
 categories: [blog]
 tags: [creative]
-loc: 'blog/knife/'
+
 ---
 
 For a while now I've been meaning to see if I can make something

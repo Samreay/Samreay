@@ -11,7 +11,7 @@ weight: 24.5
 name: "The Enchanter"
 amazon: https://www.amazon.com/Enchanter-Journals-Evander-Tailor-Book-ebook/dp/B09VNDHW49
 goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
-loc: 'reviews/enchanter/'
+
 aliases: [/reviews/enchanter]
 tags: [in-progress, crafting, magic-school, lgbt, small-author, hard-magic]
 sentence: "Evan heads to Yesgol Academy of Magic, a place filled with the children of the elite, and the occasional extraplanar horror."

@@ -11,7 +11,7 @@ weight: 34
 name: "Awaken Online"
 amazon: https://www.amazon.com/dp/B074CC5NDX
 goodreads: https://www.goodreads.com/series/196901-awaken-online
-loc: 'reviews/awaken/'
+
 aliases: [/reviews/awaken]
 tags: [in-progress, litrpg, vrmmo]
 sentence: "Jason logs into Awaken Online fed-up with reality. This game is his ticket to power and freedom."

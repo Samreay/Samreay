@@ -5,7 +5,7 @@ description: "My python library to digest MCMC chains and create plots."
 date: 2016-08-01
 categories: [blog]
 tags: [python,project]
-loc: 'blog/chainconsumer/'
+
 aliases: [/blog/chainconsumer]
 ---
 

@@ -5,7 +5,7 @@ description: "Visualising the thousands of galaxies in modern surveys."
 date: 2016-09-04
 categories: [blog]
 tags: [python,project]
-loc: 'blog/surveyvis/'
+
 aliases: [/blog/surveyvis]
 ---
 

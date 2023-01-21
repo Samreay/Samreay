@@ -12,7 +12,7 @@ name: "An Outcast In Another World"
 amazon: https://www.amazon.com/Outcast-Another-World-Adventure-Insanity-ebook/dp/B09FZ16ZNT
 goodreads: https://www.goodreads.com/book/show/58912832-an-outcast-in-another-world
 royalroad: https://www.royalroad.com/fiction/42385/an-outcast-in-another-world-subtitle-is-insanity
-loc: 'reviews/outcast/'
+
 aliases: [/reviews/outcast]
 tags: [litrpg, isekai, in-progress]
 sentence: "Rob gets sucked into another world as gods play games."

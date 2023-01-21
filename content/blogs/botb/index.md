@@ -5,7 +5,7 @@ description: "Two teams of scientists battle to make the biggest fools of themse
 date: 2017-08-13
 categories: [blog]
 tags: [outreach]
-loc: 'blog/botb/'
+
 math: true
 ---
 

@@ -1,19 +1,16 @@
 ---
-
 title:  "A Review of Phil Tucker's Bastion. It's great."
-short_title: "Phil Tucker's Bastion"
-description: "Cultivation with only slight academic focus. A great mix of classic progression with some top tier worldbuilding."
-long_description: "Bastion is one of my favourite reads of 2021. The world is unique and interesting, characters empathetic, and their struggles all too real."
+description: "Cultivation with only slight academic focus. A great mix of classic progression with some top tier worldbuilding. The world is unique and interesting, characters empathetic, and their struggles all too real."
 date: 2021-11-17
 categories: [reviews]
 review: A
 weight: 13
 name: "Bastion"
-amazon: https://www.amazon.com/Bastion-Immortal-Great-Souls-Book-ebook/dp/B09KNXZZR5
-goodreads: https://www.goodreads.com/book/show/59521676-bastion
-loc: 'reviews/bastion/'
+links:
+    amazon: https://www.amazon.com/Bastion-Immortal-Great-Souls-Book-ebook/dp/B09KNXZZR5
+    goodreads: https://www.goodreads.com/book/show/59521676-bastion
 aliases: [/reviews/bastion]
-tags: [cultivation, in-progress, magic-school]
+tags: [cultivation, in-progress, magic-school, kindle]
 sentence: "Scorio will rise from the ashes to conquer the ten layers of hell."
 ---
 

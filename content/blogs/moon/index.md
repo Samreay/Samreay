@@ -5,7 +5,7 @@ description: "UK and Australia combined, our powers are data reduction."
 date: 2017-02-10
 categories: [blog]
 tags: [creative]
-loc: 'blog/moon/'
+
 ---
 
 I was at the Dark Energy Survey conference in December when I met an overachieving student. Three years in,

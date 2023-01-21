@@ -11,7 +11,7 @@ weight: 34
 name: "The Primal Hunter"
 amazon: https://www.amazon.com/Primal-Hunter-LitRPG-Adventure-ebook/dp/B09MV3G8PG
 goodreads: https://www.goodreads.com/en/book/show/60111529-the-primal-hunter
-loc: 'reviews/hunter/'
+
 aliases: [/reviews/hunter]
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "On just another average day, Jake finds himself in a forest filled with monsters, dangers, and opportunity..."

@@ -5,7 +5,7 @@ description: "Wanted to get some experience with Blender, this seemed like a goo
 date: 2018-01-23
 categories: [blog]
 tags: [creative]
-loc: 'blog/galton/'
+
 ---
 
 It's been years since I last tried out 3D modelling and simulations. And given 

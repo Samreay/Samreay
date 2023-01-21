@@ -5,7 +5,7 @@ description: "A basic KEVA simulation showing the different effects of two block
 date: 2018-02-08
 categories: [blog]
 tags: [creative]
-loc: 'blog/keva/'
+
 ---
 
 Seeing KEVA simulations always makes my day brighter, so I thought I'd make a small one myself. This one

@@ -5,7 +5,7 @@ description: "A small python project I forked to learn neural styling and create
 date: 2019-05-26
 categories: [blog]
 tags: [python,creative]
-loc: 'blog/ducky/'
+
 aliases: [/blog/ducky]
 ---
 

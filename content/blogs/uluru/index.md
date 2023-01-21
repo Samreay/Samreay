@@ -5,7 +5,7 @@ description: "A week of being CAASTRO Astronomer in Residence at Uluru."
 date: 2016-10-01
 categories: [blog]
 tags: [outreach]
-loc: 'blog/uluru/'
+
 ---
 
 I highly recommend this experience to all other CAASTRO students. I was

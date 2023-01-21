@@ -11,7 +11,7 @@ weight: 35
 name: "The Brightest Shadow"
 amazon: https://www.amazon.com/Brightest-Shadow-Sarah-Lin-ebook/dp/B0856ZMG9Z
 goodreads: https://www.goodreads.com/en/book/show/51083937-the-brightest-shadow
-loc: 'reviews/brightest_shadow/'
+
 aliases: [/reviews/brightest_shadow]
 tags: [female-lead, in-progress, cultivation]
 sentence: "The arrival of the Hero was worse than anyone could have imagined."

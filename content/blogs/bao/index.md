@@ -6,7 +6,7 @@ date: 2015-10-20
 categories: [blog]
 tags: [python,project]
 icon: fa-bookmark-o
-loc: 'blog/bao/'
+
 aliases: [/blog/bao]
 ---
 

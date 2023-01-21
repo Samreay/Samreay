@@ -5,7 +5,7 @@ description: "From rigid body sims to smoke sims, Blender is growing on me!"
 date: 2018-01-29
 categories: [blog]
 tags: [creative]
-loc: 'blog/explosion/'
+
 ---
 
 It turns out that smoke simulations both take far, far longer than rigid body simulations,

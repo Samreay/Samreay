@@ -5,7 +5,6 @@ description: "The second European jaunt, featuring Switzerland and Germany"
 date: 2019-07-19
 categories: [blog]
 tags: [travel]
-loc: 'blog/europe2019/'
 ---
 
 # The Zurich Introduction

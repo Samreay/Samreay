@@ -5,7 +5,7 @@ description: "Another play with rigid bodies, this time adding in some slow moti
 date: 2018-02-09
 categories: [blog]
 tags: [creative]
-loc: 'blog/gold/'
+
 ---
 
 With the Keva simulation I made, all the blocks are spaced out with room to move. I was 

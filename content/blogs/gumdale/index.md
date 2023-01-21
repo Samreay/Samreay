@@ -5,7 +5,7 @@ description: "It's a great field to be in, so let's get that message out there."
 date: 2018-10-19
 categories: [blog]
 tags: [outreach]
-loc: 'blog/gumdale/'
+
 ---
 
 Astronomy is great fun. So is coding. At least to me. But, I was invited to talk

@@ -11,7 +11,7 @@ weight: 33
 name: "Divine Dungeon"
 amazon: https://www.amazon.com/Divine-Dungeon-Complete-GameLit-Fantasy-ebook/dp/B084RD9N97
 goodreads: https://www.goodreads.com/series/192510-the-divine-dungeon
-loc: 'reviews/divine_dungeon/'
+
 aliases: [/reviews/divine_dungeon]
 tags: [litrpg, crafting, finished, dungeon-core]
 sentence: "A powerful dungeon. A sheep-herder turned Noble. Their path to ascendance through cultivation."

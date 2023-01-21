@@ -1,19 +1,17 @@
 ---
 
 title:  "A Review of Andrew Rowe's Arcane Ascension Series: hard magic done right"
-short_title:  "A Review of Andrew Rowe's Arcane Ascension Series."
 description: "Progression fantasy in academic setting. Great world, detailed magic, intelligent characters, extraordinarily fun. Crafting and spire/dungeon focus."
-long_description: "One of my favourites. Intelligent, authentic characters using deep magic systems to creatively solve interesting and unexpected problems."
 date: 2021-01-30
 name: "Arcane Ascension"
 categories: [reviews]
 review: S
 weight: 8
-amazon: https://www.amazon.com/gp/product/B06XBFD7CB
-goodreads: https://www.goodreads.com/book/show/34403860-sufficiently-advanced-magic
-loc: 'reviews/arcane_ascension/'
+links:
+    amazon: https://www.amazon.com/gp/product/B06XBFD7CB
+    goodreads: https://www.goodreads.com/book/show/34403860-sufficiently-advanced-magic
 aliases: [/reviews/arcane_ascension]
-tags: [crafting, magic-school, hard-magic, in-progress, lgbt]
+tags: [crafting, magic-school, hard-magic, in-progress, lgbt, kindle]
 sentence: "Corin Cadence searches for his brother, who disappeared in the Serpent Spire."
 ---
 

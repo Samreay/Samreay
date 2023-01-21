@@ -11,7 +11,7 @@ weight: 24
 name: "Umbral Storm"
 amazon: https://www.amazon.com/Umbral-Storm-Sharded-Few-Book-ebook/dp/B09ZBGFFYP
 goodreads: https://www.goodreads.com/book/show/60969058-the-umbral-storm
-loc: 'reviews/umbral_storm/'
+
 aliases: [/reviews/umbral_storm]
 tags: [in-progress, cultivation, magic-school]
 sentence: "Deryn escapes from servitude and joins the Sharded Few."

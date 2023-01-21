@@ -5,7 +5,7 @@ description: "Playing around with attributes to see what weird stuff I can do!"
 date: 2018-01-29
 categories: [blog]
 tags: [creative]
-loc: 'blog/colorsmoke/'
+
 ---
 
 So I wanted to see how the soft body physics worked. So alright, lets just drop a ball. 

@@ -5,7 +5,7 @@ description: "Because once just isn't enough."
 date: 2019-08-02
 categories: [blog]
 tags: [project]
-loc: 'blog/spacebirthdays/'
+
 ---
 
 ###  [Click here to demo it.](https://samreay.github.io/SpaceBirthdays)

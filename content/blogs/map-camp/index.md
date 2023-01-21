@@ -5,7 +5,7 @@ description: "Round Two... Fight!"
 date: 2017-09-16
 categories: [blog]
 tags: [creative]
-loc: 'blog/map_camp/'
+
 ---
 
 Presenting, a desert camp, with included outcrops, interior cave and hole of mystery!

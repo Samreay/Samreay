@@ -11,7 +11,7 @@ weight: 24
 name: "How to Defeat a Demon King in Ten Easy Steps"
 amazon: https://www.amazon.com/Defeat-Demon-King-Easy-Steps/dp/B086R4N2YC
 goodreads: https://www.goodreads.com/en/book/show/53300479-how-to-defeat-a-demon-king-in-ten-easy-steps
-loc: 'reviews/ten_steps/'
+
 aliases: [/reviews/ten_steps]
 tags: [finished, litrpg, parody]
 sentence: "The Hero is late, and the Demon King's hordes have almost conquered humanity."

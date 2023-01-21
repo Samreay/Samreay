@@ -5,7 +5,7 @@ description: "Three minutes to wow a crowd. No slides, no presentation, no press
 date: 2017-03-21
 categories: [blog]
 tags: [outreach]
-loc: 'blog/famelab/'
+
 ---
 
 [Famelab](https://www.britishcouncil.org.au/famelab) is a science communication challenge

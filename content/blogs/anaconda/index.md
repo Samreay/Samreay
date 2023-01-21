@@ -5,7 +5,7 @@ description: "A super short guide to quickly setting up a viable python environm
 date: 2018-07-30
 categories: [blog]
 tags: [python]
-loc: 'blog/anaconda/'
+
 ---
 
 This writeup is primarily for the students of PHYS3080 at UQ, however it

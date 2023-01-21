@@ -11,7 +11,7 @@ weight: 19
 name: "Beware of Chicken"
 amazon: https://www.amazon.com/Beware-Chicken-Xianxia-Cultivation-Novel-ebook/dp/B09Y6RQSHM
 goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
-loc: 'reviews/chicken/'
+
 aliases: [/reviews/chicken]
 tags: [in-progress, cultivation, wholesome, slice-of-life]
 sentence: "A laugh-out-loud, slice-of-life martial-arts fantasy about . . . farming????"

@@ -5,7 +5,7 @@ description: "First attempt at photoshop stock manipulation."
 date: 2010-09-19
 categories: [blog]
 tags: [creative]
-loc: 'blog/lightning/'
+
 ---
 
 This photoshop challenge was for me to try and figure out the basics of photomanipulation.

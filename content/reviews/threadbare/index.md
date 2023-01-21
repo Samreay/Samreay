@@ -11,7 +11,7 @@ weight: 35
 name: "Threadbare"
 amazon: https://www.amazon.com/Threadbare-Stuff-Nonsense-Andrew-Seiple-ebook/dp/B078KGS4V4
 goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
-loc: 'reviews/threadbare/'
+
 aliases: [/reviews/threadbare]
 tags: [finished, litrpg, small-author]
 sentence: "Meetreadbare. He is twelve inches tall, full of fluff, and really, really bad at being a hero."

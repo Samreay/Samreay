@@ -5,7 +5,7 @@ description: "Now with a use: birthday present denial."
 date: 2011-07-28
 categories: [blog]
 tags: [creative]
-loc: 'blog/box/'
+
 ---
 
 The year before this, I created a thick paper mache wrapper around a present to make it more

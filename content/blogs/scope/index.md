@@ -5,7 +5,7 @@ description: "The solar system is hard to visualise with an image, so we took it
 date: 2017-03-25
 categories: [blog]
 tags: [outreach]
-loc: 'blog/scope/'
+
 ---
 
 Every now and then ScopeTV has a space focused episode, and they look up some local scientists 

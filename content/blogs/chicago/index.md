@@ -5,7 +5,7 @@ description: "Thank you DES."
 date: 2017-06-22
 categories: [blog]
 tags: [travel]
-loc: 'blog/chicago/'
+
 ---
 
 Once again escaping the Australian winter, I found myself 

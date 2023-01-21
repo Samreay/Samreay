@@ -5,7 +5,7 @@ description: "Because it's more time intensive and expensive than buying the cry
 date: 2017-02-27
 categories: [blog]
 tags: [creative]
-loc: 'blog/bismuth/'
+
 ---
 
 Josh Calcino and I were in Japan on a holiday recently, and we 

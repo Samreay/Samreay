@@ -4,8 +4,7 @@ title:  "Cosmology on Safari"
 description: "How all conferences should be run!"
 date: 2019-03-01
 categories: [blog]
-tags: [travel]
-loc: 'blog/southafrica_2019/'
+tags: [travel] 
 ---
 
 Every two years the amazing [Cosmology on Safari](https://acru.ukzn.ac.za/~cosmosafari2019/) conference is held.

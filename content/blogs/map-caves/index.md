@@ -5,7 +5,7 @@ description: "Because at some point you need to include lava."
 date: 2017-09-17
 categories: [blog]
 tags: [creative]
-loc: 'blog/map_caves/'
+
 ---
 
 Presenting, some desert caves, cave system, lava basin, dubiously engineered bridges, and small

@@ -5,7 +5,7 @@ description: "Talking about machine learning in astronomy and how its made our l
 date: 2019-05-29
 categories: [blog]
 tags: [outreach]
-loc: 'blog/codingathome/'
+
 ---
 
 During the school shutdown during the COVID-19 outbreak in Australia, Education Queensland partnered with Channel 10

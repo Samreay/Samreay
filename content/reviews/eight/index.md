@@ -11,7 +11,7 @@ weight: 40
 name: "Eight"
 amazon: https://www.amazon.com/Eight-LitRPG-Novel-Magical-Survival-ebook/dp/B0B8XQXKFJ
 goodreads: https://www.goodreads.com/en/book/show/61938108-eight
-loc: 'reviews/eight/'
+
 aliases: [/reviews/eight]
 tags: [in-progress, isekai]
 sentence: "Eight is reincarnated and makes friends with an otter."

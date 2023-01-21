@@ -5,7 +5,7 @@ description: "Tokyo, Kyoto, Hakuba, Sapporo and Otaru"
 date: 2017-02-08
 categories: [blog]
 tags: [travel]
-loc: 'blog/japan/'
+
 ---
 
 It's good to get away sometimes.

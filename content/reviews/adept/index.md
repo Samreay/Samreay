@@ -11,7 +11,7 @@ weight: 27
 name: "Art of the Adept"
 amazon: https://www.amazon.com/gp/product/B07W7X9VY6
 goodreads: https://www.goodreads.com/series/269818-art-of-the-adept
-loc: 'reviews/adept/'
+
 aliases: [/reviews/adept]
 tags: [magic-school, finished]
 sentence: "In a world run by sorcerers, Will becomes the ultimate wizard."

@@ -5,7 +5,7 @@ description: "An introductory speech for Dr Randall's event, on experimental ast
 date: 2016-11-17
 categories: [blog]
 tags: [outreach]
-loc: 'blog/lisarandall/'
+
 ---
 
 In November 2016, Lisa Randall gave an Australian tour in the big cities. As normal for ThinkInc

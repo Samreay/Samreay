@@ -5,7 +5,7 @@ description: "Comparing different services"
 date: 2022-10-18
 categories: [blog]
 tags: [writing]
-loc: 'blog/cover_animations/'
+
 aliases: [/blog/cover_animations]
 ---
 

@@ -5,7 +5,7 @@ description: "England, France, Italy, Germany, Netherlands and more."
 date: 2013-06-20
 categories: [blog]
 tags: [travel]
-loc: 'blog/europe/'
+
 ---
 
 Its hard to condense down such a big trip into less than

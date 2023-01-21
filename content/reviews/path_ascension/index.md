@@ -11,7 +11,7 @@ weight: 28
 name: "The Path of Ascension"
 royalroad: https://www.royalroad.com/fiction/40920/the-path-of-ascension
 goodreads: https://www.goodreads.com/book/show/58412607-the-path-of-ascension
-loc: 'reviews/path_ascension/'
+
 aliases: [/reviews/path_ascension]
 tags: [in-progress, cultivation, sci-fi]
 sentence: "Matt meets a mysterious couple, who sponsor him on the Path of Ascension."

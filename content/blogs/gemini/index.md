@@ -5,7 +5,7 @@ description: "AGUSS Studentship to Chile over the summer."
 date: 2016-02-21
 categories: [blog]
 tags: [travel]
-loc: 'blog/gemini/'
+
 ---
 
 # Part One: The drafting

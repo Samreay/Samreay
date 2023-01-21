@@ -11,7 +11,7 @@ weight: 34
 name: "Rogue Dungeon"
 amazon: https://www.amazon.com/Rogue-Dungeon-litrpg-Adventure-Book-ebook/dp/B07FKYZFYD
 goodreads: https://www.goodreads.com/series/239590-the-rogue-dungeon
-loc: 'reviews/rogue_dungeon/'
+
 aliases: [/reviews/rogue_dungeon]
 tags: [in-progress, isekai, litrpg]
 sentence: "Build. Evolve. Conquer. Welcome to the Dungeon..."

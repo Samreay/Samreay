@@ -5,7 +5,7 @@ description: "Java, C and lots of solder combine to form a DJ board."
 date: 2013-06-01
 categories: [blog]
 tags: [project]
-loc: 'blog/dj/'
+
 aliases: [/blog/dj]
 ---
 

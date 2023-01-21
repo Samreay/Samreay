@@ -11,7 +11,7 @@ weight: 35
 name: "Oh Great! I was Reincarnated as a Farmer"
 amazon: https://www.amazon.com.au/Great-was-Reincarnated-Farmer-Unorthodox-ebook/dp/B094CSB51K
 goodreads: https://www.goodreads.com/en/book/show/57968407-oh-great-i-was-reincarnated-as-a-farmer
-loc: 'reviews/farmer/'
+
 aliases: [/reviews/farmer]
 tags: [litrpg, isekai, in-progress]
 sentence: "A gamer reincarnated in a world with fixed classes. And he is a farmer."

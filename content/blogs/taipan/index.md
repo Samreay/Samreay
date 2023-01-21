@@ -5,7 +5,7 @@ description: "In all its serpentine glory"
 date: 2017-09-12
 categories: [blog]
 tags: [creative]
-loc: 'blog/taipanlogo/'
+
 ---
 
 I think  a good way to not get burnt out coding and doing math 24/7 a day is to 

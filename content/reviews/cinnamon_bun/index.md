@@ -12,7 +12,7 @@ name: "Cinnamon Bun"
 amazon: https://www.amazon.com.au/dp/B08BZ2NW67
 goodreads: https://www.goodreads.com/en/book/show/54311585-cinnamon-bun
 royalroad: https://www.royalroad.com/fiction/31429/cinnamon-bun
-loc: 'reviews/cinnamon/'
+
 aliases: [/reviews/cinnamon]
 tags: [litrpg, isekai, female-lead, wholesome, in-progress, lgbt]
 sentence: "Broccoli Bunch goes on a cute and wholesome adventure."

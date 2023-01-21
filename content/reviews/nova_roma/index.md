@@ -11,7 +11,7 @@ weight: 19.9
 name: "Portal to Nova Roma"
 amazon: https://www.amazon.com/Portal-Nova-Roma-J-R-Mathews/dp/B09VLGSJ42
 goodreads: https://www.goodreads.com/book/show/60288155-portal-to-nova-roma
-loc: 'reviews/nova_roma/'
+
 aliases: [/reviews/nova_roma]
 tags: [in-progress, isekai]
 sentence: "Alexander the AI makes a fresh start in a new magical dimension."

@@ -5,7 +5,7 @@ description: "A good chat with Kirill about hypothesis testing, p-hacking, stati
 date: 2019-10-10
 categories: [blog]
 tags: [outreach,python]
-loc: 'blog/sds_hypothesis/'
+
 ---
 
 I like to rant about a lot of things. Many of those things include abuses of statistics, p-hacking, 

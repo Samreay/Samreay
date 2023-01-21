@@ -5,7 +5,7 @@ description: "Detailing the world for my upcoming fantasy novel."
 date: 2021-08-22
 categories: [blog]
 tags: [writing]
-loc: 'blog/rhodus/'
+
 aliases: [/blog/rhodus]
 ---
 

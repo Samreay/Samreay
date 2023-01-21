@@ -5,7 +5,7 @@ description: "A scientist and three comedians. Oh dear."
 date: 2019-02-10
 categories: [blog]
 tags: [outreach]
-loc: 'blog/probablyscience/'
+
 ---
 
 It turns out when you throw three comedians together on stage its super hard to keep 

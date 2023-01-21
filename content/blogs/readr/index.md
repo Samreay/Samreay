@@ -5,7 +5,7 @@ description: "Spreading some open-source love to undergraduate students"
 date: 2017-12-14
 categories: [blog]
 tags: [outreach]
-loc: 'blog/readr/'
+
 ---
 
 Nearing the tail end of the year I got a wonderful opportunity 

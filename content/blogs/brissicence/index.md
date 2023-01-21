@@ -5,7 +5,7 @@ description: "The Dark Side of the Universe presented in only an hour."
 date: 2018-11-05
 categories: [blog]
 tags: [outreach]
-loc: 'blog/brisscience/'
+
 ---
 
 In November I gave one of the monthly public lectures for UQ's 

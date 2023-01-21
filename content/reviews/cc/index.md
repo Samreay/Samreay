@@ -11,7 +11,7 @@ weight: 26
 name: "Completionist Chronicles"
 amazon: https://www.amazon.com/Ritualist-Completionist-Chronicles-Book-1-ebook/dp/B07B27XQLF
 goodreads: https://www.goodreads.com/series/229735-the-completionist-chronicles
-loc: 'reviews/cc/'
+
 aliases: [/reviews/cc]
 tags: [litrpg, in-progress, isekai]
 sentence: "A game that puts all others to shame, and a man willing to learn no matter the cost."

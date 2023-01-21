@@ -11,7 +11,7 @@ review: D
 weight: 49
 amazon: https://www.amazon.co.uk/Black-Prism-Book-Lightbringer/dp/1841499048
 goodreads: https://www.goodreads.com/series/291662-lightbringer
-loc: 'reviews/lightbringer/'
+
 aliases: [/reviews/lightbringer]
 tags: [finished, hard-magic]
 sentence: "Kip and the Prism face down the color-wights, but who's actually in the right?"
