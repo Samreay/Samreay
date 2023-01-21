@@ -12,6 +12,7 @@ module.exports = {
     'img-full',
     'img-tiny',
     'img-shrink',
+    'list-none',
     {
       pattern: /bg-(π|S|A|B|C|D|F)-(500|600|700|800|900)/,
       variants: ['hover', 'focus'],

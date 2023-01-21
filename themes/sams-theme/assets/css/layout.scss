@@ -130,7 +130,7 @@ body {
   h4,
   h5,
   h6 {
-    @apply max-w-2xl mx-auto;
+    @apply max-w-6xl mx-auto text-center pt-6;
   }
   h1 {
     @apply mt-12;
@@ -222,9 +222,13 @@ body {
   }
 }
 
+
+.hide-code .highlight {
+  display: none;
+}
 // Code formatting
 pre code:not([class]){
-  @apply mx-auto text-xl text-center block font-bold;
+  @apply mx-auto text-xl text-center block font-bold text-main-300;
 }
 .reduced-code {
   @apply max-w-2xl mx-auto;

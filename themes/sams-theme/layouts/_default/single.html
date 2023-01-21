@@ -7,7 +7,7 @@
         <p>{{ .Description}}</p>
     </div>
 
-            {{ if eq .Type "notebooks" }}
+            {{ if eq .Type "tutorials" }}
                 {{- partial "show-code.html" . -}}
             {{ end }}
 
