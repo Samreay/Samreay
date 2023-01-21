@@ -1,0 +1,233 @@
+<!doctype html><html lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Fuzzy String Matching - Samuel Hinton</title><link rel=stylesheet href="https://cosmiccoding.com.au/css/main.min.5885372f23ef07b79bc16e6f2da719ab7aef8e679a9f36a46a5dfe568f4d60e7.css" integrity="sha256-WIU3LyPvB7ebwW5vLacZq3rvjmeanzakal3+Vo9NYOc="><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel="shortcut icon" href=https://cosmiccoding.com.au/img/favicon.png type=image/x-icon></head><meta name=description content="Removing the hassle of misspelling from a dataset"><meta name=robots content="noodp"><link rel=canonical href=https://cosmiccoding.com.au/tutorials/fuzzy_string_matching/><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://cosmiccoding.com.au/tutorials/fuzzy_string_matching/cover.png"><meta name=twitter:title content="Fuzzy String Matching"><meta name=twitter:description content="Removing the hassle of misspelling from a dataset"><meta property="og:title" content="Fuzzy String Matching"><meta property="og:description" content="Removing the hassle of misspelling from a dataset"><meta property="og:type" content="article"><meta property="og:url" content="https://cosmiccoding.com.au/tutorials/fuzzy_string_matching/"><meta property="og:image" content="https://cosmiccoding.com.au/tutorials/fuzzy_string_matching/cover.png"><meta property="article:section" content="tutorials"><meta property="article:published_time" content="2020-08-09T00:00:00+00:00"><meta property="article:modified_time" content="2020-08-09T00:00:00+00:00"><meta property="article:section" content="tutorial"><meta property="article:published_time" content="2020-08-09 00:00:00 +0000 UTC"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Fuzzy String Matching","genre":"tutorial","url":"https:\/\/cosmiccoding.com.au\/tutorials\/fuzzy_string_matching\/","datePublished":"2020-08-09 00:00:00 \u002b0000 UTC","description":"Removing the hassle of misspelling from a dataset","author":{"@type":"Person","name":""}}</script><body><div class="flex flex-col min-h-screen overflow-hidden"><header class="absolute w-full z-30"><div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="flex items-center justify-between h-20"><div class="flex-shrink-0 mr-4"><a class=block href=/ aria-label="Samuel Hinton"><h2 class=logo>SRH</h2></a></div><nav class="hidden md:flex md:flex-grow"><ul class="flex flex-grow justify-end flex-wrap items-center"><li><a href=/#books class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">Books</a></li><li><a href=/reviews class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">Reviews</a></li><li><a href=/tutorials class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">Tutorials</a></li><li><a href=/blogs class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">Blog</a></li><li><a href=/#courses class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">Courses</a></li><li><a href=/static/resume/HintonCV.pdf class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">CV</a></li></ul></nav><div class=md:hidden x-data="{ expanded: false }"><button class=hamburger :class="{ 'active': expanded }" @click.stop="expanded = !expanded" aria-controls=mobile-nav :aria-expanded=expanded>
+<span class=sr-only>Menu</span><svg class="w-6 h-6 fill-current text-gray-300 hover:text-gray-200 transition duration-150 ease-in-out" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect y="4" width="24" height="2" rx="1"/><rect y="11" width="24" height="2" rx="1"/><rect y="18" width="24" height="2" rx="1"/></svg></button><nav id=mobile-nav class="absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out" x-ref=mobileNav :style="expanded ? 'max-height: ' + $refs.mobileNav.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: .8'" @click.away="expanded = false" @keydown.escape.window="expanded = false" x-cloak><ul class="bg-gray-800 px-4 py-2"><li><a href=/#books class="flex text-gray-300 hover:text-gray-200 py-2">Books</a></li><li><a href=/reviews class="flex text-gray-300 hover:text-gray-200 py-2">Reviews</a></li><li><a href=/tutorials class="flex text-gray-300 hover:text-gray-200 py-2">Tutorials</a></li><li><a href=/blogs class="flex text-gray-300 hover:text-gray-200 py-2">Blog</a></li><li><a href=/#courses class="flex text-gray-300 hover:text-gray-200 py-2">Courses</a></li><li><a href=/static/resume/HintonCV.pdf class="flex text-gray-300 hover:text-gray-200 py-2">CV</a></li></ul></nav></div></div></div></header><div class=flex-grow><div id=post-container class="content content-wider blog-post relative"><div class="section-header blog"><h1 class=title>Fuzzy String Matching</h1><p>6th August 2020</p><p>Removing the hassle of misspelling from a dataset</p></div><div><ul class="grid gap-6 w-full md:grid-cols-2" style=list-style:none;padding-left:0><li><input type=radio id=show-code name=code-toggle value=show-code class="hidden peer" onchange=clickCheckbox(this) required checked>
+<label for=show-code class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-gray-800 rounded-lg border border-gray-200 cursor-pointer peer-checked:border-2 peer-checked:border-main-300 peer-checked:text-white peer-checked:bg-gray-700 hover:text-gray-200 hover:bg-gray-700"><div class="block w-full"><div class="w-full text-center text-lg font-semibold">Show me everything!</div><div class="w-full text-center text-sm">Oh yeah, coding time.</div></div></label></li><li><input type=radio id=hide-code name=code-toggle value=hide-code class="hidden peer" onchange=clickCheckbox(this)>
+<label for=hide-code class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-gray-800 rounded-lg border border-gray-200 cursor-pointer peer-checked:border-2 peer-checked:border-main-300 peer-checked:text-white peer-checked:bg-gray-700 hover:text-gray-200 hover:bg-gray-700"><div class="block w-full"><div class="w-full text-center text-lg font-semibold">Just the plots</div><div class="w-full text-center text-sm">Code is nasty.</div></div></label></li></ul></div><script>function clickCheckbox(e){e.id=="show-code"?document.getElementById("post-container").classList.remove("hide-code"):document.getElementById("post-container").classList.add("hide-code")}</script><p>In <a href=https://twitter.com/dataeditor/status/1280278987797942272>this tweet</a>, Steven Rich pointed out that Philadelphia is spelled at least <a href="https://pbs.twimg.com/media/EcR28VpXgAUn7jT?format=png&name=orig">57 different ways in the PPP load data</a>, and that this represents both a challenge to fix on the back-end, and a perfect example of why you should do as much work on the front-end to get better input.</p><p>In this write up, we&rsquo;ll figure out an easy way of fixing up these spelling issues to produce a far better dataset to work on using the python library <strong>FuzzyWuzzy</strong>.</p><h1 id=the-dataset>The Dataset</h1><p>We&rsquo;ll source <a href=https://www.kaggle.com/susuwatari/ppp-loan-data-paycheck-protection-program>our copy of the PPP dataset from this Kaggle challenge</a>. I&rsquo;ve downloaded this into a local folder called <code>fuzzy_ppp</code>.</p><div class="reduced-code width-52" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff6ac1>import</span> pandas <span style=color:#ff6ac1>as</span> pd
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>import</span> numpy <span style=color:#ff6ac1>as</span> np
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>df <span style=color:#ff6ac1>=</span> pd<span style=color:#ff6ac1>.</span>read_csv(<span style=color:#5af78e>&#34;fuzzy_ppp/PPP_data_150k_plus.csv&#34;</span>)
+</span></span><span style=display:flex><span>df<span style=color:#ff6ac1>.</span>info()
+</span></span></code></pre></div></div><pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 661218 entries, 0 to 661217
+Data columns (total 16 columns):
+ #   Column         Non-Null Count   Dtype  
+---  ------         --------------   -----  
+ 0   LoanRange      661218 non-null  object 
+ 1   BusinessName   661210 non-null  object 
+ 2   Address        661201 non-null  object 
+ 3   City           661203 non-null  object 
+ 4   State          661218 non-null  object 
+ 5   Zip            661202 non-null  float64
+ 6   NAICSCode      654435 non-null  float64
+ 7   BusinessType   659789 non-null  object 
+ 8   RaceEthnicity  661218 non-null  object 
+ 9   Gender         661218 non-null  object 
+ 10  Veteran        661218 non-null  object 
+ 11  NonProfit      42462 non-null   object 
+ 12  JobsRetained   620712 non-null  float64
+ 13  DateApproved   661218 non-null  object 
+ 14  Lender         661218 non-null  object 
+ 15  CD             661218 non-null  object 
+dtypes: float64(3), object(13)
+memory usage: 80.7+ MB
+</code></pre><p>Alright, so we&rsquo;ve got a lot of data here. 600k rows, but really the one we care about is the City. <em>Note: for a non-introductory tutorial, for sure utilise the ZIP and State to get better determination of the actual city</em>.</p><p>For now, lets just see how many unique cities we have inour dataset.</p><div class=width-79 markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>cities <span style=color:#ff6ac1>=</span> np<span style=color:#ff6ac1>.</span>sort(df<span style=color:#ff6ac1>.</span>City<span style=color:#ff6ac1>.</span>str<span style=color:#ff6ac1>.</span>replace(<span style=color:#5af78e>&#34;,&#34;</span>, <span style=color:#5af78e>&#34;&#34;</span>)<span style=color:#ff6ac1>.</span>str<span style=color:#ff6ac1>.</span>strip()<span style=color:#ff6ac1>.</span>unique()<span style=color:#ff6ac1>.</span>astype(<span style=color:#ff5c57>str</span>))
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(cities<span style=color:#ff6ac1>.</span>size, cities)
+</span></span></code></pre></div></div><pre><code>15652 ['02155' '1026-02-006' '10550' ... 'ZUNI' 'ZWOLLE' 'nan']
+</code></pre><p>Almost sixteen thousand cities. That is a big number. And some interesting cities that appear to be entirely numeric. Perhaps they are postcodes? Here my lack of familiarity with the US system (as an Australian") means I lack a certain domain knowledge here, but let&rsquo;s push on! To simplify things and make output&mldr; readable&mldr; lets just look at cities starting with <code>"PH"</code>:</p><div class="reduced-code width-52" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>cities_p <span style=color:#ff6ac1>=</span> [c <span style=color:#ff6ac1>for</span> c <span style=color:#ff6ac1>in</span> cities <span style=color:#ff6ac1>if</span> c<span style=color:#ff6ac1>.</span>startswith(<span style=color:#5af78e>&#34;PH&#34;</span>)]
+</span></span><span style=display:flex><span>cities_p
+</span></span></code></pre></div></div><pre><code>['PHARR',
+ 'PHEBA',
+ 'PHELAN',
+ 'PHELPS',
+ 'PHENIX',
+ 'PHENIX CITY',
+ 'PHEONIX',
+ 'PHIADELPHIA',
+ 'PHIALDELPHIA',
+ 'PHIL CAMPBELL',
+ 'PHILA',
+ 'PHILA.',
+ 'PHILADELKPHIA',
+ 'PHILADELPHIA',
+ 'PHILADELPHILA',
+ 'PHILADELPIA',
+ 'PHILADEPHIA',
+ 'PHILDADELPHIA',
+ 'PHILDELPHIA',
+ 'PHILIP',
+ 'PHILIPPI',
+ 'PHILIPSBURG',
+ 'PHILIPSTOWN',
+ 'PHILLIPS',
+ 'PHILLIPSBURG',
+ 'PHILLIPSTON',
+ 'PHILMONT',
+ 'PHILO',
+ 'PHILOMATH',
+ 'PHILPOT',
+ 'PHIPPSBURG',
+ 'PHOENICIA',
+ 'PHOENIX',
+ 'PHOENIX AZ 85017',
+ 'PHOENIXA',
+ 'PHOENIXVILE',
+ 'PHOENIXVILLE',
+ 'PHOENX',
+ 'PHONEIX']
+</code></pre><p>It&rsquo;s not 57 different spellings in our dataset, but oh boy do we have a lot of different ways of writing down Philadelphia.</p><p>Next up, lets get a proper list of cities from <a href=https://github.com/kelvins/US-Cities-Database/blob/master/csv/us_cities.csv>this github repository</a>. Unfortunately, this dataset is not comprehensive, but it will do for us!</p><div class="reduced-code width-54" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>actual_cities <span style=color:#ff6ac1>=</span> pd<span style=color:#ff6ac1>.</span>read_csv(<span style=color:#5af78e>&#34;fuzzy_ppp/us_cities.csv&#34;</span>)
+</span></span><span style=display:flex><span>actual_cities
+</span></span></code></pre></div></div><div><table class="table-auto table dataframe"><thead><tr style=text-align:right><th></th><th>ID</th><th>STATE_CODE</th><th>STATE_NAME</th><th>CITY</th><th>COUNTY</th><th>LATITUDE</th><th>LONGITUDE</th></tr></thead><tbody><tr><th>0</th><td>1</td><td>AK</td><td>Alaska</td><td>Adak</td><td>Aleutians West</td><td>55.999722</td><td>-161.207778</td></tr><tr><th>1</th><td>2</td><td>AK</td><td>Alaska</td><td>Akiachak</td><td>Bethel</td><td>60.891854</td><td>-161.392330</td></tr><tr><th>2</th><td>3</td><td>AK</td><td>Alaska</td><td>Akiak</td><td>Bethel</td><td>60.890632</td><td>-161.199325</td></tr><tr><th>3</th><td>4</td><td>AK</td><td>Alaska</td><td>Akutan</td><td>Aleutians East</td><td>54.143012</td><td>-165.785368</td></tr><tr><th>4</th><td>5</td><td>AK</td><td>Alaska</td><td>Alakanuk</td><td>Wade Hampton</td><td>62.746967</td><td>-164.602280</td></tr><tr><th>...</th><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr><tr><th>29875</th><td>29876</td><td>WY</td><td>Wyoming</td><td>Worland</td><td>Washakie</td><td>44.013796</td><td>-107.956260</td></tr><tr><th>29876</th><td>29877</td><td>WY</td><td>Wyoming</td><td>Wright</td><td>Campbell</td><td>43.829349</td><td>-105.532327</td></tr><tr><th>29877</th><td>29878</td><td>WY</td><td>Wyoming</td><td>Wyarno</td><td>Sheridan</td><td>44.813333</td><td>-106.773333</td></tr><tr><th>29878</th><td>29879</td><td>WY</td><td>Wyoming</td><td>Yellowstone National Park</td><td>Park</td><td>44.853913</td><td>-110.674366</td></tr><tr><th>29879</th><td>29880</td><td>WY</td><td>Wyoming</td><td>Yoder</td><td>Goshen</td><td>41.912018</td><td>-104.353507</td></tr></tbody></table><p>29880 rows × 7 columns</p></div><p>For simplicity lets again look at just cities starting with <code>"PH"</code>.</p><div class="expanded-code width-95" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>proper_names <span style=color:#ff6ac1>=</span> np<span style=color:#ff6ac1>.</span>unique([c<span style=color:#ff6ac1>.</span>upper() <span style=color:#ff6ac1>for</span> c <span style=color:#ff6ac1>in</span> actual_cities<span style=color:#ff6ac1>.</span>CITY <span style=color:#ff6ac1>if</span> c<span style=color:#ff6ac1>.</span>upper()<span style=color:#ff6ac1>.</span>startswith(<span style=color:#5af78e>&#34;PH&#34;</span>)])
+</span></span><span style=display:flex><span>proper_names
+</span></span></code></pre></div></div><pre><code>array(['PHARR', 'PHEBA', 'PHELAN', 'PHELPS', 'PHENIX', 'PHENIX CITY',
+       'PHIL CAMPBELL', 'PHILADELPHIA', 'PHILIP', 'PHILIPP', 'PHILIPPI',
+       'PHILIPSBURG', 'PHILLIPS', 'PHILLIPSBURG', 'PHILLIPSPORT',
+       'PHILLIPSVILLE', 'PHILMONT', 'PHILO', 'PHILOMATH', 'PHILOMONT',
+       'PHILPOT', 'PHIPPSBURG', 'PHLOX', 'PHOENICIA', 'PHOENIX',
+       'PHOENIXVILLE', 'PHYLLIS'], dtype='&lt;U13')
+</code></pre><p>Great! So we have a list of input cities, and actual cities. We don&rsquo;t care about those that have the name correct, so lets pull out only things which <strong>don&rsquo;t</strong> match the name of a known city in our dataset.</p><div class="reduced-code width-56" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>unknown <span style=color:#ff6ac1>=</span> [c <span style=color:#ff6ac1>for</span> c <span style=color:#ff6ac1>in</span> cities_p <span style=color:#ff6ac1>if</span> c <span style=color:#ff6ac1>not</span> <span style=color:#ff6ac1>in</span> proper_names]
+</span></span><span style=display:flex><span>unknown
+</span></span></code></pre></div></div><pre><code>['PHEONIX',
+ 'PHIADELPHIA',
+ 'PHIALDELPHIA',
+ 'PHILA',
+ 'PHILA.',
+ 'PHILADELKPHIA',
+ 'PHILADELPHILA',
+ 'PHILADELPIA',
+ 'PHILADEPHIA',
+ 'PHILDADELPHIA',
+ 'PHILDELPHIA',
+ 'PHILIPSTOWN',
+ 'PHILLIPSTON',
+ 'PHOENIX AZ 85017',
+ 'PHOENIXA',
+ 'PHOENIXVILE',
+ 'PHOENX',
+ 'PHONEIX']
+</code></pre><h1 id=fuzzywuzzy>FuzzyWuzzy</h1><p>Now time for the good stuff! Lets delve into the fantastic package <a href=https://github.com/seatgeek/fuzzywuzzy><code>fuzzywuzzy</code></a>. It uses some smart <a href=https://en.wikipedia.org/wiki/Levenshtein_distance>Levenshtein distance</a> computation to determine how similar two words are.</p><p>So for an example unknown city in the list above, we&rsquo;ll see how similar it is to all the potential cities we could match them to.</p><div class=width-73 markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff6ac1>from</span> fuzzywuzzy <span style=color:#ff6ac1>import</span> fuzz
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>example <span style=color:#ff6ac1>=</span> unknown[<span style=color:#ff9f43>5</span>]
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>for</span> potential <span style=color:#ff6ac1>in</span> proper_names:
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>print</span>(<span style=color:#5af78e>f</span><span style=color:#5af78e>&#34;</span><span style=color:#5af78e>{</span>example<span style=color:#5af78e>}</span><span style=color:#5af78e> -&gt; </span><span style=color:#5af78e>{</span>potential<span style=color:#5af78e>}</span><span style=color:#5af78e> = </span><span style=color:#5af78e>{</span>fuzz<span style=color:#ff6ac1>.</span>ratio(example, potential)<span style=color:#5af78e>}</span><span style=color:#5af78e>&#34;</span>)
+</span></span></code></pre></div></div><pre><code>PHILADELKPHIA -&gt; PHARR = 33
+PHILADELKPHIA -&gt; PHEBA = 33
+PHILADELKPHIA -&gt; PHELAN = 42
+PHILADELKPHIA -&gt; PHELPS = 53
+PHILADELKPHIA -&gt; PHENIX = 32
+PHILADELKPHIA -&gt; PHENIX CITY = 33
+PHILADELKPHIA -&gt; PHIL CAMPBELL = 54
+PHILADELKPHIA -&gt; PHILADELPHIA = 96
+PHILADELKPHIA -&gt; PHILIP = 53
+PHILADELKPHIA -&gt; PHILIPP = 50
+PHILADELKPHIA -&gt; PHILIPPI = 57
+PHILADELKPHIA -&gt; PHILIPSBURG = 42
+PHILADELKPHIA -&gt; PHILLIPS = 57
+PHILADELKPHIA -&gt; PHILLIPSBURG = 48
+PHILADELKPHIA -&gt; PHILLIPSPORT = 48
+PHILADELKPHIA -&gt; PHILLIPSVILLE = 38
+PHILADELKPHIA -&gt; PHILMONT = 38
+PHILADELKPHIA -&gt; PHILO = 44
+PHILADELKPHIA -&gt; PHILOMATH = 55
+PHILADELKPHIA -&gt; PHILOMONT = 36
+PHILADELKPHIA -&gt; PHILPOT = 50
+PHILADELKPHIA -&gt; PHIPPSBURG = 35
+PHILADELKPHIA -&gt; PHLOX = 33
+PHILADELKPHIA -&gt; PHOENICIA = 45
+PHILADELKPHIA -&gt; PHOENIX = 30
+PHILADELKPHIA -&gt; PHOENIXVILLE = 40
+PHILADELKPHIA -&gt; PHYLLIS = 30
+</code></pre><p>We can see that the match with the highest similarity is, of course, <code>PHILADELPHIA</code>. So what if we just want to find the best match, instead of printing them all out of it, that&rsquo;s very easy to do!</p><div class="reduced-code width-54" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff6ac1>from</span> fuzzywuzzy <span style=color:#ff6ac1>import</span> process
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>best_match <span style=color:#ff6ac1>=</span> process<span style=color:#ff6ac1>.</span>extractOne(example, proper_names)
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(best_match)
+</span></span></code></pre></div></div><pre><code>('PHILADELPHIA', 96)
+</code></pre><p>If we want more than one, also easy to do, let&rsquo;s pick a different work and get the top three matches:</p><div class="reduced-code width-58" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>example2 <span style=color:#ff6ac1>=</span> unknown[<span style=color:#ff9f43>0</span>]
+</span></span><span style=display:flex><span>matches <span style=color:#ff6ac1>=</span> process<span style=color:#ff6ac1>.</span>extract(example2, proper_names, limit<span style=color:#ff6ac1>=</span><span style=color:#ff9f43>3</span>)
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(matches)
+</span></span></code></pre></div></div><pre><code>[('PHENIX', 92), ('PHOENIX', 86), ('PHENIX CITY', 79)]
+</code></pre><p>How could we improve this? Firstly, we are ignoring the super useful information of the state and the PIN, which we should also be using to inform our decision.</p><p>Secondly, at the moment all cities are weighted equally. But larger cities should have more entries, so their prior probability should be higher, and we should introduce a weighting based on the city population. For example, Phoenix has a population around fifty times larger than Phenix, so if the two weightings were around the same, it would be statistically far more likely that the intended entry was Phoenix.</p><p>So lets go through now and extract the best match for every city in our inexact list.</p><div class=width-61 markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff6ac1>for</span> c <span style=color:#ff6ac1>in</span> unknown:
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>print</span>(<span style=color:#5af78e>f</span><span style=color:#5af78e>&#34;</span><span style=color:#5af78e>{</span>c<span style=color:#5af78e>}</span><span style=color:#5af78e> -&gt; </span><span style=color:#5af78e>{</span>process<span style=color:#ff6ac1>.</span>extractOne(c, proper_names)[<span style=color:#ff9f43>0</span>]<span style=color:#5af78e>}</span><span style=color:#5af78e>&#34;</span>)
+</span></span></code></pre></div></div><pre><code>PHEONIX -&gt; PHENIX
+PHIADELPHIA -&gt; PHILADELPHIA
+PHIALDELPHIA -&gt; PHILADELPHIA
+PHILA -&gt; PHILADELPHIA
+PHILA. -&gt; PHILADELPHIA
+PHILADELKPHIA -&gt; PHILADELPHIA
+PHILADELPHILA -&gt; PHILADELPHIA
+PHILADELPIA -&gt; PHILADELPHIA
+PHILADEPHIA -&gt; PHILADELPHIA
+PHILDADELPHIA -&gt; PHILADELPHIA
+PHILDELPHIA -&gt; PHILADELPHIA
+PHILIPSTOWN -&gt; PHILIP
+PHILLIPSTON -&gt; PHILLIPS
+PHOENIX AZ 85017 -&gt; PHOENIX
+PHOENIXA -&gt; PHOENIX
+PHOENIXVILE -&gt; PHOENIXVILLE
+PHOENX -&gt; PHOENIX
+PHONEIX -&gt; PHOENIX
+</code></pre><p>An obvious issue is that our dataset of US cities is not complete. It turns out, there is a tiny town called Philipstown in Putnam County, New York, but its not in our list, so it gets turns into other cities. Apart from that, this is pretty good! If we wanted to do this in a dataframe, we could use <code>df.map(lambda x: process.extractOne(x, proper_names)[0])</code> on anything that doesn&rsquo;t match to extract a new series.</p><p>Now, this is all great, but theres plenty more we can do with the <code>fuzzywuzzy</code> library.</p><h1 id=token-matching>Token Matching</h1><p>Let&rsquo;s have a different example: acronyms.</p><div class="reduced-code width-58" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>a <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;National Aeronautics and Space Administration (NASA)&#34;</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;NASA&#34;</span>
+</span></span></code></pre></div></div><p>We know these refer to the same things, but if we tried a simple ratio similarity test we wouldn&rsquo;t look too good:</p><div class="reduced-code width-23" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>ratio(a, b))
+</span></span></code></pre></div></div><pre><code>14
+</code></pre><p>Of course, this compares the entire strings. We can ask for the partial ratio which will help us out a lot:</p><div class="reduced-code width-31" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>partial_ratio(a, b))
+</span></span></code></pre></div></div><pre><code>100
+</code></pre><p>But we can go more complicated:</p><div class="reduced-code width-49" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>a <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;Machine Learning vs Artifical Intelligence&#34;</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;Artifical Intelligence vs Machine Learning&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>ratio(a, b), fuzz<span style=color:#ff6ac1>.</span>partial_ratio(a, b))
+</span></span></code></pre></div></div><pre><code>52 52
+</code></pre><p>Obviously swapping the order has confused things. So lets tokenise!</p><div class="reduced-code width-34" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>token_sort_ratio(a, b))
+</span></span></code></pre></div></div><pre><code>100
+</code></pre><p>Oh yeah, thats what we want. Its broken the string down into tokens, sorted them, then taken the ratio so that we don&rsquo;t care about order. <strong>But wait, there&rsquo;s more!</strong></p><div class="expanded-code width-102" markdown=1><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>a <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;Machine Learning vs Artifical Intelligence&#34;</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;The Incredible and Often Semantic difference between Artifical Intelligence and Machine Learning&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>token_sort_ratio(a, b), fuzz<span style=color:#ff6ac1>.</span>token_set_ratio(a, b))
+</span></span></code></pre></div></div><pre><code>59 96
+</code></pre><p>The sheer size difference between the two strings means that our <code>token_sort_ratio</code> is now not giving good results. Instead, we can use <code>token_set_ratio</code> which breaks both strings into tokens, and then takes into account the intersection of those two sets better.</p><p>As a final note, computing the distance (and thus ratios) between strings is a slow process. Running this for millions of records at a time will take a <em>very</em> long time, so this is a great process suited for cleaning data upon ingestion, such that the task is distributed over time and not run in bulk.</p><p>I should point out that <code>process.extract</code> (and similar methods) allow you to specify the scoring algorithm used. By default, its <code>fuzz.WRatio</code>, which is a smart algorithm which runs <code>ratio</code>, <code>partial_ratio</code> and the tokenised versions depending on the size difference and matching between the strings.</p><h1 id=summary>Summary</h1><p><code>fuzzywuzzy</code> is a great tool for matching strings based on their Levenshtein distance. The ones we touched on are:</p><ul><li><code>fuzz.ratio</code>: Distance between two strings</li><li><code>fuzz.partial_ratio</code>: Takes partial matching into account</li><li><code>fuzz.token_sort_ratio</code>: Tokenises your string</li><li><code>fuzz.token_set_ratio</code>: Takes the intersection of tokens into account better</li><li><code>fuzz.WRatio</code>: Smart weighted ratio of many methods</li><li><code>process.extract</code>: Uses (by default) <code>WRatio</code> to get match again a list of input string</li><li><code>process.extractOne</code>: Returns only the best match from a list of input strings.</li></ul><p>But there are plenty more, so go check out the library!</p><p><div><figure class="img-main remove rounded"><picture><source srcset=/tutorials/fuzzy_string_matching/cover_hu44ebf49dfa504726a0e33c24999308f6_740338_1000x650_resize_q90_h2_box_3.webp width=1000 height=650 type=image/webp><source srcset=/tutorials/fuzzy_string_matching/cover_hu44ebf49dfa504726a0e33c24999308f6_740338_1000x650_resize_q90_box_3.png width=1000 height=650 type=image/png><img width=1000 height=650 loading=lazy decoding=async alt=png src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg=="></picture></figure></div></p><hr><p>For your convenience, here&rsquo;s the code in one block:</p><div class=highlight><pre tabindex=0 style=color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff6ac1>import</span> pandas <span style=color:#ff6ac1>as</span> pd
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>import</span> numpy <span style=color:#ff6ac1>as</span> np
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>df <span style=color:#ff6ac1>=</span> pd<span style=color:#ff6ac1>.</span>read_csv(<span style=color:#5af78e>&#34;fuzzy_ppp/PPP_data_150k_plus.csv&#34;</span>)
+</span></span><span style=display:flex><span>df<span style=color:#ff6ac1>.</span>info()
+</span></span><span style=display:flex><span>cities <span style=color:#ff6ac1>=</span> np<span style=color:#ff6ac1>.</span>sort(df<span style=color:#ff6ac1>.</span>City<span style=color:#ff6ac1>.</span>str<span style=color:#ff6ac1>.</span>replace(<span style=color:#5af78e>&#34;,&#34;</span>, <span style=color:#5af78e>&#34;&#34;</span>)<span style=color:#ff6ac1>.</span>str<span style=color:#ff6ac1>.</span>strip()<span style=color:#ff6ac1>.</span>unique()<span style=color:#ff6ac1>.</span>astype(<span style=color:#ff5c57>str</span>))
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(cities<span style=color:#ff6ac1>.</span>size, cities)
+</span></span><span style=display:flex><span>cities_p <span style=color:#ff6ac1>=</span> [c <span style=color:#ff6ac1>for</span> c <span style=color:#ff6ac1>in</span> cities <span style=color:#ff6ac1>if</span> c<span style=color:#ff6ac1>.</span>startswith(<span style=color:#5af78e>&#34;PH&#34;</span>)]
+</span></span><span style=display:flex><span>cities_p
+</span></span><span style=display:flex><span>actual_cities <span style=color:#ff6ac1>=</span> pd<span style=color:#ff6ac1>.</span>read_csv(<span style=color:#5af78e>&#34;fuzzy_ppp/us_cities.csv&#34;</span>)
+</span></span><span style=display:flex><span>actual_cities
+</span></span><span style=display:flex><span>proper_names <span style=color:#ff6ac1>=</span> np<span style=color:#ff6ac1>.</span>unique([c<span style=color:#ff6ac1>.</span>upper() <span style=color:#ff6ac1>for</span> c <span style=color:#ff6ac1>in</span> actual_cities<span style=color:#ff6ac1>.</span>CITY <span style=color:#ff6ac1>if</span> c<span style=color:#ff6ac1>.</span>upper()<span style=color:#ff6ac1>.</span>startswith(<span style=color:#5af78e>&#34;PH&#34;</span>)])
+</span></span><span style=display:flex><span>proper_names
+</span></span><span style=display:flex><span>unknown <span style=color:#ff6ac1>=</span> [c <span style=color:#ff6ac1>for</span> c <span style=color:#ff6ac1>in</span> cities_p <span style=color:#ff6ac1>if</span> c <span style=color:#ff6ac1>not</span> <span style=color:#ff6ac1>in</span> proper_names]
+</span></span><span style=display:flex><span>unknown
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>from</span> fuzzywuzzy <span style=color:#ff6ac1>import</span> fuzz
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>example <span style=color:#ff6ac1>=</span> unknown[<span style=color:#ff9f43>5</span>]
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>for</span> potential <span style=color:#ff6ac1>in</span> proper_names:
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>print</span>(<span style=color:#5af78e>f</span><span style=color:#5af78e>&#34;</span><span style=color:#5af78e>{</span>example<span style=color:#5af78e>}</span><span style=color:#5af78e> -&gt; </span><span style=color:#5af78e>{</span>potential<span style=color:#5af78e>}</span><span style=color:#5af78e> = </span><span style=color:#5af78e>{</span>fuzz<span style=color:#ff6ac1>.</span>ratio(example, potential)<span style=color:#5af78e>}</span><span style=color:#5af78e>&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>from</span> fuzzywuzzy <span style=color:#ff6ac1>import</span> process
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>best_match <span style=color:#ff6ac1>=</span> process<span style=color:#ff6ac1>.</span>extractOne(example, proper_names)
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(best_match)
+</span></span><span style=display:flex><span>example2 <span style=color:#ff6ac1>=</span> unknown[<span style=color:#ff9f43>0</span>]
+</span></span><span style=display:flex><span>matches <span style=color:#ff6ac1>=</span> process<span style=color:#ff6ac1>.</span>extract(example2, proper_names, limit<span style=color:#ff6ac1>=</span><span style=color:#ff9f43>3</span>)
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(matches)
+</span></span><span style=display:flex><span><span style=color:#ff6ac1>for</span> c <span style=color:#ff6ac1>in</span> unknown:
+</span></span><span style=display:flex><span>    <span style=color:#ff5c57>print</span>(<span style=color:#5af78e>f</span><span style=color:#5af78e>&#34;</span><span style=color:#5af78e>{</span>c<span style=color:#5af78e>}</span><span style=color:#5af78e> -&gt; </span><span style=color:#5af78e>{</span>process<span style=color:#ff6ac1>.</span>extractOne(c, proper_names)[<span style=color:#ff9f43>0</span>]<span style=color:#5af78e>}</span><span style=color:#5af78e>&#34;</span>)
+</span></span><span style=display:flex><span>a <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;National Aeronautics and Space Administration (NASA)&#34;</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;NASA&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>ratio(a, b))
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>partial_ratio(a, b))
+</span></span><span style=display:flex><span>a <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;Machine Learning vs Artifical Intelligence&#34;</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;Artifical Intelligence vs Machine Learning&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>ratio(a, b), fuzz<span style=color:#ff6ac1>.</span>partial_ratio(a, b))
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>token_sort_ratio(a, b))
+</span></span><span style=display:flex><span>a <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;Machine Learning vs Artifical Intelligence&#34;</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff6ac1>=</span> <span style=color:#5af78e>&#34;The Incredible and Often Semantic difference between Artifical Intelligence and Machine Learning&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff5c57>print</span>(fuzz<span style=color:#ff6ac1>.</span>token_sort_ratio(a, b), fuzz<span style=color:#ff6ac1>.</span>token_set_ratio(a, b))
+</span></span></code></pre></div><div class="relative max-w-xl mx-auto my-20"><div class="fancy_card horizontal"><div class=card_translator><div class="card_rotator tiny_rot card_layer"><div class="card_layer newsletter p-2"><div class="newsletter-inner h-full"><div class="relative h-full sib-form-container" id=sib-form-container><div class="mb-6 lg:mb-12 text-center"><h3 class="text-main-200 mb-2 lg:mb-8">Stay in the loop!</h3><p class="text-main-100 text-lg text-opacity-70">For new releases, exclusive giveaways, and reviews.</p></div><form action="https://Cosmiccoding.us5.list-manage.com/subscribe/post?u=aebe5de1d2e40dccb3aeca491&id=3987dd4a1f" method=post id=mc-embedded-subscribe-form name=mc-embedded-subscribe-form class="validate w-full" target=_blank novalidate><div><input type=email class="w-full appearance-none bg-main-600 mb-4 border border-main-600 bg-opacity-5 focus:border-main-300 rounded-sm px-4 py-3 text-main-100 placeholder-main-100 required" placeholder="Your best email…" aria-label="Your best email…" name=EMAIL required data-required=true id=EMAIL><div style=position:absolute;left:-5000px aria-hidden=true><input type=text name=b_aebe5de1d2e40dccb3aeca491_3987dd4a1f tabindex=-1></div><input type=submit value=Subscribe name=subscribe id=mc-embedded-subscribe class="button btn bg-main-600 hover:bg-main-400 shadow w-full"></div><p id=mce-error-response style=display:none class="text-center mt-2 opacity-50 text-main-200">There was a problem, please try again.</p><p id=mce-success-response style=display:none class="text-center mt-2 opacity-50 text-main-200">Thanks mate, won't let ya down.</p></form></div></div></div><div class="card_layer card_effect card_soft_glare" style=pointer-events:none></div></div></div></div></div></div><script type=text/x-mathjax-config>
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script><script type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script></div><script language=javascript type=text/javascript src=https://cosmiccoding.com.au/js/main.min.11673d10a962fb5205229607e62ea1d23424d35dad33db7bfe2a09a63d5409fa.js></script>
+<script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-72691106-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-72691106-1")</script></div></body></html>

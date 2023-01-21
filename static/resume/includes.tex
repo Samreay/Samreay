@@ -1,0 +1,40 @@
+\usepackage[backend=biber]{biblatex}
+\addbibresource{bib_primary.bib} % Specify the bibliography file to include publications
+\addbibresource{bib_science.bib} % Specify the bibliography file to include publications
+\addbibresource{bib_infrastructure.bib} % Specify the bibliography file to include publications
+% \addbibresource{bib_draft.bib} % Specify the bibliography file to include publications
+\usepackage{aas_macros}
+\usepackage{hyperref}
+\urlstyle{same}
+\newcommand{\urlNewWindow}[1]{\href[pdfnewwindow=true]{#1}{\nolinkurl{#1}}}
+
+\def\makenamesetup{%
+  \def\bibnamedelima{~}%
+  \def\bibnamedelimb{ }%
+  \def\bibnamedelimc{ }%
+  \def\bibnamedelimd{ }%
+  \def\bibnamedelimi{ }%
+  \def\bibinitperiod{.}%
+  \def\bibinitdelim{~}%
+  \def\bibinithyphendelim{.-}}
+\newcommand*{\makename}[2]{\begingroup\makenamesetup\xdef#1{#2}\endgroup}
+
+\newcommand*{\boldname}[3]{%
+  \def\lastname{#1}%
+  \def\firstname{#2}%
+  \def\firstinit{#3}}
+\boldname{}{}{}
+
+% Patch new definitions
+\renewcommand{\mkbibnamegiven}[1]{%
+  \ifboolexpr{ test {\ifdefequal{\lastname}{\namepartfamily}} }
+  {\mkbibbold{#1}}{#1}%
+}
+
+\renewcommand{\mkbibnamefamily}[1]{%
+  \ifboolexpr{ test {\ifdefequal{\lastname}{\namepartfamily}} }
+  {\mkbibbold{#1}}{#1}%
+}
+
+\boldname{Hinton}{Samuel}{S}
+\newcommand{\highlight}[1]{{\addfontfeature{Color=higlighted}#1}}
