@@ -1,8 +1,7 @@
 ---
 title:  "A Review of Tobias Begley's progression fantasy work 'The Enchanter'"
-short_title: "The Enchanter"
 description: "Progression fantasy. Crafting, intelligent protagonists, school setting, it's right up my alley."
-long_description: "If you enjoy intelligent protagonists and academic settings, you'll love this book. It starts a little slow, but its well worth sticking with."
+long_description: "If you enjoy intelligent protagonists and academic settings, you'll love this book. It starts slower and picks up pace a ton. Loved it."
 date: 2022-04-15
 categories: [reviews]
 review: B
@@ -11,7 +10,6 @@ name: "The Enchanter"
 links:
     amazon: https://www.amazon.com/Enchanter-Journals-Evander-Tailor-Book-ebook/dp/B09VNDHW49
     goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
-
 aliases: [/reviews/enchanter]
 tags: [in-progress, crafting, magic-school, lgbt, small-author, hard-magic]
 sentence: "Evan heads to Yesgol Academy of Magic, a place filled with the children of the elite, and the occasional extraplanar horror."

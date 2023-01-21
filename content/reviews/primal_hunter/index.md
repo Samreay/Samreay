@@ -1,9 +1,7 @@
 ---
 title:  "A Review of Zogarth's LitRPG 'The Primal Hunter'"
-short_title: "The Primal Hunter"
-description: "System apocalypse LitRPG, with all the normal bells and whistles."
-long_description: "Welcome to the multiverse, and follow Jake as he comes into his unique bloodline and becomes a powerhouse. Plenty of chapters on Royal Road, though the story quickly becomes the MC being super OP and stomping literally everything."
-date: 2022-04-15
+description: "System apocalypse LitRPG, with all the normal bells and whistles. Plenty of chapters on Royal Road, with the MC being OP and stomping everything."
+\date: 2022-04-15
 categories: [reviews]
 review: C
 weight: 34
@@ -11,7 +9,7 @@ name: "The Primal Hunter"
 links:
     amazon: https://www.amazon.com/Primal-Hunter-LitRPG-Adventure-ebook/dp/B09MV3G8PG
     goodreads: https://www.goodreads.com/en/book/show/60111529-the-primal-hunter
-
+    royal_road: https://www.royalroad.com/fiction/36049/the-primal-hunter
 aliases: [/reviews/hunter]
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "On just another average day, Jake finds himself in a forest filled with monsters, dangers, and opportunity..."

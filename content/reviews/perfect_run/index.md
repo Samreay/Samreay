@@ -1,8 +1,6 @@
 ---
 title:  "A review of Maxime J. Durand's 'The Perfect Run'"
-short_title: "The Perfect Run"
-description: "Fantasy series focusing on time loops and a diverse cast of super-powered characters trying to save the world... or end it."
-long_description: "Quicksave (with his power to make checkpoints in time) is searching for his perfect run. Great characterisation and imaginative powers made this a great read."
+description: "Fantasy series focusing on time loops and a diverse cast of super-powered characters trying to save the world... or end it. Great characterisation and imaginative powers: awesome."
 date: 2022-05-15
 categories: [reviews]
 review: B
@@ -11,7 +9,7 @@ name: "The Perfect Run"
 links:
     amazon: https://www.amazon.com.au/Perfect-Run-Maxime-J-Durand-ebook/dp/B08WL8CS8B
     goodreads: https://www.goodreads.com/en/book/show/57065516
-
+    royal_road: https://www.royalroad.com/fiction/36735/the-perfect-run
 aliases: [/reviews/perfect_run]
 tags: [finished, system-apocalypse, time-loops]
 sentence: "Quicksave is an adventurer with a strange power: he can create a save-point in time and redo his life whenever he dies."

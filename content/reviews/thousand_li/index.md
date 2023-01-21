@@ -1,8 +1,6 @@
 ---
 title:  "Tao Wong's A Thousand Li - classical cultivation doled out sparingly"
-short_title: "Tao Wong's A Thousand Li Series"
 description: "Cultivation with sect focus. Good premise, slow pacing, tends towards slice-of-life."
-long_description: "After four books I put this series down because I was having trouble connecting and staying interesting. I enjoyed the first book and hoped the series would pick up, but it lost itself in its scope."
 date: 2021-06-01
 categories: [reviews]
 review: D
@@ -11,7 +9,6 @@ name: "A Thousand Li"
 links:
     amazon: https://www.amazon.co.uk/gp/product/B07PKGSDDQ
     goodreads: https://www.goodreads.com/en/book/show/44327636-the-first-step
-
 aliases: [/reviews/thousand_li]
 tags: [cultivation, in-progress, magic-school, slice-of-life]
 sentence: "Given a chance at immortality, can Wu Ying grasp the fleeting opportunity?"

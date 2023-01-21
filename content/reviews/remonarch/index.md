@@ -1,8 +1,6 @@
 ---
 title:  "A review of J. McCoy's 'RE: Monarch'"
-short_title: "RE: Monarch"
 description: "A time-loop novel heavy on politics and intrigue with complex characters."
-long_description: "A time-loop novel heavy on politics and intrigue with complex characters."
 date: 2022-11-30
 categories: [reviews]
 review: C
@@ -12,7 +10,6 @@ links:
     amazon: https://www.amazon.com.au/Monarch-Prince-Time-Progression-Fantasy-ebook/dp/B09PQGG7VV
     goodreads: https://www.goodreads.com/series/343866-re-monarch
     royal_road: https://www.royalroad.com/fiction/37951/re-monarch
-
 aliases: [/reviews/remonarch]
 tags: [in-progress, time-loops]
 sentence: "Cairn is cured with time loops and some seriously unwinnable scenarios."

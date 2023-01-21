@@ -1,8 +1,6 @@
 ---
 title:  "A review of Harmon Cooper's 'The World According to Dragons'"
-short_title: "The World According to Dragons"
-description: "Light progression featuring a relic hunting dragon-rider."
-long_description: "With rich worldbuilding combining multiple mythologies and a fusion of cultivation and Indiana Jones, I had a great time."
+description: "Light progression featuring a relic hunting dragon-rider. Rich worldbuilding combining multiple mythologies and a fusion of cultivation and Indiana Jones."
 date: 2022-11-03
 categories: [reviews]
 review: B
@@ -11,7 +9,6 @@ name: "The World According to Dragons"
 links:
     amazon: https://www.amazon.com/World-According-Dragons-Chronicles-Progression-ebook/dp/B0BCBYYNQS
     goodreads: https://www.goodreads.com/book/show/62849176-the-world-according-to-dragons
-
 aliases: [/reviews/twatd]
 tags: [in-progress, cultivation]
 sentence: "Twillo and Adventus herald the recoming of the Age of Dragons."

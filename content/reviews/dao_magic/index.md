@@ -1,8 +1,6 @@
 ---
 title:  "A Review of Andries Louws' The Dao of Magic. A strange blend of pop references and ridiculously overpowered protagonists"
-short_title: "Andries Louws' The Dao of Magic"
 description: "Reincarnation/cultivation novel. If you just want to read an incredibly overpowered protagonist and don't mind them sounding like a teenager off /r/iamverysmart, go for it..."
-long_description: "I'm a big fan of progression and learning through hardship. Within an hour of arriving on a new plane, the MC was already the most powerful force around."
 date: 2021-11-24
 categories: [reviews]
 review: F
@@ -11,7 +9,6 @@ name: "The Dao of Magic"
 links:
     amazon: https://www.amazon.com/Dao-Magic-Book-I-ebook/dp/B07HM1YJ9Y
     goodreads: https://www.goodreads.com/en/book/show/41975905-the-dao-of-magic-1
-
 aliases: [/reviews/dao_of_magic]
 tags: [in-progress, isekai, cultivation]
 sentence: "Cultivation. Magic. Empowering unwitting animals!"

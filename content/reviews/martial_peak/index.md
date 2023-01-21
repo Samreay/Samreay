@@ -1,15 +1,13 @@
 ---
 title:  "A review of Momo's 'Martial Peak'"
-short_title: "Martial Peak"
-description: "Traditional cultivation manhua packed with action-packed, gorgeous art... and multiple wives."
 long_description: "Traditional cultivation manhua packed with action-packed, gorgeous art... and multiple wives."
 date: 2023-01-10
 categories: [reviews]
 review: C
 weight: 31
 name: "Martial Peak"
-manga: https://mangatx.com/manga/martial-peak-manga/
-
+links:
+    mangatx: https://mangatx.com/manga/martial-peak-manga/
 aliases: [/reviews/martial_peak]
 tags: [finished, cultivation, manhua]
 sentence: "Yang Kai goes from trainee disciple to shattering the heavens."

@@ -1,8 +1,6 @@
 ---
 title:  "A review of Benjamin Kerei's 'Oh Great! I was Reincarnated as a Farmer'"
-short_title: "Oh Great! I was Reincarnated as a Farmer"
 description: "A LitRPG isekai about (not) being a farmer and trying your hardest to game the system instead."
-long_description: "A different take on the normal isekai LitRPG formula. Meanders a bit, but is a fun read!"
 date: 2022-07-04
 categories: [reviews]
 review: C
@@ -11,7 +9,6 @@ name: "Oh Great! I was Reincarnated as a Farmer"
 links:
     amazon: https://www.amazon.com.au/Great-was-Reincarnated-Farmer-Unorthodox-ebook/dp/B094CSB51K
     goodreads: https://www.goodreads.com/en/book/show/57968407-oh-great-i-was-reincarnated-as-a-farmer
-
 aliases: [/reviews/farmer]
 tags: [litrpg, isekai, in-progress]
 sentence: "A gamer reincarnated in a world with fixed classes. And he is a farmer."

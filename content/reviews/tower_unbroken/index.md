@@ -1,8 +1,6 @@
 ---
 title:  "A review of Michael Nwanolue's 'The Tower Unbroken'"
-short_title: "The Tower Unbroken"
 description: "A Cradle-inspired cultivation story set in a fantasy world with African roots."
-long_description: "Cultivation novel inspired by Cradle in an African setting. The strength of the series is definitely in the detailed worldbuilding, both within the physical realm and outside of it."
 date: 2022-09-07
 categories: [reviews]
 review: C
@@ -11,7 +9,6 @@ name: "The Tower Unbroken"
 links:
     amazon: https://www.amazon.com/Tower-Unbroken-African-Progression-Architect-ebook/dp/B09M7PRTYS
     goodreads: https://www.goodreads.com/en/book/show/59653476-the-tower-unbroken
-
 aliases: [/reviews/tower_unbroken]
 tags: [cultivation, in-progress, lgbt, small-author]
 sentence: "African inspired cultivation. Somadina starts his journey."

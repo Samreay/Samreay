@@ -1,8 +1,6 @@
 ---
 title:  "A physicist reviews Dominic Stal's 'The Last Physicist'"
-short_title: "The Last Physicist"
 description: "LitRPG, isekai/portal fantasy, with a sort-of-but-not-really scientific approach to magic."
-long_description: "A physicist in another world with an AI in his head, sounds like a great recipe for fun. I just wish it fulfilled its promises."
 date: 2022-06-05
 categories: [reviews]
 review: C
@@ -11,7 +9,6 @@ name: "The Last Physicist"
 links:
     amazon: https://www.amazon.com/Last-Physicist-Gamelit-Fantasy-Adventure-ebook/dp/B091P52QPM
     goodreads: https://www.goodreads.com/book/show/57699481-the-last-physicist
-
 aliases: [/reviews/physicist]
 tags: [in-progress, isekai, litrpg, small-author]
 sentence: "A particle physicist finds himself in a magical world."

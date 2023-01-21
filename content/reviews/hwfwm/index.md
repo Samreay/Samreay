@@ -1,8 +1,7 @@
 ---
 title:  "A Review of Shirtaloon's He Who Fights With Monsters, a great LitRPG with an opinionated protagonist."
-short_title:  "A Review of Shirtaloon's He Who Fights With Monsters"
-description: "Portal LitRPG. Humerous isekai with a big-mouthed protagonist."
-long_description: "A fun portal-fantasy with plenty of humour and a protagonist that drags his moral soapbox in chains behind him."
+description: "Portal LitRPG. The story has plenty of humour and a protagonist that drags his moral soapbox in chains behind him."
+long_description: ""
 date: 2021-03-02
 categories: [reviews]
 review: C
@@ -11,7 +10,7 @@ name: "He Who Fights With Monsters"
 links:
     amazon: https://www.amazon.com/He-Who-Fights-Monsters-Adventure-ebook/dp/B08WCT9W26
     goodreads: https://www.goodreads.com/en/book/show/57189884-he-who-fights-with-monsters
-
+    royal_road: https://www.royalroad.com/fiction/26294/he-who-fights-?review=714073
 aliases: [/reviews/hwfwm]
 tags: [litrpg, in-progress, isekai]
 sentence: "Jason wakes up in a mysterious world of magic and monsters."

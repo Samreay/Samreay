@@ -1,8 +1,6 @@
 ---
 title:  "A review of Zamil Akhtar's Lightblade"
-short_title: "Lightblade"
-description: "Progression fantasy, inception/matrix themes mixed in with some hints of Indo-Persian mythology."
-long_description: "The world of dreams are filled with twists and turns, and the plot of this book is no exception. Add in a light based magic system, and it can be pretty fun."
+description: "Progression fantasy, inception/matrix themes mixed in with some hints of Indo-Persian mythology. The world of dreams are filled with twists and turns, and the plot of this book is no exception."
 date: 2022-06-05
 categories: [reviews]
 review: C
@@ -11,7 +9,6 @@ name: "Lightblade"
 links:
     amazon: https://www.amazon.com/Lightblade-Progression-Fantasy-Epic-Saga-ebook/dp/B0B1MNYTSB
     goodreads: https://www.goodreads.com/book/show/61122434-lightblade
-
 aliases: [/reviews/lightblade]
 tags: [in-progress, sci-fi, small-author]
 sentence: "In three days, Jyosh will slay the God Emperor, or die trying."

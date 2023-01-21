@@ -1,8 +1,6 @@
 ---
 title:  "A review of T.J. Reynold's 'Seventh Bridge to the Heavens'"
-short_title: "Seventh Bridge to the Heavens"
 description: "A cultivation story with the faintest hint of LitRPG, featuring elemental powers and great worldbuilding."
-long_description: "A mix of epic fantasy, cultivation, with only a hint of LitRPG. Good characters, great worldbuilding."
 date: 2022-06-30
 categories: [reviews]
 review: B
@@ -11,7 +9,6 @@ name: "Seventh Bridge to the Heavens"
 links:
     amazon: https://www.amazon.com/First-Fist-Seventh-Heavens-Cultivation-ebook/dp/B09TNJQ984
     goodreads: https://www.goodreads.com/en/book/show/60548100
-
 aliases: [/reviews/seventh]
 tags: [cultivation, in-progress]
 sentence: "Once a soldier, now an outcast. Luca must overcome fate as he walks the path of a cultivator."

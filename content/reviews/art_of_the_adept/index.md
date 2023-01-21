@@ -1,8 +1,7 @@
 ---
 title:  "A review of Michael G. Manning's 'Art of the Adept'"
 short_title: "Art of the Adept"
-description: "A fantasy progression novel taking our wizard MC from child to global threat."
-long_description: "Cross Magician with progression fantasy themes, and then work in the harsh reality of the world with a Robin-Hobb-style, gut-punching ending."
+description: "Cross Magician with progression fantasy themes, and then work in the harsh reality of the world with a Robin-Hobb-style, gut-punching ending."
 date: 2022-07-26
 categories: [reviews]
 review: B

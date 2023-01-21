@@ -1,8 +1,6 @@
 ---
 title:  "A review of K.T. Hanna's 'Somnia Online'"
-short_title: "Somnia Online"
-description: "Female-lead LitRPG vrmmo series about exploring the AI run world of Somnia Online"
-long_description: "For those who loved playing MMOs, this may scratch your itch about living in a video game world."
+description: "Female-lead LitRPG vrmmo series about exploring the AI run world of Somnia Online. If you like other VR MMO books, read this."
 date: 2022-06-23
 categories: [reviews]
 review: C
@@ -11,7 +9,6 @@ name: "Somnia Online"
 links:
     amazon: https://www.amazon.com.au/Initializing-Somnia-Online-Book-1-ebook/dp/B07CV1DZ3P
     goodreads: https://www.goodreads.com/en/book/show/40041373
-
 aliases: [/reviews/somnia]
 tags: [female-lead, finished, litrpg, vrmmo, small-author]
 sentence: "Somnia Online, the fully immersive vrmmo run by secretive AIs."

@@ -1,8 +1,6 @@
 ---
 title:  "A review of Davis Ashura's 'The Eternal Ephemera'"
-short_title: "Eternal Ephemera"
-description: "Academy focused cultivation novel with strong emphasis on tactical fights."
-long_description: "A school based cultivation story with a strong emphasis on tactical team combat, and a small and well-developed cast of characters."
+description: "A school based cultivation story with a strong emphasis on tactical team combat, and a small and well-developed cast of characters."
 date: 2022-10-20
 categories: [reviews]
 review: B
@@ -10,7 +8,7 @@ weight: 24
 name: "Eternal Ephemera"
 links:
     amazon: https://www.amazon.com/Blood-Novice-Anchored-Eternal-Ephemera-ebook/dp/B0B86KPPM1
-
+    goodreads: https://www.goodreads.com/en/book/show/62617415-blood-of-a-novice
 aliases: [/reviews/ephemera]
 tags: [in-progress, magic-school, cultivation, hard-magic]
 sentence: "Cam and his panda-friend head to the Ephemeral Academy."

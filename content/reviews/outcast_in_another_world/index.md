@@ -1,8 +1,6 @@
 ---
 title:  "A review of KamikazePotato's 'An Outcast In Another World'"
-short_title: "An Outcast In Another World"
 description: "Your typical isekai LitRPG novel that only gets better as it goes on through rich characters, good humour, and a great overaching plot."
-long_description: "LitRPG portal fantasy where our MC confronts a world in which humans are recently extinct."
 date: 2022-08-04
 categories: [reviews]
 review: B
@@ -12,7 +10,6 @@ links:
     amazon: https://www.amazon.com/Outcast-Another-World-Adventure-Insanity-ebook/dp/B09FZ16ZNT
     goodreads: https://www.goodreads.com/book/show/58912832-an-outcast-in-another-world
     royal_road: https://www.royalroad.com/fiction/42385/an-outcast-in-another-world-subtitle-is-insanity
-
 aliases: [/reviews/outcast]
 tags: [litrpg, isekai, in-progress]
 sentence: "Rob gets sucked into another world as gods play games."

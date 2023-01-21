@@ -1,8 +1,6 @@
 ---
 title:  "A Review of Sarah Lin's The Brightest Shadow - great subversion of a genre trope."
-short_title: "Sarah Lin's The Brightest Shadow"
 description: "Epic fantasy with some progression. The Chosen One trope is delightfully flipped on its head."
-long_description: "A huge book covering multiple perspectives exploring the coming of the Hero. Kill the Hero, and another arises. Great premise, slower-paced read."
 date: 2022-01-07
 categories: [reviews]
 review: C
@@ -11,7 +9,6 @@ name: "The Brightest Shadow"
 links:
     amazon: https://www.amazon.com/Brightest-Shadow-Sarah-Lin-ebook/dp/B0856ZMG9Z
     goodreads: https://www.goodreads.com/en/book/show/51083937-the-brightest-shadow
-
 aliases: [/reviews/brightest_shadow]
 tags: [female-lead, in-progress, cultivation]
 sentence: "The arrival of the Hero was worse than anyone could have imagined."

@@ -1,8 +1,6 @@
 ---
 title:  "A review of Samer Rabadi's 'Eight'"
-short_title: "Eight"
 description: "Isekai slice-of-life centred around Eight and the spirit he befriends."
-long_description: "Isekai slice-of-life centred around Eight and the spirit he befriends."
 date: 2022-11-22
 categories: [reviews]
 review: C
@@ -11,7 +9,6 @@ name: "Eight"
 links:
     amazon: https://www.amazon.com/Eight-LitRPG-Novel-Magical-Survival-ebook/dp/B0B8XQXKFJ
     goodreads: https://www.goodreads.com/en/book/show/61938108-eight
-
 aliases: [/reviews/eight]
 tags: [in-progress, isekai]
 sentence: "Eight is reincarnated and makes friends with an otter."

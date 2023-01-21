@@ -1,8 +1,6 @@
 ---
 title:  "A Review of Aleron Kong's Chaos Seeds Series: A tale of the luckiest man in the world"
-short_title:  "A Review of Aleron Kong's Chaos Seeds Series"
 description: "Reincarnation LitRPG that takes wish fulfillment taken to ridiculous levels and throws in as many pop-culture references as possible."
-long_description: "There's a lot in these books. Town planning to individual magic power. Gratuitous pop-culture references. And an MC who might just happen to be the luckiest person alive."
 date: 2021-02-12
 categories: [reviews]
 review: D
@@ -11,7 +9,6 @@ name: "Chaos Seeds"
 links:
     amazon: https://www.amazon.com/Land-Founding-LitRPG-Chaos-Seeds-ebook/dp/B0172GEB68
     goodreads: https://www.goodreads.com/series/179187-chaos-seeds
-
 aliases: [/reviews/land]
 tags: [litrpg, in-progress, isekai]
 sentence: "Richter get's isekai'd, and learns the perils of the Land."

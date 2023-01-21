@@ -1,8 +1,7 @@
 ---
 title:  "A Review of Dakota Krout's Completionist Chronicles and Ritualist from a grumpy LitRPG reader"
 short_title:  "A Review of Dakota Krout's Completionist Chronicles."
-description: "World-system LitRPG. Fun read with an interesting cast. Ignore the weird opening about Elon Musk."
-long_description: "My second Krout series, and whilst the first book isn't as gripping as Dungeon Born, it keeps things going for many books and is a chill, fun read."
+description: "World-system LitRPG. Fun read with an interesting cast. Ignore the weird opening about Elon Musk. A chill, fun read."
 date: 2021-05-03
 categories: [reviews]
 review: B
@@ -11,7 +10,6 @@ name: "Completionist Chronicles"
 links:
     amazon: https://www.amazon.com/Ritualist-Completionist-Chronicles-Book-1-ebook/dp/B07B27XQLF
     goodreads: https://www.goodreads.com/series/229735-the-completionist-chronicles
-
 aliases: [/reviews/cc]
 tags: [litrpg, in-progress, isekai]
 sentence: "A game that puts all others to shame, and a man willing to learn no matter the cost."

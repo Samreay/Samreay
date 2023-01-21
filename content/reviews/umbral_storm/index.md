@@ -1,8 +1,6 @@
 ---
 title:  "A review of Alec Huston's 'Umbral Storm'"
-short_title: "Umbral Storm"
 description: "A sect style western cultivation with multiple PoVs and rich worldbuilding."
-long_description: "A sect style western cultivation with multiple PoVs and rich worldbuilding."
 date: 2022-11-30
 categories: [reviews]
 review: B
@@ -11,7 +9,6 @@ name: "Umbral Storm"
 links:
     amazon: https://www.amazon.com/Umbral-Storm-Sharded-Few-Book-ebook/dp/B09ZBGFFYP
     goodreads: https://www.goodreads.com/book/show/60969058-the-umbral-storm
-
 aliases: [/reviews/umbral_storm]
 tags: [in-progress, cultivation, magic-school]
 sentence: "Deryn escapes from servitude and joins the Sharded Few."

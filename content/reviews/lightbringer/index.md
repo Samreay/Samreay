@@ -1,8 +1,6 @@
 ---
 title:  "A Review of Brent Weeks' Lightbringer Series. Such a promising beginning with such an awful ending."
-short_title:  "A Review of Brent Weeks' Lightbringer Series."
 description: "A great fantasy series with horrific ending. Amazing magic system though."
-long_description: "The magic system is unique, the characters great, and the progression from village boy to Blackguard member fantastic. So when the series ends with deus-ex-machina I was incredibly disappointed."
 name: Lightbringer
 date: 2020-12-28
 categories: [reviews]
@@ -11,7 +9,6 @@ weight: 49
 links:
     amazon: https://www.amazon.co.uk/Black-Prism-Book-Lightbringer/dp/1841499048
     goodreads: https://www.goodreads.com/series/291662-lightbringer
-
 aliases: [/reviews/lightbringer]
 tags: [finished, hard-magic]
 sentence: "Kip and the Prism face down the color-wights, but who's actually in the right?"
