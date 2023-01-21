@@ -27,6 +27,7 @@ def process_notebook(file_path: Path):
         markdown_content = fn(markdown_content)
 
     markdown_content = add_thumbnail(markdown_content, file_path)
+    markdown_content = remove_main(markdown_content)
 
     with open(markdown_path, "w") as f:
         f.write("\n".join(markdown_content))
@@ -128,7 +129,7 @@ def add_classes(markdown_content: list[str]) -> list[str]:
     markdown_content = markdown_content[::-1]
     for i, line in enumerate(markdown_content):
         if "!!!" in line:
-            current_classes = line.replace("!!!", "").strip().replace(" ", ",")
+            current_classes = line.replace("!", "").strip().replace(" ", ",")
             markdown_content[i] = ""
         if current_classes and line.startswith("!["):
             markdown_content[i] = line[:-1] + f'?class="{current_classes}")'
@@ -162,6 +163,11 @@ def add_thumbnail(markdown_content: list[str], file_path: Path) -> list[str]:
                 break
     return markdown_content
 
+
+def remove_main(markdown_content: list[str]) -> list[str]:
+    for i, line in enumerate(markdown_content):
+        if "![](" in line and "remove" in line:
+            markdown_content[i] = ""
 
 def style_tables(markdown_content: list[str]) -> list[str]:
     logger.debug("\tAdding classes to tables")
