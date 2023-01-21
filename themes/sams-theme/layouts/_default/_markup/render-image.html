@@ -1,0 +1,34 @@
+{{ $url := urls.Parse .Destination }}
+{{ $q := $url.Query}}
+{{ $class := replace ( replace ( $q.Get "class" ) "," " " ) "\"" "" }}
+{{ $path := replace $url.Path "\"" "" }}
+{{ $ext := trim (path.Ext $path) "." }}
+{{ $text := .Text }}
+{{ with .Page.Resources.GetMatch $path }}
+
+{{ if eq $ext "mp4" }}
+<div class="video {{ $class }}">
+    <video preload="auto" playsinline plays-inline controls autoplay loop muted>
+        <source src="{{ .RelPermalink }}" type="video/mp4">
+    </video>
+</div>
+{{ else }}
+<div>
+    <figure class="{{ $class }} rounded">
+    {{ if in "jpg jpeg png webp" $ext }}
+    <picture>
+        {{ with .Resize (printf "%dx%d webp q90" .Width .Height) }}
+            <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/webp">
+        {{ end }}
+        {{ with .Resize (printf "%dx%d q90" .Width .Height) }}
+            <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/{{ $ext }}">
+        {{ end }}
+        <img width="{{ .Width }}" height="{{ .Height }}" loading="lazy" decoding="async"  alt="{{ $text }}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" />
+    </picture>
+    {{ else }}
+    <img src="{{ .RelPermalink }}" loading="lazy" decoding="async"  alt="{{ $text }}" />
+    {{ end }}
+    </figure>
+</div>
+{{ end }}
+{{ end }}

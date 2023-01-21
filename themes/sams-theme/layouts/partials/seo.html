@@ -1,0 +1,44 @@
+<meta name="description" content="{{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}"/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="{{ .Permalink }}" />
+
+{{ partial "twitter_cards.html" . }}
+{{ partial "opengraph.html" . }}
+
+{{ range .Params.categories }}<meta property="article:section" content="{{ . }}" />{{ end }}
+{{ if isset .Params "date" }}<meta property="article:published_time" content="{{ time .Date }}" />{{ end }}
+
+<!-- JSON-LD -->
+{{ if .IsHome }}
+<script type="application/ld+json">
+{ 
+  "@context": "http://schema.org", 
+  "@type": "WebSite", 
+  "url": "{{ .Permalink }}", 
+  "name": "{{ .Site.Title }}",
+   "author": {
+      "@type": "Person",
+      "name": "{{ .Site.Params.author }}"
+    },
+  "description": "{{ .Site.Params.description }}"
+}
+</script>
+{{ end }}
+
+{{ if .IsPage }}
+<script type="application/ld+json">
+{ 
+    "@context": "http://schema.org", 
+    "@type": "BlogPosting",
+    "headline": "{{ .Title }}",
+    "genre": "{{ range .Params.categories }}{{ . }}{{ end }}",  
+    "url": "{{ .Permalink }}",
+    "datePublished": "{{ time .Date }}",
+    "description": "{{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ end }}{{ end }}",
+    "author": {
+        "@type": "Person",
+        "name": "{{ .Site.Author.name }}"
+    }
+ }
+</script>
+{{ end }}

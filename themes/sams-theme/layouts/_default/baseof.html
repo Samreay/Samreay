@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+  {{ partial "head.html" .}}
+  {{ partial "seo.html" .}}
+
+  <body>
+
+    <div class="flex flex-col min-h-screen overflow-hidden">
+
+    {{ partial "navbar.html" . }}
+
+    <div class="flex-grow">
+        {{ block "main" . }} {{ end }}
+    </div>
+
+    {{ partial "footer.html" . }}    
+
+    {{ with .Site.Params.analytics }} 
+      {{ partial "analytics.html" . }}
+    {{ end }}
+
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,23 @@
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ .Title}}{{if .IsPage}} - {{.Site.Title}}{{ end }}</title>
+
+{{ $styles := resources.Get "css/main.scss" | toCSS | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+{{ if .Site.IsServer }}
+    {{ $styles := $styles | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+{{ else }}
+    {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ end }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{ with resources.Get "img/favicon.png"}}
+<link rel="shortcut icon" href='{{ .Permalink }}' type="image/x-icon">
+{{ end }}
+
+</head>

@@ -1,0 +1,8 @@
+- name: Podcast
+  link: https://open.spotify.com/show/0TLIjk9XRESeamrUUxHpXF
+  desc: My podcast *Commuting the Cosmos* on all things space-related. Now inactive, sadly.
+  
+- name: CV
+  link: /static/resume/HintonOnePage.pdf
+  desc: If you're a recruiter or just curious about the way I'm meandering through life, heres my one page CV.
+  

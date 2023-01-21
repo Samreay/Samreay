@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+{{ $categories := site.Data.categories }}
+<div class="content content-full" x-data="window.register_tags()">
+
+  <div class="section-header mt-12 pb-2">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description | markdownify | .RenderString }}</p>
+    <p>{{ .Params.extra | markdownify | .RenderString }}</p>
+  </div>
+
+  <!-- Add the tags -->
+  <div class="tag-list max-w-7xl mx-auto">
+    {{ range  $tag, $taxonomy := where site.Taxonomies.tags ".Page.Section" .Type }}
+    <button class="tag-{{$tag}}" @click="click_tag('{{$tag}}');" x-init="add_tag('{{$tag}}')" :class="{ 'opacity-30': is_hidden_single('{{$tag}}') }">
+        <span>{{$tag}}</span>
+    </button>
+    {{ end }}
+  </div>
+
+
+  <!-- Add the posts -->
+  <div class="container mx-auto mt-20 grid gap-12 grid-cols-vertical-cards">
+    {{ range ( where .Site.RegularPages.ByWeight "Type" .Type ) }}
+      {{- partial "card.html" . -}}
+    {{ end }}
+  </div>
+
+</div>
+
+{{ end }}

@@ -3,7 +3,14 @@ _site/
 .cache/
 .jekyll-cache/
 node_modules/
+.venv
+**/node_modules
+.vscode
+resources/_gen/assets
+public/
 
+__pycache__
+.DS_Store
 _site
 .sass-cache
 .jekyll-metadata

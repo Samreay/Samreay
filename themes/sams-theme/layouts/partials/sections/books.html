@@ -1,0 +1,84 @@
+<div class="content content-standard">
+
+    <div class="section-header">
+        <h1 data-aos="fade-up">Books</h1>
+        <p data-aos="fade-up">I'm a voracious reader of fantasy novels, especially progression fantasy. So much so,
+            that I decided to contribute to the literature. Wish me luck!</p>
+    </div>
+
+    <div class="mx-auto mt-8">
+        <div class="grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
+            {{ range $book := site.Data.books }}
+            <article class="flex flex-col h-full col-span-1 fancy_card aspect-book" data-aos="fade-up" style="height: 498px;">
+                <div class="card_translator">
+                    <a class="card_rotator block card_layer" href="{{$book.link}}">
+                        <figure class="card_layer">
+                            {{ if $book.animated }}
+                            <video preload="auto" playsinline plays-inline autoplay loop muted>
+                                <source src="{{ (resources.Get $book.animated).RelPermalink }}" type="video/mp4">
+                            </video>
+                            {{ else }}
+                            <img class="w-full h-full object-cover" src="{{ (resources.Get $book.animated).RelPermalink }}" width="352" height="498"
+                                alt="{{$book.desc}}" />
+                            {{ end }}
+                        </figure>
+                        <div class="card_layer card_effect card_overlay_C"></div>
+                        <div class="card_layer card_effect card_glare"></div>
+                    </a>
+                </div>
+            </article>
+            {{ end }}
+
+            <!-- CTA box -->
+            <div class="fancy_card flex flex-col col-span-1 h-full">
+                <div class="card_translator h-full">
+                    <div class="card_rotator tiny_rot h-full card_layer block">
+                        <div class="newsletter card-layer h-full" style="padding: 0.2rem;" data-aos="fade-up">
+                            <div class="card_layer newsletter-inner h-full">
+                                <div class="relative h-full sib-form-container" id="sib-form-container">
+
+                                    <!-- CTA content -->
+                                    <div class="mb-6 lg:mb-12 text-center">
+                                        <h3 class="text-main-200 mb-2 lg:mb-8">Stay in the loop!</h3>
+                                        <p class="text-main-100 text-lg text-opacity-70">For new books and free
+                                            giveaways.</p>
+                                    </div>
+
+                                    <!-- CTA form -->
+                                    <form
+                                        action="https://Cosmiccoding.us5.list-manage.com/subscribe/post?u=aebe5de1d2e40dccb3aeca491&amp;id=3987dd4a1f"
+                                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                        class="validate w-full" target="_blank" novalidate>
+
+                                        <div class="">
+                                            <input type="email"
+                                                class="w-full appearance-none bg-main-600 mb-4 border border-main-600 bg-opacity-5 focus:border-main-300 rounded-sm px-4 py-3 text-main-100 placeholder-main-100 required"
+                                                placeholder="Your best email…" aria-label="Your best email…"
+                                                name="EMAIL" required data-required="true" id="EMAIL" />
+                                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input
+                                                    type="text" name="b_aebe5de1d2e40dccb3aeca491_3987dd4a1f"
+                                                    tabindex="-1" value=""></div>
+                                            <input type="submit" value="Subscribe" name="subscribe"
+                                                id="mc-embedded-subscribe"
+                                                class="button btn bg-main-600 hover:bg-main-400 shadow w-full">
+                                        </div>
+                                        <!-- Success message -->
+                                        <p id="mce-error-response" style="display:none"
+                                            class="text-center mt-2 opacity-50 text-main-200">
+                                            There was a problem, please try again.</p>
+                                        <p id="mce-success-response" style="display:none"
+                                            class="text-center mt-2 opacity-50 text-main-200">
+                                            Thanks mate, won't let ya down.</p>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

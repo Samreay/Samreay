@@ -1,0 +1,76 @@
+
+{{ $data := .Site.Data.nav }}
+
+<header class="absolute w-full z-30">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-20">
+
+          <!-- Site branding -->
+          <div class="flex-shrink-0 mr-4">
+              <!-- Logo -->
+              <a class="block" href="/" aria-label="Samuel Hinton">
+                  <h2 class="logo">SRH</h2>
+              </a>
+          </div>
+
+          <!-- Desktop navigation -->
+          <nav class="hidden md:flex md:flex-grow">
+
+            <!-- Desktop menu links -->
+            <ul class="flex flex-grow justify-end flex-wrap items-center">
+            {{ range $index, $item := $data }}
+              <li>
+                {{ $link := index . "link" }}
+                <a href="{{ $link }}" class="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">{{ index $item "label" }}</a>
+              </li>
+            {{ end }}
+            </ul>
+
+          </nav>
+
+          <div class="md:hidden" x-data="{ expanded: false }">
+
+            <!-- Hamburger button -->
+            <button
+                class="hamburger"
+                :class="{ 'active': expanded }"
+                @click.stop="expanded = !expanded"
+                aria-controls="mobile-nav"
+                :aria-expanded="expanded"
+            >
+                <span class="sr-only">Menu</span>
+                <svg class="w-6 h-6 fill-current text-gray-300 hover:text-gray-200 transition duration-150 ease-in-out" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="4" width="24" height="2" rx="1" />
+                    <rect y="11" width="24" height="2" rx="1" />
+                    <rect y="18" width="24" height="2" rx="1" />
+                </svg>
+            </button>
+
+            <!-- Mobile navigation -->
+            <nav
+                id="mobile-nav"
+                class="absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out"
+                x-ref="mobileNav"
+                :style="expanded ? 'max-height: ' + $refs.mobileNav.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: .8'"
+                @click.away="expanded = false"
+                @keydown.escape.window="expanded = false"
+                x-cloak
+            >
+                <ul class="bg-gray-800 px-4 py-2">
+                  {{ range $index, $item := $data }}
+                  <li>
+                    {{ $link := index . "link" }}
+                        <a href="{{ $link }}" class="flex text-gray-300 hover:text-gray-200 py-2">{{ index $item "label" }}</a>
+                    </li>
+                    {{ end }}
+                    
+                </ul>
+            </nav>
+
+        </div>
+
+    </div>
+</div>
+</header>
+
+

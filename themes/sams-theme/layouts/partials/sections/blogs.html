@@ -1,0 +1,16 @@
+<div class="content content-wide">
+
+    <div class="section-header">
+        <h1 data-aos="fade-up">Latest Blog Posts</h1>
+        <p data-aos="fade-up">Writing updates, extra content, travel, and outreach. Its a catch all of my life, basically.<a class="under orange-under" href="/tutorials">Perhaps too many more here.</a></p>
+    </div>
+
+    <div class="max-w-sm mx-auto md:max-w-none mt-8">
+        <div class="grid gap-12 grid-cols-vertical-cards items-start">
+
+        {{ range site.Taxonomies.categories.blog.Pages.ByDate.Reverse | first 6 }}
+            {{- partial "card.html" . -}} 
+        {{ end }}
+    </div>
+</div>
+</div>

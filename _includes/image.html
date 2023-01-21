@@ -1,9 +1,0 @@
-
-<figure class="{{include.class}}">
-    {% assign key = page.loc | append: include.url %}
-    {% if site.data.imgdata[key] %}
-    <img src="data:image/gif;base64, {{site.data.imgdata[key].data}}" data-src="{{site.img_path}}{{page.loc}}{{include.url}}" width="{{site.data.imgdata[key].width}}" height="{{site.data.imgdata[key].height}}"/>
-    {% else %}
-    <img src="{{site.img_path}}{{page.loc}}{{include.url}}"/>
-    {% endif %}
-</figure>

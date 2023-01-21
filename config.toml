@@ -1,0 +1,19 @@
+baseURL = 'https://cosmiccoding.com.au'
+languageCode = 'en-us'
+title = 'Samuel Hinton'
+theme = "sams-theme"
+timeout = 120000
+
+[markup]
+  [markup.highlight]
+    style = 'base16-snazzy'
+    codeFences = true
+    guessSyntax = true
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  description = "Samuel Hinton's latest books, blogs, tutorials, and courses. Plus just his general thoughts on the world, which probably have little value."
+  [params.analytics]
+    trackingID = "UA-72691106-1"

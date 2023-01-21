@@ -1,0 +1,91 @@
+{{ define "main" }}
+
+{{ $r := .Params.review }}
+
+<div class="content content blog-post relative" data-aos="fade-up">
+    <div class="section-header blog">
+        <h1 class="title rating rating-{{ $r }}" data-aos="fade-up">{{ .Params.name }}</h1>
+    </div>
+
+
+    <div class="max-w-4xl mx-auto mt-12 mb-20">
+        <article class="w-full review-summary bg-gray-800 rounded-xl review-{{ $r }}">
+            <div class="bg2 rounded-xl">
+                <div class="bg-inner flex flex-col md:flex-row bg-gray-800 rounded-xl overflow-hidden">
+
+
+                    {{ $img := resources.Get "img/placeholder_1.jpg" }}
+                    {{ if isset .Params "images" }}
+                        {{ $img = .Page.Resources.Get (index .Params.images 0) }}
+                    {{ else }}
+                        {{- $images := $.Resources.ByType "image" -}}
+                        {{ $featured := $images.GetMatch "{*cover*,*thumbnail*}" }}
+                        {{ if $featured }}
+                            {{ $img = $featured }}
+                        {{ end }}
+                    {{ end }}
+                    {{ with $img }}
+                    <figure class="">
+                        <picture>
+                            {{ with .Fill "250x375 Center webp q80 #000000" }}
+                                <source srcset="{{ .RelPermalink }}" type="image/webp">
+                            {{ end }}
+                            {{ with .Fill "250x375 Center q70 #000000" }}
+                                <source srcset="{{ .RelPermalink }}" type="image/png">
+                            {{ end }}
+                            <img class="rounded-l-xl block flex-none bg-cover" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="{{ .Params.short_title }}">
+                        </picture>
+                    </figure>
+                    {{ end }}
+                    <div class="flex flex-col justify-between p-12 text-center md:text-left">
+                        <div class="rating">
+                            <p class="larger rating-{{ $r }}">
+                                <span class="leader">{{ $r }}:</span>
+                                {{ if eq $r "π" }}My stuff. I hope you like it.{{ end }}
+                                {{ if eq $r "S" }}Special place in my heart.{{ end }}
+                                {{ if eq $r "A" }}Amazing, definitely read.{{ end }}
+                                {{ if eq $r "B" }}Great read, highly recommend.{{ end }}
+                                {{ if eq $r "C" }}Good read, tiny quibbles.{{ end }}
+                                {{ if eq $r "D" }}Fun with some flaws.{{ end }}
+                                {{ if eq $r "F" }}Significant issues, did not finish.{{ end }}
+                            </p>
+                        </div>
+                        <p class="text-lg text-gray-400">{{ .Params.description}}</p>
+                        <div class="text-base">
+                            {{ range $name, $link := .Params.links }}
+                            <a class="no-under btn-sm text-white bg-{{ $r }}-700 hover:bg-{{ $r }}-600 mt-6 mr-4" href="{{ $link }}">
+                                <span>{{ replace $name "_" " " | title  }}</span>
+                                <svg class="w-3 h-3 fill-current flex-shrink-0 ml-2" viewBox="0 0 12 12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 5H0v2h6v4l6-5-6-5z" />
+                                </svg>
+                            </a>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="max-w-xl2 mx-auto">
+        {{ .Content }}
+    </div>
+
+    <div class="mt-20">
+        <p class="text-center">
+            <a href="/reviews">For more book reviews, click here!</a>
+        </p>
+    </div>
+
+    <div class="mt-20">
+        {{ partial "newsletter-blog.html" }}
+    </div>
+
+
+</div>
+
+
+
+
+{{ end }}

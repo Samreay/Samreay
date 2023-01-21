@@ -1,0 +1,69 @@
+{{ $tagList := delimit .Params.tags "','" }}
+<div class="fancy_card horizontal" :class="{ 'hidden': is_hidden(['{{$tagList}}','{{.Params.review}}']) }">
+  <div class="card_translator">
+    <a class="card_rotator small_rot card_layer block" href="{{.RelPermalink}}">
+      <div class="card_layer">
+        <article class="review-summary review-{{.Params.review}}">
+          <div class="bg2">
+            <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
+              <figure class="rounded-l-xl block flex-none bg-cover">
+                {{ if isSet .Params "video" }}
+
+                <video class="rounded-l-xl block flex-none bg-cover" preload="auto" playsinline plays-inline autoplay
+                  loop muted width="235" height="375">
+                  <source src="{{($.Resources.Get .Params.video).RelPermalink}}" type="video/mp4" />
+                </video>
+                {{ else }} 
+                  {{ $img := resources.Get "img/placeholder_1.jpg" }}
+                  {{ if isset .Params "images" }} 
+                    {{ $img = .Page.Resources.Get (index .Params.images 0) }} 
+                  {{ else }} 
+                    {{- $images := $.Resources.ByType "image" -}} 
+                    {{ $featured := $images.GetMatch "{*cover*,*thumbnail*}" }} 
+                    {{ if $featured }}
+                      {{ $img = $featured }} 
+                    {{ end }} 
+                  {{ end }} 
+                  {{ with $img }}
+                <picture>
+                  {{ with .Fill "250x375 Center webp q80 #000000" }}
+                  <source srcset="{{ .RelPermalink }}" type="image/webp" />
+                  {{ end }} 
+                  {{ with .Fill "250x375 Center q70 #000000" }}
+                  <source srcset="{{ .RelPermalink }}" type="image/png" />
+                  {{ end }}
+                  <img class="rounded-l-xl block flex-none bg-cover mx-auto"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg=="
+                    alt="{{ .Params.short_title }}" />
+                </picture>
+                {{ end }}
+                {{ end }}
+              </figure>
+              <div class="flex flex-col justify-between p-4 text-center">
+                <div class="rating">
+                  <p class="small rating-{{.Params.review}}">
+                    <span class="leader">{{.Params.name}}</span>
+                  </p>
+                </div>
+                <p class="text-lg text-gray-400 px-3">{{.Params.sentence}}</p>
+                <div class="">
+                  <div class="mb-3">
+                    <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
+                      {{ range $tag := .Params.tags | sort }}
+                      <li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{{$tag}}">
+                        {{$tag | lower }}
+                      </li>
+                      {{ end }}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="card_layer card_effect card_overlay_{{.Params.review}}"></div>
+      <div class="card_layer card_effect card_glare"></div>
+    </a>
+  </div>
+</div>
