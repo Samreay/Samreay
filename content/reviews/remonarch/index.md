@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of J. McCoy's 'RE: Monarch'"
 short_title: "RE: Monarch"
 description: "A time-loop novel heavy on politics and intrigue with complex characters."

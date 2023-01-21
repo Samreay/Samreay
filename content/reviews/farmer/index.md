@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Benjamin Kerei's 'Oh Great! I was Reincarnated as a Farmer'"
 short_title: "Oh Great! I was Reincarnated as a Farmer"
 description: "A LitRPG isekai about (not) being a farmer and trying your hardest to game the system instead."

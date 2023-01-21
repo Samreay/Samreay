@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Zamil Akhtar's Lightblade"
 short_title: "Lightblade"
 description: "Progression fantasy, inception/matrix themes mixed in with some hints of Indo-Persian mythology."

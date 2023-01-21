@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Zogarth's LitRPG 'The Primal Hunter'"
 short_title: "The Primal Hunter"
 description: "System apocalypse LitRPG, with all the normal bells and whistles."

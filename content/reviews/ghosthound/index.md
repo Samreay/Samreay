@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Noret Flood's 'The Legend of Randidly Ghosthound', a great take on system takeover LitRPG."
 short_title: "The Legend of Randidly Ghosthound"
 description: "System apocalypse LitRPG. The System takes over Earth, and Randidly becomes a Heretic."

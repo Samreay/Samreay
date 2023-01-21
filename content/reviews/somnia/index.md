@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of K.T. Hanna's 'Somnia Online'"
 short_title: "Somnia Online"
 description: "Female-lead LitRPG vrmmo series about exploring the AI run world of Somnia Online"

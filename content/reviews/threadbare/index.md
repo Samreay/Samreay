@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Andrew Seiple's Threadbare. Adorable, unique, and fascinating."
 short_title: "Andrew Seiple's Threadbare"
 description: "LitRPG fantasy. A delightful and aggressively adorable take on the genre."

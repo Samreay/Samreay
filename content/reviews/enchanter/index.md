@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Tobias Begley's progression fantasy work 'The Enchanter'"
 short_title: "The Enchanter"
 description: "Progression fantasy. Crafting, intelligent protagonists, school setting, it's right up my alley."

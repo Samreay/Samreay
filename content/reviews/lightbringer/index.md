@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Brent Weeks' Lightbringer Series. Such a promising beginning with such an awful ending."
 short_title:  "A Review of Brent Weeks' Lightbringer Series."
 description: "A great fantasy series with horrific ending. Amazing magic system though."

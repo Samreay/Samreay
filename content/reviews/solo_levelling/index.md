@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Chugong's Solo Levelling - an engaging take on the genre."
 short_title: "Chugong's Solo Levelling"
 description: "System LitRPG...ish. Perfect wish fulfilment - a world wherein everyone's power is fixed, but you alone can grow stronger."

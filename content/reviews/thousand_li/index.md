@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "Tao Wong's A Thousand Li - classical cultivation doled out sparingly"
 short_title: "Tao Wong's A Thousand Li Series"
 description: "Cultivation with sect focus. Good premise, slow pacing, tends towards slice-of-life."

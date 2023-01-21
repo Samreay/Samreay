@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A physicist reviews Dominic Stal's 'The Last Physicist'"
 short_title: "The Last Physicist"
 description: "LitRPG, isekai/portal fantasy, with a sort-of-but-not-really scientific approach to magic."

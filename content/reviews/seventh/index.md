@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of T.J. Reynold's 'Seventh Bridge to the Heavens'"
 short_title: "Seventh Bridge to the Heavens"
 description: "A cultivation story with the faintest hint of LitRPG, featuring elemental powers and great worldbuilding."

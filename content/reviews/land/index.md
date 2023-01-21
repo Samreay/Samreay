@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Aleron Kong's Chaos Seeds Series: A tale of the luckiest man in the world"
 short_title:  "A Review of Aleron Kong's Chaos Seeds Series"
 description: "Reincarnation LitRPG that takes wish fulfillment taken to ridiculous levels and throws in as many pop-culture references as possible."

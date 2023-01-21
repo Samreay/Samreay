@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Samer Rabadi's 'Eight'"
 short_title: "Eight"
 description: "Isekai slice-of-life centred around Eight and the spirit he befriends."

@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Travis Bagwell's Awaken Online. A necromancer MC games the system as much as he can."
 short_title: "Travis Bagwell's Awaken Online"
 description: "VR LitRPG with necromancer focus. Book one is excellent, so give it a shot and ignore the hate."

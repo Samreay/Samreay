@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Dakota Krout's Divine Dungeon Series."
 short_title:  "A Review of Dakota Krout's Divine Dungeon Series."
 description: "LitRPG. Great into to dungeon core. First few books are great. The ending is a bit lacking."

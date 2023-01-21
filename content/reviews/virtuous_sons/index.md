@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Striker's 'Virtuous Sons'"
 short_title: "Virtuous Sons"
 description: "Cultivation in a Greco-Roman setting, with amazing characters and absolutely fantasy dynamics."

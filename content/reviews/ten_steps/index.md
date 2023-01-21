@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Andrew Rowes's How to Defeat a Demon King in Ten Easy Steps. Hilarious love letter to Zelda."
 short_title: "How to Defeat a Demon King in Ten Easy Steps"
 description: "Hilarious LitRPG. Short, tongue-in-cheek parody of the genre, it's great fun."

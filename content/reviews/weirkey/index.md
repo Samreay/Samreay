@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Sarah Lin's 'The Weirkey Chronicles'"
 short_title: "The Weirkey Chronicles"
 description: "Soft cultivation / isekai crossover with a unique magic system and expansive setting."

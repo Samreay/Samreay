@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Sarah Lin's The Brightest Shadow - great subversion of a genre trope."
 short_title: "Sarah Lin's The Brightest Shadow"
 description: "Epic fantasy with some progression. The Chosen One trope is delightfully flipped on its head."

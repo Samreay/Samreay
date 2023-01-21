@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of 'Defiance of the Fall', a system-apocalypse LitRPG / cultivation hybrid."
 short_title: "The Path of Ascension"
 description: "System apocalypse LitRPG. A multiverse spanning series with great hooks, even if there's some deus ex machina."

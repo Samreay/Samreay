@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Dakota Krout's Completionist Chronicles and Ritualist from a grumpy LitRPG reader"
 short_title:  "A Review of Dakota Krout's Completionist Chronicles."
 description: "World-system LitRPG. Fun read with an interesting cast. Ignore the weird opening about Elon Musk."

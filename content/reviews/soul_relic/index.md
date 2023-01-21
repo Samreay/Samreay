@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "Reflections on my own 'Soul Relic'"
 short_title: "Soul Relic"
 description: "Female-lead cultivation novel with a hard magic system. A young woman with a broken soul joins her brother to find a solution in the wider world."

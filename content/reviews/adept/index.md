@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Michael G. Manning's 'Art of the Adept'"
 short_title: "Art of the Adept"
 description: "A fantasy progression novel taking our wizard MC from child to global threat."

@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Michael Nwanolue's 'The Tower Unbroken'"
 short_title: "The Tower Unbroken"
 description: "A Cradle-inspired cultivation story set in a fantasy world with African roots."

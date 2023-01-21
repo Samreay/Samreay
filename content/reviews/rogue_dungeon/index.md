@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Jame A. Hunter's Rogue Dungeon. Light-hearted fun."
 short_title: "James A. Hunter's Rogue Dungeon"
 description: "Reincarnation fantasy LitRPG. Not Dungeon Core despite the name, but a fun dungeon-based settings."

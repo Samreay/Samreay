@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of J.R. Mathews's 'Portal to Nova Roma'"
 short_title: "Portal to Nova Roma"
 description: "Portal fantasy with an AI MC who uses his technology knowledge to get ahead in a ravaged, magical world."

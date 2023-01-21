@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of John Bierce's Mage Errant Series. A fun ride with a likeable cast."
 short_title: "John Bierce's Mage Errant Series"
 description: "Progression fantasy, some academic focused books. A struggling protagonist gets dragged into adventure."

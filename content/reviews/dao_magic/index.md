@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Andries Louws' The Dao of Magic. A strange blend of pop references and ridiculously overpowered protagonists"
 short_title: "Andries Louws' The Dao of Magic"
 description: "Reincarnation/cultivation novel. If you just want to read an incredibly overpowered protagonist and don't mind them sounding like a teenager off /r/iamverysmart, go for it..."

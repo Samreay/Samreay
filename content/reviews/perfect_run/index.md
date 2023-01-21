@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Maxime J. Durand's 'The Perfect Run'"
 short_title: "The Perfect Run"
 description: "Fantasy series focusing on time loops and a diverse cast of super-powered characters trying to save the world... or end it."

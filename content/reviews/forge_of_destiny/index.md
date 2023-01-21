@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Yrsillar's Forge of Destiny"
 short_title:  "A Review of Yrsillar's Forge of Destiny"
 description: "Slice-of-life cultivation. Academia/sect focus. Chill read with slower pacing and lower stakes."

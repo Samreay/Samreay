@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of J. R. Mathews's 'Jakes Magical Market', a fun LitRPG apocalypse romb with a card based system."
 short_title: "Jake's Magical Market"
 description: "System apocalypse LitRPG. If you think running a shop is all Jake does, think again."

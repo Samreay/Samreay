@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Rhaegar's 'Azarinth Healer'"
 short_title: "Azarinth Healer"
 description: "A lone-MC isekai with non-stop action, overpowered MC, and a massive backlog."

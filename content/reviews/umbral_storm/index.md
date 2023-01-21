@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Alec Huston's 'Umbral Storm'"
 short_title: "Umbral Storm"
 description: "A sect style western cultivation with multiple PoVs and rich worldbuilding."

@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Shirtaloon's He Who Fights With Monsters, a great LitRPG with an opinionated protagonist."
 short_title:  "A Review of Shirtaloon's He Who Fights With Monsters"
 description: "Portal LitRPG. Humerous isekai with a big-mouthed protagonist."

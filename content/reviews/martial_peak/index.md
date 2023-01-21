@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Momo's 'Martial Peak'"
 short_title: "Martial Peak"
 description: "Traditional cultivation manhua packed with action-packed, gorgeous art... and multiple wives."

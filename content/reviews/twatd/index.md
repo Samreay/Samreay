@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Harmon Cooper's 'The World According to Dragons'"
 short_title: "The World According to Dragons"
 description: "Light progression featuring a relic hunting dragon-rider."

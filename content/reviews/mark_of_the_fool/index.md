@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of J.M. Clarke's 'Mark of the Fool'"
 short_title: "Mark of the Fool"
 description: "Academic-focused progression fantasy with analytical MC, great characters and innovative thinking."

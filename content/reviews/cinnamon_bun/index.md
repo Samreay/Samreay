@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of RavensDagger's 'Cinnamon Bun'"
 short_title: "Cinnamon Bun"
 description: "A wholesome isekai in a LitRPG world wherein our female lead goes on friendship-making adventures."

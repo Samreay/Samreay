@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Davis Ashura's 'The Eternal Ephemera'"
 short_title: "Eternal Ephemera"
 description: "Academy focused cultivation novel with strong emphasis on tactical fights."

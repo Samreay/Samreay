@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Phil Tucker's Bastion. It's great."
 short_title: "Phil Tucker's Bastion"
 description: "Cultivation with only slight academic focus. A great mix of classic progression with some top tier worldbuilding."

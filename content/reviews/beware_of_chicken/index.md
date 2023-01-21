@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of CasualFarmer's Cultivation novel 'Beware of Chicken'"
 short_title: "Beware of Chicken"
 description: "Slice of life cultivation novel, very wholesome, about a reincarnated person trying to get away from Xianxia tropes."

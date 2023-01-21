@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Matt Dinniman's Dungeon Crawler Carl. Officially my favourite LitRPG."
 short_title: "Matt Dinninman's 'Dungeon Crawler Carl'"
 description: "System apocalypse LitRPG. Carl and Princess Donut are the real power couple I never knew I needed."

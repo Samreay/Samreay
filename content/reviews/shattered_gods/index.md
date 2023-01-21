@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Chris Fox's Shattered Gods series. A great new entry into progression fantasy."
 short_title: "Chris Fox's Shattered Gods Series"
 description: "Progression fantasy. A falling empire, oppressed populace, and gods being reincarnated. Fun times lie ahead."

@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Naomi Novik's Scholomance Series"
 short_title: "The Scholomance Series"
 description: "Fantasy series, female lead in a magic school with an 50% mortality rate, because they get eaten by the maleficaria."

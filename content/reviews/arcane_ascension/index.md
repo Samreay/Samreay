@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A Review of Andrew Rowe's Arcane Ascension Series: hard magic done right"
 short_title:  "A Review of Andrew Rowe's Arcane Ascension Series."
 description: "Progression fantasy in academic setting. Great world, detailed magic, intelligent characters, extraordinarily fun. Crafting and spire/dungeon focus."

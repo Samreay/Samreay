@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of J.L. Mullins' 'Millenium Mage'"
 short_title: "Millenium Mage"
 description: "A female-led, slice-of-life, character-driven story with a unique magic system and worldbuilding."

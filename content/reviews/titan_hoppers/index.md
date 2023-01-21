@@ -1,5 +1,5 @@
 ---
-layout: review_post
+
 title:  "A review of Rob J. Hayes' 'Titan Hoppers'"
 short_title: "Titan Hoppers"
 description: "A character-driven sci-fi story about a fleet of ships surviving by scavenging off planet-sized titans."
