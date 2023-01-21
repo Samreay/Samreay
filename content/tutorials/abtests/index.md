@@ -382,6 +382,8 @@ c.plotter.plot();
 
 What we're interested in most of all are the constraints on $\delta_P$, which is $\delta_P = 0.037^{+0.021}_{-0.019}$ (this is the 68% confidence level). This means that we rule out $\delta_P=0$ at the $2\sigma$ confidence level (aka 95% confidence level), allowing us to say that B does in indeed produce a statistically significant increase in conversion rate.
 
+******
+
 For your convenience, here's the code in one block:
 
 ```python

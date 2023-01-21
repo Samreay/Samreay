@@ -149,6 +149,10 @@ body {
     }
   }
 
+  hr {
+    @apply max-w-2xl mx-auto border-main-700 my-12;
+  }
+
   ul {
     @apply max-w-2xl mx-auto text-xl my-6 leading-relaxed list-disc pl-8;
   }
