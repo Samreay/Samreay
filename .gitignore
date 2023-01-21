@@ -6,7 +6,7 @@ node_modules/
 .venv
 **/node_modules
 .vscode
-resources/_gen
+resources/_gen/assets
 public/
 
 __pycache__
