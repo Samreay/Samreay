@@ -222,6 +222,7 @@ if __name__ == "__main__":
 
     here = Path(__file__).parent
 
+    count = 0
     if args.file_path:
         notebook_path = Path(args.file_path)
         process_notebook(notebook_path)
@@ -242,8 +243,10 @@ if __name__ == "__main__":
                 logger.info(f"Skipping {key} as hash is unchanged")
                 continue
             process_notebook(notebook_path.absolute())
+            count += 1
+            if count > 4:
+                break
             # hashes[key] = hash
-            break
 
         if hashes != hashes_original:
             save_hashes(hash_file, hashes)
