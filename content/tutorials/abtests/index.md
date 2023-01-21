@@ -1,16 +1,12 @@
 ---
-layout: post
 title:  "A/B Test Significance in Python"
 description: "Using Python to determine just how confident we are in our A/B test results"
-long_desc: "In this article, we'll delve into A/B testing. What is it, and how can we implement it efficiently in Python? We'll look into multiple statistical tests, simulation validation, and even a Bayesian treatment, all in easy simple Python code."
 date: 2020-01-12
 categories: [tutorial]
 tags: [statistics]
 aliases: ["/ab_tests"]
 math: true
 ---
-
-
 
 Recently I was asked to talk about A/B tests for my [Python for Statistical Analysis course](https://www.udemy.com/course/python-for-statistical-analysis/?referralCode=76158B46FA5EB57C38EB). Given my travel schedule, leaving me bereft of my microphone, I thought it would be better to condense down A/B tests into a tutorial or two.
 
@@ -385,3 +381,110 @@ c.plotter.plot();
 
 
 What we're interested in most of all are the constraints on $\delta_P$, which is $\delta_P = 0.037^{+0.021}_{-0.019}$ (this is the 68% confidence level). This means that we rule out $\delta_P=0$ at the $2\sigma$ confidence level (aka 95% confidence level), allowing us to say that B does in indeed produce a statistically significant increase in conversion rate.
+
+For your convenience, here's the code in one block:
+
+```python
+num_a, num_b = 550, 450
+click_a, click_b = 48, 56
+rate_a, rate_b = click_a / num_a, click_b / num_b
+import matplotlib.pyplot as plt
+from scipy.stats import binom
+import numpy as np
+
+# Determine the probability of having x click throughs
+clicks = np.arange(20, 80)
+prob_a = binom(num_a, rate_a).pmf(clicks)
+prob_b = binom(num_b, rate_b).pmf(clicks)
+
+# Make the bar plots.
+plt.bar(clicks, prob_a, label="A", alpha=0.7)
+plt.bar(clicks, prob_b, label="B", alpha=0.7)
+plt.xlabel("Num converted"); plt.ylabel("Probability");
+from scipy.stats import norm
+
+# Where does this come from? See the link above.
+std_a = np.sqrt(rate_a * (1 - rate_a) / num_a)
+std_b = np.sqrt(rate_b * (1 - rate_b) / num_b)
+
+click_rate = np.linspace(0, 0.2, 200)
+prob_a = norm(rate_a, std_a).pdf(click_rate)
+prob_b = norm(rate_b, std_b).pdf(click_rate)
+
+# Make the bar plots.
+plt.plot(click_rate, prob_a, label="A")
+plt.plot(click_rate, prob_b, label="B")
+plt.xlabel("Conversion rate"); plt.ylabel("Probability");
+# The z-score is really all we need if we want a number
+z_score = (rate_b - rate_a) / np.sqrt(std_a**2 + std_b**2)
+print(f"z-score is {z_score:0.3f}, with p-value {norm().sf(z_score):0.3f}")
+
+# But I want a plot as well
+p = norm(rate_b - rate_a, np.sqrt(std_a**2 + std_b**2))
+x = np.linspace(-0.05, 0.15, 1000)
+y = p.pdf(x)
+area_under_curve = p.sf(0)
+plt.plot(x, y, label="PDF")
+plt.fill_between(x, 0, y, where=x>0, label="Prob(b>a)", alpha=0.3)
+plt.annotate(f"Area={area_under_curve:0.3f}", (0.02, 5))
+def get_confidence_ab_test(click_a, num_a, click_b, num_b):
+    rate_a = click_a / num_a
+    rate_b = click_b / num_b
+    std_a = np.sqrt(rate_a * (1 - rate_a) / num_a)
+    std_b = np.sqrt(rate_b * (1 - rate_b) / num_b)
+    z_score = (rate_b - rate_a) / np.sqrt(std_a**2 + std_b**2)
+    return norm.cdf(z_score)
+
+print(get_confidence_ab_test(click_a, num_a, click_b, num_b))
+# Draw 10000 samples of possible rates for a and b
+n = 10000
+rates_a = norm(rate_a, std_a).rvs(n)
+rates_b = norm(rate_b, std_b).rvs(n)
+b_better = (rates_b > rates_a).mean()
+print(f"B is better than A {b_better:0.1%} of the time")
+from scipy.stats import ttest_ind
+a_dist = np.zeros(num_a)
+a_dist[:click_a] = 1
+b_dist = np.zeros(num_b)
+b_dist[:click_b] = 1
+zscore, prob = ttest_ind(a_dist, b_dist, equal_var=False)
+print(f"Zscore is {zscore:0.2f}, p-value is {prob:0.3f} (two tailed), {prob/2:0.3f} (one tailed)")
+from scipy.stats import mannwhitneyu
+stat, p_value = mannwhitneyu(a_dist, b_dist, alternative="less")
+print(f"Mann-Whitney U test for null hypothesis B <= A is {p_value:0.3f}")
+import numpy as np
+
+def get_prior(x):
+    p, delta = x
+    if not 0 < p < 1:
+        return -np.inf
+    if not 0 < p + delta < 1:
+        return -np.inf
+    if not -0.1 < delta < 0.1:
+        return -np.inf
+    return 0
+
+def get_likelihood(x):
+    p, delta = x
+    return norm().logpdf((p - rate_a) / std_a) + norm().logpdf((p + delta - rate_b) / std_b)
+
+def get_posterior(x):
+    prior = get_prior(x)
+    if np.isfinite(prior):
+        return prior + get_likelihood(x)
+    return prior
+import emcee
+ndim = 2  # How many parameters we are fitting. This is our dimensionality.
+nwalkers = 30  # Keep this well above your dimensionality.
+p0 = np.random.uniform(low=0, high=0.1, size=(nwalkers, ndim))  # Start points
+sampler = emcee.EnsembleSampler(nwalkers, ndim, get_posterior)
+state = sampler.run_mcmc(p0, 2000)  # Tell each walker to take some steps
+
+chain = sampler.chain[:, 200:, :]  # Throw out the first 200 steps
+flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker
+print(flat_chain)
+from chainconsumer import ChainConsumer
+c = ChainConsumer()
+c.add_chain(flat_chain, parameters=["$P_A$", "$\delta_P$"], kde=1.0)
+c.plotter.plot();
+```

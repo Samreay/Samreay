@@ -28,12 +28,13 @@ def process_notebook(file_path: Path):
 
     markdown_content = add_thumbnail(markdown_content, file_path)
     markdown_content = remove_main(markdown_content)
+    markdown_content = put_all_code_at_the_end(markdown_content)
 
     with open(markdown_path, "w") as f:
         f.write("\n".join(markdown_content))
 
 def wrap_code(markdown_content: list[str]) -> list[str]:
-    logger.debug("Figuring out helpful code classes")
+    logger.debug("\tFiguring out helpful code classes")
     content = []
     in_block = False
     start_line = 0
@@ -168,6 +169,24 @@ def remove_main(markdown_content: list[str]) -> list[str]:
     for i, line in enumerate(markdown_content):
         if "![](" in line and "remove" in line:
             markdown_content[i] = ""
+    return markdown_content
+
+def put_all_code_at_the_end(markdown_content: list[str]) -> list[str]:
+    logger.debug("\tAdding code at the end of the document")
+    end_code = ["", "******", "", "For your convenience, here's the code in one block:", "", "```python"]
+    in_code= False
+    for line in markdown_content:
+        if "```python" in line:
+            in_code = True
+            continue
+        elif "```" in line and in_code:
+            in_code = False
+        if in_code:
+            end_code.append(line)
+    end_code.append("```")
+    return markdown_content + end_code
+
+    
 
 def style_tables(markdown_content: list[str]) -> list[str]:
     logger.debug("\tAdding classes to tables")
