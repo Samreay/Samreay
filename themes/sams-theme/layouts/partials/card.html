@@ -3,17 +3,24 @@
         <div class="h-full">
             <header class="mb-4">
                 <figure class="relative h-0 pb-9/16 overflow-hidden rounded-t-lg">
-
                 {{ $img := resources.Get "img/placeholder_1.jpg" }}
+                {{ $missing := true}}
                 {{ if isset .Params "images" }}
                     {{ $img = .Page.Resources.Get (index .Params.images 0) }}
+                    {{ $missing = false }}
                 {{ else }}
                     {{- $images := $.Resources.ByType "image" -}}
                     {{ $featured := $images.GetMatch "{*cover*,*thumbnail*}" }}
                     {{ if $featured }}
                         {{ $img = $featured }}
+                        {{ $missing = false }}
                     {{ end }}
                 {{ end }}
+                {{ if $missing }}
+                    {{ $placeholders := resources.Match "img/*placeholder*" | shuffle }}
+                    {{ $img = index $placeholders 0 }}
+                {{ end }}
+
                 {{ with $img }}
                 <picture>
                     {{ with .Fill "352x198 webp q80 #000000" }}
