@@ -4,7 +4,7 @@ title:  "Getting started with Boost, Python, and Numpy"
 description: "After failing to find a tutorial that was actually complete, I decided to make one myself."
 date: 2020-07-04
 categories: [tutorial]
-tags: [environment]
+tags: []
 math: true
 ---
 

@@ -1,7 +1,7 @@
 {
     "content/tutorials/abtests/2020-01-12-ABTests.ipynb": "06abf7b873444bd0405ef3194b66cb3e7074d293476bf3bd4cf6b8b9c208c8da7f99019f8e53a76ed71b6c996ad9fb31c5a2c6799b725d020ff1828095546ca6",
     "content/tutorials/bayesianlinearregression/2019-07-27-BayesianLinearRegression.ipynb": "b938d7b8a22c583efd93595e90522fd7b275fb9d76964c007e3abc23af3469a960ba23f3670470f1f31e998621ce18cfb2d87331c67fbb01b7019e30825aa55d",
-    "content/tutorials/boost/2020-07-04-Boost.ipynb": "4e64b98d399ba75c78ac3a8d321f4e71621c6f1918f45d4db5bc92c2e5780e5c81582fee76b0ecbac67f60699ac18528fe322230e41a04f3bc34011ad1adddad",
+    "content/tutorials/boost/2020-07-04-Boost.ipynb": "a16a80d6288a2df1cb2684f41af21276bcd38f0d52578a76fd3ecb178e2d305113b09c45dd56cdb76773fca1478fd5618277869d261ec549b426ee7128588f09",
     "content/tutorials/cccc_institutions/2020-07-31-CCCC_Institutions.ipynb": "95b96a59c94739470339c02c5658a3ef882c0a96601891465571283596b159da1570c7a534946a8d0712e5c369bfd820a693e7d375600f3cbe26292dddde3bce",
     "content/tutorials/desinstitutions/2019-08-10-DESInstitutions.ipynb": "f8b2c99c50b6207ebb8e83d55803480eb94e5791829a2325196f4d8a29ee3b42bca6aa86fc80fce4dff3fc92523108d500a1b5f37bff96342f29c61b8df01480",
     "content/tutorials/encoding_colours/2020-07-26-Encoding_Colours.ipynb": "df7f60051bdf950a8f5f2130934e17d0d96b08732053ee7efad75e64609c1455cfa373b957e468352228dbbb4da368ad6ca80ca63f6c2a8d829a9b5bf3290494",
@@ -19,7 +19,7 @@
     "content/tutorials/lowpoly/2021-03-22-LowPoly.ipynb": "1d717e8fe796be6c29f9e26c447c6e2980b9e618d93d1a27fe6cd18f46abecd6e42483a4a7668a701c56327ef2ff7cd2da8a5c0f7550166e19778830ca2c5848",
     "content/tutorials/monte_carlo_integration/2020-06-21-Monte_Carlo_Integration.ipynb": "2d70f06beac12c734484e57f12f060676354fb657b844a9239c17bc7d1b58498637010a3ca601fc4f97a62d12fcf3e989999bc628a9e0a70ea2491fccc2dd2bf",
     "content/tutorials/multiprocessing/2021-05-15-Multiprocessing.ipynb": "354f2949c07760e3226073e24b4c52215afdc60e5ad91ddb10aa23d5a60064822c461f2a05e6ea8accf321992c716f506f9d797f830a5eb2dd9d9e03556c22db",
-    "content/tutorials/naivebayes/2020-07-11-NaiveBayes.ipynb": "4709e569ffc9b764b3d86fe9365147077378c7ac0a7560b1c7579350da3cd5ee8010c9efdbd9878346b12b51d62c58fd475569ea4bb82b83308616ed57307bfd",
+    "content/tutorials/naivebayes/2020-07-11-NaiveBayes.ipynb": "ce23fd3eb15b969672ae932989f7e0121cd5238d87b97bcf8ebf84de6792e4a55a076632af638ecce928cdfa9077882248c582dce02a697be0dc145f50abcc3a",
     "content/tutorials/one_hot_encoding/2020-06-17-One_Hot_Encoding.ipynb": "8c83a003698738418e8312f0ab072824495e034456a0c5cda7e047b5517d0dd0202fd8fb2c59a922547a52eb192a6941ad3c71336fb9ffacf923a5158b0b72e0",
     "content/tutorials/pca/2020-08-27-PCA.ipynb": "cb64ac9f7a8ed9b7a57217a2495096c52fd21cfd45cb17156a6c00945eb52cb5b248bac0b307b3b9e659dab0acbe31bd0f3ef3413f29b2594bff35c0d494092d",
     "content/tutorials/propagating/2019-08-02-Propagating.ipynb": "c55554adf93ab84ba61a3b78088311ce7c118f957776c034cd17b8d95889cd2c95b4f42feac96e5b84d2b14659f901d9aa41fd951d8606f4c0f3010c904f5d83",
