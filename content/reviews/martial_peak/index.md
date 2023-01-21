@@ -11,7 +11,7 @@ weight: 31
 name: "Martial Peak"
 manga: https://mangatx.com/manga/martial-peak-manga/
 loc: 'reviews/martial_peak/'
-permalink: /reviews/martial_peak
+aliases: [/reviews/martial_peak]
 tags: [finished, cultivation, manhua]
 sentence: "Yang Kai goes from trainee disciple to shattering the heavens."
 ---

@@ -6,7 +6,7 @@ date: 2019-03-14
 categories: [blog]
 tags: [python,project]
 loc: 'blog/steve/'
-permalink: /blog/steve
+aliases: [/blog/steve]
 math: true
 ---
 

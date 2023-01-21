@@ -5,8 +5,7 @@ description: "Visiting the Isle of Skye for some amazing views."
 date: 2021-07-05
 categories: [blog]
 tags: [travel]
-loc: 'blog/scotland/'
-permalink: /blog/scotland
+aliases: [/blog/scotland]
 ---
 
 After many, many months in lockdown, Kirrilee and I managed to finally get away for a short break.

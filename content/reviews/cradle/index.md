@@ -1,20 +1,17 @@
 ---
-layout: review_post
 title:  "A Review of Will Wight's Cradle Series: The King of Progression Fantasy"
-short_title:  "Will Wight's Cradle Series."
-description: "Cultivation. The current King of Progression Fantasy. Smart and engaging characters, amazing plot, fantastical world."
-long_description: "Staggeringly good. Amazing characters, strong motivation, a beautiful system, rich world, and fast pace, it's a dream come true to read."
+name: "Cradle"
+description: "Cultivation. The current King of Progression Fantasy. Staggeringly good. Amazing characters, strong motivation, a beautiful system, rich world, and fast pace, it's a dream come true to read."
+sentence: "Lindon is Unsouled and forbidden to learn the sacred arts, so he forges his own Path."
 date: 2021-04-21
 categories: [reviews]
 review: S
 weight: 2
-name: "Cradle"
-amazon: https://www.amazon.com/Cradle-Foundation-Collected-Book-ebook/dp/B076G8DVN6
-goodreads: https://www.goodreads.com/series/192821-cradle
-loc: 'reviews/cradle/'
-permalink: /reviews/cradle
-tags: [cultivation, in-progress]
-sentence: "Lindon is Unsouled and forbidden to learn the sacred arts, so he forges his own Path."
+links:
+    amazon: https://www.amazon.com/Cradle-Foundation-Collected-Book-ebook/dp/B076G8DVN6
+aliases: [/reviews/cradle]
+tags: [cultivation, in-progress, Kindle]
+
 ---
 
 *Cradle* is going to be tough to write a review for, because I don't want to sound too biased, despite my love for the series.

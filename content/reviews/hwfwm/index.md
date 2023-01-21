@@ -12,7 +12,7 @@ name: "He Who Fights With Monsters"
 amazon: https://www.amazon.com/He-Who-Fights-Monsters-Adventure-ebook/dp/B08WCT9W26
 goodreads: https://www.goodreads.com/en/book/show/57189884-he-who-fights-with-monsters
 loc: 'reviews/hwfwm/'
-permalink: /reviews/hwfwm
+aliases: [/reviews/hwfwm]
 tags: [litrpg, in-progress, isekai]
 sentence: "Jason wakes up in a mysterious world of magic and monsters."
 ---

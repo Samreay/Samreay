@@ -164,7 +164,32 @@
 
 .blog-post {
   .section-header .title {
-    @apply text-gradient gradient text-4xl md:text-7xl pb-4;
+    @apply text-4xl md:text-7xl pb-4;
+    &:not(.rating) {
+      @apply text-gradient gradient;
+    }
+    
+    // &.review-π {
+    //   background-image: var(--grad-m);
+    // }
+    // &.review-S {
+    //   background-image: var(--grad-s);
+    // }
+    // &.review-A {
+    //   background-image: var(--grad-a);
+    // }
+    // &.review-B {
+    //   background-image: var(--grad-b);
+    // }
+    // &.review-C {
+    //   background-image: var(--grad-c);
+    // }
+    // &.review-D {
+    //   background-image: var(--grad-d);
+    // }
+    // &.review-F {
+    //   background-image: var(--grad-f);
+    // }
   }
   a:not(.no-under) {
     @apply under text-main-200;
@@ -181,54 +206,55 @@
   }
 }
 
+.rating-π {
+  background: var(--grad-m);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(255, 255, 255, 0.6);
+}
+.rating-S {
+  background: var(--grad-s);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(255, 255, 255, 0.6);
+}
+.rating-A {
+  background: var(--grad-a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(255, 255, 255, 0.2);
+}
+.rating-B {
+  background: var(--grad-b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(255, 255, 255, 0.5);
+}
+.rating-C {
+  background: var(--grad-c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(255, 255, 255, 0.4);
+}
+.rating-D {
+  background: var(--grad-d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(255, 120, 120, 0.7);
+}
+.rating-F {
+  background: var(--grad-f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(169, 255, 129, 0.7);
+}
+
 .rating {
   p.larger {
     @apply text-3xl;
   }
   p.small {
     @apply text-2xl;
-  }
-  .rating-π {
-    background: var(--grad-m);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .rating-S {
-    background: var(--grad-s);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .rating-A {
-    background: var(--grad-a);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: rgba(255, 255, 255, 0.2);
-  }
-  .rating-B {
-    background: var(--grad-b);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: rgba(255, 255, 255, 0.5);
-  }
-  .rating-C {
-    background: var(--grad-c);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: rgba(255, 255, 255, 0.4);
-  }
-  .rating-D {
-    background: var(--grad-d);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: rgba(255, 120, 120, 0.7);
-  }
-  .rating-F {
-    background: var(--grad-f);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: rgba(169, 255, 129, 0.7);
   }
   .leader {
     @apply font-bold;

@@ -6,7 +6,7 @@ date: 2016-02-20
 categories: [blog]
 tags: [python,project]
 loc: 'blog/globular/'
-permalink: /blog/globular
+aliases: [/blog/globular]
 ---
 
 In my time over at Gemini in La Serena, I worked on a project

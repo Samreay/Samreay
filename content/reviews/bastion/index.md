@@ -12,7 +12,7 @@ name: "Bastion"
 amazon: https://www.amazon.com/Bastion-Immortal-Great-Souls-Book-ebook/dp/B09KNXZZR5
 goodreads: https://www.goodreads.com/book/show/59521676-bastion
 loc: 'reviews/bastion/'
-permalink: /reviews/bastion
+aliases: [/reviews/bastion]
 tags: [cultivation, in-progress, magic-school]
 sentence: "Scorio will rise from the ashes to conquer the ten layers of hell."
 ---

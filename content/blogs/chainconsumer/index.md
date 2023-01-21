@@ -6,7 +6,7 @@ date: 2016-08-01
 categories: [blog]
 tags: [python,project]
 loc: 'blog/chainconsumer/'
-permalink: /blog/chainconsumer
+aliases: [/blog/chainconsumer]
 ---
 
 I was working with some chains one day and wanted to plot different cosmologies

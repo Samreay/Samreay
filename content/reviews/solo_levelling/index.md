@@ -12,7 +12,7 @@ name: "Solo Levelling"
 amazon: https://www.amazon.com/Solo-Leveling-Vol-1-Novel/dp/B096YCZLTL
 goodreads: https://www.goodreads.com/en/book/show/52800465-solo-leveling---light-novel
 loc: 'reviews/solo_levelling/'
-permalink: /reviews/solo_levelling
+aliases: [/reviews/solo_levelling]
 tags: [finished, litrpg, manhua]
 sentence: "The weakest hunter of all mankind! E-rank hunter Jinwoo Sung has no money, no talent, until..."
 ---

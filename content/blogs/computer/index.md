@@ -6,7 +6,7 @@ date: 2009-06-01
 categories: [blog]
 tags: [project]
 loc: 'blog/computer/'
-permalink: /blog/computer
+aliases: [/blog/computer]
 ---
 
 Every now and then, when I think work may be lulling, I try and pick this hobby back up.

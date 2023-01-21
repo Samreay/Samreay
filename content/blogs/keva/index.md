@@ -13,7 +13,7 @@ has a series of very light wood blocks set on top some very heavy metal blocks a
 are shot at the structure, and if you watch the video you can probably guess which of them is solid 
 and which is simply a thin shell over a hollow interior!
 
-{% include video.html url="keva_small.mp4" autoplay="true)
+![](keva_small.mp4" autoplay="true)
 
 
 ![](0000.jpg)

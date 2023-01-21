@@ -1,20 +1,17 @@
 ---
-layout: review_post
 title:  "A Review of nobody13's Mother of Learning. Time loops with a smart protagonist, done so very, very right."
-short_title: "nobody13's Mother of Learning"
+name: "Mother of Learning"
 description: "Progression fantasy, and time loops done right. Smart MC, great plot, varied magic systems. Groundhog day has nothing on this."
-long_description: "Mother of Learning (MoL) was one of the books that got me into this entire genre. The protag is relatable, clever, and solves problems in an amazing way. No luck or deus-ex, just pure brainpower."
+sentence: "Zorian Kazinski has all the time in the world to get stronger, and he plans on taking full advantage of it."
 date: 2021-09-08
 categories: [reviews]
 review: S
 weight: 5
-name: "Mother of Learning"
-goodreads: https://www.goodreads.com/en/book/show/50992902
-amazon: https://www.amazon.com/dp/B09M2R6QLF
-loc: 'reviews/mol/'
-permalink: /reviews/mol
+links:
+    amazon: https://www.amazon.com/dp/B09M2R6QLF
+    royal_road: https://www.royalroad.com/fiction/21220/mother-of-learning
+aliases: [/reviews/mol]
 tags: [crafting, finished, magic-school, time-loops]
-sentence: "Zorian Kazinski has all the time in the world to get stronger, and he plans on taking full advantage of it."
 ---
 
 I grew up on the Belgariad, graduated through Harry Potter to the Wheel of Time, conquered Malazan, was crushed by the Farseer Trilogy, and generally docked my ship at every fantasy port I could find. 

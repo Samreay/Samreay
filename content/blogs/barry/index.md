@@ -6,7 +6,7 @@ date: 2020-03-01
 categories: [blog]
 tags: [python,project]
 loc: 'blog/barry/'
-permalink: /blog/barry
+aliases: [/blog/barry]
 ---
 
 BAO models are a dime a dozen these days. With multiple theroetical frameworks to start from (standard perturbation theory,

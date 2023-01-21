@@ -13,7 +13,7 @@ amazon: https://www.amazon.com.au/Monarch-Prince-Time-Progression-Fantasy-ebook/
 goodreads: https://www.goodreads.com/series/343866-re-monarch
 royalroad: https://www.royalroad.com/fiction/37951/re-monarch
 loc: 'reviews/remonarch/'
-permalink: /reviews/remonarch
+aliases: [/reviews/remonarch]
 tags: [in-progress, time-loops]
 sentence: "Cairn is cured with time loops and some seriously unwinnable scenarios."
 ---

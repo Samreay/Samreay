@@ -6,7 +6,7 @@ date: 2022-09-22
 categories: [blog]
 tags: [writing]
 loc: 'blog/scion_of_storms_prologue/'
-permalink: /blog/scion_of_storms_prologue
+aliases: [/blog/scion_of_storms_prologue]
 ---
 
 **Manifestation,** Book Two, is now in editing! To celebrate, I'm posting the prologue for all! 

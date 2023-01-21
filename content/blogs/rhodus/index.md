@@ -6,7 +6,7 @@ date: 2021-08-22
 categories: [blog]
 tags: [writing]
 loc: 'blog/rhodus/'
-permalink: /blog/rhodus
+aliases: [/blog/rhodus]
 ---
 
 The continent of Rhodus is the main setting for my work *Soul Relic*.

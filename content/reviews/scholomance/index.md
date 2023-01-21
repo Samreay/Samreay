@@ -12,7 +12,7 @@ name: "The Scholomance Series"
 amazon: https://www.amazon.com/Deadly-Education-Novel-Scholomance-Book-ebook/dp/B083RZC8KQ
 goodreads: https://www.goodreads.com/series/282152-the-scholomance
 loc: 'reviews/scholomance/'
-permalink: /reviews/scholomance
+aliases: [/reviews/scholomance]
 tags: [finished, magic-school, female-lead]
 sentence: "Forget the hordes of monsters and cursed artifacts in the Scholomance, El's the most dangerous thing in the place."
 ---

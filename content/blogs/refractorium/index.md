@@ -6,7 +6,7 @@ date: 2017-03-07
 categories: [blog]
 tags: [project]
 loc: 'blog/refractorium/'
-permalink: /blog/refractorium
+aliases: [/blog/refractorium]
 ---
 
 <h2 style="font-weight: 800; text-align: center; margin-bottom: 50px;">

@@ -6,7 +6,7 @@ date: 2022-06-23
 categories: [blog]
 tags: [writing]
 loc: 'blog/publishing/'
-permalink: /blog/publishing
+aliases: [/blog/publishing]
 ---
 
 While writing up [**Soul Relic**](https://www.amazon.com/dp/B0B46Q18WK), I reached out to a *lot* of authors for their advice in getting the novel off the ground.

@@ -12,7 +12,7 @@ name: "Shattered Gods"
 amazon: https://www.amazon.com/Shattered-Gods-Epic-Fantasy-Progression-ebook/dp/B091QCZ75X
 goodreads: https://www.goodreads.com/en/book/show/57725133-shattered-gods
 loc: 'reviews/shattered_gods/'
-permalink: /reviews/shattered_gods
+aliases: [/reviews/shattered_gods]
 tags: [in-progress, magic-school, small-author]
 sentence: "Fated to destroy the world. Determined to save it."
 ---

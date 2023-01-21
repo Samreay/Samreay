@@ -6,7 +6,7 @@ date: 2019-05-26
 categories: [blog]
 tags: [python,creative]
 loc: 'blog/ducky/'
-permalink: /blog/ducky
+aliases: [/blog/ducky]
 ---
 
 

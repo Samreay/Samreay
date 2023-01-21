@@ -12,7 +12,7 @@ name: "Jake's Magical Market"
 amazon: https://www.amazon.com/Jakes-Magical-Market-J-R-Mathews-ebook/dp/B09HWX11N9
 goodreads: https://www.goodreads.com/book/show/59236334-jake-s-magical-market
 loc: 'reviews/jmm/'
-permalink: /reviews/jmm
+aliases: [/reviews/jmm]
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "Meddling gods. A magical card system. An apocalypse no one could have predicted."
 ---

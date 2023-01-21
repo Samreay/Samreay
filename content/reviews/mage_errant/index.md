@@ -12,7 +12,7 @@ name: "Mage Errant"
 amazon: https://www.amazon.com/Into-Labyrinth-Mage-Errant-Book-ebook/dp/B07J675X2C
 goodreads: https://www.goodreads.com/book/show/42267952-into-the-labyrinth
 loc: 'reviews/mage_errant/'
-permalink: /reviews/mage_errant
+aliases: [/reviews/mage_errant]
 tags: [in-progress, magic-school]
 sentence: "Hugh of Emblin is, so far as he's concerned, the worst student that the Academy at Skyhold has ever seen."
 ---

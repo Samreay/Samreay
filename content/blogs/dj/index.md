@@ -6,7 +6,7 @@ date: 2013-06-01
 categories: [blog]
 tags: [project]
 loc: 'blog/dj/'
-permalink: /blog/dj
+aliases: [/blog/dj]
 ---
 
 My first team project was to make a pseudo-satellite. Two years later, better equipped, I was hoping the second

@@ -12,7 +12,7 @@ name: "The World According to Dragons"
 amazon: https://www.amazon.com/World-According-Dragons-Chronicles-Progression-ebook/dp/B0BCBYYNQS
 goodreads: https://www.goodreads.com/book/show/62849176-the-world-according-to-dragons
 loc: 'reviews/twatd/'
-permalink: /reviews/twatd
+aliases: [/reviews/twatd]
 tags: [in-progress, cultivation]
 sentence: "Twillo and Adventus herald the recoming of the Age of Dragons."
 ---

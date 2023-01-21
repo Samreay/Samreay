@@ -6,7 +6,7 @@ date: 2016-09-04
 categories: [blog]
 tags: [python,project]
 loc: 'blog/surveyvis/'
-permalink: /blog/surveyvis
+aliases: [/blog/surveyvis]
 ---
 
 I was making a poster for the CAASTRO annual retreat on [my BAO work](/project/2015/10/20/bao.html),

@@ -12,7 +12,7 @@ name: "Millenium Mage"
 royalroad: https://www.royalroad.com/fiction/47826/millennial-mage-a-slice-of-life-progression-fantasy
 goodreads: https://www.goodreads.com/en/book/show/60047089-millennial-mage
 loc: 'reviews/millenium_mage/'
-permalink: /reviews/millenium_mage
+aliases: [/reviews/millenium_mage]
 tags: [slice-of-life, in-progress, female-lead]
 sentence: "Tala eats food, drinks coffee, and wrecks monsters. Her terrorbird helps. Thanks Terry."
 ---

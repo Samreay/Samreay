@@ -6,7 +6,7 @@ date: 2022-10-18
 categories: [blog]
 tags: [writing]
 loc: 'blog/cover_animations/'
-permalink: /blog/cover_animations
+aliases: [/blog/cover_animations]
 ---
 
 I've wanted to animate my book cover for a while, but unsure about the best way to go about it. Some websites claim to do it for you using AI, but you have to pay for access, and are they good? Others offer it as a service, but prices range from $10USD into the hundreds, so would an expensive animation be worth the investment? Is there any real difference in what you'd get?
@@ -17,13 +17,13 @@ To that last question, I still have no idea - I'm not going to drop several hund
 
 Highly recommended by several other authors, has done thousands of covers. Price point is 12 euros. Three more euros for rapid turnaround. [Website link](https://www.morganwrightbooks.com/book-cover-animations-service). The colour levels got a little crushed and contrast reduced, but I really appreciated the more energetic particle effect going here.
 
-{% include video.html url="original/morgan.mp4" autoplay="true" class="max-w-md)
+![](morgan.mp4?class="max-w-md")
 
 ## Embers25 from Fiverr
 
 Approximately the same price, two day turnaround. [Fiverr link](https://www.fiverr.com/embers25/animate-your-fiction-book-cover).
 
-{% include video.html url="original/embers25.mp4" autoplay="true" class="max-w-md)
+![](embers25.mp4?class="max-w-md")
 
 ## Doing it myself
 
@@ -31,7 +31,7 @@ I noticed that both the MOV and mp4 that I got back from the two respective serv
 
 Using the motion leap app (free version, not pro), which limits the export resolution and how much I can do with it. 
 
-{% include video.html url="original/soul_relic.mp4" autoplay="true" class="max-w-md)
+![](soul_relic.mp4?class="max-w-md")
 
 I provided everyone with the layers separated, so I used that here - only animating the magic and then adding it atop the static background 
 with ffmpeg.

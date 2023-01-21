@@ -7,7 +7,7 @@ categories: [blog]
 tags: [python,project]
 icon: fa-bookmark-o
 loc: 'blog/bao/'
-permalink: /blog/bao
+aliases: [/blog/bao]
 ---
 
 Shall we just jump right into it? The slightly wiggles you can see around $$k=0.1 \rm{h/Mpc}$$ below, when transformed into

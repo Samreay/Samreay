@@ -6,7 +6,7 @@ date: 2021-11-06
 categories: [blog]
 tags: [writing]
 loc: 'blog/soul_relic_prologue/'
-permalink: /blog/soul_relic_prologue
+aliases: [/blog/soul_relic_prologue]
 ---
 
 

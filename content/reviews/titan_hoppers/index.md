@@ -12,7 +12,7 @@ name: "Titan Hoppers"
 amazon: https://www.amazon.com/Titan-Hoppers-Rob-J-Hayes-ebook/dp/B0B5JDMLQV
 goodreads: https://www.goodreads.com/en/book/show/61261449-titan-hoppers
 loc: 'reviews/titan/'
-permalink: /reviews/titan
+aliases: [/reviews/titan]
 tags: [in-progress, sci-fi, magic-school]
 sentence: "The fleet finds a titan, and Iro finds his power."
 ---

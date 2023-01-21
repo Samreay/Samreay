@@ -12,7 +12,7 @@ name: "The Legend of Randidly Ghosthound"
 amazon: https://www.amazon.com/Legend-Randidly-Ghosthound-LitRPG-Adventure-ebook/dp/B09BNSH5KG
 goodreads: https://www.goodreads.com/en/book/show/59089569-the-legend-of-randidly-ghosthound
 loc: 'reviews/ghosthound/'
-permalink: /reviews/ghosthound
+aliases: [/reviews/ghosthound]
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "Randidly wakes up to a new Earth, with Levels, Skills, monsters, and the possibility of death..."
 ---

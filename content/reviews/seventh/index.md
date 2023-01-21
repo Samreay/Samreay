@@ -12,7 +12,7 @@ name: "Seventh Bridge to the Heavens"
 amazon: https://www.amazon.com/First-Fist-Seventh-Heavens-Cultivation-ebook/dp/B09TNJQ984
 goodreads: https://www.goodreads.com/en/book/show/60548100
 loc: 'reviews/seventh/'
-permalink: /reviews/seventh
+aliases: [/reviews/seventh]
 tags: [cultivation, in-progress]
 sentence: "Once a soldier, now an outcast. Luca must overcome fate as he walks the path of a cultivator."
 ---

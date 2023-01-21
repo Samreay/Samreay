@@ -6,7 +6,7 @@ date: 2014-10-20
 categories: [blog]
 tags: [project]
 loc: 'blog/marz/'
-permalink: /blog/marz
+aliases: [/blog/marz]
 math: true
 ---
 

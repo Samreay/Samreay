@@ -2,6 +2,7 @@ baseURL = 'https://cosmiccoding.com.au'
 languageCode = 'en-us'
 title = 'Samuel Hinton'
 theme = "sams-theme"
+timeout = 120000
 
 [markup]
   [markup.highlight]

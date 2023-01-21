@@ -21,6 +21,10 @@ body {
   }
 }
 
+.container.grid {
+  max-width: none;
+}
+
 .content {
   @apply mx-auto pt-10 md:pt-20 md:pb-16 px-4 md:px-8;
 
