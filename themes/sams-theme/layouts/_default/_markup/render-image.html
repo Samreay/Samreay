@@ -16,11 +16,15 @@
 <div>
     <figure class="{{ $class }} rounded">
     {{ if in "jpg jpeg png webp" $ext }}
+    {{ $width := .Width }}
+    {{ if gt $width 1920 }}
+        {{ $width = 1920 }}
+    {{ end }}
     <picture>
-        {{ with .Resize (printf "%dx%d webp q90" .Width .Height) }}
+        {{ with .Resize (printf "%dx webp q90" $width ) }}
             <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/webp">
         {{ end }}
-        {{ with .Resize (printf "%dx%d q90" .Width .Height) }}
+        {{ with .Resize (printf "%dx q90" $width) }}
             <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/{{ $ext }}">
         {{ end }}
         <img width="{{ .Width }}" height="{{ .Height }}" loading="lazy" decoding="async"  alt="{{ $text }}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" />
