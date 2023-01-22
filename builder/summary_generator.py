@@ -2,19 +2,23 @@ import os
 from pathlib import Path
 import frontmatter
 
-def get_post_list():
-    dir = Path(__file__).parent.parent / "content/reviews"
+content_root = Path(__file__).parent.parent / "content"
+
+def get_post_list() -> list[Path]:
+    dir = content_root / "reviews"
     return [dir / f for f in sorted(dir.glob("**/index.md"))]
 
 
-def extra_info(loc):
+def extra_info(loc: Path):
     properties = frontmatter.load(loc).to_dict()
     del properties["content"]
+    properties["path"] = loc.parent.relative_to(content_root).as_posix()
     return properties
 
 
 def format_post(p, url="https://cosmiccoding.com.au"):
     sb = f"* **{p['name']}** ("
+    sb += f"[review]({url}/{p['path']}), "
     for k, v in p["links"].items():
         sb += f"[{k}]({v}), "
     sb = sb[:-2]
