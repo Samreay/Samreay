@@ -16,4 +16,4 @@ timeout = 120000
 [params]
   description = "Samuel Hinton's latest books, blogs, tutorials, and courses. Plus just his general thoughts on the world, which probably have little value."
   [params.analytics]
-    trackingID = "UA-72691106-1"
+    trackingID = "G-GRX6QE03YR"
