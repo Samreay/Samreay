@@ -1,7 +1,7 @@
 ---
 title:  "Handy Python Decorators"
 description: "A short example on how to use decorators in your code to provide extra functionality"
-date: 2020-06-18
+date: 2020-06-20
 categories: [tutorial]
 tags: [snippet]
 aliases: ["/decorators"]

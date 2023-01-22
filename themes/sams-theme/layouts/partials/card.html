@@ -6,7 +6,7 @@
                 {{ $img := resources.Get "img/placeholder_1.jpg" }}
                 {{ $missing := true}}
                 {{ if isset .Params "images" }}
-                    {{ $img = .Page.Resources.Get (index .Params.images 0) }}
+                    {{ $img = resources.Get (index .Params.images 0) }}
                     {{ $missing = false }}
                 {{ else }}
                     {{- $images := $.Resources.ByType "image" -}}
@@ -17,8 +17,7 @@
                     {{ end }}
                 {{ end }}
                 {{ if $missing }}
-                    {{ $placeholders := resources.Match "img/*placeholder*" | shuffle }}
-                    {{ $img = index $placeholders 0 }}
+                    {{ $img = resources.GetMatch (printf "img/*placeholder_%d*" (int (.Date.Format "2"))) }}
                 {{ end }}
 
                 {{ with $img }}

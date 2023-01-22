@@ -1,11 +1,11 @@
 ---
-title:  "A review of J.L. Mullins' 'Millenium Mage'"
+title:  "A review of J.L. Mullins' 'Millenial Mage'"
 description: "A female-led, slice-of-life, character-driven story with a unique magic system and worldbuilding."
 date: 2023-01-11
 categories: [reviews]
 review: B
 weight: 27
-name: "Millenium Mage"
+name: "Millenial Mage"
 links:
     royal_road: https://www.royalroad.com/fiction/47826/millennial-mage-a-slice-of-life-progression-fantasy
     goodreads: https://www.goodreads.com/en/book/show/60047089-millennial-mage

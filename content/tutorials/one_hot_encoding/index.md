@@ -1,7 +1,7 @@
 ---
 title:  "Trivial One Hot Encoding in Python"
 description: "The most efficient code snippet to one-hot encode columns"
-date: 2020-06-17
+date: 2020-06-25
 categories: [tutorial]
 tags: [snippet]
 aliases: ["/one_hot"]

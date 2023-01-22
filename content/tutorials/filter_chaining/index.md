@@ -2,7 +2,7 @@
 title:  "DataFrame filtering with chaining"
 short_title: "DataFrame filtering with chaining"
 description: "Extending fluent design to filtering."
-date: 2022-11-07
+date: 2022-11-08
 categories: [tutorial]
 tags: [snippet]
 aliases: [ "/filtering" ]

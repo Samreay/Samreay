@@ -1,7 +1,7 @@
 ---
 title: "Simple Multiprocessing in Python"
 description: "Comparing inbuilt solutions to a range of external libraries."
-date: 2021-05-15
+date: 2021-05-14
 categories: [tutorial]
 tags: [snippet]
 aliases: ["/multiprocessing"]

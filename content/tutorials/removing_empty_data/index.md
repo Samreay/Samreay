@@ -1,7 +1,7 @@
 ---
 title:  "Removing Empty Columns"
 description: "Remove mostly empty columns to clean your data using pandas."
-date: 2020-06-18
+date: 2020-06-16
 categories: [tutorial]
 tags: [snippet]
 aliases: ["/removing_empty"]
