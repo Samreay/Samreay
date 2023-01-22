@@ -6,7 +6,7 @@
         <article class="review-summary review-{{.Params.review}}">
           <div class="bg2">
             <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
-              <figure class="rounded-l-xl block flex-none bg-cover">
+              <figure class="block flex-none bg-cover">
                 {{ if isSet .Params "video" }}
 
                 <video class="rounded-l-xl block flex-none bg-cover" preload="auto" playsinline plays-inline autoplay
@@ -39,7 +39,7 @@
                 {{ end }}
                 {{ end }}
               </figure>
-              <div class="flex flex-col justify-between p-4 text-center">
+              <div class="flex flex-col justify-between p-4 text-center side-card-content">
                 <div class="rating">
                   <p class="small rating-{{.Params.review}}">
                     <span class="leader">{{.Params.name}}</span>

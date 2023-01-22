@@ -9,6 +9,19 @@
   --hyp: 0;
 }
 
+
+.grid-cols-cover-cards {
+  .rounded-l-xl {
+    @apply rounded-r-xl;
+  }
+  video {
+    @apply mx-auto;
+  }
+  .side-card-content {
+    display: none;
+  }
+}
+
 .fancy_card {
   --radius: 4.55% / 3.5%;
   will-change: transform, visibility;
