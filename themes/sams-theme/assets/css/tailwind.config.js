@@ -192,7 +192,7 @@ module.exports = {
           '98': '.98'
         },
         gridTemplateColumns: {
-          'wide-cards': 'repeat(auto-fit, minmax(550px, 1fr))',
+          'wide-cards': 'repeat(auto-fit, minmax(calc(min(100%,550px)), 1fr))',
           'wide-cards-mobile': 'repeat(auto-fit, minmax(300px, 1fr))',
           'cover-cards': 'repeat(auto-fit, 262px)',
           'vertical-cards': 'repeat(auto-fit, minmax(280px, 1fr))',
