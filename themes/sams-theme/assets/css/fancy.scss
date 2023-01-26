@@ -10,8 +10,8 @@
 }
 
 
-.grid-cols-cover-cards {
-  .rounded-l-xl {
+.grid-cols-cover-cards, .grid-cols-cover-cards-mobile {
+  video,img {
     @apply rounded-r-xl;
   }
   video {

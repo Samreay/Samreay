@@ -13,15 +13,21 @@ module.exports = {
     'img-tiny',
     'img-shrink',
     'list-none',
+    'grid-cols-cover-cards-mobile',
     {
       pattern: /bg-(π|S|A|B|C|D|F)-(500|600|700|800|900)/,
       variants: ['hover', 'focus'],
     },
+    {
+      pattern: /.*cover-cards.*/,
+      variants: ['xs', 'sm'],
+    }
   ],
   darkMode: "class",
   theme: {
       extend: {
         screens: {
+          'xs': '450px',
           '3xl': '1200px',
           '4xl': '1750px',
           '6xl': '2100px',
@@ -187,6 +193,7 @@ module.exports = {
         },
         gridTemplateColumns: {
           'wide-cards': 'repeat(auto-fit, minmax(550px, 1fr))',
+          'wide-cards-mobile': 'repeat(auto-fit, minmax(300px, 1fr))',
           'cover-cards': 'repeat(auto-fit, 262px)',
           'vertical-cards': 'repeat(auto-fit, minmax(280px, 1fr))',
         }

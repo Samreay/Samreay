@@ -39,7 +39,7 @@
 
 
   <!-- Add the posts -->
-  <div id="card-wrapper" class="container mx-auto mt-20 grid gap-12 grid-cols-wide-cards">
+  <div id="card-wrapper" class="container mx-auto mt-20 grid gap-12 grid-cols-wide-cards-mobile sm:grid-cols-wide-cards">
     {{ range ( where .Site.RegularPages.ByWeight "Type" .Type ) }}
       {{- partial "card_cover_wide.html" . -}}
     {{ end }}
@@ -50,13 +50,19 @@
 <script>
   function toggleWide(element) {
     element = document.getElementById("card-wrapper");
-    console.log("Here we are")
-    if (element.classList.contains("grid-cols-wide-cards")) {
-      element.classList.remove("grid-cols-wide-cards");
-      element.classList.add("grid-cols-cover-cards");
+    if (element.classList.contains("sm:grid-cols-wide-cards")) {
+      element.classList.remove("sm:grid-cols-wide-cards");
+      element.classList.remove("grid-cols-wide-cards-mobile");
+
+      element.classList.add("sm:grid-cols-cover-cards");
+      element.classList.add("grid-cols-cover-cards-mobile");
     } else {
-      element.classList.add("grid-cols-wide-cards");
-      element.classList.remove("grid-cols-cover-cards");    
+      element.classList.remove("sm:grid-cols-cover-cards");
+      element.classList.remove("grid-cols-cover-cards-mobile"); 
+      
+      element.classList.add("sm:grid-cols-wide-cards");
+      element.classList.add("grid-cols-wide-cards-mobile");
+
     }
   }
 </script>

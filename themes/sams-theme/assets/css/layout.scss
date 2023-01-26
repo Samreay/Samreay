@@ -141,8 +141,11 @@ body {
   .section-header h1 {
     @apply text-center;
   }
+  p, ul, li, em, strong, a {
+    @apply sm:text-xl leading-relaxed;
+  }
   p {
-    @apply max-w-2xl mx-auto text-xl my-6 leading-relaxed text-gray-300;
+    @apply max-w-2xl mx-auto my-6  text-gray-300;
     strong,
     em {
       @apply text-white;
@@ -154,10 +157,10 @@ body {
   }
 
   ul {
-    @apply max-w-2xl mx-auto text-xl my-6 leading-relaxed list-disc pl-8;
+    @apply max-w-2xl mx-auto my-6 list-disc pl-8;
   }
   ol {
-    @apply max-w-2xl mx-auto text-xl my-6 leading-relaxed list-decimal pl-8;
+    @apply max-w-2xl mx-auto my-6 list-decimal pl-8;
   }
   .badge-leader p em {
     @apply text-gray-500;

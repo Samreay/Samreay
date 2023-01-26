@@ -9,7 +9,7 @@
               <figure class="block flex-none bg-cover">
                 {{ if isSet .Params "video" }}
 
-                <video class="rounded-l-xl block flex-none bg-cover" preload="auto" playsinline plays-inline autoplay
+                <video class="xs:rounded-l-xl block flex-none bg-cover mx-auto sm:ml-0" preload="auto" playsinline plays-inline autoplay
                   loop muted width="235" height="375">
                   <source src="{{($.Resources.Get .Params.video).RelPermalink}}" type="video/mp4" />
                 </video>
@@ -32,7 +32,7 @@
                   {{ with .Fill "250x375 Center q70 #000000" }}
                   <source srcset="{{ .RelPermalink }}" type="image/png" />
                   {{ end }}
-                  <img class="rounded-l-xl block flex-none bg-cover mx-auto"
+                  <img class="xs:rounded-l-xl block flex-none bg-cover mx-auto"
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg=="
                     alt="{{ .Params.short_title }}" />
                 </picture>
