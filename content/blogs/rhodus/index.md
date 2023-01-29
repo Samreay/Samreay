@@ -18,6 +18,6 @@ The resolution is quite high, so feel free to zoom in if you have the touchscree
 
 ![](original/cover.jpg?class="img-full")
 
-If you want more details, please join the list below, its great to know people are interested in the world, and I'll also be doing free giveways of books and resources to celebrate various occasions!
+If you want more details, please join the list below, it's great to know people are interested in the world, and I'll also be doing free giveways of books and resources to celebrate various occasions!
 
 
