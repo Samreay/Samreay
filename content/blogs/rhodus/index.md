@@ -16,7 +16,7 @@ corner of the map. This is still a work in progress, and I might tweak or change
 
 The resolution is quite high, so feel free to zoom in if you have the touchscreen for it. If you don't, feel free to save the image and zoom to your heart's content.
 
-![](original/main.jpg?class="img-full")
+![](original/cover.jpg?class="img-full")
 
 If you want more details, please join the list below, its great to know people are interested in the world, and I'll also be doing free giveways of books and resources to celebrate various occasions!
 
