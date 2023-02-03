@@ -959,6 +959,7 @@ And because the animation code for 3D plots is even uglier than the 2D, I've hid
 
 
 
+![](embed_3d.mp4)
 
 
 
