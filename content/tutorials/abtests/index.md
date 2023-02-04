@@ -4,7 +4,7 @@ description: "Using Python to determine just how confident we are in our A/B tes
 date: 2020-01-12
 categories: [tutorial]
 tags: [statistics]
-aliases: ["/ab_tests"]
+aliases: ["/ab_tests", "/tutorials/ab_tests"]
 math: true
 ---
 
