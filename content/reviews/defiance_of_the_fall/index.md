@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/24709/defiance-of-the-fall
 tags: [in-progress, system-apocalypse, litrpg]
 sentence: "Zac was alone in the middle of the forest when the world changed..."
-aliases: ["/reviews/defiance"]
+aliases: ["/reviews/defiance", "/reviews/dotf"]
 ---
 
 *As of the time of writing this review, I have read all four books on KU, and a further 200 chapters on RR, up to and including the time skip.*
