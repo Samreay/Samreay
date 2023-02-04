@@ -5,11 +5,10 @@ description: "Visualising the thousands of galaxies in modern surveys."
 date: 2016-09-04
 categories: [blog]
 tags: [python,project]
-
 aliases: [/blog/surveyvis]
 ---
 
-I was making a poster for the CAASTRO annual retreat on [my BAO work](/project/2015/10/20/bao.html),
+I was making a poster for the CAASTRO annual retreat on [my BAO work](/blog/bao),
 and realised what it really needed was a nice comparison of the 
 WiggleZ survey compared to other more local surveys, to highlight
 the redshift depth of WiggleZ in comparison to other surveys of the same period, 
@@ -36,8 +35,7 @@ thin gold bands are OzDES.
 
 By far the most time was spent on getting the blending to happen nicely. Unfortunately, `matplotlib` 
 has nothing equivalent to additive blending like you can find in Adobe AfterEffects, and so rendering
-multiple colours on top of each other does very little. I talk about the method used to fake
-additive blending in a [separate blog post](/blog/2016/10/01/additive.html), complete with a small example.
+multiple colours on top of each other does very little.
 
 Then, because I felt like that didn't quite have the impact I wanted,
 I decided to make everything spin. I know that `matplotlib` now has an animation class
