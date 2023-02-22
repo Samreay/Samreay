@@ -151,6 +151,9 @@ body {
       @apply text-white;
     }
   }
+  .spoiler {
+    display: inline;
+  }
 
   hr {
     @apply max-w-2xl mx-auto border-main-700 my-12;

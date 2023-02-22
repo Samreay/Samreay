@@ -4,8 +4,8 @@ short_title: "Art of the Adept"
 description: "Cross Magician with progression fantasy themes, and then work in the harsh reality of the world with a Robin-Hobb-style, gut-punching ending."
 date: 2022-07-26
 categories: [reviews]
-review: B
-weight: 27
+review: C
+weight: 34
 name: "Art of the Adept"
 links:
     amazon: https://www.amazon.com/gp/product/B07W7X9VY6
