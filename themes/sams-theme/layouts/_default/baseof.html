@@ -16,10 +16,11 @@
 
     {{ partial "footer.html" . }}    
 
-    {{ with .Site.Params.analytics }} 
-      {{ partial "analytics.html" . }}
+    {{ if not .Site.IsServer }}
+      {{ with .Site.Params.analytics }} 
+        {{ partial "analytics.html" . }}
+      {{ end }}
     {{ end }}
-
     </div>
   </body>
 
