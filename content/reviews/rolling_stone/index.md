@@ -4,11 +4,11 @@ description: "LitRPG and cultivation parody about a sentient rock rolling down a
 date: 2023-02-07
 categories: [reviews]
 review: B
-weight: 28
+weight: 21
 name: "DMG=MA: A Rolling Stone LitRPG"
 links:
-    royalread: https://www.royalroad.com/fiction/55418/dmgma-a-rolling-stone-litrpg-complete
-tags: [finished, litRPG, cultivation, parody, small-author]
+    royal_road: https://www.royalroad.com/fiction/55418/dmgma-a-rolling-stone-litrpg-complete
+tags: [finished, litrpg, cultivation, parody, small-author]
 sentence: "By a stroke of fate, a stone gains sentience and sets out on a grand quest to touch grass."
 ---
 

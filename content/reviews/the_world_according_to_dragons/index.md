@@ -3,8 +3,8 @@ title:  "A review of Harmon Cooper's 'The World According to Dragons'"
 description: "Light progression featuring a relic hunting dragon-rider. Rich worldbuilding combining multiple mythologies and a fusion of cultivation and Indiana Jones."
 date: 2022-11-03
 categories: [reviews]
-review: B
-weight: 24
+review: C
+weight: 32
 name: "The World According to Dragons"
 links:
     amazon: https://www.amazon.com/World-According-Dragons-Chronicles-Progression-ebook/dp/B0BCBYYNQS

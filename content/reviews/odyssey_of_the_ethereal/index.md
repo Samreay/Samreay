@@ -7,7 +7,7 @@ review: B
 weight: 28
 name: "Odyssey of the Ethereal"
 links:
-    royalread: https://www.royalroad.com/fiction/62693/odyssey-of-the-ethereal-prog-fantasytower-climbaether
+    royal_road: https://www.royalroad.com/fiction/62693/odyssey-of-the-ethereal-prog-fantasytower-climbaether
 tags: [in-progress, litRPG, isekai, female-lead, small-author, lgbt]
 sentence: "Armed with the power of regeneration and a fierce determination, Aetheria sets out to climb the Ten Towers and fulfill her destiny."
 ---

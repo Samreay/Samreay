@@ -3,8 +3,8 @@ title:  "A review of Davis Ashura's 'The Eternal Ephemera'"
 description: "A school based cultivation story with a strong emphasis on tactical team combat, and a small and well-developed cast of characters."
 date: 2022-10-20
 categories: [reviews]
-review: B
-weight: 24
+review: C
+weight: 34
 name: "Eternal Ephemera"
 links:
     amazon: https://www.amazon.com/Blood-Novice-Anchored-Eternal-Ephemera-ebook/dp/B0B86KPPM1
