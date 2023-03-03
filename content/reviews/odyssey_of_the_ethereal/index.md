@@ -1,7 +1,7 @@
 ---
 title:  "A Review of Jamie Kojola's 'Odyssey of the Ethereal'"
 description: "LitRPG game reincarnation with a female-lead, and cat-dragon pet."
-date: 2023-02-09
+date: 2023-02-24
 categories: [reviews]
 review: B
 weight: 28
@@ -26,9 +26,7 @@ Odyssey of the Ethereal: Book 1: Tower of Aetherius, is where the fun all starts
 
 It's not often I'll read a series before it has a *hefty* backlog of content, but I'm in a discord server with Jamie and have seen so much art of Aetheria, and I wanted some better context, so here we are!
 
-Note to self: include some pictures from the server 
-
-Alright, so the blurb on this one is pretty much the deal. This ia, through and through, a tower climber book. After a quick death and reincarnation, our MC starts off at the bottom of the tower, and needs to reach the top. 
+Alright, so the blurb on this one is pretty much the deal. This is, through and through, a tower climber book. After a quick death and reincarnation, our MC starts off at the bottom of the tower, and needs to reach the top. 
 
 The pacing of the series is *fast*. If you're fans of *Defiance of the Fall*, *Randidly*, and similar serials, then you'll probably like it. I do normally read slower things, but my personal preferences are of pretty much no value for anyone not me!
 
@@ -41,3 +39,11 @@ That actually brings me into why I like slower stories I think. Character develo
 Of course, it's still very early days for the serial. I'll update this page in a few months time when there's more to read. However, given the author has explicitly established relationships, I'm optimistic.
 
 So for thoughts right now, if you want that popcorn-style serial, enjoy a badass female lead, then give this one a shot.
+
+Oh, and I talked about art before, so here's Ria:
+
+![](ria.png?class="img-smaller")
+
+And here's Aoihbe:
+
+![](aoihbe.png?class="img-smaller")
