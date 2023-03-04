@@ -10,7 +10,7 @@ links:
     amazon: https://mybook.to/SoulRelic
     goodreads: https://www.goodreads.com/book/show/61324650-soul-relic
 aliases: [/reviews/soul_relic]
-tags: [female-lead, cultivation, hard-magic, in-progress, small-author]
+tags: [female-lead, cultivation, hard-magic, in-progress, small-author, companion]
 sentence: "Determined to fix her soul, Raysha ventures out into the world with her brother, only to stumble into events larger than they realise."
 video: cover.mp4
 ---

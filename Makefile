@@ -22,10 +22,6 @@ convert:
 	@echo "Converting notebooks"
 	poetry run python builder/convert.py
 
-tailwind:
-	@echo "Building tailwind css"
-	cd themes/sams-theme && npm run build
-
 blog:
 	hugo server -D --verbose
 

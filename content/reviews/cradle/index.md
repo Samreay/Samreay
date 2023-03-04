@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Cradle-Foundation-Collected-Book-ebook/dp/B076G8DVN6
     goodreads: https://www.goodreads.com/series/192821-cradle
 aliases: [/reviews/cradle]
-tags: [cultivation, in-progress]
+tags: [cultivation, in-progress, companion]
 
 ---
 
