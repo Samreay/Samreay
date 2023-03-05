@@ -4,7 +4,7 @@ description: "System apocalypse LitRPG. The System takes over Earth, and Randidl
 date: 2022-01-28
 categories: [reviews]
 review: C
-weight: 33
+weight: 35
 name: "The Legend of Randidly Ghosthound"
 links:
     amazon: https://www.amazon.com/Legend-Randidly-Ghosthound-LitRPG-Adventure-ebook/dp/B09BNSH5KG

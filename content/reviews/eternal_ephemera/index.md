@@ -4,7 +4,7 @@ description: "A school based cultivation story with a strong emphasis on tactica
 date: 2022-10-20
 categories: [reviews]
 review: C
-weight: 34
+weight: 33.5
 name: "Eternal Ephemera"
 links:
     amazon: https://www.amazon.com/Blood-Novice-Anchored-Eternal-Ephemera-ebook/dp/B0B86KPPM1
