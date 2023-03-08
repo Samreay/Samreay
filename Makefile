@@ -1,6 +1,6 @@
 install_tailwind:
 	@echo "Installing theme dependencies"
-	@cd npm install
+	@npm install
 
 install_casks:
 	@echo "Installing Hugo and npm"
