@@ -64,12 +64,15 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"         
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Compress public dir
+        run: zip public.zip ./public* -r
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./public
+          path: public.zip
 
   # Deployment job
   deploy:
@@ -79,6 +82,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Unzip
+        run: unzip public.zip && rm public.zip
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
