@@ -30,3 +30,13 @@ gzip = true
 pattern = "^.+\\.(png|jpg|gif|webp|mp4)$"
 cacheControl = "max-age=604800, no-transform, public"
 gzip = false
+
+[[deployment.matchers]]
+# Set custom content type for /sitemap.xml
+pattern = "^sitemap\\.xml$"
+contentType = "application/xml"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(html|xml|json)$"
+gzip = true
