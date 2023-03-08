@@ -17,3 +17,16 @@ timeout = 120000
   description = "Samuel Hinton's latest books, blogs, tutorials, and courses. Plus just his general thoughts on the world, which probably have little value."
   [params.analytics]
     trackingID = "G-GRX6QE03YR"
+
+[deployment]
+
+[[deployment.matchers]]
+# Cache static assets for 1 year.
+pattern = "^.+\\.(js|css|svg|ttf)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg|gif|webp|mp4)$"
+cacheControl = "max-age=604800, no-transform, public"
+gzip = false
