@@ -17,15 +17,21 @@
     <figure class="{{ $class }} rounded">
     {{ if in "jpg jpeg png webp" $ext }}
     {{ $width := .Width }}
-    {{ if gt $width 1920 }}
+    {{ $height := .Height }}
+    {{ $ratio := div (mul $width 1.0) $height }}
+    {{ if lt $ratio 1.0 }}
+        {{ $width = int ( mul $ratio 1080 ) }}
+    {{ else if gt $width 1920}}
         {{ $width = 1920 }}
     {{ end }}
     <picture>
-        {{ with .Resize (printf "%dx webp q90" $width ) }}
+        {{ with .Resize (printf "%dx webp q85" $width ) }}
             <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/webp">
         {{ end }}
-        <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/{{ $ext }}">
-        <img width="{{ .Width }}" height="{{ .Height }}" loading="lazy" decoding="async"  alt="{{ $text }}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" />
+        {{ with .Resize (printf "%dx q70" $width ) }}
+            <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/{{ $ext }}">
+        {{ end }}
+        <img width="{{ $width }}" height="{{ $height }}" loading="lazy" decoding="async"  alt="{{ $text }}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" />
     </picture>
     {{ else }}
     <img src="{{ .RelPermalink }}" loading="lazy" decoding="async"  alt="{{ $text }}" />

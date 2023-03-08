@@ -5,8 +5,9 @@ description: "Detailing the world for my upcoming fantasy novel."
 date: 2021-08-22
 categories: [blog]
 tags: [writing]
-
 aliases: [/blog/rhodus]
+_build:
+    publishResources: true
 ---
 
 The continent of Rhodus is the main setting for my work *Soul Relic*.
