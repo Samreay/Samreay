@@ -5,7 +5,7 @@ long_description: ""
 date: 2021-03-02
 categories: [reviews]
 review: C
-weight: 34
+weight: 36
 name: "He Who Fights With Monsters"
 links:
     amazon: https://www.amazon.com/He-Who-Fights-Monsters-Adventure-ebook/dp/B08WCT9W26
