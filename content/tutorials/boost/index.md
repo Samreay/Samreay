@@ -6,6 +6,8 @@ date: 2020-07-04
 categories: [tutorial]
 tags: []
 math: true
+_build:
+    publishResources: true
 ---
 
 As much as we might want all code that we work with to be professional-quality packages in the same language we are working in, it simply won't be the case for the vast majority of us.
@@ -244,7 +246,7 @@ print(f"Sum is {sum} from {count} elements")
 
 You can see that we don't need to do anything else. Import the `.so` file, and call it just like any other python function. 
 
-[**You can find the C++, Python and install.txt files here for convenience.**](/static/notebooks/boost/boost.zip)
+[**You can find the C++, Python and install.txt files here for convenience.**](/tutorials/boost/boost.zip)
 
 Good luck!
 

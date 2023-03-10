@@ -4,7 +4,7 @@ description: "From samples back to model confidence regions"
 date: 2019-08-02
 categories: [tutorial]
 tags: [bayesian]
-aliases: [/tutorials/propagating_error]
+aliases: [/tutorials/propagating_error, /tutorial/2019/08/02/Propagating.html]
 math: true
 ---
 
