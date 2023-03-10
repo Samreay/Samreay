@@ -5,6 +5,7 @@ date: 2019-07-30
 categories: [tutorial]
 tags: [bayesian]
 math: true
+aliases: [/tutorial/sample_selection]
 ---
 
 In a perfect world our experiments would capture all the data that exists. This is not a perfect world, and we miss a lot of data. Let's consider one method of accounting for this in a Bayesian formalism - integrating it out.
