@@ -1,5 +1,5 @@
 <meta name="description" content="{{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}"/>
-<meta name="robots" content="noodp"/>
+<meta name="robots" content="all" />
 <link rel="canonical" href="{{ .Permalink }}" />
 
 {{ partial "twitter_cards.html" . }}
