@@ -34,17 +34,23 @@
     })
   });
 
-  let categories = [ "S", "π" , "A", "B", "C", "D", "F"]
-
   const data = reactive({
     tag_activations: {},
     wide_cards: true,
     by_rank: true,
     posts: posts,
     tags: tags,
-    categories: categories,
   });
 
+  function reset() {
+    for (const [key, value] of Object.entries(data.tag_activations)) {
+      data.tag_activations[key] = undefined
+      delete data.tag_activations[key];
+    }
+    data.wide_cards = true
+    data.by_rank = true
+    update_url()
+  }
   function set_from_url() {
     var params = new URLSearchParams(window.location.search)
     if (params.has("o")) {
@@ -102,12 +108,15 @@
   const click_tag = (tag) => {
     if (tag in data.tag_activations) {
       if (data.tag_activations[tag]) {
+        console.log(tag + " is now set to false")
         data.tag_activations[tag] = false;
       } else {
+        console.log(tag + " is removed")
         data.tag_activations[tag] = undefined;
         delete data.tag_activations[tag];
       }
     } else {
+      console.log(tag + " is true")
       data.tag_activations[tag] = true;
     }
   }
@@ -125,15 +134,17 @@
   const wide_template = html`
 <div class="justify-center flex items-center">
   <label for="wide-layout" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
-    <input id="wide-layout" type="checkbox" ${data.wide_cards ? "checked" : ""} class="hidden peer" @click="${(e) => {data.wide_cards = e.target.checked}}">
+    <input id="wide-layout" type="checkbox" checked="${() => (data.wide_cards ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.wide_cards = e.target.checked} }">
     <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Wide</span>
     <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Cover</span>
   </label>
   <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
-    <input id="sort-order" type="checkbox" ${data.by_rank ? "checked" : ""} class="hidden peer" @click="${(e) => {data.by_rank = e.target.checked}}">
+    <input id="sort-order" type="checkbox" checked="${() => (data.by_rank ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.by_rank = e.target.checked} }">
     <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Rank</span>
     <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Date Reviewed</span>
   </label>
+  <button class="inline-flex items-center px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100" @click="${() => reset()}">Reset</button>
+
 </div>
 `
   wide_template(wide_containter);
