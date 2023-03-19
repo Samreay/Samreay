@@ -1,7 +1,7 @@
 ---
 title:  "A Review of Zogarth's LitRPG 'The Primal Hunter'"
 description: "System apocalypse LitRPG, with all the normal bells and whistles. Plenty of chapters on Royal Road, with the MC being OP and stomping everything."
-\date: 2022-04-15
+date: 2022-04-15
 categories: [reviews]
 review: C
 weight: 34

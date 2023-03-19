@@ -1,5 +1,5 @@
 import { focusHandling } from "cruip-js-toolkit";
-
+import { reactive } from '@arrow-js/core'
 // Import aos
 import AOS from "aos";
 
@@ -105,57 +105,6 @@ document.addEventListener(
   },
   false
 );
-
-window.register_tags = function () {
-  return {
-    tags: [],
-    active: [],
-    add_tag(tag) {
-      this.tags.push(tag);
-    },
-    click_tag(tag) {
-      // figure out if one tag is active
-      if (this.active.includes(tag)) {
-        this.active = this.active.filter(function (item) {
-          return item !== tag;
-        });
-      } else {
-        // check to see if this is a single length string, in which case we would remove the other single length ones
-        if (tag.length === 1) {
-          this.active = this.active.filter(function (item) {
-            return item.length > 1;
-          });
-        }
-
-        this.active.push(tag);
-      }
-      setTimeout(() => {
-        AOS.refresh();
-      }, 20);
-    },
-    is_active(tag) {
-      return this.active.length == 0 || this.active.includes(tag);
-    },
-    is_hidden_single(tag) {
-      if (this.active.length == 0) {
-        return false;
-      }
-      return !this.active.includes(tag);
-    },
-    is_hidden(tags) {
-      if (this.active.length == 0) {
-        return false;
-      }
-      for (var i = 0; i < this.active.length; i++) {
-        var t = this.active[i];
-        if (!tags.includes(t)) {
-          return true;
-        }
-      }
-      return false;
-    },
-  };
-};
 
 import Alpine from 'alpinejs'
 
