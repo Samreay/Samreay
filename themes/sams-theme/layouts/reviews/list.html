@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <script type="module">
-  import { reactive, html } from '/js/arrow.js';
+  import { reactive, html, watch } from '/js/arrow.js';
   const posts = [
       {{- range ( where .Site.RegularPages.ByWeight "Type" .Type ) -}}
       {
@@ -44,6 +44,60 @@
     tags: tags,
     categories: categories,
   });
+
+  function set_from_url() {
+    var params = new URLSearchParams(window.location.search)
+    if (params.has("o")) {
+      data.by_rank = params.get("o") === "true"
+    }
+    if (params.has("w")) {
+      data.wide_cards = params.get("w") === "true"
+    }
+    if (params.has("include")) {
+      params.get("include").split("_").forEach(function (t) {
+        data.tag_activations[t] = true;
+      })
+    }
+    if (params.has("exclude")) {
+      params.get("exclude").split("_").forEach(function (t) {
+        data.tag_activations[t] = false;
+      })
+    }
+  }
+  set_from_url()
+
+  function update_url() {
+    var params = new URLSearchParams();
+    if (!data.by_rank) {
+      params.set("o", 0)
+    }
+    if (!data.wide_cards) {
+      params.set("w", 0)
+    }
+    let include = []
+    let exclude = []
+    for (const [key, value] of Object.entries(data.tag_activations)) {
+      if (value) {
+        include.push(key)
+      } else {
+        exclude.push(key)
+      }
+    }
+    if (include.length > 0) {
+      params.set("include", include.join("_"))
+    }
+    if (exclude.length > 0) {
+      params.set("exclude", exclude.join("_"))
+    }
+    var args = params.toString()
+    if (args.length > 0) {
+      args = "?" + args
+    }
+    var newUrl = window.location.origin + window.location.pathname + args
+    window.history.pushState({path: newUrl}, "", newUrl)
+    
+  }
+  watch(update_url);
 
   const click_tag = (tag) => {
     if (tag in data.tag_activations) {
