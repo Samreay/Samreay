@@ -85,6 +85,16 @@
   wide_template(wide_containter);
   
 
+  const video_template = (post) => html`
+<video class="xs:rounded-l-xl block flex-none bg-cover mx-auto sm:ml-0" preload="auto" playsinline plays-inline autoplay loop muted width="235" height="375">
+  <source src="${post.video}" type="video/mp4" />
+</video>`
+  const image_template = (post) => html`
+<picture>
+  <source srcset="${post.img}" type="image/webp" />
+  <img class="xs:rounded-l-xl block flex-none bg-cover mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
+</picture>`
+
   const card_containter = document.getElementById("all-card-wrapper");
   const card_template = html`
 <div id="card-wrapper" class="${() => "container mx-auto mt-20 grid gap-12 " + (data.wide_cards ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : "sm:grid-cols-cover-cards grid-cols-cover-cards-mobile")}">
@@ -117,12 +127,14 @@
           <div class="bg2">
             <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
               <figure class="block flex-none bg-cover">
-                <picture>
-                  <source srcset="${post.img}" type="image/webp" />
-                  <img class="xs:rounded-l-xl block flex-none bg-cover mx-auto"
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg=="
-                    alt="${post.name}" />
-                </picture>
+                ${() => {
+                  if ("video" in post) {
+                    return video_template(post)
+                  } else {
+                    return image_template(post)
+                  }
+                }}
+                
               </figure>
               <div class="flex flex-col justify-between p-4 text-center side-card-content">
                 <div class="rating">
