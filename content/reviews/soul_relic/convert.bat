@@ -1,0 +1,1 @@
+ffmpeg -i input.mp4 -vcodec h264 -crf 18 -preset veryslow -movflags +faststart cover.mp4

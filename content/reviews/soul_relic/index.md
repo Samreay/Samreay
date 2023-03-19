@@ -1,7 +1,7 @@
 ---
 title:  "Reflections on my own 'Soul Relic'"
 description: "Female-lead cultivation novel with a hard magic system. A young woman with a broken soul joins her brother to find a solution in the wider world."
-date: 2022-06-20
+date: 2023-01-20
 categories: [reviews]
 review: π
 weight: 9.9
