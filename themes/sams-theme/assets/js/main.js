@@ -1,5 +1,4 @@
 import { focusHandling } from "cruip-js-toolkit";
-import { reactive } from '@arrow-js/core'
 // Import aos
 import AOS from "aos";
 
