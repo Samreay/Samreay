@@ -12,7 +12,7 @@
 
 .grid-cols-cover-cards, .grid-cols-cover-cards-mobile {
   video,img {
-    @apply rounded-r-xl;
+    @apply rounded-xl;
   }
   video {
     @apply mx-auto;

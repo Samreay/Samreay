@@ -135,6 +135,14 @@ body {
   }
 }
 
+@media (max-width: 640px) { 
+  .tag-list {
+    button {
+      @apply m-1 py-2 px-4 text-sm;
+    }
+  }
+}
+
 .blog-post {
   h1:not(.title),
   h2,
@@ -214,16 +222,20 @@ body {
   p {
     @apply mt-0 mb-4;
   }
-  figure {
+  video {
     @apply mx-auto;
-
     margin: 0;
     max-width: none;
-    min-width: 250px;
+    aspect-ratio: 0.6667;
+  }
+  figure {
+    @apply mx-auto;
+    max-width: 250px;
+    // min-width: 250px;
     img {
-      height: 375px;
-      width: 250px;
-      min-width: 250px;
+      // height: 375px;
+      // width: 250px;
+      // min-width: 250px;
       aspect-ratio: 0.6667;
     }
   }

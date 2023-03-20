@@ -33,10 +33,10 @@
       }
     })
   });
-
+  const default_wide = screen.width > 1280
   const data = reactive({
     tag_activations: {},
-    wide_cards: true,
+    wide_cards: default_wide,
     by_rank: true,
     posts: posts,
     tags: tags,
@@ -47,17 +47,17 @@
       data.tag_activations[key] = undefined
       delete data.tag_activations[key];
     }
-    data.wide_cards = true
+    data.wide_cards = default_wide
     data.by_rank = true
     update_url()
   }
   function set_from_url() {
     var params = new URLSearchParams(window.location.search)
     if (params.has("o")) {
-      data.by_rank = params.get("o") === "true"
+      data.by_rank = params.get("o") === "1"
     }
     if (params.has("w")) {
-      data.wide_cards = params.get("w") === "true"
+      data.wide_cards = params.get("w") === "1"
     }
     if (params.has("include")) {
       params.get("include").split("_").forEach(function (t) {
@@ -77,8 +77,12 @@
     if (!data.by_rank) {
       params.set("o", 0)
     }
-    if (!data.wide_cards) {
-      params.set("w", 0)
+    if (default_wide != data.wide_cards) {
+      if (data.wide_cards) {
+        params.set("w", 1)
+      } else {
+        params.set("w", 0)
+      }
     }
     let include = []
     let exclude = []
@@ -151,18 +155,18 @@
   
 
   const video_template = (post) => html`
-<video class="xs:rounded-l-xl block flex-none bg-cover mx-auto sm:ml-0" preload="auto" playsinline plays-inline autoplay loop muted width="235" height="375">
+<video class="${() => "block h-full w-full flex-none bg-cover mx-auto sm:ml-0 " + (data.wide_cards ? "md:rounded-l-xl" : "")}" preload="auto" playsinline plays-inline autoplay loop muted >
   <source src="${post.video}" type="video/mp4" />
 </video>`
   const image_template = (post) => html`
 <picture>
   <source srcset="${post.img}" type="image/webp" />
-  <img class="xs:rounded-l-xl block flex-none bg-cover mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
+  <img class="${() => "block flex-none bg-cover mx-auto " + (data.wide_cards ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
 </picture>`
 
   const card_containter = document.getElementById("all-card-wrapper");
   const card_template = html`
-<div id="card-wrapper" class="${() => "container mx-auto mt-20 grid gap-12 " + (data.wide_cards ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : "sm:grid-cols-cover-cards grid-cols-cover-cards-mobile")}">
+<div id="card-wrapper" class="${() => "container mx-auto mt-20 justify-center grid gap-4 sm:gap-12 " + (data.wide_cards ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards")}">
   ${() => data.posts.filter(function(post) {
     for (const [key, value] of Object.entries(data.tag_activations)) {
       if (value) {
@@ -184,14 +188,14 @@
     }
   }).map(
     post => html`
-<div class="fancy_card horizontal">
+<div class="fancy_card horizontal mx-auto">
   <div class="card_translator">
     <a class="card_rotator small_rot card_layer block" href="${post.link}">
       <div class="card_layer">
         <article class="review-summary review-${post.review}">
           <div class="bg2">
             <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
-              <figure class="block flex-none bg-cover">
+              <figure class="${() => "block flex-none bg-cover " + (data.wide_cards ? "" : "w-full")}">
                 ${() => {
                   if ("video" in post) {
                     return video_template(post)

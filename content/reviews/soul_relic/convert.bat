@@ -1,1 +1,1 @@
-ffmpeg -i input.mp4 -vcodec h264 -crf 18 -preset veryslow -movflags +faststart cover.mp4
+ffmpeg -i input.mp4 -vcodec h264 -crf 18 -preset veryslow -movflags +faststart -vf scale=500x750,setdar=10/15 cover.mp4

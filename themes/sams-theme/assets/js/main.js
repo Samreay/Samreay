@@ -99,7 +99,6 @@ function setup_fancy_card() {
   if (!window.mobileCheck()) {
     var cards = document.querySelectorAll(".fancy_card");
     cards.forEach((card) => {
-      console.log(card)
       removeEventListener("mousemove", updateCardVarsHandler);
       removeEventListener( "mouseout", removeCardVarsHandle);
       card.addEventListener("mousemove", updateCardVarsHandler);

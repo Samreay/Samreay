@@ -376,13 +376,14 @@
   user-select: none; /* Standard */
 }
 
+
 .glow {
   position: relative;
 
   .bg2 {
     width: 100%;
     height: 100%;
-    padding: 6px;
+    padding: 3px;
     .bg-inner {
       width: 100%;
       height: 100%;
@@ -390,6 +391,13 @@
     }
   }
 }
+
+@media (min-width: 1024px) { 
+  .glow .bg2 {
+      padding: 4px;
+  }
+}
+
 
 .review-π {
   @extend .glow;
