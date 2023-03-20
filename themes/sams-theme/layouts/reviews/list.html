@@ -132,7 +132,7 @@
 
   const wide_containter = document.getElementById("toggle-input");
   const wide_template = html`
-<div class="justify-center flex items-center">
+<div class="justify-center flex flex-wrap items-center">
   <label for="wide-layout" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
     <input id="wide-layout" type="checkbox" checked="${() => (data.wide_cards ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.wide_cards = e.target.checked} }">
     <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Wide</span>
