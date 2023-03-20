@@ -87,23 +87,33 @@ function removeCardVars(card) {
   card.style.removeProperty("--hyp");
 }
 
+function updateCardVarsHandler(e) {
+  updateCardVars(this, e.x, e.y);
+}
+
+function removeCardVarsHandle(e) {
+  removeCardVars(this);
+}
+
+function setup_fancy_card() {
+  if (!window.mobileCheck()) {
+    var cards = document.querySelectorAll(".fancy_card");
+    cards.forEach((card) => {
+      console.log(card)
+      removeEventListener("mousemove", updateCardVarsHandler);
+      removeEventListener( "mouseout", removeCardVarsHandle);
+      card.addEventListener("mousemove", updateCardVarsHandler);
+      card.addEventListener("mouseout", removeCardVarsHandle);
+    });
+  }
+}
+
 document.addEventListener(
   "DOMContentLoaded",
-  function () {
-    if (!window.mobileCheck()) {
-      var cards = document.querySelectorAll(".fancy_card");
-      cards.forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
-          updateCardVars(card, e.x, e.y);
-        });
-        card.addEventListener("mouseout", (e) => {
-          removeCardVars(card);
-        });
-      });
-    }
-  },
+  setup_fancy_card,
   false
 );
+window.addEventListener('popstate', setup_fancy_card);
 
 import Alpine from 'alpinejs'
 

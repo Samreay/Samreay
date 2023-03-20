@@ -101,7 +101,7 @@
     }
     var newUrl = window.location.origin + window.location.pathname + args
     window.history.pushState({path: newUrl}, "", newUrl)
-    
+    setTimeout(() => window.dispatchEvent(new Event("popstate")), 50);    
   }
   watch(update_url);
 
@@ -141,7 +141,7 @@
   <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
     <input id="sort-order" type="checkbox" checked="${() => (data.by_rank ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.by_rank = e.target.checked} }">
     <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Rank</span>
-    <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Date Reviewed</span>
+    <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Recent</span>
   </label>
   <button class="inline-flex items-center px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100" @click="${() => reset()}">Reset</button>
 
