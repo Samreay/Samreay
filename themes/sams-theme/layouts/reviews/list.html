@@ -18,7 +18,7 @@
         sentence: {{ .Params.sentence }},
         img: {{- partial "data_img.html" . -}},
         {{ if isSet .Params "video" }}
-        video: {{- partial "data_video.html" . -}},
+        video: {{- ( .Resources.Get .Params.video ).RelPermalink -}},
         {{- end -}}
     },
     {{- end -}}
