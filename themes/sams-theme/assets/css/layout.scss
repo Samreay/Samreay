@@ -162,10 +162,10 @@ body {
     @apply text-center;
   }
   p, ul, li, em, strong, a {
-    @apply sm:text-xl leading-relaxed;
+    @apply sm:text-xl leading-normal;
   }
   p {
-    @apply max-w-2xl mx-auto my-6  text-gray-300;
+    @apply max-w-2xl mx-auto my-6 text-gray-300;
     strong,
     em {
       @apply text-white;
@@ -190,6 +190,10 @@ body {
   }
   figure {
     @apply mx-auto my-12 max-w-4xl;
+
+    &.review-card {
+      @apply my-0;
+    }
 
     &.img-full {
       @apply max-w-full;
