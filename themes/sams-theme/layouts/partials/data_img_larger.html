@@ -1,0 +1,3 @@
+{{- $images := $.Resources.ByType "image" -}} 
+{{ $img := $images.GetMatch "{*cover*,*thumbnail*}" }} 
+{{- return  ( $img.Fill "500x750 Center webp q70 #000000" ).RelPermalink -}}

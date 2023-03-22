@@ -17,6 +17,7 @@
         title: {{ .Params.name }},
         sentence: {{ .Params.sentence }},
         img: {{- partial "data_img.html" . -}},
+        img_larger: {{- partial "data_img_larger.html" . -}},
         {{ if isSet .Params "video" }}
         video: {{- ( .Resources.Get .Params.video ).RelPermalink -}},
         {{- end -}}
@@ -160,7 +161,7 @@
 </video>`
   const image_template = (post) => html`
 <picture>
-  <source srcset="${post.img}" type="image/webp" />
+  <source srcset="${post.img} 275w, ${post.img_larger} 500w" type="image/webp" />
   <img class="${() => "block flex-none bg-cover mx-auto " + (data.wide_cards ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
 </picture>`
 
