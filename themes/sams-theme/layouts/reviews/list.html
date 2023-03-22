@@ -16,8 +16,10 @@
         {{- end -}}],
         title: {{ .Params.name }},
         sentence: {{ .Params.sentence }},
-        img: {{- partial "data_img.html" . -}},
-        img_larger: {{- partial "data_img_larger.html" . -}},
+        {{- $images := .Resources.ByType "image" -}} 
+        {{- $img := $images.GetMatch "{*cover*,*thumbnail*}" -}} 
+        img: {{- ( $img.Fill "250x375 Center webp q80 #000000" ).RelPermalink -}},
+        img_larger: {{-  ( $img.Fill "500x750 Center webp q70 #000000" ).RelPermalink -}},
         {{ if isSet .Params "video" }}
         video: {{- ( .Resources.Get .Params.video ).RelPermalink -}},
         {{- end -}}
