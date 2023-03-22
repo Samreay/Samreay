@@ -60,9 +60,9 @@ def wrap_code(lines: list[str]) -> list[str]:
                 content.append("")
                 # add the classes
                 cls = ""
-                if max_width < 61:
+                if max_width < 59:
                     cls = "reduced-code"
-                if max_width > 79:
+                if max_width > 77:
                     cls = "expanded-code"
                 content[start_line] = f'<div class="{cls} width-{max_width}" markdown=1>'
 

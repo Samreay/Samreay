@@ -1,7 +1,134 @@
 {{ define "main" }}
 
-{{ $categories := site.Data.categories }}
-<div class="content content-full" x-data="window.register_tags()">
+<script type="module">
+  import { reactive, html, watch } from '/js/arrow.js';
+  const posts = [
+      {{- range ( where .Site.RegularPages.ByWeight "Type" .Type ) -}}
+      {
+        {{- if isSet .Params "short_title" -}}
+        name: {{ .Params.short_title }},
+        {{- else -}}
+        name: {{ .Title }},
+        {{- end -}}
+        link: {{- .RelPermalink -}},
+        weight: {{- .Weight -}},
+        date: {{- .Date -}},
+        tags: [
+        {{- range $tag := .Params.tags | sort -}}
+          "{{ $tag | lower }}",
+        {{- end -}}],
+        description: {{ .Description }},
+        {{- $img := resources.Get "img/placeholder_1.jpg" -}}
+        {{- $missing := true -}}
+        {{- if isset .Params "images" -}}
+            {{- $img = resources.Get (index .Params.images 0) -}}
+            {{- $missing = false -}}
+        {{- else -}}
+            {{- $images := .Resources.ByType "image" -}}
+            {{- $featured := $images.GetMatch "{*cover*,*thumbnail*}" -}}
+            {{- if $featured -}}
+                {{- $img = $featured -}}
+                {{- $missing = false -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if $missing -}}
+            {{ $img = resources.GetMatch (printf "img/*placeholder_%d*" (int (.Date.Format "2"))) }}
+        {{- end -}}
+        img: {{- ( $img.Fill "352x198 webp q80 #000000" ).RelPermalink -}},
+        img_larger: {{- ( $img.Fill "704x396 webp q70 #000000" ).RelPermalink -}},
+    },
+    {{- end -}}
+  ]
+
+  // Calc all tags
+  let tags = [];
+  posts.forEach(function(post) {
+    post.tags.forEach(function (tag) {
+      if (!tags.includes(tag)) {
+        tags.push(tag);
+      }
+    })
+  });
+  const default_wide = screen.width > 1280
+  const data = reactive({
+    tag_activations: {},
+    posts: posts,
+    tags: tags,
+  });
+
+  const click_tag = (tag) => {
+    if (tag in data.tag_activations) {
+      if (data.tag_activations[tag]) {
+        data.tag_activations[tag] = false;
+      } else {
+        data.tag_activations[tag] = undefined;
+        delete data.tag_activations[tag];
+      }
+    } else {
+      data.tag_activations[tag] = true;
+    }
+  }
+
+  const tag_container = document.getElementById("tags");
+  const tag_template = html`${() => data.tags.map(
+    tag => html`
+<button @click="${() => click_tag(tag)}" class="${() => "tag tag-" + tag + " active-" + (Object.keys(data.tag_activations).length == 0 ? "nan" : data.tag_activations[tag])}">
+  <span>${tag}</span>
+</button>
+    `)}`
+  tag_template(tag_container)
+
+  
+  const card_containter = document.getElementById("all-card-wrapper");
+  const card_template = html`
+<div id="card-wrapper" class="container mx-auto mt-20 grid gap-12 grid-cols-vertical-cards">
+  ${() => data.posts.filter(function(post) {
+    for (const [key, value] of Object.entries(data.tag_activations)) {
+      if (value) {
+        if (!post.tags.includes(key)) {
+          return false;
+        }
+      } else {
+        if (post.tags.includes(key)) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }).map(
+    post => html`
+<article class="flex flex-col h-full rounded-lg bg-gray-800 data-aos="fade-up">
+  <a href="${post.link}">
+    <div class="h-full">
+        <header class="mb-4">
+          <figure class="relative h-0 pb-9/16 overflow-hidden rounded-t-lg">
+            <picture>
+              <source srcset="${post.img} 352w, ${post.img_larger} 704w" type="image/webp" />
+              <img width="352" height="198" class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="">
+            </picture>
+          </figure>
+        </header>
+        <div class="px-4 pb-4">
+          <div class="mb-3">
+              <ul class="flex flex-wrap text-xs font-medium -m-1">
+                ${post.tags.map(tag => html`<li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-${tag}">${tag}</li>`)}
+              </ul>
+          </div>
+          <h4 class="mb-2">${post.name}</h4>
+          <p class="text-lg text-gray-400 flex-grow">${post.description}</p>
+        </div>
+      </div>
+    </div>
+  </a>
+</article>    
+`)}
+</div>`
+
+  card_template(card_containter);
+
+</script>
+
+<div class="content content-full">
 
   <div class="section-header mt-12 pb-2">
     <h1>{{ .Title }}</h1>
@@ -9,23 +136,12 @@
     <p>{{ .Params.extra | markdownify | .RenderString }}</p>
   </div>
 
-  <!-- Add the tags -->
-  <div class="tag-list max-w-7xl mx-auto">
-    {{ range  $tag, $taxonomy := where site.Taxonomies.tags ".Page.Section" .Type }}
-    <button class="tag-{{$tag}}" @click="click_tag('{{$tag}}');" x-init="add_tag('{{$tag}}')" :class="{ 'opacity-30': is_hidden_single('{{$tag}}') }">
-        <span>{{$tag}}</span>
-    </button>
-    {{ end }}
-  </div>
 
-
-  <!-- Add the posts -->
-  <div class="container mx-auto mt-20 grid gap-12 grid-cols-vertical-cards">
-    {{ range ( where .Site.RegularPages.ByWeight "Type" .Type ) }}
-      {{- partial "card.html" . -}}
-    {{ end }}
-  </div>
-
+  <!-- The toggles config -->
+  <div id="toggle-input" class="max-w-7xl mx-auto"></div>
+  <div id="tags" class="tag-list max-w-7xl mx-auto mt-6"></div>
+  <div id="all-card-wrapper"></div>
 </div>
 
 {{ end }}
+
