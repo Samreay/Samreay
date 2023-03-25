@@ -10,6 +10,7 @@ install_poetry:
 	@echo "Updating poetry"
 	@pip install -U poetry -q
 	@echo "Running local poetry install"
+	@poetry config installer.modern-installation false
 	@poetry install --no-root
 
 install_precommit:
