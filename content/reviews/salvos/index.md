@@ -9,7 +9,6 @@ name: "Salvos"
 links:
     royal_road: https://www.royalroad.com/fiction/37438/revelation-salvos-a-monster-evolution-litrpg
     amazon: https://www.amazon.com.au/Curious-Beginnings-LitRPG-Adventure-Salvos-ebook/dp/B08SQD1DLR
-    goodreads: https://www.goodreads.com/series/323808-salvos
     tapas: https://tapas.io/series/Salvos-A-Monster-Evolution-LitRPG/info
 tags: [in-progress, litRPG, female-lead]
 sentence: "Can Salvos, a newborn demon, survive the swarms of the Nethworld? When cast to the human realm, will she find her way home?"
