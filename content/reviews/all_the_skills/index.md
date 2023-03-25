@@ -7,7 +7,7 @@ review: B
 weight: 28
 name: "All The Skills"
 links:
-    royalread: https://www.royalroad.com/fiction/55687/all-the-skills-a-deckbuilding-litrpg
+    royal_road: https://www.royalroad.com/fiction/55687/all-the-skills-a-deckbuilding-litrpg
     amazon: https://www.amazon.com/All-Skills-Deck-Building-LitRPG-ebook/dp/B0BM51RQR8
 tags: [in-progress, litRPG, companion]
 sentence: "When fate grants Arthur a Master of Skills card, he's thrust into a world of opportunity and danger."
