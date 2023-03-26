@@ -4,6 +4,10 @@
             "language": "markdown",
             "scheme": "file",
             "pattern": "_posts/reviews/*.md"
+        },
+        {
+            "language": "markdown",
+            "scheme": "file"
         }
     ]
 }
