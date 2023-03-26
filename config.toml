@@ -15,6 +15,7 @@ timeout = 120000
 
 [params]
   description = "Samuel Hinton's latest books, blogs, tutorials, and courses. Plus just his general thoughts on the world, which probably have little value."
+  discord = "https://discord.gg/tfn4HVEaDz"
   [params.analytics]
     trackingID = "G-GRX6QE03YR"
 

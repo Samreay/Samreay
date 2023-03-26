@@ -14,7 +14,10 @@
 
             {{ .Content }}
 
-            {{ partial "newsletter-blog.html" . }}
+            {{ if not ( eq .Type "tutorials" ) }}
+                {{- partial "newsletter-blog.html" . -}}
+            {{ end }}
+
 
 
 </div>
