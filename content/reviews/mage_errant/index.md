@@ -3,6 +3,7 @@ title:  "A Review of John Bierce's Mage Errant Series. A fun ride with a likeabl
 description: "Progression fantasy, some academic focused books. A struggling protagonist gets dragged into adventure. Characters are people who grow both in power, abilities, and as people. I appreciate this a lot."
 date: 2021-11-19
 categories: [reviews]
+auth: John Bierce
 review: A
 weight: 14
 name: "Mage Errant"

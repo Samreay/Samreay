@@ -2,6 +2,7 @@
 title:  "A Review of Jamie Kojola's 'Odyssey of the Ethereal'"
 description: "LitRPG game reincarnation with a female-lead, and cat-dragon pet."
 date: 2023-02-24
+auth: Jamie Kojola
 categories: [reviews]
 review: B
 weight: 28

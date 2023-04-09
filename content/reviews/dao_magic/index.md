@@ -2,6 +2,7 @@
 title:  "A Review of Andries Louws' The Dao of Magic. A strange blend of pop references and ridiculously overpowered protagonists"
 description: "Reincarnation/cultivation novel. If you just want to read an incredibly overpowered protagonist and don't mind them sounding like a teenager off /r/iamverysmart, go for it..."
 date: 2021-11-24
+auth: Andries Louws
 categories: [reviews]
 review: F
 weight: 69

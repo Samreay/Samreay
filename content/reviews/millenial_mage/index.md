@@ -2,6 +2,7 @@
 title:  "A review of J.L. Mullins' 'Millenial Mage'"
 description: "A female-led, slice-of-life, character-driven story with a unique magic system and worldbuilding."
 date: 2023-01-11
+auth: J.L. Mullins
 categories: [reviews]
 review: B
 weight: 27

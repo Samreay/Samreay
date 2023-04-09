@@ -3,6 +3,7 @@ title:  "A review of Rob J. Hayes' 'Titan Hoppers'"
 description: "A character-driven sci-fi story about a fleet of ships surviving by scavenging off planet-sized titans."
 date: 2022-12-12
 categories: [reviews]
+auth: Rob J. Hayes
 review: A
 weight: 19.4
 name: "Titan Hoppers"

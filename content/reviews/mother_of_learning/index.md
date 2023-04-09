@@ -4,6 +4,7 @@ name: "Mother of Learning"
 description: "Progression fantasy, and time loops done right. Smart MC, great plot, varied magic systems. Groundhog day has nothing on this."
 sentence: "Zorian Kazinski has all the time in the world to get stronger, and he plans on taking full advantage of it."
 date: 2021-09-08
+auth: nobody13
 categories: [reviews]
 review: S
 weight: 5

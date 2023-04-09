@@ -4,6 +4,7 @@ description: "A school based cultivation story with a strong emphasis on tactica
 date: 2022-10-20
 categories: [reviews]
 review: C
+auth: Davis Ashura
 weight: 33.5
 name: "Eternal Ephemera"
 links:

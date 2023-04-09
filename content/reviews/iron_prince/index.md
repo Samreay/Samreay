@@ -4,6 +4,7 @@ description: "Scifi/progression/LitRPG crossover in an academic settings. Who ne
 date: 2021-07-20
 categories: [reviews]
 review: S
+auth: Bryce O'Connor
 weight: 7
 name: "Iron Prince"
 links:

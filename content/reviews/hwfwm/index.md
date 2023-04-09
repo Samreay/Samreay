@@ -4,6 +4,7 @@ description: "Portal LitRPG. The story has plenty of humour and a protagonist th
 long_description: ""
 date: 2021-03-02
 categories: [reviews]
+auth: Shirtaloon
 review: C
 weight: 36
 name: "He Who Fights With Monsters"

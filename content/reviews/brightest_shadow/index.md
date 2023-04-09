@@ -2,6 +2,7 @@
 title:  "A Review of Sarah Lin's The Brightest Shadow - great subversion of a genre trope."
 description: "Epic fantasy with some progression. The Chosen One trope is delightfully flipped on its head."
 date: 2022-01-07
+auth: Sarah Lin
 categories: [reviews]
 review: C
 weight: 35

@@ -2,6 +2,7 @@
 title:  "A Review of C. Mantis' 'The Path of Ascension', a sci-fi wuxia novel with a staggering range of powers and power divides."
 description: "Scifi cultivation. It's not often we see wuxia in space. It's not common we see it done well, either."
 date: 2022-03-01
+auth: C. Mantis
 categories: [reviews]
 review: B
 weight: 28

@@ -2,6 +2,7 @@
 title:  "A Review of Phil Tucker's Bastion. It's great."
 description: "Cultivation with only slight academic focus. A great mix of classic progression with some top tier worldbuilding. The world is unique and interesting, characters empathetic, and their struggles all too real."
 date: 2021-11-17
+auth: Phil Tucker
 categories: [reviews]
 review: A
 weight: 13

@@ -2,6 +2,7 @@
 title:  "A review of Zamil Akhtar's Lightblade"
 description: "Progression fantasy, inception/matrix themes mixed in with some hints of Indo-Persian mythology. The world of dreams are filled with twists and turns, and the plot of this book is no exception."
 date: 2022-06-05
+auth: Zamil Akhtar
 categories: [reviews]
 review: C
 weight: 31

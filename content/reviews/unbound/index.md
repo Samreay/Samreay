@@ -2,6 +2,7 @@
 title:  "A review of Nicoli Gonnella's 'Unbound' series"
 description: "An action-heavy LitRPG isekai following Felix and his chimera companion pit in a world of primordials, gods, and lost races."
 date: 2023-03-05
+auth: Nicoli Gonnella
 categories: [reviews]
 review: C
 weight: 33.9

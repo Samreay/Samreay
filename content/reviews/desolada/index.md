@@ -2,6 +2,7 @@
 title:  "A Review of Louis Kalman's 'Desolada'"
 description: "Grimdark Progression fantasy with small-scale time reversing powers and rich worldbuilding."
 date: 2023-02-11
+auth: Louis Kalman
 categories: [reviews]
 review: B
 weight: 28

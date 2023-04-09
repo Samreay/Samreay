@@ -2,6 +2,7 @@
 title:  "A Review of zechamp's 'DMG=MA: A Rolling Stone LitRPG'"
 description: "LitRPG and cultivation parody about a sentient rock rolling down a mountain."
 date: 2023-02-07
+auth: zechamp
 categories: [reviews]
 review: B
 weight: 21

@@ -7,7 +7,8 @@
         {
           name: {{- .Params.name -}},
           link: {{- .RelPermalink -}},
-          abslink: {{- .Permalink -}},
+          abslink: {{- absURL .RelPermalink -}},
+          author: {{- .Params.auth -}},
           review: {{- .Params.review -}},
           weight: {{- .Weight -}},
           date: {{- .Date -}},
@@ -59,26 +60,25 @@
 
     function copy_to_clipboard() {
       navigator.clipboard.writeText(summary).then(function() {
-        console.log('Async: Copying to clipboard was successful!');
       }, function(err) {
         console.error('Async: Could not copy text: ', err);
       });
     }
 
     window.onkeypress = function(event) {
-      console.log(event)
       if (event.key == "c" || event.key == "C") {
           copy_to_clipboard()
       }
     }
 
     function summarise_post(post) {
-      let sb = "### **" + post.name + "** \n\n**Links:** [review](" + post.abslink + "), "
+      let sb = "### **" + post.name + "** ｜  by *" + post.author +"*\n\n**Links:** [review](" + post.abslink + "), "
       for (var link of post.links) {
         sb += "[" + link.name + "](" + link.link + "), "
       }
       sb = sb.slice(0,-2) + "\n\n"
-      sb += "**Summary**: " + post.description + "\n******\n"
+      sb += "**Summary:** " + post.description + "\n\n"
+      sb += "**Hook:** " + post.sentence + "\n\n*********\n"
       return sb
     }
 

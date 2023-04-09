@@ -3,6 +3,7 @@ title:  "A review of Naomi Novik's Scholomance Series"
 description: "Fantasy series, female lead in a magic school with an 50% mortality rate, because they get eaten by the maleficaria. A unique and refreshing take on magic schools."
 date: 2022-05-15
 categories: [reviews]
+auth: Naomi Novik
 review: A
 weight: 15
 name: "The Scholomance Series"

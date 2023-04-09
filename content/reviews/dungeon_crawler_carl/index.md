@@ -2,6 +2,7 @@
 title:  "A Review of Matt Dinniman's Dungeon Crawler Carl. Officially my favourite LitRPG."
 description: "System apocalypse LitRPG. Carl and Princess Donut are the real power couple I never knew I needed. Great pair dynamics, crazy hijinks, and just the right amount of larger plot."
 date: 2022-01-10
+auth: Matt Dinniman
 categories: [reviews]
 review: A
 weight: 17

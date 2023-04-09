@@ -2,6 +2,7 @@
 title:  "A review of KamikazePotato's 'An Outcast In Another World'"
 description: "Your typical isekai LitRPG novel that only gets better as it goes on through rich characters, good humour, and a great overaching plot."
 date: 2022-08-04
+auth: KamikazePotato
 categories: [reviews]
 review: C
 weight: 33

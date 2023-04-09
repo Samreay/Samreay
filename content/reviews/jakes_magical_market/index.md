@@ -1,9 +1,10 @@
 ---
-title:  "A Review of J. R. Mathews's 'Jakes Magical Market', a fun LitRPG apocalypse romb with a card based system."
+title:  "A Review of J.R. Mathews's 'Jakes Magical Market', a fun LitRPG apocalypse romb with a card based system."
 description: "System apocalypse LitRPG. Initially a card-based LitRPG system, Jake's Magical Market was an engaging read. It's two books stitched together with different focuses in each."
 date: 2022-03-01
 categories: [reviews]
 review: A
+auth: J.R. Mathews
 weight: 19
 name: "Jake's Magical Market"
 links:

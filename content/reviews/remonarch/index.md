@@ -3,6 +3,7 @@ title:  "A review of J. McCoy's 'RE: Monarch'"
 description: "A time-loop novel heavy on politics and intrigue with complex characters."
 date: 2022-11-30
 categories: [reviews]
+auth: J. McCoy
 review: C
 weight: 34
 name: "RE: Monarch"

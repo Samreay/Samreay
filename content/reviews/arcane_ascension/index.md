@@ -3,6 +3,7 @@ title:  "A Review of Andrew Rowe's Arcane Ascension Series: hard magic done righ
 description: "Progression fantasy in academic setting. Great world, detailed magic, intelligent characters, extraordinarily fun. Crafting and spire/dungeon focus."
 date: 2021-01-30
 name: "Arcane Ascension"
+auth: Andrew Rowe
 categories: [reviews]
 review: S
 weight: 8

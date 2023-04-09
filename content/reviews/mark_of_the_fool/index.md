@@ -5,6 +5,7 @@ date: 2022-09-30
 categories: [reviews]
 review: A
 weight: 15
+auth: J.M. Clarke
 name: "Mark of the Fool"
 links:
     amazon: https://www.amazon.com/Mark-Fool-Progression-Fantasy-Epic-ebook/dp/B0B134YJYF

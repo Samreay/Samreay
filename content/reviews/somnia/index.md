@@ -3,6 +3,7 @@ title:  "A review of K.T. Hanna's 'Somnia Online'"
 description: "Female-lead LitRPG vrmmo series about exploring the AI run world of Somnia Online. If you like other VR MMO books, read this."
 date: 2022-06-23
 categories: [reviews]
+auth: K.T. Hanna
 review: C
 weight: 33.5
 name: "Somnia Online"

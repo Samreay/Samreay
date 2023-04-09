@@ -4,6 +4,7 @@ short_title: "Chugong's Solo Levelling"
 description: "System LitRPG...ish. Perfect wish fulfilment - a world wherein everyone's power is fixed, but you alone can grow stronger."
 long_description: "Serious writing issues aside, the opening is amazing, the first book very engaging, it only falters in the final volumes."
 date: 2022-01-08
+auth: Chugong
 categories: [reviews]
 review: D
 weight: 47

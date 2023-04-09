@@ -2,6 +2,7 @@
 title:  "A Review of Will Wight's Cradle Series: The King of Progression Fantasy"
 name: "Cradle"
 description: "Cultivation. The current King of Progression Fantasy. Staggeringly good. Amazing characters, strong motivation, a beautiful system, rich world, and fast pace, it's a dream come true to read."
+auth: Will Wight
 sentence: "Lindon is Unsouled and forbidden to learn the sacred arts, so he forges his own Path."
 date: 2021-04-21
 categories: [reviews]

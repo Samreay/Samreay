@@ -2,6 +2,7 @@
 title:  "A review of Sarah Lin's 'The Weirkey Chronicles'"
 description: "Soft cultivation / isekai crossover with a unique magic system and expansive setting. If there's one thing I always love about Sarah Lin, its her worldbuilding. And now, she's written my favourite magic system as well."
 date: 2022-08-17
+auth: Sarah Lin
 categories: [reviews]
 review: A
 weight: 18

@@ -3,6 +3,7 @@ title:  "A review of Alec Huston's 'Umbral Storm'"
 description: "A sect style western cultivation with multiple PoVs and rich worldbuilding."
 date: 2022-11-30
 categories: [reviews]
+auth: Alec Huston
 review: B
 weight: 24
 name: "Umbral Storm"

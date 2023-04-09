@@ -2,6 +2,7 @@
 title:  "A Review of Avitue's 'And (N)one Shall Remain'"
 description: "LitRPG group reincarnation with two main POVs, with the characters placed against each other."
 date: 2023-02-10
+auth: Avitue
 categories: [reviews]
 review: B
 weight: 28

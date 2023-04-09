@@ -3,6 +3,7 @@ title:  "A review of J.R. Mathews's 'Portal to Nova Roma'"
 description: "Portal fantasy with an AI MC who uses his technology knowledge to get ahead in a ravaged, magical world."
 date: 2022-11-22
 categories: [reviews]
+auth:  J.R. Mathews
 review: A
 weight: 19.9
 name: "Portal to Nova Roma"

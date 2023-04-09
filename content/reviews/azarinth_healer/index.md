@@ -2,6 +2,7 @@
 title:  "A review of Rhaegar's 'Azarinth Healer'"
 description: "A lone-MC isekai with non-stop action, overpowered MC, and a massive backlog."
 date: 2022-12-04
+auth: Rhaegar
 categories: [reviews]
 review: B
 weight: 21

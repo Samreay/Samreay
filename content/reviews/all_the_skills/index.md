@@ -2,6 +2,7 @@
 title:  "A Review of Honour Rae's 'All The Skills'"
 description: "LitRPG deckbuilding system, where the MC gets a Legendary card as a child. Also dragon riders."
 date: 2023-02-09
+auth: Honour Rae
 categories: [reviews]
 review: B
 weight: 28

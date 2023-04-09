@@ -2,6 +2,7 @@
 title:  "A review of RavensDagger's 'Cinnamon Bun'"
 description: "A wholesome isekai in a LitRPG world wherein our female lead goes on friendship-making adventures. If you're burnt out with psychopathic MCs... this will cleanse your palette. Light-hearted, wholesome, and incredibly cute."
 date: 2022-09-23
+auth: RavensDagger
 categories: [reviews]
 review: B
 weight: 23

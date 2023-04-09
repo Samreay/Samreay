@@ -2,6 +2,7 @@
 title:  "Tao Wong's A Thousand Li - classical cultivation doled out sparingly"
 description: "Cultivation with sect focus. Good premise, slow pacing, tends towards slice-of-life."
 date: 2021-06-01
+auth: Tao Wong
 categories: [reviews]
 review: D
 weight: 43.9

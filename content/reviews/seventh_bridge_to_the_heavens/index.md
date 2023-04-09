@@ -2,6 +2,7 @@
 title:  "A review of T.J. Reynold's 'Seventh Bridge to the Heavens'"
 description: "A cultivation story with the faintest hint of LitRPG, featuring elemental powers and great worldbuilding."
 date: 2022-06-30
+auth: T.J. Reynold
 categories: [reviews]
 review: B
 weight: 25

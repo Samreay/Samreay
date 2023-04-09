@@ -3,6 +3,7 @@ title:  "A Review of Andrew Rowes's How to Defeat a Demon King in Ten Easy Steps
 description: "Hilarious LitRPG. A love letter to Zelda, this story is a humorous LitRPG take on if an actual video game story came to life."
 date: 2022-01-12
 categories: [reviews]
+auth: Andrew Rowe
 review: B
 weight: 24
 name: "How to Defeat a Demon King in Ten Easy Steps"

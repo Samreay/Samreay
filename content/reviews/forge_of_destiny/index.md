@@ -5,6 +5,7 @@ description: "Slice-of-life cultivation. Academia/sect focus. Chill read with sl
 long_description: "Sect focused cultivation novel with a cute pet, but ultimately highly predictable with no larger plot to draw you in."
 date: 2021-05-26
 categories: [reviews]
+auth: Yrsillar
 review: C
 weight: 35
 name: "Forge of Destiny"

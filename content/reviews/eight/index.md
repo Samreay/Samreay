@@ -2,6 +2,7 @@
 title:  "A review of Samer Rabadi's 'Eight'"
 description: "Isekai slice-of-life centred around Eight and the spirit he befriends."
 date: 2022-11-22
+auth: Samer Rabadi
 categories: [reviews]
 review: C
 weight: 40

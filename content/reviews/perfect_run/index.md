@@ -2,6 +2,7 @@
 title:  "A review of Maxime J. Durand's 'The Perfect Run'"
 description: "Fantasy series focusing on time loops and a diverse cast of super-powered characters trying to save the world... or end it. Great characterisation and imaginative powers: awesome."
 date: 2022-05-15
+auth: Maxime J. Durand
 categories: [reviews]
 review: B
 weight: 25

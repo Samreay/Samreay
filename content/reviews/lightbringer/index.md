@@ -3,6 +3,7 @@ title:  "A Review of Brent Weeks' Lightbringer Series. Such a promising beginnin
 description: "A great fantasy series with horrific ending. Amazing magic system though."
 name: Lightbringer
 date: 2020-12-28
+auth: Brent Weeks
 categories: [reviews]
 review: D
 weight: 49

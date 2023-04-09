@@ -3,6 +3,7 @@ title:  "A review of Michael Nwanolue's 'The Tower Unbroken'"
 description: "A Cradle-inspired cultivation story set in a fantasy world with African roots."
 date: 2022-09-07
 categories: [reviews]
+auth: Michael Nwanolue
 review: C
 weight: 37
 name: "The Tower Unbroken"

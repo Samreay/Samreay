@@ -3,6 +3,7 @@ title:  "A Review of Chris Fox's Shattered Gods series. A great new entry into p
 description: "Progression fantasy, academy focus in book two on. A strong core dynamic between Xal and Saghir and lots of travelling."
 date: 2022-01-11
 categories: [reviews]
+auth: Chris Fox
 review: C
 weight: 33
 name: "Shattered Gods"

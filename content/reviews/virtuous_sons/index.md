@@ -2,6 +2,7 @@
 title:  "A review of Striker's 'Virtuous Sons'"
 description: "Cultivation in a Greco-Roman setting, with amazing characters and absolutely fantasy dynamics."
 date: 2022-11-11
+auth: Y.B. Striker
 categories: [reviews]
 review: B
 weight: 22

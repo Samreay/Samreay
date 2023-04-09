@@ -3,6 +3,7 @@ title:  "A Review of Selkie Myth's series 'Beneath the Dragoneye Moons'"
 short_title: "Beneath the Dragoneye Moons"
 description: "Epic fantasy isekai with a healing-focused female-lead. Some magic school in books eight and nine."
 date: 2023-02-19
+auth: Selkie Myth
 categories: [reviews]
 review: A
 weight: 18

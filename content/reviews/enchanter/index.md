@@ -6,6 +6,7 @@ date: 2022-04-15
 categories: [reviews]
 review: B
 weight: 24.5
+auth: Tobias Begley
 name: "The Enchanter"
 links:
     amazon: https://www.amazon.com/Enchanter-Journals-Evander-Tailor-Book-ebook/dp/B09VNDHW49

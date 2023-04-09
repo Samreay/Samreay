@@ -2,6 +2,7 @@
 title:  "A review of Momo's 'Martial Peak'"
 description: "Traditional cultivation manhua packed with action-packed, gorgeous art... and multiple wives."
 date: 2023-01-10
+auth: Momo
 categories: [reviews]
 review: C
 weight: 31

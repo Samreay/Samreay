@@ -3,6 +3,7 @@ title:  "A Review of Andrew Seiple's Threadbare. Adorable, unique, and fascinati
 description: "LitRPG fantasy. A delightful and aggressively adorable take on the genre. A sentient golem teddy bears searching for their kidnapped child, teaming up with the household cat."
 date: 2021-11-18
 categories: [reviews]
+auth: Andrew Seiple
 review: C
 weight: 35
 name: "Threadbare"

@@ -3,6 +3,7 @@ title:  "A Review of Dakota Krout's Completionist Chronicles and Ritualist from 
 short_title:  "A Review of Dakota Krout's Completionist Chronicles."
 description: "World-system LitRPG. Fun read with an interesting cast. Ignore the weird opening about Elon Musk. A chill, fun read."
 date: 2021-05-03
+auth: Dakota Krout
 categories: [reviews]
 review: B
 weight: 26

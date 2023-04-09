@@ -3,6 +3,7 @@ title:  "A physicist reviews Dominic Stal's 'The Last Physicist'"
 description: "LitRPG, isekai/portal fantasy, with a sort-of-but-not-really scientific approach to magic."
 date: 2022-06-05
 categories: [reviews]
+auth: Dominic Stal
 review: C
 weight: 39.99
 name: "The Last Physicist"

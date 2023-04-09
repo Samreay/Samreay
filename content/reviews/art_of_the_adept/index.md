@@ -3,6 +3,7 @@ title:  "A review of Michael G. Manning's 'Art of the Adept'"
 short_title: "Art of the Adept"
 description: "Cross Magician with progression fantasy themes, and then work in the harsh reality of the world with a Robin-Hobb-style, gut-punching ending."
 date: 2022-07-26
+auth: Michael G. Manning
 categories: [reviews]
 review: C
 weight: 34

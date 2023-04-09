@@ -3,6 +3,7 @@ title:  "A Review of 'Defiance of the Fall', a system-apocalypse LitRPG / cultiv
 description: "System apocalypse LitRPG. A multiverse spanning series with great hooks, even if there's some deus ex machina and some editing issues."
 date: 2022-03-25
 categories: [reviews]
+auth: TheFirstDefier
 review: C
 weight: 36
 name: "Defiance of the Fall"

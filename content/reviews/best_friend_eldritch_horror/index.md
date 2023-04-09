@@ -2,6 +2,7 @@
 title:  "A Review of Actus' 'My Best Friend is an Eldritch Horror.'"
 description: "LitRPG focused on Damien and his Eldritch companion in a magic school setting."
 date: 2023-02-21
+auth: Actus
 categories: [reviews]
 review: B
 weight: 21

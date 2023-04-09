@@ -3,6 +3,7 @@ title:  "A Review of MelasDelta's 'Salvos' series"
 description: "LitRPG portal fantasy where the MC is a demon lost in the world of mortals."
 date: 2023-03-25
 categories: [reviews]
+auth: MelasDelta
 review: B
 weight: 25
 name: "Salvos"

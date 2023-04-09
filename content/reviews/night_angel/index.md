@@ -2,6 +2,7 @@
 title:  "A Review of Brent Weeks' 'Night Angel' trilogy"
 description: "This trilogy follows Azoth/Kylar and his growth from street rat to deadly assassin."
 date: 2013-02-02
+auth: Brent Weeks
 categories: [reviews]
 review: C
 weight: 35

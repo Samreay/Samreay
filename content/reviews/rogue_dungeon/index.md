@@ -1,8 +1,9 @@
 ---
-title:  "A Review of Jame A. Hunter's Rogue Dungeon. Light-hearted fun."
+title:  "A Review of James A. Hunter's Rogue Dungeon. Light-hearted fun."
 description: "Reincarnation fantasy LitRPG. Not Dungeon Core despite the name, but a fun dungeon-based settings."
 date: 2022-01-09
 categories: [reviews]
+auth:  James A. Hunter
 review: C
 weight: 34
 name: "Rogue Dungeon"
