@@ -1,251 +1,315 @@
 {{ define "main" }}
 
 <script type="module">
-  import { reactive, html, watch } from '/js/arrow.js';
-  const posts = [
-      {{- range ( where .Site.RegularPages.ByWeight "Type" .Type ) -}}
-      {
-        name: {{- .Params.name -}},
-        link: {{- .RelPermalink -}},
-        review: {{- .Params.review -}},
-        weight: {{- .Weight -}},
-        date: {{- .Date -}},
-        tags: [
-        {{- range $tag := .Params.tags | sort -}}
-          "{{ $tag | lower }}",
-        {{- end -}}],
-        title: {{ .Params.name }},
-        sentence: {{ .Params.sentence }},
-        {{- $images := .Resources.ByType "image" -}} 
-        {{- $img := $images.GetMatch "{*cover*,*thumbnail*}" -}} 
-        img: {{- ( $img.Fill "250x375 Center webp q80 #000000" ).RelPermalink -}},
-        img_larger: {{-  ( $img.Fill "500x750 Center webp q70 #000000" ).RelPermalink -}},
-        {{ if isSet .Params "video" }}
-        video: {{- ( .Resources.Get .Params.video ).RelPermalink -}},
-        {{- end -}}
-    },
-    {{- end -}}
-  ]
+    import { reactive, html, watch } from '/js/arrow.js';
+    const posts = [
+        {{- range ( where .Site.RegularPages.ByWeight "Type" .Type ) -}}
+        {
+          name: {{- .Params.name -}},
+          link: {{- .RelPermalink -}},
+          abslink: {{- .Permalink -}},
+          review: {{- .Params.review -}},
+          weight: {{- .Weight -}},
+          date: {{- .Date -}},
+          tags: [
+          {{- range $tag := .Params.tags | sort -}}
+            "{{ $tag | lower }}",
+          {{- end -}}],
+          links: [
+            {{- range $n, $l := .Params.links -}}
+            {
+              name: {{- $n -}},
+              link: {{- $l -}},
+            },
+            {{- end -}}
+          ],
+          title: {{ .Params.name }},
+          sentence: {{ .Params.sentence }},
+          description: {{ .Params.description }},
+          {{- $images := .Resources.ByType "image" -}}
+          {{- $img := $images.GetMatch "{*cover*,*thumbnail*}" -}}
+          img: {{- ( $img.Fill "250x375 Center webp q80 #000000" ).RelPermalink -}},
+          img_larger: {{-  ( $img.Fill "500x750 Center webp q70 #000000" ).RelPermalink -}},
+          {{ if isSet .Params "video" }}
+          video: {{- ( .Resources.Get .Params.video ).RelPermalink -}},
+          {{- end -}}
+      },
+      {{- end -}}
+    ]
 
-  // Calc all tags
-  let tags = [];
-  posts.forEach(function(post) {
-    post.tags.forEach(function (tag) {
-      if (!tags.includes(tag)) {
-        tags.push(tag);
-      }
-    })
-  });
-  const default_wide = screen.width > 1280
-  const data = reactive({
-    tag_activations: {},
-    wide_cards: default_wide,
-    by_rank: true,
-    posts: posts,
-    tags: tags,
-  });
-
-  function reset() {
-    for (const [key, value] of Object.entries(data.tag_activations)) {
-      data.tag_activations[key] = undefined
-      delete data.tag_activations[key];
-    }
-    data.wide_cards = default_wide
-    data.by_rank = true
-    update_url()
-  }
-  function set_from_url() {
-    var params = new URLSearchParams(window.location.search)
-    if (params.has("o")) {
-      data.by_rank = params.get("o") === "1"
-    }
-    if (params.has("w")) {
-      data.wide_cards = params.get("w") === "1"
-    }
-    if (params.has("include")) {
-      params.get("include").split("_").forEach(function (t) {
-        data.tag_activations[t] = true;
-      })
-    }
-    if (params.has("exclude")) {
-      params.get("exclude").split("_").forEach(function (t) {
-        data.tag_activations[t] = false;
-      })
-    }
-  }
-  set_from_url()
-
-  function update_url() {
-    var params = new URLSearchParams();
-    if (!data.by_rank) {
-      params.set("o", 0)
-    }
-    if (default_wide != data.wide_cards) {
-      if (data.wide_cards) {
-        params.set("w", 1)
-      } else {
-        params.set("w", 0)
-      }
-    }
-    let include = []
-    let exclude = []
-    for (const [key, value] of Object.entries(data.tag_activations)) {
-      if (value) {
-        include.push(key)
-      } else {
-        exclude.push(key)
-      }
-    }
-    if (include.length > 0) {
-      params.set("include", include.join("_"))
-    }
-    if (exclude.length > 0) {
-      params.set("exclude", exclude.join("_"))
-    }
-    var args = params.toString()
-    if (args.length > 0) {
-      args = "?" + args
-    }
-    var newUrl = window.location.origin + window.location.pathname + args
-    window.history.pushState({path: newUrl}, "", newUrl)
-    setTimeout(() => window.dispatchEvent(new Event("popstate")), 50);    
-  }
-  watch(update_url);
-
-  const click_tag = (tag) => {
-    if (tag in data.tag_activations) {
-      if (data.tag_activations[tag]) {
-        console.log(tag + " is now set to false")
-        data.tag_activations[tag] = false;
-      } else {
-        console.log(tag + " is removed")
-        data.tag_activations[tag] = undefined;
-        delete data.tag_activations[tag];
-      }
-    } else {
-      console.log(tag + " is true")
-      data.tag_activations[tag] = true;
-    }
-  }
-
-  const tag_container = document.getElementById("tags");
-  const tag_template = html`${() => data.tags.map(
-    tag => html`
-<button @click="${() => click_tag(tag)}" class="${() => "tag tag-" + tag + " active-" + (Object.keys(data.tag_activations).length == 0 ? "nan" : data.tag_activations[tag])}">
-  <span>${tag}</span>
-</button>
-    `)}`
-  tag_template(tag_container)
-
-  const wide_containter = document.getElementById("toggle-input");
-  const wide_template = html`
-<div class="justify-center flex flex-wrap items-center">
-  <label for="wide-layout" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
-    <input id="wide-layout" type="checkbox" checked="${() => (data.wide_cards ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.wide_cards = e.target.checked} }">
-    <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Wide</span>
-    <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Cover</span>
-  </label>
-  <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
-    <input id="sort-order" type="checkbox" checked="${() => (data.by_rank ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.by_rank = e.target.checked} }">
-    <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Rank</span>
-    <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Recent</span>
-  </label>
-  <button class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100" @click="${() => reset()}">Reset</button>
-
-</div>
-`
-  wide_template(wide_containter);
-  
-
-  const video_template = (post) => html`
-<video class="${() => "block h-full w-full flex-none bg-cover mx-auto sm:ml-0 " + (data.wide_cards ? "md:rounded-l-xl" : "")}" preload="auto" playsinline plays-inline autoplay loop muted >
-  <source src="${post.video}" type="video/mp4" />
-</video>`
-  const image_template = (post) => html`
-<picture>
-  <source srcset="${post.img} 275w, ${post.img_larger} 500w" type="image/webp" />
-  <img class="${() => "block flex-none bg-cover mx-auto " + (data.wide_cards ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
-</picture>`
-
-  const card_containter = document.getElementById("all-card-wrapper");
-  const card_template = html`
-<div id="card-wrapper" class="${() => "container mx-auto mt-20 justify-center grid gap-4 sm:gap-12 " + (data.wide_cards ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards")}">
-  ${() => data.posts.filter(function(post) {
-    for (const [key, value] of Object.entries(data.tag_activations)) {
-      if (value) {
-        if (!post.tags.includes(key)) {
-          return false;
+    // Calc all tags
+    let tags = [];
+    posts.forEach(function(post) {
+      post.tags.forEach(function (tag) {
+        if (!tags.includes(tag)) {
+          tags.push(tag);
         }
-      } else {
-        if (post.tags.includes(key)) {
-          return false;
+      })
+    });
+    const default_wide = screen.width > 1280
+    const data = reactive({
+      tag_activations: {},
+      wide_cards: default_wide,
+      by_rank: true,
+      posts: posts,
+      tags: tags,
+    });
+
+    let summary = "";
+
+    function copy_to_clipboard() {
+      navigator.clipboard.writeText(summary).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+    }
+
+    window.onkeypress = function(event) {
+      console.log(event)
+      if (event.key == "c" || event.key == "C") {
+          copy_to_clipboard()
+      }
+    }
+
+    function summarise_post(post) {
+      let sb = "### **" + post.name + "** \n\n**Links:** [review](" + post.abslink + "), "
+      for (var link of post.links) {
+        sb += "[" + link.name + "](" + link.link + "), "
+      }
+      sb = sb.slice(0,-2) + "\n\n"
+      sb += "**Summary**: " + post.description + "\n******\n"
+      return sb
+    }
+
+    function make_summary() {
+      var filtered_posts = data.posts.filter(function(post) {
+        for (const [key, value] of Object.entries(data.tag_activations)) {
+          if (value) {
+            if (!post.tags.includes(key)) {
+              return false;
+            }
+          } else {
+            if (post.tags.includes(key)) {
+              return false;
+            }
+          }
+        }
+        return true;
+      }).sort((a, b) => {
+        return a.weight > b.weight ? 1 : -1;
+      })
+      let sb = ""
+      filtered_posts.forEach(function(post) {
+        sb += summarise_post(post)
+      })
+      summary = sb;
+    }
+    watch(make_summary)
+    function reset() {
+      for (const [key, value] of Object.entries(data.tag_activations)) {
+        data.tag_activations[key] = undefined
+        delete data.tag_activations[key];
+      }
+      data.wide_cards = default_wide
+      data.by_rank = true
+      update_url()
+    }
+    function set_from_url() {
+      var params = new URLSearchParams(window.location.search)
+      if (params.has("o")) {
+        data.by_rank = params.get("o") === "1"
+      }
+      if (params.has("w")) {
+        data.wide_cards = params.get("w") === "1"
+      }
+      if (params.has("include")) {
+        params.get("include").split("_").forEach(function (t) {
+          data.tag_activations[t] = true;
+        })
+      }
+      if (params.has("exclude")) {
+        params.get("exclude").split("_").forEach(function (t) {
+          data.tag_activations[t] = false;
+        })
+      }
+    }
+    set_from_url()
+
+    function update_url() {
+      var params = new URLSearchParams();
+      if (!data.by_rank) {
+        params.set("o", 0)
+      }
+      if (default_wide != data.wide_cards) {
+        if (data.wide_cards) {
+          params.set("w", 1)
+        } else {
+          params.set("w", 0)
         }
       }
+      let include = []
+      let exclude = []
+      for (const [key, value] of Object.entries(data.tag_activations)) {
+        if (value) {
+          include.push(key)
+        } else {
+          exclude.push(key)
+        }
+      }
+      if (include.length > 0) {
+        params.set("include", include.join("_"))
+      }
+      if (exclude.length > 0) {
+        params.set("exclude", exclude.join("_"))
+      }
+      var args = params.toString()
+      if (args.length > 0) {
+        args = "?" + args
+      }
+      var newUrl = window.location.origin + window.location.pathname + args
+      window.history.pushState({path: newUrl}, "", newUrl)
+      setTimeout(() => window.dispatchEvent(new Event("popstate")), 50);
     }
-    return true;
-  }).sort((a, b) => {
-    if (data.by_rank) {
-      return a.weight > b.weight ? 1 : -1;
-    } else {
-      return a.date < b.date ? 1 : -1;
+    watch(update_url);
+
+    const click_tag = (tag) => {
+      if (tag in data.tag_activations) {
+        if (data.tag_activations[tag]) {
+          data.tag_activations[tag] = false;
+        } else {
+          data.tag_activations[tag] = undefined;
+          delete data.tag_activations[tag];
+        }
+      } else {
+        data.tag_activations[tag] = true;
+      }
     }
-  }).map(
-    post => html`
-<div class="fancy_card horizontal mx-auto">
-  <div class="card_translator">
-    <a class="card_rotator small_rot card_layer block" href="${post.link}">
-      <div class="card_layer">
-        <article class="review-summary review-${post.review}">
-          <div class="bg2">
-            <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
-              <figure class="${() => "block flex-none bg-cover " + (data.wide_cards ? "" : "w-full")}">
-                ${() => {
-                  if ("video" in post) {
-                    return video_template(post)
-                  } else {
-                    return image_template(post)
-                  }
-                }}
-                
-              </figure>
-              <div class="flex flex-col justify-between p-4 text-center side-card-content">
-                <div class="rating">
-                  <p class="small rating-${post.review}">
-                    <span class="leader">${post.name}</span>
-                  </p>
-                </div>
-                <p class="text-lg text-gray-400 px-3">${post.sentence}</p>
-                <div class="">
-                  <div class="mb-3">
-                    <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
-                      ${post.tags.map(tag => html`<li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-${tag}">${tag}</li>`)}
-                    </ul>
+
+    const tag_container = document.getElementById("tags");
+    const tag_template = html`${() => data.tags.map(
+      tag => html`
+  <button @click="${() => click_tag(tag)}" class="${() => "tag tag-" + tag + " active-" + (Object.keys(data.tag_activations).length == 0 ? "nan" : data.tag_activations[tag])}">
+    <span>${tag}</span>
+  </button>
+      `)}`
+    tag_template(tag_container)
+
+    const wide_containter = document.getElementById("toggle-input");
+    const wide_template = html`
+  <div class="justify-center flex flex-wrap items-center">
+    <label for="wide-layout" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
+      <input id="wide-layout" type="checkbox" checked="${() => (data.wide_cards ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.wide_cards = e.target.checked} }">
+      <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Wide</span>
+      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Cover</span>
+    </label>
+    <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
+      <input id="sort-order" type="checkbox" checked="${() => (data.by_rank ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.by_rank = e.target.checked} }">
+      <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Rank</span>
+      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Recent</span>
+    </label>
+    <button class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100" @click="${() => reset()}">Reset</button>
+
+  </div>
+  `
+    wide_template(wide_containter);
+
+
+    const video_template = (post) => html`
+  <video class="${() => "block h-full w-full flex-none bg-cover mx-auto sm:ml-0 " + (data.wide_cards ? "md:rounded-l-xl" : "")}" preload="auto" playsinline plays-inline autoplay loop muted >
+    <source src="${post.video}" type="video/mp4" />
+  </video>`
+    const image_template = (post) => html`
+  <picture>
+    <source srcset="${post.img} 275w, ${post.img_larger} 500w" type="image/webp" />
+    <img class="${() => "block flex-none bg-cover mx-auto " + (data.wide_cards ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
+  </picture>`
+
+    const card_containter = document.getElementById("all-card-wrapper");
+    const card_template = html`
+  <div id="card-wrapper" class="${() => "container mx-auto mt-20 justify-center grid gap-4 sm:gap-12 " + (data.wide_cards ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards")}">
+    ${() => data.posts.filter(function(post) {
+      for (const [key, value] of Object.entries(data.tag_activations)) {
+        if (value) {
+          if (!post.tags.includes(key)) {
+            return false;
+          }
+        } else {
+          if (post.tags.includes(key)) {
+            return false;
+          }
+        }
+      }
+      return true;
+    }).sort((a, b) => {
+      if (data.by_rank) {
+        return a.weight > b.weight ? 1 : -1;
+      } else {
+        return a.date < b.date ? 1 : -1;
+      }
+    }).map(
+      post => html`
+  <div class="fancy_card horizontal mx-auto">
+    <div class="card_translator">
+      <a class="card_rotator small_rot card_layer block" href="${post.link}">
+        <div class="card_layer">
+          <article class="review-summary review-${post.review}">
+            <div class="bg2">
+              <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
+                <figure class="${() => "block flex-none bg-cover " + (data.wide_cards ? "" : "w-full")}">
+                  ${() => {
+                    if ("video" in post) {
+                      return video_template(post)
+                    } else {
+                      return image_template(post)
+                    }
+                  }}
+
+                </figure>
+                <div class="flex flex-col justify-between p-4 text-center side-card-content">
+                  <div class="rating">
+                    <p class="small rating-${post.review}">
+                      <span class="leader">${post.name}</span>
+                    </p>
+                  </div>
+                  <p class="text-lg text-gray-400 px-3">${post.sentence}</p>
+                  <div class="">
+                    <div class="mb-3">
+                      <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
+                        ${post.tags.map(tag => html`<li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-${tag}">${tag}</li>`)}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </article>
-      </div>
-      <div class="card_layer card_effect card_overlay_${post.review}"></div>
-      <div class="card_layer card_effect card_glare"></div>
-    </a>
+          </article>
+        </div>
+        <div class="card_layer card_effect card_overlay_${post.review}"></div>
+        <div class="card_layer card_effect card_glare"></div>
+      </a>
+    </div>
   </div>
-</div>    
-`)}
-</div>`
+  `)}
+  </div>`
 
-  card_template(card_containter);
-
+    card_template(card_containter);
 </script>
 
 <div class="content content-full">
   <div class="section-header mt-12 pb-2">
     <h1>Book Reviews!</h1>
     <p>
-      As normal, these are <em>my</em> rankings based on what I personally enjoy reading. You may have opposite tastes. 
-      The below inputs should make finding something easier.
-      If you have questions, recommendations, or want to know when new reviews or releases are out, join the <a href="{{ site.Params.discord }}" class="font-bold" style="color:	#7289da;"><i class="fa-brands fa-discord"></i> discord</a>.
+      As normal, these are <em>my</em> rankings based on what I personally enjoy
+      reading. You may have opposite tastes. The below inputs should make
+      finding something easier. If you have questions, recommendations, or want
+      to know when new reviews or releases are out, join the
+      <a
+        href="{{ site.Params.discord }}"
+        class="font-bold"
+        style="color: #7289da"
+        ><i class="fa-brands fa-discord"></i> discord</a
+      >.
     </p>
   </div>
   <!-- The toggles config -->
@@ -255,4 +319,3 @@
 </div>
 
 {{ end }}
-
