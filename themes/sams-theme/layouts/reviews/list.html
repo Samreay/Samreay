@@ -56,10 +56,8 @@
       tags: tags,
     });
 
-    let summary = "";
-
-    function copy_to_clipboard() {
-      navigator.clipboard.writeText(summary).then(function() {
+    function copy_to_clipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
       }, function(err) {
         console.error('Async: Could not copy text: ', err);
       });
@@ -67,7 +65,13 @@
 
     window.onkeypress = function(event) {
       if (event.key == "c" || event.key == "C") {
-          copy_to_clipboard()
+        let content = ""
+        if (event.key == "c") {
+          content = make_summary(short_summarise_post)
+        } else {
+          content = make_summary(summarise_post)
+        }
+        copy_to_clipboard(content)
       }
     }
 
@@ -82,7 +86,17 @@
       return sb
     }
 
-    function make_summary() {
+    function short_summarise_post(post) {
+      let sb = "* **" + post.name + "**: "
+      sb += "([review](" + post.abslink + "), "
+      for (var link of post.links) {
+        sb += "[" + link.name + "](" + link.link + "), "
+      }
+      sb = sb.slice(0,-2) + "): " + post.description + "\n"
+      return sb
+    }
+
+    function make_summary(callable) {
       var filtered_posts = data.posts.filter(function(post) {
         for (const [key, value] of Object.entries(data.tag_activations)) {
           if (value) {
@@ -100,12 +114,12 @@
         return a.weight > b.weight ? 1 : -1;
       })
       let sb = ""
-      filtered_posts.forEach(function(post) {
-        sb += summarise_post(post)
-      })
-      summary = sb;
+      for (var i = 0; i < filtered_posts.length; i++) {
+        sb += callable(filtered_posts[i])
+      }
+      return sb
     }
-    watch(make_summary)
+
     function reset() {
       for (const [key, value] of Object.entries(data.tag_activations)) {
         data.tag_activations[key] = undefined
