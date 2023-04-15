@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/39408/beware-of-chicken
     goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
 aliases: [/reviews/chicken]
-tags: [in-progress, cultivation, wholesome, slice-of-life]
+tags: [in-progress, isekai, cultivation, wholesome, slice-of-life]
 sentence: "A laugh-out-loud, slice-of-life martial-arts fantasy about . . . farming????"
 ---
 
