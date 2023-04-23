@@ -10,8 +10,9 @@ weight: 8
 links:
     amazon: https://www.amazon.com/gp/product/B06XBFD7CB
     goodreads: https://www.goodreads.com/book/show/34403860-sufficiently-advanced-magic
+    audible: https://www.audible.com/pd/Sufficiently-Advanced-Magic-Audiobook/B072YT93QD
 aliases: [/reviews/arcane_ascension]
-tags: [crafting, magic-school, hard-magic, in-progress, lgbt]
+tags: [crafting, magic-school, hard-magic, in-progress, lgbt, audio]
 sentence: "Corin Cadence searches for his brother, who disappeared in the Serpent Spire."
 ---
 

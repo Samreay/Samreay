@@ -11,8 +11,9 @@ name: "Art of the Adept"
 links:
     amazon: https://www.amazon.com/gp/product/B07W7X9VY6
     goodreads: https://www.goodreads.com/series/269818-art-of-the-adept
+    audible: https://www.audible.com/pd/The-Choice-of-Magic-Audiobook/1774242729
 aliases: [/reviews/adept]
-tags: [magic-school, finished]
+tags: [magic-school, finished, audio]
 sentence: "In a world run by sorcerers, Will becomes the ultimate wizard."
 ---
 

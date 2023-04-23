@@ -11,8 +11,9 @@ links:
     amazon: https://www.amazon.com/Mark-Fool-Progression-Fantasy-Epic-ebook/dp/B0B134YJYF
     goodreads: https://www.goodreads.com/book/show/58854991-mark-of-the-fool
     royal_road: https://www.royalroad.com/fiction/41618/mark-of-the-fool
+    audible: https://www.audible.com/pd/Mark-of-the-Fool-Audiobook/B0B6JPQXR6
 aliases: [/reviews/markfool]
-tags: [in-progress, magic-school, crafting, hard-magic, slice-of-life]
+tags: [in-progress, magic-school, crafting, hard-magic, slice-of-life, audio]
 sentence: "Alex Roth is called by the gods to be a hero. He declines."
 ---
 

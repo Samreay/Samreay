@@ -10,8 +10,9 @@ name: "Divine Dungeon"
 links:
     amazon: https://www.amazon.com/Divine-Dungeon-Complete-GameLit-Fantasy-ebook/dp/B084RD9N97
     goodreads: https://www.goodreads.com/series/192510-the-divine-dungeon
+    audible: https://www.audible.com/pd/Dungeon-Born-Audiobook/B06XQ78XLP
 aliases: [/reviews/divine_dungeon]
-tags: [litrpg, crafting, finished, dungeon-core]
+tags: [litrpg, crafting, finished, dungeon-core, audio]
 sentence: "A powerful dungeon. A sheep-herder turned Noble. Their path to ascendance through cultivation."
 ---
 

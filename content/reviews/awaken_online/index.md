@@ -10,8 +10,9 @@ name: "Awaken Online"
 links:
     amazon: https://www.amazon.com/dp/B074CC5NDX
     goodreads: https://www.goodreads.com/series/196901-awaken-online
+    audible: https://www.audible.com/pd/Awaken-Online-Catharsis-Audiobook/B01L7UC1SU
 aliases: [/reviews/awaken]
-tags: [in-progress, litrpg, vrmmo]
+tags: [in-progress, litrpg, vrmmo, audio]
 sentence: "Jason logs into Awaken Online fed-up with reality. This game is his ticket to power and freedom."
 ---
 

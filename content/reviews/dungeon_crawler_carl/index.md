@@ -10,8 +10,9 @@ name: "Dungeon Crawler Carl"
 links:
     amazon: https://www.amazon.com/Dungeon-Crawler-Carl-Gamelit-Adventure-ebook/dp/B08BKGYQXW
     goodreads: https://www.goodreads.com/en/book/show/54659324-dungeon-crawler-carl
+    audible: https://www.audible.com/pd/Dungeon-Crawler-Carl-Audiobook/B08V8B2CGV
 aliases: [/reviews/carl]
-tags: [in-progress, system-apocalypse, litrpg, companion]
+tags: [in-progress, system-apocalypse, litrpg, companion, audio]
 sentence: "A man. His ex-girlfriend's cat. A sadistic game where survival depends on killing your prey in the most entertaining way possible."
 ---
 

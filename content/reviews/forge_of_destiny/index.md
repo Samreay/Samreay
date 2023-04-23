@@ -12,9 +12,9 @@ name: "Forge of Destiny"
 links:
     amazon: https://www.amazon.com/Forge-Destiny-1-Yrsillar-ebook/dp/B08P8175Z1
     goodreads: https://www.goodreads.com/en/book/show/43461912-forge-of-destiny
-
+    audible: https://www.audible.com/pd/Forge-of-Destiny-Audiobook/1774246856
 aliases: [/reviews/forge_destiny]
-tags: [cultivation, female-lead, in-progress, magic-school, slice-of-life]
+tags: [cultivation, female-lead, in-progress, magic-school, slice-of-life, audio]
 sentence: "A young girl from the slums is found to have the Talent to become an Immortal."
 ---
 

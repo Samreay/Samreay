@@ -10,8 +10,9 @@ name: "Unbound"
 links:
     amazon: https://www.amazon.com/Dissonance-LitRPG-Adventure-Nicoli-Gonnella/dp/1637660936
     goodreads: https://www.goodreads.com/series/344435-unbound
+    audible: https://www.audible.com/pd/Dissonance-Audiobook/B09XY39B53
 aliases: [/reviews/unbound]
-tags: [in-progress, litrpg, isekai, companion]
+tags: [in-progress, litrpg, isekai, companion, audio]
 sentence: "Felix is Unbound, an anomoly summoned to the world, there to uncover ancient secrets and power."
 ---
 

@@ -13,8 +13,9 @@ links:
     amazon: https://www.amazon.com/Solo-Leveling-Vol-1-Novel/dp/B096YCZLTL
     goodreads: https://www.goodreads.com/en/book/show/52800465-solo-leveling---light-novel
     manhua: https://sololeveling-manhwa.online/manga/solo-leveling-chapter-1/
+    audible: https://www.audible.com/pd/Solo-Leveling-Vol-1-Novel-Audiobook/1975325885
 aliases: [/reviews/solo_levelling]
-tags: [finished, litrpg, manhua]
+tags: [finished, litrpg, manhua, audio]
 sentence: "The weakest hunter of all mankind! E-rank hunter Jinwoo Sung has no money, no talent, until..."
 ---
 

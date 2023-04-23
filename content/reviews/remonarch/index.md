@@ -11,8 +11,9 @@ links:
     amazon: https://www.amazon.com.au/Monarch-Prince-Time-Progression-Fantasy-ebook/dp/B09PQGG7VV
     goodreads: https://www.goodreads.com/series/343866-re-monarch
     royal_road: https://www.royalroad.com/fiction/37951/re-monarch
+    audible: https://www.audible.com/pd/Monarch-A-Prince-Out-of-Time-Audiobook/B09QH71R1B
 aliases: [/reviews/remonarch]
-tags: [in-progress, time-loops]
+tags: [in-progress, time-loops, audio]
 sentence: "Cairn is cured with time loops and some seriously unwinnable scenarios."
 ---
 

@@ -10,7 +10,8 @@ name: "Night Angel"
 links:
     goodreads: https://www.goodreads.com/series/45765-night-angel
     amazon: https://www.amazon.com.au/gp/product/B002TXZRPE
-tags: [finished]
+    audible: https://www.audible.com/pd/The-Way-of-Shadows-Audiobook/B002V0QKG0
+tags: [finished, audio]
 sentence: "The perfect kiler has no friends. Only targets."
 ---
 

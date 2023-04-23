@@ -10,8 +10,9 @@ name: "The Brightest Shadow"
 links:
     amazon: https://www.amazon.com/Brightest-Shadow-Sarah-Lin-ebook/dp/B0856ZMG9Z
     goodreads: https://www.goodreads.com/en/book/show/51083937-the-brightest-shadow
+    audible: https://www.audible.com/pd/The-Brightest-Shadow-Audiobook/177424568X
 aliases: [/reviews/brightest_shadow]
-tags: [female-lead, in-progress, cultivation]
+tags: [female-lead, in-progress, cultivation, audio]
 sentence: "The arrival of the Hero was worse than anyone could have imagined."
 ---
 
