@@ -64,14 +64,16 @@
     }
 
     window.onkeypress = function(event) {
-      if (event.key == "c" || event.key == "C" || event.key == "x") {
+      if (event.key == "c" || event.key == "C" || event.key == "x" || event.key == "X") {
         let content = ""
         if (event.key == "c") {
           content = make_summary(short_summarise_post)
         } else if (event.key == "C") {
           content = make_summary(summarise_post)
-        } else {
+        } else if (event.key == "x") {
           content = make_summary(super_short_summarise_post)
+        } else {
+          content = make_summary(super_duper_short_summarise_post)
         }
         copy_to_clipboard(content)
       }
@@ -106,6 +108,10 @@
       }
       sb = sb.slice(0,-2) + "\n"
       return sb
+    }
+
+    function super_duper_short_summarise_post(post) {
+      return "* [**" + post.name + "**](" + post.abslink + ")\n"
     }
 
     function make_summary(callable) {
