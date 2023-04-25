@@ -64,12 +64,14 @@
     }
 
     window.onkeypress = function(event) {
-      if (event.key == "c" || event.key == "C") {
+      if (event.key == "c" || event.key == "C" || event.key == "x") {
         let content = ""
         if (event.key == "c") {
           content = make_summary(short_summarise_post)
-        } else {
+        } else if (event.key == "C") {
           content = make_summary(summarise_post)
+        } else {
+          content = make_summary(super_short_summarise_post)
         }
         copy_to_clipboard(content)
       }
@@ -93,6 +95,16 @@
         sb += "[" + link.name + "](" + link.link + "), "
       }
       sb = sb.slice(0,-2) + "): " + post.description + "\n"
+      return sb
+    }
+
+    function super_short_summarise_post(post) {
+      let sb = "* **" + post.name + "**: "
+      sb += "[review](" + post.abslink + "), "
+      for (var link of post.links) {
+        sb += "[" + link.name + "](" + link.link + "), "
+      }
+      sb = sb.slice(0,-2) + "\n"
       return sb
     }
 
