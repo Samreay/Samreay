@@ -3,7 +3,7 @@ name: Deploy Github Pages
 on:
   push:
     branches:
-      - master  # Set a branch that will trigger a deployment
+      - master # Set a branch that will trigger a deployment
   pull_request:
 
   # Allows you to run this workflow manually from the Actions tab
@@ -31,19 +31,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 1    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 1 # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           extended: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Cache dependencies
         uses: actions/cache@v3
@@ -51,7 +51,7 @@ jobs:
           path: ~/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: npm-
-        
+
       - name: Install dependencies
         run: npm install --include=dev
 
@@ -64,7 +64,6 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

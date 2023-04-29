@@ -7,7 +7,7 @@
         {
           name: {{- .Params.name -}},
           link: {{- .RelPermalink -}},
-          abslink: {{- absURL .Permalink -}},
+          abslink: {{- absURL .RelPermalink -}},
           author: {{- .Params.auth -}},
           review: {{- .Params.review -}},
           weight: {{- .Weight -}},
