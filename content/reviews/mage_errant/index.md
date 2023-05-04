@@ -5,7 +5,7 @@ date: 2021-11-19
 categories: [reviews]
 auth: John Bierce
 review: S
-weight: 9
+weight: 7
 name: "Mage Errant"
 links:
     amazon: https://www.amazon.com/Into-Labyrinth-Mage-Errant-Book-ebook/dp/B07J675X2C
