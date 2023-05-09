@@ -14,7 +14,6 @@ links:
 aliases: [/reviews/soul_relic]
 tags: [female-lead, cultivation, hard-magic, in-progress, small-author, companion, audio]
 sentence: "Determined to fix her soul, Raysha ventures out into the world with her brother, only to stumble into events larger than they realise."
-video: cover.mp4
 ---
 
 > **Born with an enormous well of power but no way to regenerate it, Raysha will risk anything to fix herself, even if it means venturing into the unknown with nothing but her brother, an enchanted water bottle, and a stubborn attitude.**
