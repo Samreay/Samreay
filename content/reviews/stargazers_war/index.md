@@ -1,6 +1,6 @@
 ---
 title:  "A review of J. P. Valentine's 'The Stargazers War'"
-description: "Sect-based cultivation novel with a sci-fi bend."
+description: "Sect-based cultivation novel with a sci-fi bend. Strong characters and good prose, plus a setting that is begging to be explored further."
 date: 2023-05-28
 auth: J. P. Valentine
 categories: [reviews]
