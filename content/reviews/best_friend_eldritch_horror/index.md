@@ -9,7 +9,7 @@ weight: 21
 name: "My Best Friend is an Eldritch Horror"
 links:
     amazon: https://www.amazon.com/Blackmist-LitRPG-Adventure-Friend-Eldritch-ebook/dp/B0B61L1YS2
-    goodreads: https://www.goodreads.com/en/book/show/61720021-blackmist
+    # goodreads: https://www.goodreads.com/en/book/show/61720021-blackmist
     royal_road: https://www.royalroad.com/fiction/44229/my-best-friend-is-an-eldritch-horror
     aubible: https://www.audible.com/pd/Blackmist-Audiobook/B0BF16T2Y3?qid=1682215344
 tags: [in-progress, litrpg, magic-school, slice-of-life, companion, audio]

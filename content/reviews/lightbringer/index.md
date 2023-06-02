@@ -9,7 +9,7 @@ review: D
 weight: 49
 links:
     amazon: https://www.amazon.co.uk/Black-Prism-Book-Lightbringer/dp/1841499048
-    goodreads: https://www.goodreads.com/series/291662-lightbringer
+    # goodreads: https://www.goodreads.com/series/291662-lightbringer
     audible: https://www.audible.com/pd/The-Black-Prism-Audiobook/B01HZXFARW
 aliases: [/reviews/lightbringer]
 tags: [finished, hard-magic, audio]

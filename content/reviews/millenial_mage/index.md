@@ -10,7 +10,7 @@ name: "Millenial Mage"
 links:
     royal_road: https://www.royalroad.com/fiction/47826/millennial-mage-a-slice-of-life-progression-fantasy
     amazon: https://www.amazon.com/Mageling-Slice-Progression-Fantasy-Millennial-ebook/dp/B0BX4KLJPZ
-    goodreads: https://www.goodreads.com/en/book/show/60047089-millennial-mage
+    # goodreads: https://www.goodreads.com/en/book/show/60047089-millennial-mage
     audible: https://www.audible.com/pd/Mageling-Audiobook/B0C2QMVXC7
 aliases: [/reviews/millenium_mage]
 tags: [slice-of-life, in-progress, female-lead, companion, small-author, audio]

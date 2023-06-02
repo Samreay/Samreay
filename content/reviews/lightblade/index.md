@@ -9,7 +9,7 @@ weight: 31
 name: "Lightblade"
 links:
     amazon: https://www.amazon.com/Lightblade-Progression-Fantasy-Epic-Saga-ebook/dp/B0B1MNYTSB
-    goodreads: https://www.goodreads.com/book/show/61122434-lightblade
+    # goodreads: https://www.goodreads.com/book/show/61122434-lightblade
     audible: https://www.audible.com/pd/Lightblade-Audiobook/B0BMCVYMQ9
 aliases: [/reviews/lightblade]
 tags: [in-progress, sci-fi, small-author, audio]

@@ -9,7 +9,7 @@ weight: 34
 name: "Rogue Dungeon"
 links:
     amazon: https://www.amazon.com/Rogue-Dungeon-litrpg-Adventure-Book-ebook/dp/B07FKYZFYD
-    goodreads: https://www.goodreads.com/series/239590-the-rogue-dungeon
+    # goodreads: https://www.goodreads.com/series/239590-the-rogue-dungeon
     audible: https://www.audible.com/pd/Rogue-Dungeon-A-litRPG-Adventure-Audiobook/B07GRB7K8Q
 aliases: [/reviews/rogue_dungeon]
 tags: [in-progress, isekai, litrpg, audio]

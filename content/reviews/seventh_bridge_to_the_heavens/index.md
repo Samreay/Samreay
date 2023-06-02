@@ -9,7 +9,7 @@ weight: 25
 name: "Seventh Bridge to the Heavens"
 links:
     amazon: https://www.amazon.com/First-Fist-Seventh-Heavens-Cultivation-ebook/dp/B09TNJQ984
-    goodreads: https://www.goodreads.com/en/book/show/60548100
+    # goodreads: https://www.goodreads.com/en/book/show/60548100
     audible: https://www.audible.com/pd/First-Fist-Audiobook/B09W646LC4
 aliases: [/reviews/seventh]
 tags: [cultivation, in-progress, audio]

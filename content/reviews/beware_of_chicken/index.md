@@ -11,7 +11,7 @@ name: "Beware of Chicken"
 links:
     amazon: https://www.amazon.com/Beware-Chicken-Xianxia-Cultivation-Novel-ebook/dp/B09Y6RQSHM
     royal_road: https://www.royalroad.com/fiction/39408/beware-of-chicken
-    goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
+    # goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
     audible: https://www.audible.com/pd/Beware-of-Chicken-A-Xianxia-Cultivation-Novel-Audiobook/B09Y2D2D5T
 aliases: [/reviews/chicken]
 tags: [in-progress, isekai, cultivation, wholesome, slice-of-life, audio]

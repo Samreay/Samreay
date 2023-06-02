@@ -10,7 +10,7 @@ review: S
 weight: 2
 links:
     amazon: https://www.amazon.com/Cradle-Foundation-Collected-Book-ebook/dp/B076G8DVN6
-    goodreads: https://www.goodreads.com/series/192821-cradle
+    # goodreads: https://www.goodreads.com/series/192821-cradle
     audible: https://www.audible.com/pd/Unsouled-Audiobook/B07XTNWRFF
 aliases: [/reviews/cradle]
 tags: [cultivation, in-progress, companion, audio]

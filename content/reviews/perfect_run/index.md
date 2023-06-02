@@ -9,7 +9,7 @@ weight: 25
 name: "The Perfect Run"
 links:
     amazon: https://www.amazon.com.au/Perfect-Run-Maxime-J-Durand-ebook/dp/B08WL8CS8B
-    goodreads: https://www.goodreads.com/en/book/show/57065516
+    # goodreads: https://www.goodreads.com/en/book/show/57065516
     royal_road: https://www.royalroad.com/fiction/36735/the-perfect-run
     audible: https://www.audible.com/pd/The-Perfect-Run-Audiobook/B09HSRRT1T
 aliases: [/reviews/perfect_run]
