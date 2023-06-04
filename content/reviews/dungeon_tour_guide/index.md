@@ -43,7 +43,7 @@ There's lots of potential for really interesting skill combinations and class ev
 
 One of the downsides of watching these groups learn and improve their teamwork, is that things can feel a bit repetitive. You do have the same group of people running very similar permutations of the same dungeon multiple times. To compare it to *Divine Dungeon*, which has a mix of mining, economics, the dungeon creating proper ecosystems and traps, multiple levels in the dungeon, the goblins moving in, etc, to allow for a lot of variation in what happens, despite it all being in the same dungeon. With the beginner dungeon in DTG, you don't have nearly as much variety. That said, if you're a fan of snake-themed dungeons (like I am), it's not an issue!
 
-In terms of the wider plot, there is an aggressive and nefarious external faction set to try and conquer everything. I'll have to admit here too that I wasn't able to follow this conflict, and as a result it often seemed very forced. I thought the dungeon was located near a rich and populus city of Nyx (though I may have misread it), and the reason there weren't many adventures around was because the area was so pacified and deep in the host country that adventurers weren't needed. And yet, when this external force attacks (with tens of thousands of high-level soldiers), somehow a squad of them show up to the dungeon? Where did they come from? Why are there only two proper higher-level commanders with a few dozen troops? Are other cities being sacked? Is there a map? Ultimately it felt like there needed to be some external conflict and an appropriately-sized aggressive force was conjured up just at the right strength to allow the dungeon to survive. Or, earlier in the story when they are attacked by an assassin, there's this exchange:
+In terms of the wider plot, there is an aggressive and nefarious external faction set to try and conquer everything. I'll have to admit here too that I wasn't able to follow this conflict, and as a result it often seemed very forced. I thought the dungeon was located near the rich and populus city of Ketz, and the reason there weren't many adventures around was because the area was so pacified and deep in the host country that adventurers weren't needed. And yet, when this external force attacks (with tens of thousands of high-level soldiers), somehow a squad of them show up to the dungeon? Where did they come from? Why are there only two proper higher-level commanders with a few dozen troops? Are other cities being sacked? Where is literally any of the miltary might of the kingdom to face off against the Kingsguard? Is there a map? Ultimately it felt like there needed to be some external conflict and an appropriately-sized aggressive force was conjured up just at the right strength to allow the dungeon to survive. Or, earlier in the story when they are attacked by an assassin, there's this exchange:
 
 > “This is suboptimal,” Rose admitted.
 > 
@@ -53,7 +53,6 @@ In terms of the wider plot, there is an aggressive and nefarious external factio
 
 It just doesn't feel very satisfying when the reason there is conflict (ie the guild didn't sort it out) is waved off like that. Aaron, if you read this, I would *love* a deeper dive into all this external conflict to help ground it in book two or beyond. There's so much fun potential in here and I think it would amazing to explore it all properly.
 
-The big caveat to all of the above is that it might very well have been explained, and I just didn't put the puzzle pieces together. I did read half of this book on a flight, after all, so who knows if a key passage or two has been lost in my bleary memory. If it has, someone please flick me a message.
 
 Anyway, to summarise things:
 
@@ -61,3 +60,4 @@ Anyway, to summarise things:
 * If you like dungeon-core, you'll be happy.
 * If you like watching parties learn how to work together, you'll be happy.
 * If you want an OP MC who travels a lot, you will not be happy.
+* There's a much larger conflict now begging to be explored in the follow-up books.
