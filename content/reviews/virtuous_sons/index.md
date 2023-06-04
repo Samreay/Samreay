@@ -9,7 +9,7 @@ weight: 22
 name: "Virtuous Sons"
 links:
     amazon: https://www.amazon.com/Virtuous-Sons-Greco-Roman-Cultivation-Epic-ebook/dp/B0BGRLYB1R/
-    goodreads: https://www.goodreads.com/en/book/show/62827259-virtuous-sons
+    # goodreads: https://www.goodreads.com/en/book/show/62827259-virtuous-sons
     audible: https://www.audible.com/pd/Virtuous-Sons-Audiobook/B0BJ353T7J
 aliases: [/reviews/virtuous_sons]
 tags: [in-progress, cultivation, audio]

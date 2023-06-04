@@ -8,7 +8,7 @@ review: C
 weight: 35
 name: "Night Angel"
 links:
-    goodreads: https://www.goodreads.com/series/45765-night-angel
+    # goodreads: https://www.goodreads.com/series/45765-night-angel
     amazon: https://www.amazon.com.au/gp/product/B002TXZRPE
     audible: https://www.audible.com/pd/The-Way-of-Shadows-Audiobook/B002V0QKG0
 tags: [finished, audio]

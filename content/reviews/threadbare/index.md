@@ -9,7 +9,7 @@ weight: 35
 name: "Threadbare"
 links:
     amazon: https://www.amazon.com/Threadbare-Stuff-Nonsense-Andrew-Seiple-ebook/dp/B078KGS4V4
-    goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
+    # goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
     audible: https://www.audible.com/pd/Stuff-and-Nonsense-Audiobook/B07D3C3KZ1
 aliases: [/reviews/threadbare]
 tags: [finished, litrpg, audio]

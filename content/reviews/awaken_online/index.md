@@ -9,7 +9,7 @@ weight: 34
 name: "Awaken Online"
 links:
     amazon: https://www.amazon.com/dp/B074CC5NDX
-    goodreads: https://www.goodreads.com/series/196901-awaken-online
+    # goodreads: https://www.goodreads.com/series/196901-awaken-online
     audible: https://www.audible.com/pd/Awaken-Online-Catharsis-Audiobook/B01L7UC1SU
 aliases: [/reviews/awaken]
 tags: [in-progress, litrpg, vrmmo, audio]

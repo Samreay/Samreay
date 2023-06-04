@@ -9,7 +9,7 @@ weight: 19.9
 name: "Portal to Nova Roma"
 links:
     amazon: https://www.amazon.com/Portal-Nova-Roma-J-R-Mathews/dp/B09VLGSJ42
-    goodreads: https://www.goodreads.com/book/show/60288155-portal-to-nova-roma
+    # goodreads: https://www.goodreads.com/book/show/60288155-portal-to-nova-roma
     audible: https://www.audible.com/pd/Portal-to-Nova-Roma-Audiobook/B0BCH43V6V
 aliases: [/reviews/nova_roma]
 tags: [in-progress, isekai, litrpg, companion, audio]

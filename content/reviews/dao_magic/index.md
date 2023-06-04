@@ -9,7 +9,7 @@ weight: 69
 name: "The Dao of Magic"
 links:
     amazon: https://www.amazon.com/Dao-Magic-Book-I-ebook/dp/B07HM1YJ9Y
-    goodreads: https://www.goodreads.com/en/book/show/41975905-the-dao-of-magic-1
+    # goodreads: https://www.goodreads.com/en/book/show/41975905-the-dao-of-magic-1
     audible: https://www.audible.com/pd/The-Dao-of-Magic-Audiobook/1774240173
 aliases: [/reviews/dao_of_magic]
 tags: [in-progress, isekai, cultivation, audio]

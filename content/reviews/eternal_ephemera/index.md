@@ -9,7 +9,7 @@ weight: 33.5
 name: "Eternal Ephemera"
 links:
     amazon: https://www.amazon.com/Blood-Novice-Anchored-Eternal-Ephemera-ebook/dp/B0B86KPPM1
-    goodreads: https://www.goodreads.com/en/book/show/62617415-blood-of-a-novice
+    # goodreads: https://www.goodreads.com/en/book/show/62617415-blood-of-a-novice
     audible: https://www.audible.com/pd/Blood-of-a-Novice-Audiobook/B0BDNZ2W19
 aliases: [/reviews/ephemera]
 tags: [in-progress, magic-school, cultivation, hard-magic, audio]

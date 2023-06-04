@@ -9,7 +9,7 @@ weight: 37
 name: "The Legend of Randidly Ghosthound"
 links:
     amazon: https://www.amazon.com/Legend-Randidly-Ghosthound-LitRPG-Adventure-ebook/dp/B09BNSH5KG
-    goodreads: https://www.goodreads.com/en/book/show/59089569-the-legend-of-randidly-ghosthound
+    # goodreads: https://www.goodreads.com/en/book/show/59089569-the-legend-of-randidly-ghosthound
     royal_road: https://www.royalroad.com/fiction/11209/the-legend-of-randidly-ghosthound
     audible: https://www.audible.com/pd/The-Legend-of-Randidly-Ghosthound-Audiobook/B09CRBSDHY
 aliases: [/reviews/ghosthound]

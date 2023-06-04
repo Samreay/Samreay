@@ -9,7 +9,7 @@ weight: 33.5
 name: "Somnia Online"
 links:
     amazon: https://www.amazon.com.au/Initializing-Somnia-Online-Book-1-ebook/dp/B07CV1DZ3P
-    goodreads: https://www.goodreads.com/en/book/show/40041373
+    # goodreads: https://www.goodreads.com/en/book/show/40041373
     audible: https://www.audible.com/pd/Initializing-Audiobook/B07G1M4H42
 aliases: [/reviews/somnia]
 tags: [female-lead, finished, litrpg, vrmmo, small-author, audio]

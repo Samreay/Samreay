@@ -10,7 +10,7 @@ auth: Tobias Begley
 name: "The Enchanter"
 links:
     amazon: https://www.amazon.com/Enchanter-Journals-Evander-Tailor-Book-ebook/dp/B09VNDHW49
-    goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
+    # goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
     audible: https://www.audible.com/pd/The-Enchanter-Audiobook/B0B1LQFTPM
 aliases: [/reviews/enchanter]
 tags: [in-progress, crafting, magic-school, lgbt, small-author, hard-magic, audio]

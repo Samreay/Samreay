@@ -9,7 +9,7 @@ weight: 23
 name: "Cinnamon Bun"
 links:
     amazon: https://www.amazon.com.au/dp/B08BZ2NW67
-    goodreads: https://www.goodreads.com/en/book/show/54311585-cinnamon-bun
+    # goodreads: https://www.goodreads.com/en/book/show/54311585-cinnamon-bun
     royal_road: https://www.royalroad.com/fiction/31429/cinnamon-bun
     audible: https://www.audible.com/pd/Cinnamon-Bun-Audiobook/1774247828
 aliases: [/reviews/cinnamon]

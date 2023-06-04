@@ -9,7 +9,7 @@ auth: J.M. Clarke
 name: "Mark of the Fool"
 links:
     amazon: https://www.amazon.com/Mark-Fool-Progression-Fantasy-Epic-ebook/dp/B0B134YJYF
-    goodreads: https://www.goodreads.com/book/show/58854991-mark-of-the-fool
+    # goodreads: https://www.goodreads.com/book/show/58854991-mark-of-the-fool
     royal_road: https://www.royalroad.com/fiction/41618/mark-of-the-fool
     audible: https://www.audible.com/pd/Mark-of-the-Fool-Audiobook/B0B6JPQXR6
 aliases: [/reviews/markfool]

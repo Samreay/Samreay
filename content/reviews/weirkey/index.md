@@ -9,7 +9,7 @@ weight: 18
 name: "The Weirkey Chronicles"
 links:
     amazon: https://www.amazon.com/Soulhome-Weirkey-Chronicles-Book-1-ebook/dp/B08P7TYG41
-    goodreads: https://www.goodreads.com/series/306753-the-weirkey-chronicles
+    # goodreads: https://www.goodreads.com/series/306753-the-weirkey-chronicles
     audible: https://www.audible.com/pd/Soulhome-Audiobook/B09NF763LH
 aliases: [/reviews/weirkey]
 tags: [isekai, cultivation, in-progress, hard-magic, audio]

@@ -10,7 +10,7 @@ weight: 36
 name: "He Who Fights With Monsters"
 links:
     amazon: https://www.amazon.com/He-Who-Fights-Monsters-Adventure-ebook/dp/B08WCT9W26
-    goodreads: https://www.goodreads.com/en/book/show/57189884-he-who-fights-with-monsters
+    # goodreads: https://www.goodreads.com/en/book/show/57189884-he-who-fights-with-monsters
     royal_road: https://www.royalroad.com/fiction/26294/he-who-fights-?review=714073
     audible: https://www.audible.com/pd/He-Who-Fights-with-Monsters-A-LitRPG-Adventure-Audiobook/1774248182
 aliases: [/reviews/hwfwm]

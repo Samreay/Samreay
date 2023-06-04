@@ -9,7 +9,7 @@ weight: 39.99
 name: "The Last Physicist"
 links:
     amazon: https://www.amazon.com/Last-Physicist-Gamelit-Fantasy-Adventure-ebook/dp/B091P52QPM
-    goodreads: https://www.goodreads.com/book/show/57699481-the-last-physicist
+    # goodreads: https://www.goodreads.com/book/show/57699481-the-last-physicist
     audible: https://www.audible.com/pd/The-Last-Physicist-Audiobook/B09GZ5J3TM
 aliases: [/reviews/physicist]
 tags: [in-progress, isekai, litrpg, small-author, audio]

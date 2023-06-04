@@ -9,7 +9,7 @@ weight: 35
 name: "Oh Great! I was Reincarnated as a Farmer"
 links:
     amazon: https://www.amazon.com.au/Great-was-Reincarnated-Farmer-Unorthodox-ebook/dp/B094CSB51K
-    goodreads: https://www.goodreads.com/en/book/show/57968407-oh-great-i-was-reincarnated-as-a-farmer
+    # goodreads: https://www.goodreads.com/en/book/show/57968407-oh-great-i-was-reincarnated-as-a-farmer
     audible: https://www.audible.com/pd/Oh-Great-I-Was-Reincarnated-as-a-Farmer-Audiobook/B09CRFXXW6
 aliases: [/reviews/farmer]
 tags: [litrpg, isekai, in-progress, audio]

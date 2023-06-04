@@ -9,7 +9,7 @@ weight: 17
 name: "Dungeon Crawler Carl"
 links:
     amazon: https://www.amazon.com/Dungeon-Crawler-Carl-Gamelit-Adventure-ebook/dp/B08BKGYQXW
-    goodreads: https://www.goodreads.com/en/book/show/54659324-dungeon-crawler-carl
+    # goodreads: https://www.goodreads.com/en/book/show/54659324-dungeon-crawler-carl
     audible: https://www.audible.com/pd/Dungeon-Crawler-Carl-Audiobook/B08V8B2CGV
 aliases: [/reviews/carl]
 tags: [in-progress, system-apocalypse, litrpg, companion, audio]

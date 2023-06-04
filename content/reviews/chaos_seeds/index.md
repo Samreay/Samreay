@@ -9,7 +9,7 @@ weight: 50
 name: "Chaos Seeds"
 links:
     amazon: https://www.amazon.com/Land-Founding-LitRPG-Chaos-Seeds-ebook/dp/B0172GEB68
-    goodreads: https://www.goodreads.com/series/179187-chaos-seeds
+    # goodreads: https://www.goodreads.com/series/179187-chaos-seeds
     audible: https://www.audible.com/pd/The-Land-Founding-A-LitRPG-Saga-Audiobook/B071DNLS1F
 aliases: [/reviews/land]
 tags: [litrpg, in-progress, isekai, audio]

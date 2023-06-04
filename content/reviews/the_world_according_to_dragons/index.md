@@ -9,7 +9,7 @@ weight: 32
 name: "The World According to Dragons"
 links:
     amazon: https://www.amazon.com/World-According-Dragons-Chronicles-Progression-ebook/dp/B0BCBYYNQS
-    goodreads: https://www.goodreads.com/book/show/62849176-the-world-according-to-dragons
+    # goodreads: https://www.goodreads.com/book/show/62849176-the-world-according-to-dragons
     audible: https://www.audible.com/pd/The-World-According-to-Dragons-Audiobook/B0BTJ7Y1V1
 aliases: [/reviews/twatd]
 tags: [in-progress, cultivation, companion, audio]

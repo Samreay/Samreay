@@ -9,7 +9,7 @@ weight: 7
 name: "Mage Errant"
 links:
     amazon: https://www.amazon.com/Into-Labyrinth-Mage-Errant-Book-ebook/dp/B07J675X2C
-    goodreads: https://www.goodreads.com/book/show/42267952-into-the-labyrinth
+    # goodreads: https://www.goodreads.com/book/show/42267952-into-the-labyrinth
     audible: https://www.audible.com/pd/Mage-Errant-Publishers-Pack-Audiobook/1774240130
 aliases: [/reviews/mage_errant]
 tags: [magic-school, hard-magic, audio, finished]

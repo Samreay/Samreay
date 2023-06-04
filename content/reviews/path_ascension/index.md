@@ -10,7 +10,7 @@ name: "The Path of Ascension"
 links:
     amazon: https://www.amazon.com/Path-Ascension-LitRPG-Adventure-ebook/dp/B0B5WNDY21
     royal_road: https://www.royalroad.com/fiction/40920/the-path-of-ascension
-    goodreads: https://www.goodreads.com/book/show/58412607-the-path-of-ascension
+    # goodreads: https://www.goodreads.com/book/show/58412607-the-path-of-ascension
     audible: https://www.audible.com/pd/The-Path-of-Ascension-Audiobook/B0B6CQFZZH
 aliases: [/reviews/path_ascension]
 tags: [in-progress, cultivation, sci-fi, companion, audio]

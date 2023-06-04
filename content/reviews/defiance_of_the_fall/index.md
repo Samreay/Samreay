@@ -9,7 +9,7 @@ weight: 36
 name: "Defiance of the Fall"
 links:
     amazon: https://www.amazon.com/Defiance-Fall-LitRPG-Adventure-TheFirstDefier-ebook/dp/B09168R29M
-    goodreads: https://www.goodreads.com/en/book/show/57866482-defiance-of-the-fall
+    # goodreads: https://www.goodreads.com/en/book/show/57866482-defiance-of-the-fall
     royal_road: https://www.royalroad.com/fiction/24709/defiance-of-the-fall
     audible: https://www.audible.com/pd/Defiance-of-the-Fall-Audiobook/B094JZMCJX
 tags: [in-progress, system-apocalypse, litrpg, audio]
