@@ -57,9 +57,9 @@ In terms of technical writing, its solid. You can tell its had a professional ed
 
 Which is sort of clunkily used to explain things to the reader. These examples of telling rather than showing are very common in the book, a typical example below:
 
-> It was already harder for [redacted] Dao-infused time reversal to affect a purely spiritual being, but the dragon, whose name Alistair somehow knew as Ogarth, was also a member of an ancient species. Dragons were majestic and storied beings that could live for millions of years naturally. Ogarth was pitifully weak for a member of his species, barely a higher level than Alistair, yet voiding the Dao of a puny human who dared to encroach on one of the most fundamental Daos in the universe, the Dao of Time? Simple.
+> It was already harder for [redacted]'s Dao-infused time reversal to affect a purely spiritual being, but the dragon, whose name Alistair somehow knew as Ogarth, was also a member of an ancient species. Dragons were majestic and storied beings that could live for millions of years naturally. Ogarth was pitifully weak for a member of his species, barely a higher level than Alistair, yet voiding the Dao of a puny human who dared to encroach on one of the most fundamental Daos in the universe, the Dao of Time? Simple.
 
-It's never a whole chapter of "Here's a long history lesson," which is very nice, so I didn't mind these little insights into the world, even if their delivery wasn't very organic to the story.
+It's never a whole chapter of "Here's a long history lesson," which is very nice, so I didn't mind these little insights into the world, even if their delivery wasn't very organic to the story. I raise it only because I've seen others who do not like these sort of interjections.
 
 In terms of other plot points, if you enjoy tournament arcs, there's actually one in this book too. It's facilitated by a sudden teleportation in a very web serial "We're doing this now!" change of pace, but it's well executed and *does* eventually tie back into the earthbound plot.
 

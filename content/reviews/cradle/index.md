@@ -13,7 +13,7 @@ links:
     # goodreads: https://www.goodreads.com/series/192821-cradle
     audible: https://www.audible.com/pd/Unsouled-Audiobook/B07XTNWRFF
 aliases: [/reviews/cradle]
-tags: [cultivation, in-progress, companion, audio]
+tags: [cultivation, finished, companion, audio]
 
 ---
 
@@ -46,3 +46,5 @@ And every time there's a new release (which is pretty much every six months on a
 This is not always a good thing, because my own writing productivity drops to almost zero when this happens.
 
 But I keep doing it. And I'll keep doing it until the series is finished. May it be another dozen books.
+
+Edit: The series is now finished, and I have an empty void inside of me. Congrats, Will, you made a masterpiece.

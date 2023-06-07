@@ -1,5 +1,58 @@
 {{ define "main" }} {{ $r := .Params.review }}
 
+
+<script type="module">
+  const post = {
+        name: {{- .Params.name -}},
+        link: {{- .RelPermalink -}},
+        abslink: {{- absURL .RelPermalink -}},
+        author: {{- .Params.auth -}},
+        tags: [
+        {{- range $tag := .Params.tags | sort -}}
+          "{{ $tag | lower }}",
+        {{- end -}}],
+        links: [
+          {{- range $n, $l := .Params.links -}}
+          {
+            name: {{- $n -}},
+            link: {{- $l -}},
+          },
+          {{- end -}}
+        ],
+        title: {{ .Params.name }},
+        sentence: {{ .Params.sentence }},
+        description: {{ .Params.description }},
+    }
+
+  function copy_to_clipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+    }, function(err) {
+      console.error('Async: Could not copy text: ', err);
+    });
+  }
+
+  window.onkeypress = function(event) {
+    if (event.key == "c" || event.key == "C") {
+      let content = summarise_post(post)
+      copy_to_clipboard(content)
+    }
+  }
+
+  function summarise_post(post) {
+    let sb = "### **" + post.name + "**" + "\n\n"
+    sb += "**Author:** " + post.author +"\n\n"
+    sb += "**Links:** [review](" + post.abslink + "), "
+    for (var link of post.links) {
+      sb += "[" + link.name + "](" + link.link + "), "
+    }
+    sb = sb.slice(0,-2) + "\n\n"
+    sb += "**Summary:** " + post.description + "\n\n"
+    sb += "**Hook:** " + post.sentence + "\n\n*********\n"
+    sb += " {{- .RawContent -}}"
+    return sb
+  }
+</script>
+
 <div class="content content blog-post relative" data-aos="fade-up">
   <div class="section-header blog">
     <h1 class="title rating rating-{{ $r }}" data-aos="fade-up">
