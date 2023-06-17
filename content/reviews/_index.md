@@ -1,6 +1,6 @@
 ---
-title: Book Reviews
-description: "For all the LitRPG and Progression Fantasy I've read."
+title: Progression Fantasy and LitRPG Book Reviews
+description: "Reviews, filterable tags, and a rough tier list for dozens of series."
 cascade:
     _build:
         publishResources: false

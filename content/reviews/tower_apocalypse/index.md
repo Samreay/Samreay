@@ -12,7 +12,7 @@ links:
     audible: https://www.audible.com/series/Tower-Apocalypse-Audiobooks/B0B5ZLJYZX
 aliases: [/reviews/tower_apocalypse]
 tags: [finished, litrpg, audio]
-sentence: "Join Devin Cain, his cursed katana that hungers for blood and souls, and a class created to curse players.**"
+sentence: "Join Devin Cain, his cursed katana that hungers for blood and souls, and a class created to curse players."
 ---
 
 
