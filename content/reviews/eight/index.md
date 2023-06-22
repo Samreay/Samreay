@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/61938108-eight
     audible: https://www.audible.com/pd/Eight-Audiobook/B0B8T1X15L
 aliases: [/reviews/eight]
-tags: [in-progress, isekai, audio]
+tags: [in-progress, isekai, litrpg, audio]
 sentence: "Eight is reincarnated and makes friends with an otter."
 ---
 
