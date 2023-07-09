@@ -2,7 +2,7 @@
 title:  "A review of Plum Parrot's 'Victor of Tuscon'"
 description: "Isekai LitRPG where Victor is summoned from Earth and immediately sold to a fighting ring."
 date: 2023-06-21
-auth: OstensibleMammal
+auth: Plum Parrot
 categories: [reviews]
 review: C
 weight: 33

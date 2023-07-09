@@ -1,6 +1,5 @@
 {{ define "main" }} {{ $r := .Params.review }}
 
-
 <script type="module">
   const post = {
         name: {{- .Params.name -}},
@@ -39,7 +38,7 @@
   }
 
   function summarise_post(post) {
-    let sb = "### **" + post.name + "**" + "\n\n"
+    let sb = "# **" + post.name + "**" + "\n\n"
     sb += "**Author:** " + post.author +"\n\n"
     sb += "**Links:** [review](" + post.abslink + "), "
     for (var link of post.links) {
