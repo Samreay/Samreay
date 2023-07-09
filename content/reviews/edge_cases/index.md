@@ -10,7 +10,7 @@ name: "Edge Cases"
 links:
     royal_road: https://www.royalroad.com/fiction/52639/edge-cases
 aliases: [/reviews/edge_cases]
-tags: [in-progress, litrpg, isekai, small-author]
+tags: [in-progress, litrpg, isekai, lgbt, small-author]
 sentence: "A team of adventurers manage to break the system. Oops."
 ---
 
