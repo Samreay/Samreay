@@ -1,12 +1,12 @@
 ---
-title:  "A review of Plum Parrot's 'Victor of Tuscon'"
+title:  "A review of Plum Parrot's 'Victor of Tucson'"
 description: "Isekai LitRPG where Victor is summoned from Earth and immediately sold to a fighting ring."
 date: 2023-06-21
 auth: Plum Parrot
 categories: [reviews]
 review: C
 weight: 33
-name: "Victor of Tuscon"
+name: "Victor of Tucson"
 links:
     royal_road: https://www.royalroad.com/fiction/59663/godclads-monster-mceldritchcyberpunkprogression
     amazon: https://www.amazon.com.au/Pit-Fighter-LitRPG-Progression-Fantasy-ebook/dp/B0BPK8XW43
