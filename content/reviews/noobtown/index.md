@@ -12,7 +12,7 @@ links:
     audible: https://www.audible.com/pd/The-Mayor-of-Noobtown-Audiobook/1774240122
 aliases: [/reviews/noobtown]
 tags: [in-progress, litrpg, isekai, audio]
-sentence: "Jim's reborn into a fantasy land with a snark shoulder demon he hates."
+sentence: "Jim's reborn into a fantasy land with a snarky shoulder demon he hates."
 ---
 
 
