@@ -4,8 +4,8 @@ description: "Reincarnation LitRPG that takes wish fulfillment taken to ridiculo
 date: 2021-02-12
 auth: Aleron Kong
 categories: [reviews]
-review: D
-weight: 50
+review: F
+weight: 60
 name: "Chaos Seeds"
 links:
     amazon: https://www.amazon.com/Land-Founding-LitRPG-Chaos-Seeds-ebook/dp/B0172GEB68
