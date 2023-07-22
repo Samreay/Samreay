@@ -41,7 +41,7 @@ It's *not* obviously the onle thing going on, and mostly that plot point sits in
 
 She does this with a small cast of friends. Daniel, who would probably be the MC of a serial all by himself, is a great character with an amazing background. He fits the hero archetype, and the other main companion, Edithe, acts as a more serious character. Each of them *are* characters in their own right, and not just stereotypes come to life, or characters that exist only to highlight how amazing the MC is.
 
-Back to the MC, Salvos carries the story. She's innocent and ignorant of the world, but is also a demon that doesn't necessarily elevate human life to being sacred. And when you scratch the surface, the author peels back the vineer of selfishness to reveal a nuanced character with complexity. Salvos has layers, like an onion. She is, however, not green.
+Back to the MC, Salvos carries the story. She's innocent and ignorant of the world, but is also a demon that doesn't necessarily elevate human life to being sacred. And when you scratch the surface, the author peels back the veneer of selfishness to reveal a nuanced character with complexity. Salvos has layers, like an onion. She is, however, not green.
 
 Throughout books and chapters, the world is gradually revealed as larger and more complex than ever before, with the trio journeying from their tutorial-like starting location to increasingly exotic and dangerous lands. They meet new races and species, and you get insight into their different cultures and traditions. It's very nicely done, and I can see why so many people follow the story.
 
