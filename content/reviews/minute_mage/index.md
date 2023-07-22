@@ -5,7 +5,7 @@ date: 2023-07-22
 auth: Reg Rome
 categories: [reviews]
 review: B
-weight: 25
+weight: 23
 name: "Minute Mage"
 links:
     royal_road: https://www.royalroad.com/fiction/61762/minute-mage-a-time-magic-litrpg

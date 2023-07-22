@@ -5,7 +5,7 @@ date: 2022-11-11
 auth: Y.B. Striker
 categories: [reviews]
 review: B
-weight: 22
+weight: 21
 name: "Virtuous Sons"
 links:
     amazon: https://www.amazon.com/Virtuous-Sons-Greco-Roman-Cultivation-Epic-ebook/dp/B0BGRLYB1R/

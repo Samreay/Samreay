@@ -5,7 +5,7 @@ date: 2023-02-21
 auth: Actus
 categories: [reviews]
 review: B
-weight: 21
+weight: 24
 name: "My Best Friend is an Eldritch Horror"
 links:
     amazon: https://www.amazon.com/Blackmist-LitRPG-Adventure-Friend-Eldritch-ebook/dp/B0B61L1YS2
