@@ -52,4 +52,4 @@ See, crunch becomes meaningless if the numbers just don't matter. But here, they
 
 As to the pacing, there are lots and lots of fights. The published chapters (aka first 150 as I'm writing this) still have many many levels and ranks to go before they're going to be able to solve that pesky demon problem, but I'm here for it. Arlan's growth is insane, and watching him slowly become an OP monster is a delight.
 
-That's a good summary. It's a delight. A crunchy, time-loop-filled, LitRPG delight. Go read it.
+That's a good summary. It's a crunchy, video-game-logic, time-loop-filled, LitRPG delight. Go read it.
