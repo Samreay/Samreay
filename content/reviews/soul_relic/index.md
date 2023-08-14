@@ -7,6 +7,7 @@ auth: Samuel Hinton
 review: π
 weight: 9.9
 name: "Soul Relic"
+search_terms: "Manifestation Scion of Storms Sanctuary Shieldsmith"
 links:
     amazon: https://mybook.to/SoulRelic
     # goodreads: https://www.goodreads.com/book/show/61324650-soul-relic

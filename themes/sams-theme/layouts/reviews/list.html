@@ -9,6 +9,7 @@
           link: {{- .RelPermalink -}},
           abslink: {{- absURL .RelPermalink -}},
           author: {{- .Params.auth -}},
+          search_term: {{- .Params.auth -}} + " " + {{- .Params.name -}} + " " + {{- .Params.search_terms -}},
           review: {{- .Params.review -}},
           weight: {{- .Weight -}},
           date: {{- .Date -}},
@@ -54,6 +55,7 @@
       by_rank: true,
       posts: posts,
       tags: tags,
+      search_term: "",
     });
 
     function copy_to_clipboard(text) {
@@ -143,6 +145,9 @@
         data.tag_activations[key] = undefined
         delete data.tag_activations[key];
       }
+      data.search_term = ""
+      document.getElementById("search-input").value = ""
+      
       data.wide_cards = default_wide
       data.by_rank = true
       update_url()
@@ -240,11 +245,21 @@
       <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Rank</span>
       <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Recent</span>
     </label>
+    <input
+      @input="${e => { data.search_term = e.target.value }}"
+      type="text"
+      id="search-input"
+      name="search"
+      class="bg-gray-800 rounded-md text-gray-100"
+      placeholder="Search..."
+    />
     <button class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100" @click="${() => reset()}">Reset</button>
 
   </div>
   `
     wide_template(wide_containter);
+
+    const search_container = document.getElementById("search");
 
 
     const video_template = (post) => html`
@@ -261,6 +276,7 @@
     const card_template = html`
   <div id="card-wrapper" class="${() => "container mx-auto mt-20 justify-center grid gap-4 sm:gap-12 " + (data.wide_cards ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards")}">
     ${() => data.posts.filter(function(post) {
+      // Filter by selected tags
       for (const [key, value] of Object.entries(data.tag_activations)) {
         if (value) {
           if (!post.tags.includes(key)) {
@@ -268,6 +284,20 @@
           }
         } else {
           if (post.tags.includes(key)) {
+            return false;
+          }
+        }
+      }
+      // Filter by search term
+      if (data.search_term) {
+        var post_search = post.search_term.toLowerCase();
+        var term = data.search_term.toLowerCase();
+        // split this into words and then check to see if every word is in the search term
+        // if not, return false
+        var words = term.split(" ");
+        console.log(post.search_term, words);
+        for (var i = 0; i < words.length; i++) {
+          if (!post_search.includes(words[i])) {
             return false;
           }
         }
@@ -346,6 +376,7 @@
   </div>
   <!-- The toggles config -->
   <div id="toggle-input" class="max-w-7xl mx-auto"></div>
+  <div id="search" class="max-w-7xl mx-auto mt-6"></div>
   <div id="tags" class="tag-list max-w-7xl mx-auto mt-6"></div>
   <div id="all-card-wrapper"></div>
 </div>

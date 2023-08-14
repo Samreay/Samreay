@@ -8,6 +8,7 @@ date: 2021-04-21
 categories: [reviews]
 review: S
 weight: 2
+search_terms: "Unsouled Waybound"
 links:
     amazon: https://www.amazon.com/Cradle-Foundation-Collected-Book-ebook/dp/B076G8DVN6
     # goodreads: https://www.goodreads.com/series/192821-cradle
