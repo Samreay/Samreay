@@ -13,7 +13,7 @@ links:
     audible: https://www.audible.com/pd/Dungeon-Crawler-Carl-Audiobook/B08V8B2CGV
 aliases: [/reviews/carl]
 tags: [in-progress, system-apocalypse, litrpg, companion, audio]
-sentence: "A man. His ex-girlfriend's cat. A sadistic game where survival depends on killing your prey in the most entertaining way possible."
+sentence: "A sadistic game where survival depends on killing your prey in the most entertaining way possible."
 ---
 
 Dungeon Crawler Carl opens with something reminiscent of Hitchhiker's Guide to the Galaxy. Earth is being mined for minerals, and those that survived the initial population purge become participants in the universe's most popular show, as they progress through a deadly dungeon run by an insane AI to either try and survive or beat the dungeon and win back their planet.
