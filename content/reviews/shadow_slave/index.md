@@ -6,7 +6,7 @@ auth: Guiltythree
 categories: [reviews]
 review: B
 weight: 29
-name: "Shadow slave"
+name: "Shadow Slave"
 links:
     webnovel: https://www.webnovel.com/book/shadow-slave_22196546206090805
 aliases: [/reviews/shadow_slave]
