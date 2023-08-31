@@ -10,7 +10,7 @@ name: "Shadow Slave"
 links:
     webnovel: https://www.webnovel.com/book/shadow-slave_22196546206090805
 aliases: [/reviews/shadow_slave]
-tags: [in-progress, cultivation, litrpg, system-apocalypse]
+tags: [in-progress, cultivation, litrpg, superhero, system-apocalypse]
 sentence: "Sunny is chosen by the Nightmare Spell and becomes Awakened.."
 ---
 

@@ -4,8 +4,8 @@ description: "A cultivation story with the faintest hint of LitRPG, featuring el
 date: 2022-06-30
 auth: T.J. Reynold
 categories: [reviews]
-review: B
-weight: 25
+review: C
+weight: 35
 name: "Seventh Bridge to the Heavens"
 links:
     amazon: https://www.amazon.com/First-Fist-Seventh-Heavens-Cultivation-ebook/dp/B09TNJQ984

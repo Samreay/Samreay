@@ -115,10 +115,13 @@ body {
   .tag {
     &.active-true {
       @apply text-gray-100;
+      background: none #18ad40;
       background-color: #18ad40;
     }
     &.active-false {
-      @apply bg-red-800 text-gray-100;
+      @apply text-gray-100;
+      background: none #991b1b;
+      background-color: #991b1b;
     }
     &.active-undefined {
       opacity: 0.2;

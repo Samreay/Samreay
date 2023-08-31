@@ -5,7 +5,7 @@ date: 2021-12-04
 auth: Travis Bagwell
 categories: [reviews]
 review: C
-weight: 34
+weight: 37
 name: "Awaken Online"
 links:
     amazon: https://www.amazon.com/dp/B074CC5NDX

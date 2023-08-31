@@ -310,7 +310,16 @@
   @apply bg-emerald-500 text-gray-100 font-medium;
 }
 .tag-lgbt {
-  @apply bg-red-500 text-gray-100 font-medium;
+  @apply text-gray-800 font-medium;
+  background: linear-gradient(
+    60deg,
+    hsl(355, 96%, 82%),
+    hsl(25, 88.6%, 75.9%),
+    hsl(59, 92.2%, 74.9%),
+    hsl(93, 71.9%, 74.9%),
+    hsl(218, 97.4%, 84.7%),
+    hsl(308, 75.5%, 79.2%),
+);
 }
 .tag-audio {
   @apply bg-orange-700 text-gray-100 font-medium;
@@ -330,6 +339,11 @@
 .tag-system-apocalypse {
   background-color: #961515;
   @apply text-gray-100 font-medium;
+}
+.tag-superhero {
+  background-color: #f472b6;
+  @apply text-gray-800 font-medium;
+
 }
 .tag-wholesome {
   background-color: #469605;

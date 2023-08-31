@@ -5,7 +5,7 @@ date: 2021-02-03
 auth: Dakota Krout
 categories: [reviews]
 review: C
-weight: 33
+weight: 38
 name: "Divine Dungeon"
 links:
     amazon: https://www.amazon.com/Divine-Dungeon-Complete-GameLit-Fantasy-ebook/dp/B084RD9N97

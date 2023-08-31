@@ -9,7 +9,7 @@ weight: 12
 name: "Super Supportive"
 links:
     royal_road: https://www.royalroad.com/fiction/63759/super-supportive
-tags: [in-progress, litRPG, sci-fi, wholesome]
+tags: [in-progress, litrpg, sci-fi, wholesome, superhero]
 sentence: "Everyone wants to be a superhero. Including Alden Thorn."
 ---
 

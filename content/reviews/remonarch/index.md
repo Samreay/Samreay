@@ -5,7 +5,7 @@ date: 2022-11-30
 categories: [reviews]
 auth: J. McCoy
 review: C
-weight: 34
+weight: 36
 name: "RE: Monarch"
 links:
     amazon: https://www.amazon.com.au/Monarch-Prince-Time-Progression-Fantasy-ebook/dp/B09PQGG7VV

@@ -5,7 +5,7 @@ date: 2022-01-09
 categories: [reviews]
 auth:  James A. Hunter
 review: C
-weight: 34
+weight: 37
 name: "Rogue Dungeon"
 links:
     amazon: https://www.amazon.com/Rogue-Dungeon-litrpg-Adventure-Book-ebook/dp/B07FKYZFYD

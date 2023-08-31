@@ -5,7 +5,7 @@ date: 2023-02-24
 auth: Jamie Kojola
 categories: [reviews]
 review: C
-weight: 35
+weight: 33
 name: "Odyssey of the Ethereal"
 links:
     royal_road: https://www.royalroad.com/fiction/62693/odyssey-of-the-ethereal-prog-fantasytower-climbaether
