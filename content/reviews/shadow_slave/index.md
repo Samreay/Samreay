@@ -87,9 +87,10 @@ This entire section was exasperating. Maybe I've missed something, but...
 
 <span class="spoiler" markdown=1>
 
-1. Why didn't Nephis just tell Sunny to ensure that Caster needed to be kept alive, to use as the person to power the gateway?
-2. If Nephis wanted Sunny to leave... why did she not just tell him to go through the gate first. Sunny was, after all, *completely ignorant* that someone had to stay behind until after Nephis explained it to him.
-3. If Nephis knew Sunny's true name, why did she not just use it instead of almost killing them both in a pointless fight she intended to lose?
+1. Why didn't Nephis just tell Sunny to ensure that Caster needed to be kept alive, to use as the person to power the gateway? Granted, maybe she didn't know.
+2. If Nephis knew Sunny's true name, why did she not just use it instead of almost killing them both in a pointless fight she intended to lose? Maybe she considered that worse?
+3. But, for real now, if Nephis wanted Sunny to leave... why did she not just tell him to go through the gate first. Sunny was, after all, *completely ignorant* that someone had to stay behind until after Nephis explained it to him.
+4. And then, when Sunny reached the gateway first and was a moment from teleporting out, thinking he was victorious... why did Nephis jump into the gateway too to shut it down? This is the *opposite* of letting Sunny leave.
 
 </span>
 
