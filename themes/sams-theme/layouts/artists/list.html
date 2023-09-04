@@ -29,10 +29,9 @@
 
     <div id="card-wrapper" class="container mx-auto mt-4 justify-center grid gap-4 grid-cols-cover-cards-mobile sm:grid-cols-cover-cards">
 
-        {{ range $cover := first 4 (shuffle $artist.covers) }}
+        {{ range $cover := first 4 $artist.covers }}
         {{- $output := printf "img/covers/%s*" $cover -}}
         {{- $img := resources.GetMatch (printf "img/covers/%s*" $cover) -}}
-        {{- $img_small := ($img.Fill "250x400 Center webp q80 #000000" ).RelPermalink -}}
         {{- $img_larger := ( $img.Fill "500x800 Center webp q70 #000000" ).RelPermalink -}}
         
         <div class="fancy_card horizontal mx-auto cursor-default">
@@ -44,7 +43,7 @@
                         <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
                         <figure class="block flex-none bg-cover w-full">
                             <picture>
-                                <source srcset="{{$img_small}} 275w, {{$img_larger}} 500w" type="image/webp" />
+                                <source srcset="{{$img_larger}} 500w" type="image/webp" />
                                 <img class="block flex-none bg-cover mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
                                 </picture>
         

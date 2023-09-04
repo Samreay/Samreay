@@ -11,7 +11,14 @@
 - name: Cyan Gorilla
   links:
     website: https://cyangorilla.com
-  covers: [eldritch_horror_2, steamforged_sorcerer, cleavers_edge]
+  covers:
+    [eldritch_horror_2, steamforged_sorcerer, cleavers_edge, into_the_fire]
+
+- name: Daniel Kamarudin
+  links:
+    artstation: https://danielkamarudin.artstation.com/
+    deviantart: https://www.deviantart.com/thedurrrrian
+  covers: [aa1, sss, forging_divinity]
 
 - name: Daniele Turturici
   links:
@@ -35,9 +42,14 @@
   covers: [unbound1, unbound2, unbound3, unbound4, unbound5]
 
 - name: Luminita Pham
-  covers: [enchanter]
+  covers: [enchanter, diviner]
   links:
     artstation: https://www.artstation.com/luminitapham
+
+- name: Luluseason
+  links:
+    deviantart: https://www.deviantart.com/luluseason
+  covers: [htdadkites]
 
 - name: macarious
   covers: [ghost_of_the_truthseeker]
@@ -45,7 +57,7 @@
     deviantart: https://www.deviantart.com/macarious
 
 - name: Mansik Yang
-  covers: [soul_relic, bastion, mol, sanctuary, scion_of_storms, iron_prince]
+  covers: [soul_relic, bastion, mol, iron_prince, sanctuary, scion_of_storms]
   links:
     artstation: https://www.artstation.com/yam8417
 
