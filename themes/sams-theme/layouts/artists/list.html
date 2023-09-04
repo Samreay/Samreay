@@ -17,7 +17,7 @@
 
 
     {{ range $artist := site.Data.artists }}
-    <h2 class="text-center mt-12 mb-2">{{ $artist.name }}</h2>
+    <a href="#{{ htmlEscape $artist.name }}"><h2 class="text-center mt-12 mb-2" id="{{ htmlEscape $artist.name }}">{{ $artist.name }}</h2></a>
     {{ if $artist.notes }}
     <p class="text-center italic text-grey-400">{{ $artist.notes }}</p>
     {{ end }}

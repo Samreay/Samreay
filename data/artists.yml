@@ -8,6 +8,17 @@
   links:
     artstation: https://www.artstation.com/minhanhnh
 
+- name: Cyan Gorilla
+  links:
+    website: https://cyangorilla.com
+  covers: [eldritch_horror_2, steamforged_sorcerer, cleavers_edge]
+
+- name: Daniele Turturici
+  links:
+    artstation: https://www.artstation.com/danieleturturici
+    instagram: https://www.instagram.com/danieleturturici
+  covers: [jmm1, jmm2]
+
 - name: Lee Moyer
   covers: [into_the_labyrinth, traitor_in_skyhold, siege_of_skyhold]
   links:
@@ -44,6 +55,12 @@
   links:
     artstation: https://www.artstation.com/rustee
     instagram: https://www.instagram.com/rusteedelacruz
+
+- name: Sevenchi
+  links:
+    twitter: https://twitter.com/sevenchiart
+    ko-fi: https://ko-fi.com/sevenchiart
+  covers: [ptnr1, ptnr2, ptnr3, ptnr4, ptnr5]
 
 - name: Aaron McConnel
   notes: For linework and sketches
