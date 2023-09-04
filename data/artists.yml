@@ -29,6 +29,11 @@
   links:
     artstation: https://www.artstation.com/dragonwarrior
 
+- name: Luciano Fleitas
+  links:
+    artstation: https://www.artstation.com/lucianofleitas
+  covers: [unbound1, unbound2, unbound3, unbound4, unbound5]
+
 - name: Luminita Pham
   covers: [enchanter]
   links:
