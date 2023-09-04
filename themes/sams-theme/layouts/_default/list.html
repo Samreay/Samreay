@@ -18,7 +18,7 @@
           "{{ $tag | lower }}",
         {{- end -}}],
         description: {{ .Description }},
-        {{- $img := resources.Get "img/placeholder_1.jpg" -}}
+        {{- $img := resources.Get "img/jeff/placeholder_1.jpg" -}}
         {{- $missing := true -}}
         {{- if isset .Params "images" -}}
             {{- $img = resources.Get (index .Params.images 0) -}}
@@ -32,7 +32,7 @@
             {{- end -}}
         {{- end -}}
         {{- if $missing -}}
-            {{ $img = resources.GetMatch (printf "img/*placeholder_%d*" (int (.Date.Format "2"))) }}
+            {{ $img = resources.GetMatch (printf "img/jeff/*placeholder_%d*" (int (.Date.Format "2"))) }}
         {{- end -}}
         img: {{- ( $img.Fill "352x198 webp q80 #000000" ).RelPermalink -}},
         img_larger: {{- ( $img.Fill "704x396 webp q70 #000000" ).RelPermalink -}},

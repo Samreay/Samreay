@@ -1,0 +1,68 @@
+{{ define "main" }}
+
+<div class="content content-wide">
+
+    <div class="section-header">
+        <h1 data-aos="fade-up">Artist Corner</h1>
+        <p data-aos="fade-up">Because shouting out the geniuses that bring our covers to life is something I should do more of.
+            If you have some covers in the genre and their artists, please throw me the details on
+      <a
+        href="{{ site.Params.discord }}"
+        class="font-bold"
+        style="color: #7289da"
+        ><i class="fa-brands fa-discord"></i> discord</a
+      >.
+        </p>
+    </div>
+
+
+    {{ range $artist := site.Data.artists }}
+    <h2 class="text-center mt-12 mb-2">{{ $artist.name }}</h2>
+    {{ if $artist.notes }}
+    <p class="text-center italic text-grey-400">{{ $artist.notes }}</p>
+    {{ end }}
+    <div class="flex-wrap flex items-center justify-center max-w-7xl mx-auto mt-2 mb-4">
+        {{ range $n, $l := $artist.links }}
+        <a href="{{ $l }}" class="text-center inline-flex text-main-200 px-8"><h4><i class="fa-brands fa-{{$n}}"></i> {{ $n | title }}</h4></a>
+        {{ end }}
+    </div>
+
+    <div id="card-wrapper" class="container mx-auto mt-4 justify-center grid gap-4 grid-cols-cover-cards-mobile sm:grid-cols-cover-cards">
+
+        {{ range $cover := first 4 (shuffle $artist.covers) }}
+        {{- $output := printf "img/covers/%s*" $cover -}}
+        {{- $img := resources.GetMatch (printf "img/covers/%s*" $cover) -}}
+        {{- $img_small := ($img.Fill "250x400 Center webp q80 #000000" ).RelPermalink -}}
+        {{- $img_larger := ( $img.Fill "500x800 Center webp q70 #000000" ).RelPermalink -}}
+        
+        <div class="fancy_card horizontal mx-auto cursor-default">
+            <div class="card_translator cursor-default">
+                <a class="card_rotator small_rot card_layer block cursor-default" href="#">
+                <div class="card_layer">
+                    <article class="review-summary review-${post.review}">
+                    <div class="bg2">
+                        <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
+                        <figure class="block flex-none bg-cover w-full">
+                            <picture>
+                                <source srcset="{{$img_small}} 275w, {{$img_larger}} 500w" type="image/webp" />
+                                <img class="block flex-none bg-cover mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
+                                </picture>
+        
+                        </figure>
+                        </div>
+                    </div>
+                    </article>
+                </div>
+                <div class="card_layer card_effect card_overlay_C"></div>
+                <div class="card_layer card_effect card_glare"></div>
+                </a>
+            </div>
+            </div>
+        {{ end }}
+    </div>
+
+    {{ end }}
+
+</div>
+
+{{ end }}
