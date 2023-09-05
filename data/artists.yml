@@ -37,6 +37,11 @@
   links:
     website: https://www.leemoyer.com/
 
+- name: Lu Castro
+  links:
+    artstation: https://www.artstation.com/lucastro
+  covers: [dear_spellbook1, dear_spellbook2]
+
 - name: Lucian Acatrinei
   covers: [stt1, stt2, stt3, stt4, stt5]
   links:
