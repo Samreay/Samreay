@@ -1,52 +1,92 @@
 {{ define "main" }}
 
-<div class="content content-wide">
 
-    <div class="section-header">
-        <h1 data-aos="fade-up">Artist Corner</h1>
-        <p data-aos="fade-up">Because shouting out the geniuses that bring our covers to life is something I should do more of. Note that some artists include typography, but most do not.
-            If you have some covers in the genre and their artists, please throw me the details on
-      <a
-        href="{{ site.Params.discord }}"
-        class="font-bold"
-        style="color: #7289da"
-        ><i class="fa-brands fa-discord"></i> discord</a
-      >.
-        </p>
-    </div>
+<script type="module">
+    import { reactive, html, watch } from '/js/arrow.js';
+    const artists = [
+        {{- range $artist := site.Data.artists -}}
+        {
+          name: {{- $artist.name -}},
+          id: {{- urlize $artist.name -}},
+          {{- if isset $artist "notes" -}}notes: {{- $artist.notes -}},{{- end -}}
+          links: [
+            {{- range $n, $l := $artist.links -}}
+              {name:{{- $n -}}, link: {{- $l -}}, title: {{- $n | title -}}},
+            {{- end -}}
+        ],
+          covers: [
+            {{- range $cover := $artist.covers -}}
+            {{- $output := printf "img/covers/%s*" $cover -}}
+            {{- $img := resources.GetMatch (printf "img/covers/%s.*" $cover) -}}
+            {{( $img.Fill "500x800 Center webp q70 #000000" ).RelPermalink }},
+            {{- end -}}
+          ]
+      },
+      {{- end -}}
+    ]
+
+    const data = reactive({
+      show_four: true,
+      alphabetical: true,
+      artists: artists,
+    });
+
+    function shuffle(a) {
+        a = [...a];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+}
+
+    function maybe_shuffle(slice) {
+        if (data.alphabetical) {
+            return slice;
+        } else {
+            return shuffle(slice);
+        }
+    }
 
 
-    {{ range $artist := site.Data.artists }}
-    <a href="#{{ urlize $artist.name }}"><h2 class="text-center mt-12 mb-2" id="{{ urlize $artist.name }}">{{ $artist.name }}</h2></a>
-    {{ if $artist.notes }}
-    <p class="text-center italic text-grey-400">{{ $artist.notes }}</p>
-    {{ end }}
+    const controls_container = document.getElementById("controls");
+    const controls_template = html`
+  <div class="mt-4 justify-center flex flex-wrap items-center">
+    <label for="wide-layout" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
+      <input id="wide-layout" type="checkbox" checked="${() => (data.alphabetical ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.alphabetical = e.target.checked} }">
+      <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Alphabetical</span>
+      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Shuffled</span>
+    </label>
+    <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
+      <input id="sort-order" type="checkbox" checked="${() => (data.show_four ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.show_four = e.target.checked} }">
+      <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Show four covers</span>
+      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Show everything!</span>
+    </label>
+  </div>
+  `
+    controls_template(controls_container);
+
+    const artist_container = document.getElementById("artist-content");
+    const artist_template = html`${() => maybe_shuffle(data.artists).map(artist => html`
+    <a href="#${artist.id}"><h2 class="text-center mt-12 mb-2" id="${artist.id}">${artist.name}</h2></a>
+    ${() => artist.notes ? html`<p class="text-center italic text-grey-400">${artist.notes}</p>` : html``}
     <div class="flex-wrap flex items-center justify-center max-w-7xl mx-auto mt-2 mb-4">
-        {{ range $n, $l := $artist.links }}
-        <a href="{{ $l }}" class="text-center inline-flex text-main-200 px-8"><h4><i class="fa-brands fa-{{$n}}"></i> {{ $n | title }}</h4></a>
-        {{ end }}
+        ${() => artist.links.map(link => html`<a href="${link.link}" class="text-center inline-flex text-main-200 px-8"><h4><i class="fa-brands fa-${link.name}"></i> ${link.title}</h4></a>`)}
     </div>
-
     <div id="card-wrapper" class="container mx-auto mt-4 justify-center grid gap-4 grid-cols-cover-cards-mobile sm:grid-cols-cover-cards">
-
-        {{ range $cover := first 4 $artist.covers }}
-        {{- $output := printf "img/covers/%s*" $cover -}}
-        {{- $img := resources.GetMatch (printf "img/covers/%s.*" $cover) -}}
-        {{- $img_larger := ( $img.Fill "500x800 Center webp q70 #000000" ).RelPermalink -}}
-        
+        ${() => maybe_shuffle(artist.covers).slice(0, data.show_four ? 4 : 99).map(cover => html`
         <div class="fancy_card horizontal mx-auto cursor-default">
             <div class="card_translator cursor-default">
                 <a class="card_rotator small_rot card_layer block cursor-default" href="#">
                 <div class="card_layer">
-                    <article class="review-summary review-${post.review}">
+                    <article class="review-summary">
                     <div class="bg2">
                         <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
                         <figure class="block flex-none bg-cover w-full">
                             <picture>
-                                <source srcset="{{$img_larger}} 500w" type="image/webp" />
-                                <img class="block flex-none bg-cover mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
-                                </picture>
-        
+                                <source srcset="${cover} 500w" type="image/webp" />
+                                <img class="block flex-none bg-cover mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg=="/>
+                            </picture>
                         </figure>
                         </div>
                     </div>
@@ -56,11 +96,27 @@
                 <div class="card_layer card_effect card_glare"></div>
                 </a>
             </div>
-            </div>
-        {{ end }}
+        </div>
+        `)}
+    </div>
+    `)}`
+    artist_template(artist_container);
+</script>
+
+<div class="content content-wide">
+
+    <div class="section-header">
+        <h1 data-aos="fade-up">Artist Corner</h1>
+        <p data-aos="fade-up">Because shouting out the geniuses that bring our covers to life is something I should do more of. Note that some artists include typography, but most do not.
+            If you have some covers in the genre and their artists, please throw me the details on
+      <a href="{{ site.Params.discord }}" class="font-bold" style="color: #7289da">
+        <i class="fa-brands fa-discord"></i> discord</a>.
+        </p>
+
+        <div id="controls" class="max-w-7xl mx-auto"></div>
     </div>
 
-    {{ end }}
+    <div id="artist-content"></div>
 
 </div>
 
