@@ -60,7 +60,7 @@
     <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
       <input id="sort-order" type="checkbox" checked="${() => (data.show_four ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.show_four = e.target.checked} }">
       <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Max 4</span>
-      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Double it.</span>
+      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">More!</span>
     </label>
   </div>
   `
@@ -103,7 +103,7 @@
     artist_template(artist_container);
 </script>
 
-<div class="content content-wide">
+<div class="content content-full">
 
     <div class="section-header">
         <h1 data-aos="fade-up">Artist Corner</h1>
