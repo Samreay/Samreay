@@ -59,8 +59,8 @@
     </label>
     <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
       <input id="sort-order" type="checkbox" checked="${() => (data.show_four ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.show_four = e.target.checked} }">
-      <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Show four covers</span>
-      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Show everything!</span>
+      <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Max 4</span>
+      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Double it.</span>
     </label>
   </div>
   `
@@ -108,9 +108,9 @@
     <div class="section-header">
         <h1 data-aos="fade-up">Artist Corner</h1>
         <p data-aos="fade-up">Because shouting out the geniuses that bring our covers to life is something I should do more of. Note that some artists include typography, but most do not.
-            If you have some covers in the genre and their artists, please throw me the details on
-      <a href="{{ site.Params.discord }}" class="font-bold" style="color: #7289da">
-        <i class="fa-brands fa-discord"></i> discord</a>.
+            If you know a cover artist that works in the Progression Fantasy / LitRPG / Cultivation genre, please use 
+      <a href="https://forms.gle/JLBAgYcQsnw67qpi6" class="font-bold" style="color: #f9d8ab">
+        <i class="fa-brands fa-wpforms"></i> this form</a> to submit them.
         </p>
 
         <div id="controls" class="max-w-7xl mx-auto"></div>

@@ -34,7 +34,7 @@
 - name: Enzo Fernandez
   links:
     artstation: https://www.artstation.com/enzofernandez
-  covers: [homical_aliens]
+  covers: [homical_aliens, planetary_destruction]
 
 - name: Fuyu Dust
   links:
@@ -44,7 +44,13 @@
 
 - name: Kart Studios
   covers:
-    [btdem1, crown_of_rebellion, malice_of_the_north, voyage_of_the_mindbender]
+    [
+      btdem1,
+      crown_of_rebellion,
+      malice_of_the_north,
+      voyage_of_the_mindbender,
+      btdem2,
+    ]
   links:
     deviantart: https://www.deviantart.com/kartstudiodigi/
 
@@ -55,7 +61,14 @@
   covers: [cb1, cb2]
 
 - name: Lee Moyer
-  covers: [into_the_labyrinth, traitor_in_skyhold, siege_of_skyhold]
+  covers:
+    [
+      into_the_labyrinth,
+      mage_errant_7,
+      traitor_in_skyhold,
+      siege_of_skyhold,
+      mage_errant_2,
+    ]
   links:
     website: https://www.leemoyer.com/
 
@@ -77,7 +90,8 @@
 - name: Luciano Fleitas
   links:
     artstation: https://www.artstation.com/lucianofleitas
-  covers: [dcc1, unbound1, unbound2, unbound3, unbound4, unbound5]
+  covers:
+    [dcc1, unbound1, unbound2, dungeon_tour_guide, unbound3, unbound4, unbound5]
 
 - name: Luminita Pham
   covers: [enchanter, diviner]
@@ -95,7 +109,16 @@
     deviantart: https://www.deviantart.com/macarious
 
 - name: Mansik Yang
-  covers: [soul_relic, bastion, mol, iron_prince, sanctuary, scion_of_storms]
+  covers:
+    [
+      soul_relic,
+      bastion,
+      mol,
+      iron_prince,
+      sanctuary,
+      scion_of_storms,
+      iron_prince2,
+    ]
   links:
     artstation: https://www.artstation.com/yam8417
 
