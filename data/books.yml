@@ -1,13 +1,18 @@
 - name: Soul Relic
-  cover: landing/soul_relic.jpg
-  animated: landing/soul_relic.mp4
+  cover: landing/1_soul_relic.jpg
+  # animated: landing/soul_relic.mp4
   desc: "Manifestation 1: Soul Relic"
   link: https://mybook.to/SoulRelic
   audible: https://www.audible.com/pd/Soul-Relic-Audiobook/B0BTZTNQZM
 
 - name: Scion of Storms
-  cover: landing/storm_scion.jpg
-  animated: landing/storm_scion_small.mp4
+  cover: landing/2_Scion_of_Storms.jpg
+  # animated: landing/storm_scion_small.mp4
   desc: "Manifestation 2: Scion of Storms"
   link: https://mybook.to/scion_of_storms
   paperback: https://www.amazon.com/dp/B0BYBF7YDB
+
+- name: Sanctuary
+  cover: landing/3_Sanctuary.jpg
+  desc: "Manifestation 3: Sanctuary"
+  link: https://www.amazon.com/dp/B0C2CWZ1RH

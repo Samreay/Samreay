@@ -1,4 +1,4 @@
-<div class="content content-standard">
+<div class="content content-wide">
 
     <div class="section-header">
         <h1 data-aos="fade-up">Books</h1>
@@ -7,19 +7,20 @@
     </div>
 
     <div class="mx-auto mt-8">
-        <div class="grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
+        <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 md:gap-x-6 md:gap-y-8 items-start">
             {{ range $book := site.Data.books }}
-            <article class="flex flex-col h-full col-span-1 fancy_card aspect-book" data-aos="fade-up" style="height: 498px;">
+            <article class="flex flex-col h-full col-span-1 fancy_card" data-aos="fade-up">
                 <div class="card_translator">
                     <a class="card_rotator block card_layer" href="{{$book.link}}">
                         <figure class="card_layer">
-                            {{ if $book.animated }}
+                            {{ if isset $book "animated" }}
                             <video preload="auto" playsinline plays-inline autoplay loop muted>
                                 <source src="{{ (resources.Get $book.animated).RelPermalink }}" type="video/mp4">
                             </video>
                             {{ else }}
-                            <img class="w-full h-full object-cover" src="{{ (resources.Get $book.animated).RelPermalink }}" width="352" height="498"
-                                alt="{{$book.desc}}" />
+                                {{ $img := ( resources.GetMatch $book.cover ).Fill "310x496 Center webp q80 #000000"}}
+                                <img class="w-full h-full object-cover" src="{{ $img.RelPermalink }}" width="310" height="496"
+                                    alt="{{$book.desc}}" />
                             {{ end }}
                         </figure>
                         <div class="card_layer card_effect card_overlay_C"></div>
@@ -38,10 +39,10 @@
                                 <div class="relative h-full sib-form-container" id="sib-form-container">
 
                                     <!-- CTA content -->
-                                    <div class="mb-6 lg:mb-12 text-center">
-                                        <h3 class="text-main-200 mb-2 lg:mb-8">Stay in the loop!</h3>
-                                        <p class="text-main-100 text-lg text-opacity-70 mb-2">For new books, giveaways, reviews, and chatting, join my <a href="{{ site.Params.discord }}" class="font-bold" style="color: #7289da;"><i class="fa-brands fa-discord"></i> discord</a>.</p>
-                                        <p class="text-main-100 text-lg text-opacity-70">For releases and giveaways without social anxiety, join the email list!</p>
+                                    <div class="mb-6 text-center">
+                                        <h3 class="text-main-200 mb-2 lg:mb-8">Updates!</h3>
+                                        <p class="text-main-100 text-lg text-opacity-70 mb-2">For new reviews, books and chatting, <a href="{{ site.Params.discord }}" class="font-bold" style="color: #7289da;"><i class="fa-brands fa-discord"></i> discord</a>.</p>
+                                        <p class="text-main-100 text-lg text-opacity-70">For releases without social anxiety, join the email list!</p>
                                     </div>
 
                                     <!-- CTA form -->
