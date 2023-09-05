@@ -24,7 +24,7 @@ convert:
 	poetry run python builder/convert.py
 
 blog:
-	hugo server -D --verbose
+	hugo server -D --logLevel info
 
 summary:
 	poetry run builder/summary_generator.py

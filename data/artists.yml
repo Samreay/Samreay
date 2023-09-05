@@ -3,11 +3,6 @@
   links:
     artstation: https://www.artstation.com/bajsingh
 
-- name: Ben Moran
-  covers: [btdem1]
-  links:
-    artstation: https://www.artstation.com/minhanhnh
-
 - name: Carson Lowmiller
   links:
     artstation: https://carsonlowmiller.artstation.com/
@@ -36,6 +31,11 @@
     artstation: https://www.artstation.com/fuyudust
   notes: Not taking commissions
   covers: [bdr1, bdr2, bdr3]
+
+- name: Kart Studios
+  covers: [btdem1, crown_of_rebellion, malice_of_the_north]
+  links:
+    deviantart: https://www.deviantart.com/kartstudiodigi/
 
 - name: LArcian
   links:
