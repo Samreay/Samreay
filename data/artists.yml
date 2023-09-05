@@ -33,7 +33,8 @@
   covers: [bdr1, bdr2, bdr3]
 
 - name: Kart Studios
-  covers: [btdem1, crown_of_rebellion, malice_of_the_north]
+  covers:
+    [btdem1, crown_of_rebellion, malice_of_the_north, voyage_of_the_mindbender]
   links:
     deviantart: https://www.deviantart.com/kartstudiodigi/
 
