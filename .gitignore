@@ -40,3 +40,5 @@ __pycache__/
 *.so
 static/styles/index.js
 **/*tmp*
+
+*.Identifier
