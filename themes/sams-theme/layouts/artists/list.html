@@ -31,7 +31,7 @@
 
         {{ range $cover := first 4 $artist.covers }}
         {{- $output := printf "img/covers/%s*" $cover -}}
-        {{- $img := resources.GetMatch (printf "img/covers/%s*" $cover) -}}
+        {{- $img := resources.GetMatch (printf "img/covers/%s.*" $cover) -}}
         {{- $img_larger := ( $img.Fill "500x800 Center webp q70 #000000" ).RelPermalink -}}
         
         <div class="fancy_card horizontal mx-auto cursor-default">

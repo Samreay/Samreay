@@ -97,7 +97,7 @@
 - name: Miblart
   links:
     website: https://miblart.com/services/premium-book-cover-design/
-  covers: [antimage1]
+  covers: [antimage1, lightblade]
 
 - name: Richard Sashigane
   covers: [wuts, arcane_knight_2, roots_and_steel]
