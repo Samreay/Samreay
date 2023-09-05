@@ -1,3 +1,8 @@
+- name: Agri Karuniawan
+  links:
+    artstation: https://www.artstation.com/agri
+  covers: [floc1, floc2]
+
 - name: Baj Singh
   covers: [jekua1, jekua2, jekua3, jekua4]
   links:
