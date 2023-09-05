@@ -17,7 +17,7 @@
                     {{ end }}
                 {{ end }}
                 {{ if $missing }}
-                    {{ $img = resources.GetMatch (printf "img/*placeholder_%d*" (int (.Date.Format "2"))) }}
+                    {{ $img = resources.GetMatch (printf "img/jeff/*placeholder_%d*" (int (.Date.Format "2"))) }}
                 {{ end }}
 
                 {{ with $img }}
