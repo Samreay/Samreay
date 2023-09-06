@@ -135,6 +135,17 @@
     website: https://miblart.com/services/premium-book-cover-design/
   covers: [antimage1, lightblade]
 
+- name: Michael G
+  links:
+    instagram: https://www.instagram.com/michaelgl_art/
+  covers: [target_75]
+
+- name: Piere d'Arterie
+  links:
+    instagram: https://www.instagram.com/piere_d_arterie/
+    99designs: https://99designs.ca/profiles/pieredarterie
+  covers: [apocalypse_assassin, twoia1, twoia6, target_75_claire, twoia5]
+
 - name: Richard Sashigane
   covers: [wuts, arcane_knight_2, roots_and_steel]
   links:
