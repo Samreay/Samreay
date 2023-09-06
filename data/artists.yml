@@ -70,13 +70,7 @@
 
 - name: Lee Moyer
   covers:
-    [
-      into_the_labyrinth,
-      mage_errant_7,
-      traitor_in_skyhold,
-      siege_of_skyhold,
-      mage_errant_2,
-    ]
+    [into_the_labyrinth, traitor_in_skyhold, siege_of_skyhold, mage_errant_2]
   links:
     website: https://www.leemoyer.com/
 
