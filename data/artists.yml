@@ -23,7 +23,7 @@
   links:
     artstation: https://danielkamarudin.artstation.com/
     deviantart: https://www.deviantart.com/thedurrrrian
-  covers: [aa1, sss, forging_divinity]
+  covers: [war_priest, twatd, aa1, sss, forging_divinity]
 
 - name: Daniele Turturici
   links:
@@ -46,6 +46,11 @@
     artstation: https://www.artstation.com/fuyudust
   notes: Not taking commissions
   covers: [bdr1, bdr2, bdr3]
+
+- name: Jason Yao
+  links:
+    artstation: https://www.artstation.com/zanic
+  covers: [pilgrim1, pilgrim2]
 
 - name: Jeff Brown
   links:
@@ -141,7 +146,7 @@
   covers: [apocalypse_assassin, twoia1, twoia6, target_75_claire, twoia5]
 
 - name: Richard Sashigane
-  covers: [wuts, arcane_knight_2, roots_and_steel]
+  covers: [wuts, proxima_legends, arcane_knight_2, roots_and_steel]
   links:
     artstation: https://www.artstation.com/makingpicsslowly
     website: https://richardsashigane.com/
