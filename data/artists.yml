@@ -36,11 +36,21 @@
     artstation: https://www.artstation.com/enzofernandez
   covers: [homical_aliens, planetary_destruction]
 
+- name: Flavio Bolla
+  links:
+    website: https://www.flaviobolla.com/
+  covers: [skythief1]
+
 - name: Fuyu Dust
   links:
     artstation: https://www.artstation.com/fuyudust
   notes: Not taking commissions
   covers: [bdr1, bdr2, bdr3]
+
+- name: Jeff Brown
+  links:
+    website: https://www.jeffbrowngraphics.com/
+  covers: [born_of_fire, majority, the_universe_game, portal_guardians]
 
 - name: Kart Studios
   covers: [btdem1, malice_of_the_north, voyage_of_the_mindbender, btdem2]
