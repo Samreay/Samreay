@@ -3,6 +3,11 @@
     artstation: https://www.artstation.com/agri
   covers: [floc1, floc2]
 
+- name: Antti Hakosaari
+  links:
+    artstation: https://www.artstation.com/haco
+  covers: [card_mage]
+
 - name: Arnor
   links:
     artstation: https://www.artstation.com/arnor
@@ -51,6 +56,11 @@
     instagram: https://www.instagram.com/danieleturturici
   covers: [jmm1, jmm2]
 
+- name: Darko Paganus
+  links:
+    99designs: https://99designs.com/profiles/paganus
+  covers: [elf_empire, knightmare_arcanist1, knightmare_arcanist2]
+
 - name: Enzo Fernandez
   links:
     artstation: https://www.artstation.com/enzofernandez
@@ -65,7 +75,12 @@
   links:
     artstation: https://www.artstation.com/fuyudust
   notes: Not taking commissions
-  covers: [bdr1, bdr2, bdr3]
+  covers: [bdr1, bdr2, bdr3, amelia2]
+
+- name: GASE(가세)
+  links:
+    artstation: https://www.artstation.com/user-04e611b97b31d62f
+  covers: [shadow_of_glory]
 
 - name: Gia Phoc
   links:
@@ -82,6 +97,11 @@
     website: https://www.jeffbrowngraphics.com/
   covers: [born_of_fire, majority, the_universe_game, portal_guardians]
 
+- name: Kaimo Nunes
+  links:
+    artstation: https://www.artstation.com/kaimonunes
+  covers: [amelia]
+
 - name: Kart Studios
   notes: Art Studio
   covers:
@@ -91,6 +111,7 @@
       voyage_of_the_mindbender,
       blade_of_revelation,
       btdem2,
+      trails_of_descent,
     ]
   links:
     deviantart: https://www.deviantart.com/kartstudiodigi/
@@ -105,6 +126,11 @@
     deviantart: https://www.deviantart.com/larcian
     fiverr: https://www.fiverr.com/larcian/draw-anime-character-illustration
   covers: [cb1, cb2]
+
+- name: Linggar Brammarty
+  links:
+    artstation: https://www.artstation.com/linggarbramanty
+  covers: [mimic_and_me]
 
 - name: Lee Moyer
   covers:
@@ -213,10 +239,21 @@
     ko-fi: https://ko-fi.com/sevenchiart
   covers: [ptnr1, ptnr2, ptnr3, ptnr4, ptnr5]
 
+- name: SlothBeing
+  links:
+    artstation: https://www.artstation.com/aslothbeing
+  covers: [dead_tired]
+
 - name: Timothée Mathon
   links:
     artstation: https://www.artstation.com/theartnest
   covers: [last_physicist]
+
+- name: Toast (aka doughblaster / cosmiccroissant)
+  links:
+    website: https://doughblaster.carrd.co/
+    twitter: https://twitter.com/cosmiccroissant
+  covers: [edge_cases]
 
 - name: Wirawan Pranoto
   links:
