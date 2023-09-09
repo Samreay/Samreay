@@ -3,6 +3,11 @@
     artstation: https://www.artstation.com/agri
   covers: [floc1, floc2]
 
+- name: Arnor
+  links:
+    artstation: https://www.artstation.com/arnor
+  covers: [rise_of_the_devourer]
+
 - name: Asur Misoa
   links:
     deviantart: https://www.deviantart.com/asur-misoa
@@ -17,6 +22,11 @@
   links:
     artstation: https://carsonlowmiller.artstation.com/
   covers: [legends_and_lattes]
+
+- name: Creadfectus
+  links:
+    artstation: https://www.artstation.com/creadfectus
+  covers: [jester_apoc, demon_tree, ship_core, revelations]
 
 - name: Cyan Gorilla
   links:
@@ -68,6 +78,7 @@
   covers: [born_of_fire, majority, the_universe_game, portal_guardians]
 
 - name: Kart Studios
+  notes: Art Studio
   covers:
     [
       btdem1,
@@ -147,6 +158,7 @@
     artstation: https://www.artstation.com/yam8417
 
 - name: Miblart
+  notes: Art Studio
   links:
     website: https://miblart.com/services/premium-book-cover-design/
   covers: [antimage1, lightblade, silas_sontag]
@@ -167,6 +179,12 @@
     99designs: https://99designs.ca/profiles/pieredarterie
   covers: [apocalypse_assassin, twoia1, twoia6, target_75_claire, twoia5]
 
+- name: Polar Engine
+  notes: Art studio
+  links:
+    artstation: https://www.artstation.com/polarengine
+  covers: [strathmar, infinite_spear]
+
 - name: Richard Sashigane
   covers: [wuts, proxima_legends, arcane_knight_2, roots_and_steel]
   links:
@@ -184,6 +202,11 @@
     twitter: https://twitter.com/sevenchiart
     ko-fi: https://ko-fi.com/sevenchiart
   covers: [ptnr1, ptnr2, ptnr3, ptnr4, ptnr5]
+
+- name: Wirawan Pranoto
+  links:
+    artstation: https://www.artstation.com/telaga
+  covers: [rise_of_the_devourer2]
 
 - name: Yelim Kim
   links:
