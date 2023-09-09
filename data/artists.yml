@@ -213,6 +213,11 @@
     ko-fi: https://ko-fi.com/sevenchiart
   covers: [ptnr1, ptnr2, ptnr3, ptnr4, ptnr5]
 
+- name: Timothée Mathon
+  links:
+    artstation: https://www.artstation.com/theartnest
+  covers: [last_physicist]
+
 - name: Wirawan Pranoto
   links:
     artstation: https://www.artstation.com/telaga
