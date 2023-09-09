@@ -82,6 +82,7 @@
 
     const artist_container = document.getElementById("artist-content");
     const artist_template = html`${() => maybe_shuffle(data.artists).map(artist => html`
+    <div>
     <a href="#${artist.id}"><h2 class="text-center mt-12 mb-2" id="${artist.id}">${artist.name}</h2></a>
     ${() => artist.notes ? html`<p class="text-center italic text-grey-400">${artist.notes}</p>` : html``}
     <div class="flex-wrap flex items-center justify-center max-w-7xl mx-auto mt-2 mb-4">
@@ -112,6 +113,7 @@
             </div>
         </div>
         `)}
+    </div>
     </div>
     `)}`
     artist_template(artist_container);

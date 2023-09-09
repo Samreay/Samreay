@@ -3,6 +3,11 @@
     artstation: https://www.artstation.com/agri
   covers: [floc1, floc2]
 
+- name: Asur Misoa
+  links:
+    deviantart: https://www.deviantart.com/asur-misoa
+  covers: [eternal_ephemera1]
+
 - name: Baj Singh
   covers: [jekua1, jekua2, jekua3, jekua4]
   links:
@@ -58,7 +63,14 @@
   covers: [born_of_fire, majority, the_universe_game, portal_guardians]
 
 - name: Kart Studios
-  covers: [btdem1, malice_of_the_north, voyage_of_the_mindbender, btdem2]
+  covers:
+    [
+      btdem1,
+      malice_of_the_north,
+      voyage_of_the_mindbender,
+      blade_of_revelation,
+      btdem2,
+    ]
   links:
     deviantart: https://www.deviantart.com/kartstudiodigi/
 
@@ -132,12 +144,17 @@
 - name: Miblart
   links:
     website: https://miblart.com/services/premium-book-cover-design/
-  covers: [antimage1, lightblade]
+  covers: [antimage1, lightblade, silas_sontag]
 
 - name: Michael G
   links:
     instagram: https://www.instagram.com/michaelgl_art/
   covers: [target_75]
+
+- name: Myles Wohl
+  links:
+    instagram: https://instagram.com/myleswohl
+  covers: [fateless2]
 
 - name: Piere d'Arterie
   links:
