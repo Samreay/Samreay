@@ -1,3 +1,14 @@
+- name: Aaron McConnel
+  notes: For linework and sketches
+  covers:
+    [
+      sketch_into_the_labyrinth,
+      sketch_traitor_in_skyhold,
+      sketch_siege_of_skyhold,
+    ]
+  links:
+    website: https://aamcconnell.com/
+
 - name: Agri Karuniawan
   links:
     artstation: https://www.artstation.com/agri
@@ -207,7 +218,12 @@
 - name: Rashed AlAkroka
   links:
     artstation: https://www.artstation.com/rashedjrs
-  covers: [quest_academy_silvers]
+  covers: [quest_academy_silvers, artem, artem1, zero_light_kindle, zero_derby]
+
+- name: Ricky Gunawan
+  links:
+    artstation: https://rickyillustration.artstation.com/
+  covers: [space_seasons6, summer_turbulence, autumn_balance, bright_lords]
 
 - name: Piere d'Arterie
   links:
@@ -265,13 +281,7 @@
     artstation: https://www.artstation.com/vikk8014
   covers: [skadis_saga]
 
-- name: Aaron McConnel
-  notes: For linework and sketches
-  covers:
-    [
-      sketch_into_the_labyrinth,
-      sketch_traitor_in_skyhold,
-      sketch_siege_of_skyhold,
-    ]
+- name: Franz Carlo Banocnoc (zev_art)
   links:
-    website: https://aamcconnell.com/
+    behance: https://www.behance.net/gallery/120501569/Digital-Illustration
+  covers: [nomad_healer, runeshield2]
