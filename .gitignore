@@ -42,3 +42,5 @@ static/styles/index.js
 **/*tmp*
 
 *.Identifier
+
+tmp_*

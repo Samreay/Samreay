@@ -27,7 +27,14 @@
 - name: Asur Misoa
   links:
     deviantart: https://www.deviantart.com/asur-misoa
-  covers: [eternal_ephemera1]
+  covers:
+    [
+      eternal_ephemera1,
+      bones_to_wind,
+      seventh_bridge_to_the_heavens,
+      la_cite,
+      tower_nerek,
+    ]
 
 - name: Baj Singh
   covers: [jekua1, jekua2, jekua3, jekua4]
@@ -59,7 +66,7 @@
   links:
     artstation: https://danielkamarudin.artstation.com/
     deviantart: https://www.deviantart.com/thedurrrrian
-  covers: [war_priest, twatd, aa1, sss, forging_divinity]
+  covers: [war_priest, twatd, aa1, sss, forging_divinity, edge_of_the_woods]
 
 - name: Daniele Turturici
   links:
@@ -81,6 +88,11 @@
   links:
     website: https://www.flaviobolla.com/
   covers: [skythief1]
+
+- name: Franz Carlo Banocnoc (zev_art)
+  links:
+    behance: https://www.behance.net/gallery/120501569/Digital-Illustration
+  covers: [nomad_healer, runeshield2]
 
 - name: Fuyu Dust
   links:
@@ -130,6 +142,12 @@
   links:
     website: https://www.sigilseer.com/commissions
   covers: [dressed_to_kill]
+
+- name: Laércio Messias
+  links:
+    facebook: https://www.facebook.com/laerciomess
+    artstation: https://www.artstation.com/laerciomessias
+  covers: [truth_hurts, rimono, crisis_point, intervention]
 
 - name: LArcian
   links:
@@ -243,6 +261,11 @@
     artstation: https://www.artstation.com/makingpicsslowly
     website: https://richardsashigane.com/
 
+- name: Roger Creus Dorico / Rowye
+  links:
+    deviantart: https://www.deviantart.com/rowye/gallery/61852949/cover-art
+  covers: [terrors_and_tommyguns, lightning, arat1, birth_demonic_sword]
+
 - name: Rusty Dela Cruz
   covers: [shieldsmith]
   links:
@@ -281,7 +304,7 @@
     artstation: https://www.artstation.com/vikk8014
   covers: [skadis_saga]
 
-- name: Franz Carlo Banocnoc (zev_art)
+- name: Yvonne Less
   links:
-    behance: https://www.behance.net/gallery/120501569/Digital-Illustration
-  covers: [nomad_healer, runeshield2]
+    website: https://www.art4artists.com.au/
+  covers: [dark_horizon, stealth_assault, tracked, ainoren]
