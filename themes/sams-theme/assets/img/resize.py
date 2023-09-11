@@ -40,7 +40,7 @@ for file in sorted(input_dir.glob("*")):
     print(f"Processing {file}")
 
     inp = file.absolute()
-    command = f"convert {inp} -strip -interlace Plane -quality 95% -resize x{max_height} {output1}"
+    command = f"convert {inp} -strip -interlace Plane -quality 95% -resize x{max_height}\\> {output1}"
 
     # Run command in shell
     run(command, shell=True)
