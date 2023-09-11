@@ -42,7 +42,8 @@
     artstation: https://www.artstation.com/bajsingh
 
 - name: Billy Christian
-  covers: [mana_beasts1]
+  notes: Art Studio
+  covers: [mana_beasts1, mana_beasts2]
   links:
     artstation: https://www.artstation.com/billcreative
 
@@ -303,11 +304,6 @@
     website: https://doughblaster.carrd.co/
     twitter: https://twitter.com/cosmiccroissant
   covers: [edge_cases]
-
-- name: Wilson Nugraha
-  links:
-    artstation: https://www.artstation.com/wilsonnugrahaa
-  covers: [mana_beasts2]
 
 - name: Wirawan Pranoto
   links:
