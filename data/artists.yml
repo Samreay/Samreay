@@ -244,22 +244,6 @@
     instagram: https://instagram.com/myleswohl
   covers: [fateless2]
 
-- name: Polar Engine Studio
-  notes: Art Studio
-  covers: [mana_beasts1, mana_beasts2]
-  links:
-    artstation: https://www.artstation.com/billcreative
-
-- name: Rashed AlAkroka
-  links:
-    artstation: https://www.artstation.com/rashedjrs
-  covers: [quest_academy_silvers, artem, artem1, zero_light_kindle, zero_derby]
-
-- name: Ricky Gunawan
-  links:
-    artstation: https://rickyillustration.artstation.com/
-  covers: [space_seasons6, summer_turbulence, autumn_balance, bright_lords]
-
 - name: Piere d'Arterie
   links:
     instagram: https://www.instagram.com/piere_d_arterie/
@@ -270,13 +254,23 @@
   notes: Art studio
   links:
     artstation: https://www.artstation.com/polarengine
-  covers: [strathmar, infinite_spear]
+  covers: [strathmar, infinite_spear, mana_beasts1, mana_beasts2]
+
+- name: Rashed AlAkroka
+  links:
+    artstation: https://www.artstation.com/rashedjrs
+  covers: [quest_academy_silvers, artem, artem1, zero_light_kindle, zero_derby]
 
 - name: Richard Sashigane
   covers: [wuts, proxima_legends, arcane_knight_2, roots_and_steel]
   links:
     artstation: https://www.artstation.com/makingpicsslowly
     website: https://richardsashigane.com/
+
+- name: Ricky Gunawan
+  links:
+    artstation: https://rickyillustration.artstation.com/
+  covers: [space_seasons6, summer_turbulence, autumn_balance, bright_lords]
 
 - name: Roger Creus Dorico / Rowye
   links:
@@ -299,6 +293,11 @@
   links:
     artstation: https://www.artstation.com/aslothbeing
   covers: [dead_tired]
+
+- name: Sober Scorps
+  links:
+    artstation: https://www.artstation.com/soberscorps
+  covers: [legendary_fool]
 
 - name: Timothée Mathon
   links:
