@@ -5,7 +5,7 @@ date: 2022-12-04
 auth: Rhaegar
 categories: [reviews]
 review: B
-weight: 21
+weight: 26
 name: "Azarinth Healer"
 links:
     amazon: https://www.amazon.com/Azarinth-Healer-Book-LitRPG-Adventure-ebook/dp/B0BLRD8YPD
