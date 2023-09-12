@@ -9,12 +9,15 @@
 {{- $featured := $images.GetMatch "*feature*" -}}
 {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
 {{- with $featured -}}
+{{- with .Fill "704x396 webp q80 #000000" -}}
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="{{ $featured.Permalink }}"/>
+<meta name="twitter:image" content="{{ .Permalink }}"/>
+{{- end -}}
 {{- else -}}
 {{- with $.Site.Params.images -}}
+{{ $img := (index . 0).Fill "704x396 webp q80 #000000" }}
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
+<meta name="twitter:image" content="{{ $img | absURL }}"/>
 {{ else -}}
 <meta name="twitter:card" content="summary"/>
 {{- end -}}

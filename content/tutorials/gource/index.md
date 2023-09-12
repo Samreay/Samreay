@@ -6,6 +6,7 @@ categories: [tutorial]
 tags: [plotting]
 aliases: ["/gource"]
 math: true
+draft: true
 ---
 
 What is Gource? Gource is a way of visualising your git log, showing users and their contributions creating, modifying and deleting files. When run on my repository that was published under the name "Steve" (a Hierarchical Bayesian model for supernova cosmology") and then piped through `ffmpeg`, this is what we get:

@@ -25,11 +25,8 @@
         {{ $width = 1920 }}
     {{ end }}
     <picture>
-        {{ with .Resize (printf "%dx webp q85" $width ) }}
+        {{ with .Resize (printf "%dx webp q80" $width ) }}
             <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/webp">
-        {{ end }}
-        {{ with .Resize (printf "%dx q70" $width ) }}
-            <source srcset="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" type="image/{{ $ext }}">
         {{ end }}
         <img width="{{ $width }}" height="{{ $height }}" loading="lazy" decoding="async"  alt="{{ $text }}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" />
     </picture>

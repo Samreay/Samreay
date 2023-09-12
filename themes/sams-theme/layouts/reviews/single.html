@@ -77,8 +77,6 @@
             <picture>
               {{ with .Fill "250x375 Center webp q80 #000000" }}
               <source srcset="{{ .RelPermalink }}" type="image/webp" />
-              {{ end }} {{ with .Fill "250x375 Center q70 #000000" }}
-              <source srcset="{{ .RelPermalink }}" type="image/png" />
               {{ end }}
               <img
                 class="rounded-l-xl block flex-none bg-cover"

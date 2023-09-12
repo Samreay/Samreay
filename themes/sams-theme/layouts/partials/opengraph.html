@@ -6,15 +6,15 @@
 {{ $page := . }}
 {{- with $.Params.images -}}
 {{ $img := (path.Join (path.Dir $page.Page.File.Path) ( . ) ) }}
-{{- range first 6 . }}<meta property="og:image" content='{{ $img | absURL }}' />{{ end -}}
+{{- range first 6 . }}<meta property="og:image" content='{{ $img.Fill "704x396 webp q80 #000000" | absURL }}' />{{ end -}}
 {{- else -}}
 {{- $images := $.Resources.ByType "image" -}}
 {{- $featured := $images.GetMatch "*feature*" -}}
 {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
 {{- with $featured -}}
-<meta property="og:image" content="{{ $featured.Permalink }}"/>
+<meta property="og:image" content="{{ ($featured.Fill "704x396 webp q80 #000000").Permalink }}"/>
 {{- else -}}
-{{- with $.Site.Params.images }}<meta property="og:image" content="{{ index . 0 | absURL }}"/>{{ end -}}
+{{- with $.Site.Params.images }}<meta property="og:image" content="{{ (index . 0).Fill "704x396 webp q80 #000000" | absURL }}"/>{{ end -}}
 {{- end -}}
 {{- end -}}
 

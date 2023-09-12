@@ -23,6 +23,11 @@ convert:
 	@echo "Converting notebooks"
 	poetry run python builder/convert.py
 
+prod: export HUGO_ENVIRONMENT="production"
+prod: export HUGO_ENV="production"
+prod: 
+	rm -rf public && hugo --gc --minify
+
 blog:
 	hugo server -D --logLevel info
 
