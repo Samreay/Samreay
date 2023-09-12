@@ -41,12 +41,6 @@
   links:
     artstation: https://www.artstation.com/bajsingh
 
-- name: Billy Christian
-  notes: Art Studio
-  covers: [mana_beasts1, mana_beasts2]
-  links:
-    artstation: https://www.artstation.com/billcreative
-
 - name: Carson Lowmiller
   links:
     artstation: https://carsonlowmiller.artstation.com/
@@ -243,6 +237,12 @@
   links:
     instagram: https://instagram.com/myleswohl
   covers: [fateless2]
+
+- name: Polar Engine Studio
+  notes: Art Studio
+  covers: [mana_beasts1, mana_beasts2]
+  links:
+    artstation: https://www.artstation.com/billcreative
 
 - name: Rashed AlAkroka
   links:
