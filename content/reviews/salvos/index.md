@@ -10,7 +10,6 @@ name: "Salvos"
 links:
     royal_road: https://www.royalroad.com/fiction/37438/revelation-salvos-a-monster-evolution-litrpg
     amazon: https://www.amazon.com.au/Curious-Beginnings-LitRPG-Adventure-Salvos-ebook/dp/B08SQD1DLR
-    tapas: https://tapas.io/series/Salvos-A-Monster-Evolution-LitRPG/info
     audible: https://www.audible.com/pd/Curious-Beginnings-Audiobook/1039402895
     tapas: https://tapas.io/series/Salvos-comic
 tags: [in-progress, litRPG, female-lead, audio, manhua]
