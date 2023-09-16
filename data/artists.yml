@@ -120,6 +120,12 @@
   covers:
     [hwfwm1, hwfwm2, hwfwm3, hwfwm4, hwfwm5, hwfwm6, hwfwm7, hwfwm8, hwfwm9]
 
+- name: Jake Clark
+  linnks:
+    artstation: https://www.artstation.com/jcalebdesign
+    website: https://www.jcalebdesign.com/
+  covers: [tome1, tome3, apoc_parent1, skies_asunder]
+
 - name: Jason Yao
   links:
     artstation: https://www.artstation.com/zanic
@@ -129,6 +135,12 @@
   links:
     website: https://www.jeffbrowngraphics.com/
   covers: [born_of_fire, majority, the_universe_game, portal_guardians]
+
+- name: Jeremy Adams
+  links:
+    artstation: https://www.artstation.com/jeremy_adams
+    instagram: https://www.instagram.com/jeremyadams.ink/
+  covers: [twilight_kingdom, night_nation]
 
 - name: Kaimo Nunes
   links:
@@ -228,6 +240,17 @@
   links:
     artstation: https://www.artstation.com/yam8417
 
+- name: Mattias (Baconstrap)
+  links:
+    website: https://baconstrap.carbonmade.com/
+  notes: Likes swords and space
+  covers: [journeys_end, lich_hunt, infrasound, changelin_omline]
+
+- name: Meg Jolly
+  links:
+    facebook: https://www.facebook.com/jollycreativecovers/
+  covers: [valhalla1, valhalla4]
+
 - name: Miblart
   notes: Art Studio
   links:
@@ -243,6 +266,11 @@
   links:
     instagram: https://instagram.com/myleswohl
   covers: [fateless2]
+
+- name: Ömer Burak Önal
+  links:
+    artstation: https://www.artstation.com/equin0
+  covers: [panethon2]
 
 - name: Piere d'Arterie
   links:
