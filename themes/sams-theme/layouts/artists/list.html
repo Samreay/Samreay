@@ -62,17 +62,26 @@
         }
     }
 
+    function update_cards() {
+      setTimeout(() => {
+        window.document.dispatchEvent(new Event("DOMContentLoaded", {
+          bubbles: true,
+          cancelable: true,
+        }));
+      }, 100);
+    }
+
 
     const controls_container = document.getElementById("controls");
     const controls_template = html`
   <div class="mt-4 justify-center flex flex-wrap items-center">
     <label for="wide-layout" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
-      <input id="wide-layout" type="checkbox" checked="${() => (data.alphabetical ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.alphabetical = e.target.checked} }">
+      <input id="wide-layout" type="checkbox" checked="${() => (data.alphabetical ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.alphabetical = e.target.checked; update_cards()} }">
       <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Alphabetical</span>
       <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Shuffled</span>
     </label>
     <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
-      <input id="sort-order" type="checkbox" checked="${() => (data.show_four ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.show_four = e.target.checked} }">
+      <input id="sort-order" type="checkbox" checked="${() => (data.show_four ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.show_four = e.target.checked; update_cards()} }">
       <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Max 4 covers</span>
       <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">More!</span>
     </label>
