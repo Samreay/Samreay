@@ -43,6 +43,7 @@
       show_four: true,
       alphabetical: false,
       artists: artists,
+      large: false,
     });
 
     function shuffle(a) {
@@ -60,6 +61,13 @@
         } else {
             return shuffle(slice);
         }
+    }
+
+    function get_large() {
+      if (!data.smaller) {
+        return "-large";
+      }
+      return ""
     }
 
     function update_cards() {
@@ -85,6 +93,11 @@
       <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Max 4 covers</span>
       <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">More!</span>
     </label>
+    <label for="smaller" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
+      <input id="smaller" type="checkbox" checked="${() => (data.smaller = true)}" class="hidden peer" @click="${(e) => {data.smaller = !data.smaller; update_cards()} }">
+      <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Smaller</span>
+      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">BIGGER!</span>
+    </label>
   </div>
   `
     controls_template(controls_container);
@@ -97,13 +110,13 @@
     <div class="flex-wrap flex items-center justify-center max-w-7xl mx-auto mt-2 mb-4">
         ${() => artist.links.map(link => html`<a href="${link.link}" class="text-center inline-flex text-main-200 px-8"><h4><i class="${get_fa(link.name)}"></i> ${link.title}</h4></a>`)}
     </div>
-    <div id="card-wrapper" class="container mx-auto mt-4 justify-center grid gap-4 grid-cols-cover-cards-mobile sm:grid-cols-cover-cards">
+    <div id="card-wrapper" class="container mx-auto mt-4 justify-center grid gap-4 grid-cols-cover-cards-mobile${get_large()} sm:grid-cols-cover-cards md:grid-cols-cover-cards${get_large()}">
         ${() => maybe_shuffle(artist.covers).slice(0, data.show_four ? 4 : 99).map(cover => html`
-        <div class="fancy_card horizontal mx-auto cursor-default">
+        <div class="${data.scale} fancy_card horizontal mx-auto cursor-default">
             <div class="card_translator cursor-default">
                 <a class="card_rotator small_rot card_layer block cursor-default" href="#">
                 <div class="card_layer">
-                    <article class="review-summary">
+                    <article class="">
                     <div class="bg2">
                         <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
                         <figure class="block flex-none bg-cover w-full">
