@@ -18,7 +18,7 @@
                                 <source src="{{ (resources.Get $book.animated).RelPermalink }}" type="video/mp4">
                             </video>
                             {{ else }}
-                                {{ $img := ( resources.GetMatch $book.cover ).Fill "310x496 Center webp q80 #000000"}}
+                                {{ $img := ( resources.GetMatch $book.cover ).Fill "620x992 Center webp q90 #000000"}}
                                 <img class="w-full h-full object-cover" src="{{ $img.RelPermalink }}" width="310" height="496"
                                     alt="{{$book.desc}}" />
                             {{ end }}

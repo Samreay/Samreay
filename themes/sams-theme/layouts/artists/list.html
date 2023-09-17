@@ -110,7 +110,7 @@
     <div class="flex-wrap flex items-center justify-center max-w-7xl mx-auto mt-2 mb-4">
         ${() => artist.links.map(link => html`<a href="${link.link}" class="text-center inline-flex text-main-200 px-8"><h4><i class="${get_fa(link.name)}"></i> ${link.title}</h4></a>`)}
     </div>
-    <div id="card-wrapper" class="container mx-auto mt-4 justify-center grid gap-4 grid-cols-cover-cards-mobile${get_large()} sm:grid-cols-cover-cards md:grid-cols-cover-cards${get_large()}">
+    <div id="card-wrapper" class="container mx-auto mt-4 items-center justify-center grid gap-4 grid-cols-cover-cards-mobile${get_large()} sm:grid-cols-cover-cards md:grid-cols-cover-cards${get_large()}">
         ${() => maybe_shuffle(artist.covers).slice(0, data.show_four ? 4 : 99).map(cover => html`
         <div class="${data.scale} fancy_card horizontal mx-auto cursor-default">
             <div class="card_translator cursor-default">

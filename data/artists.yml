@@ -41,6 +41,11 @@
   links:
     artstation: https://www.artstation.com/bajsingh
 
+- name: BLAKE
+  links:
+    artstation: https://www.artstation.com/wblake
+  covers: [ascend_online, court_bard, battle_bard]
+
 - name: Carson Lowmiller
   links:
     artstation: https://carsonlowmiller.artstation.com/
