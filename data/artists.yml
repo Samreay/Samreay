@@ -71,7 +71,16 @@
   links:
     artstation: https://danielkamarudin.artstation.com/
     deviantart: https://www.deviantart.com/thedurrrrian
-  covers: [war_priest, twatd, aa1, sss, forging_divinity, edge_of_the_woods]
+  covers:
+    [
+      war_priest,
+      twatd,
+      aa1,
+      sss,
+      forging_divinity,
+      edge_of_the_woods,
+      used_to_be_about_dragons,
+    ]
 
 - name: Daniele Turturici
   links:
