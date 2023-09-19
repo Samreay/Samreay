@@ -1,14 +1,14 @@
 ---
-title:  "A Review of zechamp's 'DMG=MA: A Rolling Stone LitRPG'"
+title:  "A Review of zechamp's 'Rock Falls, Everyone Dies'"
 description: "LitRPG and cultivation parody about a sentient rock rolling down a mountain."
 date: 2023-02-07
 auth: zechamp
 categories: [reviews]
 review: B
 weight: 21
-name: "DMG=MA: A Rolling Stone LitRPG"
+name: "Rock Falls, Everyone Dies"
 links:
-    royal_road: https://www.royalroad.com/fiction/55418/dmgma-a-rolling-stone-litrpg-complete
+    royal_road: https://www.royalroad.com/fiction/55418/rock-falls-everyone-dies
 tags: [finished, litrpg, cultivation, parody, small-author]
 sentence: "By a stroke of fate, a stone gains sentience and sets out on a grand quest to touch grass."
 ---
@@ -17,7 +17,7 @@ sentence: "By a stroke of fate, a stone gains sentience and sets out on a grand 
 
 By a stroke of fate, a stone gains sentience and sets out on a grand quest to touch grass. 
 
-However, the system forgot to change its stats from their \[Metric\] values to the appropriate [Str, Int, Dex] values.
+However, the system forgot to change its stats from their \[Metric\] values to the appropriate \[Str, Int, Dex\] values.
 
 Things escalate. Fast. 
 
