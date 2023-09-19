@@ -114,7 +114,7 @@
         ${() => maybe_shuffle(artist.covers).slice(0, data.show_four ? 4 : 99).map(cover => html`
         <div class="${data.scale} fancy_card horizontal mx-auto cursor-default">
             <div class="card_translator cursor-default">
-                <a class="card_rotator small_rot card_layer block cursor-default" href="#">
+                <div class="card_rotator small_rot card_layer block cursor-default">
                 <div class="card_layer">
                     <article class="">
                     <div class="bg2">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="card_layer card_effect card_overlay_C"></div>
                 <div class="card_layer card_effect card_glare"></div>
-                </a>
+                </div>
             </div>
         </div>
         `)}

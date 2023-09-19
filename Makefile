@@ -29,7 +29,7 @@ prod:
 	rm -rf public && hugo --gc --minify
 
 blog:
-	hugo server -D --logLevel info
+	poetry run python resize.py && hugo server -D --logLevel info
 
 summary:
 	poetry run builder/summary_generator.py

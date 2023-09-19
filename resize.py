@@ -4,8 +4,8 @@ from subprocess import run
 import yaml
 
 input_dir = Path(__file__).parent / "tmp_covers"
-output_dir = Path(__file__).parent / "covers"
-data_file = Path(__file__).parents[4] / "data/artists.yml"
+output_dir = Path(__file__).parent / "themes/sams-theme/assets/img/covers"
+data_file = Path(__file__).parent / "data/artists.yml"
 
 artists = yaml.load(data_file.read_text(), Loader=yaml.SafeLoader)
 all_covers = [c for artist in artists for c in artist["covers"]]
@@ -55,3 +55,6 @@ missing_file = set(all_covers) - set(available_files)
 if missing_file:
     print(f"Missing {len(missing_file)} files")
     print(missing_file)
+
+if missing_file or missing_in_yaml:
+    exit(1)
