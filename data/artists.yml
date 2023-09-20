@@ -113,6 +113,12 @@
     website: https://www.flaviobolla.com/
   covers: [skythief1]
 
+- name: Francell Garrote
+  links:
+    artstation: https://www.artstation.com/francell
+  covers:
+    [system_universe1, system_universe2, system_universe3, system_universe4]
+
 - name: Franz Carlo Banocnoc (zev_art)
   links:
     behance: https://www.behance.net/gallery/120501569/Digital-Illustration
@@ -227,7 +233,16 @@
   links:
     artstation: https://www.artstation.com/lucianofleitas
   covers:
-    [dcc1, unbound1, unbound2, dungeon_tour_guide, unbound3, unbound4, unbound5]
+    [
+      dcc1,
+      unbound1,
+      unbound2,
+      dungeon_tour_guide,
+      unbound3,
+      unbound4,
+      unbound5,
+      mark_fated,
+    ]
 
 - name: Luminita Pham
   covers: [enchanter, diviner]
@@ -309,7 +324,7 @@
   covers: [quest_academy_silvers, artem, artem1, zero_light_kindle, zero_derby]
 
 - name: Richard Sashigane
-  covers: [wuts, proxima_legends, arcane_knight_2, roots_and_steel]
+  covers: [wuts, proxima_legends, arcane_knight1, roots_and_steel]
   links:
     artstation: https://www.artstation.com/makingpicsslowly
     website: https://richardsashigane.com/
