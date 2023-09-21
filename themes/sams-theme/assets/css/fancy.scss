@@ -9,6 +9,19 @@
   --hyp: 0;
 }
 
+svg.ico {
+  display: inline-block;
+  scale: 1.0;
+  // font-size: 1em;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+  vertical-align: middle;
+  padding-bottom: 0.15em;
+}
 
 .grid-cols-cover-cards, .grid-cols-cover-cards-mobile {
   video,img {

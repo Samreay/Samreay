@@ -25,17 +25,25 @@
       {{- end -}}
     ]
 
-    function get_fa(name) {
+
+
+    function get_svg(name) {
       // Create a list of manual class overrrides, and if the name is not in that list, return the name
       var overrides = {
-        "website": "fa-solid fa-globe",
-        "99designs": "fa-solid fa-palette",
-        "fiverr": "fa-solid fa-dice-five",
+        "website": "{{ partial "ico" "globe" }}",
+        "twitter": "{{ partial "ico" "twitter" }}",
+        "artstation": "{{ partial "ico" "artstation" }}",
+        "discord": "{{ partial "ico" "discord" }}",
+        "instagram": "{{ partial "ico" "instagram" }}",
+        "deviantart": "{{ partial "ico" "deviantart" }}",
+        "behance": "{{ partial "ico" "behance" }}",
+        "facebook": "{{ partial "ico" "facebook" }}",
+        "fiverr": "{{ partial "ico" "five" }}",
       };
       if (name in overrides) {
-        return overrides[name];
+        return unescape(overrides[name]);
       } else {
-        return "fa-brands fa-" + name;
+        return ``;
       }
     }
 
@@ -108,7 +116,7 @@
     <a href="#${artist.id}"><h2 class="text-center mt-12 mb-2" id="${artist.id}">${artist.name}</h2></a>
     ${() => artist.notes ? html`<p class="text-center italic text-grey-400">${artist.notes}</p>` : html``}
     <div class="flex-wrap flex items-center justify-center max-w-7xl mx-auto mt-2 mb-4">
-        ${() => artist.links.map(link => html`<a href="${link.link}" class="text-center inline-flex text-main-200 px-8"><h4><i class="${get_fa(link.name)}"></i> ${link.title}</h4></a>`)}
+        ${() => artist.links.map(link => html`<a href="${link.link}" class="text-center inline-flex text-main-200 px-8"><h4>${get_svg(link.name)} ${link.title}</h4></a>`)}
     </div>
     <div id="card-wrapper" class="container mx-auto mt-4 items-center justify-center grid gap-4 grid-cols-cover-cards-mobile${get_large()} sm:grid-cols-cover-cards md:grid-cols-cover-cards${get_large()}">
         ${() => maybe_shuffle(artist.covers).slice(0, data.show_four ? 4 : 99).map(cover => html`
