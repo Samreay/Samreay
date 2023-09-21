@@ -117,7 +117,13 @@
   links:
     artstation: https://www.artstation.com/francell
   covers:
-    [system_universe1, system_universe2, system_universe3, system_universe4]
+    [
+      crijik2,
+      system_universe1,
+      system_universe2,
+      system_universe3,
+      system_universe4,
+    ]
 
 - name: Franz Carlo Banocnoc (zev_art)
   links:
@@ -166,6 +172,11 @@
     artstation: https://www.artstation.com/jeremy_adams
     instagram: https://www.instagram.com/jeremyadams.ink/
   covers: [twilight_kingdom, night_nation]
+
+- name: Joe Requeza
+  links:
+    artstation: https://joerequeza.artstation.com/
+  covers: [crijik3, crijik4]
 
 - name: Kaimo Nunes
   links:
