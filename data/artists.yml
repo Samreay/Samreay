@@ -206,7 +206,16 @@
 - name: Kindra Tia
   links:
     website: https://www.sigilseer.com/commissions
-  covers: [dressed_to_kill, demonic_devourer]
+  covers:
+    [
+      dressed_to_kill,
+      demonic_devourer,
+      eldritch_stars,
+      kobolds,
+      stonesong,
+      mirefall,
+      wicked_honey,
+    ]
 
 - name: Laércio Messias
   links:
