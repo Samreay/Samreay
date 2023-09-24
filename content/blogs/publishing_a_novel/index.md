@@ -27,7 +27,7 @@ Find an editor (tip: the books you most like probably thank their editors in the
 
 ## 3. Presentation is key
 
-Find a great cover artist. For progression fantasy, cover art should ideally be character driven. You can find great character artists on [/r/CharacterDrawing](https://reddit.com/r/CharacterDrawing), and [/r/HungryArtists](https://reddit.com/r/HungryArtists). Then reach out to someone for typography, and get that done properly too.
+Find a great cover artist. For progression fantasy, cover art should ideally be character driven. You can find great character artists on [/r/CharacterDrawing](https://reddit.com/r/CharacterDrawing), and [/r/HungryArtists](https://reddit.com/r/HungryArtists), or on the compilation I've made of artists [right here](https://cosmiccoding.com.au/artists/). Then reach out to someone for typography, and get that done properly too.
 
 Many artists and illustrators have long wait times. Allow at least six months from reaching out to getting back something finalised. I'd reach out to artists the same time you reach out to an editor.
 
