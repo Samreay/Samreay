@@ -97,7 +97,7 @@
     return true;
   }).map(
     post => html`
-<article class="flex flex-col h-full rounded-lg bg-gray-800 data-aos="fade-up">
+<article class="flex flex-col h-full rounded-lg bg-gray-800" data-aos="fade-up">
   <a href="${post.link}">
     <div class="h-full">
         <header class="mb-4">
@@ -124,7 +124,7 @@
 `)}
 </div>`
 
-  card_template(card_containter);
+card_template(card_containter);
 
 </script>
 
@@ -135,7 +135,6 @@
     <p>{{ .Description | markdownify | .RenderString }}</p>
     <p>{{ .Params.extra | markdownify | .RenderString }}</p>
   </div>
-
 
   <!-- The toggles config -->
   <div id="toggle-input" class="max-w-7xl mx-auto"></div>
