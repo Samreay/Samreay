@@ -4,6 +4,9 @@ title = 'Samuel Hinton'
 theme = "sams-theme"
 timeout = 120000
 
+[security.goTemplates]
+allowActionJSTmpl = true
+
 [markup]
   [markup.highlight]
     style = 'base16-snazzy'
