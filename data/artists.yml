@@ -14,6 +14,11 @@
     artstation: https://www.artstation.com/agri
   covers: [floc1, floc2, omens3, omens4]
 
+- name: Aleksey Iromonik
+  links:
+    artstation: https://www.artstation.com/iromonik
+  covers: [the_god_machine]
+
 - name: Antti Hakosaari
   links:
     artstation: https://www.artstation.com/haco
