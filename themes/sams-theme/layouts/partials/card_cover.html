@@ -1,4 +1,4 @@
-<article class="review flex flex-col h-full rounded-xl bg-gray-800 review-{{ .Params.review }}" data-aos="fade-up" :class="{ 'hidden': is_hidden('{{ .Params.review }}') }">
+<article class="review flex flex-col h-full rounded-xl bg-gray-800 review-{{ .Params.review }}" :class="{ 'hidden': is_hidden('{{ .Params.review }}') }">
     <a href="{{ .Permalink }}">
         <div class="bg2 rounded-xl">
             <div class="bg-inner">

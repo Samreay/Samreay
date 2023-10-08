@@ -1,15 +1,15 @@
 <div class="content content-wide">
 
     <div class="section-header">
-        <h1 data-aos="fade-up">Books</h1>
-        <p data-aos="fade-up">I'm a voracious reader of fantasy novels, especially progression fantasy. So much so,
+        <h1>Books</h1>
+        <p>I'm a voracious reader of fantasy novels, especially progression fantasy. So much so,
             that I decided to contribute to the literature. Wish me luck!</p>
     </div>
 
     <div class="mx-auto mt-8">
         <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 md:gap-x-6 md:gap-y-8 items-start">
             {{ range $book := site.Data.books }}
-            <article class="flex flex-col h-full col-span-1 fancy_card" data-aos="fade-up">
+            <article class="flex flex-col h-full col-span-1 fancy_card">
                 <div class="card_translator">
                     <a class="card_rotator block card_layer" href="{{$book.link}}">
                         <figure class="card_layer">
@@ -34,7 +34,7 @@
             <div class="fancy_card flex flex-col col-span-1 h-full">
                 <div class="card_translator h-full">
                     <div class="card_rotator tiny_rot h-full card_layer block">
-                        <div class="newsletter card-layer h-full" style="padding: 0.2rem;" data-aos="fade-up">
+                        <div class="newsletter card-layer h-full" style="padding: 0.2rem;">
                             <div class="card_layer newsletter-inner h-full">
                                 <div class="relative h-full sib-form-container" id="sib-form-container">
 

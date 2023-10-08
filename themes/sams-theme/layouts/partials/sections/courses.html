@@ -1,12 +1,12 @@
 <div class="content content-standard" id="courses">
 
     <div class="section-header">
-        <h1 data-aos="fade-up">Courses</h1>
-        <p data-aos="fade-up">I've partnered with SuperDataScience to produce several high quality Python courses in the area of statistics and data manipulation.</p>
+        <h1>Courses</h1>
+        <p>I've partnered with SuperDataScience to produce several high quality Python courses in the area of statistics and data manipulation.</p>
     </div>
 
     {{ range $index, $course := site.Data.courses }}
-    <div class="relative flex flex-col {{ if eq  $index 0 }}mt-1 {{ else }} mt-16{{ end }}" data-aos="fade-up">
+    <div class="relative flex flex-col {{ if eq  $index 0 }}mt-1 {{ else }} mt-16{{ end }}">
         <div class="w-full">
             <article class="relative max-w-md mx-auto md:max-w-none">
                 <figure class="md:absolute md:inset-y-0 md:left-0 md:w-1/2">

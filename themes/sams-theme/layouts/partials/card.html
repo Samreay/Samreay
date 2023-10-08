@@ -1,4 +1,4 @@
-<article class="flex flex-col h-full rounded-lg bg-gray-800 {{.Params.tags}}" data-aos="fade-up" :class="{ 'hidden': is_hidden([{{ range $t := .Params.tags }}'{{$t}}', {{ end }}]) }">
+<article class="flex flex-col h-full rounded-lg bg-gray-800 {{.Params.tags}}" :class="{ 'hidden': is_hidden([{{ range $t := .Params.tags }}'{{$t}}', {{ end }}]) }">
     <a href="{{ .RelPermalink }}">
         <div class="h-full">
             <header class="mb-4">
