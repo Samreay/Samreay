@@ -291,6 +291,11 @@
       mark_fated,
     ]
 
+- name: Lucky Cristerson Tan
+  links:
+    artstation: https://www.artstation.com/luckykyunart
+  covers: [awakening_horde]
+
 - name: Luminita Pham
   covers: [enchanter, diviner]
   links:
