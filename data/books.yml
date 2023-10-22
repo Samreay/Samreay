@@ -4,6 +4,7 @@
   desc: "Manifestation 1: Soul Relic"
   link: https://mybook.to/SoulRelic
   audible: https://www.audible.com/pd/Soul-Relic-Audiobook/B0BTZTNQZM
+  css: red
 
 - name: Scion of Storms
   cover: landing/2_Scion_of_Storms.jpg
@@ -11,8 +12,10 @@
   desc: "Manifestation 2: Scion of Storms"
   link: https://mybook.to/scion_of_storms
   paperback: https://www.amazon.com/dp/B0BYBF7YDB
+  css: blue
 
 - name: Sanctuary
   cover: landing/3_Sanctuary.jpg
   desc: "Manifestation 3: Sanctuary"
   link: https://www.amazon.com/dp/B0C2CWZ1RH
+  css: purple

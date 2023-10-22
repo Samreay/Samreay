@@ -9,6 +9,12 @@
   --hyp: 0;
 }
 
+@keyframes card-motion {
+  0% { opacity: 1; background-position: 0% 0%;}
+  50% { opacity: 1; background-position: 100% 0%;}
+  100% { opacity: 1; background-position: 0% 0%;}
+}
+
 svg.ico {
   display: inline-block;
   scale: 1.0;
@@ -341,6 +347,33 @@ svg.ico {
     background-size: 100% 100%, 200% 200%, 237% 237%, 195% 195%, 120% 120%;
     filter: brightness(calc(var(--hyp) * 0.3 + 0.4)) contrast(3) saturate(0.75);
     mix-blend-mode: color-dodge;
+  }
+
+
+
+  
+  .card_overlay_motion {
+    --imgsize: 200% 100%;
+    background-size: var(--imgsize);
+    background-position: 0% 0%;
+    mix-blend-mode: color-dodge;
+    z-index: 3;
+    filter: brightness(0.7) contrast(1.6) saturate(1.1);
+
+    &.red {
+      background-image: repeating-linear-gradient(90deg, #000000 0%, rgb(126, 105, 94) 50%, #000000 100%);
+      animation: card-motion 6s ease-in-out infinite;
+    }
+    &.blue {
+      background-image: repeating-linear-gradient(90deg, #000000 0%, #70788d 50%, #000000 100%);
+      animation: card-motion 7s ease-in-out infinite;
+      animation-delay: -5s;
+    }
+    &.purple {
+      background-image: repeating-linear-gradient(90deg, #000000 0%, #84786a 50%, #000000 100%);
+      animation: card-motion 8s ease-in-out infinite;
+      animation-delay: -3s;
+    }
   }
 
   .card_overlay_B {
