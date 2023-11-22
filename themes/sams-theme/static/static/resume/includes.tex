@@ -1,7 +1,7 @@
-\usepackage[backend=biber]{biblatex}
-\addbibresource{bib_primary.bib} % Specify the bibliography file to include publications
-\addbibresource{bib_science.bib} % Specify the bibliography file to include publications
-\addbibresource{bib_infrastructure.bib} % Specify the bibliography file to include publications
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{bib_primary.bib} % Specify the bibliography file to include publications
+%\addbibresource{bib_science.bib} % Specify the bibliography file to include publications
+%\addbibresource{bib_infrastructure.bib} % Specify the bibliography file to include publications
 % \addbibresource{bib_draft.bib} % Specify the bibliography file to include publications
 \usepackage{aas_macros}
 \usepackage{hyperref}
@@ -26,15 +26,15 @@
 \boldname{}{}{}
 
 % Patch new definitions
-\renewcommand{\mkbibnamegiven}[1]{%
-  \ifboolexpr{ test {\ifdefequal{\lastname}{\namepartfamily}} }
-  {\mkbibbold{#1}}{#1}%
-}
+% \renewcommand{\mkbibnamegiven}[1]{%
+%   \ifboolexpr{ test {\ifdefequal{\lastname}{\namepartfamily}} }
+%   {\mkbibbold{#1}}{#1}%
+% }
 
-\renewcommand{\mkbibnamefamily}[1]{%
-  \ifboolexpr{ test {\ifdefequal{\lastname}{\namepartfamily}} }
-  {\mkbibbold{#1}}{#1}%
-}
+% \renewcommand{\mkbibnamefamily}[1]{%
+%   \ifboolexpr{ test {\ifdefequal{\lastname}{\namepartfamily}} }
+%   {\mkbibbold{#1}}{#1}%
+% }
 
 \boldname{Hinton}{Samuel}{S}
 \newcommand{\highlight}[1]{{\addfontfeature{Color=higlighted}#1}}

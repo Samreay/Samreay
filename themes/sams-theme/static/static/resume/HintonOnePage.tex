@@ -1,6 +1,6 @@
 \documentclass[]{friggeri-cv2}
 \input{includes}
-
+\usepackage{cfr-lm}
 \begin{document}
 \pagestyle{plain}
 
@@ -15,10 +15,12 @@
 \section{Skills}
 Python, C, golang, Javascript, SQL, Java, Stan, Git
 Machine learning
-Numerical Optimisation
+Optimisation
 Visualisation
+Software Engineering
 Bayesian Statistics
 Model fitting
+System Architecture
 \section{Awards}
 Nobel Laureate Delegate
 UQ Future Superstar
@@ -29,16 +31,16 @@ University Medal (Science)
 University Medal (Eng.)
 AAO Honours Scholarship
 A.W. Oakes Scholarship
-Harriet Marks Bursary
-Helen Thompson Prize
-IET Student Prize
-David Andrew Krnak Prize
-UQ Future Leader
-IEEE Student Prize
-GroundProbe Prize
-RWH Hawken Scholar
-Alstom Prize
-John Black Prize
+%Harriet Marks Bursary
+%Helen Thompson Prize
+%IET Student Prize
+%David Andrew Krnak Prize
+%UQ Future Leader
+%IEEE Student Prize
+%GroundProbe Prize
+%RWH Hawken Scholar
+%Alstom Prize
+%John Black Prize
 \section{Communication}
 Numerous podcast appearances.
 ~
@@ -47,7 +49,7 @@ Academic presentations in more than a dozen institutions and countries.
 Science outreach appearances on multiple TV shows, radio channels and public events.
 \section{Publications}
 6 first author
-100+ contributing author
+200+ contributing author
 Areas of software, statistics, astrophysics, medicine.
 \end{aside}
 
@@ -65,11 +67,12 @@ Areas of software, statistics, astrophysics, medicine.
 {Arenko Group}
 {London, UK}
 {\emph{Senior Data Scientist} \\
-Designed and productionised \highlight{probabilistic time-series forecasting} models for \textcolor{red}{UK} energy markets.
-Implemented \highlight{MLOps} pipelines in AWS, including feature store, model versioning (mlflow), model serving, 
-\highlight{data engineering} and orchestration (Prefect) and digestion (RDMS) in a microservice framework.
-Created library of transformations, models, and utilities in Python.
-Created interactive \highlight{visualisations} of market opportunities (matplotlib, plotly, Dash, angular).
+Designed and productionised \highlight{probabilistic time-series forecasting} models for UK energy markets.
+Implemented \highlight{MLOps} pipelines in AWS, including feature store, model versioning (mlflow), model serving all in production level python code (FastAPI).
+Lead \highlight{data engineering}, orchestration (Prefect) and digestion (RDMS) pipelines in a microservice framework.
+Implemented \highlight{stochastic market optimisation} to increasing automated trading revenues >100\%.
+Designed system architecture both for REST-driven API services and event-drive services (Pulsar).
+Created interactive \highlight{visualisations} of market opportunities (matplotlib, plotly, Streamlit, Dash, angular).
 Mentored junior data scientists and helped grow the data science team.}
 
 \entry
@@ -77,9 +80,7 @@ Mentored junior data scientists and helped grow the data science team.}
 {University of Queensland}
 {Brisbane, Queensland, Australia}
 {\emph{Lead Data Analyst} \\
-Created a \highlight{data science pipeline} for the COVID-19 Critical Care Consortium. 
-Homogenised and standardised heterogeneous medical data for eventual use in causal modelling. 
-Created reports, dashboards, and products as support for clinical staff.}
+Created a \highlight{data science pipeline} for the COVID-19 Critical Care Consortium, including ingestion, standardisation, and reporting.}
 
 \entry
 {2016-2020}
@@ -104,8 +105,7 @@ Organised a team of two dozen researchers across multiple countries.}
 {Lawrence Berkeley National Laboratory}
 {Berkeley, California}
 {\emph{Research Fellowship} \\
-High-dimensional \highlight{Bayesian Hierarchical Modelling} for Supernova Cosmology. 
-Involved using numerous \highlight{MCMC} fitters, Stan, Gaussian processes and many numerical techniques.}
+High-dimensional \highlight{Bayesian Hierarchical Modelling} for Supernova Cosmology using \highlight{MCMC} fitters, Stan, Gaussian processes and many numerical techniques.}
 
 
 %\entry
@@ -137,17 +137,17 @@ Optimised \highlight{databases} and applications for network, processing, and me
 {2016--2020}
 {Doctor of Philosophy}
 {University of Queensland}
-{Thesis: Analysed supernovae in the Dark Energy Survey using Hierarchical Bayesian models to constrain the nature of dark energy.}
+{Analysed supernovae in the Dark Energy Survey using Hierarchical Bayesian Modelling.}
 \entry
 {2010--2015}
 {Bachelor of Science {\normalfont (Physics)(Hons, 1\textsuperscript{st})}}
 {University of Queensland}
-{Thesis: Analysed the Baryon Acoustic Oscillation signal imprinted in the large scale structure of the universe.}
+{Analysed the Baryon Acoustic Oscillation signal.}
 \entry
 {2010--2014}
 {Bachelor of Engineering {\normalfont (Software)(Hons, 1\textsuperscript{st})}}
 {University of Queensland}
-{Thesis: Created the first online client-only web application to compute redshifts from telescope spectra. }
+{Created the first online web application to compute redshifts from spectra.}
 \end{entrylist}
 \end{document}
 
