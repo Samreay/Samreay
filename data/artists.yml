@@ -210,6 +210,11 @@
     artstation: https://www.artstation.com/kaimonunes
   covers: [amelia, amelia1, amelia3]
 
+- name: Kaion Luong
+  links:
+    website: https://kaionluong.weebly.com/
+  covers: [gleam, road_to_mastery, monster_farmer2, beers_and_beards]
+
 - name: Kart Studios
   notes: Art Studio
   covers:
