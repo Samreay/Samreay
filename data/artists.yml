@@ -46,10 +46,20 @@
   links:
     artstation: https://www.artstation.com/bajsingh
 
+- name: Bapho S
+  links:
+    fiverr: https://www.fiverr.com/baphos
+  covers: [nowhere_stars]
+
 - name: BLAKE
   links:
     artstation: https://www.artstation.com/wblake
   covers: [ascend_online, court_bard, battle_bard]
+
+- name: Capt Diablo
+  links:
+    deviantart: https://www.deviantart.com/captdiablo
+  covers: [soul_eater]
 
 - name: Carson Lowmiller
   links:
@@ -107,6 +117,11 @@
   links:
     website: https://emilymccoshdesigns.com/
   covers: [soe, ute, world_eyelids, subterranean]
+
+- name: Emma Rottersman
+  links:
+    artstation: https://emmarillustrations.artstation.com/
+  covers: [legend_of_ascension] 
 
 - name: Enzo Fernandez
   links:
