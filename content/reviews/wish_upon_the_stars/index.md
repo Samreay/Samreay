@@ -75,6 +75,6 @@ Because so early on he seemed to figure out the exploit with his "Give me the be
 
 Apart from that frustration with characters not min-maxing like I expect, I had a really good time. I'm going to keep reading on Royal Road, just to see what crazy wish shenanigans the team gets up to.
 
-Also so I can see if Zeke (the OP uncle) ever gets to smack someone through the face of the planet just because he wants to. If you read this, Malcolm, I want me an OP smackdown.
+Also so I can see if Zeke (the OP uncle) ever gets to smack someone through the face of the planet just because he wants to. If you read this, Malcolm, I want me an OP smackdown. (Update on 2020-12-07: Zeke *does* get a smackdown, hurray!)
 
 
