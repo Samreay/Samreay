@@ -5,7 +5,7 @@ date: 2023-01-20
 categories: [reviews]
 auth: Samuel Hinton
 review: π
-weight: 9.9
+weight: 0.1
 name: "Soul Relic"
 search_terms: "Manifestation Scion of Storms Sanctuary Shieldsmith"
 links:
