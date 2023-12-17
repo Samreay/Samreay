@@ -11,7 +11,7 @@
           {{- if isset $artist "notes" -}}notes: {{- $artist.notes -}},{{- end -}}
           links: [
             {{- range $n, $l := $artist.links -}}
-              {name:{{- $n -}}, link: {{- $l -}}, title: {{- $n | title -}}},
+              {name:{{- $n -}}, link: {{- $l -}}, title: {{- (replace $n "_" " ") | title -}}},
             {{- end -}}
         ],
           covers: [
