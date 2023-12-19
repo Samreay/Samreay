@@ -82,6 +82,11 @@
   covers:
     [eldritch_horror_2, steamforged_sorcerer, cleavers_edge, into_the_fire]
 
+- name: Dailen Ogden
+  links:
+    website: https://www.dailenogdenillustration.com/
+  covers: [becoming_a_god]
+
 - name: Daniel Kamarudin
   links:
     artstation: https://danielkamarudin.artstation.com/
@@ -131,7 +136,7 @@
 - name: Fajareka Setiawan
   links:
     artstation: https://www.artstation.com/fajareka
-  covers: [painting_the_mists]
+  covers: [painting_the_mists, pandora_unchained]
 
 - name: Fernando Granea
   links:
@@ -451,7 +456,7 @@
 - name: SlothBeing
   links:
     artstation: https://www.artstation.com/aslothbeing
-  covers: [dead_tired]
+  covers: [dead_tired, alexa_thyme]
 
 - name: Sober Scorps
   links:
