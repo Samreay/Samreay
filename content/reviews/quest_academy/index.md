@@ -47,9 +47,9 @@ On the downside, the personalities of many of the women felt a bit... sexualised
 * Her friend, Victoria, heavily insinuates she wants some 'crafting' done too, and gets upset when Sal doesn't immediately agree.
 * Sal's point of business contact in the Credit floor (where he makes money) also rushed to try and bed him. Or, to use a sentence from the books: "Hopefully you can read between the lines, because I'd hate to have to spell out how I'd fuck you senseless."
 
-Sal having a happy sex life is great. But having lecturers and business partners also so sexualised felt over the top.
+Sal having a happy sex life is great. But having lecturers and business partners also so sexualised felt over the top and the classic male fantasy of "everyone wants to fuck me" came through a bit tooooo much for me.
 
-I'm worried I'm overthinking this though, mostly because I've seen some very bad takes on female sexuality and objectification in the genre. So I will chime in and say that (a) once Upgrade takes a mentorship role, her flirting stops, and (b) once Vanessa formally represents Sal, she does say she won't be able to fuck him because it would complicate things.
+I'm worried I'm overthinking this though, mostly because I've seen some very bad takes on female sexuality and objectification in the genre. So I will chime in and say that (a) once Upgrade takes a mentorship role, her flirting stops, and (b) once Vanessa formally represents Sal, she does say she won't be able to fuck him because it would complicate things. Still, though.
 
 Anyway, Sal has healthy friendships, benefits with Hannah, and spends a lot of time crafting.
 
