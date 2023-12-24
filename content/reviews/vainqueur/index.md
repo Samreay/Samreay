@@ -14,7 +14,7 @@ links:
     audible: https://www.audible.com/pd/Vainqueur-the-Dragon-Audiobook/B087SKMLM6
 aliases: [/reviews/vainqueur]
 tags: [finished, litrpg, isekai, companion, audio, parody, manhua]
-sentence: 'When a would-be thief tells Vainqueur  about "classes," "levels," and "quests," Vainqueur wonders if maybe he should consider a career change.'
+sentence: 'When a would-be thief tells Vainqueur  about "classes," "levels," and "quests," Vainqueur wonders if he should change career.'
 ---
 
 
