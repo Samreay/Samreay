@@ -5,7 +5,7 @@ date: 2023-12-24
 auth: Zaifyr
 categories: [reviews]
 review: C
-weight: 34
+weight: 36
 name: "All the Dust that Falls"
 links:
     royal_road: https://www.royalroad.com/fiction/60292/all-the-dust-that-falls-a-roomba-isekai-adventure
@@ -15,7 +15,7 @@ tags: [in-progress, litRPG, parody, isekai, audio]
 sentence: "All those who stand before Spot will be swept away."
 ---
 
-*As of the time of writing this review, I've read the published book and am jumping onto the RR chapters soon.*
+*As of the time of writing this review, I've read the published book and about a dozen Royal Road chapters.*
 
 ## Blurb
 
@@ -47,6 +47,8 @@ There are some head-scratchers about power levels and consistency, but if you're
 
 Characters are alright, and Spot's intelligence grows as he levels up. That said, the gags about Spot always choosing the cleaning option when presented with different OP abilities grows thinner as the vacuum's objectives broaden and his intelligence grows, and skipping over communication issues (he just beeps) when *so much of the plot* hinges on a lack of communication and characters talking to each other passed from being humour to being annoying. Then again, I have never liked communication-based plot points. Bee, just talk to Spot about your concerns. Spot, ask Bee to read the damned book you're trying to puzzle out. Boom, book is now 80% shorter.
 
-Pacing is good at the start and the end of the book, with a slight slump in the middle until Bee remembers the concept of ramps. Throughout all of it though, there are plenty of slice-of-life, humorous moments. Tons of jokes. Action scenes are fun. And book one ends on a very good cliffhanger for future development, so I *will* be jumping to Royal Road to see how it all turns out before it gets stubbed for book two.
+Progression is slower than normal. To be clear, Spot levels up quickly, but because he always picks cleaning related abilities, his levels sort of don't matter? For a concrete example with a minor spoiler, Spot at some point picks the "Air Purifier" upgrade, instead of *Myriad Tongues* or *Grant Sapience*. In most LitRPG stories I'd be excited for new skills and to see them used in creative ways or in fights, but that often doesn't happen here. Spot can now purify air, this hasn't yet helped in any part of the story, and his method of attacking things pretty much hasn't changed and thus runs the risk of growing a bit stale.
+
+Pacing is good at the start and the end of the book, with a slight slump in the middle until Bee remembers the concept of ramps. Throughout all of it though, there are plenty of slice-of-life, humorous moments. Tons of jokes. Action scenes are initially quite fun. And book one ends on a very good cliffhanger for future development, so I did jump into Royal Road to continue reading.
 
 If you liked stories like **Rock falls, Everyone Dies** but want a bit more heft and story content, give this a shot for sure.
