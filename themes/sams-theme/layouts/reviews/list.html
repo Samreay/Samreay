@@ -30,8 +30,7 @@
           description: {{ .Params.description }},
           {{- $images := .Resources.ByType "image" -}}
           {{- $img := $images.GetMatch "{*cover*,*thumbnail*}" -}}
-          img: {{- ( $img.Fill "250x375 Center webp q80 #000000" ).RelPermalink -}},
-          img_larger: {{-  ( $img.Fill "500x750 Center webp q70 #000000" ).RelPermalink -}},
+          img: {{-  ( $img.Fill "500x750 Center webp q70 #000000" ).RelPermalink -}},
           {{ if isSet .Params "video" }}
           video: {{- ( .Resources.Get .Params.video ).RelPermalink -}},
           {{- end -}}
@@ -269,7 +268,7 @@
   </video>`
     const image_template = (post) => html`
   <picture>
-    <source srcset="${post.img} 275w, ${post.img_larger} 500w" type="image/webp" />
+    <source srcset="${post.img} 500w" type="image/webp" />
     <img class="${() => "block flex-none bg-cover mx-auto " + (data.wide_cards ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
   </picture>`
 
@@ -296,7 +295,6 @@
         // split this into words and then check to see if every word is in the search term
         // if not, return false
         var words = term.split(" ");
-        console.log(post.search_term, words);
         for (var i = 0; i < words.length; i++) {
           if (!post_search.includes(words[i])) {
             return false;

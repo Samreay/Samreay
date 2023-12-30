@@ -88,3 +88,7 @@ This is a more recent Royal Guard publication, and I see they've taken Podium's 
 # Summary
 
 Tons of books just don't have A+ content too. Cradle, all of Sanderson's works, Wheel of Time, Game of Thrones, etc. But for us self-publishers, I feel like every little thing counts, especially if you're stupid like me and didn't go through Royal Road to start with to build up a readership base. But, if you do want to put out some A+ content, hopefully this is a useful little reference.
+
+This is what I currently have, and all obviously subject to change. No idea if it's helped with conversion at all!
+
+![](mine.png)

@@ -75,7 +75,7 @@
           with $img }}
           <figure class="review-card">
             <picture>
-              {{ with .Fill "250x375 Center webp q80 #000000" }}
+              {{ with .Fill "500x750 Center webp q70 #000000" }}
               <source srcset="{{ .RelPermalink }}" type="image/webp" />
               {{ end }}
               <img
@@ -91,12 +91,12 @@
           >
             <div class="rating">
               <p class="larger rating-{{ $r }}">
-                <span class="leader">{{ $r }}:</span>
+                <!-- <span class="leader">{{ $r }}:</span> -->
                 {{ if eq $r "π" }}My stuff. I hope you like it.{{ end }} {{ if
                 eq $r "S" }}Special place in my heart.{{ end }} {{ if eq $r "A"
                 }}Amazing, definitely read.{{ end }} {{ if eq $r "B" }}Great
                 read, highly recommend.{{ end }} {{ if eq $r "C" }}Good read,
-                tiny quibbles.{{ end }} {{ if eq $r "D" }}Fun with some flaws.{{
+                tiny quibbles.{{ end }} {{ if eq $r "D" }}Fun with flaws.{{
                 end }} {{ if eq $r "F" }}Significant issues, did not finish.{{
                 end }}
               </p>
