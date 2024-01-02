@@ -1,0 +1,1 @@
+ffmpeg -r 2 -start_number 0 -i ff/%04d.png -c:v libx264 -pix_fmt yuv420p -vf tpad=stop_mode=clone:stop_duration=1 -crf 3 -y  final.mp4
