@@ -55,7 +55,7 @@ print([s1.state, s2.state])
 
 
     ['I was asked for in function_A', 'I was asked for in function_B']
-    
+
 
 So you can see they are different. We could also check the ids, but you believe me. Now, one easy solution is to just make `s = Singleton()` happen globally, outside the function scope. But then we'd be breaking scope, and that is **bad**. Global variables should be avoided like the plague in structured code like this. So how can we request the same instance, without having global state?
 
@@ -102,7 +102,7 @@ print([s3.state, s4.state])
 
 
     ['I was asked for in function_D', 'I was asked for in function_D']
-    
+
 
 And you can see that we get the state from function D out twice, because the functions were modifying the same (and only) instance of `Singleton`. So what `lru_cache(maxsize=1)` is doing is saying "I'm going to remember the last 1 time called this function with given inputs, and if they call the function the same way again, I'm not going to run it, I'm going to return the previous result, which I've got stored."
 
@@ -137,7 +137,7 @@ for i in inputs:
     6
     I am doubling 1
     2
-    
+
 
 The first time we say to double, `lru_cache` checks its (empty) dictionary mapping inputs to outputs, sees it doesn't have anything under an input of `x=1`, so it hits the function. The second time, there is no print statement, because `lru_cache` finds the previous run we just did and uses its stored result.
 

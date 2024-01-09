@@ -69,7 +69,7 @@ So let's write this up for our function above, and then we'll generalise to *any
 
 
 
-<div class="reduced-code width-59" markdown=1>
+<div class=" width-59" markdown=1>
 
 ```python
 def inverse_cdf(cdf):

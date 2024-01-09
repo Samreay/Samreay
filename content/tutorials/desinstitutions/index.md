@@ -128,7 +128,7 @@ get_base_fig();
 
 
       from ipykernel import kernelapp as app
-    
+
 
 
     
@@ -177,7 +177,7 @@ get_scatter();
 
 
       from ipykernel import kernelapp as app
-    
+
 
 
     
@@ -239,7 +239,7 @@ get_shaded();
 
 
       from ipykernel import kernelapp as app
-    
+
 
 
     

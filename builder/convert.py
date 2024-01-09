@@ -1,4 +1,5 @@
 import argparse
+import glob
 import hashlib
 import json
 import logging
@@ -13,9 +14,10 @@ from rich.logging import RichHandler
 
 logger = logging.getLogger("convert")
 
+
 def process_notebook(file_path: Path):
     root = Path(__file__).parent.parent
-    logger.info(f"Processing file=\"{file_path.relative_to(root).as_posix()}\"")
+    logger.info(f'Processing file="{file_path.relative_to(root).as_posix()}"')
 
     clean(file_path)
 
@@ -23,7 +25,15 @@ def process_notebook(file_path: Path):
 
     lines = load_markdown(markdown_path)
 
-    for fn in [remove_pandas_html, remove_code, swap_videos, add_classes, style_tables, remove_dumb_shit, wrap_code]:
+    for fn in [
+        remove_pandas_html,
+        remove_code,
+        swap_videos,
+        add_classes,
+        style_tables,
+        remove_dumb_shit,
+        wrap_code,
+    ]:
         lines = fn(lines)
 
     lines = add_thumbnail(lines, file_path)
@@ -32,6 +42,7 @@ def process_notebook(file_path: Path):
 
     with open(markdown_path, "w") as f:
         f.write("\n".join(lines))
+
 
 def wrap_code(lines: list[str]) -> list[str]:
     logger.debug("\tFiguring out helpful code classes")
@@ -45,8 +56,8 @@ def wrap_code(lines: list[str]) -> list[str]:
                 # starting block, so keep track of line no
                 start_line = len(content) + 1
                 max_width = 0
-                content.append("") # markdown has to have empty lines around divs
-                content.append("") # this is our index
+                content.append("")  # markdown has to have empty lines around divs
+                content.append("")  # this is our index
                 content.append("")
                 content.append(line)
             else:
@@ -64,7 +75,9 @@ def wrap_code(lines: list[str]) -> list[str]:
                     cls = "reduced-code"
                 if max_width > 77:
                     cls = "expanded-code"
-                content[start_line] = f'<div class="{cls} width-{max_width}" markdown=1>'
+                content[
+                    start_line
+                ] = f'<div class="{cls} width-{max_width}" markdown=1>'
 
             in_block = not in_block
         else:
@@ -80,9 +93,15 @@ def clean(file_path: Path):
     for d in dir.glob("*_files"):
         if d.is_dir():
             shutil.rmtree(d.absolute())
-    
+
+
 def remove_dumb_shit(lines: list[str]) -> list[str]:
-    remove = ["texmanager", "DeprecationWarnin", "InteractiveShellApp", "dedent function was deprecated"]
+    remove = [
+        "texmanager",
+        "DeprecationWarnin",
+        "InteractiveShellApp",
+        "dedent function was deprecated",
+    ]
     results = []
     for l in lines:
         for r in remove:
@@ -91,6 +110,7 @@ def remove_dumb_shit(lines: list[str]) -> list[str]:
         else:
             results.append(l)
     return results
+
 
 def convert_notebook(file_path: Path) -> Path:
     basedir = file_path.parent
@@ -130,8 +150,20 @@ def remove_pandas_html(lines: list[str]) -> list[str]:
 
 def remove_code(lines: list[str]) -> list[str]:
     logger.debug("\tRemoving unneeded python lines")
-    remove_comment = "###remove"
-    return [x for x in lines if remove_comment not in x.lower().replace(" ", "")]
+    in_remove = False
+    results = []
+    for x in lines:
+        if "###remove" in x.lower().replace(" ", ""):
+            if "remove_start" in x.lower():
+                in_remove = True
+            elif "remove_end" in x.lower():
+                in_remove = False
+        elif not in_remove:
+            results.append(x)
+    if in_remove:
+        logger.warning(f"Found a remove_start but no remove_end!")
+    return results
+
 
 def swap_videos(lines: list[str]) -> list[str]:
     for i, line in enumerate(lines):
@@ -140,9 +172,10 @@ def swap_videos(lines: list[str]) -> list[str]:
         elif "</video>" in line:
             lines[i] = ""
         elif "<video src" in line:
-            src = line.split("src=\"")[1].split('"')[0]
+            src = line.split('src="')[1].split('"')[0]
             lines[i] = f"![]({src})"
     return lines
+
 
 def add_classes(lines: list[str]) -> list[str]:
     logger.debug("\tAdding classes to images blocks")
@@ -163,6 +196,10 @@ def add_thumbnail(lines: list[str], file_path: Path) -> list[str]:
     logger.debug("\tAdding thumbnail to frontmatter")
     base_dir = file_path.parent
 
+    covers = glob.glob(str(base_dir / "cover.*"))
+    if len(covers) > 0:
+        return lines
+
     def adjust(lines, index):
         line = lines[index]
         image_loc = line.split("](")[1].split(")")[0].split("?")[0]
@@ -180,9 +217,9 @@ def add_thumbnail(lines: list[str], file_path: Path) -> list[str]:
             adjust(lines, i)
             return lines
     for i, line in enumerate(lines):
-            if "![" in line:
-                adjust(lines, i)
-                break
+        if "![" in line:
+            adjust(lines, i)
+            break
     return lines
 
 
@@ -192,10 +229,18 @@ def remove_main(lines: list[str]) -> list[str]:
             lines[i] = ""
     return lines
 
+
 def put_all_code_at_the_end(lines: list[str]) -> list[str]:
     logger.debug("\tAdding code at the end of the document")
-    end_code = ["", "******", "", "For your convenience, here's the code in one block:", "", "```python"]
-    in_code= False
+    end_code = [
+        "",
+        "******",
+        "",
+        "For your convenience, here's the code in one block:",
+        "",
+        "```python",
+    ]
+    in_code = False
     for line in lines:
         if "```python" in line:
             in_code = True
@@ -207,7 +252,6 @@ def put_all_code_at_the_end(lines: list[str]) -> list[str]:
     end_code.append("```")
     return lines + end_code
 
-    
 
 def style_tables(lines: list[str]) -> list[str]:
     logger.debug("\tAdding classes to tables")
@@ -215,6 +259,7 @@ def style_tables(lines: list[str]) -> list[str]:
         if line.startswith("<table"):
             lines[i] = '<table class="table-auto table dataframe">'
     return lines
+
 
 def load_hashes(file_path: Path) -> dict[str, str]:
     if not file_path.exists():
@@ -238,7 +283,9 @@ if __name__ == "__main__":
     logger.addHandler(RichHandler())
 
     parser = argparse.ArgumentParser(description="Convert a notebook to markdown")
-    parser.add_argument("file_path", nargs="?", type=str, help="Path to the notebook", default=None)
+    parser.add_argument(
+        "file_path", nargs="?", type=str, help="Path to the notebook", default=None
+    )
     args = parser.parse_args()
 
     here = Path(__file__).parent

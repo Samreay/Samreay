@@ -65,7 +65,7 @@ print(df.columns)
            '7/17/20', '7/18/20', '7/19/20', '7/20/20', '7/21/20', '7/22/20',
            '7/23/20', '7/24/20', '7/25/20', '7/26/20'],
           dtype='object', length=198)
-    
+
 
 Right, so its sort of pivoted already. But I dont actually want this, because I want smooth interpolation. I want dates on the index, and FIPS on the columns. On top of that, I want the relative increase in number of cases per 100k residents, or we'll just be [replicating a population map](https://xkcd.com/1138/).
 

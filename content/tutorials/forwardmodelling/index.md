@@ -195,7 +195,7 @@ print(data.shape)
 
 
     (3476, 3)
-    
+
 
 So 3476 supernova in our little "data" sample, for each event we have the apparent magnitude, redshift and colour. Lets now bin these up.
 
@@ -297,7 +297,7 @@ chi2s = np.array([get_chi2(x) for x in xs]).reshape(test_oms.shape)
 
     C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:9: RuntimeWarning: invalid value encountered in multiply
       if __name__ == '__main__':
-    
+
 
 
 
@@ -418,7 +418,7 @@ for key, value in summary.items():
     $\hat{c}$ [0.0012303218508645198, 0.003937307331830951, 0.0069427817061358844]
     $\sigma_c$ [0.09716341194044988, 0.09960155368306237, 0.10317454723851435]
     $\beta$ [2.9498499986818523, 3.0479769146439795, 3.104881022084486]
-    
+
 
 
     

@@ -46,7 +46,7 @@ Lets now make up 5 emails:
 
 
 
-<div class="reduced-code width-59" markdown=1>
+<div class=" width-59" markdown=1>
 
 ```python
 import pandas as pd

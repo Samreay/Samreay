@@ -432,7 +432,7 @@ Fantastic. Now lets run it over all stations:
 
 
 
-<div class="reduced-code width-60" markdown=1>
+<div class=" width-60" markdown=1>
 
 ```python
 station_df["city"] = station_df.apply(check_station, axis=1)
@@ -854,7 +854,7 @@ df_weather["rating"] = minmax_scale(df_weather["rating"].clip(-1, 1))
 
     D:\anaconda3\lib\site-packages\pandas\core\series.py:679: RuntimeWarning: invalid value encountered in sign
       result = getattr(ufunc, method)(*inputs, **kwargs)
-    
+
 
 
 

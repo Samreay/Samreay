@@ -312,7 +312,7 @@ Because kernels are really just functions, you can do multiple them, add them, c
 
 
 
-<div class=" width-78" markdown=1>
+<div class="expanded-code width-78" markdown=1>
 
 ```python
 kernels = [
@@ -390,7 +390,7 @@ Let's generate some data points with different uncertainty on each point:
 
 
 
-<div class=" width-79" markdown=1>
+<div class="expanded-code width-79" markdown=1>
 
 ```python
 xs2 = np.array([1, 1.5, 2, 3, 4, 4.25, 4.5, 5, 7, 9, 10])

@@ -56,7 +56,7 @@ df.info()
      15  CD             661218 non-null  object 
     dtypes: float64(3), object(13)
     memory usage: 80.7+ MB
-    
+
 
 Alright, so we've got a lot of data here. 600k rows, but really the one we care about is the City. *Note: for a non-introductory tutorial, for sure utilise the ZIP and State to get better determination of the actual city*.
 
@@ -64,7 +64,7 @@ For now, lets just see how many unique cities we have inour dataset.
 
 
 
-<div class=" width-79" markdown=1>
+<div class="expanded-code width-79" markdown=1>
 
 ```python
 cities = np.sort(df.City.str.replace(",", "").str.strip().unique().astype(str))
@@ -75,7 +75,7 @@ print(cities.size, cities)
 
 
     15652 ['02155' '1026-02-006' '10550' ... 'ZUNI' 'ZWOLLE' 'nan']
-    
+
 
 Almost sixteen thousand cities. That is a big number. And some interesting cities that appear to be entirely numeric. Perhaps they are postcodes? Here my lack of familiarity with the US system (as an Australian") means I lack a certain domain knowledge here, but let's push on! To simplify things and make output... readable... lets just look at cities starting with `"PH"`:
 
@@ -400,7 +400,7 @@ for potential in proper_names:
     PHILADELKPHIA -> PHOENIX = 30
     PHILADELKPHIA -> PHOENIXVILLE = 40
     PHILADELKPHIA -> PHYLLIS = 30
-    
+
 
 We can see that the match with the highest similarity is, of course, `PHILADELPHIA`. So what if we just want to find the best match, instead of printing them all out of it, that's very easy to do!
 
@@ -419,7 +419,7 @@ print(best_match)
 
 
     ('PHILADELPHIA', 96)
-    
+
 
 If we want more than one, also easy to do, let's pick a different work and get the top three matches:
 
@@ -437,7 +437,7 @@ print(matches)
 
 
     [('PHENIX', 92), ('PHOENIX', 86), ('PHENIX CITY', 79)]
-    
+
 
 How could we improve this? Firstly, we are ignoring the super useful information of the state and the PIN, which we should also be using to inform our decision.
 
@@ -475,7 +475,7 @@ for c in unknown:
     PHOENIXVILE -> PHOENIXVILLE
     PHOENX -> PHOENIX
     PHONEIX -> PHOENIX
-    
+
 
 An obvious issue is that our dataset of US cities is not complete. It turns out, there is a tiny town called Philipstown in Putnam County, New York, but its not in our list, so it gets turns into other cities. Apart from that, this is pretty good! If we wanted to do this in a dataframe, we could use `df.map(lambda x: process.extractOne(x, proper_names)[0])` on anything that doesn't match to extract a new series.
 
@@ -511,7 +511,7 @@ print(fuzz.ratio(a, b))
 
 
     14
-    
+
 
 Of course, this compares the entire strings. We can ask for the partial ratio which will help us out a lot:
 
@@ -527,7 +527,7 @@ print(fuzz.partial_ratio(a, b))
 
 
     100
-    
+
 
 But we can go more complicated:
 
@@ -546,7 +546,7 @@ print(fuzz.ratio(a, b), fuzz.partial_ratio(a, b))
 
 
     52 52
-    
+
 
 Obviously swapping the order has confused things. So lets tokenise!
 
@@ -562,7 +562,7 @@ print(fuzz.token_sort_ratio(a, b))
 
 
     100
-    
+
 
 Oh yeah, thats what we want. Its broken the string down into tokens, sorted them, then taken the ratio so that we don't care about order. **But wait, there's more!**
 
@@ -581,7 +581,7 @@ print(fuzz.token_sort_ratio(a, b), fuzz.token_set_ratio(a, b))
 
 
     59 96
-    
+
 
 The sheer size difference between the two strings means that our `token_sort_ratio` is now not giving good results. Instead, we can use `token_set_ratio` which breaks both strings into tokens, and then takes into account the intersection of those two sets better. 
 

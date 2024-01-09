@@ -54,7 +54,7 @@ df_original.sample(5)
 
 
     We have 646 colours
-    
+
 
 
 
@@ -359,7 +359,7 @@ Words don't have a well defined mathematical representation to start with, inste
 
 
 
-<div class=" width-79" markdown=1>
+<div class="expanded-code width-79" markdown=1>
 
 ```python
 n = 100000 # Num samples
@@ -450,7 +450,7 @@ In our case, we'll define a similarity metric ourselves, by just using the dista
 
 
 
-<div class=" width-78" markdown=1>
+<div class="expanded-code width-78" markdown=1>
 
 ```python
 # Calculate the distance, and drop the RGB columns.
@@ -591,7 +591,7 @@ c.sample(10)
 
 
      22.5% positive values
-    
+
 
 
 
@@ -795,7 +795,7 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
     Non-trainable params: 0
     _________________________________________________________________
     None
-    
+
 
 **Warning: nastly plotting code below.**
 
@@ -953,13 +953,12 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
     Non-trainable params: 0
     _________________________________________________________________
     None
-    
+
 
 And because the animation code for 3D plots is even uglier than the 2D, I've hidden it away. But here is the constrained 3D trained embeddings!
 
 
 
-![](embed_3d.mp4)
 
 
 

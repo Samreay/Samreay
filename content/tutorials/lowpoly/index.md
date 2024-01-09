@@ -187,7 +187,7 @@ The algorithm is simple. We assign each pixel to a triangle, and then take all t
 
 
 
-<div class="reduced-code width-60" markdown=1>
+<div class=" width-60" markdown=1>
 
 ```python
 def get_colour_of_tri(tri, image):

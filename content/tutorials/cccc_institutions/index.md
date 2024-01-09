@@ -128,7 +128,7 @@ print(sites[60:70])
 
 
     ['Fukuoka University', 'Mater Dei Hospital', 'Yokohama City University Medical Center', 'Nagoya University Hospital', 'PICU Saiful Anwar Hospital', 'Adult ICU Saiful Anwar Hospital', 'KourituTouseiHospital', 'HokkaidoUniversityHospital', 'ChibaUniversityHospital', 'UniversityofAlabamaatBirminghamHospital']
-    
+
 
 Looking good so far. However, I know that some of the sites have - for some reason - had all whitespace removed. So lets write a small parser to go from CamelCase to normal words.
 
@@ -153,7 +153,7 @@ print(sites_fixed[60:70])
 
 
     ['Fukuoka University', 'Mater Dei Hospital', 'Yokohama City University Medical Center', 'Nagoya University Hospital', 'PICU Saiful Anwar Hospital', 'Adult ICU Saiful Anwar Hospital', 'Kouritu Tousei Hospital', 'Hokkaido University Hospital', 'Chiba University Hospital', 'Universityof Alabamaat Birmingham Hospital']
-    
+
 
 This is probably as good as we can get it right now. So lets copy the dataframe so we don't clobber the original, and update the columns.
 
@@ -284,7 +284,7 @@ Let's set up the library with our token to start with:
 
 
 
-<div class="reduced-code width-60" markdown=1>
+<div class=" width-60" markdown=1>
 
 ```python
 from opencage.geocoder import OpenCageGeocode
@@ -362,7 +362,7 @@ print(f"We now have {len(coords.keys())} sites ready to go!")
 
 
     We now have 148 sites ready to go!
-    
+
 
 Great! Onto the next part...
 
@@ -1913,7 +1913,7 @@ get_base_fig();
 
 
       
-    
+
 
 
     
@@ -1929,7 +1929,7 @@ Let's just get a snapshot for the final day in our dataset.
 
 
 
-<div class=" width-78" markdown=1>
+<div class="expanded-code width-78" markdown=1>
 
 ```python
 import numpy as np
@@ -1991,7 +1991,7 @@ get_scatter(test_row);
 
 
       
-    
+
 
 
     
@@ -2050,7 +2050,7 @@ get_shaded(test_row, "2020-03-23", show=True);
 
 
       
-    
+
 
 
     
@@ -2079,7 +2079,7 @@ for i, date in enumerate(data_fixed.index):
 
 
       
-    
+
 
 Now that we have a bunch of frames, lets turn it into a ncie MP4 video. But lets be fancy, and have this bad boy glow. To do this, Im going to load in a mask (to make sure the title doesnt glow), and run it through a filter complex that took me 4 hours to debug until it worked. It will also add a few seconds of pause at the end, so on looping players people can still see the final result.
 

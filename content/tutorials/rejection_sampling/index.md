@@ -148,7 +148,7 @@ Whats the speed difference you ask?
 
 
     55.5 ms ± 2.96 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
-    
+
 
 
 
@@ -162,7 +162,7 @@ Whats the speed difference you ask?
 
 
     1.05 ms ± 108 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
-    
+
 
 64 milliseconds down to 1 millisecond. And we could go even lower if we stop turn numpy arrays into lists and concatenating them, but you get the idea. You may be wondering why we didn't just do it all in one go, why break it into batches. Turns out there is a sweet spot for generating vectors - too small and you waste too much time creating them, too big and things start to slow down as well. 1000 is definitely not the sweet spot, but its sweeter than nothing!
 
@@ -226,7 +226,7 @@ print(f"Efficiency is only {passed.mean() * 100:0.1f}%")
 
 
     Efficiency is only 5.0%
-    
+
 
 
     

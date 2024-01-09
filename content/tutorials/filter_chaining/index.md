@@ -340,7 +340,7 @@ Provided your filtering always takes this simple form, *and* provided you don't 
 
 
 
-<div class="reduced-code width-59" markdown=1>
+<div class=" width-59" markdown=1>
 
 ```python
 df.select("DEST_AIR", "LAX").select("CANCELLED", 1).head(2)

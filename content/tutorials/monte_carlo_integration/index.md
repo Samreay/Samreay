@@ -119,7 +119,7 @@ where $\sigma$ is the standard deviation, $x$ is what we average (so really our 
 
 
 
-<div class="expanded-code width-92" markdown=1>
+<div class="expanded-code width-91" markdown=1>
 
 ```python
 error = np.std(samples * width) / np.sqrt(samples.size)

@@ -261,13 +261,13 @@ for index in range(xs.shape[1]):
     0 74563.33713200882
     1 74559.06668872922
     2 1.0190891029253206
-    
+
 
 Thats a lot of correlation. We shall proceed with the normal modelling fitting, which you can see below. Same thing as normal, except now instead of just plotting the predictions in our one-dimensional view, we also plot the distribution of $\beta_0$ values (just so we can see how important each model rated the first feature).
 
 
 
-<div class=" width-78" markdown=1>
+<div class="expanded-code width-78" markdown=1>
 
 ```python
 def do_monte_carlo_fit(xs, ys, es, model, samps=100):

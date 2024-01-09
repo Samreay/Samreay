@@ -51,7 +51,7 @@ rate_a, rate_b = click_a / num_a, click_b / num_b
 </div>
 
 
-For a TL;DR - "just give me the answer", if you want to test the hypothesis the click-through-rate (CTR) of B > A, then [jump to the Mann-Whitney U test](#mann-whitney-u-test).
+For a TL;DR - "just give me the answer", if you want to test the hypothesis the click-through-rate (CTR) of B > A, then [jump to the Mann-Whitney U test](#Mann-Whitney-U-test).
 
 ## Modelling click through
 
@@ -159,7 +159,7 @@ plt.annotate(f"Area={area_under_curve:0.3f}", (0.02, 5))
 
 
     z-score is 1.890, with p-value 0.029
-    
+
 
 
     
@@ -193,7 +193,7 @@ print(get_confidence_ab_test(click_a, num_a, click_b, num_b))
 
 
     0.9705973498275782
-    
+
 
 # Can we check we've done the right thing?
 
@@ -216,7 +216,7 @@ print(f"B is better than A {b_better:0.1%} of the time")
 
 
     B is better than A 97.1% of the time
-    
+
 
 Which, rephrased to the language of before, is that A > B only ~3% of the time, which is statistically significant such that we can reject our hypothesis (that A <= B).
 
@@ -248,7 +248,7 @@ print(f"Zscore is {zscore:0.2f}, p-value is {prob:0.3f} (two tailed), {prob/2:0.
 
 
     Zscore is -1.89, p-value is 0.059 (two tailed), 0.030 (one tailed)
-    
+
 
 Note here that the p-value by default is using the two-tailed test. We can see these values are almost identical to the ones we computed ourselves... but they're not exactly the same. Why is this? Well, the ttest_ind (with `equal_var=False`) is running Welch's t-test. The t-test has degrees-of-freedom which will induce subtle differences with the normal approximation. Additionally, Welsch's t-test is meant for continuous data, we have discrete 0 and 1 options. A better option for discrete data is the Mann-Whitney U statistic.
 
@@ -268,7 +268,7 @@ print(f"Mann-Whitney U test for null hypothesis B <= A is {p_value:0.3f}")
 
 
     Mann-Whitney U test for null hypothesis B <= A is 0.028
-    
+
 
 So you can see that our p-value is low and we can reject the null hypthesis. Noticed too that we have `alternative="less"`, which is the null hypothesis that we are testing so that we can investigate if B > A. 
 
@@ -329,7 +329,7 @@ So that's our model defined. Let's fit it using [`emcee`](https://emcee.readthed
 
 
 
-<div class=" width-78" markdown=1>
+<div class="expanded-code width-78" markdown=1>
 
 ```python
 import emcee
@@ -354,7 +354,7 @@ print(flat_chain)
      [0.07143426 0.0553055 ]
      [0.0747643  0.04823904]
      [0.0747643  0.04823904]]
-    
+
 
 Great, so we have samples from the posterior, but this doesn't mean much. Lets throw them into [`ChainConsumer`](https://samreay.github.io/ChainConsumer/), a library of mine to digest MCMC samples from model fitting algorithms.
 
@@ -372,7 +372,7 @@ c.plotter.plot();
 </div>
 
 
-    
+
 
 
     

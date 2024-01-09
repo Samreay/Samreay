@@ -228,7 +228,7 @@ results = p_map(slow_fn, jobs);
 ```
 
     100%|██████████| 512/512 [00:05<00:00, 96.89it/s] 
-    
+
 
 I was surprised this ran faster than both `concurrent.futures` and `loky`, it came in at only `5.38s`. And you even get a progress bar so that you know things are still running and progressing smoothly. Obviously in my case, I don't really need it, but if you have a job which will take 10 hours to run, it would be great to know that its slowly chewing through the tasks and not actually hanging.
 
@@ -311,7 +311,7 @@ for job in many_jobs:
 ```
 
     Wall time: 3.56 s
-    
+
 
 So with even more jobs, and an increase in `n`, this now takes `3.56s` to take. Still, very impressive considering this is all on one core now. So what happens if we try to ship it out to multiple cores? Any of the above libraries would work, I'll just use `loky`:
 
@@ -329,7 +329,7 @@ results = list(executor.map(slow_fn_malloc, many_jobs, chunksize=16));
 ```
 
     Wall time: 3.54 s
-    
+
 
 Wait, `3.54s`... it didn't improve at all!
 

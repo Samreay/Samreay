@@ -34,7 +34,7 @@ add(1, 2)
 
 
     Look, I've added something here!
-    
+
 
 
 
@@ -61,7 +61,7 @@ add(1, 2)
 
 
     Look, I've added something here!
-    
+
 
 
 
@@ -133,7 +133,7 @@ add(1, 2)
     10:03:37 DEBUG:   args: (1, 2)
     10:03:37 DEBUG:   kwargs: {}
     10:03:37 DEBUG:   returned 3
-    
+
 
 
 
@@ -172,7 +172,7 @@ add(3, 4)
 
 
     10:03:37 DEBUG:   Took 0.0008 ms
-    
+
 
 
 
@@ -204,7 +204,7 @@ add(5, 6)
     10:03:37 DEBUG:   kwargs: {}
     10:03:37 DEBUG:   Took 0.0008 ms
     10:03:37 DEBUG:   returned 11
-    
+
 
 
 
@@ -246,7 +246,7 @@ print(add(7, 8))
     13
     NO! NOT ALLOWED!
     None
-    
+
 
 In python functions are objects too, so we can attack attributes to them, like `has_run`, and then check the attribute status when executing. In the output, you can see the first `add` works fine, but then the second time we try we get a mean print message and a result of `None`. You could make this an exception if you want, I just need it to be able to execute for the write up!
 

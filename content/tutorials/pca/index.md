@@ -110,7 +110,7 @@ Lets plot this and see how it turned out!
 
 
 
-<div class=" width-79" markdown=1>
+<div class="expanded-code width-79" markdown=1>
 
 ```python
 fig, axes = plt.subplots(ncols=2)

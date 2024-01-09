@@ -196,7 +196,7 @@ c.plotter.plot_walks(truth=[np.pi/4, -1], figsize=(8,4));
 </div>
 
 
-    
+
 
 
     
@@ -225,11 +225,11 @@ for key, value in summary.items():
 </div>
 
 
-    
+
 
     $\phi$ [0.7726110275094517, 0.8463251378245243, 0.9095535101305535]
     $c$ [-2.71495855668443, -1.8055414255827276, -0.7402022694695001]
-    
+
 
 
     
@@ -273,7 +273,7 @@ ax.set_xlabel("x"), ax.set_ylabel("y"), ax.set_xlim(2, 12);
 </div>
 
 
-    
+
 
 
     

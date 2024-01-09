@@ -112,7 +112,7 @@ print(f"Have {len(all_links)} stories to get.")
 
 
     Have 8879 stories to get.
-    
+
 
 Now that we have all the links, next step: getting the stats.
 
@@ -553,7 +553,7 @@ Let's zoom in on this distribution...
 
 
 
-<div class=" width-79" markdown=1>
+<div class="expanded-code width-79" markdown=1>
 
 ```python
 plot_hist(df, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))

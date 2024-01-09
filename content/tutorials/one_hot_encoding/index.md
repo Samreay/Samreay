@@ -15,7 +15,7 @@ For example, take this toy example dataframe of people and their favourite food.
 
 
 
-<div class="reduced-code width-59" markdown=1>
+<div class=" width-59" markdown=1>
 
 ```python
 import pandas as pd
