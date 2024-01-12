@@ -6,7 +6,7 @@ auth: Cassius Lange and Ryan Tang
 categories: [reviews]
 review: C
 weight: 39
-name: "Tower Apocaypse"
+name: "Tower Apocalypse"
 links:
     amazon: https://www.amazon.com/Tower-Apocalypse-LitRPG-Isekai-System-ebook/dp/B0B69QBXLR
     audible: https://www.audible.com/series/Tower-Apocalypse-Audiobooks/B0B5ZLJYZX
