@@ -374,6 +374,11 @@ svg.ico {
       animation: card-motion 8s ease-in-out infinite;
       animation-delay: -3s;
     }
+    &.green {
+      background-image: repeating-linear-gradient(90deg, #000000 0%, #658560 50%, #000000 100%);
+      animation: card-motion 7s ease-in-out infinite;
+      animation-delay: -1s;
+    }
   }
 
   .card_overlay_B {

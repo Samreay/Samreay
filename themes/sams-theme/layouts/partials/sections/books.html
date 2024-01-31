@@ -1,4 +1,4 @@
-<div class="content content-wide">
+<div class="content content-wider">
 
     <div class="section-header">
         <h1>Books</h1>
@@ -7,7 +7,7 @@
     </div>
 
     <div class="mx-auto mt-8">
-        <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 md:gap-x-6 md:gap-y-8 items-start">
+        <div class="grid gap-4 xs:gap-12 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-6 md:gap-y-8 items-start">
             {{ range $book := site.Data.books }}
             <article class="flex flex-col h-full col-span-1 fancy_card">
                 <div class="card_translator">
@@ -32,7 +32,7 @@
             {{ end }}
 
             <!-- CTA box -->
-            <div class="fancy_card flex flex-col col-span-1 h-full">
+            <div class="col-span-2 sm:col-span-1 fancy_card flex flex-col col-span-1 h-full">
                 <div class="card_translator h-full">
                     <div class="card_rotator tiny_rot h-full card_layer block">
                         <div class="newsletter card-layer h-full" style="padding: 0.2rem;">
@@ -42,8 +42,7 @@
                                     <!-- CTA content -->
                                     <div class="mb-6 text-center">
                                         <h3 class="text-main-200 mb-2 lg:mb-8">Updates!</h3>
-                                        <p class="text-main-100 text-lg text-opacity-70 mb-2">For new reviews, books and chatting, <a href="{{ site.Params.discord }}" class="font-bold" style="color: #7289da;">{{ partial "ico" "discord" }} discord</a>.</p>
-                                        <p class="text-main-100 text-lg text-opacity-70">For releases without social anxiety, join the email list!</p>
+                                        <p class="text-main-100 text-lg text-opacity-70 mb-2">Join <a href="{{ site.Params.discord }}" class="font-bold" style="color: #7289da;">{{ partial "ico" "discord" }} discord</a> to chat, or just the email list!</p>
                                     </div>
 
                                     <!-- CTA form -->

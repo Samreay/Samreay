@@ -17,5 +17,11 @@
 - name: Sanctuary
   cover: landing/3_Sanctuary.jpg
   desc: "Manifestation 3: Sanctuary"
-  link: https://www.amazon.com/dp/B0C2CWZ1RH
+  link: https://mybook.to/hinton_sanctuary  
   css: purple
+
+- name: Shieldsmith
+  cover: landing/4_Shieldsmith.jpg
+  desc: "Manifestation 4: Shieldsmith"
+  link: https://mybook.to/shieldsmith
+  css: green 
