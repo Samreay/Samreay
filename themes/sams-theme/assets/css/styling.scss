@@ -109,12 +109,19 @@
 
 .gradient,
 .text-gradient {
-  background-image: linear-gradient(132deg, #ffc750 5%, #ff5c4c 95%);
+  background-image: linear-gradient(132deg, #34d399 5%, #0d9488 95%);
 }
 
 .under {
   transition-duration: 0.2s;
   transition-property: box-shadow, color, background;
+
+  box-shadow: 0 10px 0 0 #59ff3800, inset 0 -0.125em #4fff3833;
+  &:hover {
+    color: #0d9488;
+    box-shadow: 0 1px 0 4px #78f35f1a, inset 0 -1.375em 0 #40f73a1a;
+  }
+  
 
   &.red-under {
     box-shadow: 0 10px 0 0 #ff386000, inset 0 -0.125em #ff386033;
@@ -171,10 +178,10 @@
   }
   a:not(.no-under) {
     @apply under text-main-200;
-    box-shadow: 0 10px 0 0 #ffa93800, inset 0 -0.125em #ff813850;
+    box-shadow: 0 10px 0 0 #ffa93800, inset 0 -0.125em #115e59;
 
     &:hover {
-      color: #e95c20;
+      color: #14b8a6;
       box-shadow: 0 1px 0 4px #ff92381a, inset 0 -1.375em 0 #ff98381a;
     }
   }

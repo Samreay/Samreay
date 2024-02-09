@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "arenko-blog"
+name = "Samuel Hinton's Website"
 version = "0.1.0"
 description = ""
-authors = ["Samuel Hinton <sh@arenko.group>"]
+authors = ["Samuel Hinton <samuelreay@gmail.com>"]
 readme = "README.md"
 packages = [{include = "builder"}]
 
 [tool.poetry.dependencies]
-python = ">=3.9"
+python = ">=3.11"
 jupyter = "^1.0.0"
 nbconvert = "^7.2.4"
 jupyter-contrib-nbextensions = "^0.7.0"
@@ -17,15 +17,59 @@ pyyaml = "^6.0.1"
 notebook= "6.4.12"
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "^2.20.0"
+pre-commit = ">=3.3.3"
+ruff = ">=0.2.1, <1"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.black]
-line-length = 120
-target-version = ['py310']
 
-[tool.isort]
-profile = "black"
+[tool.ruff]
+src = ["src"]
+select = ["ALL"]
+ignore = [
+    "PD010",
+    "PD011",
+    "PD901",
+    "PLR2004",
+    "UP017",
+    "TRY003",
+    "INP001",
+    "PLR0912",
+    "PLR0913",
+    "TRY300",
+    "E712",
+    "PLW2901",
+    "W191",
+    "E111",
+    "E114",
+    "E117",
+    "D206",
+    "D300",
+    "Q001",
+    "Q000",
+    "Q002",
+    "Q003",
+    "COM812",
+    "COM819",
+    "ISC001",
+    "D100",
+    "D103",
+    "G004",
+    "ISC002",
+    "S602",
+    "S105",
+    "EM102"
+]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.extend-per-file-ignores]
+"test/***" = ["INP001"]
+"__init__.py" = ["E402", "F401"]
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "double"
+line-ending = "auto"

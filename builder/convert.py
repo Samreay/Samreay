@@ -1,21 +1,19 @@
 import argparse
-import glob
 import hashlib
 import json
 import logging
 import logging.config
 import re
+import shutil
 import subprocess
 from pathlib import Path
-import shutil
 
-import logging
 from rich.logging import RichHandler
 
 logger = logging.getLogger("convert")
 
 
-def process_notebook(file_path: Path):
+def process_notebook(file_path: Path) -> None:
     root = Path(__file__).parent.parent
     logger.info(f'Processing file="{file_path.relative_to(root).as_posix()}"')
 
@@ -40,7 +38,7 @@ def process_notebook(file_path: Path):
     lines = remove_main(lines)
     lines = put_all_code_at_the_end(lines)
 
-    with open(markdown_path, "w") as f:
+    with markdown_path.open("w") as f:
         f.write("\n".join(lines))
 
 
@@ -75,9 +73,7 @@ def wrap_code(lines: list[str]) -> list[str]:
                     cls = "reduced-code"
                 if max_width > 77:
                     cls = "expanded-code"
-                content[
-                    start_line
-                ] = f'<div class="{cls} width-{max_width}" markdown=1>'
+                content[start_line] = f'<div class="{cls} width-{max_width}" markdown=1>'
 
             in_block = not in_block
         else:
@@ -88,9 +84,9 @@ def wrap_code(lines: list[str]) -> list[str]:
     return content
 
 
-def clean(file_path: Path):
-    dir = file_path.parent
-    for d in dir.glob("*_files"):
+def clean(file_path: Path) -> None:
+    directory = file_path.parent
+    for d in directory.glob("*_files"):
         if d.is_dir():
             shutil.rmtree(d.absolute())
 
@@ -103,12 +99,12 @@ def remove_dumb_shit(lines: list[str]) -> list[str]:
         "dedent function was deprecated",
     ]
     results = []
-    for l in lines:
+    for line in lines:
         for r in remove:
-            if r in l:
+            if r in line:
                 break
         else:
-            results.append(l)
+            results.append(line)
     return results
 
 
@@ -117,7 +113,7 @@ def convert_notebook(file_path: Path) -> Path:
     expected_output = file_path.with_suffix(".md")
     logger.info(f"\tCalling nbconvert on {file_path}")
     subprocess.run(
-        f'jupyter nbconvert "{file_path}" --to markdown --output-dir "{basedir}" --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags remove --TagRemovePreprocessor.remove_input_tags remove_input --TagRemovePreprocessor.remove_all_outputs_tags remove_output',
+        f'jupyter nbconvert "{file_path}" --to markdown --output-dir "{basedir}" --TagRemovePreprocessor.enabled=True --TagRemovePreprocessor.remove_cell_tags remove --TagRemovePreprocessor.remove_input_tags remove_input --TagRemovePreprocessor.remove_all_outputs_tags remove_output',  # noqa: E501
         check=True,
         shell=True,
     )
@@ -133,7 +129,7 @@ def convert_notebook(file_path: Path) -> Path:
 
 
 def load_markdown(file_path: Path) -> list[str]:
-    with open(file_path, "r") as f:
+    with file_path.open("r") as f:
         return f.read().splitlines()
 
 
@@ -161,15 +157,13 @@ def remove_code(lines: list[str]) -> list[str]:
         elif not in_remove:
             results.append(x)
     if in_remove:
-        logger.warning(f"Found a remove_start but no remove_end!")
+        logger.warning("Found a remove_start but no remove_end!")
     return results
 
 
 def swap_videos(lines: list[str]) -> list[str]:
     for i, line in enumerate(lines):
-        if "Your browser does not support the".lower() in line.lower():
-            lines[i] = ""
-        elif "</video>" in line:
+        if "Your browser does not support the".lower() in line.lower() or "</video>" in line:
             lines[i] = ""
         elif "<video src" in line:
             src = line.split('src="')[1].split('"')[0]
@@ -196,11 +190,11 @@ def add_thumbnail(lines: list[str], file_path: Path) -> list[str]:
     logger.debug("\tAdding thumbnail to frontmatter")
     base_dir = file_path.parent
 
-    covers = glob.glob(str(base_dir / "cover.*"))
+    covers = list(base_dir.glob("cover.*"))
     if len(covers) > 0:
         return lines
 
-    def adjust(lines, index):
+    def adjust(lines: list[str], index: int) -> None:
         line = lines[index]
         image_loc = line.split("](")[1].split(")")[0].split("?")[0]
         image_path = base_dir / image_loc
@@ -245,7 +239,7 @@ def put_all_code_at_the_end(lines: list[str]) -> list[str]:
         if "```python" in line:
             in_code = True
             continue
-        elif "```" in line and in_code:
+        if "```" in line and in_code:
             in_code = False
         if in_code:
             end_code.append(line)
@@ -264,7 +258,7 @@ def style_tables(lines: list[str]) -> list[str]:
 def load_hashes(file_path: Path) -> dict[str, str]:
     if not file_path.exists():
         return {}
-    with open(file_path, "r") as f:
+    with file_path.open() as f:
         return json.load(f)
 
 
@@ -273,8 +267,8 @@ def get_hash(file_path: Path) -> str:
     return hashlib.blake2b(content).hexdigest()
 
 
-def save_hashes(file_path: Path, hashes: dict[str, str]):
-    with open(file_path, "w") as f:
+def save_hashes(file_path: Path, hashes: dict[str, str]) -> None:
+    with file_path.open("w") as f:
         json.dump(hashes, f, indent=4)
 
 
@@ -283,9 +277,7 @@ if __name__ == "__main__":
     logger.addHandler(RichHandler())
 
     parser = argparse.ArgumentParser(description="Convert a notebook to markdown")
-    parser.add_argument(
-        "file_path", nargs="?", type=str, help="Path to the notebook", default=None
-    )
+    parser.add_argument("file_path", nargs="?", type=str, help="Path to the notebook", default=None)
     args = parser.parse_args()
 
     here = Path(__file__).parent
@@ -306,12 +298,12 @@ if __name__ == "__main__":
         all_notebooks = here.parent.glob("content/**/*.ipynb")
         for notebook_path in all_notebooks:
             key = str(notebook_path.relative_to(here.parent).as_posix())
-            hash = get_hash(notebook_path)
-            if key in hashes and hashes[key] == hash:
+            notebook_hash = get_hash(notebook_path)
+            if key in hashes and hashes[key] == notebook_hash:
                 logger.info(f"Skipping {key} as hash is unchanged")
                 continue
             process_notebook(notebook_path.absolute())
-            hashes[key] = hash
+            hashes[key] = notebook_hash
 
         if hashes != hashes_original:
             save_hashes(hash_file, hashes)

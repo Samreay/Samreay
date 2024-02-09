@@ -4,7 +4,8 @@ install_tailwind:
 
 install_casks:
 	@echo "Installing Hugo and npm"
-	@choco install -y hugo-extended nodejs-lts 
+	@brew install hugo
+	@brew install nodejs 
 
 install_poetry:
 	@echo "Updating poetry"

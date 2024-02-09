@@ -1,45 +1,22 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.2.0
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
     hooks:
-    -   id: check-toml
-    -   id: check-json
-    -   id: detect-private-key
-    -   id: requirements-txt-fixer
-    -   id: check-yaml
+      - id: check-added-large-files
+        args: ["--maxkb=5000"]
+      - id: check-toml
+      - id: check-json
+      - id: check-symlinks
+      - id: debug-statements
+      - id: detect-private-key
+      - id: check-yaml
         args:
-        -   --unsafe
--   repo: https://github.com/myint/autoflake
-    rev: v1.4
+          - --unsafe
+      - id: trailing-whitespace
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.2.1
     hooks:
-    -   id: autoflake
-        args:
-        - --recursive
-        - --in-place
-        - --remove-all-unused-imports
-        - --remove-unused-variables
-        - --expand-star-imports
-        - --exclude
-        - __init__.py
-        - --remove-duplicate-keys
--   repo: https://github.com/pycqa/isort
-    rev: 5.10.1
-    hooks:
-    -   id: isort
-        name: isort (python)
--   repo: https://github.com/psf/black
-    rev: 22.8.0
-    hooks:
-    -   id: black
--   repo: local
-    hooks:
-    -   id: exporter
-        name: exporter
-        entry: python builder/convert.py
-        language: system
-        always_run: true
-        verbose: true
-        pass_filenames: false
+      - id: ruff
+        args: ["--fix", "--no-unsafe-fixes"]
+      - id: ruff-format
 
