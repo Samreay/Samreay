@@ -511,11 +511,11 @@
     artstation: https://www.artstation.com/victormanoelvls
   covers: [minor_arcana, amnesia_chronicles]
 
-- name: Vitaly S. Alexius
-  links:
-    deviantart: https://www.deviantart.com/alexiuss
-    royal_road: https://www.royalroad.com/fiction/71439/romantically-apocalyptic-guide-to-the-multiverse/chapter/1276776/q-whats-romantically-apocalyptic
-  covers: [perfect_run, rogue_ascension1, rogue_ascension2, rogue_ascension3]
+# - name: Vitaly S. Alexius
+#   links:
+#     deviantart: https://www.deviantart.com/alexiuss
+#     royal_road: https://www.royalroad.com/fiction/71439/romantically-apocalyptic-guide-to-the-multiverse/chapter/1276776/q-whats-romantically-apocalyptic
+#   covers: [perfect_run, rogue_ascension1, rogue_ascension2, rogue_ascension3]
 
 - name: Yelim Kim
   links:
