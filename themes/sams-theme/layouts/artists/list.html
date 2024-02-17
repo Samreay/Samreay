@@ -5,23 +5,25 @@
     import { reactive, html, watch } from '/js/arrow.js';
     const artists = [
         {{- range $artist := site.Data.artists -}}
-        {
-          name: {{- $artist.name -}},
-          id: {{- urlize $artist.name -}},
-          {{- if isset $artist "notes" -}}notes: {{- $artist.notes -}},{{- end -}}
-          links: [
-            {{- range $n, $l := $artist.links -}}
-              {name:{{- $n -}}, link: {{- $l -}}, title: {{- (replace $n "_" " ") | title -}}},
-            {{- end -}}
-        ],
-          covers: [
-            {{- range $cover := $artist.covers -}}
-            {{- $output := printf "img/covers/%s*" $cover -}}
-            {{- $img := resources.GetMatch (printf "img/covers/%s.*" $cover) -}}
-            {{( $img.Fill "500x800 Center webp q70 #000000" ).RelPermalink }},
-            {{- end -}}
-          ]
-      },
+        {{- if not (isset $artist "hidden") -}}
+          {
+            name: {{- $artist.name -}},
+            id: {{- urlize $artist.name -}},
+            {{- if isset $artist "notes" -}}notes: {{- $artist.notes -}},{{- end -}}
+            links: [
+              {{- range $n, $l := $artist.links -}}
+                {name:{{- $n -}}, link: {{- $l -}}, title: {{- (replace $n "_" " ") | title -}}},
+              {{- end -}}
+          ],
+            covers: [
+              {{- range $cover := $artist.covers -}}
+              {{- $output := printf "img/covers/%s*" $cover -}}
+              {{- $img := resources.GetMatch (printf "img/covers/%s.*" $cover) -}}
+              {{( $img.Fill "500x800 Center webp q70 #000000" ).RelPermalink }},
+              {{- end -}}
+            ]
+        },
+      {{- end -}}
       {{- end -}}
     ]
 
