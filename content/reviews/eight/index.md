@@ -5,11 +5,10 @@ date: 2022-11-22
 auth: Samer Rabadi
 categories: [reviews]
 review: C
-weight: 40
+weight: 39.9
 name: "Eight"
 links:
     amazon: https://www.amazon.com/Eight-LitRPG-Novel-Magical-Survival-ebook/dp/B0B8XQXKFJ
-    # goodreads: https://www.goodreads.com/en/book/show/61938108-eight
     audible: https://www.audible.com/pd/Eight-Audiobook/B0B8T1X15L
 aliases: [/reviews/eight]
 tags: [in-progress, isekai, litrpg, audio]
