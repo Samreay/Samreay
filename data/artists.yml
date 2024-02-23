@@ -123,6 +123,11 @@
     fiverr: https://www.fiverr.com/eceyt_
   covers: [toothless]
 
+- name: Elaine Luo
+  links:
+    artstation: https://leilain.artstation.com/
+  covers: [rinyv]
+
 - name: Emily McCosh
   links:
     website: https://emilymccoshdesigns.com/
@@ -236,6 +241,11 @@
     artstation: https://joerequeza.artstation.com/
   covers: [crijik3, crijik4, pack_dragon, lost_ones]
 
+- name: Joel Chaim Holtzman
+  links:
+    artstation: https://www.artstation.com/joelchaim
+  covers: [gene_harvest, forge_high_mage]
+
 - name: Kaimo Nunes
   links:
     artstation: https://www.artstation.com/kaimonunes
@@ -257,6 +267,7 @@
       blade_of_revelation,
       btdem2,
       trails_of_descent,
+      ultimate_level_1,
     ]
   links:
     deviantart: https://www.deviantart.com/kartstudiodigi/
