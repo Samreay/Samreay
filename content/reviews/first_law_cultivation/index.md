@@ -12,7 +12,7 @@ links:
     amazon: https://www.amazon.com/First-Law-Cultivation-Xianxia-Progression-ebook/dp/B0BRNTGTQM
     audible: https://www.audible.com.au/pd/The-First-Law-of-Cultivation-Audiobook/B0BXFXBRRG
 aliases: [/reviews/first_law_cultivation]
-tags: [cultivation, in-progress, crafting, magic-school, companions, audio]
+tags: [cultivation, in-progress, crafting, magic-school, companion, audio]
 sentence: "In this world, knowledge is power. And power is everything."
 ---
 
