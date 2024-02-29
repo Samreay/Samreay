@@ -5,7 +5,7 @@ date: 2022-09-23
 auth: RavensDagger
 categories: [reviews]
 review: B
-weight: 23
+weight: 25.8
 name: "Cinnamon Bun"
 links:
     amazon: https://www.amazon.com.au/dp/B08BZ2NW67

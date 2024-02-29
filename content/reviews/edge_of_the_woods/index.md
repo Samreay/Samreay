@@ -5,7 +5,7 @@ date: 2023-11-26
 auth: Andrew Rowe
 categories: [reviews]
 review: B
-weight: 23
+weight: 26
 name: "Edge of the Woods"
 links:
     amazon: https://www.amazon.com/Edge-Woods-Epic-Fantasy-Adventure-ebook/dp/B0C6V3BCV7
