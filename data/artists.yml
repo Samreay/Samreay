@@ -81,6 +81,11 @@
     artstation: https://www.artstation.com/creadfectus
   covers: [jester_apoc, demon_tree, ship_core, revelations]
 
+- name: Cotta
+  links:
+    artstation: https://www.artstation.com/cotta
+  covers: [kara]
+
 - name: Cyan Gorilla
   links:
     website: https://cyangorilla.com
