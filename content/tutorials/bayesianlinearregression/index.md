@@ -212,7 +212,7 @@ chain = Chain.from_emcee(
     sampler,
     columns=["phi", "c"],  # Names of our parameters
     name="emcee",
-    discard=200,  # Removes our burning
+    discard=200,  # Removes our burn-in
     show_contour_labels=True,  # Used in plotting
 )
 truth = Truth(location={"c": -1, r"phi": np.pi / 4}, color="white")
@@ -232,7 +232,9 @@ c.plotter.plot_walks(figsize=(8, 4));
     
 
 
-So here we can see the walks plotted, also known as a trace plot. The blue contains all the samples from the chain we removed the burn in from, and the red doesn't have it removed. Notice all the little ticks in $\phi$ and $c$ - thats the random position of each walker (there will be fifty ticks, one for each walker) as they quickly converge to the right area of parameter space. The fact we don't see this in the blue means we've probably removed all burn in. There are diagnostics to check this in `ChainConsumer` too, but its not needed for this simple example.
+So here we can see the walks plotted, also known as a trace plot. The blue contains all the samples from the chain we removed the burn in from. If you notice little ticks or spikes in your trace plot, you probably need to discard more initial points to allow the chains to burn in properly. What we want to do here is check that the chains are stationary (not meandering around), and we can't tell what's in one walker to another (ie imagine if you took all the points from 20k to 40k and shifted them all up, that would be a stuck walker). The fact we don't see this in the blue means we've probably removed all burn in and we're getting good samples.
+
+There are diagnostics to check this in `ChainConsumer` too, but its not needed for this simple example.
 
 Up next - let's get actual parameter constraints from this!
 
@@ -365,7 +367,7 @@ chain = Chain.from_emcee(
     sampler,
     columns=["phi", "c"],  # Names of our parameters
     name="emcee",
-    discard=200,  # Removes our burning
+    discard=200,  # Removes our burn-in
     show_contour_labels=True,  # Used in plotting
 )
 truth = Truth(location={"c": -1, r"phi": np.pi / 4}, color="white")
