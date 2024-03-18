@@ -325,6 +325,11 @@
     artstation: https://www.artstation.com/linggarbramanty
   covers: [mimic_and_me, mimic_and_me2, wings_storm, tower_apoc, ash_n_fire]
 
+- name: Liz C
+  links:
+    fiverr: https://www.fiverr.com/lizbecoetzee
+  covers: [mana_mirror]
+
 - name: Lee Moyer
   covers:
     [into_the_labyrinth, traitor_in_skyhold, siege_of_skyhold, mage_errant_2]
