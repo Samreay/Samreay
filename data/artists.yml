@@ -123,6 +123,11 @@
     99designs: https://99designs.com/profiles/paganus
   covers: [elf_empire, knightmare_arcanist1, knightmare_arcanist2]
 
+- name: Diletta DeSantis
+  links:
+    website: https://www.dilettadesantis.com/
+  covers: [castleless]
+
 - name: Ece Yatim
   links:
     fiverr: https://www.fiverr.com/eceyt_
@@ -264,7 +269,7 @@
 - name: Kaion Luong
   links:
     website: https://kaionluong.weebly.com/
-  covers: [gleam, road_to_mastery, monster_farmer2, beers_and_beards]
+  covers: [gleam, road_to_mastery, monster_farmer2, beers_and_beards, runebound_professor]
 
 - name: Kart Studios
   notes: Art Studio, lead artist is Ben Moran (Minh Anh Nguyen Hoang)
