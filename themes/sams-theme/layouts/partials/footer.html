@@ -1,6 +1,6 @@
 
 {{ $js := resources.Get "js/main.js" | js.Build  }}
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
     <script language="javascript" type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 {{ else }}
     {{ $js := $js | minify | fingerprint }}

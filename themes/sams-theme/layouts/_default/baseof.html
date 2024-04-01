@@ -16,7 +16,7 @@
 
     {{ partial "footer.html" . }}    
 
-    {{ if not .Site.IsServer }}
+    {{ if not hugo.IsServer }}
       {{ with .Site.Params.analytics }} 
         {{ partial "analytics.html" . }}
       {{ end }}

@@ -1,6 +1,6 @@
 ---
 title:  "A review of Naomi Novik's Scholomance Series"
-description: "Fantasy series, female lead in a magic school with an 50% mortality rate, because they get eaten by the maleficaria. A unique and refreshing take on magic schools."
+description: "Fantasy series, female lead in a magic school with an 50% mortality rate, because they get eaten by the maleficaria. A unique and refreshing take on magic schools. PF-adjacent."
 date: 2022-05-15
 categories: [reviews]
 auth: Naomi Novik
@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/282152-the-scholomance
     audible: https://www.audible.com/pd/A-Deadly-Education-Audiobook/059328741X
 aliases: [/reviews/scholomance]
-tags: [finished, magic-school, female-lead, audio]
+tags: [finished, litrpg, magic-school, female-lead, audio]
 sentence: "Forget the hordes of monsters and cursed artifacts in the Scholomance, El's the most dangerous thing in the place."
 ---
 
