@@ -1,17 +1,16 @@
 ---
-title:  "A Review of Chugong's Solo Levelling - an engaging take on the genre."
-short_title: "Chugong's Solo Levelling"
+title:  "A Review of Chugong's Solo Leveling - an engaging take on the genre."
+short_title: "Chugong's Solo Leveling"
 description: "System LitRPG...ish. Perfect wish fulfilment - a world wherein everyone's power is fixed, but you alone can grow stronger."
 long_description: "Serious writing issues aside, the opening is amazing, the first book very engaging, it only falters in the final volumes."
 date: 2022-01-08
 auth: Chugong
 categories: [reviews]
-review: D
-weight: 47
+review: C
+weight: 328
 name: "Solo Levelling"
 links:
     amazon: https://www.amazon.com/Solo-Leveling-Vol-1-Novel/dp/B096YCZLTL
-    # goodreads: https://www.goodreads.com/en/book/show/52800465-solo-leveling---light-novel
     manhua: https://sololeveling-manhwa.online/manga/solo-leveling-chapter-1/
     audible: https://www.audible.com/pd/Solo-Leveling-Vol-1-Novel-Audiobook/1975325885
 aliases: [/reviews/solo_levelling]
@@ -42,6 +41,8 @@ No, the real issue with this series is the *constant, incessant, confusing, chan
 Solo Levelling does none of this. In a single three-sentence conversation, you might change perspective three times, and the inner thoughts of characters are presented in italics without a tag. I have never been so confused trying to figure out who is thinking what and whose perspective I am reading from because it literally changes with each sentence. Worse than this, by the end of the book the majority of these perspective changes are simply not needed, and only are added so we can jump into a secondary character's perspective for the millionth time to think "Wow, Jinwoo is amazing, I shouldn't underestimate him, he's a great guy." 
 
 After a thousand pages of this, it gets incredibly old.
+
+**Addendum:** This is the main point of contention that you can completely alleviate by going to the manhua instead of the webnovel. The anime is doing a great job in fleshing out the secondary characters more too.
 
 On the note of secondary characters, they *all* only serve the purpose of making Jinwoo look good. You get invested in none of them, none of them make an impact to the story, none of them have emotional payoff.
 
