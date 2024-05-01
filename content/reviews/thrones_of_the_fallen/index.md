@@ -9,9 +9,7 @@ weight: 12
 name: "Thrones of the Fallen"
 links:
     patreon: https://www.patreon.com/philtucker
-    # amazon: https://www.amazon.com/World-According-Dragons-Chronicles-Progression-ebook/dp/B0BCBYYNQS
-    # goodreads: https://www.goodreads.com/book/show/62849176-the-world-according-to-dragons
-    # audible: https://www.audible.com/pd/The-World-According-to-Dragons-Audiobook/B0BTJ7Y1V1
+    royal_road: https://www.royalroad.com/fiction/85769/thrones-of-the-fallen
 aliases: [/reviews/thrones_of_the_fallen]
 tags: [in-progress, litrpg]
 sentence: "Harald needs to follow in his father's footsteps and become one of the greatest dungeon delvers of all time."
@@ -21,7 +19,13 @@ sentence: "Harald needs to follow in his father's footsteps and become one of th
 
 ## Blurb
 
-Coming soon.
+Harald Darrowdelve's journey begins at rock bottom.
+
+Born into privilege, his life of indolence has left him with a weak will and a frail body. But everything changes when a demon's mysterious blessing deep within the angelic corpse dungeon beneath Flutic bestows upon him dark, formidable powers. 
+
+But power is a double-edged sword. As Harald trains his body and sharpens his mind, his growing accomplishments thrust him deep into the machinations of Flutic's noble houses and a relentless celestial conflict raging over the dungeon's arcane secrets.
+
+As Harald grows in might and cunning, will his morality survive the ascent, or will the dark allure of power consume him?
 
 ## Details
 
