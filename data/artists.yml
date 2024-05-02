@@ -261,6 +261,11 @@
     artstation: https://www.artstation.com/joelchaim
   covers: [gene_harvest, forge_high_mage]
 
+- name: John Carl Flores
+  links:
+    artstation: https://jcflores.artstation.com/
+  covers: [kaijucity]
+
 - name: Kaimo Nunes
   links:
     artstation: https://www.artstation.com/kaimonunes
@@ -526,7 +531,8 @@
   links:
     twitter: https://twitter.com/sevenchiart
     ko-fi: https://ko-fi.com/sevenchiart
-  covers: [ptnr1, ptnr2, ptnr3, ptnr4, ptnr5]
+    insagram: https://www.instagram.com/sevenchiart
+  covers: [ptnr1, ptnr2, ptnr3, ptnr4, ptnr5, tomebound]
 
 - name: SlothBeing
   links:
