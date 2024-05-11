@@ -15,7 +15,9 @@ tags: [finished, system-apocalypse, litrpg, audio]
 sentence: "Meddling gods. A magical card system. An apocalypse no one could have predicted."
 ---
 
-Before I picked up this book, I must have seen *Jake's Magical Market* recommended a dozen times on the /r/ProgressionFantasy subreddit. It even got a shoutout from Bryce O'Connor, and then, after about ten more people told me to read it, I pulled the trigger, added it to my Kindle, and then I read the entire thing---all eight hundred pages---in a single weekend.
+*Review updated after I finished the series.*
+
+Before I picked up this book, I must have seen *Jake's Magical Market* recommended a dozen times on the /r/ProgressionFantasy subreddit. It even got a shoutout from Bryce O'Connor, and then, after about ten more people told me to read it, I pulled the trigger, added it to my Kindle, and then I read the entire thing---all eight hundred pages---in a single weekend. When books two and three came out, I finished book three at 4am in the morning with no regrets.
 
 So yeah, I thought it was pretty good.
 
@@ -27,11 +29,16 @@ Anyway, theres a bit of world building, some elves show up to help Jake out, he 
 
 Things go well, Jake makes friends, he is super OP because has so many cards. Why other people aren't just as overpowered isn't properly explained, which is unfortunate. 
 
-What must have originally been book one then ends, and we start book two. Perhaps Mathews decided a single larger volume would sell better, I'm not sure. Book two is a big change of pace, and while its fun to see Jake grow so much, and (spoiler alert) in new worlds, it feels like a bit of a waste to leave all of book one behind. We don't revisit the shop, nor the friends made in the first book (secondary character development being non-existent is one my other gripes). Even the card-based magic system goes out the window as Jake just happens to be in the perfect position to discover the real secret to magic and exploit that. 
+All of this, though, is just one act, and then we jump into act two and things *change* a lot. The pacing changes, the system and powers change, and while its fun to see Jake grow so much, initially I was worried that we'd never make it back to the card-nature and friends from act one. Don't worry though - it all ties back together, it just takes a while, and it does include Jake having to grow emotionally and mentally, which is always great to find.
 
-It was fun to read, but I can't help but feel there was so much that could have been done to make the card system deeper or more interesting, rather than just scrapping it and having freeform magic. And on the note about secondary characters, by stretching too much into other worlds and new places, everything except for Jake feels two dimensional. Hell, at one point Jake revealed he had feelings for a female character, she reciprocated, they had some 'alone time', and then she left forever. Like, I had no idea romance was even on the cards here, and now in the space of a few pages I've jumped from 'this character is a friend,' to a romantic interest, to a potential lifelong partner, to them disappearing to another world. Dammit Mathews, flesh it out more, I want to read about those other characters too, so the world feels more alive and less a playground for Jake to be overpowered in!
 
-As a final note on being overpowered, Jake gets a whole bunch of skills (illusion based) in the second book. I won't go into the details for spoiler reasons, but with those powers he is able to defeat an extremely powerful person on the central world of Ambrosia. Except, the rest of Jake's team in that second book are *vastly* more powerful than Jake, and I just don't understand how to reconcile the power levels across different people. Jake seems to be weak when needed, and then with incredibly quickness learns, grows, and becomes overpowered once again. It's only happened a few times so far, but if it keeps happening, it's going to give me Dragonball Z flashbacks.
+You can definitely tell Mathews is a discovery writer by how many expected twists, turns, side adventures, and changes happen throughout the three books. This constant changing is a double-edged sword, I think. While it keeps the pacing up and constantly adds new things to keep me turning pages, it often means that secondary characters don't get to develop as much as they would in a story that had a tighter plot and focus on teamwork instead of Mathews preferred solo-MC style.
 
-That said, the second book ends on a great note to set up conflict in future works, and I will 100% be purchasing those books the instant they come out.
+With the introduction of new powers, new systems, new ways to fight and grow, I will admit that at almost no point in the story apart from act one was I able to pin Jake's power level. Many times I'd think he'd become completely OP, only to discover, for some reason or another, that the enemy or people around Jake were actually stronger, or could nullify his power, or something else. 
+
+For a single example of this with some faint mechanic spoilers: Jake initially picks up a few physical enhancement cards, like Strength, Speed, Toughness, etc. He doesn't merge these cards together or even consider it, but individually they provide a big boost to his physical abilities. Then in act two he finds out that by using the energy of the world directly instead of via cards, he can enhance himself much more, and the cards are actually getting in the way. So he unequips those cards and finds himself much stronger. But then... in the next book, this rule seems to vanish and he instead takes some physical cards, merges them into a generic physical enhancement passive card, and equips it. It's still all fun to read and watch him grow stronger via these different methods, it can sometimes just be really confusing to follow why certain actions are taken.
+
+The massive number of avenues for attaining power, even if I couldn't quite figure out how they all interacted and worked, was still very fun to read, which is the most important part. And when all three books were said and done, I put it down with that bittersweet "What do I do with my life now?" echo in my chest, and honestly not many series out there have done that to me.
+
+
 

@@ -1,6 +1,6 @@
 ---
 title:  "A review of Phil Tucker's 'Thrones of the Fallen'"
-description: "Dungeon delving LitRPG with heavy focus on characters and great worldbuilding. Exception dialogue and action."
+description: "Dungeon delving LitRPG with heavy focus on characters and great worldbuilding. Excellent dialogue and action."
 date: 2024-04-01
 auth: Phil Tucker
 categories: [reviews]
@@ -31,7 +31,7 @@ As Harald grows in might and cunning, will his morality survive the ascent, or w
 
 This story frustrated the hell out of me. I got it early, before it was publicly posted, and I read *everything* available in effectively the same day. Then I pestered Phil for more chapters, and I got a pathetic seven more! Only seven! Grrr.
 
-So, what's the story about. Harald had a bit of an overachiever for a father. Like many overachieving fathers in our genre, he was good at killing things, and bad at being a parent. So Harald might have some *issues* from his childhood to work through. Poor Harald. Worse, this is a Phil Tucker story, and that means you should be prepared for some insanely motivated characters after some classic backstabbing. Scorio might have had it worse, sure, but backstabbing is never something to shrug off.
+So, what's the story about? Harald had a bit of an overachiever for a father. Like many overachieving fathers in our genre, he was good at killing things, and bad at being a parent. So Harald might have some *issues* from his childhood to work through. Poor Harald. Worse, this is a Phil Tucker story, and that means you should be prepared for some insanely motivated characters after some classic backstabbing. Scorio might have had it worse, sure, but backstabbing is never something to shrug off.
 
 So, no plot spoilers, but Harald is now **motivated** and it's time to go delving the dungeon and harvesting scales of the Fallen Angel. The worldbuilding associated with the dungeon is fascinating, and ties directly into the larger plot, so I won't say more about it other than I really enjoyed it.
 
