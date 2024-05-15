@@ -323,6 +323,13 @@
       wicked_honey,
     ]
 
+- name: Koti Komori
+  links:
+    artstation: https://www.artstation.com/kotikomori
+    website: https://kotikomori.art/
+    instagram: https://www.instagram.com/kotikomori
+  covers: [hell_difficulty_tutorial_1, hell_difficulty_tutorial_2]
+  
 - name: Laércio Messias
   links:
     facebook: https://www.facebook.com/laerciomess
