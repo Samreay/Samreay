@@ -1,7 +1,7 @@
 ---
 title:  "A Review of Aaron Shih's 'Corruption Wielder'"
 short_title:  "Corruption Wielder"
-description: "LitRPG system apocalypse story where another planet gets merged with earth and Aaron ends up wielding the forbidden powers of corruption."
+description: "LitRPG system apocalypse story where another planet gets merged with Earth and Will ends up wielding the forbidden powers of corruption."
 date: 2024-05-27
 auth: Aaron Shih
 categories: [reviews]
