@@ -10,6 +10,7 @@ weight: 25
 name: "Corruption Wielder"
 links:
     royal_road: https://www.royalroad.com/fiction/82365/corruption-wielder-system-decay-a-litrpg-apocalypse
+    amazon: https://www.amazon.com/dp/B0D59MBXCF
 aliases: [/reviews/corruption_wielder]
 tags: [in-progress, litrpg, system-apocalypse]
 sentence: "Will's tutorial goes a bit wrong. A bit... corrupted."
@@ -17,9 +18,11 @@ sentence: "Will's tutorial goes a bit wrong. A bit... corrupted."
 
 ## Blurb
 
+**When the world ends, humanity must fight to survive—but where others struggle in fear, Will sees only an opportunity to thrive.**
+
 April 3rd, 3:46 AM. Planet Earth merges with the magical world of Arcadia, and a system gives humanity a choice: 40 years of indentured servitude, or entering a tutorial as a user to fight against the chaos incursion.
 
-Will doesn't hesitate—but the system thanks him for stepping into the fight by throwing him into an impossible tutorial. With little chance of survival, Will has a simple response: "Fuck it. Might as well fight fire with fire."
+Will doesn't hesitate—but the system thanks him for stepping into the fight by throwing him into an impossible tutorial. With little chance of survival, Will has a simple response: “Screw it. Might as well fight fire with fire."
 
 **Warning: [Corruption] has been chosen as primary attribute.**
 
