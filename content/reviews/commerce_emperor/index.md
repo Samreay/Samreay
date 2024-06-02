@@ -1,6 +1,6 @@
 ---
 title:  "A review of Void Herald's 'Commerce Emperor'"
-description: "A wholesome isekai in a LitRPG world wherein our female lead goes on friendship-making adventures. If you're burnt out with psychopathic MCs... this will cleanse your palette. Light-hearted, wholesome, and incredibly cute."
+description: "Pseudo-mercantile progression where Robin becomes the Merchant hero."
 date: 2024-06-02
 auth: Maxime J. Durand
 categories: [reviews]
@@ -13,7 +13,7 @@ links:
     audible: https://www.audible.com/pd/Commerce-Emperor-Audiobook/B0CTRFSSG1
 aliases: [/reviews/commerce_emperor]
 tags: [in-progress, slice-of-life, audio]
-sentence: "Broccoli Bunch goes on a cute and wholesome adventure."
+sentence: "The world is up for sale, and Robin Waybright, the chosen hero Merchant, is making an offer."
 ---
 
 ## Blurb
