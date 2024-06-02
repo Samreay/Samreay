@@ -7,7 +7,7 @@ date: 2022-01-08
 auth: Chugong
 categories: [reviews]
 review: C
-weight: 38
+weight: 34
 name: "Solo Levelling"
 links:
     amazon: https://www.amazon.com/Solo-Leveling-Vol-1-Novel/dp/B096YCZLTL

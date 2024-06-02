@@ -5,7 +5,7 @@ date: 2023-05-29
 auth: Aaron Shih
 categories: [reviews]
 review: C
-weight: 33
+weight: 38
 name: "Dungeon Tour Guide"
 links:
     amazon: https://www.amazon.com/Dungeon-Tour-Guide-LitRPG-Adventure-ebook/dp/B0BZBT7FW3
