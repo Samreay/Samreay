@@ -4,8 +4,8 @@ description: "Intruiging worldbuilding of multiple-isekai Magi who travel to wor
 date: 2024-02-20
 categories: [reviews]
 auth: James T. Callum and K. H. Sohmer
-review: C
-weight: 39.99
+review: D
+weight: 41
 name: "Sovereign Soul"
 links:
     amazon: https://www.amazon.com/Sovereign-Soul-LitRPG-Adventure-Scale-ebook/dp/B0BRFNMRTJ
