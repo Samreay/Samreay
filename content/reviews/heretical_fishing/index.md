@@ -1,6 +1,6 @@
 ---
 title: A Review of Haylock Jobson's 'Heretical Fishing' - a wholesome, slice-of-life isekai."
-description: "Slice-of-life and wholestory where merchant progression where Fischer just wants to fish."
+description: "Slice-of-life and wholesome story where Fischer just wants to fish."
 date: 2024-06-03
 categories: [reviews]
 review: B
