@@ -9,7 +9,7 @@ weight: 25
 name: "Return of the Runebound Professor"
 links:
     royal_road: https://www.royalroad.com/fiction/68679/return-of-the-runebound-professor
-tags: [in-progress, hard-magic, magic-school, isekai, small-author]
+tags: [in-progress, hard-magic, magic-school, isekai]
 sentence: "Lives are a currency, and Noah Vines is rich."
 ---
 

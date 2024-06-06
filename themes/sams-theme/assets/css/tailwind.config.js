@@ -15,6 +15,7 @@ module.exports = {
     'list-none',
     'grid-cols-cover-cards-mobile',
     'grid-cols-cover-cards',
+    'grid-cols-cover-cards-tier',
     'grid-cols-cover-cards-large',
     {
       pattern: /bg-(π|S|A|B|C|D|F)-(500|600|700|800|900)/,
@@ -198,6 +199,7 @@ module.exports = {
           'wide-cards': 'repeat(auto-fit, minmax(calc(min(100%,520px)), 1fr))',
           'wide-cards-mobile': 'repeat(auto-fit, minmax(300px, 1fr))',
           'cover-cards': 'repeat(auto-fit, 262px)',
+          'cover-cards-tier': 'repeat(auto-fit, 250px)',
           'cover-cards-large': 'repeat(auto-fit, 400px)',
           'cover-cards-mobile': 'repeat(auto-fit, 45%)',
           'cover-cards-mobile-large': 'repeat(auto-fit, 90%)',

@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <script type="module">
-  import { reactive, html, watch } from '/js/arrow.js';
+    import { reactive, html, watch } from 'https://esm.sh/@arrow-js/core';
   const posts = [
       {{- range ( where .Site.RegularPages.ByWeight "Type" .Type ) -}}
       {

@@ -17,7 +17,7 @@
                     {{ with $img }}
                     <figure class="relative h-0 overflow-hidden rounded-t-lg">
                         <picture>
-                            {{ with .Fill "500x750 Center webp q70 #000000" }}
+                            {{ with .Fill "500x800 Center webp q70 #000000" }}
                                 <source srcset="{{ .RelPermalink }}" type="image/webp">
                             {{ end }}
                             <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-300 ease-out" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="{{ .Params.short_title }}">

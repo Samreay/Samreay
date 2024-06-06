@@ -10,7 +10,7 @@ name: "Minute Mage"
 links:
     royal_road: https://www.royalroad.com/fiction/61762/minute-mage-a-time-magic-litrpg
 aliases: [/reviews/minute_mage]
-tags: [in-progress, small-author, time-loops, litrpg]
+tags: [in-progress, time-loops, litrpg]
 sentence: "Arlan gains a time-based class and manages to piss off a *lot* of demons."
 math: true
 ---

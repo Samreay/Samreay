@@ -10,7 +10,7 @@ name: "Godclads"
 links:
     royal_road: https://www.royalroad.com/fiction/59663/godclads-monster-mceldritchcyberpunkprogression
 aliases: [/reviews/godclads]
-tags: [in-progress, sci-fi, small-author]
+tags: [in-progress, sci-fi]
 sentence: "Bred as a weapon, the ghoul Avo finds himself resurrected from death."
 ---
 

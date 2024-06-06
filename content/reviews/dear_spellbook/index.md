@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/49881/dear-spellbook
     audible: https://www.audible.com/series/Dear-Spellbook-Series-Audiobooks/B0BZJ7GG59
 aliases: [/reviews/dear_spellbook]
-tags: [in-progress, small-author, time-loops, audio]
+tags: [in-progress, time-loops, audio]
 sentence: "Tal's parents were murdered and now he's stuck in a time loop. His luck is not good."
 ---
 

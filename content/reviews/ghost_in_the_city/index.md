@@ -10,7 +10,7 @@ name: "Ghost in the City"
 links:
     royal_road: https://www.royalroad.com/fiction/62125/ghost-in-the-city-cyberpunk-gamer-si
 aliases: [/reviews/ghost_in_the_city]
-tags: [in-progress, isekai, sci-fi, small-author, female-lead]
+tags: [in-progress, isekai, sci-fi, female-lead]
 sentence: "Self insert into the Cyberpunk 2077 gamer system and enjoy the chaos."
 ---
 

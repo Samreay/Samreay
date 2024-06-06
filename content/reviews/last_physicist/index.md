@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/57699481-the-last-physicist
     audible: https://www.audible.com/pd/The-Last-Physicist-Audiobook/B09GZ5J3TM
 aliases: [/reviews/physicist]
-tags: [in-progress, isekai, litrpg, small-author, audio]
+tags: [in-progress, isekai, litrpg, audio]
 sentence: "A particle physicist finds himself in a magical world."
 ---
 

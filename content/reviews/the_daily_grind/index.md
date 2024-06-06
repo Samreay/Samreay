@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/15925/the-daily-grind
     audible: https://www.audible.com/pd/The-Daily-Grind-A-Slice-of-Life-LitRPG-Audiobook/B0C11Q9WJS
 aliases: [/reviews/the_daily_grind]
-tags: [in-progress, litrpg, small-author, audio]
+tags: [in-progress, litrpg, audio]
 sentence: "An IT worker finds a dungeon in his office, and gets to plundering."
 ---
 

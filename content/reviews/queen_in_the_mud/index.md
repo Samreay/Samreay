@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/26317/queen-in-the-mud
     audible: https://www.audible.com/pd/Queen-in-the-Mud-Audiobook/B08BW8722S
 aliases: [/reviews/queen_in_the_mud]
-tags: [in-progress, litrpg, small-author, wholesome, female-lead, audio]
+tags: [in-progress, litrpg, wholesome, female-lead, audio]
 sentence: "Naomi finds herself reincarnated as a salamander."
 ---
 

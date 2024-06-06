@@ -191,7 +191,7 @@
   }
 }
 
-.blog-post {
+.blog-post, .tier-list {
   .rating-π {
     background: var(--grad-m);
     background-clip: text;
@@ -281,10 +281,6 @@
 .tag-writing {
   background-color: #edb404;
   @apply text-gray-800 font-medium;
-}
-.tag-small-author {
-  background-color: #18ad40;
-  @apply text-gray-100 font-medium;
 }
 .tag-time-loops {
   @apply bg-green-700 text-gray-100 font-medium;

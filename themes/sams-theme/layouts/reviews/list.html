@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <script type="module">
-    import { reactive, html, watch } from '/js/arrow.js';
+    import { reactive, html, watch } from 'https://esm.sh/@arrow-js/core';
     const posts = [
         {{- range ( where .Site.RegularPages.ByWeight "Type" .Type ) -}}
         {
@@ -30,7 +30,7 @@
           description: {{ .Params.description }},
           {{- $images := .Resources.ByType "image" -}}
           {{- $img := $images.GetMatch "{*cover*,*thumbnail*}" -}}
-          img: {{-  ( $img.Fill "500x750 Center webp q70 #000000" ).RelPermalink -}},
+          img: {{-  ( $img.Fill "500x800 Center webp q70 #000000" ).RelPermalink -}},
           {{ if isSet .Params "video" }}
           video: {{- ( .Resources.Get .Params.video ).RelPermalink -}},
           {{- end -}}
@@ -48,10 +48,10 @@
       })
     });
     tags = tags.sort();
-    const default_wide = screen.width > 1280
+    const default_layout = screen.width > 1280 ? "wide" : "cover"
     const data = reactive({
       tag_activations: {},
-      wide_cards: default_wide,
+      layout: default_layout,
       by_rank: true,
       posts: posts,
       tags: tags,
@@ -147,8 +147,8 @@
       }
       data.search_term = ""
       document.getElementById("search-input").value = ""
-      
-      data.wide_cards = default_wide
+
+      data.layout = default_layout
       data.by_rank = true
       update_url()
     }
@@ -157,8 +157,8 @@
       if (params.has("o")) {
         data.by_rank = params.get("o") === "1"
       }
-      if (params.has("w")) {
-        data.wide_cards = params.get("w") === "1"
+      if (params.has("l")) {
+        data.layout = params.get("l")
       }
       if (params.has("include")) {
         params.get("include").split("_").forEach(function (t) {
@@ -178,12 +178,8 @@
       if (!data.by_rank) {
         params.set("o", 0)
       }
-      if (default_wide != data.wide_cards) {
-        if (data.wide_cards) {
-          params.set("w", 1)
-        } else {
-          params.set("w", 0)
-        }
+      if (data.layout != default_layout) {
+        params.set("l", data.layout)
       }
       let include = []
       let exclude = []
@@ -232,15 +228,22 @@
       `)}`
     tag_template(tag_container)
 
-    const wide_containter = document.getElementById("toggle-input");
-    const wide_template = html`
+    const layout_container = document.getElementById("toggle-input");
+    const layout_template = html`
   <div class="justify-center flex flex-wrap items-center">
-    <label for="wide-layout" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
-      <input id="wide-layout" type="checkbox" checked="${() => (data.wide_cards ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.wide_cards = e.target.checked} }">
-      <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Wide</span>
-      <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Cover</span>
+    <label for="layout_wide" class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100">
+        <input id="layout_wide" checked="${() => (data.layout == "wide" ? "checked" : "")}" name="layout" type="radio" value="wide" class="hidden peer" @click="${(e) => { data.layout = "wide" } }">
+        <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Wide</span>
     </label>
-    <label for="sort-order" class="inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
+    <label for="layout_cover" class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100">
+      <input id="layout_cover" checked="${() => (data.layout == "cover" ? "checked" : "")}" name="layout" type="radio" value="cover" class="hidden peer" @click="${(e) => { data.layout = "cover" } }">
+      <span class="px-4 py-2  bg-gray-700 peer-checked:bg-main-700">Cover</span>
+    </label>
+    <label for="layout_tier" class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100">
+      <input id="layout_tier" checked="${() => (data.layout == "tier" ? "checked" : "")}" name="layout" type="radio" value="tier" class="hidden peer" @click="${(e) => { data.layout = "tier" } }">
+      <span class="px-4 py-2 rounded-r-md bg-gray-700 peer-checked:bg-main-700">Tier List</span>
+    </label>
+    <label for="sort-order" class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
       <input id="sort-order" type="checkbox" checked="${() => (data.by_rank ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.by_rank = e.target.checked} }">
       <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Rank</span>
       <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Recent</span>
@@ -257,67 +260,31 @@
 
   </div>
   `
-    wide_template(wide_containter);
+    layout_template(layout_container);
 
     const search_container = document.getElementById("search");
 
 
     const video_template = (post) => html`
-  <video class="${() => "block h-full w-full flex-none bg-cover mx-auto sm:ml-0 " + (data.wide_cards ? "md:rounded-l-xl" : "")}" preload="auto" playsinline plays-inline autoplay loop muted >
+  <video class="${() => "block h-full w-full flex-none bg-cover mx-auto sm:ml-0 " + (data.layout == "wide"  ? "md:rounded-l-xl" : "")}" preload="auto" playsinline plays-inline autoplay loop muted >
     <source src="${post.video}" type="video/mp4" />
   </video>`
     const image_template = (post) => html`
   <picture>
     <source srcset="${post.img} 500w" type="image/webp" />
-    <img class="${() => "block flex-none bg-cover mx-auto " + (data.wide_cards ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
+    <img class="${() => "block flex-none bg-cover mx-auto " + (data.layout == "wide" ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
   </picture>`
 
-    const card_containter = document.getElementById("all-card-wrapper");
-    const card_template = html`
-  <div id="card-wrapper" class="${() => "container mx-auto mt-20 justify-center grid gap-4 sm:gap-12 " + (data.wide_cards ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards")}">
-    ${() => data.posts.filter(function(post) {
-      // Filter by selected tags
-      for (const [key, value] of Object.entries(data.tag_activations)) {
-        if (value) {
-          if (!post.tags.includes(key)) {
-            return false;
-          }
-        } else {
-          if (post.tags.includes(key)) {
-            return false;
-          }
-        }
-      }
-      // Filter by search term
-      if (data.search_term) {
-        var post_search = post.search_term.toLowerCase();
-        var term = data.search_term.toLowerCase();
-        // split this into words and then check to see if every word is in the search term
-        // if not, return false
-        var words = term.split(" ");
-        for (var i = 0; i < words.length; i++) {
-          if (!post_search.includes(words[i])) {
-            return false;
-          }
-        }
-      }
-      return true;
-    }).sort((a, b) => {
-      if (data.by_rank) {
-        return a.weight > b.weight ? 1 : -1;
-      } else {
-        return a.date < b.date ? 1 : -1;
-      }
-    }).map(
-      post => html`
+
+    const post_template = (post) => html`
   <div class="fancy_card horizontal mx-auto">
     <div class="card_translator">
-      <a class="card_rotator small_rot card_layer block" href="${post.link}">
+      <a class="card_rotator small_rot card_layer block" href="${post.link}" style="${() => (data.layout == "tier" ? "padding: 0px; border-radius: 0px;" : "")}">
         <div class="card_layer">
           <article class="review-summary review-${post.review}">
-            <div class="bg2">
-              <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
-                <figure class="${() => "block flex-none bg-cover " + (data.wide_cards ? "" : "w-full")}">
+            <div class="bg2" style="${() => (data.layout == "tier" ? "padding: 0px; border-radius: 0px;" : "")}">
+              <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800" style="${() => (data.layout == "tier" ? "border-radius: 0px;" : "")}">
+                <figure class="${() => "block flex-none bg-cover " + (data.layout == "wide" ? "" : "w-full")}">
                   ${() => {
                     if ("video" in post) {
                       return video_template(post)
@@ -351,7 +318,92 @@
       </a>
     </div>
   </div>
-  `)}
+  `
+    const group_post_template = (group) => html`${() => {
+          var descriptions = {
+          "π": "I wrote this so I love it",
+          "S": "Love to pieces",
+          "A": "Amazing, I follow chapter updates",
+          "B": "Very nice, I read when new books drop",
+          "C": "Good read but lower in TBR",
+          "D": "Didn't grip me",
+          "F": "Dropped these",
+        }
+        if (data.layout == "tier") {
+          return html`<div class="tier-list"><h1 class="text-center mt-20 rating-${group.tier}">${group.tier}: ${descriptions[group.tier]}</h1></div>`
+        }
+      }}
+      <div class="${() => "container mx-auto justify-center grid " + (data.layout == "tier" ? "gap-2 mt-8 " : "mt-20 gap-4 sm:gap-12 " ) + (data.layout == "wide" ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : ( data.layout == "cover" ? "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards " : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards-tier tier"))}">
+      ${group.posts.map(post_template)}
+      </div>
+    `
+
+
+    const card_containter = document.getElementById("all-card-wrapper");
+
+
+    const card_template = html`
+      ${ function() {
+      var posts_to_render = data.posts.filter(function(post) {
+      // Filter by selected tags
+      for (const [key, value] of Object.entries(data.tag_activations)) {
+        if (value) {
+          if (!post.tags.includes(key)) {
+            return false;
+          }
+        } else {
+          if (post.tags.includes(key)) {
+            return false;
+          }
+        }
+      }
+      // Filter by search term
+      if (data.search_term) {
+        var post_search = post.search_term.toLowerCase();
+        var term = data.search_term.toLowerCase();
+        // split this into words and then check to see if every word is in the search term
+        // if not, return false
+        var words = term.split(" ");
+        for (var i = 0; i < words.length; i++) {
+          if (!post_search.includes(words[i])) {
+            return false;
+          }
+        }
+      }
+      return true;
+    }).sort((a, b) => {
+      if (data.layout == "tier" || data.by_rank) {
+        return a.weight > b.weight ? 1 : -1;
+      } else {
+        return a.date < b.date ? 1 : -1;
+      }
+    })
+
+    var prior_tier = null;
+    var groups = []
+    var posts_in_group = []
+    for (var i = 0; i < posts_to_render.length; i++) {
+      if (data.layout == "tier" && (prior_tier == null || prior_tier != posts_to_render[i].review)) {
+        if (prior_tier != null) {
+          groups.push({
+            "posts": posts_in_group,
+            "tier": prior_tier,
+          });
+        }
+
+        prior_tier = posts_to_render[i].review;
+        posts_in_group = [];
+      }
+      posts_in_group.push(posts_to_render[i]);
+    }
+    groups.push({
+    "posts": posts_in_group,
+    "tier": prior_tier,
+  });
+
+    return groups.map(group_post_template)
+
+  }}
   </div>`
 
     card_template(card_containter);
@@ -370,13 +422,19 @@
         class="font-bold"
         style="color: #7289da"
         >{{ partial "ico" "discord" }} discord</a
-      >. And if you want a flowchart to help decide your next read,
-      I made one of those too!
+      >. And if you want a flowchart to help decide your next read, I made one
+      of those too!
     </p>
-    <a target="_blank" href="https://www.figma.com/file/hScNoWonDzTMTrpzUhNqzR/Story-Finder?type=whiteboard&node-id=1-229&t=lq4Gt1g09jzDSmbS-4">
+    <a
+      target="_blank"
+      href="https://www.figma.com/file/hScNoWonDzTMTrpzUhNqzR/Story-Finder?type=whiteboard&node-id=1-229&t=lq4Gt1g09jzDSmbS-4"
+    >
       <button
-      class="inline-flex mt-4 px-4  py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
-      >Give me a flowchart!</button></a>
+        class="inline-flex mt-4 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
+      >
+        Give me a flowchart!
+      </button></a
+    >
   </div>
   <!-- The toggles config -->
   <div id="toggle-input" class="max-w-7xl mx-auto"></div>

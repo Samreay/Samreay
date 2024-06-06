@@ -30,8 +30,15 @@ svg.ico {
 }
 
 .grid-cols-cover-cards, .grid-cols-cover-cards-mobile {
-  video,img {
-    @apply rounded-xl;
+  &:not(.tier) {
+    video,img {
+      @apply rounded-xl;
+    }
+  }
+  &.tier {
+    video,img {
+      @apply rounded-md;
+    }
   }
   video {
     @apply mx-auto;

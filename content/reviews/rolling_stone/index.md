@@ -9,7 +9,7 @@ weight: 21
 name: "Rock Falls, Everyone Dies"
 links:
     royal_road: https://www.royalroad.com/fiction/55418/rock-falls-everyone-dies
-tags: [finished, litrpg, cultivation, parody, small-author]
+tags: [finished, litrpg, cultivation, parody]
 sentence: "By a stroke of fate, a stone gains sentience and sets out on a grand quest to touch grass."
 ---
 

@@ -12,7 +12,7 @@ links:
     amazon: https://www.amazon.com/Mageling-Slice-Progression-Fantasy-Millennial-ebook/dp/B0BX4KLJPZ
     audible: https://www.audible.com/pd/Mageling-Audiobook/B0C2QMVXC7
 aliases: [/reviews/millenium_mage]
-tags: [slice-of-life, in-progress, female-lead, companion, small-author, audio]
+tags: [slice-of-life, in-progress, female-lead, companion, audio]
 sentence: "Tala eats food, drinks coffee, and wrecks monsters. Her terrorbird helps. Thanks Terry."
 ---
 

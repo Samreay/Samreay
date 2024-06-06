@@ -9,7 +9,7 @@ weight: 28
 name: "And (N)one Shall Remain"
 links:
     royal_road: https://www.royalroad.com/fiction/61213/and-none-shall-remain
-tags: [in-progress, litrpg, isekai, female-lead, small-author]
+tags: [in-progress, litrpg, isekai, female-lead]
 sentence: "Four champions are summoned from Earth, and one is shown the truth of the system."
 ---
 

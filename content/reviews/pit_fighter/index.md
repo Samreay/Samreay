@@ -12,7 +12,7 @@ links:
     amazon: https://www.amazon.com.au/Pit-Fighter-LitRPG-Progression-Fantasy-ebook/dp/B0BPK8XW43
     audible: https://www.audible.com.au/pd/Pit-Fighter-A-LitRPG-Progression-Fantasy-Audiobook/B0BPJLR7X3
 aliases: [/reviews/pit_fighter]
-tags: [in-progress, litrpg, isekai, small-author, audio]
+tags: [in-progress, litrpg, isekai, audio]
 sentence: "Victor's summoned from Earth, sold into slavery, and put to work in the ring. Bad luck."
 ---
 
