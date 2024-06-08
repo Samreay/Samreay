@@ -330,7 +330,7 @@
           "F": "Dropped these",
         }
         if (data.layout == "tier") {
-          return html`<div class="tier-list"><h1 class="text-center mt-20 rating-${group.tier}">${group.tier}: ${descriptions[group.tier]}</h1></div>`
+          return html`<div class="tier-list"><h1 class="text-center text-7xl mt-20 pb-8 rating-${group.tier}">${group.tier}: ${descriptions[group.tier]}</h1></div>`
         }
       }}
       <div class="${() => "container mx-auto justify-center grid " + (data.layout == "tier" ? "gap-2 mt-8 " : "mt-20 gap-4 sm:gap-12 " ) + (data.layout == "wide" ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : ( data.layout == "cover" ? "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards " : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards-tier tier"))}">

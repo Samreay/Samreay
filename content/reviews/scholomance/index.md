@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/282152-the-scholomance
     audible: https://www.audible.com/pd/A-Deadly-Education-Audiobook/059328741X
 aliases: [/reviews/scholomance]
-tags: [finished, litrpg, magic-school, female-lead, audio]
+tags: [finished, magic-school, female-lead, audio]
 sentence: "Forget the hordes of monsters and cursed artifacts in the Scholomance, El's the most dangerous thing in the place."
 ---
 
