@@ -4,8 +4,8 @@ description: "Isekai into the Cyperpunk 2077 game world with the character you k
 date: 2023-12-07
 auth: Seras
 categories: [reviews]
-review: B
-weight: 24
+review: A
+weight: 16
 name: "Ghost in the City"
 links:
     royal_road: https://www.royalroad.com/fiction/62125/ghost-in-the-city-cyberpunk-gamer-si
