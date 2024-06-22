@@ -12,7 +12,7 @@ links:
     audible: https://www.audible.com/pd/Wish-Upon-the-Stars-1-Audiobook/B0CCQ7JHJC
     royal_road: https://www.royalroad.com/fiction/52582/wish-upon-the-stars
 aliases: [/reviews/wuts]
-tags: [litrpg, cultivation, in-progress, superhero, audio]
+tags: [litrpg, cultivation, in-progress, superhero]
 sentence: "By granting wishes, Shane can gain skills, items, and stat points. His growth potential seems limitless."
 ---
 

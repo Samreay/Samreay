@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/69923/
     audible: https://www.audible.com/pd/Commerce-Emperor-Audiobook/B0CTRFSSG1
 aliases: [/reviews/commerce_emperor]
-tags: [in-progress, slice-of-life, audio]
+tags: [in-progress, slice-of-life]
 sentence: "The world is up for sale, and Robin Waybright, the chosen hero Merchant, is making an offer."
 ---
 

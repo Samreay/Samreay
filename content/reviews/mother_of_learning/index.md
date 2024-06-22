@@ -14,7 +14,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/59661342-mother-of-learning-1
     audible: https://www.audible.com/pd/Mother-of-Learning-Arc-1-Audiobook/B09MXJQG1Z
 aliases: [/reviews/mol]
-tags: [crafting, finished, magic-school, time-loops, audio]
+tags: [crafting,  magic-school, time-loops]
 ---
 
 I grew up on the Belgariad, graduated through Harry Potter to the Wheel of Time, conquered Malazan, was crushed by the Farseer Trilogy, and generally docked my ship at every fantasy port I could find. 

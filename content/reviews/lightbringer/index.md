@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/291662-lightbringer
     audible: https://www.audible.com/pd/The-Black-Prism-Audiobook/B01HZXFARW
 aliases: [/reviews/lightbringer]
-tags: [finished, hard-magic, audio]
+tags: [ hard-magic]
 sentence: "Kip and the Prism face down the color-wights, but who's actually in the right?"
 ---
 

@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/31429/cinnamon-bun
     audible: https://www.audible.com/pd/Cinnamon-Bun-Audiobook/1774247828
 aliases: [/reviews/cinnamon]
-tags: [litrpg, isekai, female-lead, wholesome, in-progress, slice-of-life, lgbt, audio]
+tags: [litrpg, isekai, female-lead, wholesome, in-progress, slice-of-life, lgbt]
 sentence: "Broccoli Bunch goes on a cute and wholesome adventure."
 ---
 

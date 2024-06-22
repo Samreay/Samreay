@@ -14,7 +14,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/26294/he-who-fights-?review=714073
     audible: https://www.audible.com/pd/He-Who-Fights-with-Monsters-A-LitRPG-Adventure-Audiobook/1774248182
 aliases: [/reviews/hwfwm]
-tags: [litrpg, in-progress, isekai, audio]
+tags: [litrpg, in-progress, isekai]
 sentence: "Jason wakes up in a mysterious world of magic and monsters."
 ---
 

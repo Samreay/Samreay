@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/42267952-into-the-labyrinth
     audible: https://www.audible.com/pd/Mage-Errant-Publishers-Pack-Audiobook/1774240130
 aliases: [/reviews/mage_errant]
-tags: [magic-school, hard-magic, audio, finished]
+tags: [magic-school, hard-magic,  finished]
 sentence: "Hugh of Emblin is, so far as he's concerned, the worst student that the Academy at Skyhold has ever seen."
 ---
 

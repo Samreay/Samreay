@@ -11,7 +11,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/60292/all-the-dust-that-falls-a-roomba-isekai-adventure
     amazon: https://www.amazon.com/All-Dust-that-Falls-Adventure-ebook/dp/B0CC43N1W4
     audible: https://www.audible.com/pd/All-the-Dust-That-Falls-Audiobook/B0C5NYGFRT
-tags: [in-progress, litRPG, parody, isekai, audio]
+tags: [in-progress, litRPG, parody, isekai]
 sentence: "All those who stand before Spot will be swept away."
 ---
 

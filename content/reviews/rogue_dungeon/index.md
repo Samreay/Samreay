@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/239590-the-rogue-dungeon
     audible: https://www.audible.com/pd/Rogue-Dungeon-A-litRPG-Adventure-Audiobook/B07GRB7K8Q
 aliases: [/reviews/rogue_dungeon]
-tags: [finished, isekai, litrpg, audio]
+tags: [ isekai, litrpg]
 sentence: "Build. Evolve. Conquer. Welcome to the Dungeon..."
 ---
 

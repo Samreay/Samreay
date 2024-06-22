@@ -14,7 +14,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/43461912-forge-of-destiny
     audible: https://www.audible.com/pd/Forge-of-Destiny-Audiobook/1774246856
 aliases: [/reviews/forge_destiny]
-tags: [cultivation, female-lead, in-progress, magic-school, slice-of-life, audio]
+tags: [cultivation, female-lead, in-progress, magic-school, slice-of-life]
 sentence: "A young girl from the slums is found to have the Talent to become an Immortal."
 ---
 

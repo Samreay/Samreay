@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/42385/an-outcast-in-another-world-subtitle-is-insanity
     audible: https://www.audible.com/pd/Human-Insanity-Audiobook/B09MV6MTWR?qid=1682216126
 aliases: [/reviews/outcast]
-tags: [litrpg, isekai, in-progress, audio]
+tags: [litrpg, isekai, in-progress]
 sentence: "Rob gets sucked into another world as gods play games."
 ---
 

@@ -14,7 +14,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/57230143-beware-of-chicken
     audible: https://www.audible.com/pd/Beware-of-Chicken-A-Xianxia-Cultivation-Novel-Audiobook/B09Y2D2D5T
 aliases: [/reviews/chicken]
-tags: [in-progress, isekai, cultivation, wholesome, slice-of-life, audio]
+tags: [in-progress, isekai, cultivation, wholesome, slice-of-life]
 sentence: "A laugh-out-loud, slice-of-life martial-arts fantasy about . . . farming????"
 ---
 

@@ -12,7 +12,7 @@ links:
     amazon: https://www.amazon.com.au/Curious-Beginnings-LitRPG-Adventure-Salvos-ebook/dp/B08SQD1DLR
     audible: https://www.audible.com/pd/Curious-Beginnings-Audiobook/1039402895
     tapas: https://tapas.io/series/Salvos-comic
-tags: [in-progress, litRPG, female-lead, audio, manhua]
+tags: [in-progress, litRPG, female-lead,  manhua]
 sentence: "Can Salvos, a newborn demon, survive the swarms of the Nethworld? When cast to the human realm, will she find her way home?"
 ---
 

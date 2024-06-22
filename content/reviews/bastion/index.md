@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/59521676-bastion
     audible: https://www.audible.com/pd/Bastion-Audiobook/B09RS3QRB3
 aliases: [/reviews/bastion]
-tags: [cultivation, in-progress, magic-school, audio]
+tags: [cultivation, in-progress, magic-school]
 sentence: "Scorio will rise from the ashes to conquer the ten layers of hell."
 ---
 

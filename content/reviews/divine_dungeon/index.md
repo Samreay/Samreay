@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/192510-the-divine-dungeon
     audible: https://www.audible.com/pd/Dungeon-Born-Audiobook/B06XQ78XLP
 aliases: [/reviews/divine_dungeon]
-tags: [litrpg, crafting, finished, dungeon-core, audio]
+tags: [litrpg, crafting,  dungeon-core]
 sentence: "A powerful dungeon. A sheep-herder turned Noble. Their path to ascendance through cultivation."
 ---
 

@@ -11,7 +11,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/55687/all-the-skills-a-deckbuilding-litrpg
     amazon: https://www.amazon.com/All-Skills-Deck-Building-LitRPG-ebook/dp/B0BM51RQR8
     audible: https://www.audible.com/pd/All-the-Skills-A-Deck-Building-LitRPG-Audiobook/B0BLTLDSYM
-tags: [in-progress, litRPG, companion, audio]
+tags: [in-progress, litRPG, companion]
 sentence: "When fate grants Arthur a Master of Skills card, he's thrust into a world of opportunity and danger."
 ---
 

@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/40041373
     audible: https://www.audible.com/pd/Initializing-Audiobook/B07G1M4H42
 aliases: [/reviews/somnia]
-tags: [female-lead, finished, litrpg, vrmmo, audio]
+tags: [female-lead,  litrpg, vrmmo]
 sentence: "Somnia Online, the fully immersive vrmmo run by secretive AIs."
 ---
 

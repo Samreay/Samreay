@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/62617415-blood-of-a-novice
     audible: https://www.audible.com/pd/Blood-of-a-Novice-Audiobook/B0BDNZ2W19
 aliases: [/reviews/ephemera]
-tags: [in-progress, magic-school, cultivation, hard-magic, audio]
+tags: [in-progress, magic-school, cultivation, hard-magic]
 sentence: "Cam and his panda-friend head to the Ephemeral Academy."
 ---
 

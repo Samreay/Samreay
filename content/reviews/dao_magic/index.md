@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/41975905-the-dao-of-magic-1
     audible: https://www.audible.com/pd/The-Dao-of-Magic-Audiobook/1774240173
 aliases: [/reviews/dao_of_magic]
-tags: [in-progress, isekai, cultivation, audio]
+tags: [in-progress, isekai, cultivation]
 sentence: "Cultivation. Magic. Empowering unwitting animals!"
 ---
 

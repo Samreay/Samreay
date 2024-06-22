@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/41618/mark-of-the-fool
     audible: https://www.audible.com/pd/Mark-of-the-Fool-Audiobook/B0B6JPQXR6
 aliases: [/reviews/markfool]
-tags: [in-progress, magic-school, crafting, hard-magic, slice-of-life, audio]
+tags: [in-progress, magic-school, crafting, hard-magic, slice-of-life]
 sentence: "Alex Roth is called by the gods to be a hero. He declines."
 ---
 

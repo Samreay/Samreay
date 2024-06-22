@@ -14,7 +14,7 @@ links:
     # goodreads: https://www.goodreads.com/series/192821-cradle
     audible: https://www.audible.com/pd/Unsouled-Audiobook/B07XTNWRFF
 aliases: [/reviews/cradle]
-tags: [cultivation, finished, companion, audio]
+tags: [cultivation,  companion]
 
 ---
 

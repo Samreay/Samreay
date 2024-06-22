@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/58768/dungeon-tour-guide-a-dungeon-core-litrpg
     audible: https://www.audible.com/pd/Dungeon-Tour-Guide-A-LitRPG-Adventure-Audiobook/B0C1PV6JJD
 aliases: [/reviews/dungeon_tour_guide]
-tags: [in-progress, litrpg, dungeon-core, isekai, audio]
+tags: [in-progress, litrpg, dungeon-core, isekai]
 sentence: "Lucas used to delve dungeons. Now, he has to run one."
 ---
 

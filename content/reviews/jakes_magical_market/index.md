@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Jakes-Magical-Market-J-R-Mathews-ebook/dp/B09HWX11N9
     audible: https://www.audible.com/pd/Jakes-Magical-Market-Audiobook/B09MDMD85Z
 aliases: [/reviews/jmm]
-tags: [finished, system-apocalypse, litrpg, audio]
+tags: [ system-apocalypse, litrpg]
 sentence: "Meddling gods. A magical card system. An apocalypse no one could have predicted."
 ---
 

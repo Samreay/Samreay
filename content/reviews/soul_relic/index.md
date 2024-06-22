@@ -10,10 +10,9 @@ name: "Soul Relic"
 search_terms: "Manifestation Scion of Storms Sanctuary Shieldsmith"
 links:
     amazon: https://mybook.to/SoulRelic
-    # goodreads: https://www.goodreads.com/book/show/61324650-soul-relic
     audible: https://www.audible.com/pd/Soul-Relic-Audiobook/B0BTZTNQZM
 aliases: [/reviews/soul_relic]
-tags: [female-lead, cultivation, hard-magic, in-progress, companion, audio]
+tags: [female-lead, cultivation, hard-magic, in-progress, companion, lgbt]
 sentence: "Determined to fix her soul, Raysha ventures out into the world only to stumble into events larger than she realises."
 ---
 

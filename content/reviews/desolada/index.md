@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/62591983
     royal_road: https://www.royalroad.com/fiction/41670/desolada
     audible: https://www.audible.com/pd/A-Blade-Through-Time-Audiobook/B0BBSNMXP4
-tags: [in-progress, time-loops, audio]
+tags: [in-progress, time-loops]
 sentence: "Leones can reverse time an hour, a power he discovered only when Magisters burned his family alive."
 ---
 

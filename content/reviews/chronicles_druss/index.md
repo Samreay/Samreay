@@ -11,7 +11,7 @@ name: "The First Chronicles of Druss the Legend"
 links:
     amazon: https://www.amazon.com/First-Chronicles-Legend-Drenai-Gemmell/dp/B004H9CAOO
 aliases: [/reviews/druss]
-tags: [finished, audio]
+tags: [finished]
 sentence: "Druss the Legend. Deathwalker. Captain of the Axe. This is his story."
 ---
 

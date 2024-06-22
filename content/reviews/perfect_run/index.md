@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/36735/the-perfect-run
     audible: https://www.audible.com/pd/The-Perfect-Run-Audiobook/B09HSRRT1T
 aliases: [/reviews/perfect_run]
-tags: [finished, system-apocalypse, time-loops, superhero, audio]
+tags: [ system-apocalypse, time-loops, superhero]
 sentence: "Quicksave is an adventurer with a strange power: he can create a save-point in time and redo his life whenever he dies."
 ---
 

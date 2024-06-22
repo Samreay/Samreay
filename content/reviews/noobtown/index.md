@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Mayor-Noobtown-Book-LitRPG-Adventure-ebook/dp/B07PPDN1ZP
     audible: https://www.audible.com/pd/The-Mayor-of-Noobtown-Audiobook/1774240122
 aliases: [/reviews/noobtown]
-tags: [in-progress, litrpg, isekai, audio]
+tags: [in-progress, litrpg, isekai]
 sentence: "Jim's reborn into a fantasy land with a snarky shoulder demon he hates."
 ---
 

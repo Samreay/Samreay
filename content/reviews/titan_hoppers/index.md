@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/61261449-titan-hoppers
     audible: https://www.audible.com/pd/Titan-Hoppers-Audiobook/B0BPJQ77N5
 aliases: [/reviews/titan]
-tags: [in-progress, sci-fi, magic-school, audio]
+tags: [in-progress, sci-fi, magic-school]
 sentence: "The fleet finds a titan, and Iro finds his power."
 ---
 

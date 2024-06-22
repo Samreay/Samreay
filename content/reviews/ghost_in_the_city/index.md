@@ -25,7 +25,7 @@ Self-Insert with a modified Cyberpunk 2077 Gamer System. Not a direct Ghost in t
 
 ## Thoughts
 
-*As of writing this review, I've read all public 141 chapters.*
+*As of writing this review, I've read all public 191 chapters.*
 
 This is officially the first fan-fiction I've ever read, and gotta admit... it hooked me bad.
 

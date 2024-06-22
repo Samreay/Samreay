@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/54659324-dungeon-crawler-carl
     audible: https://www.audible.com/pd/Dungeon-Crawler-Carl-Audiobook/B08V8B2CGV
 aliases: [/reviews/carl]
-tags: [in-progress, system-apocalypse, litrpg, companion, audio]
+tags: [in-progress, system-apocalypse, litrpg, companion]
 sentence: "A sadistic game where survival depends on killing your prey in the most entertaining way possible."
 ---
 

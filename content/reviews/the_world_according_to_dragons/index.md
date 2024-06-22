@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/62849176-the-world-according-to-dragons
     audible: https://www.audible.com/pd/The-World-According-to-Dragons-Audiobook/B0BTJ7Y1V1
 aliases: [/reviews/twatd]
-tags: [finished, cultivation, companion, audio]
+tags: [ cultivation, companion]
 sentence: "Twillo and Adventus herald the re-coming of the Age of Dragons."
 ---
 

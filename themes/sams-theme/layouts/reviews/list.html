@@ -38,6 +38,23 @@
       {{- end -}}
     ]
 
+    // Add tages based on the link keys
+    var extra_tag_map = {
+      "amazon": "amazon",
+      "audible": "audio",
+    }
+    posts.forEach(function(post) {
+      post.links.forEach(function(link) {
+        if (link.name in extra_tag_map) {
+          post.tags.push(extra_tag_map[link.name]);
+        }
+        // if there isn't an in-progress tag, add a finished tag
+        if (!post.tags.includes("in-progress") && !post.tags.includes("finished")) {
+          post.tags.push("finished");
+        }
+      })
+    });
+
     // Calc all tags
     let tags = [];
     posts.forEach(function(post) {
@@ -56,6 +73,7 @@
       posts: posts,
       tags: tags,
       search_term: "",
+      redner_refresh: 0,
     });
 
     function copy_to_clipboard(text) {
@@ -117,22 +135,7 @@
     }
 
     function make_summary(callable) {
-      var filtered_posts = data.posts.filter(function(post) {
-        for (const [key, value] of Object.entries(data.tag_activations)) {
-          if (value) {
-            if (!post.tags.includes(key)) {
-              return false;
-            }
-          } else {
-            if (post.tags.includes(key)) {
-              return false;
-            }
-          }
-        }
-        return true;
-      }).sort((a, b) => {
-        return a.weight > b.weight ? 1 : -1;
-      })
+      var filtered_posts = get_posts_to_render()
       let sb = ""
       for (var i = 0; i < filtered_posts.length; i++) {
         sb += callable(filtered_posts[i])
@@ -334,17 +337,17 @@
         }
       }}
       <div class="${() => "container mx-auto justify-center grid " + (data.layout == "tier" ? "gap-2 mt-8 " : "mt-20 gap-4 sm:gap-12 " ) + (data.layout == "wide" ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : ( data.layout == "cover" ? "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards " : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards-tier tier"))}">
-      ${group.posts.map(post_template)}
+        ${() => {
+          return group.posts.map(post_template)
+        }}
       </div>
     `
 
 
     const card_containter = document.getElementById("all-card-wrapper");
 
-
-    const card_template = html`
-      ${ function() {
-      var posts_to_render = data.posts.filter(function(post) {
+    function get_posts_to_render() {
+      return data.posts.filter(function(post) {
       // Filter by selected tags
       for (const [key, value] of Object.entries(data.tag_activations)) {
         if (value) {
@@ -379,9 +382,15 @@
       }
     })
 
-    var prior_tier = null;
-    var groups = []
-    var posts_in_group = []
+    }
+
+    const card_template = html`
+      ${ function() {
+      var posts_to_render = get_posts_to_render()
+
+    let prior_tier = null;
+    let groups = []
+    let posts_in_group = []
     for (var i = 0; i < posts_to_render.length; i++) {
       if (data.layout == "tier" && (prior_tier == null || prior_tier != posts_to_render[i].review)) {
         if (prior_tier != null) {
@@ -400,8 +409,8 @@
     "posts": posts_in_group,
     "tier": prior_tier,
   });
-
     return groups.map(group_post_template)
+    }
 
   }}
   </div>`
@@ -439,7 +448,7 @@
   <!-- The toggles config -->
   <div id="toggle-input" class="max-w-7xl mx-auto"></div>
   <div id="search" class="max-w-7xl mx-auto mt-6"></div>
-  <div id="tags" class="tag-list max-w-7xl mx-auto mt-6"></div>
+  <div id="tags" class="tag-list max-w-7xl mx-auto mt-6 mb-12"></div>
   <div id="all-card-wrapper"></div>
 </div>
 

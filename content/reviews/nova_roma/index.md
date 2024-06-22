@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/60288155-portal-to-nova-roma
     audible: https://www.audible.com/pd/Portal-to-Nova-Roma-Audiobook/B0BCH43V6V
 aliases: [/reviews/nova_roma]
-tags: [in-progress, isekai, litrpg, companion, audio]
+tags: [in-progress, isekai, litrpg, companion]
 sentence: "Alexander the AI makes a fresh start in a new magical dimension."
 ---
 

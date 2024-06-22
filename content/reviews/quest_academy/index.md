@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Quest-Academy-Brian-J-Nordon-ebook/dp/B0C8BPJCTP
     audible: https://www.audible.com/pd/Silvers-Audiobook/B0CD85H1D6
 aliases: [/reviews/quest_academy]
-tags: [litrpg, in-progress, sci-fi, magic-school, audio]
+tags: [litrpg, in-progress, sci-fi, magic-school]
 sentence: "A world infested by demons. An Academy to train Heroes. A new student’s power could make all the difference."
 ---
 

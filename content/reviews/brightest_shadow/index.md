@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/51083937-the-brightest-shadow
     audible: https://www.audible.com/pd/The-Brightest-Shadow-Audiobook/177424568X
 aliases: [/reviews/brightest_shadow]
-tags: [female-lead, in-progress, cultivation, audio]
+tags: [female-lead, in-progress, cultivation]
 sentence: "The arrival of the Hero was worse than anyone could have imagined."
 ---
 

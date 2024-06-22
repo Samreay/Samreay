@@ -14,7 +14,7 @@ links:
     # goodreads: https://www.goodreads.com/series/310817-beneath-the-dragoneye-moons
     audible: https://www.audible.com/pd/Beneath-the-Dragoneye-Moons-Audiobook/1039402259
 aliases: [/reviews/btdem]
-tags: [in-progress, isekai, female-lead, magic-school, litrpg, audio]
+tags: [in-progress, isekai, female-lead, magic-school, litrpg]
 sentence: "Elaine is reincarnated in Pallos, and uses her Earth knowledge to become the ultimate healer."
 ---
 

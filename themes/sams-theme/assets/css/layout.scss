@@ -233,17 +233,13 @@ body {
     @apply mx-auto;
     margin: 0;
     max-width: none;
-    aspect-ratio: 0.6;
+    aspect-ratio: 0.625;
   }
   figure {
     @apply mx-auto;
     max-width: 250px;
-    // min-width: 250px;
     img {
-      // height: 375px;
-      // width: 250px;
-      // min-width: 250px;
-      aspect-ratio: 0.6;
+      aspect-ratio: 0.625;
     }
   }
 
@@ -402,7 +398,7 @@ pre code:not([class]){
 .review {
   figure {
     @apply relative h-0 overflow-hidden rounded-lg;
-    padding-bottom: 150%;
+    padding-bottom: 160%;
   }
 }
 

@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/179187-chaos-seeds
     audible: https://www.audible.com/pd/The-Land-Founding-A-LitRPG-Saga-Audiobook/B071DNLS1F
 aliases: [/reviews/land]
-tags: [litrpg, in-progress, isekai, audio]
+tags: [litrpg, in-progress, isekai]
 sentence: "Richter get's isekai'd, and learns the perils of the Land."
 ---
 

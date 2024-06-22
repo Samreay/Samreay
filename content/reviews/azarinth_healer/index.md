@@ -13,7 +13,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/45728081-azarinth-healer
     audible: https://www.audible.com/pd/Azarinth-Healer-Book-One-Audiobook/B0BLZNZ47B
 aliases: [/reviews/azarinth]
-tags: [finished, isekai, litrpg, female-lead, audio]
+tags: [ isekai, litrpg, female-lead]
 sentence: "Ilea adjusts to a new fantasy world by becoming a battle healer."
 ---
 

@@ -13,7 +13,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/58412607-the-path-of-ascension
     audible: https://www.audible.com/pd/The-Path-of-Ascension-Audiobook/B0B6CQFZZH
 aliases: [/reviews/path_ascension]
-tags: [in-progress, cultivation, sci-fi, companion, audio]
+tags: [in-progress, cultivation, sci-fi, companion]
 sentence: "Matt meets a mysterious couple, who sponsor him on the Path of Ascension."
 ---
 

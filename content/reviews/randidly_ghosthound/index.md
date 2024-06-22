@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/11209/the-legend-of-randidly-ghosthound
     audible: https://www.audible.com/pd/The-Legend-of-Randidly-Ghosthound-Audiobook/B09CRBSDHY
 aliases: [/reviews/ghosthound]
-tags: [in-progress, system-apocalypse, litrpg, audio]
+tags: [in-progress, system-apocalypse, litrpg]
 sentence: "Randidly wakes up to a new Earth, with Levels, Skills, monsters, and the possibility of death..."
 ---
 

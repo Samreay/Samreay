@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/57697/ends-of-magic
     amazon: https://www.amazon.com/Antimage-Isekai-LitRPG-Adventure-Magic-ebook/dp/B0CJBL9RXV
     audible: https://www.audible.com/pd/Antimage-Audiobook/B0CJVXGNYT
-tags: [in-progress, litRPG, isekai, crafting, audio]
+tags: [in-progress, litRPG, isekai, crafting]
 sentence: "A scientist from another world. A mage seeking deadly knowledge. A power that could topple an empire."
 ---
 

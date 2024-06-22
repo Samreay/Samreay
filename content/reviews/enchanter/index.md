@@ -13,7 +13,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/60630617-the-enchanter
     audible: https://www.audible.com/pd/The-Enchanter-Audiobook/B0B1LQFTPM
 aliases: [/reviews/enchanter]
-tags: [in-progress, crafting, magic-school, lgbt, hard-magic, audio]
+tags: [in-progress, crafting, magic-school, lgbt, hard-magic]
 sentence: "Evan heads to Yesgol Academy of Magic, a place filled with the children of the elite, and the occasional extraplanar horror."
 ---
 

@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/60548100
     audible: https://www.audible.com/pd/First-Fist-Audiobook/B09W646LC4
 aliases: [/reviews/seventh]
-tags: [cultivation, in-progress, audio]
+tags: [cultivation, in-progress]
 sentence: "Once a soldier, now an outcast. Luca must overcome fate as he walks the path of a cultivator."
 ---
 

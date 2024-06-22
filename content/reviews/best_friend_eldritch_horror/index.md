@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/61720021-blackmist
     royal_road: https://www.royalroad.com/fiction/44229/my-best-friend-is-an-eldritch-horror
     aubible: https://www.audible.com/pd/Blackmist-Audiobook/B0BF16T2Y3?qid=1682215344
-tags: [in-progress, litrpg, magic-school, slice-of-life, companion, audio]
+tags: [in-progress, litrpg, magic-school, slice-of-life, companion]
 sentence: "Damien nearly ended the world. Now, his mistake might be the only thing that can save it."
 aliases: ["/reviews/eldritch_horror"]
 ---

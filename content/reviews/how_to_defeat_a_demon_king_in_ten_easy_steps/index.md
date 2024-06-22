@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/53300479-how-to-defeat-a-demon-king-in-ten-easy-steps
     audible: https://www.audible.com/pd/How-to-Defeat-a-Demon-King-in-Ten-Easy-Steps-Audiobook/B086R2N27Y
 aliases: [/reviews/ten_steps]
-tags: [finished, litrpg, parody, audio]
+tags: [ litrpg, parody]
 sentence: "The Hero is late, and the Demon King's hordes have almost conquered humanity."
 ---
 

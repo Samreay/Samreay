@@ -13,7 +13,7 @@ links:
     audible:     # goodreads: https://www.goodreads.com/book/show/59521676-bastion
 
 aliases: [/reviews/bobiverse]
-tags: [sci-fi, isekai, finished, audio]
+tags: [sci-fi, isekai]
 sentence: "Bob becomes a replicating spaceship."
 ---
 

@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Sovereign-Soul-LitRPG-Adventure-Scale-ebook/dp/B0BRFNMRTJ
     audible: https://www.audible.com.au/pd/Sovereign-Soul-Audiobook/B0CJG37GT9
 aliases: [/reviews/sovereign_soul]
-tags: [in-progress, isekai, litrpg, companion, audio]
+tags: [in-progress, isekai, litrpg, companion]
 sentence: "Deklin will become a villain to rival the gods… somebody should probably tell him."
 ---
 

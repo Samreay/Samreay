@@ -10,7 +10,7 @@ name: "Martial Peak"
 links:
     mangatx: https://mangatx.com/manga/martial-peak-manga/
 aliases: [/reviews/martial_peak]
-tags: [finished, cultivation, manhua]
+tags: [ cultivation, manhua]
 sentence: "Yang Kai goes from trainee disciple to shattering the heavens."
 ---
 

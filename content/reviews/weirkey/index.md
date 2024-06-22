@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/306753-the-weirkey-chronicles
     audible: https://www.audible.com/pd/Soulhome-Audiobook/B09NF763LH
 aliases: [/reviews/weirkey]
-tags: [isekai, cultivation, in-progress, hard-magic, audio]
+tags: [isekai, cultivation, in-progress, hard-magic]
 sentence: "A truly unique cultivation system with an amazing setting."
 ---
 

@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/67114/heretical-fishing-a-cozy-guide-to-annoying-the
     audible: https://www.audible.com/pd/Heretical-Fishing-Book-1-Audiobook/B0CVCYB19Y
 aliases: [/reviews/heretical_fishing]
-tags: [in-progress, wholesome, slice-of-life, isekai, litrpg, audio, companion]
+tags: [in-progress, wholesome, slice-of-life, isekai, litrpg,  companion]
 sentence: "A world abandoned by the gods, mystifying cosmic forces, and a hero who would rather... go fishing???"
 ---
 

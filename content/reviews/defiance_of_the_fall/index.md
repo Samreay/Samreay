@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/57866482-defiance-of-the-fall
     royal_road: https://www.royalroad.com/fiction/24709/defiance-of-the-fall
     audible: https://www.audible.com/pd/Defiance-of-the-Fall-Audiobook/B094JZMCJX
-tags: [in-progress, system-apocalypse, litrpg, audio]
+tags: [in-progress, system-apocalypse, litrpg]
 sentence: "Zac was alone in the middle of the forest when the world changed..."
 aliases: ["/reviews/defiance", "/reviews/dotf"]
 ---

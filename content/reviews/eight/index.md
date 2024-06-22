@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Eight-LitRPG-Novel-Magical-Survival-ebook/dp/B0B8XQXKFJ
     audible: https://www.audible.com/pd/Eight-Audiobook/B0B8T1X15L
 aliases: [/reviews/eight]
-tags: [in-progress, isekai, litrpg, audio]
+tags: [in-progress, isekai, litrpg]
 sentence: "Eight is reincarnated and makes friends with an otter."
 ---
 

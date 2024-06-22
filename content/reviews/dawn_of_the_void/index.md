@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Dawn-Void-Book-Apocalypse-Trilogy-ebook/dp/B0BTJBV1H9
     audible: https://www.audible.com/series/Dawn-of-the-Void-Audiobooks/B0BY85B1WW
 aliases: [/reviews/dawn_of_the_void]
-tags: [finished, litrpg, system-apocalypse, audio]
+tags: [ litrpg, system-apocalypse]
 sentence: "With the dawn of the Void, James will become the most important person to have ever lived."
 ---
 

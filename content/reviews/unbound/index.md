@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/344435-unbound
     audible: https://www.audible.com/pd/Dissonance-Audiobook/B09XY39B53
 aliases: [/reviews/unbound]
-tags: [in-progress, litrpg, isekai, companion, audio]
+tags: [in-progress, litrpg, isekai, companion]
 sentence: "Felix is Unbound, an anomoly summoned to the world, there to uncover ancient secrets and power."
 ---
 

@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/44327636-the-first-step
     audible: https://www.audible.com/pd/A-Thousand-Li-The-First-Step-A-Cultivation-Novel-Audiobook/1515933962
 aliases: [/reviews/thousand_li]
-tags: [cultivation, in-progress, magic-school, slice-of-life, audio]
+tags: [cultivation, in-progress, magic-school, slice-of-life]
 sentence: "Given a chance at immortality, can Wu Ying grasp the fleeting opportunity?"
 ---
 

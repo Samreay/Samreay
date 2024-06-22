@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/56136/ghost-of-the-truthseeker
     audible: https://www.audible.com/pd/Ghost-of-the-Truthseeker-1-Audiobook/B0BWYYJT2G
 aliases: [/reviews/ghost_of_the_truthseeker]
-tags: [in-progress, litrpg, cultivation, system-apocalypse, audio]
+tags: [in-progress, litrpg, cultivation, system-apocalypse]
 sentence: "Earth is initiated, and Alistair finds himself in a dangerous new world…"
 ---
 

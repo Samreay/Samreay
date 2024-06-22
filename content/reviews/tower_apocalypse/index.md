@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Tower-Apocalypse-LitRPG-Isekai-System-ebook/dp/B0B69QBXLR
     audible: https://www.audible.com/series/Tower-Apocalypse-Audiobooks/B0B5ZLJYZX
 aliases: [/reviews/tower_apocalypse]
-tags: [finished, litrpg, audio]
+tags: [ litrpg]
 sentence: "Join Devin Cain, his cursed katana that hungers for blood and souls, and a class created to curse players."
 ---
 

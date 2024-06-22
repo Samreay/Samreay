@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/37654736-stuff-and-nonsense
     audible: https://www.audible.com/pd/Stuff-and-Nonsense-Audiobook/B07D3C3KZ1
 aliases: [/reviews/threadbare]
-tags: [finished, litrpg, audio]
+tags: [ litrpg]
 sentence: "Meetreadbare. He is twelve inches tall, full of fluff, and really, really bad at being a hero."
 ---
 

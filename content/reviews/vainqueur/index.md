@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/26534/vainqueur-the-dragon
     audible: https://www.audible.com/pd/Vainqueur-the-Dragon-Audiobook/B087SKMLM6
 aliases: [/reviews/vainqueur]
-tags: [finished, litrpg, isekai, companion, audio, parody, manhua]
+tags: [ litrpg, isekai, companion,  parody, manhua]
 sentence: 'When a would-be thief tells Vainqueur  about "classes," "levels," and "quests," Vainqueur wonders if he should change career.'
 ---
 

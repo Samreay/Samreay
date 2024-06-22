@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Against-Infinity-Stargazers-Sci-fi-Cultivation-ebook/dp/B0C17SCTK9
     audible: https://www.audible.com/pd/To-Flail-Against-Infinity-Audiobook/B0C4FVWSRL
 aliases: [/reviews/stargazers_war]
-tags: [in-progress, cultivation, magic-school, sci-fi, audio]
+tags: [in-progress, cultivation, magic-school, sci-fi]
 sentence: "Caliban Rex gazes into the void, dying, and realises he can cultivate the power there."
 ---
 

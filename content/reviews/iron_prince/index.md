@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/book/show/55559974-iron-prince
     audible: https://www.audible.com/pd/Iron-Prince-Audiobook/1774246031
 aliases: [/reviews/iron_prince]
-tags: [in-progress, magic-school, sci-fi, audio]
+tags: [in-progress, magic-school, sci-fi]
 sentence: "Reidon Ward will become a god. He doesn't know it yet, of course."
 ---
 

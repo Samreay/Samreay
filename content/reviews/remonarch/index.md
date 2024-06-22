@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/37951/re-monarch
     audible: https://www.audible.com/pd/Monarch-A-Prince-Out-of-Time-Audiobook/B09QH71R1B
 aliases: [/reviews/remonarch]
-tags: [in-progress, time-loops, audio]
+tags: [in-progress, time-loops]
 sentence: "Cairn is cured with time loops and some seriously unwinnable scenarios."
 ---
 
