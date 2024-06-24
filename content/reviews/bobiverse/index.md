@@ -10,8 +10,7 @@ search_terms: "We are Legion we are bob bobiverse"
 name: "We are Legion"
 links:
     amazon: https://www.amazon.com/Are-Legion-Bob-Bobiverse-Book-ebook/dp/B01LWAESYQ
-    audible:     # goodreads: https://www.goodreads.com/book/show/59521676-bastion
-
+    audible: https://www.audible.com/pd/We-Are-Legion-We-Are-Bob-Audiobook/B01L082HJ2
 aliases: [/reviews/bobiverse]
 tags: [sci-fi, isekai]
 sentence: "Bob becomes a replicating spaceship."
