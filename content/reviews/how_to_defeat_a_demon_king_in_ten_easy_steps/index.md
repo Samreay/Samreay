@@ -8,7 +8,7 @@ review: B
 weight: 24
 name: "How to Defeat a Demon King in Ten Easy Steps"
 links:
-    amazon: https://www.amazon.com/Defeat-Demon-King-Easy-Steps/dp/B086R4N2YC
+    amazon: https://www.amazon.com/Defeat-Demon-King-Easy-Steps-ebook/dp/B08F3RTTKM
     # goodreads: https://www.goodreads.com/en/book/show/53300479-how-to-defeat-a-demon-king-in-ten-easy-steps
     audible: https://www.audible.com/pd/How-to-Defeat-a-Demon-King-in-Ten-Easy-Steps-Audiobook/B086R2N27Y
 aliases: [/reviews/ten_steps]
