@@ -42,4 +42,4 @@ Think more *Portal to Nova Roma*, wherein the MC goes at things mostly alone but
 
 As the tournament arc starts up, the global plot starts to press down on Will, and the author has dropped tons of hints for accelerating timelines and big events just over the horizon. As to what they are, I don't know, I'm out of chappies!
 
-Definitely recommend this story for anyone going on a system-apocalypse binge, especially fans of DotF, Primal Hunter, Randidly, and theo ther heavyweights.
+Definitely recommend this story for anyone going on a system-apocalypse binge, especially fans of DotF, Primal Hunter, Randidly, and the other heavyweights.
