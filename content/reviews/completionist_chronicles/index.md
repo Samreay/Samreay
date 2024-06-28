@@ -10,7 +10,6 @@ weight: 26
 name: "Completionist Chronicles"
 links:
     amazon: https://www.amazon.com/Ritualist-Completionist-Chronicles-Book-1-ebook/dp/B07B27XQLF
-    # goodreads: https://www.goodreads.com/series/229735-the-completionist-chronicles
     audible: https://www.audible.com/pd/Ritualist-Audiobook/B07BTHWMFF
 aliases: [/reviews/cc]
 tags: [litrpg, in-progress, isekai]
