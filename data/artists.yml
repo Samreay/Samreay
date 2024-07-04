@@ -27,7 +27,7 @@
 - name: Arnor
   links:
     artstation: https://www.artstation.com/arnor
-  covers: [rise_of_the_devourer]
+  covers: [rise_of_the_devourer, rise_of_the_devourer2, rise_of_the_devourer3]
 
 - name: Asur Misoa
   links:
@@ -589,7 +589,7 @@
 - name: Wirawan Pranoto
   links:
     artstation: https://www.artstation.com/telaga
-  covers: [rise_of_the_devourer2]
+  covers: [rise_of_the_devourer__2]
 
 - name: Victor Manoel
   links:
