@@ -4,8 +4,8 @@ description: "LitRPG group reincarnation with two main POVs, with the characters
 date: 2023-02-10
 auth: Avitue
 categories: [reviews]
-review: B
-weight: 28
+review: C
+weight: 36
 name: "And (N)one Shall Remain"
 links:
     royal_road: https://www.royalroad.com/fiction/61213/and-none-shall-remain
