@@ -9,10 +9,9 @@ weight: 37
 name: "Rogue Dungeon"
 links:
     amazon: https://www.amazon.com/Rogue-Dungeon-litrpg-Adventure-Book-ebook/dp/B07FKYZFYD
-    # goodreads: https://www.goodreads.com/series/239590-the-rogue-dungeon
     audible: https://www.audible.com/pd/Rogue-Dungeon-A-litRPG-Adventure-Audiobook/B07GRB7K8Q
 aliases: [/reviews/rogue_dungeon]
-tags: [ isekai, litrpg]
+tags: [finished, isekai, litrpg]
 sentence: "Build. Evolve. Conquer. Welcome to the Dungeon..."
 ---
 
