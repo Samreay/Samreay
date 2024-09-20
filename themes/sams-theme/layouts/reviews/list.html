@@ -275,7 +275,7 @@
     const image_template = (post) => html`
   <picture>
     <source srcset="${post.img} 500w" type="image/webp" />
-    <img class="${() => "block flex-none bg-cover mx-auto " + (data.layout == "wide" ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
+    <img loading="lazy" class="${() => "block flex-none bg-cover mx-auto " + (data.layout == "wide" ? "md:rounded-l-xl" : "")}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg==" alt="${post.name}" />
   </picture>`
 
 
