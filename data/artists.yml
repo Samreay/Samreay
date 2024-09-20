@@ -141,7 +141,7 @@
 - name: Emma Rottersman
   links:
     artstation: https://emmarillustrations.artstation.com/
-  covers: [legend_of_ascension, sancturary_rr] 
+  covers: [legend_of_ascension, sancturary_rr]
 
 - name: Enzo Fernandez
   links:
@@ -331,7 +331,7 @@
     website: https://kotikomori.art/
     instagram: https://www.instagram.com/kotikomori
   covers: [hell_difficulty_tutorial_1, hell_difficulty_tutorial_2]
-  
+
 - name: Laércio Messias
   links:
     facebook: https://www.facebook.com/laerciomess
@@ -431,7 +431,7 @@
   links:
     artstation: https://www.artstation.com/marcusagm
   covers: [glass_kanin]
-  
+
 - name: Mary Cruz
   links:
     website: https://www.adonyne.com/
@@ -460,11 +460,17 @@
     instagram: https://www.instagram.com/michaelgl_art/
   covers: [target_75]
 
+- name: Miggzai
+  links:
+    artstation: https://www.artstation.com/miggzai
+    instagram: https://www.instagram.com/miggzai
+  covers: [goblin]
+
 - name: Mikayla Buan
   links:
     website: https://mikaylabuan.wixsite.com/portfolio
     instagram: https://www.instagram.com/mikayla_buan/
-  covers: [systemless1, systemless2, systemless3] 
+  covers: [systemless1, systemless2, systemless3]
 
 - name: Mushfiq A. K
   links:
@@ -475,6 +481,11 @@
   links:
     instagram: https://instagram.com/myleswohl
   covers: [fateless2]
+
+- name: Neutronboar
+  links:
+    artstation: https://www.artstation.com/neutronboar7
+  covers: [shadows_within, dawn_of_the_black_sun]
 
 - name: Oleg Tsoy
   links:
@@ -487,7 +498,7 @@
     artstation: https://www.artstation.com/equin0
   covers: [panethon2]
 
-- name: Paris Ioannou 
+- name: Paris Ioannou
   links:
     artstation: https://www.artstation.com/paris60
   covers: [unintended_cultivator]
@@ -541,6 +552,11 @@
   links:
     artstation: https://www.artstation.com/rustee
     instagram: https://www.instagram.com/rusteedelacruz
+
+- name: Sebastian Szmyd
+  links:
+    artstation: https://www.artstation.com/sebastiansz
+  covers: [level_one_god]
 
 - name: Sevenchi
   links:
