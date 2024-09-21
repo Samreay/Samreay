@@ -4,8 +4,8 @@ description: "A cyberpunk story where a down-on-her luck welder gets a personal 
 date: 2023-12-21
 auth: Plum Parrot
 categories: [reviews]
-review: C
-weight: 33
+review: B
+weight: 25
 name: "Cyber Dreams"
 search_terms: "Electric angel"
 links:
@@ -31,7 +31,7 @@ Juliet has never been one to push people around. But when it comes to fighting t
 
 ## Thoughts
 
-I picked up *Cyber Dreams* after running out of *Ghost in the City* because I needed more of that cyberpunk fix. While there are some similarities to *Ghost in the City*, the stories are very different. While *Ghost in the City* is very much a power fantasy with rapid levelling and the MC quickly becoming overpowered, *Cyber Dreams* has a much slower and steadier pace. 
+I picked up *Cyber Dreams* after running out of *Ghost in the City* because I needed more of that cyberpunk fix. While there are some similarities to *Ghost in the City*, the stories are very different. While *Ghost in the City* is very much a power fantasy with rapid levelling and the MC quickly becoming overpowered, *Cyber Dreams* has a much slower and steadier pace.
 
 After Juliet acquires Angel, obviously her position is not great. She's got some very hot (stolen) PAI in her head, the corpos want it back, but how is she---a broke-ass welder---going to escape their clutches. Her PAI even recommends heading off world due to the amount of heat that his disappearance will bring. Instead (in what I personally think is an absolutely baffling move), Juliet just drives to a city two hours away. Not two countries, or two states. Tucson to Phoenix.
 
