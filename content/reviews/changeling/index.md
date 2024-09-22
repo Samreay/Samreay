@@ -10,7 +10,7 @@ name: "Changeling"
 links:
     royal_road: https://www.royalroad.com/fiction/75345/changeling
 aliases: [/reviews/changeling]
-tags: [cultivation, sci-fi, in-progress, female-lead]
+tags: [cultivation, sci-fi, cyberpunk, in-progress, female-lead]
 sentence: "Nestra substitutes a core for anger in the battle against kaiju and monsters."
 ---
 

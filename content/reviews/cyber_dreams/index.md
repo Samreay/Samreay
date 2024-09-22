@@ -13,7 +13,7 @@ links:
     audible: https://www.audible.com.au/pd/Electric-Angel-A-Cyberpunk-LitRPG-Audiobook/B0CBNFW69P
     royal_road: https://www.royalroad.com/fiction/60284/cyber-dreams-electric-angels-litrpg-progression
 aliases: [/reviews/cyber_dreams]
-tags: [litrpg, in-progress, sci-fi, female-lead]
+tags: [litrpg, in-progress, sci-fi, cyberpunk, female-lead]
 sentence: "Juliet gets an angelic AI in her head. If only it wasn't stolen!"
 ---
 

@@ -121,7 +121,7 @@
     color: #0d9488;
     box-shadow: 0 1px 0 4px #78f35f1a, inset 0 -1.375em 0 #40f73a1a;
   }
-  
+
 
   &.red-under {
     box-shadow: 0 10px 0 0 #ff386000, inset 0 -0.125em #ff386033;
@@ -339,6 +339,10 @@
   background-color: #361c9c;
   @apply text-gray-100 font-medium;
 }
+.tag-cyberpunk {
+  background-color: #8a1f8e;
+  @apply text-gray-100 font-medium;
+}
 .tag-system-apocalypse {
   background-color: #961515;
   @apply text-gray-100 font-medium;
@@ -416,7 +420,7 @@
   }
 }
 
-@media (min-width: 1024px) { 
+@media (min-width: 1024px) {
   .glow .bg2 {
       padding: 4px;
   }
