@@ -138,7 +138,7 @@ body {
   }
 }
 
-@media (max-width: 640px) { 
+@media (max-width: 640px) {
   .tag-list {
     button {
       @apply m-1 py-2 px-4 text-sm;
@@ -351,13 +351,13 @@ pre code:not([class]){
 }
 
 
-// Table styling 
+// Table styling
 .table-auto {
   @apply divide-y divide-gray-700;
   margin: 0 auto;
   thead {
     @apply bg-gray-800;
-    
+
     th {
       @apply px-6 py-3 text-left text-gray-300 tracking-wider;
     }
@@ -399,6 +399,16 @@ pre code:not([class]){
   figure {
     @apply relative h-0 overflow-hidden rounded-lg;
     padding-bottom: 160%;
+  }
+}
+
+.flowchart {
+  p {
+    @apply text-xl text-gray-400;
+  }
+  iframe {
+    height: 90vh;
+    width: 100%;
   }
 }
 

@@ -228,12 +228,17 @@
     }
 
     const tag_container = document.getElementById("tags");
-    const tag_template = html`${() => data.tags.map(
+    const tag_template = html`${ function() {
+      if (data.layout == "flowchart") {
+        return html``
+      }
+     return html`${() => data.tags.map(
       tag => html`
   <button @click="${() => click_tag(tag)}" class="${() => "tag tag-" + tag + " active-" + (Object.keys(data.tag_activations).length == 0 ? "nan" : data.tag_activations[tag])}">
     <span>${tag}</span>
   </button>
       `)}`
+    }}`
     tag_template(tag_container)
 
     const layout_container = document.getElementById("toggle-input");
@@ -245,11 +250,15 @@
     </label>
     <label for="layout_cover" class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100">
       <input id="layout_cover" checked="${() => (data.layout == "cover" ? "checked" : "")}" name="layout" type="radio" value="cover" class="hidden peer" @click="${(e) => { data.layout = "cover" } }">
-      <span class="px-4 py-2  bg-gray-700 peer-checked:bg-main-700">Cover</span>
+      <span class="px-4 py-2 bg-gray-700 peer-checked:bg-main-700">Cover</span>
     </label>
     <label for="layout_tier" class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100">
       <input id="layout_tier" checked="${() => (data.layout == "tier" ? "checked" : "")}" name="layout" type="radio" value="tier" class="hidden peer" @click="${(e) => { data.layout = "tier" } }">
-      <span class="px-4 py-2 rounded-r-md bg-gray-700 peer-checked:bg-main-700">Tier List</span>
+      <span class="px-4 py-2 bg-gray-700 peer-checked:bg-main-700">Tier List</span>
+    </label>
+    <label for="layout_flowchart" class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100">
+      <input id="layout_flowchart" checked="${() => (data.layout == "flowchart" ? "checked" : "")}" name="layout" type="radio" value="flowchart" class="hidden peer" @click="${(e) => { data.layout = "flowchart" } }">
+      <span class="px-4 py-2 rounded-r-md bg-gray-700 peer-checked:bg-main-700">Flowchart</span>
     </label>
     <label for="sort-order" class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
       <input id="sort-order" type="checkbox" checked="${() => (data.by_rank ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.by_rank = e.target.checked} }">
@@ -338,7 +347,7 @@
           "F": "Dropped these",
         }
         if (data.layout == "tier") {
-          return html`<div class="tier-list"><h1 class="text-center text-7xl mt-20 pb-8 rating-${group.tier}">${group.tier}: ${descriptions[group.tier]}</h1></div>`
+          return html`<div class="tier-list"><h1 class="text-center text-5xl mt-20 pb-8 rating-${group.tier}">${group.tier}: ${descriptions[group.tier]}</h1></div>`
         }
       }}
       <div class="${() => "container mx-auto justify-center grid " + (data.layout == "tier" ? "gap-2 mt-8 " : "mt-20 gap-4 sm:gap-12 " ) + (data.layout == "wide" ? "sm:grid-cols-wide-cards grid-cols-wide-cards-mobile" : ( data.layout == "cover" ? "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards " : "grid-cols-cover-cards-mobile sm:grid-cols-cover-cards-tier tier"))}">
@@ -391,7 +400,14 @@
 
     const card_template = html`
       ${ function() {
-      var posts_to_render = get_posts_to_render()
+      if (data.layout == "flowchart") {
+        return html`<div class="flowchart">
+          <p class="text-center mx-auto mb-4">Click and drag to move. Ctrl-scroll to zoom.</p>
+          <iframe src="https://embed.figma.com/board/hScNoWonDzTMTrpzUhNqzR/Story-Finder?node-id=102212-639&embed-host=share&footer=false&theme=dark" allowfullscreen></iframe>
+        </div>`
+
+      }
+    var posts_to_render = get_posts_to_render()
 
     let prior_tier = null;
     let groups = []
@@ -436,24 +452,14 @@
         class="font-bold"
         style="color: #7289da"
         >{{ partial "ico" "discord" }} discord</a
-      >. And if you want a flowchart to help decide your next read, I made one
-      of those too!
-    </p>
-    <a
-      target="_blank"
-      href="https://www.figma.com/file/hScNoWonDzTMTrpzUhNqzR/Story-Finder?type=whiteboard&node-id=1-229&t=lq4Gt1g09jzDSmbS-4"
-    >
-      <button
-        class="inline-flex mt-4 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
       >
-        Give me a flowchart!
-      </button></a
-    >
+    </p>
+
   </div>
   <!-- The toggles config -->
   <div id="toggle-input" class="max-w-7xl mx-auto"></div>
   <div id="search" class="max-w-7xl mx-auto mt-6"></div>
-  <div id="tags" class="tag-list max-w-7xl mx-auto mt-6 mb-12"></div>
+  <div id="tags" class="tag-list max-w-7xl mx-auto mt-6 mb-6"></div>
   <div id="all-card-wrapper"></div>
 </div>
 
