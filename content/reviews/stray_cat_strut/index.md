@@ -12,7 +12,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/33600/stray-cat-strut-stubbing-never-lol
     audible: https://www.audible.com/pd/Stray-Cat-Strut-A-Young-Ladys-Journey-to-Becoming-a-Pop-Up-Samurai-Audiobook/B09L5B5ZTK
 aliases: [/reviews/stray_cat_strut]
-tags: [in-progress, female-lead, sci-fi, cyberpunk]
+tags: [in-progress, lgbt, female-lead, sci-fi, cyberpunk]
 sentence: "During an  alien invasion in a cyberpunk world, Cat is chosen by the Protector's to join the Vanguard, become a Samurai, and help save those she loves."
 ---
 
