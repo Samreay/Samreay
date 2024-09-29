@@ -3,10 +3,9 @@
     <div class="section-header">
         <h1>Book Reviews</h1>
         <p>
-            For those loving progression fantasy and LitRPG, here are my latest reviews. 
+            For those loving progression fantasy and LitRPG, here are my latest reviews.
             <a class="under" href="/reviews">More available here, of course!</a>
-            And if you want an fun flowchart to help pick your next story, 
-            <a class="under" href="https://www.figma.com/file/hScNoWonDzTMTrpzUhNqzR/Story-Finder?type=whiteboard&node-id=1-229&t=lq4Gt1g09jzDSmbS-4">here's one I made!</a>
+            And if you want an fun flowchart or tier list, that's available too!
         </p>
     </div>
 
@@ -14,7 +13,7 @@
         <div class="grid gap-12 md:grid-cols-3 lg:grid-cols-4 lg:grid-cols-5 md:gap-x-6 md:gap-y-8 items-start">
 
         {{ range site.Taxonomies.categories.reviews.Pages.ByDate.Reverse | first 5 }}
-            {{- partial "card_cover.html" . -}} 
+            {{- partial "card_cover.html" . -}}
         {{ end }}
 
     </div>
