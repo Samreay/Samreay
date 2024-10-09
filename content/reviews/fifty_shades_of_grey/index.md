@@ -67,6 +67,8 @@ There are a few more highlights I don't have the energy to get into. At least Ch
 
 Book one ends on a surprisingly good note (spoilers): Ana leaves Christian after he beats her, because that was the straw the broke the camel's back and Ana realises that the man isn't just a clown, he's a Stephen King clown, and that can't be fixed.
 
-Let's pretend, for my sanity, that the sequel books do not exist and this is how the story ends. I was going to try and frame this review in terms of progression fantasy, but fuck, I just want it to be done. This is me, tapping out.
+To make sure we're all on the same page about this: I am all for people enjoying their kinks, whether that's dom/sub, free use, BDSM, CNC, or any other flavour. My gripe is about the stalking, coercive control, emotional manipulation, abuse, and physical beatings that seem to come with it in this fiction.
+
+So let's pretend, for my sanity, that the sequel books do not exist and this is how the story ends. I was going to try and frame this review in terms of progression fantasy, but fuck, I just want it to be done. This is me, tapping out.
 
 I am now going to try and find the most uplifting and wholesome serial to read to try and get this lingering disgust out of my head. Maybe one of Ravensdaggers stories, probably Kittypunk, because he always writes wholesome stuff. Screw everyone that upvoted that comment, I want those hours of life back.
