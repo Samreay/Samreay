@@ -1,4 +1,4 @@
-<div class="content content-wider">
+<div class="content content-shrink">
 
     <div class="section-header">
         <h1>Books</h1>
@@ -7,7 +7,7 @@
     </div>
 
     <div class="mx-auto mt-8">
-        <div class="grid gap-4 xs:gap-12 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-6 md:gap-y-8 items-start">
+        <div class="grid gap-4 xs:gap-12 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
             {{ range $book := site.Data.books }}
             <article class="flex flex-col h-full col-span-1 fancy_card">
                 <div class="card_translator">

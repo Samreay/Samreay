@@ -17,11 +17,17 @@
 - name: Sanctuary
   cover: landing/3_Sanctuary.jpg
   desc: "Manifestation 3: Sanctuary"
-  link: https://mybook.to/hinton_sanctuary  
+  link: https://mybook.to/hinton_sanctuary
   css: purple
 
 - name: Shieldsmith
   cover: landing/4_Shieldsmith.jpg
   desc: "Manifestation 4: Shieldsmith"
   link: https://mybook.to/shieldsmith
-  css: green 
+  css: green
+
+- name: Siegebreaker
+  cover: landing/5_Siegebreaker.jpg
+  desc: "Manifestation 5: Siegebreaker"
+  link: https://mybook.to/Siegebreaker
+  css: blue
