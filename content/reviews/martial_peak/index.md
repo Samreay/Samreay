@@ -5,7 +5,7 @@ date: 2023-01-10
 auth: Momo
 categories: [reviews]
 review: C
-weight: 31
+weight: 36
 name: "Martial Peak"
 links:
     mangatx: https://mangatx.com/manga/martial-peak-manga/
@@ -36,7 +36,7 @@ There's been so much content I don't really know how to summarise it. In general
 6. Oh no, there's a realm above this one? Can't have that. Go to new realm. Repeat from step one.
 
 
-It is both a bit derivative to have the same overarching structure, but each realm and the problems with it *are* different enough that I didn't get bored. For example, the Yang family war as a means of securing resources is very different to Yang Kai constructing space teleportation arrays to join worlds together. 
+It is both a bit derivative to have the same overarching structure, but each realm and the problems with it *are* different enough that I didn't get bored. For example, the Yang family war as a means of securing resources is very different to Yang Kai constructing space teleportation arrays to join worlds together.
 
 Yang Kai is himself a pretty good protagonist. He's not a complete murder hobo, but he *does* murder when he needs to. The concept of 'face' is everywhere (as is normal in more traditional works), and Yang Kai is no exception. Or to quote the translated novel:
 
@@ -47,6 +47,6 @@ Outside of Yang Kai, most reoccurring characters are his wives. There's no NSFW 
 ![](ohno.jpg?class="img-smaller")
 
 
-Going with the multiple women, the sexual conservatism of many eastern works comes through, where women are routinely slut shamed, which is perhaps my biggest annoyance with the series. 
+Going with the multiple women, the sexual conservatism of many eastern works comes through, where women are routinely slut shamed, which is perhaps my biggest annoyance with the series.
 
 To refocus on the good, the art style is amazing. The translations are above average, and then pacing is almost always extraordinarily fast-paced. So head over to whatever place you normally use to read manga, and give the first few chapters a shot.

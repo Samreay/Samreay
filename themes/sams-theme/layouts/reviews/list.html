@@ -8,7 +8,6 @@
         {{- $images := .Resources.ByType "image" -}}
         {{- $img := $images.GetMatch "{*cover*,*thumbnail*}" -}}
         {{- $imgSmall := $img.Resize "500x800 Center webp q70 #000000" -}}
-        {{- $thumbnail := (($imgSmall | images.Filter $filter).Resize "30x webp q50").Content | base64Encode -}}
         {
           name: {{- .Params.name -}},
           link: {{- .RelPermalink -}},
@@ -35,7 +34,6 @@
           description: {{ .Params.description }},
 
           img: {{-  $imgSmall.RelPermalink -}},
-          thumbnail: {{- $thumbnail -}},
           {{ if isSet .Params "video" }}
           video: {{- ( .Resources.Get .Params.video ).RelPermalink -}},
           {{- end -}}
@@ -289,7 +287,7 @@
     const image_template = (post) => html`
   <picture>
     <source srcset="${post.img} 500w" type="image/webp" />
-    <img loading="lazy" class="${() => "block flex-none bg-cover mx-auto " + (data.layout == "wide" ? "md:rounded-l-xl" : "")}" src="data:image/webp;base64,${post.thumbnail}" width="250" height="400" alt="${post.name}" />
+    <img loading="lazy" class="${() => "block flex-none bg-cover mx-auto " + (data.layout == "wide" ? "md:rounded-l-xl" : "")}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="250" height="400" alt="${post.name}" />
   </picture>`
 
 

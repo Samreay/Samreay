@@ -20,11 +20,11 @@ sentence: "Sunny is chosen by the Nightmare Spell and becomes Awakened.."
 
 Growing up in poverty, Sunny never expected anything good from life. However, even he did not anticipate being chosen by the Nightmare Spell and becoming one of the Awakened - an elite group of people gifted with supernatural powers. Transported into a ruined magical world, he found himself facing against terrible monsters - and other Awakened - in a deadly battle of survival.
 
-What's worse, the divine power he received happened to possess a small, but potentially fatal side effect... 
+What's worse, the divine power he received happened to possess a small, but potentially fatal side effect...
 
 ## Thoughts
 
-*As of writing this story, I've read about 500 chapters or so. But, because WebNovel is the worst, I'm not going to read further given the requirement to sacrifice a newborn and both an arm and a leg.*
+*As of writing this review, I've read about 500 chapters or so. But, because WebNovel is the worst, I'm not going to read further given the requirement to sacrifice a newborn and both an arm and a leg.*
 
 I have... complex thoughts on Shadow Slave. I jumped in on it after seeing a good dozen recommendation threads in the PF sub with people saying it was on a similar level to Cradle (which I love). Now, having finally hit the WebNovel price wall, I must struggle to put those words into thoughts. Having read hundreds of chapters, the story is obviously engaging, so to try and break down my thoughts, here are some headings. Ranked from "best" to "worst" in my opinion.
 
@@ -46,7 +46,7 @@ The technical writing itself, I believe, could use some refinement. I assume thi
 
 > A few things became more clear from this short description. Firstly...
 
-And then you get a *lot* of exposition thrown at you all from some innocuous thing which means Sunny puts together a massive puzzle. 
+And then you get a *lot* of exposition thrown at you all from some innocuous thing which means Sunny puts together a massive puzzle.
 
 I'll pause here to say that, I will try to draw primarily only from the first arc, but there are still some light spoilers from it.
 

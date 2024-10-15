@@ -5,7 +5,7 @@ date: 2022-06-05
 auth: Zamil Akhtar
 categories: [reviews]
 review: C
-weight: 31
+weight: 35
 name: "Lightblade"
 links:
     amazon: https://www.amazon.com/Lightblade-Progression-Fantasy-Epic-Saga-ebook/dp/B0B1MNYTSB
@@ -18,7 +18,7 @@ sentence: "In three days, Jyosh will slay the God Emperor, or die trying."
 
 *Disclosure: I received this book in advance and without cost in exchange for an honest review. Counter-disclosure: I already pay for KU, so I would have been able to read it for 'free' anyway.*
 
-Initially, the premise of this book seemed super intense. Lightblades obviously give you some *Star Wars* vibes, the magic system is focused around different wavelengths of light, which gives me *Lightbringer* vibes, and then the focus on dreams, time-dilation, and the existential question "Is this the real world" combine *Inception* and the *Matrix*. Luckily for me, I like all of those things, so I tore through this book. 
+Initially, the premise of this book seemed super intense. Lightblades obviously give you some *Star Wars* vibes, the magic system is focused around different wavelengths of light, which gives me *Lightbringer* vibes, and then the focus on dreams, time-dilation, and the existential question "Is this the real world" combine *Inception* and the *Matrix*. Luckily for me, I like all of those things, so I tore through this book.
 
 Without spoilers, the premise is simple. Jyosh, our effectively enslaved MC, wants to kill the Emperor. After all, the guy had his family all murdered, and shipped him off to the work camps. To try and achieve his goal, Jyosh swaps out his government-given dream stone, with a bootlegged stone with a lightblade training program on it, with its own more advanced, sentient training AI. Let's just say that things don't go as planned.
 

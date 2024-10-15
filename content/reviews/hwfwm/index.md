@@ -6,7 +6,7 @@ date: 2021-03-02
 categories: [reviews]
 auth: Shirtaloon
 review: C
-weight: 36
+weight: 32
 name: "He Who Fights With Monsters"
 links:
     amazon: https://www.amazon.com/He-Who-Fights-Monsters-Adventure-ebook/dp/B08WCT9W26
@@ -20,9 +20,9 @@ sentence: "Jason wakes up in a mysterious world of magic and monsters."
 
 Jason, our MC, is simultaneously this series greatest strengths and greatest weakness.
 
-Transported to a magical world, Jason is thrown into some truly unfortunate circumstances right off the bat. Weirdly there's very little detail given about Jason and his past life, apart from a few vague comments about it not exactly being ideal (I mean, he was Australian, just like me, so points for that), but there's no time to dwell on that as Jason struggles to survive against a host of organisations, beasts, and eventually eldritch horrors. 
+Transported to a magical world, Jason is thrown into some truly unfortunate circumstances right off the bat. Weirdly there's very little detail given about Jason and his past life, apart from a few vague comments about it not exactly being ideal (I mean, he was Australian, just like me, so points for that), but there's no time to dwell on that as Jason struggles to survive against a host of organisations, beasts, and eventually eldritch horrors.
 
-Due to these unfortunate circumstances, Jason's powers that manifest are decidedly evil, and provide numerous sources of humour. His familiar is an apocalypse monster named Colin. 
+Due to these unfortunate circumstances, Jason's powers that manifest are decidedly evil, and provide numerous sources of humour. His familiar is an apocalypse monster named Colin.
 
 Jason gets swept along in conflicts along the way until we end up in a slightly more traditional progress fantasy setting (students, interpersonal politics, and yes, the classic entitled Noble who is a massive dick and serves as a generic antagonist). Jason's snark against the entitled Noble class is initially amusing.
 

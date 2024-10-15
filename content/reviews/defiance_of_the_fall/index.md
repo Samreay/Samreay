@@ -5,7 +5,7 @@ date: 2022-03-25
 categories: [reviews]
 auth: TheFirstDefier
 review: C
-weight: 36
+weight: 33
 name: "Defiance of the Fall"
 links:
     amazon: https://www.amazon.com/Defiance-Fall-LitRPG-Adventure-TheFirstDefier-ebook/dp/B09168R29M
