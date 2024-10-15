@@ -12,7 +12,7 @@ links:
     amazon: https://www.amazon.com/Are-Legion-Bob-Bobiverse-Book-ebook/dp/B01LWAESYQ
     audible: https://www.audible.com/pd/We-Are-Legion-We-Are-Bob-Audiobook/B01L082HJ2
 aliases: [/reviews/bobiverse]
-tags: [sci-fi, isekai]
+tags: [sci-fi, isekai, in-progress]
 sentence: "Bob becomes a replicating spaceship."
 ---
 
