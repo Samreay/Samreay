@@ -4,8 +4,8 @@ description: "System apocalypse LitRPG. Carl and Princess Donut are the real pow
 date: 2022-01-10
 auth: Matt Dinniman
 categories: [reviews]
-review: A
-weight: 17
+review: S
+weight: 8
 name: "Dungeon Crawler Carl"
 links:
     amazon: https://www.amazon.com/Dungeon-Crawler-Carl-Gamelit-Adventure-ebook/dp/B08BKGYQXW
@@ -22,9 +22,9 @@ Now *that* is a fun premise.
 
 Carl enters the dungeon with Princess Donut, a prize-winning cat. By the roll of dice and legendary loot box, Donut gains sentience and gets promoted from pet to party member. Don't worry, she gets a pet later on. A cute velociraptor called Mongo.
 
-The dynamic between Carl and his prim and fan-obsessed cat Donut is great, and they both feel like distinct characters with authentic personalities. The AI governing the dungeon is so over-the-top ridiculous it works, and the descriptions of items, phrasing, the reasons behind various loot boxes which get rewarded for random achievements, and its desire to dick with Carl provide a constant stream of humour into the novels, and the sheer amount of work Dinniman has put into those snippets is extraordinary. 
+The dynamic between Carl and his prim and fan-obsessed cat Donut is great, and they both feel like distinct characters with authentic personalities. The AI governing the dungeon is so over-the-top ridiculous it works, and the descriptions of items, phrasing, the reasons behind various loot boxes which get rewarded for random achievements, and its desire to dick with Carl provide a constant stream of humour into the novels, and the sheer amount of work Dinniman has put into those snippets is extraordinary.
 
-As Carl descends deeper into the dungeon, the larger plot starts to bubble to the surface. Businesses, corporations, political factions, all with stakes, goals, and their own motivations. And in the dungeon, poor Carl, trying to figure out how to play them off each other so he can get revenge on the people that destroyed Earth. 
+As Carl descends deeper into the dungeon, the larger plot starts to bubble to the surface. Businesses, corporations, political factions, all with stakes, goals, and their own motivations. And in the dungeon, poor Carl, trying to figure out how to play them off each other so he can get revenge on the people that destroyed Earth.
 
 One of the few criticisms that I can level would be on the book dealing with the subway floor. An entire dungeon floor made of hundreds of interconnected subway lines. Whilst the book does begin with a disclosure from the author that he knows it's confusing and not to get bogged down, I did spend a large portion of that book reading along with absolutely no understanding of where Carl was going, what his plans were, or the motivation behind the plans. However, the action and explosive solution to problems has always kept me turning the pages, where I shrug, put the confusion behind me, and hope I figure it out soon. And by that, I mean wait for the author to recap or spell it out super obviously.
 
