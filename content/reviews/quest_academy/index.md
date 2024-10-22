@@ -1,8 +1,8 @@
 ---
-title:  "A Review of Brian J Nord's 'Quest Academy'"
+title:  "A Review of Brian J Nordon's 'Quest Academy'"
 description: "A scifi academy story with humanity under assult from demons, featuring a very overpowered protagonist."
 date: 2023-12-21
-auth: Brian J Nord
+auth: Brian J Nordon
 categories: [reviews]
 review: C
 weight: 36
@@ -28,7 +28,7 @@ Quest Academy stands defiantly against them, as a place to train the next genera
 
 In a war with everything on the line, every power matters. With an adaptive enemy, comes the need for a constant shift in tactics. A new age of strategy is emerging, with even the unlikeliest of Heroes making an impact.
 
-Salvatore Argento has never seen a demon. He has never aspired to become a Hero. Yet his power might be the one to tip the odds in humanity’s favor. 
+Salvatore Argento has never seen a demon. He has never aspired to become a Hero. Yet his power might be the one to tip the odds in humanity’s favor.
 
 ## Thoughts
 
