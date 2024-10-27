@@ -239,6 +239,27 @@
     }}`
     tag_template(tag_container)
 
+
+    const preamble_container = document.getElementById("preamble");
+    const preamble_template = html`${ function() {
+      let discord = html`<a
+        href="{{ site.Params.discord }}"
+        class="font-bold"
+        style="color: #7289da"
+        >{{ partial "ico" "discord" }} discord</a
+      >`
+      if (data.layout == "flowchart") {
+        return html`<p>For questions, head to ${discord}. Flowchart will take a few seconds to load. Click and drag to move. Recommend hitting the fullscreen button in the top right.</p>`
+      }
+      return html`<p>
+      As normal, these are <em>my</em> rankings based on what I personally enjoy
+      reading. You may have opposite tastes. The below inputs should make
+      finding something easier. If you have questions, recommendations, or want
+      to know when new reviews or releases are out, join the ${discord}.
+    </p>`
+    }}`
+    preamble_template(preamble_container)
+
     const layout_container = document.getElementById("toggle-input");
     const layout_template = html`
   <div class="justify-center flex flex-wrap items-center">
@@ -258,7 +279,13 @@
       <input id="layout_flowchart" checked="${() => (data.layout == "flowchart" ? "checked" : "")}" name="layout" type="radio" value="flowchart" class="hidden peer" @click="${(e) => { data.layout = "flowchart" } }">
       <span class="px-4 py-2 rounded-r-md bg-gray-700 peer-checked:bg-main-700">Flowchart</span>
     </label>
-    <label for="sort-order" class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
+
+    ${ function() {
+      if (data.layout == "flowchart") {
+        return html``
+      }
+      return html`
+        <label for="sort-order" class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100">
       <input id="sort-order" type="checkbox" checked="${() => (data.by_rank ? "checked" : "")}" class="hidden peer" @click="${(e) => {data.by_rank = e.target.checked} }">
       <span class="px-4 py-2 rounded-l-md bg-gray-700 peer-checked:bg-main-700">Rank</span>
       <span class="px-4 py-2 rounded-r-md bg-main-700 peer-checked:bg-gray-700">Recent</span>
@@ -272,7 +299,8 @@
       placeholder="Search..."
     />
     <button class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100" @click="${() => reset()}">Reset</button>
-
+    `
+    }}
   </div>
   `
     layout_template(layout_container);
@@ -400,7 +428,6 @@
       ${ function() {
       if (data.layout == "flowchart") {
         return html`<div class="flowchart">
-          <p class="text-center mx-auto mb-4">Flowchart will take a few seconds to load. Click and drag to move. Ctrl-scroll to zoom.</p>
           <iframe src="https://embed.figma.com/board/hScNoWonDzTMTrpzUhNqzR/Story-Finder?node-id=102212-639&embed-host=share&footer=false&theme=dark" allowfullscreen></iframe>
         </div>`
 
@@ -440,18 +467,7 @@
 <div class="content content-full">
   <div class="section-header mt-12 pb-2">
     <h1>Book Reviews!</h1>
-    <p>
-      As normal, these are <em>my</em> rankings based on what I personally enjoy
-      reading. You may have opposite tastes. The below inputs should make
-      finding something easier. If you have questions, recommendations, or want
-      to know when new reviews or releases are out, join the
-      <a
-        href="{{ site.Params.discord }}"
-        class="font-bold"
-        style="color: #7289da"
-        >{{ partial "ico" "discord" }} discord</a
-      >
-    </p>
+    <div id="preamble"></div>
 
   </div>
   <!-- The toggles config -->
