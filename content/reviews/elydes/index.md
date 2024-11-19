@@ -43,3 +43,5 @@ I think my only gripe with the series is I'm still waiting for that special hook
 Sorry, I'm letting some general thoughts on the genre leak into this specific review, and I shouldn't do that. Elydes stands on its own, and I'm going to pick up where book two left of on Royal Road to see where things go now that the MC is about to [redacted]. We've had two books of training and learning, so I'm hopefully that its now time for Kai to spread his wings and for the stakes to increase.
 
 Damn, this now feels like a half-finished review. Okay, note to self, in mid-November 2024 read another 1000 pages and come back to update this.
+
+Alright, I'm back, three days later, having now finished everything available of Royal Road. Yeah the first two books sort of serve as a very long introduction and the pacing picks up in what'll become Kindle book three (and four). It was good to see Kai with more agency and goals once the ruins became a bigger plot point, and I'm still waiting (on more chapters) to see where the new arc post that goes. So don't be discouraged if you're feeling antsy after the first two books and want more, because its just around the corner.
