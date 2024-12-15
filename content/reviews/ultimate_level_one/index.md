@@ -1,6 +1,6 @@
 ---
 title:  "A Review of  Shawn Wilson's 'Ultimate Level 1'"
-description: "LitRPG system apocalypse where Meghan just wants to survive it with her kids."
+description: "LitRPG where Max gets a forbidden black skill: Consume."
 date: 2024-12-10
 auth:  Shawn Wilson
 categories: [reviews]
@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Ultimate-Level-1-Shattered-Dreams-ebook/dp/B0CSF1CM8H
     audible: https://www.audible.com/pd/Shattered-Dreams-Audiobook/B0D325KNCF
 tags: [in-progress, litRPG, system-apocalypse]
-sentence: "What's a mom to do when a system apocalypse arrives on Earth?"
+sentence: "LitRPG where Max gets a forbidden black skill: Consume."
 ---
 
 *As of the time of writing this review, I've read all five available books.*
