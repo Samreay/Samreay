@@ -3,7 +3,7 @@ repos:
     rev: v4.5.0
     hooks:
       - id: check-added-large-files
-        args: ["--maxkb=5000"]
+        args: ["--maxkb=7000"]
       - id: check-toml
       - id: check-json
       - id: check-symlinks
