@@ -31,3 +31,9 @@
   desc: "Manifestation 5: Siegebreaker"
   link: https://mybook.to/Siegebreaker
   css: blue
+
+- name: Sovereign
+  cover: landing/6_sovereign.jpg
+  desc: "Manifestation 6: Sovereign"
+  link: https://mybook.to/SoulRelic
+  css: purple
