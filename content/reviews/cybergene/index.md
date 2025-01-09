@@ -5,7 +5,7 @@ date: 2024-11-11
 auth: Sixbees2
 categories: [reviews]
 review: B
-weight: 26
+weight: 21
 name: "CyberGene: Blood and Steel"
 search_terms: "cybergene"
 links:

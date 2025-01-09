@@ -4,8 +4,8 @@ description: "LitRPG system apocalypse where Meghan just wants to survive it wit
 date: 2024-12-10
 auth:  Erin Ampersand
 categories: [reviews]
-review: B
-weight: 25
+review: A
+weight: 19
 name: "Apocalypse Parenting"
 links:
     amazon: https://www.amazon.com/Time-Play-Apocalypse-Parenting-Book-ebook/dp/B0B3XT4TCJ
