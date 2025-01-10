@@ -112,7 +112,9 @@ Here's Poyjeee's final render for my book six cover:
 
 Unfortunately I don't have a list of typographers on hand. I used [Shawn T. King](http://www.stkkreations.com/book-covers.html), but he's now fully booked and on retainer with Wraithmarked. [Inorai](https://www.fiverr.com/inorai/design-professional-book-cover-typography) has done a ton of covers in the LitRPG space. [Lesia T, aka germancreative](https://www.fiverr.com/germancreative) has also done a bunch of similar work.
 
-The process here is similar to the art. Find some illustrators, know what you want by looking at the genre, reach out and supply your art, wait for some great typography.
+If you want to do it yourself, my general tip is "less is more" and "legibility over everything else." I've got a tutorial [here](/blogs/metallic_text/) about how to make metallic text and some of the font-picking tools you can use, but it's not a replacement for experience.
+
+So the real process here is similar to the art. Find some illustrators, know what you want by looking at the genre, reach out and supply your art, wait for some great typography.
 
 ### Animations
 
