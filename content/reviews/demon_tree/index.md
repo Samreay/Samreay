@@ -9,7 +9,7 @@ weight: 35
 name: "Reborn as a Demonic Tree"
 links:
     royal_road: https://www.royalroad.com/fiction/62881/reborn-as-a-demonic-tree
-tags: [in-progress, litrpg, isekai]
+tags: [in-progress, litrpg, isekai, kingdom-building]
 sentence: "If you're going to reborn as a tree, a daily sign in system works out pretty well."
 ---
 

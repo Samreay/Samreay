@@ -331,6 +331,10 @@
   background-color: #edb404;
   @apply text-gray-800 font-medium;
 }
+.tag-kingdom-building {
+  background-color: oklch(0.393 0.095 152.535);
+  @apply text-gray-100 font-medium;
+}
 .tag-fanfic {
   background-color: #f472b6;
   @apply text-gray-800 font-medium;

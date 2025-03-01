@@ -10,7 +10,7 @@ name: "Apocalypse Parenting"
 links:
     amazon: https://www.amazon.com/Time-Play-Apocalypse-Parenting-Book-ebook/dp/B0B3XT4TCJ
     audible: https://www.audible.com/pd/Time-to-Play-Audiobook/B0BRBS1D87
-tags: [in-progress, litRPG, system-apocalypse, female-lead]
+tags: [in-progress, litRPG, system-apocalypse, female-lead, kingdom-building]
 sentence: "What's a mom to do when a system apocalypse arrives on Earth?"
 ---
 

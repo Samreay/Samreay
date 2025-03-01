@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/series/192510-the-divine-dungeon
     audible: https://www.audible.com/pd/Dungeon-Born-Audiobook/B06XQ78XLP
 aliases: [/reviews/divine_dungeon]
-tags: [litrpg, crafting,  dungeon-core]
+tags: [litrpg, crafting,  dungeon-core, kingdom-building]
 sentence: "A powerful dungeon. A sheep-herder turned Noble. Their path to ascendance through cultivation."
 ---
 
@@ -26,12 +26,12 @@ The relationship between the dungeon, Cal, and his wisp, Dani, is strength of th
 
 If you've read some school-based progression fantasy series where you sit on the main characters shoulder as you read paragraph after paragraph of a dry history lesson, you'll appreciate that this doesn't happen. Thank goodness.
 
-Back to the plot, watching Cal grow from a tiny dungeon to a high-level death-trap for adventures is great. Planning out creature evolutions, traps, rewards, goblin habitation plans, all scratched that satisfying LitRPG and progression needs that for some reason reside in my soul. 
+Back to the plot, watching Cal grow from a tiny dungeon to a high-level death-trap for adventures is great. Planning out creature evolutions, traps, rewards, goblin habitation plans, all scratched that satisfying LitRPG and progression needs that for some reason reside in my soul.
 
 And for the books, when they stay about Cal's growth, they are great. It's when we move from the dungeon, away from the joy of exploring what weird creature will be made next, to the wider world outside we see that the external world has little depth, and serves only as a vehicle for the larger conflict that seems out of place in Cal's world. It's a tone shift, it's fairly ridiculous, and I can't help but feel it was chosen more to set up the subsequent series Krout has published than being a natural fit for the start of the series.
 
 I won't go into too much more detail or I'd spoil what does happen.
 
-So, apart from some head scratching over the direction of the last book-and-a-half, the books were a fun read. If this review was just for the first two books, similar to my thoughts on the *Lightbringer* series, I'd give them a much better ranking. 
+So, apart from some head scratching over the direction of the last book-and-a-half, the books were a fun read. If this review was just for the first two books, similar to my thoughts on the *Lightbringer* series, I'd give them a much better ranking.
 
 If the premise of a sentient, growing dungeon is of interest to you though, they're worth the read for sure.

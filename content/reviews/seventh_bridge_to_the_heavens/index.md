@@ -12,7 +12,7 @@ links:
     # goodreads: https://www.goodreads.com/en/book/show/60548100
     audible: https://www.audible.com/pd/First-Fist-Audiobook/B09W646LC4
 aliases: [/reviews/seventh]
-tags: [cultivation, in-progress]
+tags: [cultivation, in-progress, kingdom-building]
 sentence: "Once a soldier, now an outcast. Luca must overcome fate as he walks the path of a cultivator."
 ---
 
@@ -22,7 +22,7 @@ For those wanting to get straight into action and cultivation, don't skip over t
 
 The story follows the Quiet Luca, a soldier whose core didn't awaken, who served in the squad of stone-bending cultivators. After exemplary service, Luca becomes an outcast, exiled, and struggles with his new life. Then, of course, *cultivation*. As to how it happens, I won't spoil that.
 
-The slower setup in this book is something I appreciate. Just like with Cradle, spending some time establishing the world and the players in it deepens a story far more than throwing in a hundred pop-culture references. There are a variety of new characters after Luca gets exiled, each their own unique person, great dialogue between them, and plenty of really fun ways I can see the story evolving. 
+The slower setup in this book is something I appreciate. Just like with Cradle, spending some time establishing the world and the players in it deepens a story far more than throwing in a hundred pop-culture references. There are a variety of new characters after Luca gets exiled, each their own unique person, great dialogue between them, and plenty of really fun ways I can see the story evolving.
 
 The cultivation is done fairly normally, with the standard dantain, forming a core, hardening your body, all the stuff we know and love. The LitRPG elements, however, feel effectively like the author threw them in just to check the "LitRPG" box so they could get it into the LitRPG groups and promotions. There's no system, and the quests and interfaces that pop up aren't necessary to the plot, nor do they really seem to fit in with the feel of the rest of the book. It's like reading a Viking saga for four hundred pages, and then on the next page, an interface pops up with menus. It feels out of place. On top of that, the person giving the reward points freely admits they're just made up and don't have value, which just reinforces how out of place it feels.
 

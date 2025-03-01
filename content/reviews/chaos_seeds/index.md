@@ -12,15 +12,15 @@ links:
     # goodreads: https://www.goodreads.com/series/179187-chaos-seeds
     audible: https://www.audible.com/pd/The-Land-Founding-A-LitRPG-Saga-Audiobook/B071DNLS1F
 aliases: [/reviews/land]
-tags: [litrpg, in-progress, isekai]
+tags: [litrpg, in-progress, isekai, kingdom-building]
 sentence: "Richter get's isekai'd, and learns the perils of the Land."
 ---
 
-Is the Chaos Seeds series a fun read? 
+Is the Chaos Seeds series a fun read?
 
 For sure.
 
-Is it sensible? Is it serious? Is it consistent? 
+Is it sensible? Is it serious? Is it consistent?
 
 No.
 
@@ -37,11 +37,11 @@ Maybe it doesn't help that I possess a deep and abiding hatred of that song, but
 
 So obiously this is just my own personal preferences. Maybe you smiled at the frivolity of those inclusions like my wife, in which case, you will 100% enjoy this series. To bits. Maybe except for the ridiculously detailed cave diarrhoea scene (which I actually found fairly humurous, but I've seen it lampooned in many other reviews), but hey, you can't have everything and please everyone!
 
-So if I don't like the memes, why did I read literally all eight of the available books? 
+So if I don't like the memes, why did I read literally all eight of the available books?
 
 It's a great self-insert, that's why. Can't deny it.
 
-Richter (the main character) is charismatic, loved, powerful, and amazingly lucky. To the point he finds not just one but multiple legendary artifacts with which he transforms his little village into a high-tech utopia. 
+Richter (the main character) is charismatic, loved, powerful, and amazingly lucky. To the point he finds not just one but multiple legendary artifacts with which he transforms his little village into a high-tech utopia.
 
 I too would love to trip over and find a cheque for a billion dollars, and watching Richter's constant barrage of items, resources, and experience makes me wish, if I ever end up in his situation, I too have such great fortune.
 

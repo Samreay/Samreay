@@ -9,7 +9,7 @@ weight: 35
 name: "The Impeccable Adventure of the Reluctant Dungeon"
 links:
     royal_road: https://www.royalroad.com/fiction/56068/the-impeccable-adventure-of-the-reluctant-dungeon
-tags: [in-progress, isekai, dungeon-core]
+tags: [in-progress, isekai, dungeon-core, kingdom-building]
 sentence: "After getting reincarnated as a dungeon, Theodor thought he’d finally get some rest and relaxation. He was wrong."
 ---
 
