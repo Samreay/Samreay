@@ -39,13 +39,13 @@ So here are my thoughts that you all forced me to offer.
 
 ## Thoughts
 
-We begin our journey with Anastasia, poor Anastasia, who just wants to study for her exams. Unfortunately, she's born with vision impairment,  an inability to say no and three left feet, so we quickly end up in a different city and with her tripping over a rogue molecule of oxygen as she falls into Christian Grey's window-backed office.
+We begin our journey with Anastasia, poor Anastasia, who just wants to study for her exams. Unfortunately, she's born with vision impairment, an inability to say no, and three left feet, so we quickly end up in a different city and with her tripping over a rogue molecule of oxygen as she falls into Christian Grey's window-backed office.
 
 I've sourced an illustration what Ana sees when she falls into his office.
 
 ![](illusive_man.webp?class="img-smaller")
 
-Unlike the Illusive Man, Christian is only too happy to help Ana up instead of kicking her while she was done, because that comes later, of course. You have to work up to these things. He smirks a few times, quirks a few eyebrows, and Ana blushes, flushes, and mushes over the attention.
+Unlike the Illusive Man, Christian is only too happy to help Ana up instead of kicking her while she was down, because that comes later, of course. You have to work up to these things. He smirks a few times, quirks a few eyebrows, and Ana blushes, flushes, and mushes over the attention.
 
 They sit down for an interview in which Christian tells her how much of a hyper-rational psychic savant he is, and that he just loves to control everything and everyone. At this point, Ana should probably have been decorating the Chinese embassy with all the red flags Christian was handing out, but remember that she's colourblind, which is where the books name "Fifty Shades of Grey" comes from. Even if she wasn't, she's too distracted looking at his lip---the lower one specifically. Anastasia makes a right mess of the interview questions and leaves with a "pounding heart", which is pounding for the wrong reasons after bombing an interview.
 
