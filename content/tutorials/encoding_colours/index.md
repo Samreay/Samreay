@@ -13,9 +13,9 @@ This little write is designed to try and explain what **embeddings** are, and ho
 
 Let's start simple: *What is an embedding?*
 
-An embedding is a way to represent some categorical feature (like a word), as a dense parameter. Specifically, this is normally a unit vector in a high dimensional hypersphere. 
+An embedding is a way to represent some categorical feature (like a word), as a dense parameter. Specifically, this is normally a unit vector in a high dimensional hypersphere.
 
-A common way of encoding a categorical feature of machine learning is to one-hot-encode them. However, for a large number of categories, this creates a very spare matrix. Imagine encoding the names of babies born in 2020. You might have a million records, but with ten thousand possible names, that is a **very** big matrix filled with mostly zeros. Also, names like Mat and Matt are just as similar as Mat and Patrica when you one-hot-encode. That is, not similar at all. 
+A common way of encoding a categorical feature of machine learning is to one-hot-encode them. However, for a large number of categories, this creates a very spare matrix. Imagine encoding the names of babies born in 2020. You might have a million records, but with ten thousand possible names, that is a **very** big matrix filled with mostly zeros. Also, names like Mat and Matt are just as similar as Mat and Patrica when you one-hot-encode. That is, not similar at all.
 
 Instead, if we can create a dense vector (aka a vector filled with numbers and not mostly zeros), we can represent Mat, Matt and Patrica as some location in higher dimensional space, where the Mat and Matt vectors are similar to each other. This is what we are trying to do with embeddings. To learn the translation from a categorical feature to this vector in higher dimensional space.
 
@@ -442,7 +442,7 @@ c[["name_x", "name_y"]].sample(10)
 
 
 
-Great! A hundred thousand colour combinations. However, this is still useless. When we train embeddings on words, we want positive **and** negative examples. 
+Great! A hundred thousand colour combinations. However, this is still useless. When we train embeddings on words, we want positive **and** negative examples.
 
 In a textual example, the pairs that come from words being next to each other are positive examples. We can generate negative examples by scrambling the document to remove meaning, and then taking pairs (of course, there many formal methods of doing this that I'm not going to go into!).
 
@@ -743,15 +743,15 @@ def setseed(i):
 </div>
 
 
-Okay, lets step through this. In `get_model` we ask for a normal sequential model. The `Embedding` layer is a lookup table, which will have 646 rows (one for each colour), and will produce a 2D vector for each word. Because we generate two words at a time, we set `input_length=2` - which means the output of the embeding layer will be 2 2D vectors (aka a matrix of shape `(2,2)`). 
+Okay, lets step through this. In `get_model` we ask for a normal sequential model. The `Embedding` layer is a lookup table, which will have 646 rows (one for each colour), and will produce a 2D vector for each word. Because we generate two words at a time, we set `input_length=2` - which means the output of the embeding layer will be 2 2D vectors (aka a matrix of shape `(2,2)`).
 
 If you don't want to combine the inputs together like I am doing, [here](https://stackoverflow.com/questions/53356849/how-to-train-a-model-with-only-an-embedding-layer-in-keras-and-no-labels) is an example where the model has two separate inputs that are combined later.
 
-After the embedding, we have a `Lambda` layer, which simply takes that `2x2` matrix from the embedding output, splits it into `a` and `b` (the embedding vector for each of our two colours), and then returns the sum of the squared difference. Which is the Euclidean distance squared. 
+After the embedding, we have a `Lambda` layer, which simply takes that `2x2` matrix from the embedding output, splits it into `a` and `b` (the embedding vector for each of our two colours), and then returns the sum of the squared difference. Which is the Euclidean distance squared.
 
-The keen-eyed among you might remember that we set a positive value for our predict column before for similar vectors... and here similar vectors will have a result close to zero! 
+The keen-eyed among you might remember that we set a positive value for our predict column before for similar vectors... and here similar vectors will have a result close to zero!
 
-It doesn't matter! 
+It doesn't matter!
 
 The reason we don't care, is because the `Lambda` layer is connected to a single `Dense` layer, which will also train its weight and bias. If the weight is negative and bias positive, it will act as an inverting mechanism. Neural networks really are magic!
 
@@ -759,7 +759,7 @@ If this still upsets you though, you can change out the `K.sum`, but a naive inv
 
 Finally, to make sure I can reproduce these plots exactly, I added the `setseed` function.
 
-Lets now instantiate the model, and fit it. Oh, I'll also save out the embedding weights using a custom callback as we go, so that we can see their evolution over epochs. 
+Lets now instantiate the model, and fit it. Oh, I'll also save out the embedding weights using a custom callback as we go, so that we can see their evolution over epochs.
 
 
 
@@ -767,7 +767,7 @@ Lets now instantiate the model, and fit it. Oh, I'll also save out the embedding
 
 ```python
 weights = []
-save = LambdaCallback(on_epoch_end=lambda batch, logs: 
+save = LambdaCallback(on_epoch_end=lambda batch, logs:
                       weights.append(model.layers[0].get_weights()[0]))
 
 X, y = c[["num_x", "num_y"]], c["predict"]
@@ -782,13 +782,13 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 
     Model: "sequential"
     _________________________________________________________________
-    Layer (type)                 Output Shape              Param #   
+    Layer (type)                 Output Shape              Param #
     =================================================================
-    embedding (Embedding)        (None, 2, 2)              1292      
+    embedding (Embedding)        (None, 2, 2)              1292
     _________________________________________________________________
-    Dist (Lambda)                (None, 1)                 0         
+    Dist (Lambda)                (None, 1)                 0
     _________________________________________________________________
-    dense (Dense)                (None, 1)                 2         
+    dense (Dense)                (None, 1)                 2
     =================================================================
     Total params: 1,294
     Trainable params: 1,294
@@ -833,7 +833,7 @@ with plt.style.context("default"):
     nw = len(weights) - 1
     nf, power = 30 * 10, 2
     frames = pd.unique((np.linspace(1, nw**(1 / power), nf)**power).astype(int))
-    ani = FuncAnimation(fig, update, frames=frames, 
+    ani = FuncAnimation(fig, update, frames=frames,
                         init_func=init, blit=True, interval=33.3);
 ```
 
@@ -847,10 +847,10 @@ We can then use this ugly plotting code to output PNGs and turn them into a vide
 <div class=" width-70" markdown=1>
 
 ```python
-ani.save('embed_2d.mp4', fps=30, 
+ani.save('embed_2d.mp4', fps=30,
          extra_args=['-vcodec', 'libx264', '-crf', '26'])
 
-# If you're running this in a Jupyter notebook, the below will do the 
+# If you're running this in a Jupyter notebook, the below will do the
 # same without saving it to file
 # HTML(ani.to_html5_video())
 ```
@@ -879,7 +879,7 @@ Video("embed_2d.mp4")
 
 
 
-This is beautiful. From the starting randomly initialised mess, quickly structure emerges. You can see the black to white gradient down the middle, with blue and red being split on either side. Green, being in between and limited by 2D space, gets stuck in between. 
+This is beautiful. From the starting randomly initialised mess, quickly structure emerges. You can see the black to white gradient down the middle, with blue and red being split on either side. Green, being in between and limited by 2D space, gets stuck in between.
 
 And to give you something that isn't moving to look at better, here is the final embedding.
 
@@ -898,9 +898,9 @@ ax.set_title("2D Colour Embeddings");
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -928,7 +928,7 @@ def get_model2(embedding_dims=3):
     return model
 
 weights_3d = []
-save = LambdaCallback(on_epoch_end=lambda batch, logs: 
+save = LambdaCallback(on_epoch_end=lambda batch, logs:
                       weights_3d.append(model.layers[0].get_weights()[0]))
 setseed(1)
 model = get_model2()
@@ -940,13 +940,13 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 
     Model: "sequential_1"
     _________________________________________________________________
-    Layer (type)                 Output Shape              Param #   
+    Layer (type)                 Output Shape              Param #
     =================================================================
-    embedding_1 (Embedding)      (None, 2, 3)              1938      
+    embedding_1 (Embedding)      (None, 2, 3)              1938
     _________________________________________________________________
-    Dist (Lambda)                (None, 1)                 0         
+    Dist (Lambda)                (None, 1)                 0
     _________________________________________________________________
-    dense_1 (Dense)              (None, 1)                 2         
+    dense_1 (Dense)              (None, 1)                 2
     =================================================================
     Total params: 1,940
     Trainable params: 1,940
@@ -958,6 +958,7 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 And because the animation code for 3D plots is even uglier than the 2D, I've hidden it away. But here is the constrained 3D trained embeddings!
 
 
+![](embed_3d.mp4)
 
 
 
@@ -1035,7 +1036,7 @@ def get_model(embedding_dims=2):
 def setseed(i):
     np.random.seed(i), set_seed(i)
 weights = []
-save = LambdaCallback(on_epoch_end=lambda batch, logs: 
+save = LambdaCallback(on_epoch_end=lambda batch, logs:
                       weights.append(model.layers[0].get_weights()[0]))
 
 X, y = c[["num_x", "num_y"]], c["predict"]
@@ -1070,12 +1071,12 @@ with plt.style.context("default"):
     nw = len(weights) - 1
     nf, power = 30 * 10, 2
     frames = pd.unique((np.linspace(1, nw**(1 / power), nf)**power).astype(int))
-    ani = FuncAnimation(fig, update, frames=frames, 
+    ani = FuncAnimation(fig, update, frames=frames,
                         init_func=init, blit=True, interval=33.3);
-ani.save('embed_2d.mp4', fps=30, 
+ani.save('embed_2d.mp4', fps=30,
          extra_args=['-vcodec', 'libx264', '-crf', '26'])
 
-# If you're running this in a Jupyter notebook, the below will do the 
+# If you're running this in a Jupyter notebook, the below will do the
 # same without saving it to file
 # HTML(ani.to_html5_video())
 from IPython.display import Video
@@ -1095,7 +1096,7 @@ def get_model2(embedding_dims=3):
     return model
 
 weights_3d = []
-save = LambdaCallback(on_epoch_end=lambda batch, logs: 
+save = LambdaCallback(on_epoch_end=lambda batch, logs:
                       weights_3d.append(model.layers[0].get_weights()[0]))
 setseed(1)
 model = get_model2()
