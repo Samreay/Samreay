@@ -27,7 +27,16 @@
 - name: Antti Hakosaari
   links:
     artstation: https://www.artstation.com/haco
-  covers: [card_mage, primal_hunter1,primal_hunter2, primal_hunter3, primal_hunter4, rune_seeker5, calamitous_bob1]
+  covers:
+    [
+      card_mage,
+      primal_hunter1,
+      primal_hunter2,
+      primal_hunter3,
+      primal_hunter4,
+      rune_seeker5,
+      calamitous_bob1,
+    ]
 
 - name: Arnor
   links:
@@ -216,7 +225,18 @@
   links:
     artstation: https://www.artstation.com/harrybui
   covers:
-    [ethereal1, hwfwm1, hwfwm2, hwfwm3, hwfwm4, hwfwm5, hwfwm6, hwfwm7, hwfwm8, hwfwm9]
+    [
+      ethereal1,
+      hwfwm1,
+      hwfwm2,
+      hwfwm3,
+      hwfwm4,
+      hwfwm5,
+      hwfwm6,
+      hwfwm7,
+      hwfwm8,
+      hwfwm9,
+    ]
 
 - name: HasegawaKein
   links:
@@ -284,7 +304,14 @@
 - name: Kaion Luong
   links:
     website: https://kaionluong.weebly.com/
-  covers: [gleam, road_to_mastery, monster_farmer2, beers_and_beards, runebound_professor]
+  covers:
+    [
+      gleam,
+      road_to_mastery,
+      monster_farmer2,
+      beers_and_beards,
+      runebound_professor,
+    ]
 
 - name: Kart Studios
   notes: Art Studio, lead artist is Ben Moran (Minh Anh Nguyen Hoang)
@@ -321,6 +348,11 @@
     website: https://www.kevindipasupil.com/
   covers: [more_to_love]
 
+- name: Kevin Glint
+  links:
+    artstation: https://glintastickevin.artstation.com
+  covers: [star_breaker, lunar_witch, ancient_stallion, saturn]
+
 - name: KikiCute
   links:
     artstation: https://www.artstation.com/ktrn
@@ -347,7 +379,12 @@
     artstation: https://www.artstation.com/kotikomori
     website: https://kotikomori.art/
     instagram: https://www.instagram.com/kotikomori
-  covers: [hell_difficulty_tutorial_1, hell_difficulty_tutorial_2, hell_difficulty_tutorial_3]
+  covers:
+    [
+      hell_difficulty_tutorial_1,
+      hell_difficulty_tutorial_2,
+      hell_difficulty_tutorial_3,
+    ]
 
 - name: Laércio Messias
   links:
@@ -537,7 +574,14 @@
   notes: Art studio
   links:
     artstation: https://www.artstation.com/polarengine
-  covers: [strathmar, infinite_spear, mana_beasts1, mana_beasts2, second_change_swordsman_4]
+  covers:
+    [
+      strathmar,
+      infinite_spear,
+      mana_beasts1,
+      mana_beasts2,
+      second_change_swordsman_4,
+    ]
 
 - name: Poyjeee
   links:
@@ -547,7 +591,15 @@
 - name: Rashed AlAkroka
   links:
     artstation: https://www.artstation.com/rashedjrs
-  covers: [quest_academy_silvers, artem, artem1, reclaimer, zero_light_kindle, zero_derby]
+  covers:
+    [
+      quest_academy_silvers,
+      artem,
+      artem1,
+      reclaimer,
+      zero_light_kindle,
+      zero_derby,
+    ]
 
 - name: Richard Sashigane
   covers: [wuts, proxima_legends, arcane_knight1, roots_and_steel]
