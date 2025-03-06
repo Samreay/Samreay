@@ -65,6 +65,18 @@
     fiverr: https://www.fiverr.com/baphos
   covers: [nowhere_stars]
 
+- name: Ben Moran (Minh Anh Nguyen Hoang)
+  links:
+    artstation: https://www.artstation.com/minhanhnh
+  covers: [
+      wolf_blood_moon,
+      btdem1,
+      trails_of_descent,
+      btdem2,
+      ultimate_level_1,
+      voyage_of_the_mindbender,
+  ]
+
 - name: BLAKE
   links:
     artstation: https://www.artstation.com/wblake
@@ -314,17 +326,11 @@
     ]
 
 - name: Kart Studios
-  notes: Art Studio, lead artist is Ben Moran (Minh Anh Nguyen Hoang)
+  notes: Art Studio, though note many of the original artists seem to have left.
   covers:
     [
-      wolf_blood_moon,
-      btdem1,
       malice_of_the_north,
-      voyage_of_the_mindbender,
       blade_of_revelation,
-      btdem2,
-      trails_of_descent,
-      ultimate_level_1,
       millenial_mage_kart,
       nameless_3,
     ]
@@ -689,6 +695,11 @@
     website: https://doughblaster.carrd.co/
     twitter: https://twitter.com/cosmiccroissant
   covers: [edge_cases]
+
+- name: white horn
+  links:
+    artstation: https://www.artstation.com/luonghoang
+  covers: [ajax_ascension, runic_artist, gloamcaller, dark_matter_ascension]
 
 - name: Wirawan Pranoto
   links:
