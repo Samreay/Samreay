@@ -5,7 +5,7 @@ date: 2022-11-30
 categories: [reviews]
 auth: Alec Huston
 review: B
-weight: 24
+weight: 27
 name: "Umbral Storm"
 links:
     amazon: https://www.amazon.com/Umbral-Storm-Sharded-Few-Book-ebook/dp/B09ZBGFFYP
@@ -29,7 +29,7 @@ Deryn has known nothing in his life except suffering. Orphaned at the edge of th
 
 *As of writing this review, I have read the first published book on Amazon.*
 
-Off the bat, this is a different sort of magic school book to classics like **Mark of the Fool**, **Arcane Ascensions**, **Forge of Destiny** and similar. In those books, much of the plot content revolves around life when studying. Classes, quizzes, exams, tournaments, schoolyard bullies, professors, and often includes fun downtime (cooking in MotF, enchanting in AA, etc). In *Umbral Storm* there are lessons, sure, but they and the academic side of things are very much in the background. This is both because one of the two main perspectives follows a person not one of the Sharded Few in the Darkhold, and the other perspective (Deryn) follows things in a much more hands-off manner. 
+Off the bat, this is a different sort of magic school book to classics like **Mark of the Fool**, **Arcane Ascensions**, **Forge of Destiny** and similar. In those books, much of the plot content revolves around life when studying. Classes, quizzes, exams, tournaments, schoolyard bullies, professors, and often includes fun downtime (cooking in MotF, enchanting in AA, etc). In *Umbral Storm* there are lessons, sure, but they and the academic side of things are very much in the background. This is both because one of the two main perspectives follows a person not one of the Sharded Few in the Darkhold, and the other perspective (Deryn) follows things in a much more hands-off manner.
 
 In effect, what this means is more time spent in character work, more time spent prior to being accepted, and time spent after leaving. And a greater focus on the world and wider plot than class-based assessment. Which is all good to me, because the characters are interesting, book one sets up a great change of pace and location for book two, and the progression---while slow---is still consistent.
 

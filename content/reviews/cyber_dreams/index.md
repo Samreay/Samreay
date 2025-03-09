@@ -5,7 +5,7 @@ date: 2023-12-21
 auth: Plum Parrot
 categories: [reviews]
 review: B
-weight: 25
+weight: 23
 name: "Cyber Dreams"
 search_terms: "Electric angel"
 links:

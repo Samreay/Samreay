@@ -4,8 +4,8 @@ description: "LitRPG deckbuilding system, where the MC gets a Legendary card as 
 date: 2023-02-09
 auth: Honour Rae
 categories: [reviews]
-review: B
-weight: 28
+review: C
+weight: 34
 name: "All The Skills"
 links:
     royal_road: https://www.royalroad.com/fiction/55687/all-the-skills-a-deckbuilding-litrpg

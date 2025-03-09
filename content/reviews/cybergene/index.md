@@ -4,8 +4,8 @@ description: "A cyberpunk story with two MCs that get their powers from the same
 date: 2024-11-11
 auth: Sixbees2
 categories: [reviews]
-review: B
-weight: 21
+review: A
+weight: 16
 name: "CyberGene: Blood and Steel"
 search_terms: "cybergene"
 links:

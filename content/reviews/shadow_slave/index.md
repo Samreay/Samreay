@@ -4,8 +4,8 @@ description: "A cultivation/LitRPG mashup where Awakened protect the world from 
 date: 2023-08-28
 auth: Guiltythree
 categories: [reviews]
-review: B
-weight: 29
+review: C
+weight: 36
 name: "Shadow Slave"
 links:
     webnovel: https://www.webnovel.com/book/shadow-slave_22196546206090805

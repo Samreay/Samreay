@@ -5,8 +5,8 @@ description: "World-system LitRPG. Fun read with an interesting cast. Ignore the
 date: 2021-05-03
 auth: Dakota Krout
 categories: [reviews]
-review: B
-weight: 26
+review: C
+weight: 35
 name: "Completionist Chronicles"
 links:
     amazon: https://www.amazon.com/Ritualist-Completionist-Chronicles-Book-1-ebook/dp/B07B27XQLF
@@ -22,11 +22,11 @@ Let's get that out of the way - the book has a weird opening. It's the end of th
 
 Mentally bin the first few chapters, and keep reading. The quality increases once Joe, the main character, is actually in the game world. Everything before is not relevant to the rest of the book, nor the series as a whole.
 
-That teething problem out of the way, it's a fun read. Like many LitRPG's there is some exploitation of the world. In Joe's case, he accesses a super rare class that has some serious learning potential. He never uses this to its full potential, but still manages to get up to some fun. 
+That teething problem out of the way, it's a fun read. Like many LitRPG's there is some exploitation of the world. In Joe's case, he accesses a super rare class that has some serious learning potential. He never uses this to its full potential, but still manages to get up to some fun.
 
 Beyond fun, there are wacky hijinks. One of Joe's main companions is Jaxon. Jaxon is an ancient chiropractor now in a young body that enjoys violently rearranging spines. In a spin-off (side-quest) book, *Rexus*, Jaxon develops T-rex hands.
 
-This is a fairly good summary of the tone of the books. It's not grim, dark, or gritty. It's chill, enjoyable, and fairly light-hearted. 
+This is a fairly good summary of the tone of the books. It's not grim, dark, or gritty. It's chill, enjoyable, and fairly light-hearted.
 
 I feel there are some pacing issues, especially after Joe leaves the first realm and we get into the cliched elves vs dwarves plot (this is many books in) and I struggled to engage in the radical environment, simplistic us/them narrative, and leaving behind all the secondary characters introduced in the first few books. That being said, there aren't many significant secondary characters at all, all the books are very Joe focused.
 

@@ -4,8 +4,8 @@ description: "A character-driven sci-fi story about a fleet of ships surviving b
 date: 2022-12-12
 categories: [reviews]
 auth: Rob J. Hayes
-review: A
-weight: 19.4
+review: B
+weight: 23
 name: "Titan Hoppers"
 links:
     amazon: https://www.amazon.com/Titan-Hoppers-Rob-J-Hayes-ebook/dp/B0B5JDMLQV

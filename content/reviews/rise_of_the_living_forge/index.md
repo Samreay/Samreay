@@ -5,7 +5,7 @@ date: 2024-02-08
 auth: Actus
 categories: [reviews]
 review: A
-weight: 19
+weight: 19.8
 name: "Rise of the Living Forge"
 links:
     royal_road: https://www.royalroad.com/fiction/79094/rise-of-the-living-forge-a-blacksmith-litrpg
