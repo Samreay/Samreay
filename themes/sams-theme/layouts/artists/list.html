@@ -32,6 +32,7 @@
     function get_svg(name) {
       // Create a list of manual class overrrides, and if the name is not in that list, return the name
       var overrides = {
+        "cara": "{{ partial "ico" "cara" }}",
         "website": "{{ partial "ico" "globe" }}",
         "twitter": "{{ partial "ico" "twitter" }}",
         "artstation": "{{ partial "ico" "artstation" }}",
@@ -158,7 +159,7 @@
     <div class="section-header">
         <h1>Artist Corner</h1>
         <p>Because shouting out the geniuses that bring our covers to life is something I should do more of. Note that some artists include typography, but most do not.</p>
-        <p class="mt-4">If you know a cover artist that works in the Progression Fantasy / LitRPG / Cultivation genre, please use 
+        <p class="mt-4">If you know a cover artist that works in the Progression Fantasy / LitRPG / Cultivation genre, please use
       <a href="https://forms.gle/JLBAgYcQsnw67qpi6" class="font-bold" style="color: #6ee7b7">
         <i class="fa-brands fa-wpforms"></i> this form</a> to submit them. We're at {{ len site.Data.artists }} artists and counting!
         </p>
