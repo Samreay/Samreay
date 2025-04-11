@@ -716,15 +716,10 @@
     twitter: https://twitter.com/cosmiccroissant
   covers: [edge_cases]
 
-- name: white horn
+- name: Umair N.
   links:
-    artstation: https://www.artstation.com/luonghoang
-  covers: [ajax_ascension, runic_artist, gloamcaller, dark_matter_ascension]
-
-- name: Wirawan Pranoto
-  links:
-    artstation: https://www.artstation.com/telaga
-  covers: [rise_of_the_devourer__2]
+    upwork: https://www.upwork.com/freelancers/umairnaeem501
+  covers: [offworlder]
 
 - name: Vexdye
   links:
@@ -742,6 +737,18 @@
     royal_road: https://www.royalroad.com/fiction/71439/romantically-apocalyptic-guide-to-the-multiverse/chapter/1276776/q-whats-romantically-apocalyptic
   covers: [perfect_run, rogue_ascension1, rogue_ascension2, rogue_ascension3]
   hidden: true
+
+
+- name: white horn
+  links:
+    artstation: https://www.artstation.com/luonghoang
+  covers: [ajax_ascension, runic_artist, gloamcaller, dark_matter_ascension]
+
+- name: Wirawan Pranoto
+  links:
+    artstation: https://www.artstation.com/telaga
+  covers: [rise_of_the_devourer__2]
+
 
 - name: Yelim Kim
   links:
