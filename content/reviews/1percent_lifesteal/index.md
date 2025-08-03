@@ -1,12 +1,12 @@
 ---
-title:  "A Review of Robert Blaise's '1% Lifestyle'"
+title:  "A Review of Robert Blaise's '1% Lifesteal'"
 description: "Dystopian scifi cultivation mashup with a tortured MC"
 date: 2025-07-21
 auth: Robert Blaise
 categories: [reviews]
 review: C
 weight: 36
-name: "1% Lifestyle"
+name: "1% Lifesteal"
 links:
     amazon: https://www.amazon.com/dp/B0DGWCDJSZ
     audible: https://www.audible.com/pd/1-Lifesteal-Audiobook/B0DXLXLX9W
