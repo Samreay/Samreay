@@ -467,6 +467,11 @@
     artstation: https://www.artstation.com/luckykyunart
   covers: [awakening_horde, emerging_rebel, elemental_battleground]
 
+- name: Lucy Devey
+  links:
+    artstation: https://www.artstation.com/strikingtherainwing
+  covers: [gloamcaller2]
+
 - name: Luminita Pham
   covers: [enchanter, diviner]
   links:
