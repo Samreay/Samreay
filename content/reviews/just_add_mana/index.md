@@ -1,5 +1,5 @@
 ---
-title:  "A Review of SilverLining's '1% Lifesteal'"
+title:  "A Review of SilverLining's 'Just Add Mana'"
 description: "Humorous LitRPG with a sassy super-OP MC trying not to destroy the world by accident after being summoned to a new universe."
 date: 2025-08-05
 auth: SilverLining
