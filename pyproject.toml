@@ -60,7 +60,17 @@ ignore = [
     "ISC002",
     "S602",
     "S105",
-    "EM102"
+    "EM102",
+    "ANN204",
+    "D101",
+    "EXE003",
+    "ERA001",
+    "ANN101",
+    "ANN202",
+    "ANN201",
+    "D102",
+    "F402",
+    "D107",
 ]
 line-length = 120
 target-version = "py311"

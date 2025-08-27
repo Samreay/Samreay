@@ -78,7 +78,7 @@
     `)}`
   tag_template(tag_container)
 
-  
+
   const card_containter = document.getElementById("all-card-wrapper");
   const card_template = html`
 <div id="card-wrapper" class="container mx-auto mt-20 grid gap-12 grid-cols-vertical-cards">
@@ -97,7 +97,7 @@
     return true;
   }).map(
     post => html`
-<article class="flex flex-col h-full rounded-lg bg-gray-800">
+<article class="flex flex-col h-full rounded-lg bg-gray-800" style="max-width: 500px;">
   <a href="${post.link}">
     <div class="h-full">
         <header class="mb-4">
@@ -120,7 +120,7 @@
       </div>
     </div>
   </a>
-</article>    
+</article>
 `)}
 </div>`
 

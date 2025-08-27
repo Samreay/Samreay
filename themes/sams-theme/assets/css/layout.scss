@@ -278,6 +278,12 @@ pre code:not([class]){
 .highlight {
   @apply my-12 max-w-4xl mx-auto text-xl leading-relaxed text-white overflow-hidden;
 
+  &.reduced-code {
+    @apply max-w-2xl mx-auto;
+  }
+  &.expanded-code {
+    @apply max-w-6xl mx-auto;
+  }
   pre {
     @apply p-8 rounded-2xl overflow-x-auto;
 
