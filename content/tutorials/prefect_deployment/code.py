@@ -35,9 +35,6 @@ class Registry:
 
         return inner
 
-    def get_deployments(self):
-        return self.deployments
-
 
 registry = Registry()
 
@@ -72,6 +69,8 @@ def get_deployments() -> dict[str, list[RunnerDeployment]]:
         runner_deployment = flow.to_deployment(
             name=deployment.name,
             work_pool_name=deployment.work_pool,
+            paused=not deployment.active,
+            cron=deployment.cron,
         )
         # Depending on how you have your code inside your image
         # you may need to adjust the runner_deployment.entrypoint

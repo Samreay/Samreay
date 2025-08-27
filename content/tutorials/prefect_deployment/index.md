@@ -91,14 +91,13 @@ Normally I'd add description, examples, etc, but let's keep the code here brief.
 class Registry:
     def __init__(self):
         self.deployments: list[tuple[Flow, DeploymentConfig]] = []
+
     def __call__(self, config: DeploymentConfig):
         def inner(fn: Flow):
             self.deployments.append((fn, config))
             return fn
-        return inner
 
-    def get_deployments(self):
-        return self.deployments
+        return inner
 
 registry = Registry()
 ```
@@ -133,12 +132,13 @@ def get_deployments() -> dict[str, list[RunnerDeployment]]:
         runner_deployment = flow.to_deployment(
             name=deployment.name,
             work_pool_name=deployment.work_pool,
+            paused=not deployment.active,
+            cron=deployment.cron,
         )
         # Depending on how you have your code inside your image
         # you may need to adjust the runner_deployment.entrypoint
         deployments[deployment.work_pool].append(runner_deployment)
     return deployments
-
 
 
 def register_deployments(deployment_map: dict[str, list[RunnerDeployment]]) -> None:
@@ -237,9 +237,6 @@ class Registry:
 
         return inner
 
-    def get_deployments(self):
-        return self.deployments
-
 
 registry = Registry()
 
@@ -274,6 +271,8 @@ def get_deployments() -> dict[str, list[RunnerDeployment]]:
         runner_deployment = flow.to_deployment(
             name=deployment.name,
             work_pool_name=deployment.work_pool,
+            paused=not deployment.active,
+            cron=deployment.cron,
         )
         # Depending on how you have your code inside your image
         # you may need to adjust the runner_deployment.entrypoint
