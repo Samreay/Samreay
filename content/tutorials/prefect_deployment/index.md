@@ -1,6 +1,6 @@
 ---
 title: Prefect Deployments
-description: "A deployment pattern I've used seeveral times for Prefect"
+description: "A deployment pattern I've used several times for Prefect"
 date: 2025-08-26
 categories: [tutorial]
 tags: [data-engineering]
