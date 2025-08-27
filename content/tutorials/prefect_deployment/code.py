@@ -79,7 +79,7 @@ def get_deployments() -> dict[str, list[RunnerDeployment]]:
 
 
 def register_deployments(deployment_map: dict[str, list[RunnerDeployment]]) -> None:
-    # Each deploy call has a single work pool name (dont ask me why)
+    # Each deploy call has a single work pool name
     # which is why the previous map is grouped by work pool
     for work_pool, deployments in deployment_map.items():
         deploy(
