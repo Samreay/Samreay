@@ -5,7 +5,7 @@ date: 2022-05-15
 categories: [reviews]
 auth: Naomi Novik
 review: A
-weight: 15
+weight: 18
 name: "The Scholomance Series"
 links:
     amazon: https://www.amazon.com/Deadly-Education-Novel-Scholomance-Book-ebook/dp/B083RZC8KQ
