@@ -10,15 +10,15 @@ hide_description: true
 ---
 
 
-I've written, maintained, reviewed, and collaborating on a *lot* of code bases over the last fifteen years I've been a professional software engineer. Some are now archived away from the eyes of the world, gathering electic dust. Others are still in use. Many are locked behind private company organisations or collaboration groups. You'd think that the content of those repositories would be the defining factor in how enthusastic I was to contribute to those projects. It (obviously) isn't. Instead, projects that made my life as a developer easy were the ones I put my time into. The projects that used modern tools, that even taught me new ones or new best practises, that raised my professional skills simply via their contribution guidelines and processes---those repos are the ones I think back most fondly too.
+I've written, maintained, reviewed, and collaborating on a *lot* of code bases over the last fifteen years I've been a professional software engineer. Some are now archived away from the eyes of the world, gathering electric dust. Others are still in use. Many are locked behind private company organizations or collaboration groups. You'd think that the content of those repositories would be the defining factor in how enthusiastic I was to contribute to those projects. It (obviously) isn't. Instead, projects that made my life as a developer easy were the ones I put my time into. The projects that used modern tools, that even taught me new ones or new best practices, that raised my professional skills simply via their contribution guidelines and processes---those repos are the ones I think back most fondly too.
 
-On the other side of the scale, repos with such poor documentation, code that only runs on the creator's machine, those I actively avoid using or contributing to. And off in its own area we have libraries like `scipy` and the likes, which---while having documented contribution guidelines and processes---require so much initial investment to get running and understanding all the pieces of the puzzle that what small contribution one makes seems to be unworth the mammoth effort of setting up such a complex project.
+On the other side of the scale, repos with such poor documentation, code that only runs on the creator's machine, those I actively avoid using or contributing to. And off in its own area we have libraries like `scipy` and the likes, which---while having documented contribution guidelines and processes---require so much initial investment to get running and understanding all the pieces of the puzzle that what small contribution one makes seems to be unworthy the mammoth effort of setting up such a complex project.
 
 All these words to say something simple: If you work with others and benefit from people using your code or contributing to it, make their life easy.
 
 The rest of this document is my best effort to document how I personally have gone about such a process.
 
-In fact, every suggestion and talking point I am about to go through is implemented on my [ChainConsumer](github.com/Samreay/ChainConsumer/) repository, so please feel free to use it as a reference.
+In fact, every suggestion and talking point I am about to go through is implemented on my [ChainConsumer](https://github.com/Samreay/ChainConsumer/) repository, so please feel free to use it as a reference.
 
 ## Templates and Cookie Cutters
 
@@ -50,7 +50,7 @@ If you do want your code out on PyPI, and you're not compiling C++/rust code in 
 
 Now, if you do have code to compile into binaries that you want to ship out too, look into `scikit-build-core` or `maturin` depending on if you're compiling C++ or rust respectively. I have also used `poetry-core` for this in the past, but found their support for compilation steps to be weak in the past (even if I know they've addressed a few concerns in the past years).
 
-Special note to `poetry` - I've used it for dozens of projects before I converted them all to `uv` instead. They blazed a trail when they were new and pushed the needle a *ton*, but is now relatively superseeded by `uv`.
+Special note to `poetry` - I've used it for dozens of projects before I converted them all to `uv` instead. They blazed a trail when they were new and pushed the needle a *ton*, but is now relatively superseded by `uv`.
 
 
 ## Project Structure
@@ -94,7 +94,7 @@ Then I don't particularly see the need to add the complexity `nox` provides. The
 
 ## Where to quibble
 
-If you've compared my repo to the cookie cutter, you'll also see our Github actions are different. I've simplified mine a fair amount and bundled it into a single yml file. My repo publishes to pypi when you push a `v*` tag (like `v1.2.3`), the cookie-cutter publishes to pypi when you go into GitHub, go to the releases, and turn a tag into a release. I just wanted to cut out the middle man. Neither I think are worth quibbling over - CICD is not something you'd expect the average community contributor to contribute to. Spend your time and energy nailing the actual package code. How your CICD jobs are structured isn't too important, so long tests get run and builds go out along a documented process.
+If you've compared my repo to the cookie cutter, you'll also see our Github actions are different. I've simplified mine a fair amount and bundled it into a single yml file. My repo publishes to PyPI when you push a `v*` tag (like `v1.2.3`), the cookie-cutter publishes to pypi when you go into GitHub, go to the releases, and turn a tag into a release. I just wanted to cut out the middle man. Neither I think are worth quibbling over - CICD is not something you'd expect the average community contributor to contribute to. Spend your time and energy nailing the actual package code. How your CICD jobs are structured isn't too important, so long tests get run and builds go out along a documented process.
 
 
 ## Common Mistakes
