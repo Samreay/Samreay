@@ -111,6 +111,10 @@ When setting up this environment, you'll (hopefully) install your dependencies (
 
 For most people in the scientific coding community, the frontend (`uv`) is what they will interact with every day, running `uv sync`, `uv add`, etc. So long as you follow the "put your code in the src directory and make sure its name matches your project", the backend is probably just a single set-and-forget pair of lines in your pyproject.toml.
 
+## Project Management
+
+If you're working in a team then obviously it's a good idea to try and use *some* form of ticketing system. For the majority of science use cases, I'd expect that using good old GitHub Issues is entirely sufficient. But if you want a bit more, from the bottom of my jaded and tired heart, please, please, *please*, do not use Jira. Use [Linear](https://linear.app/homepage).
+
 ## Conclusion
 
 Alright, let's boil down exactly what I would starting to make a repo from scratch that I want someone to contribute to:
@@ -118,5 +122,6 @@ Alright, let's boil down exactly what I would starting to make a repo from scrat
 1. Use the scientific python cookie cutter, and select `uv_build` as the backend.
 2. Replace the docs from Sphinx to `mkdocs-material` by using ChainConsumer as a template.
 3. Dance.
+4. If you need project management, using Linear over Jira.
 
 If you're ever curious if you've missed anything, the scientific python website offers a repo review service [here](https://learn.scientific-python.org/development/guides/repo-review/), where you just in your repo name and it'll tell you what things you've done correct and things you haven't done. Don't try and get all green in this, not all the red checkmarks will be applicable to every repo.
