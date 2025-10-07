@@ -6,7 +6,7 @@ categories: [tutorial]
 tags: [data-engineering]
 aliases: ["/prefect_deployments"]
 math: false
-hidetoggle: true
+hide_toggle: true
 ---
 
 Prefect is one of my favourite modern orchestrators. Airflow (especially back in the days of 1.0) was painful to run and debug locally. Dagster is great, but does require conforming to their asset-style framework. Prefect, however, gets us closest to native python and is thus incredibly easy to adopt. One of the pain points that I see a lot of in the community slack, however, are deployments.

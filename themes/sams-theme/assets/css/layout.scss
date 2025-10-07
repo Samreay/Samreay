@@ -258,7 +258,9 @@ body {
     @apply mx-auto;
   }
 }
-
+:not(pre) > code {
+    @apply font-mono text-main-400;
+ }
 
 .hide-code .highlight {
   display: none;
