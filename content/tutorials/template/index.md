@@ -97,9 +97,9 @@ Then I don't particularly see the need to add the complexity `nox` provides. The
 If you've compared my repo to the cookie cutter, you'll also see our Github actions are different. I've simplified mine a fair amount and bundled it into a single yml file. My repo publishes to PyPI when you push a `v*` tag (like `v1.2.3`), the cookie-cutter publishes to pypi when you go into GitHub, go to the releases, and turn a tag into a release. I just wanted to cut out the middle man. Neither I think are worth quibbling over - CICD is not something you'd expect the average community contributor to contribute to. Spend your time and energy nailing the actual package code. How your CICD jobs are structured isn't too important, so long tests get run and builds go out along a documented process.
 
 
-## Common Mistakes
+## Common Issues
 
-#### WSL Issues
+#### Windows and WSL
 
 Windows users, I need you to **never run any code in Windows.** [Install the linux subsystem](https://learn.microsoft.com/en-us/windows/wsl/install), and install [Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701) so you can have an Ubuntu shell always at your fingertips. Set up VSCode (installed in windows) to [use WSL](https://code.visualstudio.com/docs/remote/wsl), and ensure you clone your projects out while in Ubuntu to the Ubuntu disc. Ie to `~/projects/your_project`, not to `C:\projects\your_project`. This, I promise you, will make your life better. For the PyCharm lovers out there, you may need to pay for [PyCharm Pro to use a WSL interpreter](https://www.jetbrains.com/help/pycharm/using-wsl-as-a-remote-interpreter.html), and remember that students and teachers get all JetBrain products for [free](https://www.jetbrains.com/pycharm/buy/?section=students&billing=yearly).
 
@@ -110,6 +110,10 @@ This comes up every time I talk to someone about packaging up projects. Your pro
 When setting up this environment, you'll (hopefully) install your dependencies (like numpy, etc) into your venv. To do this, your frontend (`uv`) will download the package from PyPI, and that package will have instructions as to how to install itself. `uv` will then, in an isolated way for every single package, let them build themselves using their build backend that they have specified. If you install `ChainConsumer` then in an isolated environment [uv_build](https://github.com/Samreay/ChainConsumer/blob/dbc1a8741211a47852d7903ae983b45656ce87b1/pyproject.toml#L2) will install and get ChainConsumer installed. If you need `numpy` then in its installation you'll temporarily have an isolated build environment with [meson and cython](https://github.com/numpy/numpy/blob/main/pyproject.toml#L3), and it will use those tools to compile what it needs into your system.
 
 For most people in the scientific coding community, the frontend (`uv`) is what they will interact with every day, running `uv sync`, `uv add`, etc. So long as you follow the "put your code in the src directory and make sure its name matches your project", the backend is probably just a single set-and-forget pair of lines in your pyproject.toml.
+
+#### Dependency Hell
+
+If you're working closely with people in a collaboration, with different people or teams using packages from other members, it can become a massive pain to ensure your transitive dependencies all work nicely together, and an even larger pain when you need to constantly pull in the latest git commit for upstream packages. If this sounds like you, consider moving those packages and developers to work on the same repository with different packages and applications in different directories by using [uv workspaces](https://docs.astral.sh/uv/concepts/projects/workspaces/).
 
 ## Libraries I Wish Everyone Used
 
