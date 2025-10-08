@@ -116,8 +116,7 @@ For most people in the scientific coding community, the frontend (`uv`) is what 
 
 #### Configuration and cli
 
-Use `pydantic` and `pydantic-settings`. Stop checking if `os.environ` has an env variable. Stop using `argparse`. Stop using click. Stop manually loading `.env` files. Let `pydantic` do it all for you.
-
+Use `pydantic` and `pydantic-settings`. Stop checking if `os.environ` has an env variable. Stop using `argparse`. Stop using click. Stop manually loading `.env` files. Let `pydantic` do it all for you. More applicable for applications instead of packages, but any time you think "I think my code should have some settings" then you want to be using `pydantic-settings`.
 #### Data Transformations
 
 If you've been using `pandas` for years and never tried `polars`, please give it a shot.
@@ -141,7 +140,7 @@ Alright, let's boil down exactly what I would starting to make a repo from scrat
 
 1. Use the scientific python cookie cutter, and select `uv_build` as the backend.
 2. Replace the docs from Sphinx to `mkdocs-material` by using ChainConsumer as a template.
-3. Ensure I have an obvious `main.py` or similar entrypoint, with all configuration / settings done via `pydantic-settings` class that's found in a `settings.py`. This class is initialised in my main function, and its configuration logged immediately. My `main.py` should be as short and simple as possible.
+3. Ensure I have an obvious `main.py` or similar entrypoint if I'm writing an application and not a package, with all configuration / settings done via `pydantic-settings` class that's found in a `settings.py`. This class is initialised in my main function, and its configuration logged immediately. My `main.py` should be as short and simple as possible.
 4. Dance.
 5. If you need project management, use Linear over Jira.
 
