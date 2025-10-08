@@ -117,6 +117,7 @@ For most people in the scientific coding community, the frontend (`uv`) is what 
 #### Configuration and cli
 
 Use `pydantic` and `pydantic-settings`. Stop checking if `os.environ` has an env variable. Stop using `argparse`. Stop using click. Stop manually loading `.env` files. Let `pydantic` do it all for you. More applicable for applications instead of packages, but any time you think "I think my code should have some settings" then you want to be using `pydantic-settings`.
+
 #### Data Transformations
 
 If you've been using `pandas` for years and never tried `polars`, please give it a shot.
