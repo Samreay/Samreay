@@ -115,6 +115,10 @@ For most people in the scientific coding community, the frontend (`uv`) is what 
 
 If you're working closely with people in a collaboration, with different people or teams using packages from other members, it can become a massive pain to ensure your transitive dependencies all work nicely together, and an even larger pain when you need to constantly pull in the latest git commit for upstream packages. If this sounds like you, consider moving those packages and developers to work on the same repository with different packages and applications in different directories by using [uv workspaces](https://docs.astral.sh/uv/concepts/projects/workspaces/).
 
+#### Entangling plotting code with core logic
+
+Matplotlib and plotly code is verbose, painful to read, and quite often flaky to run on HPC or cloud provider machines. I'd *strongly* recommend putting all plotting code into a `plotting` directory and potentially even inlining the matplotlib imports if there are issues initialising the module due to your compute environment.
+
 ## Libraries I Wish Everyone Used
 
 
