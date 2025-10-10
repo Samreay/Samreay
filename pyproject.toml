@@ -1,28 +1,25 @@
-[tool.poetry]
-name = "Samuel Hinton's Website"
+[project]
+name = "samreay-website"
 version = "0.1.0"
 description = ""
-authors = ["Samuel Hinton <samuelreay@gmail.com>"]
+authors = [{ name = "Samuel Hinton", email = "samuelreay@gmail.com" }]
+requires-python = ">=3.11"
 readme = "README.md"
-packages = [{include = "builder"}]
+dependencies = [
+    "jupyter>=1.0.0,<2",
+    "nbconvert>=7.2.4,<8",
+    "jupyter-contrib-nbextensions>=0.7.0,<0.8",
+    "rich>=13.2.0,<14",
+    "python-frontmatter>=1.0.0,<2",
+    "pyyaml>=6.0.1,<7",
+    "notebook==6.4.12",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.11"
-jupyter = "^1.0.0"
-nbconvert = "^7.2.4"
-jupyter-contrib-nbextensions = "^0.7.0"
-rich = "^13.2.0"
-python-frontmatter = "^1.0.0"
-pyyaml = "^6.0.1"
-notebook= "6.4.12"
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = ">=3.3.3"
-ruff = ">=0.2.1, <1"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "pre-commit>=3.3.3",
+    "ruff>=0.14.0, <1",
+]
 
 
 [tool.ruff]
@@ -65,7 +62,6 @@ ignore = [
     "D101",
     "EXE003",
     "ERA001",
-    "ANN101",
     "ANN202",
     "ANN201",
     "D102",
