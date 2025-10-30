@@ -21,7 +21,7 @@ Summoned after an unfortunate accident in hopes they could protect the world fro
 
 ## Thoughts
 
-*As of writing this review, I've read all avbailable (936) chapters on Royal Road.*
+*As of writing this review, I've read all available (936) chapters on Royal Road.*
 
 Look, you know if you've read over 900 chapters of something and want more that it's probably good. I'm also a sucker for stories with an intelligent MC, crafting, a good balance of slice-of-life and action, and strong worldbuilding. Chaotic Craftsman ticks all those boxes.
 
@@ -29,7 +29,7 @@ So let's expand on the blurb a little bit. Other summoned people, some human, so
 
 Things start to turn around in Chapter 6 though, when Myriad, a god in the shape of a cube recruits Ben to be his first (and worst) believer. Myriad and Ben don't have your normal god and believer relationship, because Ben is a savage and has no respect for deities, and honestly their banter and relationship is one of the best parts of the series. Seeing Ben stress the cubic god with his heretical antics just doesn't get old.
 
-Anyway, Myriad directs Ben to someone who can help teach him crafting and enchanting, and thus begins Ben's adventure. It's not just chapters of Ben in a workshop, its him making (eventual) friends, going monster hunting with said friends for resources, learning other skills, digging into the magic system, tackling towers with other summoned heros, arguing with gods, threatening gods, killing gods, you know... the norm. There's a *lot* going on, and that's all before the demon invasion actually begins.
+Anyway, Myriad directs Ben to someone who can help teach him crafting and enchanting, and thus begins Ben's adventure. It's not just chapters of Ben in a workshop, its him making (eventual) friends, going monster hunting with said friends for resources, learning other skills, digging into the magic system, tackling towers with other summoned heroes, arguing with gods, threatening gods, killing gods, you know... the norm. There's a *lot* going on, and that's all before the demon invasion actually begins.
 
 The relationship (like obviously it's Ben and Thera, that's not a spoiler, it was signposted super obviously when they first met) between Ben and Thera is another high point... at least once we get over the will-they-won't-they game that gets played for a *bit* too long. It's wholesome, supportive, and much more human than a lot of relationships that get portrayed in the LitRPG space. That's actually a trend in the series---characters are authentic and realised, and their connections and dialogue is strong.
 
