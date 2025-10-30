@@ -252,7 +252,7 @@
         return html`<p>For questions, head to ${discord}. Flowchart will take a few seconds to load. Click and drag to move. Recommend hitting the fullscreen button in the top right.</p>`
       }
       return html`<p>
-      As normal, these are <em>my</em> rankings based on what I personally enjoy
+      {{ len ( where .Site.RegularPages.ByWeight "Type" .Type ) }} reviews with <em>my</em> rankings based on what I personally enjoy
       reading. You may have opposite tastes. The below inputs should make
       finding something easier. If you have questions, recommendations, or want
       to know when new reviews or releases are out, join the ${discord}.
