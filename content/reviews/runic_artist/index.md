@@ -1,6 +1,6 @@
 ---
 title:  "A review of  Ellake's 'The Runic Artist'"
-description: ""
+description: "An art/crafting focused MC accidentially finds himself in a different universe that seems to not respect his desire to be left alone one bit!"
 date: 2025-11-05
 auth: Ellake
 categories: [reviews]
@@ -13,7 +13,7 @@ links:
     audible: https://www.audible.com/pd/The-Runic-Artist-Audiobook/B0DDM4D2LP
 aliases: [/reviews/runic_artist]
 tags: [in-progress, crafting, isekai, litrpg, companion]
-sentence: ""
+sentence: "An art-focused MC accidentially finds himself in a different universe."
 ---
 
 
