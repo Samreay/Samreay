@@ -4,8 +4,8 @@ description: "Humorous LitRPG with a sassy super-OP MC trying not to destroy the
 date: 2025-08-05
 auth: SilverLining
 categories: [reviews]
-review: A
-weight: 19.9
+review: B
+weight: 22
 name: "Just Add Mana"
 links:
     royal_road: https://www.royalroad.com/fiction/125163/just-add-mana

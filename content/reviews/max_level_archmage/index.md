@@ -4,8 +4,8 @@ description: "Imagine if Ains Ooal Gown was a tiny demon with even less social s
 date: 2025-09-05
 auth:  ArcaneCadence
 categories: [reviews]
-review: A
-weight: 15
+review: B
+weight: 21
 name: "New Life As A Max Level Archmage"
 links:
     royal_road: https://www.royalroad.com/fiction/118891/new-life-as-a-max-level-archmage

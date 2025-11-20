@@ -4,8 +4,8 @@ description: "A series heavy on power fantasy where our overpowered loner, Derek
 date: 2025-09-05
 auth: SunriseCV
 categories: [reviews]
-review: B
-weight: 25
+review: C
+weight: 31
 name: "System Universe"
 links:
     amazon: https://www.amazon.com/dp/B0B61RJ929
