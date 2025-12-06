@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/41618/mark-of-the-fool
     audible: https://www.audible.com/pd/Mark-of-the-Fool-Audiobook/B0B6JPQXR6
 aliases: [/reviews/markfool]
-tags: [in-progress, magic-school, crafting, hard-magic, slice-of-life]
+tags: [finished, magic-school, crafting, hard-magic, slice-of-life]
 sentence: "Alex Roth is called by the gods to be a hero. He declines."
 ---
 
@@ -21,11 +21,11 @@ sentence: "Alex Roth is called by the gods to be a hero. He declines."
 
 So here's the premise: Alex Roth is one of five chosen Heroes that need to defeat a reoccurring villain: The Ravener. Alex, however, is the Fool. His Mark, instead of making him a combat savant, powerful spellcaster, etc, makes him really great at learning things that are outside of combat and spellcasting... but will actively interfere with his abilities if they are not.
 
-Instead of playing the Fool, Alex, his sister, and romantic interest Theresa leave the country, to study in the great wizard academy in Generasi. 
+Instead of playing the Fool, Alex, his sister, and romantic interest Theresa leave the country, to study in the great wizard academy in Generasi.
 
-The Mark is a great premise, simple to understand and something no doubt all of us would wish for in our own personal lives. After all, I don't have much use for combat these days, but man would the Mark help me in my professional career. It helps Alex too, and he pulls ahead in his academic subjects, while inventively trying to solve the whole "no combat" side of his Mark by---sometimes literally---dancing around combative behaviour. 
+The Mark is a great premise, simple to understand and something no doubt all of us would wish for in our own personal lives. After all, I don't have much use for combat these days, but man would the Mark help me in my professional career. It helps Alex too, and he pulls ahead in his academic subjects, while inventively trying to solve the whole "no combat" side of his Mark by---sometimes literally---dancing around combative behaviour.
 
-Once we get to the academy, the stakes for the book lower, and if you don't like books with classes, coursework, and all that comes with it, you *will not have a good time.* As it turns out though, I bloody love that stuff, and so I devoured the first book, saw the second book was not available on KU, and jumped onto Royal Road. The characters are distinct, people have their own motivations outside the MC, characters grow as people, grow in power, and some (like Alex's sister, Selina) also grow in height. 
+Once we get to the academy, the stakes for the book lower, and if you don't like books with classes, coursework, and all that comes with it, you *will not have a good time.* As it turns out though, I bloody love that stuff, and so I devoured the first book, saw the second book was not available on KU, and jumped onto Royal Road. The characters are distinct, people have their own motivations outside the MC, characters grow as people, grow in power, and some (like Alex's sister, Selina) also grow in height.
 
 I read over some prior reviews to see what others though, and most of the RR complaints are about pacing. So let's be clear here: I'm 200 chapters in (about 3 hefty novels worth), and yes, we still haven't returned to the overarching fight against the Ravener. I, personally, do not care, but if you are one who doesn't mind school arcs but doesn't want to be consumed by them... fair warning.
 
