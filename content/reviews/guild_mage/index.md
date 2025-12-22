@@ -1,6 +1,6 @@
 ---
 title:  "A Review of David Niemitz's Guild mage"
-description: "Fantasy isekai where the character leans into their HP-related stat instead of ones benefiting their magical class."
+description: "Magic-as-a-language progression fantasy where a god thought long dead returns to take dominion."
 date: 2025-12-14
 categories: [reviews]
 auth: David Niemitz
@@ -13,7 +13,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/97554/guild-mage-apprentice-slow-burn-epic-fantasy
 aliases: [/reviews/guild_mage]
 tags: [in-progress, magic-school, lgbt]
-sentence: "Conquer ancient dungeons. Get rewarded. Grow stronger."
+sentence: "A half-Elden scullery maid learns magic... and then has to fight a goddess."
 ---
 
 ## Blurb
