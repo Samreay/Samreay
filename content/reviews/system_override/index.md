@@ -10,7 +10,7 @@ name: "System Override"
 links:
     royal_road: https://www.royalroad.com/fiction/108147/system-override-cyberpunk-edgerunners
 aliases: [/reviews/system_override]
-tags: [in-progress, fanfic, cyberpunk]
+tags: [in-progress, fanfic, litrpg, cyberpunk]
 sentence: "David Martinez has nanobots, an embedded AI, and a goal to become a Night City Legend."
 ---
 
