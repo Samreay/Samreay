@@ -248,8 +248,9 @@
         style="color: #7289da"
         >{{ partial "ico" "discord" }} discord</a
       >`
+      let direct_link = html`<a class="under orange-under" href="https://www.figma.com/board/hScNoWonDzTMTrpzUhNqzR/Story-Finder?node-id=102212-639&t=HJx9Ph1K07QlokaF-4">Direct link</a>`
       if (data.layout == "flowchart") {
-        return html`<p>For questions, head to ${discord}. Flowchart will take a few seconds to load. Click and drag to move. Recommend hitting the fullscreen button in the top right.</p>`
+        return html`<p>For questions, head to ${discord}. ${direct_link}. Flowchart will take a few seconds to load. Click and drag to move. Recommend fullscreen via top right button.</p>`
       }
       return html`<p>
       {{ len ( where .Site.RegularPages.ByWeight "Type" .Type ) }} reviews with <em>my</em> rankings based on what I personally enjoy
