@@ -12,7 +12,7 @@ links:
     amazon: https://www.amazon.com/Calamitous-Bob-Alex-Gilbert-ebook/dp/B09NMHNW8R
     audible: https://www.audible.com/pd/The-Calamitous-Bob-Audiobook/B0DSLQDJJL
 aliases: [/reviews/calamitous_bob]
-tags: [finished, female-lead, isekai, kingdom-building, companion, lgbt]
+tags: [finished, female-lead, isekai, kingdom-building, companion, litrpg, lgbt]
 sentence: "A divine spat leaves Viv stranded in the middle of an arcane disaster zone crawling with undead."
 ---
 
