@@ -4,8 +4,8 @@ description: "LitRPG, isekai/portal fantasy, with a sort-of-but-not-really scien
 date: 2022-06-05
 categories: [reviews]
 auth: Dominic Stal
-review: C
-weight: 39.99
+review: D
+weight: 41
 name: "The Last Physicist"
 links:
     amazon: https://www.amazon.com/Last-Physicist-Gamelit-Fantasy-Adventure-ebook/dp/B091P52QPM
@@ -54,8 +54,8 @@ The AI which is the only character other than Will for about half the book just 
 
 Look, I really wanted to love this book. I really wanted a novel where someone exploits the hell out of a fantasy magical system using modern knowledge and scientific methods. But this doesn't scratch that itch at all for me.
 
-That all said, it *is* fun, it *was* a good read, and I *will* be reading book two. 
+That all said, it *is* fun, it *was* a good read, and I *will* be reading book two.
 
-Most of my quibbles above are me coming in with expectations that are probably higher than your average reader, simply because of my background. 
+Most of my quibbles above are me coming in with expectations that are probably higher than your average reader, simply because of my background.
 
 I hope that book two does delve more into that scientific approach to exploring the magical system, because that is what I'm looking for most of all in this series.

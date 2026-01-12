@@ -4,8 +4,8 @@ description: "LitRPG tower climber with a summoner-and-sword MC."
 date: 2023-06-13
 auth: Cassius Lange and Ryan Tang
 categories: [reviews]
-review: C
-weight: 39
+review: D
+weight: 43
 name: "Tower Apocalypse"
 links:
     amazon: https://www.amazon.com/Tower-Apocalypse-LitRPG-Isekai-System-ebook/dp/B0B69QBXLR
@@ -44,7 +44,7 @@ Now, VRMMOs generally shine in the area of class development and player agency. 
 
 For those that do like a lot of System, but without the pages and pages of "Oh boy which of these dozen skills should I pick, the common ones, or the single Legendary one??" (Looking at you, *Primal Hunter*), then you may find this refreshing. There's definitely lots of fights and action to go around instead of internal monologues on optimal choices.
 
-Alrighty, onto characters. All I can say is... "mmmm." Devin himself is fine, Ben is a sweetheart, but I can't help but not like the way the romance is written here. It's not as bad as Noobtown in how women are written, but it's not amazing. 
+Alrighty, onto characters. All I can say is... "mmmm." Devin himself is fine, Ben is a sweetheart, but I can't help but not like the way the romance is written here. It's not as bad as Noobtown in how women are written, but it's not amazing.
 
 So, Devin and Emma hit it off. The weird thing is that Emma starts flirting with Devin and bonding over both being weebs (their word) right away. Despite the appearance of these alien towers, teleportation, seeing people dying, fighting for their lives, it's just *right into it*. It feels so incredibly inauthentic.
 
@@ -56,21 +56,21 @@ The author even lampshades how out of place it all is:
 
 And later on, once their (day old?) romance develops, we also get a trope I dislike, which is stringing out the romantic tension:
 
-> “I, umm…ugh. Can’t you take a hint?” she muttered and turned to face me. “I wanted to…lose my virginity to you, but… chickened out when you saw me naked.” 
+> “I, umm…ugh. Can’t you take a hint?” she muttered and turned to face me. “I wanted to…lose my virginity to you, but… chickened out when you saw me naked.”
 
-> I felt my right eyebrow rise involuntarily along with the corners of my mouth. Ben said that she'd recently broken up with her boyfriend before getting transported here, but I guessed things hadn't gone that far. Either way, it didn't change my decision. Part of me wanted nothing more than to lay down with her and become…something more, but I couldn't, not now. 
+> I felt my right eyebrow rise involuntarily along with the corners of my mouth. Ben said that she'd recently broken up with her boyfriend before getting transported here, but I guessed things hadn't gone that far. Either way, it didn't change my decision. Part of me wanted nothing more than to lay down with her and become…something more, but I couldn't, not now.
 
-> “I think that's a good thing. Us becoming more I mean. It’s just…I can’t do it yet, I… Prahna and Roman and…things.” 
+> “I think that's a good thing. Us becoming more I mean. It’s just…I can’t do it yet, I… Prahna and Roman and…things.”
 
-> I found myself stumbling and searching for the correct words. For some reason, it just didn't feel right as I knew how important it was to claim Prahna and get rid of Roman. 
+> I found myself stumbling and searching for the correct words. For some reason, it just didn't feel right as I knew how important it was to claim Prahna and get rid of Roman.
 
-> Emma made a disgusted face. “Wait, what? You would have said no? Didn't you just see me naked? I've got a body to kill for!” 
+> Emma made a disgusted face. “Wait, what? You would have said no? Didn't you just see me naked? I've got a body to kill for!”
 
 > “Emma, please, just hear me out. Let me…let me think of what I'm trying to say.” She nodded, then let out a deep breath as she leaned into me. Her body radiated warmth and I just wanted to sit there and hold her forever. That was one of the best things about...
 
 > Blah blah blah
 
-> “It does,” she replied weakly. “But don’t forget one thing, Dev. If you lose yourself in others, what’s the point of living? You need time for yourself…a woman…and a warm bed. Is life worth living without those things?” 
+> “It does,” she replied weakly. “But don’t forget one thing, Dev. If you lose yourself in others, what’s the point of living? You need time for yourself…a woman…and a warm bed. Is life worth living without those things?”
 
 > I shook my head. She definitely had a way with words.
 
@@ -79,7 +79,7 @@ It again feels like I'm reading a young adult romance aimed at early teenagers a
 As I final point, I did laugh at one good point in the book. There's a subplot about a character who can mentally dominate others, and has been spreading lies about the MC. But then, out of nowhere, the MC stands up and decries all the mean things said against him, and ends with:
 
 
-> "... May the System strike me down if any of it is a lie!” I stopped for a moment and waited. 
+> "... May the System strike me down if any of it is a lie!” I stopped for a moment and waited.
 
 > “Player Devin Cain has sworn a tribulation. Calculating…Player Devin Cain has spoken the truth.”
 
