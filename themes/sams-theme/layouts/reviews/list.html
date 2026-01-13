@@ -452,10 +452,12 @@
       }
       posts_in_group.push(posts_to_render[i]);
     }
-    groups.push({
-    "posts": posts_in_group,
-    "tier": prior_tier,
-  });
+    if (prior_tier != null && posts_in_group.length > 0) {
+      groups.push({
+      "posts": posts_in_group,
+      "tier": prior_tier,
+    });
+  }
     return groups.map(group_post_template)
     }
 
