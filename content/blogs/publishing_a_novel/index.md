@@ -39,11 +39,11 @@ Don't use friends and family for thoughts. After you've got something editted an
 2. Send to beta readers (can find some using reddit)
 3. Send to arc readers. Use a service like BookFunnel for this, and **grab emails** so you can request reviews.
 
-Allow around two months for each step. 
+Allow around two months for each step.
 
 ## 5. Setup an email list
 
-Use MailChimp or something similar. At the same time as you sign up for MailChimp, buy an author domain. You can do this also with MailChimp, or you can go external. The reason this is important, is without a custom domain (like sam@hinton.com), MailChimp's email address looks spammy, and very often gets classified as spam.
+Use MailChimp or something similar. (2026 EDIT: MailChimp has decreased their free tier again, so pick something else. Maybe MailerLite). At the same time as you sign up for MailChimp, buy an author domain. You can do this also with MailChimp, or you can go external. The reason this is important, is without a custom domain (like sam@hinton.com), MailChimp's email address looks spammy, and very often gets classified as spam.
 
 Here is what happened to me, for a great "Don't be like this"
 
@@ -65,7 +65,7 @@ Save yourself the pain, get a custom email domain.
 
 ## 6. Decide if you want to get reviews in prior to launch or not.
 
-I made a big mistake reaching out to my arc readers too early (and sending them a bad link). Many that tried to leave a review initially got rejected by Amazon and didn't manage to leave a review. I think if I did this again, I would just send a single email as soon as the book is available and ask for reviews to be left on day one. Out of my 75 arc readers, only two managed to leave a review on Amazon, which is not an ideal return. 
+I made a big mistake reaching out to my arc readers too early (and sending them a bad link). Many that tried to leave a review initially got rejected by Amazon and didn't manage to leave a review. I think if I did this again, I would just send a single email as soon as the book is available and ask for reviews to be left on day one. Out of my 75 arc readers, only two managed to leave a review on Amazon, which is not an ideal return.
 
 ## 7. Submit your book to KDP.
 
