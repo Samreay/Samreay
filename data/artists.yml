@@ -65,6 +65,11 @@
     fiverr: https://www.fiverr.com/baphos
   covers: [nowhere_stars]
 
+- name: BeeBros Team
+  links:
+    artstation: https://www.artstation.com/beebrosteam
+  covers: [dual_class1]
+
 - name: Ben Moran (Minh Anh Nguyen Hoang)
   links:
     artstation: https://www.artstation.com/minhanhnh
@@ -81,6 +86,11 @@
   links:
     artstation: https://www.artstation.com/wblake
   covers: [ascend_online, court_bard, battle_bard]
+
+- name: Brian Flores
+  links:
+    fiverr: https://www.fiverr.com/study3_2d
+  covers: [wuts7, wuts8]
 
 - name: Capt Diablo
   links:
@@ -105,7 +115,7 @@
 - name: Creadfectus
   links:
     artstation: https://www.artstation.com/creadfectus
-  covers: [jester_apoc, demon_tree, ship_core, revelations, godscourge]
+  covers: [jester_apoc, demon_tree, ship_core, revelations, godscourge, madman_apocalypse1]
 
 - name: Cotta
   links:
@@ -149,6 +159,11 @@
     99designs: https://99designs.com/profiles/paganus
   covers: [elf_empire, knightmare_arcanist1, knightmare_arcanist2]
 
+- name: Denis Belinski
+  links:
+    fiverr: https://www.fiverr.com/dan_pshkv
+  covers: [wuts6, ethersmith1]
+
 - name: Ece Yatim
   links:
     fiverr: https://www.fiverr.com/eceyt_
@@ -157,7 +172,7 @@
 - name: Elaine Luo
   links:
     artstation: https://leilain.artstation.com/
-  covers: [rinyv]
+  covers: [rinyv, the_last_dainv]
 
 - name: Emily McCosh
   links:
@@ -227,7 +242,7 @@
   links:
     artstation: https://www.artstation.com/geryadrytia
     instagram: https://www.instagram.com/gery_adrytia
-  covers: [broker]
+  covers: [broker, underkeeper3, orientation1]
 
 - name: Gia Phoc
   links:
@@ -261,6 +276,11 @@
     deviantart: https://www.deviantart.com/hasegawakein
   covers: [arcane_exfil]
 
+- name: Heitor Santos
+  links:
+    artstation: https://www.artstation.com/theitor
+  covers: [max_level_archmage1]
+
 - name: HELION ART (Stoica Alexandru Silviu)
   links:
     artstation: https://www.artstation.com/stoica_alexandru_silviu
@@ -270,13 +290,18 @@
   notes: Also great at typography. Did Stargazer's War.
   links:
     website: https://typobyino.crd.co/
-  covers: [gunships_goodbyes, dreams, acolyte_ascension, walk_in_shadows]
+  covers: [gunships_goodbyes, dreams, acolyte_ascension, walk_in_shadows, savage_awakening6, fearshaper1, wild_era, old_growth]
 
 - name: J Caleb Design (Jake Clark)
   links:
     artstation: https://www.artstation.com/jcalebdesign
     website: https://www.jcalebdesign.com/
   covers: [tome1, tome3, apoc_parent1, skies_asunder, victor3, cyber_dreams_4]
+
+- name: Jackson Tjota
+  links:
+    artstation: https://www.artstation.com/tjota
+  covers: [start_menu]
 
 - name: Jamie Noble Frier (The Noble Artist)
   links:
@@ -477,13 +502,13 @@
   links:
     artstation: https://www.artstation.com/luminitapham
 
-- name: Luluseason
-  links:
-    deviantart: https://www.deviantart.com/luluseason
-  covers: [htdadkites]
+# - name: Luluseason
+#   links:
+#     deviantart: https://www.deviantart.com/luluseason
+#   covers: [htdadkites]
 
 - name: macarious
-  covers: [ghost_of_the_truthseeker, virtuous_sons]
+  covers: [ghost_of_the_truthseeker, virtuous_sons, lord_of_farming1, nameless_sovereign1, godclads1]
   links:
     deviantart: https://www.deviantart.com/macarious
 
@@ -550,6 +575,11 @@
     instagram: https://www.instagram.com/mikayla_buan/
   covers: [systemless1, systemless2, systemless3]
 
+- name: MsArtsy
+  links:
+    instagram: https://www.instagram.com/itsmsartsy
+  covers: [draka1, i_ran_away_to_evil1]
+
 - name: Mushfiq A. K
   links:
     fiverr: https://www.fiverr.com/rare_art
@@ -570,8 +600,7 @@
     website: https://linktr.ee/Nozomi_Matsuoka
     instagram: https://www.instagram.com/nozomi_mats/
     cara: https://cara.app/nozomi
-
-  covers: [budding_rhythm]
+  covers: [budding_rhythm, what_truth, truth_of_stars, blind_chaos2]
 
 - name: Oleg Tsoy
   links:
@@ -715,18 +744,17 @@
     artstation: https://www.artstation.com/theartnest
   covers: [last_physicist]
 
+- name: ThanhVT
+  links:
+    artstation: https://www.artstation.com/thanhvt
+  covers: [deus_in_machina]
+
 - name: trichromachine / Spectro
   links:
     twitter: https://x.com/trichromachine
     website: https://vgen.co/spectro
     cara: https://cara.app/spectro
   covers: [edge_cases]
-
-# Maybe using AI art?
-# - name: Umair N.
-#   links:
-#     upwork: https://www.upwork.com/freelancers/umairnaeem501
-#   covers: [offworlder]
 
 - name: Vexdye
   links:
