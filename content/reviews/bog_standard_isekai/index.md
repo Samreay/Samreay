@@ -12,7 +12,7 @@ links:
     amazon: https://www.amazon.com/Bog-Standard-Isekai-Scarred-Adventure-ebook/dp/B0D3S8Q2SB
     audible: https://www.audible.com/pd/Bog-Standard-Isekai-Scarred-Audiobook/B0D5RJPSRG
 aliases: [/reviews/bog_standard_isekai]
-tags: [in-progress, isekai, companion]
+tags: [in-progress, isekai, companion, litrpg]
 sentence: "Isekai into a swamp town filled with undead. Immediately regret your choice."
 ---
 
