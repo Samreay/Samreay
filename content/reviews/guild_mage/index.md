@@ -12,7 +12,7 @@ links:
     audible: https://www.audible.com/pd/Guild-Mage-Apprentice-Audiobook/B0FHQRNJPJ
     royal_road: https://www.royalroad.com/fiction/97554/guild-mage-apprentice-slow-burn-epic-fantasy
 aliases: [/reviews/guild_mage]
-tags: [in-progress, magic-school, lgbt]
+tags: [in-progress, magic-school, lgbt, female-lead]
 sentence: "A half-Elden scullery maid learns magic... and then has to fight a goddess."
 ---
 
