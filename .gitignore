@@ -44,3 +44,4 @@ static/styles/index.js
 *.Identifier
 
 tmp_*
+.vscode
