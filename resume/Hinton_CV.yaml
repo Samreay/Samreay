@@ -54,7 +54,7 @@ cv:
 
       - company: University of Queensland
         position: Postdoctoral Researcher
-        start_date: 2020
+        start_date: 2019
         end_date: 2020
         highlights:
           - Research in the areas of supernova cosmology and large scale structure, focusing heavily upon analysis pipelines and systematics control through efficient use of simulations and mocks.
@@ -65,8 +65,7 @@ cv:
 
       - company: SuperDataScience
         position: Course Instructor
-        start_date: 2019
-        end_date: 2019
+        date: 2019
         highlights:
           - Created a course on statistical analysis in Python for students.
             Focused on applied statistics and utilisation of modern code packages,
@@ -76,7 +75,7 @@ cv:
 
       - company: Lawrence Berkeley National Laboratory
         position: Research Fellow
-        date: 2016
+        date: 2016, 2017
         highlights:
           - Research fellowship to work on Bayesian Hierarchical Modelling and its applications to Supernova Cosmology.
           - Investigated how to use high dimensional hierarchical models to model individual supernova instead of populations to provide better constraints on cosmology using supernova discovered by the Dark Energy Survey.
@@ -109,10 +108,175 @@ cv:
         location: Brisbane, Australia
       - institution: University of Queensland
         area: Astrophysics
-        degree: Doctorate
+        degree: Doctorate of Philosophy
         date:
         start_date: 2015-03
         end_date: 2019-11
         location: Brisbane, Australia
+
+    Notable Awards:
+      - name: Lindau Nobel Laureate Delegate
+        location: Australian Academy of Science
+        date: 2019
+      - name: Future Superstar Award
+        location: University of Queensland
+        date: 2019
+      - name: Bok Prize
+        location: Astronomical Society of Australia
+        date: 2016
+      - name: Australian Postgraduate Award
+        location: Australian Government
+        date: 2016
+      - name: Science Faculty Graduate of the Year
+        location: University of Queensland
+        date: 2016
+      - name: Australian Institute of Physics Prize
+        location: University of Queensland
+        date: 2016
+      - name: University Medal (Science)
+        location: University of Queensland
+        date: 2016
+      - name: Australian Gemini Undergraduate Summer Studentships
+        location: AAO
+        date: 2015
+      - name: AAO Honours Scholarship
+        location: Australian Astronomical Observatory
+        date: 2015
+      - name: University Medal (Engineering)
+        location: University of Queensland
+        date: 2015
+
+    communication:
+      - name: Industry Guest
+        date: 2022
+        location: Energy Systems Catapult
+        summary: Presented on the intersection between academia and industry and the current challenges facing both parties, and explored solutions to increase collaboration.
+      - name: Industry Guest
+        date: 2021
+        location: CodeHers
+        summary: Gave workshops and presentations to highschool students on coding, machine learning, and careers in STEM.
+      - name: Interviewed Data Scientist
+        date: 2021
+        location: SuperDataScience Podcast
+        summary: Participated in multiple SDS podcast episodes about topics in data science, from hypothesis testing to MLOps.
+      - name: Scientific Correspondent
+        date: 2020
+        location: CNET, CBS
+        summary: Acted as a scientific correspondent for multiple organisations to break down complicated scientific research into everyday terms.
+      - name: Coding@Home Industry Partner
+        date: 2020
+        location: Queensland Education, Coding@Home
+        summary: Shared the modern and future role of coding and machine learning from the perspective of an astronomer and scientist.
+      - name: FameLab National Finalist
+        date: 2020
+        location: British Council
+        summary: National finalist in the FameLab program, with topic "Can you hear the Big bang?"
+      - name: Science Friction Guest
+        date: 2020
+        location: ABC Radio National
+        summary: Discussed the huge transition from astrophysics to data analytics due to the COVID-19 pandemic, and the transferable skillset that science gives you.
+      - name: NYSF Guest Panelist
+        date: 2020
+        location: National Youth Science Forum
+        summary: Shared my personal journey in science outreach, and presented on how to give effective presentations.
+      - name: ScopeTV Guest Scientist
+        start_date: 2017
+        end_date: 2019
+        location: ScopeTV, Channel 10
+        summary: Helped script, narrate and appear in ScopeTV educational astronomy episodes.
+      - name: Science Says! Scientific Panelist
+        date: 2019
+        location: World Science Festival
+        summary: Panel scientist for Science Says, a comedy science show for Brisbane's World Science Festival.
+      - name: Probably Science Podcast Guest Scientist
+        date: 2019
+        location: Probably Science Live Podcast and Comedy Show
+        summary: Guest scientist for Probably Science, joining the previous guests of Neil deGrasse Tyson, Sean Carroll and more.
+      - name: 2SER Radio Scientific Correspondent
+        date: 2019
+        location: Radio, 2SER
+        summary: Monthly scientific and astronomy updates.
+      - name: Podcast Host
+        start_date: 2018
+        end_date: 2019
+        location: Commuting the Cosmos
+        summary: Hosted and presented on a podcast about various space related concepts.
+      - name: Curious Kids Writer
+        date: 2018
+        location: The Conversation
+        summary: Consulted and authored articles for The Conversation's Curious Kids program.
+      - name: BrisScience Presenter
+        date: 2018
+        location: BrisScience & UQ
+        summary: Invited to talk at the monthly BrisScience event on the dark side of the universe.
+      - name: Australian Survivor Invited Contestant, Academic Champion
+        date: 2018
+        location: Endemol Shine
+        summary: Cast as the academic champion for the 'Champions v. Contendors' season of Australian Survivor.
+      - name: School Guest Presenter
+        start_date: 2017
+        end_date: 2018
+        location: Clayfield College, Gumdale State School
+        summary: Talks to primary and secondary students on astronomy, science, STEM and career pathways.
+      - name: Science Communicator
+        start_date: 2017
+        end_date: 2019
+        location: Pint of Science, Physics in the Pub
+        summary: Gave public talks to a general audience about various topics in astronomy.
+      - name: Invited Presenter
+        date: 2017
+        location: Research Education and Development Retreat
+        summary: Invited presenter at a progressional development program for physics PhD, honours and undergraduate students.
+      - name: Workshop Organiser, Host and Presenter
+        date: 2017
+        location: CAASTRO Code Workshop
+        summary: Created and presented a code workshop focusing on open-source science run across Australia.
+      - name: Battle of the Brains Panel Scientist
+        date: 2017
+        location: National Science Week
+        summary: Invited participant in a games panel discussion for physicists during National Science Week.
+      - name: World Science Festival Tour Guide
+        date: 2017
+        location: Queensland Museum & UQ
+        summary: Scientific tour guide for the Large Hadron Collider exhibit during the World Science Festival.
+      - name: FameLab Australia Scientist
+        date: 2017
+        location: British Council
+        summary: State finalist FameLab scientist. Public communication through radio interview and stage presentation.
+      - name: Guest Scientist, An Evening with Dr Lisa Randall
+        date: 2016
+        location: ThinkInc
+        summary: Gave the opening speech for the Brisbane event, talking about the exciting future of astronomy.
+      - name: UQ Science Demo Troupe Member
+        date: 2016
+        location: University of Queensland
+        summary: Joined the UQ Science Demo troupe to create resources for the group and participate in UQ demonstrations.
+      - name: Uluru Astronomer in Residence
+        date: 2016
+        location: CAASTRO
+        summary: Accompanied Sky Tours to answer scientific questions from the public and gave public lectures on popular astronomy topics.
+
+    publications:
+      - I am an author on over 300 published articles, with the astronomy subset available through [**NASA ADS**](https://ui.adsabs.harvard.edu/search/q=%20author%3A%22hinton%2C%20s%22%20%20year%3A2014-2025&sort=citation_count%20desc%2C%20bibcode%20desc&p_=0). My medical publications via the Covid 19 Critical Care Consortium will not be indexed by NASA, but can be found on my [**Google scholar profile**](https://scholar.google.com/citations?user=5AE3D6kAAAAJ).
+      - Using summary statistics from SciVal, my Field-Weighted Citation Impact is 3.63 with 52.5 average citations per publication. My current h-index sits at 72, i10-index at 224, and my highest-cited first-author paper has 340 citations.
+      - In both astronomy and medicine, large collaborations often publish key findings with the collaboration as first author, or using an alphabetical author scheme. I am an author on eleven of these papers, with a combined citation count of ~4.3k.
+
 design:
   theme: sb2nov
+  sections:
+    space_between_regular_entries: 1em
+  templates:
+    experience_entry:
+      main_column: "**POSITION** -- *COMPANY* -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: DATE
+    normal_entry:
+      main_column: "**NAME** -- *LOCATION*\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: DATE
+  typography:
+    line_spacing: 0.6em
+  colors:
+    name: rgb(0,0,0)
+    connections: rgb(0,0,0)
+    headline: "#0f766e"
+    section_titles: "#0f766e"
+    links: "#0d9488"

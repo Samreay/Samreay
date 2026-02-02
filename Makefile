@@ -9,6 +9,8 @@ install_casks:
 
 install_uv:
 	@echo "Running local uv install"
+	@if [ -f "uv" ]; then echo "Downloading uv" && curl -LsSf https://astral.sh/uv/install.sh | sh; else echo "uv already installed"; fi
+	@uv self update || true
 	@uv python install
 	@uv sync
 
