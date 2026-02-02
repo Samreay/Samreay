@@ -76,8 +76,7 @@ cv:
 
       - company: Lawrence Berkeley National Laboratory
         position: Research Fellow
-        start_date: 2016
-        end_date: 2016
+        date: 2016
         highlights:
           - Research fellowship to work on Bayesian Hierarchical Modelling and its applications to Supernova Cosmology.
           - Investigated how to use high dimensional hierarchical models to model individual supernova instead of populations to provide better constraints on cosmology using supernova discovered by the Dark Energy Survey.
@@ -100,7 +99,20 @@ cv:
           - Created large scale SQL queries, optimised queries, databases and applications for network, processing and memory constraints.
           - Developed back-end server code and front-end web applications.
 
-
-
+    education:
+      - institution: University of Queensland
+        area: Software Engineering
+        degree: Bachelor
+        date:
+        start_date: 2010-03
+        end_date: 2014-11
+        location: Brisbane, Australia
+      - institution: University of Queensland
+        area: Astrophysics
+        degree: Doctorate
+        date:
+        start_date: 2015-03
+        end_date: 2019-11
+        location: Brisbane, Australia
 design:
   theme: sb2nov

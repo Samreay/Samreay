@@ -230,7 +230,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
   ],
   [
-    #emph[2016 – 2016]
+    #emph[2016]
 
   ],
   main-column-second-row: [
@@ -282,5 +282,41 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
     - Developed back-end server code and front-end web applications.
 
+  ],
+)
+
+== Education
+
+#education-entry(
+  [
+    #strong[University of Queensland]
+
+    #emph[Bachelor] #emph[in] #emph[Software Engineering]
+
+  ],
+  [
+    #emph[Brisbane, Australia]
+
+    #emph[Mar 2010 – Nov 2014]
+
+  ],
+  main-column-second-row: [
+  ],
+)
+
+#education-entry(
+  [
+    #strong[University of Queensland]
+
+    #emph[Doctorate] #emph[in] #emph[Astrophysics]
+
+  ],
+  [
+    #emph[Brisbane, Australia]
+
+    #emph[Mar 2015 – Nov 2019]
+
+  ],
+  main-column-second-row: [
   ],
 )

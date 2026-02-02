@@ -100,7 +100,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 ## **Research Fellow**
 
-*2016 – 2016*
+*2016*
 
 *Lawrence Berkeley National Laboratory*
 
@@ -135,5 +135,22 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 - Created large scale SQL queries, optimised queries, databases and applications for network, processing and memory constraints.
 
 - Developed back-end server code and front-end web applications.
+
+
+
+# Education
+## **University of Queensland***Brisbane, Australia*
+
+*Mar 2010 – Nov 2014*
+
+*Bachelor* *in* *Software Engineering*
+
+
+
+## **University of Queensland***Brisbane, Australia*
+
+*Mar 2015 – Nov 2019*
+
+*Doctorate* *in* *Astrophysics*
 
 
