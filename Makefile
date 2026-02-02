@@ -7,10 +7,9 @@ install_casks:
 	@brew install hugo
 	@brew install nodejs
 
-install_poetry:
-	@echo "Updating uv"
-	@pip install -U uv -q
+install_uv:
 	@echo "Running local uv install"
+	@uv python install
 	@uv sync
 
 install_precommit:
@@ -37,7 +36,10 @@ summary:
 screenshots:
 	uv run python convert.py
 
-install: install_casks install_poetry install_precommit install_tailwind tailwind precommit
+cv:
+	cd resume && uv run rendercv render "Hinton_CV.yaml"
+
+install: install_casks install_uv install_precommit install_tailwind tailwind precommit
 
 build: tailwind convert
 

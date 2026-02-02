@@ -13,6 +13,7 @@ dependencies = [
     "python-frontmatter>=1.0.0,<2",
     "pyyaml>=6.0.1,<7",
     "notebook==6.4.12",
+    "rendercv[full]>=2.3",
 ]
 
 [dependency-groups]
