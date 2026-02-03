@@ -1,15 +1,14 @@
 # https://docs.rendercv.com/user_guide/
 cv:
   name: Samuel Hinton
-  location: Australia
   email: samuelreay@gmail.com
   website: https://cosmiccoding.com.au/
   headline: Data Scientist | Astrophysicist | Software Engineer
   social_networks:
     - network: LinkedIn
       username: samuelreay
-    # - network: GitHub
-    #   username: samreay
+    - network: GitHub
+      username: samreay
 
   sections:
     summary:
@@ -19,8 +18,7 @@ cv:
 
       - company: University of Queensland
         position: Research Fellow
-        start_date: 2025
-        end_date: 2025
+        date: 2025
         highlights:
           - Ran workshops and seminars on numerous topics with a focus on upskilling PhD students with industry tooling, such as containerisation, project management, dependency management, coding practising, and orchestration tooling.
           - Worked with the Schmidt Foundation in the United States to reduce fragmentation of data repositories and collections in astronomy.
@@ -264,16 +262,21 @@ cv:
 design:
   theme: sb2nov
   sections:
-    space_between_regular_entries: 1em
+    space_between_regular_entries: 0.6em
+  page:
+    size: a4
+    show_footer: false
+    show_top_note: false
   templates:
     experience_entry:
-      main_column: "**POSITION** -- *COMPANY* -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      main_column: "**POSITION**  --  *COMPANY* -- LOCATION\nSUMMARY\nHIGHLIGHTS"
       date_and_location_column: DATE
     normal_entry:
-      main_column: "**NAME** -- *LOCATION*\nSUMMARY\nHIGHLIGHTS"
+      main_column: "**NAME**  --  *LOCATION*\nSUMMARY\nHIGHLIGHTS"
       date_and_location_column: DATE
   typography:
     line_spacing: 0.6em
+    font_family: "EB Garamond"
   colors:
     name: rgb(0,0,0)
     connections: rgb(0,0,0)

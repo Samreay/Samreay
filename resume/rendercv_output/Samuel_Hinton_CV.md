@@ -1,18 +1,18 @@
 # Samuel Hinton's CV
 
 - Email: [samuelreay@gmail.com](mailto:samuelreay@gmail.com)
-- Location: Australia
 - Website: [cosmiccoding.com.au](https://cosmiccoding.com.au/)
 - LinkedIn: [samuelreay](https://linkedin.com/in/samuelreay)
+- GitHub: [samreay](https://github.com/samreay)
 
 
 # Summary
 I'm a data scientist and data engineer with a focus on energy markets, forecasting, and increasing the uptake of renewable energy sources. I have over a decade of experience in industry, and years of experience within academia. I have architected, designed, built, and deployed end-to-end machine learning pipelines, data pipelines, and mission-critical software services for both academia and industry.
 
 # Experience
-## **Research Fellow** -- *University of Queensland*
+## **Research Fellow**  --  *University of Queensland*
 
-2025 – 2025
+2025
 
 - Ran workshops and seminars on numerous topics with a focus on upskilling PhD students with industry tooling, such as containerisation, project management, dependency management, coding practising, and orchestration tooling.
 
@@ -22,7 +22,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 
 
-## **Senior Data Scientist** -- *Arenko*
+## **Senior Data Scientist**  --  *Arenko*
 
 2020 – 2025
 
@@ -50,7 +50,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 
 
-## **Lead Data Analyst** -- *COVID-19 Critical Care Consortium*
+## **Lead Data Analyst**  --  *COVID-19 Critical Care Consortium*
 
 2020 – 2021
 
@@ -62,7 +62,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 
 
-## **Postdoctoral Researcher** -- *University of Queensland*
+## **Postdoctoral Researcher**  --  *University of Queensland*
 
 2019 – 2020
 
@@ -78,7 +78,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 
 
-## **Course Instructor** -- *SuperDataScience*
+## **Course Instructor**  --  *SuperDataScience*
 
 2019
 
@@ -88,7 +88,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 
 
-## **Research Fellow** -- *Lawrence Berkeley National Laboratory*
+## **Research Fellow**  --  *Lawrence Berkeley National Laboratory*
 
 2016, 2017
 
@@ -98,7 +98,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 
 
-## **Research Studentship** -- *Gemini & Australian Astronomical Observatory*
+## **Research Studentship**  --  *Gemini & Australian Astronomical Observatory*
 
 2015 – 2016
 
@@ -108,7 +108,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 
 
-## **Software Developer** -- *GBST*
+## **Software Developer**  --  *GBST*
 
 2010 – 2014
 
@@ -140,68 +140,68 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 
 # Notable Awards
-## **Lindau Nobel Laureate Delegate** -- *Australian Academy of Science*
+## **Lindau Nobel Laureate Delegate**  --  *Australian Academy of Science*
 
 2019
 
 
 
-## **Future Superstar Award** -- *University of Queensland*
+## **Future Superstar Award**  --  *University of Queensland*
 
 2019
 
 
 
-## **Bok Prize** -- *Astronomical Society of Australia*
+## **Bok Prize**  --  *Astronomical Society of Australia*
 
 2016
 
 
 
-## **Australian Postgraduate Award** -- *Australian Government*
+## **Australian Postgraduate Award**  --  *Australian Government*
 
 2016
 
 
 
-## **Science Faculty Graduate of the Year** -- *University of Queensland*
+## **Science Faculty Graduate of the Year**  --  *University of Queensland*
 
 2016
 
 
 
-## **Australian Institute of Physics Prize** -- *University of Queensland*
+## **Australian Institute of Physics Prize**  --  *University of Queensland*
 
 2016
 
 
 
-## **University Medal (Science)** -- *University of Queensland*
+## **University Medal (Science)**  --  *University of Queensland*
 
 2016
 
 
 
-## **Australian Gemini Undergraduate Summer Studentships** -- *AAO*
+## **Australian Gemini Undergraduate Summer Studentships**  --  *AAO*
 
 2015
 
 
 
-## **AAO Honours Scholarship** -- *Australian Astronomical Observatory*
+## **AAO Honours Scholarship**  --  *Australian Astronomical Observatory*
 
 2015
 
 
 
-## **University Medal (Engineering)** -- *University of Queensland*
+## **University Medal (Engineering)**  --  *University of Queensland*
 
 2015
 
 
 
 # Communication
-## **Industry Guest** -- *Energy Systems Catapult*
+## **Industry Guest**  --  *Energy Systems Catapult*
 
 2022
 
@@ -209,7 +209,7 @@ Presented on the intersection between academia and industry and the current chal
 
 
 
-## **Industry Guest** -- *CodeHers*
+## **Industry Guest**  --  *CodeHers*
 
 2021
 
@@ -217,7 +217,7 @@ Gave workshops and presentations to highschool students on coding, machine learn
 
 
 
-## **Interviewed Data Scientist** -- *SuperDataScience Podcast*
+## **Interviewed Data Scientist**  --  *SuperDataScience Podcast*
 
 2021
 
@@ -225,7 +225,7 @@ Participated in multiple SDS podcast episodes about topics in data science, from
 
 
 
-## **Scientific Correspondent** -- *CNET, CBS*
+## **Scientific Correspondent**  --  *CNET, CBS*
 
 2020
 
@@ -233,7 +233,7 @@ Acted as a scientific correspondent for multiple organisations to break down com
 
 
 
-## **Coding@Home Industry Partner** -- *Queensland Education, Coding@Home*
+## **Coding@Home Industry Partner**  --  *Queensland Education, Coding@Home*
 
 2020
 
@@ -241,7 +241,7 @@ Shared the modern and future role of coding and machine learning from the perspe
 
 
 
-## **FameLab National Finalist** -- *British Council*
+## **FameLab National Finalist**  --  *British Council*
 
 2020
 
@@ -249,7 +249,7 @@ National finalist in the FameLab program, with topic "Can you hear the Big bang?
 
 
 
-## **Science Friction Guest** -- *ABC Radio National*
+## **Science Friction Guest**  --  *ABC Radio National*
 
 2020
 
@@ -257,7 +257,7 @@ Discussed the huge transition from astrophysics to data analytics due to the COV
 
 
 
-## **NYSF Guest Panelist** -- *National Youth Science Forum*
+## **NYSF Guest Panelist**  --  *National Youth Science Forum*
 
 2020
 
@@ -265,7 +265,7 @@ Shared my personal journey in science outreach, and presented on how to give eff
 
 
 
-## **ScopeTV Guest Scientist** -- *ScopeTV, Channel 10*
+## **ScopeTV Guest Scientist**  --  *ScopeTV, Channel 10*
 
 2017 – 2019
 
@@ -273,7 +273,7 @@ Helped script, narrate and appear in ScopeTV educational astronomy episodes.
 
 
 
-## **Science Says! Scientific Panelist** -- *World Science Festival*
+## **Science Says! Scientific Panelist**  --  *World Science Festival*
 
 2019
 
@@ -281,7 +281,7 @@ Panel scientist for Science Says, a comedy science show for Brisbane's World Sci
 
 
 
-## **Probably Science Podcast Guest Scientist** -- *Probably Science Live Podcast and Comedy Show*
+## **Probably Science Podcast Guest Scientist**  --  *Probably Science Live Podcast and Comedy Show*
 
 2019
 
@@ -289,7 +289,7 @@ Guest scientist for Probably Science, joining the previous guests of Neil deGras
 
 
 
-## **2SER Radio Scientific Correspondent** -- *Radio, 2SER*
+## **2SER Radio Scientific Correspondent**  --  *Radio, 2SER*
 
 2019
 
@@ -297,7 +297,7 @@ Monthly scientific and astronomy updates.
 
 
 
-## **Podcast Host** -- *Commuting the Cosmos*
+## **Podcast Host**  --  *Commuting the Cosmos*
 
 2018 – 2019
 
@@ -305,7 +305,7 @@ Hosted and presented on a podcast about various space related concepts.
 
 
 
-## **Curious Kids Writer** -- *The Conversation*
+## **Curious Kids Writer**  --  *The Conversation*
 
 2018
 
@@ -313,7 +313,7 @@ Consulted and authored articles for The Conversation's Curious Kids program.
 
 
 
-## **BrisScience Presenter** -- *BrisScience & UQ*
+## **BrisScience Presenter**  --  *BrisScience & UQ*
 
 2018
 
@@ -321,7 +321,7 @@ Invited to talk at the monthly BrisScience event on the dark side of the univers
 
 
 
-## **Australian Survivor Invited Contestant, Academic Champion** -- *Endemol Shine*
+## **Australian Survivor Invited Contestant, Academic Champion**  --  *Endemol Shine*
 
 2018
 
@@ -329,7 +329,7 @@ Cast as the academic champion for the 'Champions v. Contendors' season of Austra
 
 
 
-## **School Guest Presenter** -- *Clayfield College, Gumdale State School*
+## **School Guest Presenter**  --  *Clayfield College, Gumdale State School*
 
 2017 – 2018
 
@@ -337,7 +337,7 @@ Talks to primary and secondary students on astronomy, science, STEM and career p
 
 
 
-## **Science Communicator** -- *Pint of Science, Physics in the Pub*
+## **Science Communicator**  --  *Pint of Science, Physics in the Pub*
 
 2017 – 2019
 
@@ -345,7 +345,7 @@ Gave public talks to a general audience about various topics in astronomy.
 
 
 
-## **Invited Presenter** -- *Research Education and Development Retreat*
+## **Invited Presenter**  --  *Research Education and Development Retreat*
 
 2017
 
@@ -353,7 +353,7 @@ Invited presenter at a progressional development program for physics PhD, honour
 
 
 
-## **Workshop Organiser, Host and Presenter** -- *CAASTRO Code Workshop*
+## **Workshop Organiser, Host and Presenter**  --  *CAASTRO Code Workshop*
 
 2017
 
@@ -361,7 +361,7 @@ Created and presented a code workshop focusing on open-source science run across
 
 
 
-## **Battle of the Brains Panel Scientist** -- *National Science Week*
+## **Battle of the Brains Panel Scientist**  --  *National Science Week*
 
 2017
 
@@ -369,7 +369,7 @@ Invited participant in a games panel discussion for physicists during National S
 
 
 
-## **World Science Festival Tour Guide** -- *Queensland Museum & UQ*
+## **World Science Festival Tour Guide**  --  *Queensland Museum & UQ*
 
 2017
 
@@ -377,7 +377,7 @@ Scientific tour guide for the Large Hadron Collider exhibit during the World Sci
 
 
 
-## **FameLab Australia Scientist** -- *British Council*
+## **FameLab Australia Scientist**  --  *British Council*
 
 2017
 
@@ -385,7 +385,7 @@ State finalist FameLab scientist. Public communication through radio interview a
 
 
 
-## **Guest Scientist, An Evening with Dr Lisa Randall** -- *ThinkInc*
+## **Guest Scientist, An Evening with Dr Lisa Randall**  --  *ThinkInc*
 
 2016
 
@@ -393,7 +393,7 @@ Gave the opening speech for the Brisbane event, talking about the exciting futur
 
 
 
-## **UQ Science Demo Troupe Member** -- *University of Queensland*
+## **UQ Science Demo Troupe Member**  --  *University of Queensland*
 
 2016
 
@@ -401,7 +401,7 @@ Joined the UQ Science Demo troupe to create resources for the group and particip
 
 
 
-## **Uluru Astronomer in Residence** -- *CAASTRO*
+## **Uluru Astronomer in Residence**  --  *CAASTRO*
 
 2016
 

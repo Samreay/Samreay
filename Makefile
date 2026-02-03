@@ -39,7 +39,7 @@ screenshots:
 	uv run python convert.py
 
 cv:
-	cd resume && uv run rendercv render "Hinton_CV.yaml"
+	cd resume && uv run rendercv render "Hinton_CV.yaml" && cp rendercv_output/Samuel_Hinton_CV.pdf ../themes/sams-theme/static/static/resume/Samuel_Hinton_CV.pdf
 
 install: install_casks install_uv install_precommit install_tailwind tailwind precommit
 

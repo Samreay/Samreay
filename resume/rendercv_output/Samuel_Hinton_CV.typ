@@ -7,13 +7,13 @@
   footer: context { [#emph[Samuel Hinton -- #str(here().page())\/#str(counter(page).final().first())]] },
   top-note: [ #emph[Last updated in Feb 2026] ],
   locale-catalog-language: "en",
-  page-size: "us-letter",
+  page-size: "a4",
   page-top-margin: 0.7in,
   page-bottom-margin: 0.7in,
   page-left-margin: 0.7in,
   page-right-margin: 0.7in,
-  page-show-footer: true,
-  page-show-top-note: true,
+  page-show-footer: false,
+  page-show-top-note: false,
   colors-body: rgb(0, 0, 0),
   colors-name: rgb(0, 0, 0),
   colors-headline: rgb(15, 118, 110),
@@ -25,11 +25,11 @@
   typography-line-spacing: 0.6em,
   typography-alignment: "justified",
   typography-date-and-location-column-alignment: right,
-  typography-font-family-body: "New Computer Modern",
-  typography-font-family-name: "New Computer Modern",
-  typography-font-family-headline: "New Computer Modern",
-  typography-font-family-connections: "New Computer Modern",
-  typography-font-family-section-titles: "New Computer Modern",
+  typography-font-family-body: "EB Garamond",
+  typography-font-family-name: "EB Garamond",
+  typography-font-family-headline: "EB Garamond",
+  typography-font-family-connections: "EB Garamond",
+  typography-font-family-section-titles: "EB Garamond",
   typography-font-size-body: 10pt,
   typography-font-size-name: 30pt,
   typography-font-size-headline: 10pt,
@@ -61,7 +61,7 @@
   section-titles-space-below: 0.3cm,
   sections-allow-page-break: true,
   sections-space-between-text-based-entries: 0.3em,
-  sections-space-between-regular-entries: 1em,
+  sections-space-between-regular-entries: 0.6em,
   entries-date-and-location-width: 4.15cm,
   entries-side-space: 0.2cm,
   entries-space-between-columns: 0.1cm,
@@ -78,7 +78,7 @@
   date: datetime(
     year: 2026,
     month: 2,
-    day: 2,
+    day: 3,
   ),
 )
 
@@ -88,10 +88,10 @@
   #headline([Data Scientist | Astrophysicist | Software Engineer])
 
 #connections(
-  [Australia],
   [#link("mailto:samuelreay@gmail.com", icon: false, if-underline: false, if-color: false)[samuelreay\@gmail.com]],
   [#link("https://cosmiccoding.com.au/", icon: false, if-underline: false, if-color: false)[cosmiccoding.com.au]],
   [#link("https://linkedin.com/in/samuelreay", icon: false, if-underline: false, if-color: false)[linkedin.com\/in\/samuelreay]],
+  [#link("https://github.com/samreay", icon: false, if-underline: false, if-color: false)[github.com\/samreay]],
 )
 
 
@@ -103,11 +103,11 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Research Fellow] -- #emph[University of Queensland]
+    #strong[Research Fellow]  --  #emph[University of Queensland]
 
   ],
   [
-    2025 – 2025
+    2025
 
   ],
   main-column-second-row: [
@@ -122,7 +122,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Senior Data Scientist] -- #emph[Arenko]
+    #strong[Senior Data Scientist]  --  #emph[Arenko]
 
   ],
   [
@@ -157,7 +157,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Lead Data Analyst] -- #emph[COVID-19 Critical Care Consortium]
+    #strong[Lead Data Analyst]  --  #emph[COVID-19 Critical Care Consortium]
 
   ],
   [
@@ -176,7 +176,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Postdoctoral Researcher] -- #emph[University of Queensland]
+    #strong[Postdoctoral Researcher]  --  #emph[University of Queensland]
 
   ],
   [
@@ -199,7 +199,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Course Instructor] -- #emph[SuperDataScience]
+    #strong[Course Instructor]  --  #emph[SuperDataScience]
 
   ],
   [
@@ -216,7 +216,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Research Fellow] -- #emph[Lawrence Berkeley National Laboratory]
+    #strong[Research Fellow]  --  #emph[Lawrence Berkeley National Laboratory]
 
   ],
   [
@@ -233,7 +233,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Research Studentship] -- #emph[Gemini & Australian Astronomical Observatory]
+    #strong[Research Studentship]  --  #emph[Gemini & Australian Astronomical Observatory]
 
   ],
   [
@@ -250,7 +250,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Software Developer] -- #emph[GBST]
+    #strong[Software Developer]  --  #emph[GBST]
 
   ],
   [
@@ -309,7 +309,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Lindau Nobel Laureate Delegate] -- #emph[Australian Academy of Science]
+    #strong[Lindau Nobel Laureate Delegate]  --  #emph[Australian Academy of Science]
 
   ],
   [
@@ -322,7 +322,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Future Superstar Award] -- #emph[University of Queensland]
+    #strong[Future Superstar Award]  --  #emph[University of Queensland]
 
   ],
   [
@@ -335,7 +335,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Bok Prize] -- #emph[Astronomical Society of Australia]
+    #strong[Bok Prize]  --  #emph[Astronomical Society of Australia]
 
   ],
   [
@@ -348,7 +348,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Australian Postgraduate Award] -- #emph[Australian Government]
+    #strong[Australian Postgraduate Award]  --  #emph[Australian Government]
 
   ],
   [
@@ -361,7 +361,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Science Faculty Graduate of the Year] -- #emph[University of Queensland]
+    #strong[Science Faculty Graduate of the Year]  --  #emph[University of Queensland]
 
   ],
   [
@@ -374,7 +374,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Australian Institute of Physics Prize] -- #emph[University of Queensland]
+    #strong[Australian Institute of Physics Prize]  --  #emph[University of Queensland]
 
   ],
   [
@@ -387,7 +387,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[University Medal (Science)] -- #emph[University of Queensland]
+    #strong[University Medal (Science)]  --  #emph[University of Queensland]
 
   ],
   [
@@ -400,7 +400,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Australian Gemini Undergraduate Summer Studentships] -- #emph[AAO]
+    #strong[Australian Gemini Undergraduate Summer Studentships]  --  #emph[AAO]
 
   ],
   [
@@ -413,7 +413,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[AAO Honours Scholarship] -- #emph[Australian Astronomical Observatory]
+    #strong[AAO Honours Scholarship]  --  #emph[Australian Astronomical Observatory]
 
   ],
   [
@@ -426,7 +426,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[University Medal (Engineering)] -- #emph[University of Queensland]
+    #strong[University Medal (Engineering)]  --  #emph[University of Queensland]
 
   ],
   [
@@ -441,7 +441,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Industry Guest] -- #emph[Energy Systems Catapult]
+    #strong[Industry Guest]  --  #emph[Energy Systems Catapult]
 
   ],
   [
@@ -456,7 +456,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Industry Guest] -- #emph[CodeHers]
+    #strong[Industry Guest]  --  #emph[CodeHers]
 
   ],
   [
@@ -471,7 +471,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Interviewed Data Scientist] -- #emph[SuperDataScience Podcast]
+    #strong[Interviewed Data Scientist]  --  #emph[SuperDataScience Podcast]
 
   ],
   [
@@ -486,7 +486,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Scientific Correspondent] -- #emph[CNET, CBS]
+    #strong[Scientific Correspondent]  --  #emph[CNET, CBS]
 
   ],
   [
@@ -501,7 +501,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Coding\@Home Industry Partner] -- #emph[Queensland Education, Coding\@Home]
+    #strong[Coding\@Home Industry Partner]  --  #emph[Queensland Education, Coding\@Home]
 
   ],
   [
@@ -516,7 +516,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[FameLab National Finalist] -- #emph[British Council]
+    #strong[FameLab National Finalist]  --  #emph[British Council]
 
   ],
   [
@@ -531,7 +531,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Science Friction Guest] -- #emph[ABC Radio National]
+    #strong[Science Friction Guest]  --  #emph[ABC Radio National]
 
   ],
   [
@@ -546,7 +546,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[NYSF Guest Panelist] -- #emph[National Youth Science Forum]
+    #strong[NYSF Guest Panelist]  --  #emph[National Youth Science Forum]
 
   ],
   [
@@ -561,7 +561,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[ScopeTV Guest Scientist] -- #emph[ScopeTV, Channel 10]
+    #strong[ScopeTV Guest Scientist]  --  #emph[ScopeTV, Channel 10]
 
   ],
   [
@@ -576,7 +576,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Science Says! Scientific Panelist] -- #emph[World Science Festival]
+    #strong[Science Says! Scientific Panelist]  --  #emph[World Science Festival]
 
   ],
   [
@@ -591,7 +591,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Probably Science Podcast Guest Scientist] -- #emph[Probably Science Live Podcast and Comedy Show]
+    #strong[Probably Science Podcast Guest Scientist]  --  #emph[Probably Science Live Podcast and Comedy Show]
 
   ],
   [
@@ -606,7 +606,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[2SER Radio Scientific Correspondent] -- #emph[Radio, 2SER]
+    #strong[2SER Radio Scientific Correspondent]  --  #emph[Radio, 2SER]
 
   ],
   [
@@ -621,7 +621,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Podcast Host] -- #emph[Commuting the Cosmos]
+    #strong[Podcast Host]  --  #emph[Commuting the Cosmos]
 
   ],
   [
@@ -636,7 +636,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Curious Kids Writer] -- #emph[The Conversation]
+    #strong[Curious Kids Writer]  --  #emph[The Conversation]
 
   ],
   [
@@ -651,7 +651,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[BrisScience Presenter] -- #emph[BrisScience & UQ]
+    #strong[BrisScience Presenter]  --  #emph[BrisScience & UQ]
 
   ],
   [
@@ -666,7 +666,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Australian Survivor Invited Contestant, Academic Champion] -- #emph[Endemol Shine]
+    #strong[Australian Survivor Invited Contestant, Academic Champion]  --  #emph[Endemol Shine]
 
   ],
   [
@@ -681,7 +681,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[School Guest Presenter] -- #emph[Clayfield College, Gumdale State School]
+    #strong[School Guest Presenter]  --  #emph[Clayfield College, Gumdale State School]
 
   ],
   [
@@ -696,7 +696,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Science Communicator] -- #emph[Pint of Science, Physics in the Pub]
+    #strong[Science Communicator]  --  #emph[Pint of Science, Physics in the Pub]
 
   ],
   [
@@ -711,7 +711,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Invited Presenter] -- #emph[Research Education and Development Retreat]
+    #strong[Invited Presenter]  --  #emph[Research Education and Development Retreat]
 
   ],
   [
@@ -726,7 +726,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Workshop Organiser, Host and Presenter] -- #emph[CAASTRO Code Workshop]
+    #strong[Workshop Organiser, Host and Presenter]  --  #emph[CAASTRO Code Workshop]
 
   ],
   [
@@ -741,7 +741,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Battle of the Brains Panel Scientist] -- #emph[National Science Week]
+    #strong[Battle of the Brains Panel Scientist]  --  #emph[National Science Week]
 
   ],
   [
@@ -756,7 +756,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[World Science Festival Tour Guide] -- #emph[Queensland Museum & UQ]
+    #strong[World Science Festival Tour Guide]  --  #emph[Queensland Museum & UQ]
 
   ],
   [
@@ -771,7 +771,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[FameLab Australia Scientist] -- #emph[British Council]
+    #strong[FameLab Australia Scientist]  --  #emph[British Council]
 
   ],
   [
@@ -786,7 +786,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Guest Scientist, An Evening with Dr Lisa Randall] -- #emph[ThinkInc]
+    #strong[Guest Scientist, An Evening with Dr Lisa Randall]  --  #emph[ThinkInc]
 
   ],
   [
@@ -801,7 +801,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[UQ Science Demo Troupe Member] -- #emph[University of Queensland]
+    #strong[UQ Science Demo Troupe Member]  --  #emph[University of Queensland]
 
   ],
   [
@@ -816,7 +816,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 #regular-entry(
   [
-    #strong[Uluru Astronomer in Residence] -- #emph[CAASTRO]
+    #strong[Uluru Astronomer in Residence]  --  #emph[CAASTRO]
 
   ],
   [
