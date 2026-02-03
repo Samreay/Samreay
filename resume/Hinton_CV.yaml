@@ -75,8 +75,7 @@ cv:
         position: Research Fellow
         date: 2016, 2017
         highlights:
-          - Research fellowship to work on Bayesian Hierarchical Modelling and its applications to Supernova Cosmology.
-          - Investigated how to use high dimensional hierarchical models to model individual supernova instead of populations to provide better constraints on cosmology using supernova discovered by the Dark Energy Survey.
+          - Used high dimensional hierarchical Bayesian models to provide better constraints on cosmology using supernova discovered by the Dark Energy Survey.
 
       - company: Gemini & Australian Astronomical Observatory
         position: Research Studentship
@@ -93,7 +92,7 @@ cv:
         highlights:
           - Developed business intelligence reporting solutions to visualise complex financial data.
           - Designed and developed server and client based web application code for both frontoffice and backoffice staff.
-          - Created large scale SQL queries, optimised queries, databases and applications for network, processing and memory constraints.
+          - Created and optimised SQL queries, databases and applications for network, processing and memory constraints.
           - Developed back-end server code and front-end web applications.
 
     education:
@@ -255,7 +254,7 @@ cv:
         summary: Accompanied Sky Tours to answer scientific questions from the public and gave public lectures on popular astronomy topics.
 
     publications:
-      - I am an author on over 300 published articles, with the astronomy subset available through [**NASA ADS**](https://ui.adsabs.harvard.edu/search/q=%20author%3A%22hinton%2C%20s%22%20%20year%3A2014-2025&sort=citation_count%20desc%2C%20bibcode%20desc&p_=0). My medical publications via the Covid 19 Critical Care Consortium will not be indexed by NASA, but can be found on my [**Google scholar profile**](https://scholar.google.com/citations?user=5AE3D6kAAAAJ).
+      - I am an author on over 300 published articles, with the astronomy subset available through [**NASA ADS**](https://ui.adsabs.harvard.edu/search/q=%20author%3A%22hinton%2C%20s%22%20%20year%3A2014-2026&sort=citation_count%20desc%2C%20bibcode%20desc&p_=0). My medical publications via the Covid 19 Critical Care Consortium will not be indexed by NASA, but can be found on my [**Google scholar profile**](https://scholar.google.com/citations?user=5AE3D6kAAAAJ).
       - Using summary statistics from SciVal, my Field-Weighted Citation Impact is 3.63 with 52.5 average citations per publication. My current h-index sits at 72, i10-index at 224, and my highest-cited first-author paper has 340 citations.
       - In both astronomy and medicine, large collaborations often publish key findings with the collaboration as first author, or using an alphabetical author scheme. I am an author on eleven of these papers, with a combined citation count of ~4.3k.
 

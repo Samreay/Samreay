@@ -92,9 +92,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 2016, 2017
 
-- Research fellowship to work on Bayesian Hierarchical Modelling and its applications to Supernova Cosmology.
-
-- Investigated how to use high dimensional hierarchical models to model individual supernova instead of populations to provide better constraints on cosmology using supernova discovered by the Dark Energy Survey.
+- Used high dimensional hierarchical Bayesian models to provide better constraints on cosmology using supernova discovered by the Dark Energy Survey.
 
 
 
@@ -116,7 +114,7 @@ I'm a data scientist and data engineer with a focus on energy markets, forecasti
 
 - Designed and developed server and client based web application code for both frontoffice and backoffice staff.
 
-- Created large scale SQL queries, optimised queries, databases and applications for network, processing and memory constraints.
+- Created and optimised SQL queries, databases and applications for network, processing and memory constraints.
 
 - Developed back-end server code and front-end web applications.
 
