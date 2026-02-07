@@ -9,7 +9,7 @@ weight: 35
 name: "Neon Dust"
 links:
     royal_road: https://www.royalroad.com/fiction/104908/neon-dust-progression-cyberpunk
-tags: [finished, cyberpunk, scifi]
+tags: [finished, cyberpunk, sci-fi]
 sentence: "In 22nd-century New York, survival is a hustle, and secrets refuse to stay buried."
 ---
 
