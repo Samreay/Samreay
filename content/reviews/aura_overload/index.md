@@ -9,7 +9,7 @@ weight: 23
 name: "Aura Overload"
 links:
     royal_road: https://www.royalroad.com/fiction/149866/aura-overload-sci-fi-litrpg
-tags: [in-progress, litrpg, cyberpunk, scifi]
+tags: [in-progress, litrpg, cyberpunk, sci-fi]
 sentence: "After two centuries on a neurodeck, Hector finds himself in a new skin, with a need for vengence."
 ---
 
