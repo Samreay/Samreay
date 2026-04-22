@@ -12,7 +12,14 @@
 - name: Admira Wijaya
   links:
     artstation: https://www.artstation.com/admirawijaya
-  covers: [dotf1, dotf2, dotf3, dotf4, twinned_destinites]
+  covers: [
+    dotf1,
+    dotf2,
+    dotf3,
+    dotf4,
+    twinned_destinites,
+    nightmare_realm_summoner3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1s9m7dv/
+  ]
 
 - name: Agri Karuniawan
   links:
@@ -23,6 +30,11 @@
   links:
     artstation: https://www.artstation.com/iromonik
   covers: [the_god_machine, ascendant3]
+
+- name: Ammar (Untamed Draws)
+  links:
+    instagram: https://www.instagram.com/untamed.draws/
+  covers: [samurai_chef1]  # https://www.reddit.com/r/ProgressionFantasy/comments/1soutld/
 
 - name: Antti Hakosaari
   links:
@@ -36,6 +48,7 @@
       primal_hunter4,
       rune_seeker5,
       calamitous_bob1,
+      isekai_for_hire1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sgpz9k/
     ]
 
 - name: Arnor
@@ -80,6 +93,7 @@
       btdem2,
       ultimate_level_1,
       voyage_of_the_mindbender,
+      cardsmith4,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sgm69a/
   ]
 
 - name: BLAKE
@@ -116,6 +130,11 @@
   links:
     artstation: https://www.artstation.com/creadfectus
   covers: [jester_apoc, demon_tree, ship_core, revelations, godscourge, madman_apocalypse1]
+
+- name: Caio
+  links:
+    instagram: https://www.instagram.com/caioyo/
+  covers: [primal_soul1]  # https://www.reddit.com/r/ProgressionFantasy/comments/1snbkaq/
 
 - name: Cotta
   links:
@@ -183,7 +202,10 @@
 - name: Elaine Luo
   links:
     artstation: https://leilain.artstation.com/
-  covers: [rinyv, the_last_dainv]
+  covers: [
+    rinyv,
+    the_last_dainv,
+  ]
 
 - name: Emily McCosh
   links:
@@ -242,7 +264,13 @@
 - name: Fuyu Dust
   links:
     artstation: https://www.artstation.com/fuyudust
-  covers: [bdr1, bdr2, bdr3, amelia2]
+  covers: [
+    bdr1,
+    bdr2,
+    bdr3,
+    amelia2,
+    salt_and_blood1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1se50qr/
+  ]
 
 - name: GASE(가세)
   links:
@@ -302,6 +330,11 @@
   links:
     website: https://typobyino.crd.co/
   covers: [gunships_goodbyes, dreams, acolyte_ascension, walk_in_shadows, savage_awakening6, fearshaper1, wild_era, old_growth]
+
+- name: Ivan Zann
+  links:
+    website: https://www.bookcoversart.com/
+  covers: [amulet_of_broken_time]  # https://www.reddit.com/r/ProgressionFantasy/comments/1so2eve/
 
 - name: J Caleb Design (Jake Clark)
   links:
@@ -375,6 +408,9 @@
       blade_of_revelation,
       millenial_mage_kart,
       nameless_3,
+      sacrifice_mage1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1scc5kc/
+      apocalypse_engineering2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sn22br/
+      millennial_mage12,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sfqgv9/
     ]
   links:
     deviantart: https://www.deviantart.com/kartstudiodigi/
@@ -437,6 +473,7 @@
       hell_difficulty_tutorial_1,
       hell_difficulty_tutorial_2,
       hell_difficulty_tutorial_3,
+      hell_difficulty_tutorial_7,  # https://www.reddit.com/r/ProgressionFantasy/comments/1smdp7k/
     ]
 
 - name: Laércio Messias
@@ -444,6 +481,11 @@
     facebook: https://www.facebook.com/laerciomess
     artstation: https://www.artstation.com/laerciomessias
   covers: [truth_hurts, rimono, crisis_point, intervention]
+
+- name: Lazy Bones Studio
+  links:
+    dribbble: https://dribbble.com/lazybonesstudio
+  covers: [maze_stub]  # https://www.reddit.com/r/ProgressionFantasy/comments/1s9j0iv/
 
 - name: LArcian
   links:
@@ -459,7 +501,13 @@
 - name: Liz C
   links:
     fiverr: https://www.fiverr.com/lizbecoetzee
-  covers: [mana_mirror, lord_of_the_seas1, sham_man1, the_effaced]
+  covers: [
+    mana_mirror,
+    lord_of_the_seas1,
+    sham_man1,
+    the_effaced,
+    justice_not_found,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sn20sc/
+  ]
 
 - name: Lee Moyer
   covers:
@@ -519,7 +567,14 @@
 #   covers: [htdadkites]
 
 - name: macarious
-  covers: [ghost_of_the_truthseeker, virtuous_sons, lord_of_farming1, nameless_sovereign1, godclads1]
+  covers: [
+    ghost_of_the_truthseeker,
+    virtuous_sons,
+    lord_of_farming1,
+    nameless_sovereign1,
+    godclads1,
+    not_just_a_mage_lord,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sgt7yh/
+  ]
   links:
     deviantart: https://www.deviantart.com/macarious
 
@@ -537,6 +592,7 @@
       swords_silent,
       thrones_of_the_fallen,
       starbreaker5,
+      faceless_hunter,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sdzq5b/
     ]
   links:
     artstation: https://www.artstation.com/yam8417
@@ -550,7 +606,11 @@
   links:
     website: https://www.adonyne.com/
     instagram: https://www.instagram.com/adonyne
-  covers: [heretical_fishing, heretical_fishing2]
+  covers: [
+    heretical_fishing,
+    heretical_fishing2,
+    heretical_fishing5,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sl6ep3/
+  ]
 
 - name: Mattias (Baconstrap)
   links:
@@ -629,7 +689,10 @@
   links:
     artstation: https://www.artstation.com/masterofspirits
     instagram: https://www.instagram.com/masterofspirits/?hl=en
-  covers: [lever_action]
+  covers: [
+    lever_action,
+    spiritbound2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1slah3z/
+  ]
 
 - name: Ömer Burak Önal
   links:
@@ -639,13 +702,22 @@
 - name: Paris Ioannou
   links:
     artstation: https://www.artstation.com/paris60
-  covers: [unintended_cultivator]
+  covers: [
+    unintended_cultivator,
+  ]
 
 - name: Piere d'Arterie
   links:
     instagram: https://www.instagram.com/piere_d_arterie/
     99designs: https://99designs.ca/profiles/pieredarterie
-  covers: [apocalypse_assassin, twoia1, twoia6, target_75_claire, twoia5]
+  covers: [
+    apocalypse_assassin,
+    twoia1,
+    twoia6,
+    target_75_claire,
+    twoia5,
+    reapers_madness,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sf9j0q/
+  ]
 
 - name: Phimd Studio
   links:
@@ -668,7 +740,11 @@
 - name: Poyjeee
   links:
     fiverr: https://www.fiverr.com/poyjeee
-  covers: [sovereign, kieran4, godscourge3]
+  covers: [
+    sovereign,
+    kieran4,
+    godscourge3,
+  ]
 
 - name: Rashed AlAkroka
   links:
@@ -738,7 +814,12 @@
 - name: SlothBeing
   links:
     artstation: https://www.artstation.com/aslothbeing
-  covers: [dead_tired, alexa_thyme]
+  covers: [
+    dead_tired,
+    alexa_thyme,
+    fiends_for_hire6,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sai0fq/
+    augmented_aspects5,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sk98x2/
+  ]
 
 - name: Sober Scorps
   links:
@@ -812,6 +893,11 @@
   links:
     artstation: https://www.artstation.com/vikk8014
   covers: [skadis_saga]
+
+- name: Xeninda
+  links:
+    fiverr: https://www.fiverr.com/xeninda
+  covers: [path_of_the_devourer1]  # https://www.reddit.com/r/ProgressionFantasy/comments/1slgbd8/
 
 - name: Yulia Volska
   links:
