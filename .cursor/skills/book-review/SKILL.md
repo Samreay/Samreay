@@ -96,6 +96,11 @@ curl -fsSL -o "content/reviews/<slug>/cover.jpg" "<image-url>"
 - YAML indentation: spaces only; `links` child keys indented 4 spaces (matches existing reviews).
 - No broken front matter quotes in `title` strings.
 
+
+### 7. Thoughts
+
+Flesh out the Thoughts header initially by grabbing the reviews from royal road, amazon, audible. Turn these reviews into dot points about the system mechanics, plot, characters (and dialogue), and worldbuilding. Use the humanizer skill to then turn that into paragraphs.
+
 ## Quick reference — minimal template
 
 ```markdown
@@ -123,7 +128,7 @@ sentence: "Official tagline or first hook sentence."
 
 ## Thoughts
 
-_To write._
+<Thoughts>
 
 ```
 
