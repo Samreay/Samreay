@@ -33,7 +33,7 @@ QUERY = "flair:Self-Promotion"
 LIMIT = 100
 USER_AGENT = "python:samreay-find-artists:v0.1 (by /u/samreay)"
 # Hard cutoff: don't bother fetching links older than this date.
-CUTOFF_UTC = datetime(2026, 4, 1, tzinfo=timezone.utc).timestamp()
+CUTOFF_UTC = datetime(2026, 3, 1, tzinfo=timezone.utc).timestamp()
 
 DATA_DIR = Path(__file__).parent / "data"
 LINKS_CSV = DATA_DIR / "links.csv"

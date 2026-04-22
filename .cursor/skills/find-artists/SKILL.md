@@ -49,11 +49,11 @@ gone (404/403) it is marked so we never retry.
 ## PART TWO — Extract the artist
 
 For each file currently in `references/to_extract/`, do the following. Work
-through them one at a time; skip anything ambiguous rather than guessing. Load the markdown into context when needed, do the extraction, and then unload them from context. We do not want confusion and context pollution.
+through them one at a time; skip anything ambiguous rather than guessing. Load the markdown into context when needed, do the extraction, and then unload them from context. We do not want confusion and context pollution. Batch the posts, and for each group of 10 posts, delegate those ten to a new subagent to help manage context.
 
 ### Workflow per post
 
-Copy this checklist and tick items as you go:
+Copy this checklist and tick items as you go.
 
 ```
 - [ ] Read references/to_extract/<id>.md
@@ -74,7 +74,7 @@ Decide:
 
 - **Clear attribution** (name + website/handle that unambiguously identifies
   one artist) → proceed.
-- **Ambiguous** (no artist mentioned, or only a first name, or multiple
+- **Ambiguous** (no artist mentioned, or only a common first name, or multiple
   candidates) → skip: move the file to `references/extracted/<id>.md`
   unchanged and do not update `artists.yml`. Leave a one-line note in the
   conversation so the user knows why.
@@ -99,7 +99,7 @@ Pick the highest-resolution URL with a (usually the `preview.redd.it` one) and d
 curl -fsSL -o "tmp_covers/<stem>.jpg" "<image-url>"
 ```
 
-If the aspect ratio of the image is not portrait (1.5 or 1.6 aspect ratio), try downloading a different link. Some posts may contain a full wrap and the front cover. We want the front cover. If no image post is within aspect ratio 1.5 to 1.6, we do not want it.
+If the aspect ratio of the image is not portrait (1.5 or 1.6 aspect ratio), try downloading a different link. Some posts may contain a full wrap and the front cover. We want the front cover. If no image post is within aspect ratio 1.45 to 1.65, we do not want it.
 
 Use `.png` or `.webp` only if the source is actually that format (check magic
 bytes with `file tmp_covers/<stem>.jpg`). Keep one file per cover.
