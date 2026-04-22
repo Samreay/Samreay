@@ -1,4 +1,10 @@
 {{ define "main" }}
+{{ $coverCount := 0 }}
+{{ range $artist := site.Data.artists }}
+  {{ if and (not (isset $artist "hidden")) (isset $artist "covers") }}
+    {{ $coverCount = add $coverCount (len $artist.covers) }}
+  {{ end }}
+{{ end }}
 
 
 <script type="module">
@@ -162,7 +168,7 @@
         <p>Because shouting out the geniuses that bring our covers to life is something I should do more of. Note that some artists include typography, but most do not.</p>
         <p class="mt-4">If you know a cover artist that works in the Progression Fantasy / LitRPG / Cultivation genre, please use
       <a href="https://forms.gle/JLBAgYcQsnw67qpi6" class="font-bold" style="color: #6ee7b7">
-        <i class="fa-brands fa-wpforms"></i> this form</a> to submit them. We're at {{ len site.Data.artists }} artists and counting!
+        <i class="fa-brands fa-wpforms"></i> this form</a> to submit them. We're at {{ len site.Data.artists }} artists, {{ $coverCount }} covers on display, and counting!
         </p>
 
         <div id="controls" class="max-w-7xl mx-auto"></div>
