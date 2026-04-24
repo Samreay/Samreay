@@ -110,7 +110,8 @@
       voyage_of_the_mindbender,
       cardsmith4,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sgm69a/
       bones_in_the_dark1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1riyalq/
-  ]
+      guild_mage4,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r6ejjx/
+    ]
 
 - name: BLAKE
   links:
@@ -224,6 +225,7 @@
       aura_overload,
       ceaseless_horizons1,
       apocalypse_farmer,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rqecfw/
+      ruins_of_valor1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rdxbmq/
     ]
 
 - name: Ece Yatim
@@ -457,6 +459,13 @@
     instagram: https://www.instagram.com/jeremyadams.ink/
   covers: [twilight_kingdom, night_nation]
 
+- name: Jerry Padilla
+  links:
+    website: https://www.snapsca.com/
+  covers: [
+      center_for_dungeon_management1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r5o7j3/
+    ]
+
 - name: Jerome Jacinto
   links:
     artstation: https://www.artstation.com/sinto619
@@ -539,6 +548,13 @@
     artstation: https://glintastickevin.artstation.com
   covers: [star_breaker, lunar_witch, ancient_stallion, saturn]
 
+- name: Kevin Parker
+  links:
+    website: https://www.kjnparker.com/
+  covers: [
+      abducted_jon_spider1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rctgod/
+    ]
+
 - name: KikiCute
   links:
     artstation: https://www.artstation.com/ktrn
@@ -594,7 +610,14 @@
 - name: Linggar Brammarty
   links:
     artstation: https://www.artstation.com/linggarbramanty
-  covers: [mimic_and_me, mimic_and_me2, wings_storm, tower_apoc, ash_n_fire]
+  covers: [
+      mimic_and_me,
+      mimic_and_me2,
+      wings_storm,
+      tower_apoc,
+      ash_n_fire,
+      riftside4,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r5fm3d/
+    ]
 
 - name: Liz C
   links:
@@ -621,7 +644,10 @@
 - name: Lu Castro
   links:
     artstation: https://www.artstation.com/lucastro
-  covers: [dear_spellbook1, dear_spellbook2]
+  covers: [
+      dear_spellbook1,
+      dear_spellbook2,
+    ]
 
 - name: Lucian Acatrinei
   covers: [stt1, stt2, stt3, stt4, stt5]
@@ -788,6 +814,14 @@
       silver_empire3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ris1j8/
     ]
 
+- name: NOREI
+  links:
+    twitter: https://x.com/norei_0
+    website: https://norei.carrd.co/
+  covers: [
+      useless_s_class_hunter1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rdv7km/
+    ]
+
 - name: Nozomi Matsuoka
   links:
     website: https://linktr.ee/Nozomi_Matsuoka
@@ -936,6 +970,7 @@
     dead_tired,
     alexa_thyme,
     fiends_for_hire6,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sai0fq/
+    augmented_aspects4,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rfak8g/
     augmented_aspects5,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sk98x2/
     ivil_antagonist1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1riok9q/
   ]
@@ -972,6 +1007,20 @@
     artstation: https://www.artstation.com/thanhvt
   covers: [deus_in_machina]
 
+- name: Tithi Luadthong
+  links:
+    artstation: https://www.artstation.com/tithiluadthong
+  covers: [
+      eight5,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rcm5eg/
+    ]
+
+- name: Toulla Creative
+  links:
+    website: https://toullacreative.com/
+  covers: [
+      realms_eternal_light1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r87pxd/
+    ]
+
 - name: trichromachine / Spectro
   links:
     twitter: https://x.com/trichromachine
@@ -982,7 +1031,12 @@
 - name: Vexdye
   links:
     artstation: https://www.artstation.com/vexdyestudiovietnam
-  covers: [npseeds1, npseeds2, npseeds3]
+  covers: [
+      npseeds1,
+      npseeds2,
+      npseeds3,
+      deadly_contest_coworkers1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1reby1j/
+    ]
 
 - name: Victor Manoel
   links:
@@ -1002,8 +1056,11 @@
     artstation: https://www.artstation.com/luonghoang
   covers: [
       ajax_ascension,
+      ajax_ascension5,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r93nuq/
       runic_artist,
+      runic_artist5,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r8yqqp/
       gloamcaller,
+      pinnacle_warrior2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r7dx7h/
       dark_matter_ascension,
       dark_matter_ascension5,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rmia1p/
     ]

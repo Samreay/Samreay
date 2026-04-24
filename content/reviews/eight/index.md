@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Eight-LitRPG-Novel-Magical-Survival-ebook/dp/B0B8XQXKFJ
     audible: https://www.audible.com/pd/Eight-Audiobook/B0B8T1X15L
 aliases: [/reviews/eight]
-tags: [in-progress, isekai, litrpg]
+tags: [finished, isekai, litrpg]
 sentence: "Eight is reincarnated and makes friends with an otter."
 ---
 
@@ -37,9 +37,9 @@ Similar series are hard to place for this one. It is definitely all about the so
 
 As alluded to in the blurb, book one follows Eight as he tries to survive in the wild.
 
-For those that have a strong interest in survivalism, you'll probably enjoy this. 
+For those that have a strong interest in survivalism, you'll probably enjoy this.
 
-For me, this wasn't a great match, because I enjoy exploring systems, magic, and technology far more than the survival aspects. I just wrote up my thoughts on *Portal to Nova Roma* and so shall use that as the example. In terms of pacing, in *Portal to Nova Roma* (spoilers): Alexander fights monsters, closes dungeons, establishes alliances with the enclaves, works out new skills, figures out enchanting, picks up perks, ventures out of the city with new friends, embroils himself in the political conflict, clears out parts of the city, and a few other things. It's non-stop. 
+For me, this wasn't a great match, because I enjoy exploring systems, magic, and technology far more than the survival aspects. I just wrote up my thoughts on *Portal to Nova Roma* and so shall use that as the example. In terms of pacing, in *Portal to Nova Roma* (spoilers): Alexander fights monsters, closes dungeons, establishes alliances with the enclaves, works out new skills, figures out enchanting, picks up perks, ventures out of the city with new friends, embroils himself in the political conflict, clears out parts of the city, and a few other things. It's non-stop.
 
 In *Eight*, Eight makes friends with a spirit otter, <span class="spoiler">fights worms buried in a dragon turd, kills a deer for meat, integrates a fungus into his body, fights some more animals, and culminates with rescuing two kids from a pair of slavers and fighting off a pack of baboons.</span>
 

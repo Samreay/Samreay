@@ -33,7 +33,7 @@ QUERY = "flair:Self-Promotion"
 LIMIT = 100
 USER_AGENT = "python:samreay-find-artists:v0.1 (by /u/samreay)"
 # Hard cutoff: don't bother fetching links older than this date.
-CUTOFF_UTC = datetime(2026, 1, 1, tzinfo=timezone.utc).timestamp()
+CUTOFF_UTC = datetime(2025, 1, 1, tzinfo=timezone.utc).timestamp()
 
 DATA_DIR = Path(__file__).parent / "data"
 LINKS_CSV = DATA_DIR / "links.csv"
@@ -149,9 +149,9 @@ def main() -> int:
             stop_reason = "hit cutoff date"
             break
 
-        if page_new == 0 and known.height:
-            stop_reason = "full page overlap with known"
-            break
+        # if page_new == 0 and known.height:
+        #     stop_reason = "full page overlap with known"
+        #     break
 
         after = payload.get("data", {}).get("after")
         if not after:
