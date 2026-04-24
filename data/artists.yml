@@ -211,7 +211,11 @@
 - name: Denis Belinski
   links:
     fiverr: https://www.fiverr.com/dan_pshkv
-  covers: [wuts6, ethersmith1]
+  covers: [
+      wuts6,
+      ethersmith1,
+      ethersmith2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sthzy4/
+    ]
 
 - name: Duy Phan
   links:
@@ -287,12 +291,20 @@
       system_universe2,
       system_universe3,
       system_universe4,
+      knights_apocalyptica3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ssmh8y/
     ]
 
 - name: Franz Carlo Banocnoc (zev_art)
   links:
     behance: https://www.behance.net/gallery/120501569/Digital-Illustration
   covers: [nomad_healer, runeshield2]
+
+- name: Fulminaire
+  links:
+    artstation: https://www.artstation.com/naire
+  covers: [
+      misadventures_incorporated2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1stjfef/
+    ]
 
 - name: Fuyu Dust
   links:
