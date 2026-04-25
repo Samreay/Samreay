@@ -65,16 +65,6 @@
     artstation: https://www.artstation.com/arnor
   covers: [rise_of_the_devourer, rise_of_the_devourer2, rise_of_the_devourer3]
 
-- name: artbyroseyx
-  links:
-    reddit: https://www.reddit.com/user/artbyroseyx/
-  covers: [ace_of_capes]  # https://www.reddit.com/r/ProgressionFantasy/comments/1irvtrf/
-
-- name: AsChavez
-  links:
-    royal_road: https://www.royalroad.com/fiction/109926/rise-of-the-bone-king
-  covers: [rise_of_the_bone_king]  # https://www.reddit.com/r/ProgressionFantasy/comments/1jztnt1/
-
 - name: Asur Misoa
   links:
     deviantart: https://www.deviantart.com/asur-misoa
@@ -186,11 +176,6 @@
   links:
     artstation: https://www.artstation.com/cotta
   covers: [kara]
-
-- name: CocoaDrago
-  links:
-    twitter: https://x.com/CocoaDrago
-  covers: [weak_kobold_wants_to_conquer]  # https://www.reddit.com/r/ProgressionFantasy/comments/1jsv82u/
 
 - name: Collette C. Curran
   links:
@@ -715,7 +700,6 @@
       dear_spellbook1,
       dear_spellbook2,
       primal_wizardry1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jz5rv0/
-      primal_wizardry1_cover_reveal,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jz5twq/
     ]
 
 - name: Lucian Acatrinei
@@ -1225,12 +1209,6 @@
   links:
     artstation: https://www.artstation.com/vikk8014
   covers: [skadis_saga]
-
-- name: Yona Saura
-  links:
-    artstation: https://www.artstation.com/yonahx
-    instagram: https://www.instagram.com/__yonax/
-  covers: [the_shirtwearer]  # https://www.reddit.com/r/ProgressionFantasy/comments/1joqull/
 
 - name: Yorulost
   links:
