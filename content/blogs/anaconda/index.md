@@ -9,7 +9,7 @@ tags: [python]
 ---
 
 This writeup is primarily for the students of PHYS3080 at UQ, however it
-should be generally applicable. Firstly, let's get the obvious 
+should be generally applicable. Firstly, let's get the obvious
 out of the way. It's 2018. **Python 2.7 is dead. Long live Python 3!**
 
 ## Getting a Python Environment Up And Running
@@ -17,7 +17,7 @@ out of the way. It's 2018. **Python 2.7 is dead. Long live Python 3!**
 So let's get a nice python 3 environment set up. *Don't* google
 python 3, that would be crazy. Use [Anaconda](https://www.anaconda.com/).
 So head [here to download it](https://www.anaconda.com/download/), and pick
-the Python 3 version, 64 bits. The installation dialog should look something 
+the Python 3 version, 64 bits. The installation dialog should look something
 like this:
 
 ![](dialog1.jpg)
@@ -25,14 +25,14 @@ like this:
 Install it just for you, put it in some convenient location, and register
 Anaconda as the default. If you want Anaconda to be everywhere and
 never worry about starting it yourself, also add it to your path. It
-has the potential to confuse your computer if you have other previous python 
+has the potential to confuse your computer if you have other previous python
 installations, so keep that in mind. So install it, and yay, you're essentially done.
 
 If you've downloaded `miniconda` instead of Anaconda, you won't have a few
 useful addons, like Spyder. If that's the case, open an anaconda prompt window
 (it should be installed now) and type `pip install spyder`. If you can't find
 anaconda prompt, you can also do this with a terminal / command prompt window,
-you just might need to navigate to your install directory's Scripts folders. 
+you just might need to navigate to your install directory's Scripts folders.
 For me, this would be `C:\Anaconda3\Scripts`.
 
 If you need any dependencies or libraries in the future, this is the way
@@ -52,13 +52,13 @@ python 3 anaconda version pop up.
 ## Writing Code in Python
 
 Anaconda, at the moment, comes bundled with a handy piece of software
-called Spyder. It allows you to write code and execute it on an iPython 
-console (which is a normal python console with extra fun features like 
+called Spyder. It allows you to write code and execute it on an iPython
+console (which is a normal python console with extra fun features like
 being able to embed figures inside it).
 
 So, open up Spyder. Hopefully it's installed as an application,
-if not, you can launch it manually inside your anaconda installation. For 
-me to do this, I would run the executable at `C:\Anaconda3\Scripts\spyder.exe`. 
+if not, you can launch it manually inside your anaconda installation. For
+me to do this, I would run the executable at `C:\Anaconda3\Scripts\spyder.exe`.
 On other systems, you might launch Spyder with a shell file or similar.
 
 ![](spyder1.png)
@@ -108,7 +108,7 @@ of lines of code. So here is a quick example on how to call functions
 from other files.
 
 Here we have three files all in the same directory. One called `data.txt`,
-one called `load_data.py` and one called `fit_data.py`. The python in 
+one called `load_data.py` and one called `fit_data.py`. The python in
 each file respectively is:
 
 ``` python
@@ -126,18 +126,18 @@ from load_data import get_data
 def fit_data(x, y):
     m, c = np.polyfit(x, y, deg=1)
     return m, c
-    
+
 def plot(x, y, m, c):
     fig, ax = plt.subplots(ncols=1, nrows=1)
     ax.scatter(x, y, c="b", lw=0, s=10, label="Data)
-    
+
     xs = np.linspace(np.min(x), np.max(x))
     ax.plot(xs, m * xs + c, color='k', ls="--", label="Model)
-    
+
     ax.set_xlabel("x)
     ax.set_ylabel("y)
     ax.legend()
-    
+
     plt.show()
 
 if __name__ == "__main__":
@@ -147,10 +147,10 @@ if __name__ == "__main__":
     m, c = fit_data(x, y)
     print("Best fit has gradient %0.2f and offset %0.2f" % (m, c))
     plot(x, y, m, c)
-    
+
 ```
 You can see that to import a function from `load_data.py` all we do inside
-`fit_data.py` is write `from <filename> import <function>`. 
+`fit_data.py` is write `from <filename> import <function>`.
 
 
 ![](spyder3.png)
@@ -160,7 +160,7 @@ might come in handy. Also, note that now we have multiple files it is
 useful to break what you are doing down into functions, and have a `main`
 function, which in python is defined by `if __name__ == "__main__":`. This is
 useful because that `if` statement only gets executed if you run that file.
-Code not in that if statement will be *executed* if you try and import it. 
+Code not in that if statement will be *executed* if you try and import it.
 You can try this - add a `print("hello)` command to `load_data.py` without the
 `if` statement and you'll see it print out when you import it.
 

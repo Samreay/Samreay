@@ -18,11 +18,11 @@ sentence: "Four champions are summoned from Earth, and one is shown the truth of
 ## Blurb
 
 > *Two Lives, Two Souls, Both forced down into their roles,*
-> 
+>
 > *One in the Light, One in the Dark, As the Fates portend,*
-> 
+>
 > *One to uphold, one to turn over the Mores,*
-> 
+>
 > *Would they Save the World, or Bring it to its End?*
 
 A story where things might not be what they seem like.
@@ -38,7 +38,7 @@ During the first chapter the story seemed to be intent on ticking off every trop
 
 Thankfully, all our heros have the Respawn skill.
 
-This sets up an interesting dynamic and future conflict. On one side, the three champions being power levelled by the kingdom that summoned them. 
+This sets up an interesting dynamic and future conflict. On one side, the three champions being power levelled by the kingdom that summoned them.
 
 On the other hand, Esperanza in a forest of monsters levelling solo.
 

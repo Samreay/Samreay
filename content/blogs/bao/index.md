@@ -25,16 +25,16 @@ Our correlation function might just look like this:
 
 I've even decomposed the signal into its moments, so that we can see the monopole, quadrupole and hexapole
     (with their associated spherical Bessel functions), all laid out neatly.
-    
+
 So, my project was essentially to model this 2D BAO signal, and fit it to the WiggleZ data, in order to provide cosmological constraints. The WiggleZ data
     comes in three different redshift bins, with covariance between data points (shown below) determined courtesy of a set of 600 WizCOLA simulations.
-    
+
 ![](cor.jpg?class="img-invert")
 
 We can start a theoretical model using some [nice linear software](http://camb.info/), fix it up slightly (those pesky
 non-linearities, amongst other things), and then throw our model creation system and the data into a cauldron of
    [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo), let it simmer for a million steps or so, and then see what we find.
-   
+
 Here's one I prepared earlier:
 
 ![](res.jpg?class="img-invert")

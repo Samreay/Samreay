@@ -31,11 +31,11 @@ After spending ages reading through Martial Peak and its non-stop action, I need
 
 It's a slower-paced slice-of-life story that follows Tala and her terrorbird friend Terry in their adventures. This adventure is effectively protecting caravans as they travel between human cities, which last only three hundred years before the city is retired to let the ambient mana reduce to normal levels. The world building here is fantastic, and the humans vs arcanes overarching conflict is amazing. The first six books worth have Tala growing in power, growing as a person (ie confronting family issues), making friends, eating huge amounts of food, and drinking literal gallons of coffee.
 
-In terms of power progression, this is done in a very interesting way. Mages get inscribed, which as far as I understand it, means embedding metal inscriptions (runes/pathways analogue) in their bodies. Think like magical tattoos that go more than skin deep. You use up your inscriptions when you do magic, at least initially before you're good enough to not need them. Its a great take, and the MC has her own unique approach within it, which I won't spoil. 
+In terms of power progression, this is done in a very interesting way. Mages get inscribed, which as far as I understand it, means embedding metal inscriptions (runes/pathways analogue) in their bodies. Think like magical tattoos that go more than skin deep. You use up your inscriptions when you do magic, at least initially before you're good enough to not need them. Its a great take, and the MC has her own unique approach within it, which I won't spoil.
 
 Even though the story is slower paced, progression happens steadily, and the new cities and new problems Tala faces kept it fresh. I glossed over some pages, but normally only when there were long sections describing food. The author obviously has adopted GRRM's approach to food, but as a non-foodie, I didn't really get engrossed in the detailed dishes.
 
-The writing is high quality, with very few typos. Characterisation of Tala is done well, the secondary characters are distinct and have their own goals and personality. 
+The writing is high quality, with very few typos. Characterisation of Tala is done well, the secondary characters are distinct and have their own goals and personality.
 
 At the end of the book six arc, the author raises the stakes ad introduces a new arc, less slice-of-life and more "oh boy, the overarching conflict is coming in now, yay." Alas I ran out of chapters only a bit after that, but I'll be back.
 

@@ -1,9 +1,10 @@
 import sys
 
 sys.path.append(".")
-from slow import get_jobs, slow_fn
-from time import time
 import concurrent.futures
+from time import time
+
+from slow import get_jobs, slow_fn
 
 
 def work(jobs):

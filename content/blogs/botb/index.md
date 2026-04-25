@@ -15,7 +15,7 @@ event, and kept the six guest scientists neatly in line throughout the event.
 
 ![](brisbane-7.jpg)
 
-We set up on stage, I of course didn't speak into the microphone correctly, and an audience 
+We set up on stage, I of course didn't speak into the microphone correctly, and an audience
 member came up and adjusted it mid-sentence to much laughter.
 
 ![](botb.jpg)
@@ -26,7 +26,7 @@ final question Steveo put to each team:
 
 <p class="highlighted">How many breaths of air are there on the planet?</p>
 
-This is [Fermi problem](https://en.wikipedia.org/wiki/Fermi_problem), and I'm happy to report that, rounded 
+This is [Fermi problem](https://en.wikipedia.org/wiki/Fermi_problem), and I'm happy to report that, rounded
 to the nearest magnitude, both panels came to exactly the same answer: $$10^{23}$$. Which, surprisingly, is the correct
 one!
 

@@ -18,7 +18,7 @@ After a long train to Edinburg we picked up a rental car and start the rush to o
 ![](sunset1.jpg?class="img-large")
 ![](sunset2.jpg?class="img-large")
 
-The next few days we toured around the Isle, from the Fairy Isles on one side up to the Old Man of Storr on the other side, all ducking in and out of Portree (where we stayed). 
+The next few days we toured around the Isle, from the Fairy Isles on one side up to the Old Man of Storr on the other side, all ducking in and out of Portree (where we stayed).
 
 Just driving around was amazing.
 

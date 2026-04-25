@@ -297,7 +297,7 @@ def get_cmap():
 def default_configure(fig, date, vmax, bgcolor="#15171c"):
     """ Visual styling and labels, ignore this function as its boring """
     fig.update_geos(showcountries=False, showcoastlines=False, showframe=False,
-                    oceancolor=bgcolor, lakecolor=bgcolor, showland=False, showlakes=False, 
+                    oceancolor=bgcolor, lakecolor=bgcolor, showland=False, showlakes=False,
                     showocean=False,subunitcolor=bgcolor, landcolor=bgcolor, bgcolor=bgcolor)
     fig.update_traces(marker_line_width=0, showscale=False)
     annotations = [
@@ -314,9 +314,9 @@ def default_configure(fig, date, vmax, bgcolor="#15171c"):
     ]
     fig.update_layout(plot_bgcolor=bgcolor, paper_bgcolor=bgcolor,
                       margin={"r": 20,"t":40,"l":0,"b":20}, annotations=annotations,
-                     coloraxis_colorbar=dict(thicknessmode="pixels", thickness=12, ticks="", 
-                                             tickmode="array", 
-                                             ticktext=[" 0", f" {int(vmax / 2)}", f" {vmax}+"], 
+                     coloraxis_colorbar=dict(thicknessmode="pixels", thickness=12, ticks="",
+                                             tickmode="array",
+                                             ticktext=[" 0", f" {int(vmax / 2)}", f" {vmax}+"],
                                              tickvals=[0, int(vmax/2), 0.97 * vmax],
                                              x=0.92, y=0.5,
                                              tickfont=dict(size=16),
@@ -331,15 +331,15 @@ def plot_row(df, row, vmax=50, show=False):
     tmp = df.iloc[row, :].T.reset_index()
     date = tmp.columns[1].strftime("%d - %B")
     tmp.columns = ["FIPS", "c"]
-    fig = px.choropleth(tmp, geojson=get_all_counties(), locations='FIPS', 
+    fig = px.choropleth(tmp, geojson=get_all_counties(), locations='FIPS',
                         color="c", color_continuous_scale=get_cmap(), labels={"c": ""},
                         scope="usa", range_color=(0, vmax), template='plotly_dark')
     default_configure(fig, date, vmax)
     save_fig(fig, row)
     if show:
         return fig
-        
-# Lets just plot the final frame to make sure it looks good   
+
+# Lets just plot the final frame to make sure it looks good
 n = df3.shape[0] - 1
 fig = plot_row(df3, n, show=True)
 
@@ -354,9 +354,9 @@ Image(fig.to_image(format="png", scale=2))
 
 
 
-    
+
 ![png](cover.png?class="img-main,poster")
-    
+
 
 
 
@@ -497,7 +497,7 @@ def get_cmap():
 def default_configure(fig, date, vmax, bgcolor="#15171c"):
     """ Visual styling and labels, ignore this function as its boring """
     fig.update_geos(showcountries=False, showcoastlines=False, showframe=False,
-                    oceancolor=bgcolor, lakecolor=bgcolor, showland=False, showlakes=False, 
+                    oceancolor=bgcolor, lakecolor=bgcolor, showland=False, showlakes=False,
                     showocean=False,subunitcolor=bgcolor, landcolor=bgcolor, bgcolor=bgcolor)
     fig.update_traces(marker_line_width=0, showscale=False)
     annotations = [
@@ -514,9 +514,9 @@ def default_configure(fig, date, vmax, bgcolor="#15171c"):
     ]
     fig.update_layout(plot_bgcolor=bgcolor, paper_bgcolor=bgcolor,
                       margin={"r": 20,"t":40,"l":0,"b":20}, annotations=annotations,
-                     coloraxis_colorbar=dict(thicknessmode="pixels", thickness=12, ticks="", 
-                                             tickmode="array", 
-                                             ticktext=[" 0", f" {int(vmax / 2)}", f" {vmax}+"], 
+                     coloraxis_colorbar=dict(thicknessmode="pixels", thickness=12, ticks="",
+                                             tickmode="array",
+                                             ticktext=[" 0", f" {int(vmax / 2)}", f" {vmax}+"],
                                              tickvals=[0, int(vmax/2), 0.97 * vmax],
                                              x=0.92, y=0.5,
                                              tickfont=dict(size=16),
@@ -531,15 +531,15 @@ def plot_row(df, row, vmax=50, show=False):
     tmp = df.iloc[row, :].T.reset_index()
     date = tmp.columns[1].strftime("%d - %B")
     tmp.columns = ["FIPS", "c"]
-    fig = px.choropleth(tmp, geojson=get_all_counties(), locations='FIPS', 
+    fig = px.choropleth(tmp, geojson=get_all_counties(), locations='FIPS',
                         color="c", color_continuous_scale=get_cmap(), labels={"c": ""},
                         scope="usa", range_color=(0, vmax), template='plotly_dark')
     default_configure(fig, date, vmax)
     save_fig(fig, row)
     if show:
         return fig
-        
-# Lets just plot the final frame to make sure it looks good   
+
+# Lets just plot the final frame to make sure it looks good
 n = df3.shape[0] - 1
 fig = plot_row(df3, n, show=True)
 

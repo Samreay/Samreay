@@ -141,7 +141,7 @@ for i in inputs:
 
 The first time we say to double, `lru_cache` checks its (empty) dictionary mapping inputs to outputs, sees it doesn't have anything under an input of `x=1`, so it hits the function. The second time, there is no print statement, because `lru_cache` finds the previous run we just did and uses its stored result.
 
-Then it goes to two, and `x=2` is a new input, so the function runs. Same for `x=3`. And then it gets back to `x=1`, but because we said `maxsize=2` (ie only remember the last two unique runs), it had cleared out the saved `x=1` run, and has to do it again. Of course, `maxsize=2` is a tiny number, and you can bump this up to some power of 2 that is more useful. One thing to take note of is that any function you want to cache like this has to have hashable inputs. So numbers, strings (primitives in general), however generic objects without hashes will not be able to be saved, and you'll see a warning. 
+Then it goes to two, and `x=2` is a new input, so the function runs. Same for `x=3`. And then it gets back to `x=1`, but because we said `maxsize=2` (ie only remember the last two unique runs), it had cleared out the saved `x=1` run, and has to do it again. Of course, `maxsize=2` is a tiny number, and you can bump this up to some power of 2 that is more useful. One thing to take note of is that any function you want to cache like this has to have hashable inputs. So numbers, strings (primitives in general), however generic objects without hashes will not be able to be saved, and you'll see a warning.
 
 `lru_cache` is a great way of defining both singletons, and providing a cheap and easy way of speeding up your code if you are doing things over and over!
 

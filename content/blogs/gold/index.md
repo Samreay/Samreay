@@ -8,7 +8,7 @@ tags: [creative]
 
 ---
 
-With the Keva simulation I made, all the blocks are spaced out with room to move. I was 
+With the Keva simulation I made, all the blocks are spaced out with room to move. I was
 curious to see how Blender's engine would cope when the blocks were tightly packed, so,
 surprise surprise, I made a group of tightly packed cubes and then threw a glass sphere at them.
 

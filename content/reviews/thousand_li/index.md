@@ -30,9 +30,9 @@ So what do I look for in my progression novels? Generally:
 * Character growth and relationship development outside of 'power'.
 * An interesting world to inhabit that I want to learn more about.
 
-The third item is a definite check for this series. Tao Wong creates an authentic world based off ancient China, even leaning into the proper terminology and historical systems in place and explaining them with annotations in the work. I appreciate this, because I felt both like I was learning something new, and because it showed a researched depth and history to the world. 
+The third item is a definite check for this series. Tao Wong creates an authentic world based off ancient China, even leaning into the proper terminology and historical systems in place and explaining them with annotations in the work. I appreciate this, because I felt both like I was learning something new, and because it showed a researched depth and history to the world.
 
-But for the other two points, this is where I think the main problems lie. In terms of interesting powers, by the time I put down the forth book, the main character has finished their Body cultivation phase and is progressing through their Energy cultivation phase, but is still fairly new to it. The end result is that his power is effectively being stronger and sturdier than a normal person, just like every other cultivator at his sect. 
+But for the other two points, this is where I think the main problems lie. In terms of interesting powers, by the time I put down the forth book, the main character has finished their Body cultivation phase and is progressing through their Energy cultivation phase, but is still fairly new to it. The end result is that his power is effectively being stronger and sturdier than a normal person, just like every other cultivator at his sect.
 
 And in terms of relationships, whilst there were some genuine interactions I enjoyed (the wrestling Elder, for example), many seemed glossed over. At some point around the third book, the main character, during the plot to steal a book from a city (this is effectively the plot of *The First War*, the third book in the series), has a relationship. His girlfriend he barely speaks to, things fade away, and then when we start book four we find out that things just fell apart.
 

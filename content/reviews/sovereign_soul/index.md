@@ -38,7 +38,7 @@ Deklin is our main character, of course. He's got a ton of knowledge about the s
 
 Now, I lied when I said Deklin was the MC. That's actually Kimchi, the adorable pobul (read: magical otter) who's primary three contributions to the story are being adorable, farting on things (I'm not joking), and making as many pop-culture references as possible.
 
-I'm not the biggest fan of shoe-horning in as many TV and gaming references as possible, but I know I'm probably in the minority here. If you enjoyed how *The Land* (aka *Chaos Seeds*) did it, then you'll enjoy this one too. The author even takes popular mechanics from other series in a tongue-in-cheek manner, like how Deklin is "sa-vren", which is a parody of Wheel of Time's "ta'veren", and functions in an identical way. 
+I'm not the biggest fan of shoe-horning in as many TV and gaming references as possible, but I know I'm probably in the minority here. If you enjoyed how *The Land* (aka *Chaos Seeds*) did it, then you'll enjoy this one too. The author even takes popular mechanics from other series in a tongue-in-cheek manner, like how Deklin is "sa-vren", which is a parody of Wheel of Time's "ta'veren", and functions in an identical way.
 
 The plot does get going after that first 20% or so, though it's another variant of 'Slavery Bad!' that seems very common in this genre. Still, everything is about the execution, and we'll have to wait for more books to figure out how the anti-slavery arc goes.
 
@@ -49,17 +49,17 @@ I'm tired, boss. So tired of this shitty trope.
 Am I being unfair? Here is Deklin as he sees a goddess during his initial descent after stepping through the portal.
 
 > The woman was gorgeous, sunlight filtered through her dress that revealed and clung to her generous curves.
-> 
+>
 > ...
-> 
+>
 > Hips swaying, the Goddess bore down on him like wrath itself only to stop a few paces from him.
-> 
+>
 > ...
-> 
+>
 > Ahead of him, hovering perhaps a few hundred feet off the green-velvet-draped countryside below was a smudge of a figure. He streaked past her so fast he hardly had enough time to register that she was a buxom woman in a flowing white Greek chiffon dress. Hardly enough time, but still enough. Deklin admired beauty, no matter what was going on. He would have noticed—and appreciated—a De’vauh scriptwork even if it was on fire.
-> 
+>
 > ...
-> 
+>
 > The Goddess took a deep calming breath which did miraculous things to her chest from Deklin’s point of view. “Boobies,” Kimchi said plainly. “Mmhmm-mmhmm.”
 
 Naturally, after Deklin falls through his final portal into a jungle, he encounters a tribe of women...

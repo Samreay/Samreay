@@ -13,22 +13,22 @@
                   loop muted width="235" height="375">
                   <source src="{{($.Resources.Get .Params.video).RelPermalink}}" type="video/mp4" />
                 </video>
-                {{ else }} 
+                {{ else }}
                   {{ $img := resources.Get "img/placeholder_1.jpg" }}
-                  {{ if isset .Params "images" }} 
-                    {{ $img = .Page.Resources.Get (index .Params.images 0) }} 
-                  {{ else }} 
-                    {{- $images := $.Resources.ByType "image" -}} 
-                    {{ $featured := $images.GetMatch "{*cover*,*thumbnail*}" }} 
+                  {{ if isset .Params "images" }}
+                    {{ $img = .Page.Resources.Get (index .Params.images 0) }}
+                  {{ else }}
+                    {{- $images := $.Resources.ByType "image" -}}
+                    {{ $featured := $images.GetMatch "{*cover*,*thumbnail*}" }}
                     {{ if $featured }}
-                      {{ $img = $featured }} 
-                    {{ end }} 
-                  {{ end }} 
+                      {{ $img = $featured }}
+                    {{ end }}
+                  {{ end }}
                   {{ with $img }}
                 <picture>
                   {{ with .Fill "250x400 Center webp q80 #000000" }}
                   <source srcset="{{ .RelPermalink }}" type="image/webp" />
-                  {{ end }} 
+                  {{ end }}
                   {{ with .Fill "250x400 Center q70 #000000" }}
                   <source srcset="{{ .RelPermalink }}" type="image/png" />
                   {{ end }}

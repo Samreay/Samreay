@@ -29,11 +29,11 @@ Approximately the same price, two day turnaround. [Fiverr link](https://www.five
 
 I noticed that both the MOV and mp4 that I got back from the two respective services were not suitable to put on a website, so I re-encoded them to H264 with ffmpeg. But given I was playing with ffmpeg, I thought "eh, let's see what happens if I do it all myself."
 
-Using the motion leap app (free version, not pro), which limits the export resolution and how much I can do with it. 
+Using the motion leap app (free version, not pro), which limits the export resolution and how much I can do with it.
 
 ![](soul_relic.mp4?class="max-w-md")
 
-I provided everyone with the layers separated, so I used that here - only animating the magic and then adding it atop the static background 
+I provided everyone with the layers separated, so I used that here - only animating the magic and then adding it atop the static background
 with ffmpeg.
 
 ```bash

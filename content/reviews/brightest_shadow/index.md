@@ -24,7 +24,7 @@ So, what exactly happens? Minor super broad spoilers ahead, giving away only a b
 
 The book follows the main characters of Tani and Slaten. Tani is on her Farwalk (coming of age, go-see-the-world journey), and is travelling from her tribe to a Big City in a classic delivery quest. Don't worry, that doesn't come into the plot. This city is controlled by another race (the Mansthein), and there is a *lot* of tension between humans and mansthein. The conflict between the two groups is the central piece to the book.
 
-But fear not, for the Hero will soon be along to liberate the humans and cast out the oppressors. Who is this Hero, and what happens after they die? How the Legend (aka classic prophecy of a chosen one") plays out and operates is by far the most interesting thing in the book, and saying any more would be a spoiler. 
+But fear not, for the Hero will soon be along to liberate the humans and cast out the oppressors. Who is this Hero, and what happens after they die? How the Legend (aka classic prophecy of a chosen one") plays out and operates is by far the most interesting thing in the book, and saying any more would be a spoiler.
 
 As the book explores the new take on the trope, Tani and Slaten do various tasks, align with various groups, etc. Meandering plot stuff, and the initial half of the book I almost put down because I wasn't drawn in by those plot points. Four hundred odd pages of mundane activities are not fun to read.
 

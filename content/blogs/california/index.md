@@ -15,7 +15,7 @@ Kim, working on my Bayesian model for supernova cosmology.
 It was a very productive time, but that isn't what this page is about;
 this page is about what I got up to outside of work.
 
-The first thing to do when near San Francisco is to go to 
+The first thing to do when near San Francisco is to go to
 the Golden Gate Bridge. And of course, it was foggy.
 
 ![](bridge.jpg)
@@ -37,8 +37,8 @@ of the place.
 ![](squirrel.jpg)
 
 I was on a 3-day Green Tortoise bus tour (highly recommended), and
-after Yosemite we got to visit other places, one a nice, sulphury hot 
-spring. Some of the other places (such as Halfdome, below) are truly 
+after Yosemite we got to visit other places, one a nice, sulphury hot
+spring. Some of the other places (such as Halfdome, below) are truly
 idyllic.
 
 ![](field.jpg?class="img-poster")

@@ -13,8 +13,8 @@ about the problems we have had with the self-taught style of coding the most ast
 the lack of structure, documentation and testing that so often accompanies astronomical projects and packages.
 
 To fix this, we volunteered to run a code workshop, with a focus on teaching the astronomical community
-better coding standards, better practises, giving them better tools and better resources. On top of this, 
-CAASTRO was coming to an end, and so too many CAASTRO projects. This means that we expect there to be lots of 
+better coding standards, better practises, giving them better tools and better resources. On top of this,
+CAASTRO was coming to an end, and so too many CAASTRO projects. This means that we expect there to be lots of
 code projects individual researchers have created over the years to make their lives easier which currently
 only exist in the dim, dark corners of their physical harddrives. So we also wanted to cover how to open-source
 and release code quickly and efficiently using Github.

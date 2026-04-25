@@ -13,9 +13,9 @@ math: true
 You've fit a model to some data. You have some mean, covariance or samples characterising that fit, but now how can you clearly show the $1$ and $2\sigma$ confidence regions of this fit back onto your model. In other words, how do you get this sort of image back at the end:
 
 
-    
+
 ![png](2019-08-02-Propagating_files/2019-08-02-Propagating_2_0.png)
-    
+
 
 
 Let's run through a bunch of different ways, depending on how you've fit your model to the data. Firstly, let's generate a model and some fake data to fit it with. In our case, lets have a function `fn` which implements $f(x) = a\sin(x) + ba$, where our 'true' values for $a$ and $b$ will both be $1$ for simplicity. Why this - no particular reason, you can use anything, but this will explicitly not give Gaussian uncertainty, which makes it a more general use case.
@@ -51,9 +51,9 @@ plt.legend(loc=3);
 
 
 
-    
+
 ![png](2019-08-02-Propagating_files/2019-08-02-Propagating_4_0.png)
-    
+
 
 
 Now, let's construct a likelihood for our data given our model. Note that normally this is one function, but I've split it into two because I'll also do an example using `scipy.optimize.leastsq`, and that takes a difference between model and data, not a singular log-likelihood value. All we're implementing here - because we've assumed normally distributed uncertainty in our observations (rightfully so), is the stock standard $\chi^2$ likelihood:
@@ -162,12 +162,12 @@ c.plotter.plot(truth=truth, figsize=1.4);
 </div>
 
 
-    
 
 
-    
+
+
 ![png](2019-08-02-Propagating_files/2019-08-02-Propagating_15_1.png)
-    
+
 
 
 You can see `emcee` and `nestle` (shown in blue and green respectively) agree perfectly. In red, the `leastsq` method shows some issues (as expected). The surface isn't a perfect normal and it cannot capture that detail with it's simplistic method and local estimation of uncertainty around the best fit point. Just something to keep in mind on why model fitting should essentially never be done with any such method.
@@ -193,9 +193,9 @@ def plot(bounds, title):
     plt.plot(x_val, y_val, label="Underlying function")
     plt.errorbar(x_samps, y_samps, yerr=err, fmt="o", lw=1, label="Data")
     ax.plot(xs, bounds[2, :], label="Best Fit", ls="--"),
-    plt.fill_between(xs, bounds[0, :], bounds[-1, :], 
+    plt.fill_between(xs, bounds[0, :], bounds[-1, :],
                      label="95\% uncertainty", fc="#21cbff", alpha=0.1)
-    plt.fill_between(xs, bounds[1, :], bounds[-2, :], 
+    plt.fill_between(xs, bounds[1, :], bounds[-2, :],
                      label="68\% uncertainty", fc="#219bff", alpha=0.5)
     ax.legend(loc=3)
     ax.set_title(title, fontsize=10);
@@ -207,9 +207,9 @@ plot(bounds, "Vectorised uniform-weight sample construction")
 
 
 
-    
+
 ![png](2019-08-02-Propagating_files/2019-08-02-Propagating_18_0.png)
-    
+
 
 
 # Propagating Uniform Samples - The Easy and Slow Way
@@ -236,9 +236,9 @@ plot(bounds, "Iterative uniform-weight sample construction")
 
 
 
-    
+
 ![png](2019-08-02-Propagating_files/2019-08-02-Propagating_21_0.png)
-    
+
 
 
 # Non-uniformly weighted samples - The Hard and Slow Way
@@ -268,9 +268,9 @@ plot(bounds, "Iterative non-uniform-weight sample construction")
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -344,9 +344,9 @@ def plot(bounds, title):
     plt.plot(x_val, y_val, label="Underlying function")
     plt.errorbar(x_samps, y_samps, yerr=err, fmt="o", lw=1, label="Data")
     ax.plot(xs, bounds[2, :], label="Best Fit", ls="--"),
-    plt.fill_between(xs, bounds[0, :], bounds[-1, :], 
+    plt.fill_between(xs, bounds[0, :], bounds[-1, :],
                      label="95\% uncertainty", fc="#21cbff", alpha=0.1)
-    plt.fill_between(xs, bounds[1, :], bounds[-2, :], 
+    plt.fill_between(xs, bounds[1, :], bounds[-2, :],
                      label="68\% uncertainty", fc="#219bff", alpha=0.5)
     ax.legend(loc=3)
     ax.set_title(title, fontsize=10);

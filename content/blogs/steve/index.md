@@ -10,8 +10,8 @@ aliases: [/blog/steve]
 math: true
 ---
 
-As surveys discover greater numbers of supernova, our analyses become 
-limited by systematics rather than data. Hierarchical Bayesian models are 
+As surveys discover greater numbers of supernova, our analyses become
+limited by systematics rather than data. Hierarchical Bayesian models are
 perfect for incorporating subtle effects into our model, and so I made one to do just that.
 
 Supernova cosmology works because Type Ia supernova represent standardisable candles. That is,
@@ -21,8 +21,8 @@ distance. And we can measure the [redshift](https://en.wikipedia.org/wiki/Redshi
 of how much the expansion of the universe has stretched the light from the supernovae. And by combining those two
 measurements, we can ask questions like "How much dark matter is there in the universe?"
 
-One of the main challenges with supernova cosmology is to correct for something called 
-[Malmquist bias](https://en.wikipedia.org/wiki/Malmquist_bias). Supernova aren't perfect standard candles, some are a 
+One of the main challenges with supernova cosmology is to correct for something called
+[Malmquist bias](https://en.wikipedia.org/wiki/Malmquist_bias). Supernova aren't perfect standard candles, some are a
 bit brighter and bluer, some are dimmer and redder. But our analyses depend on being able to measure the population itself.
 
 However, when supernova are far away and so dim we can barely detect them, well, we're only going to see
@@ -47,9 +47,9 @@ in the PGM below. Don't get fixated on the diagram unless you want to read [the 
 ![](pgm.jpg?class="img-reduced img-invert")
 
 Actually, the number of parameters in this model makes it incredible difficult to fit. Each supernova has two parameters,
-plus everything else. For a few hundred supernova, we're almost at a thousand parameters. And searching that many dimensions 
+plus everything else. For a few hundred supernova, we're almost at a thousand parameters. And searching that many dimensions
 to find the best fitting value is actually a real pain. Especially with so many of the parameters highly correlated. The
-correlation plot shows just some of the top level parameters. Ideally, I'd want it to be completely diagonal, all the 
+correlation plot shows just some of the top level parameters. Ideally, I'd want it to be completely diagonal, all the
 bright and dark squares are correlated and anti-correlated parameters, making my life more difficult!
 
 ![](corr.jpg" class=" img-invert)

@@ -113,7 +113,7 @@ def get_base_fig():
     country_color = "#222222"
     plt.figure(figsize=(12, 6))
 
-    m = Basemap(projection='cyl', llcrnrlat=-80,urcrnrlat=90, 
+    m = Basemap(projection='cyl', llcrnrlat=-80,urcrnrlat=90,
                 llcrnrlon=-170, urcrnrlon=190, area_thresh=10000.)
     m.fillcontinents(color=bg_color, lake_color=bg_color, zorder=-2)
     m.drawcoastlines(color=coast_color, linewidth=1.0, zorder=-1)
@@ -131,9 +131,9 @@ get_base_fig();
 
 
 
-    
+
 ![png](2019-08-10-DESInstitutions_files/2019-08-10-DESInstitutions_3_1.png)
-    
+
 
 
 Great. It a pain to remove the larger rivers, involves downloading a new shape file, so we'll live with it.
@@ -180,9 +180,9 @@ get_scatter();
 
 
 
-    
+
 ![png](2019-08-10-DESInstitutions_files/2019-08-10-DESInstitutions_5_1.png)
-    
+
 
 
 I mean... it's nice. But *cool* graphics glow. So let's put in a super nasty manual glow effect, and then replot the scatter point in translucent white above it. To do this, we'll create one hell of a `meshgred`. Efficient... no. Easy... still no.
@@ -209,10 +209,10 @@ def get_shaded():
         c = colors[country]
         cmap = LSC.from_list("fade", [c + "00", c,"#FFFFFF"], N=1000)
         subset = data.loc[data.country == country, :]
-        
+
         # Find a vmax that looks good on all countries
         vmax = min(2, 0.7 * subset.shape[0]**0.7)
-        
+
         # Compute the mesh values
         z = np.zeros(X.shape)
         for row in subset.itertuples(index=False):
@@ -220,13 +220,13 @@ def get_shaded():
             dist = ((x - X)**2 + (y - Y)**2)**0.25 # Sharp falloff
             z += np.exp(-dist * scale)
         # Show the mesh and add the white dots
-        m.imshow(z, origin="lower", extent=[x0,x1,y0,y1], 
+        m.imshow(z, origin="lower", extent=[x0,x1,y0,y1],
                  cmap=cmap, vmax=vmax, zorder=2)
-        m.scatter(subset.lat, subset.long, latlon=True, c="#FFFFFF", 
+        m.scatter(subset.lat, subset.long, latlon=True, c="#FFFFFF",
                   alpha=0.8, s=2, zorder=3)
-    
+
     # Set the title, and make the background black
-    plt.title("DES Institutions around the world", fontsize=14, 
+    plt.title("DES Institutions around the world", fontsize=14,
               color="#EEEEEE", fontname="Open Sans")
     fig = plt.gcf()
     fig.patch.set_facecolor("#000000")
@@ -242,9 +242,9 @@ get_shaded();
 
 
 
-    
+
 ![png](cover.png?class="img-main,poster")
-    
+
 
 
 
@@ -281,7 +281,7 @@ def get_base_fig():
     country_color = "#222222"
     plt.figure(figsize=(12, 6))
 
-    m = Basemap(projection='cyl', llcrnrlat=-80,urcrnrlat=90, 
+    m = Basemap(projection='cyl', llcrnrlat=-80,urcrnrlat=90,
                 llcrnrlon=-170, urcrnrlon=190, area_thresh=10000.)
     m.fillcontinents(color=bg_color, lake_color=bg_color, zorder=-2)
     m.drawcoastlines(color=coast_color, linewidth=1.0, zorder=-1)
@@ -331,10 +331,10 @@ def get_shaded():
         c = colors[country]
         cmap = LSC.from_list("fade", [c + "00", c,"#FFFFFF"], N=1000)
         subset = data.loc[data.country == country, :]
-        
+
         # Find a vmax that looks good on all countries
         vmax = min(2, 0.7 * subset.shape[0]**0.7)
-        
+
         # Compute the mesh values
         z = np.zeros(X.shape)
         for row in subset.itertuples(index=False):
@@ -342,13 +342,13 @@ def get_shaded():
             dist = ((x - X)**2 + (y - Y)**2)**0.25 # Sharp falloff
             z += np.exp(-dist * scale)
         # Show the mesh and add the white dots
-        m.imshow(z, origin="lower", extent=[x0,x1,y0,y1], 
+        m.imshow(z, origin="lower", extent=[x0,x1,y0,y1],
                  cmap=cmap, vmax=vmax, zorder=2)
-        m.scatter(subset.lat, subset.long, latlon=True, c="#FFFFFF", 
+        m.scatter(subset.lat, subset.long, latlon=True, c="#FFFFFF",
                   alpha=0.8, s=2, zorder=3)
-    
+
     # Set the title, and make the background black
-    plt.title("DES Institutions around the world", fontsize=14, 
+    plt.title("DES Institutions around the world", fontsize=14,
               color="#EEEEEE", fontname="Open Sans")
     fig = plt.gcf()
     fig.patch.set_facecolor("#000000")

@@ -13,7 +13,7 @@ Physics in the Pub came to Brisbane! With the esteemed Dr Phil Dooley as MC for 
 a great evening of eight physics acts. Whilst I trying to impress the sheer scale and significance
 of supernovae on the audience, I was definitely not the star of the show that night!
 
-[Chris Mesiku](http://archive-hapi.uq.edu.au/chris-mesiku) sang a reggae song about $$E=mc^2$$ and Einstein. Phil 
+[Chris Mesiku](http://archive-hapi.uq.edu.au/chris-mesiku) sang a reggae song about $$E=mc^2$$ and Einstein. Phil
 himself sang a cover of Nirvana about particle physics and light.
 
 I think if I do it again I obviously need to present, if not in song, in verse at least!

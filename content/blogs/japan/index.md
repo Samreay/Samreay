@@ -10,7 +10,7 @@ tags: [travel]
 
 It's good to get away sometimes.
 
-Especially good if you make sure you don't bring a laptop - no 
+Especially good if you make sure you don't bring a laptop - no
 sneaky working during a holiday!
 
 So in January 2017, I went to Japan. First stop, Mt Fuji.
@@ -24,7 +24,7 @@ the Silver and Golden Palaces, and the Fushimi Inari Shrine.
 ![](flowers.jpg)
 ![](orange.jpg)
 
-I didn't quite realise how big the Fushimi Inari Shrine was - its 
+I didn't quite realise how big the Fushimi Inari Shrine was - its
 not just one or two arches, there are kilometers of them.
 
 We finished up in Kyoto, and travelled back to Tokyo for a day or
@@ -42,7 +42,7 @@ giving us some beautiful snow to ski on in the morning.
 
 A few days later, and we had had enough snow, so we went to the
 Sapporo Snow Festival. Unfortunately, we timed the trip wrong,
-and the snow and ice sculptures started being made and unveiled the 
+and the snow and ice sculptures started being made and unveiled the
 day after we left. So we took a side trip to Otaru, which
 also had a winter festival, feature canal lights and lighting up
 a derelict railway with snow sculptures.

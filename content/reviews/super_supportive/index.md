@@ -2,7 +2,7 @@
 title:  "A Review of  Sleyca 's 'Super Supportive'"
 description: "Modern superhero / System mashup with amazing writing, characters, and worldbuilding."
 date: 2023-08-17
-auth: Sleyca 
+auth: Sleyca
 categories: [reviews]
 review: A
 weight: 12

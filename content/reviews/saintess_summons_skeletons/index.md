@@ -52,4 +52,4 @@ Or Sofia has a sister, Saria, who didn't seem to feature at all in Sofia's thoug
 
 Of course, a web serial meandering without a super tight overarching plot is perhaps the most common complained ever, and its one I can level to dozens of series, so please don't think that I'm calling this story out as singular example. All arcs were fun to read, I promise. On that note, big shoutout to the author for, when faced with a spire-climb, *not* making us read through a hundred different levels and instead focusing upon the final levels where stakes are high and pacing can be kept tight.
 
-So, if you've enjoyed other necromancy stories like **Awaken Online**, or expansive serials like **Defiance of the Fall** or **Solo Leveling**, you'll definitely enjoy this. 
+So, if you've enjoyed other necromancy stories like **Awaken Online**, or expansive serials like **Defiance of the Fall** or **Solo Leveling**, you'll definitely enjoy this.

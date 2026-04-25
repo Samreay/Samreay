@@ -1,9 +1,10 @@
 import sys
 
 sys.path.append(".")
-from slow import get_jobs, slow_fn
 from time import time
+
 from dask.distributed import Client
+from slow import get_jobs, slow_fn
 
 
 def work(client, jobs):

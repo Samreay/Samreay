@@ -18,9 +18,9 @@ sentence: "Corin Cadence searches for his brother, who disappeared in the Serpen
 
 *My rating is for the series as a whole as of writing. It's amazing. I'll make sure this review focuses on Book One: Sufficiently Advanced Magic.*
 
-Corin Cadence is one of my favourite main characters in all of fantasy. He is, as I image many of us think, how *we* would approach being a person in a magical world. Analytically. Carefully. *Exploitively*. 
+Corin Cadence is one of my favourite main characters in all of fantasy. He is, as I image many of us think, how *we* would approach being a person in a magical world. Analytically. Carefully. *Exploitively*.
 
-So here's the plot - you get powers (attunements) ostensibly from the goddess, via blessings you receive in the spires. Corin's brother goes missing in a spire, and Corin, when he is of age, goes in. Both to find his brother, but also to get his own power. He doesn't find his brother, he does find Keras (who has two series dedicated to him, they are great, go and read them), and gets the Enchantment attunement. 
+So here's the plot - you get powers (attunements) ostensibly from the goddess, via blessings you receive in the spires. Corin's brother goes missing in a spire, and Corin, when he is of age, goes in. Both to find his brother, but also to get his own power. He doesn't find his brother, he does find Keras (who has two series dedicated to him, they are great, go and read them), and gets the Enchantment attunement.
 
 Not what his father wants, but one that suits Corin, and allows us as readers into the nitty-gritty of rules that underpin the magic system. Super hard magic, here. And I live for it.
 

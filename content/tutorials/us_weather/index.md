@@ -14,9 +14,9 @@ This is what we'll be making:
 
 
 
-    
+
 ![png](2020-07-06-US_Weather_files/2020-07-06-US_Weather_1_0.png)
-    
+
 
 
 
@@ -300,7 +300,7 @@ pd.read_csv(root / "2020/71076099999.csv").describe().T[["mean", "std", "min", "
 
 
 
-Alright, so we have one csv file per year, per station. And what we'd want to do is match stations within a certain lat/long distance to the city coordinate. Oh boy, this is going to take a while to run. 
+Alright, so we have one csv file per year, per station. And what we'd want to do is match stations within a certain lat/long distance to the city coordinate. Oh boy, this is going to take a while to run.
 
 Let's write up something that goes through and just extracts station, lat, long, and then filters down to the stations we want. Im only going to use stations from 2020 (but they'll have data from other years).
 
@@ -314,7 +314,7 @@ station_locations = root / "station_locations.csv"
 # If Ive done this before, load in the previous results
 if os.path.exists(station_locations):
     station_df = pd.read_csv(station_locations)
-    
+
 # Or else figure it out from scratch using 2020 year
 else:
     stations = {}
@@ -413,7 +413,7 @@ def check_station(row, threshold=0.1):
         return cities[matches].name.iloc[0]
     else:
         return np.NaN
-    
+
 # Lets test this works, we should get New York out
 check_station(("New York", 40.6, -73.9))
 ```
@@ -525,8 +525,8 @@ else:
                 dfs.append(df)
     df_weather = pd.concat(dfs).reset_index(drop=True)
     df_weather.to_csv(df_name, index=False)
-    
-df_weather    
+
+df_weather
 ```
 
 </div>
@@ -821,9 +821,9 @@ df_weather[["MAX", "PRCP", "WDSP"]].hist(bins=100, log=True, layout=(1, 3), figs
 
 
 
-    
+
 ![png](2020-07-06-US_Weather_files/2020-07-06-US_Weather_20_0.png)
-    
+
 
 
 So let's add in that feature:
@@ -869,9 +869,9 @@ ax.set_xlabel("Rating"), ax.set_ylabel("Frequency");
 
 
 
-    
+
 ![png](2020-07-06-US_Weather_files/2020-07-06-US_Weather_23_0.png)
-    
+
 
 
 Obiously **this is all completely dependent on arbitrary choices on weather**. Let's not get caught up on that. We can come back to this feature later if we need. For now, we want to take all the datapoints we have and take the average for each day in the year.
@@ -1018,11 +1018,11 @@ for (city, avg), ax in zip(city_order.iteritems(), axes.flatten()):
     for w, c in zip(ws, colors):
         w.set_linewidth(0.5)
         w.set_edgecolor(c)
-        
+
     ax.set_title(city, pad=-2)
     ax.set_aspect('equal', 'box')
     ax.add_artist(plt.Circle((0, 0), .6, color=bg))
-    
+
     # Add average rating color circle
     ax.add_artist(plt.Circle((0, 0), .2, color=cmap(avg)))
 
@@ -1031,16 +1031,16 @@ for (city, avg), ax in zip(city_order.iteritems(), axes.flatten()):
 fig.subplots_adjust(top=0.83, bottom=0.04)
 cbar_ax = fig.add_axes([0.2, 0.9, 0.6, 0.015])
 cbar_ax.set_title("Yearly weather trends for major US cities", pad=25, fontsize=18)
-cb = mpl.colorbar.ColorbarBase(cbar_ax, cmap=cmap, orientation='horizontal', 
+cb = mpl.colorbar.ColorbarBase(cbar_ax, cmap=cmap, orientation='horizontal',
                                ticks=[0, 0.25, 0.5, 0.75, 1])
 cb.outline.set_visible(False)
 cb.ax.set_xticklabels(["Cold and/or \nBad Weather", "Chilly", "Feeling good", "Warm", "Hot and/or\nBad Weather"]);
 
 # And add our annotations
-plt.annotate('Using completely arbitrary temperature preferences', 
+plt.annotate('Using completely arbitrary temperature preferences',
                     (0.5,1), (0, 15), xycoords='axes fraction', color="#a19a92",
                     textcoords='offset points', size=10, va='top', ha="center")
-plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516)', 
+plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516)',
                     (0.5,0.024), (0, 0), xycoords='figure fraction', color="#a19a92",
                     textcoords='offset points', size=10, va='bottom', ha="center")
 
@@ -1050,9 +1050,9 @@ plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.n
 
 
 
-    
+
 ![png](2020-07-06-US_Weather_files/2020-07-06-US_Weather_29_0.png?class="img-large")
-    
+
 
 
 
@@ -1062,9 +1062,9 @@ There we go! Its not perfect, but I think it's pretty, and certainly San Jose is
 
 
 
-    
+
 ![png](cover.png?class="img-main,remove")
-    
+
 
 
 
@@ -1094,7 +1094,7 @@ station_locations = root / "station_locations.csv"
 # If Ive done this before, load in the previous results
 if os.path.exists(station_locations):
     station_df = pd.read_csv(station_locations)
-    
+
 # Or else figure it out from scratch using 2020 year
 else:
     stations = {}
@@ -1118,7 +1118,7 @@ def check_station(row, threshold=0.1):
         return cities[matches].name.iloc[0]
     else:
         return np.NaN
-    
+
 # Lets test this works, we should get New York out
 check_station(("New York", 40.6, -73.9))
 station_df["city"] = station_df.apply(check_station, axis=1)
@@ -1142,8 +1142,8 @@ else:
                 dfs.append(df)
     df_weather = pd.concat(dfs).reset_index(drop=True)
     df_weather.to_csv(df_name, index=False)
-    
-df_weather    
+
+df_weather
 # Yes it has all three variants -_-
 df_weather = df_weather.replace(999.9, np.NaN).replace(99.99, np.NaN).replace(9999.9, np.NaN)
 df_weather
@@ -1185,11 +1185,11 @@ for (city, avg), ax in zip(city_order.iteritems(), axes.flatten()):
     for w, c in zip(ws, colors):
         w.set_linewidth(0.5)
         w.set_edgecolor(c)
-        
+
     ax.set_title(city, pad=-2)
     ax.set_aspect('equal', 'box')
     ax.add_artist(plt.Circle((0, 0), .6, color=bg))
-    
+
     # Add average rating color circle
     ax.add_artist(plt.Circle((0, 0), .2, color=cmap(avg)))
 
@@ -1198,16 +1198,16 @@ for (city, avg), ax in zip(city_order.iteritems(), axes.flatten()):
 fig.subplots_adjust(top=0.83, bottom=0.04)
 cbar_ax = fig.add_axes([0.2, 0.9, 0.6, 0.015])
 cbar_ax.set_title("Yearly weather trends for major US cities", pad=25, fontsize=18)
-cb = mpl.colorbar.ColorbarBase(cbar_ax, cmap=cmap, orientation='horizontal', 
+cb = mpl.colorbar.ColorbarBase(cbar_ax, cmap=cmap, orientation='horizontal',
                                ticks=[0, 0.25, 0.5, 0.75, 1])
 cb.outline.set_visible(False)
 cb.ax.set_xticklabels(["Cold and/or \nBad Weather", "Chilly", "Feeling good", "Warm", "Hot and/or\nBad Weather"]);
 
 # And add our annotations
-plt.annotate('Using completely arbitrary temperature preferences', 
+plt.annotate('Using completely arbitrary temperature preferences',
                     (0.5,1), (0, 15), xycoords='axes fraction', color="#a19a92",
                     textcoords='offset points', size=10, va='top', ha="center")
-plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516)', 
+plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00516)',
                     (0.5,0.024), (0, 0), xycoords='figure fraction', color="#a19a92",
                     textcoords='offset points', size=10, va='bottom', ha="center")
 

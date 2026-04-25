@@ -9,8 +9,8 @@ tags: [creative]
 ---
 
 For a while now I've been meaning to see if I can make something
-a bit more useful than my normal projects, and what could be 
-more useful than a knife? Well, a lot of things, but most 
+a bit more useful than my normal projects, and what could be
+more useful than a knife? Well, a lot of things, but most
 things are simply too difficult and require too many tools
 I don't have!
 
@@ -52,15 +52,15 @@ they all had to go. I went through so much sand paper and WD-40 for lubrication.
 ![](good5.jpg)
 
 But eventually I got there. Not perfect - I need to figure out a more efficient way of doing it. I suspect
-just not putting in groves when filing would be a great help. Something to remember for next time. At this point, 
-it needs to go in for the heat treat to turn that soft metal **hard**. Which is best done at night, so you can see 
+just not putting in groves when filing would be a great help. Something to remember for next time. At this point,
+it needs to go in for the heat treat to turn that soft metal **hard**. Which is best done at night, so you can see
 the flow of the metal easier. Which meant it was of course time to feed the fluffball.
 
 ![](kitty1.jpg)
 
 So, 9pm at night, gas forge has been spluttering along (I need to figure out why it splutters though,
 that's been worrying me), and the blank is *hot*. Take it out, dunk it in oil, and realise
-removing the scale means even more sanding. 
+removing the scale means even more sanding.
 
 ![](good6.jpg)
 
@@ -75,9 +75,9 @@ because this part took hours longer than it could have. But hey, eventually I go
 
 ![](good8.jpg)
 
-Unfortunately I couldn't find any oil, and Bunning's was closed by then, but I found some old varnish that I 
+Unfortunately I couldn't find any oil, and Bunning's was closed by then, but I found some old varnish that I
 threw on the handle. Note to self, never use varnish, it will get on your steel and never come off.  Still,
-imperfect blade and imperfect handle, I don't think it's too bad for a first attempt. Hopefully the second attempt 
+imperfect blade and imperfect handle, I don't think it's too bad for a first attempt. Hopefully the second attempt
 will be better.
 
 ![](good10.jpg)

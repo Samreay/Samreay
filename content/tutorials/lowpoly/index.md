@@ -12,17 +12,17 @@ math: true
 So this is the goal for this tutorial - to turn a beautiful wallpaper (or three) into beautiful low poly art.
 
 
-    
+
 ![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_2_0.png)
-    
 
 
 
 
 
-    
+
+
 ![png](cover.png?class="img-main,remove")
-    
+
 
 
 
@@ -81,9 +81,9 @@ plt.imshow(grayscale.T);
 
 
 
-    
+
 ![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_7_0.png)
-    
+
 
 
 ## 2. Highlight details
@@ -112,9 +112,9 @@ plt.imshow(diff.T)
 
 
 
-    
+
 ![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_9_0.png)
-    
+
 
 
 ## 3. Vertices from image
@@ -157,9 +157,9 @@ plt.scatter(samples[:, 0], -samples[:, 1], c=v, s=0.2, edgecolors="none", cmap="
 
 
 
-    
+
 ![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_13_0.png)
-    
+
 
 
 Looks good to me! The gate should have a good level of detail, and the background sky should have far less.
@@ -171,9 +171,9 @@ This is actually super simple, because `scipy` has done it all for us. We'll sim
 
 
 
-    
+
 ![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_15_0.png?class="img-invert-dull")
-    
+
 
 
 
@@ -273,21 +273,21 @@ Running this will output a ton of images in the output folder, and we can pick o
 I ended up liking a frame somewhere in the middle as the "best", and here is a direct comparison, not just for the example image, but for others as well:
 
 
-    
+
 ![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_25_0.png)
-    
 
 
 
-    
+
+
 ![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_26_0.png)
-    
 
 
 
-    
+
+
 ![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_27_0.png)
-    
+
 
 
 

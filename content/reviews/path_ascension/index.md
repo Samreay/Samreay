@@ -29,7 +29,7 @@ Now theres a whole bunch of confusion (and maybe even inconsistency) with the po
 
 Power confusion aside, Matt is quickly joined on his journey with a bond (animal companion, like a sacred beast bond in *Cradle*), and then later on with a female companion, Liz. The romance is done quite well actually, apart from some weird things like the position to not have sex for seventy years, despite them being in a progressive, futuristic, sexually-free society. But overall, this is one of the romances plot lines I like, for it grows out of friendship, understanding, and respect, it doesn't just appear like magic.
 
-Onto the plot, I wish there was a bit more of an external impetus to keep things going, and some of the arcs do feel far more serious and others. I loved the rift experimentation mini-arc, and it gave strong Corin Cadence vibes from *Arcane Ascension*. 
+Onto the plot, I wish there was a bit more of an external impetus to keep things going, and some of the arcs do feel far more serious and others. I loved the rift experimentation mini-arc, and it gave strong Corin Cadence vibes from *Arcane Ascension*.
 
 Outside of the main characters, there's definitely an issue with underdeveloped secondary characters stemming from a too-large cast, and even after more than a hundred chapters, I still couldn't tell you who's who in the secondary team that Matt befriends in the PlayPen, apart from Melinda, who is the super overpowered healer.
 

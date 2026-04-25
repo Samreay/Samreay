@@ -24,7 +24,7 @@ I'll focus upon the first few books here (*Unsouled*, *Soulsmith*, *Blackflame*)
 
 The story follows a young man hailing from one of the clans of Sacred Valley. This is *Lindon*. He is, shall we say, unfairly treated by the clan, who believes he has no aptitude for the spiritual arts. They are, ever so slightly, incorrect. So, after Lindon witnesses a vision of the future wherein his home is wiped out, he decides to leave and seek the power to save his family and his clan outside of the Sacred Valley.
 
-It turns out, this was a very good decision. On the way, he is joined by the young prodigy Yerin, and a mentor Eithan. 
+It turns out, this was a very good decision. On the way, he is joined by the young prodigy Yerin, and a mentor Eithan.
 
 Eithan is, undoubtedly, my favourite character in all of fantasy. Keras, sorry mate, you're no longer number one.
 
@@ -42,7 +42,7 @@ No matter how far in you get, there is probably something awesome just a few doz
 
 I found this series after a few books were already released. I read the first four in four days.
 
-And every time there's a new release (which is pretty much every six months on a dime, no waiting years for the next book, which is *so damn nice*), I go back and relish rereading the entire series. 
+And every time there's a new release (which is pretty much every six months on a dime, no waiting years for the next book, which is *so damn nice*), I go back and relish rereading the entire series.
 
 This is not always a good thing, because my own writing productivity drops to almost zero when this happens.
 

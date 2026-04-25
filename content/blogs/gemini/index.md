@@ -51,55 +51,55 @@ We're trying to get some touristy things done before we leave, I'll post an upda
 
 # Part Two: The telescopering
 
-Five weeks into our stay, and we got to visit the observatories. 
+Five weeks into our stay, and we got to visit the observatories.
 Francesco was kind enough to take us up to [Las Campanas](https://en.wikipedia.org/wiki/Las_Campanas_Observatory)
  with him, and stayed there over night.
-We got to visit the 40 inch Swope telescope, the 100 inch du Pont 
+We got to visit the 40 inch Swope telescope, the 100 inch du Pont
 telescope, and the two massive 6.5m Magellan telescopes.
-The view was fantastic, as one would hope it would be for an 
-observatory site. The weather was fantastic, not a cloud in sight. 
-As a result, I may have burned rather badly. Here's what the view 
-looks like from the edge of the du Pont observatory, around 3pm 
+The view was fantastic, as one would hope it would be for an
+observatory site. The weather was fantastic, not a cloud in sight.
+As a result, I may have burned rather badly. Here's what the view
+looks like from the edge of the du Pont observatory, around 3pm
 in the afternoon.
 
 
 {% include youtube.html url="https://www.youtube.com/embed/kSKv_OYdgt4)
 
-We decided to catch the sunset from a comfortable jut of rock just 
-below the Magellan telescopes. About half an hour before sunset, 
+We decided to catch the sunset from a comfortable jut of rock just
+below the Magellan telescopes. About half an hour before sunset,
 Ben snapped this of the surrounding hills.
 
 ![](cover.jpg)
 
-I had set up my camera to take an image every eight seconds, and 
-using an hour of capture, I created this view of the sunset. 
+I had set up my camera to take an image every eight seconds, and
+using an hour of capture, I created this view of the sunset.
 Unfortunately I wasn't able to fix ISO and exposure, so
-the flickering you can see is the camera adjusting for the lowering 
-brightness. It took roughly three hours for the afterglow to fade, 
+the flickering you can see is the camera adjusting for the lowering
+brightness. It took roughly three hours for the afterglow to fade,
 which isn't captured in the video below.
 
 
 {% include youtube.html url="https://www.youtube.com/embed/lSwGeVXESAM)
 
 
-We came back from Las Campanas the following afternoon, Tuesday 
-January 19. Then on Thursday, got to jump on a bus with the American 
+We came back from Las Campanas the following afternoon, Tuesday
+January 19. Then on Thursday, got to jump on a bus with the American
 students, and head up to the [Cerro Tololo observatoy](https://en.wikipedia.org/wiki/Cerro_Tololo_Inter-American_Observatory).
-This is all of us in front of the Blanco telescope, which has 
-DECam mounted inside. The Blanco is a big telescope. Sure, it's 
+This is all of us in front of the Blanco telescope, which has
+DECam mounted inside. The Blanco is a big telescope. Sure, it's
 only 4m, but its an old telescope, and it is built like an
-older telescope. Think big. DECam is 8 tons. The primary mirror 
-in the Blanco is 15 tons. The support structure and systems clock 
+older telescope. Think big. DECam is 8 tons. The primary mirror
+in the Blanco is 15 tons. The support structure and systems clock
 in at over 500 tons. Here's everyone outside the Blanco.
-Unfortunately I was unable to get a good photo inside - I'd need a 
+Unfortunately I was unable to get a good photo inside - I'd need a
 wide angle lens to get the massive structure in one photo.
 
 ![](blanco.jpg)
 
-After that, it was a half hour bus up to the 8m Gemini telescope. 
+After that, it was a half hour bus up to the 8m Gemini telescope.
 It's hard to top this one. Just look at it go!
 
-I apologise for the bad camera work, I didn't realise how much 
+I apologise for the bad camera work, I didn't realise how much
 I'd have to speed it up,
 and so some of the movements come across as jerky.
 
@@ -120,31 +120,31 @@ It was a good day.
 Our last few weeks at La Serena were dominated by our projects.
 There was so much to do, there wasn't much time left for being tourists.
 We managed to get one trip in though: a tour to Isla Damas.
-Much of the tour went over our heads (the English speaking tour guide 
+Much of the tour went over our heads (the English speaking tour guide
 couldn't come on the boat with us),
-however one doesn't need to know the Spanish phrase for "Look over there, 
+however one doesn't need to know the Spanish phrase for "Look over there,
 there are dolphins" to get the general picture.
-On that note, we saw a large pod of Bottlenose dolphins, many sea lions, 
+On that note, we saw a large pod of Bottlenose dolphins, many sea lions,
 some penguins and some sea otters. Plus a good thousand birds.
 
 ![](dolphin.jpg)
 
-Once we reached the island, we had an hour or so to wander ourselves 
+Once we reached the island, we had an hour or so to wander ourselves
 through the two walking paths around the island.
-We started to run out of time, so I ran ahead and up to the high point 
+We started to run out of time, so I ran ahead and up to the high point
 to grab an image of the island. Unfortunately, my phone did not handle
 the levels of extreme sunlight as well as I wanted!
 
 ![](damas.jpg)
 
-So, after tiring myself up running up a rocky hill, and then getting 
-sunburnt, we headed back inland on the bus. After a nice lunch at a 
-restaurant literally in the middle of nowhere, we were back in La 
+So, after tiring myself up running up a rocky hill, and then getting
+sunburnt, we headed back inland on the bus. After a nice lunch at a
+restaurant literally in the middle of nowhere, we were back in La
 Serena, and ready for another week of work.
 
-So, let's fast forward a few weeks. So skip past more data reduction, 
+So, let's fast forward a few weeks. So skip past more data reduction,
 more refinement to my machine learning algorithms,
-improved artificial data creation and more documenting what I did in a 
+improved artificial data creation and more documenting what I did in a
 draft paper.
 
 So, rather than summarise it for you, here is my presentation-as-summary:
@@ -152,9 +152,9 @@ So, rather than summarise it for you, here is my presentation-as-summary:
 {% include presentation.html url="https://docs.google.com/presentation/d/1x4xm6cncCdiSzpdlAy8HEiFcOSH0zJPr_J99SKmXgXA/embed?start=false&loop=false&delayms=5000)
 
 
-For a one sentence summary of what I did: I use machine learning 
-techniques on artificially created data to classify potential globular 
+For a one sentence summary of what I did: I use machine learning
+techniques on artificially created data to classify potential globular
 clusters in Maffei 1 for spectroscopic follow-up.
 
-And that seems like a good place to stop. To anyone considering 
+And that seems like a good place to stop. To anyone considering
 applying for an AGUSS scholarship in 2016 or beyond, I recommend it!

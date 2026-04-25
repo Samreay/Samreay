@@ -53,9 +53,9 @@ for ax, m, r in zip(axes[1:], models, results):
 
 
 
-    
+
 ![png](2020-07-15-PR_vs_ROC_Curves_files/2020-07-15-PR_vs_ROC_Curves_1_0.png)
-    
+
 
 
 So here we have some simple moon data, two classifiers, one naively looks better than the other, we want to determine the threshold in which its internal "probability" results in us classifying into one group or another. Where we set that limit will determine, how much contamination is in the positives, vs positives we failed to get.
@@ -94,9 +94,9 @@ ax.set_title("PR Curve");
 
 
 
-    
+
 ![png](2020-07-15-PR_vs_ROC_Curves_files/2020-07-15-PR_vs_ROC_Curves_3_0.png)
-    
+
 
 
 The "AP" in the plot is the average precision, weighted by the change in recall. [See this link for details](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html). The important thing is to note the characteristic curve we see, and that what you want is for your curve to get as high up in the upper right corner as possible. Here, we can see that we could pick a classification threshold for the Random Forest Classifier that would grant us a precision of > 90% and still have a recall of also above 90% (the dashed lines are at the 90% mark, and you can see the curve gets aboe both of them).
@@ -133,12 +133,12 @@ ax.set_title("ROC Curve");
 
 
 
-    
+
 ![png](2020-07-15-PR_vs_ROC_Curves_files/2020-07-15-PR_vs_ROC_Curves_5_0.png)
-    
 
 
-In this plot, we want to get in the top left corner, not the top right one. The dashed lines show us that our current RF model can achieve a true positive rate of >90%, with a false positive rate of <10%. 
+
+In this plot, we want to get in the top left corner, not the top right one. The dashed lines show us that our current RF model can achieve a true positive rate of >90%, with a false positive rate of <10%.
 
 And all things considered, it looks very similar to the PR curve, just flipped around. But there is an important difference that isn't just semantics.
 
@@ -184,7 +184,7 @@ results = []
 for m in models:
     m.fit(X_train, y_train)
     results.append(m.predict(X_test))
-    
+
 # Plot results
 fig, axes = plt.subplots(ncols=len(models)+1, sharey=True, figsize=(13, 5))
 axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap="Spectral")
@@ -198,9 +198,9 @@ for ax, m, r in zip(axes[1:], models, results):
 
 
 
-    
+
 ![png](2020-07-15-PR_vs_ROC_Curves_files/2020-07-15-PR_vs_ROC_Curves_7_0.png)
-    
+
 
 
 In this example, the classes are imbalanced by a factor of 20, so lets see if the imbalanced classes cause a large discrepancy now in the PR curve than in the ROC curve:
@@ -221,9 +221,9 @@ axes[0].set_title("PR Curve"), axes[1].set_title("ROC Curve");
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -300,7 +300,7 @@ results = []
 for m in models:
     m.fit(X_train, y_train)
     results.append(m.predict(X_test))
-    
+
 # Plot results
 fig, axes = plt.subplots(ncols=len(models)+1, sharey=True, figsize=(13, 5))
 axes[0].scatter(X[:, 0], X[:, 1], c=y, cmap="Spectral")

@@ -24,15 +24,15 @@ I've thought about why that is, and there are no glaring issues in the work.
 
 It just felt *flat*.
 
-This, I believe, comes down to the plot. A week after finishing the work, I asked myself "How would I boil *Forge of Destiny* down to a single sentence?" The answer was "Girl cultivates in Sect." There's a lot of time spent in the school, in the every day, and at the end of the day, that is the plot. Overaching conflict was missing, the deep-seated motivation of a character wronged or with a chip on their shoulder, gone as well. 
+This, I believe, comes down to the plot. A week after finishing the work, I asked myself "How would I boil *Forge of Destiny* down to a single sentence?" The answer was "Girl cultivates in Sect." There's a lot of time spent in the school, in the every day, and at the end of the day, that is the plot. Overaching conflict was missing, the deep-seated motivation of a character wronged or with a chip on their shoulder, gone as well.
 
-Whilst there are hints of the world outside the school, they remain mostly as hints. 
+Whilst there are hints of the world outside the school, they remain mostly as hints.
 
 And as the main character grows and becomes stronger, not much changes. She gets a bit stronger, she gets a flying sword and a little turtle-like pet (which is the best part of the book of course), but they don't go anywhere interesting.
 
 In *Cradle*, Lindon struggles to grow stronger to save his home. In *Arcane Ascension*, Corin Cadence needs to solve the mystery of his brother. In *Mother of Learning*, Zorian is stuck in a decaying time loop. In *Forge of Destiny,* Ling Qi does schoolwork.
 
-Now, some people may enjoy this immensely. There are no huge stakes, no world ending events, no annoying prophecy lurking malignantly around every corner. The slower pacing and school focus may be exactly what you like. In fact, if you've read *A Thousand Li* and enjoyed it, I would say this is very similar and you'd enjoy this too. 
+Now, some people may enjoy this immensely. There are no huge stakes, no world ending events, no annoying prophecy lurking malignantly around every corner. The slower pacing and school focus may be exactly what you like. In fact, if you've read *A Thousand Li* and enjoyed it, I would say this is very similar and you'd enjoy this too.
 
 I don't necessarily mind a good school section too. *Sufficiently Advanced Magic* is ony my favourite books, but it was school with a few twists and turns and conflicts that went somewhere I wasn't expecting. *A Forge of Destiny* didn't surprise me at all, every new arc had a resolution obvious from page one that it dutifully plodded towards.
 

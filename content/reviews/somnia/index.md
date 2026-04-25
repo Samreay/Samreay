@@ -19,11 +19,11 @@ sentence: "Somnia Online, the fully immersive vrmmo run by secretive AIs."
 *I'm writing this review as of reading the first three books. I'll update it when I finish the series at a later date.*
 
 
-Somnia Online follows the journey of Wren, her best friend Harlow, and their guild, Fable. The premise, at the start, is simple. Wren's mother is the lead designer for a massive vrmmo game, which offers unparalleled immersive via a headset which reads your brainwaves. Except, of course, the game is really just a test bed for the development for the games AI and the headset technology, which is funded by the military. 
+Somnia Online follows the journey of Wren, her best friend Harlow, and their guild, Fable. The premise, at the start, is simple. Wren's mother is the lead designer for a massive vrmmo game, which offers unparalleled immersive via a headset which reads your brainwaves. Except, of course, the game is really just a test bed for the development for the games AI and the headset technology, which is funded by the military.
 
 For the in-game plot, it initially focuses on normally MMO tasks. Levelling up, getting gear, learning skills. But over the course of the first few books, the large plot, which ties up Wren's health to Somnia online, the development of the AIs, and the stability of the game itself, becomes more and more important.
 
-The larger plot is, I believe, where the book is best, and I wish the first few books got to it sooner. There is a lot of reading through the party grinding levels, grinding mobs, and after grinding through one dungeon, they immediately travel to the next, and begin grinding that one. I did put the series down a few times when the team finished one levelling area to go to another, just to read something with a difference change of pace, before coming back to reading about Murmur (Wren's character name) mesmerising, stunning, and slowing mobs over and over. 
+The larger plot is, I believe, where the book is best, and I wish the first few books got to it sooner. There is a lot of reading through the party grinding levels, grinding mobs, and after grinding through one dungeon, they immediately travel to the next, and begin grinding that one. I did put the series down a few times when the team finished one levelling area to go to another, just to read something with a difference change of pace, before coming back to reading about Murmur (Wren's character name) mesmerising, stunning, and slowing mobs over and over.
 
 So, if you don't mind the grind, then as the series continues, more and more is spent in the larger plot, which is what helps keep you, as a reader, invested.
 

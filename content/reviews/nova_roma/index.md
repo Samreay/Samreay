@@ -53,7 +53,7 @@ Alexander starts his journey in the ruins of Nova Roma, where each night monster
 
 At some point, he makes friends in the human enclaves left in the city, and once we start adding more characters, things actually pick up in pace instead of slowing down. This theme is something I really like. Stuff *happens*. Constantly, there are new goals, new factions, new places, new things to do, and Alexander is torn between dozens of possible projects.
 
-Does he fix up a ship, and go down the path of constructing a navy? Train people to become legionaries? Recover a mine and start becoming an economical force? Learn to enchant items? Close dungeons? Make friends? Meet new factions? Travel to new regions? 
+Does he fix up a ship, and go down the path of constructing a navy? Train people to become legionaries? Recover a mine and start becoming an economical force? Learn to enchant items? Close dungeons? Make friends? Meet new factions? Travel to new regions?
 
 Yes to all the above, and so much more.
 
@@ -61,6 +61,6 @@ The fact that there's always something new kept me hooked, in sometimes an extre
 
 <span class="spoiler">The end of the third book is so perfectly done to set up an amazing magic Academy arc in Paris, that I wanted to throw my phone at the wall. All the puzzle pieces in the book have fallen into place for Alexander to take the school by storm, a mage unlike any ever seen... and I have to wait for book four?! Are you kidding me!</span>
 
-Alexander makes mistakes and does act more like a normal human than a super-intelligent AI in a humanoid body. For me, that's alright. I imagine reading a book from the perspective of a literal computer would be a rather dry and dusty affair. I raise this point only because I invariably see it bought up whenever there's a discussion on this series. It *is* a fair point, and actually reminds me of interviews that Steven Erikson (author of Malazan) has done about how he tried to write Anomander Rake - an incredibly intelligent being hundreds of thousands of years old. Steven ultimately resolved it was impossible for him (or indeed, any human), to do the character justice, and removed Anomander from perspective. Obviously this wouldn't work for LitRPG, where we want to be in the character's head. I digress. 
+Alexander makes mistakes and does act more like a normal human than a super-intelligent AI in a humanoid body. For me, that's alright. I imagine reading a book from the perspective of a literal computer would be a rather dry and dusty affair. I raise this point only because I invariably see it bought up whenever there's a discussion on this series. It *is* a fair point, and actually reminds me of interviews that Steven Erikson (author of Malazan) has done about how he tried to write Anomander Rake - an incredibly intelligent being hundreds of thousands of years old. Steven ultimately resolved it was impossible for him (or indeed, any human), to do the character justice, and removed Anomander from perspective. Obviously this wouldn't work for LitRPG, where we want to be in the character's head. I digress.
 
 The series is fantastic. I love it, and I hate how well the setup for book four is, without having it in my hands.

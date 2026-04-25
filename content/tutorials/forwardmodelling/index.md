@@ -31,7 +31,7 @@ from scipy.stats import binned_statistic
 np.random.seed(0)
 
 def get_fake_dist(loc=0, scale=1, size=1):
-    """ To make sure we dont need a suite of tests, 
+    """ To make sure we dont need a suite of tests,
     fake sampling a normal so that it is symmetric"""
     cdfs = norm.cdf(norm.rvs(size=size))
     maxv = min(cdfs.max(), 0.999)
@@ -50,12 +50,12 @@ With a fake distance defined, we can plug that into generating fake data points.
 <div class="expanded-code width-83" markdown=1>
 
 ```python
-def get_events(om=0.3, MB=-19.3, sigma_int=0.1, mean_c=0, 
+def get_events(om=0.3, MB=-19.3, sigma_int=0.1, mean_c=0,
                sigma_c=0.1, beta=3.1, num=5000):
-    zs = np.linspace(0.05, 1.05, num)   
-    
-    # I sample bit by bit in redshift space to make sure our posterior 
-    # should be centered roughly on the true value, otherwise we'd have 
+    zs = np.linspace(0.05, 1.05, num)
+
+    # I sample bit by bit in redshift space to make sure our posterior
+    # should be centered roughly on the true value, otherwise we'd have
     # to run a suite of realisations to test the statistics rigorously.
     bins = 100
     n = int(num / bins)
@@ -94,9 +94,9 @@ plt.colorbar(h).set_label("colour"), ax.set_xlabel("$z$"), ax.set_ylabel("$m_B$"
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -147,9 +147,9 @@ ax.set_xlabel("$z$"), ax.set_ylabel("$m_B$");
 
 
 
-    
+
 ![png](2020-04-08-ForwardModelling_files/2020-04-08-ForwardModelling_11_0.png)
-    
+
 
 
 Hopefully, its broad enough. Now to reweight the simulation based on the top-level parameters.
@@ -163,7 +163,7 @@ def reweight(sim_mbs, sim_zs, sim_cs, om, MB, sigma_int, mean_c, sigma_c, beta):
     # Step 1: Use om to move from observer frame to rest frame
     distmod = FlatLambdaCDM(70, om).distmod(sim_zs).value
     sim_MBs = sim_mbs - distmod - beta * sim_cs
-    
+
     # Use top-level parameters to get pdf of simulation points
     weights = norm.logpdf(sim_MBs, MB, sigma_int) + norm.logpdf(sim_cs, mean_c, sigma_c)
     return np.exp(weights)
@@ -249,7 +249,7 @@ def get_chi2(x, plot=False):
     # Add a prior onto MB to help fitting
 
     weights = reweight(sim_mbs, sim_zs, sim_cs, om, MB, sigma_int, mean_c, sigma_c, beta)
-    # Now need a likelihood combining data and simulation. This is super simple, we'd probably 
+    # Now need a likelihood combining data and simulation. This is super simple, we'd probably
     # want something like 1712.01293 in a real analysis where we combine MC and Poisson uncert.
     sim_hist, _ = np.histogramdd(sim, bins=bins, weights=weights, density=True)
     sim_err = sim_hist * sim_err_ratio
@@ -287,7 +287,7 @@ test_mean_c = test_sigma_c * 0
 test_beta = np.ones(test_oms.size) * 3.1
 
 # Generate points with varying Om and MB only
-xs = np.vstack((test_oms_flat, test_MBs_flat, test_sigma_int, 
+xs = np.vstack((test_oms_flat, test_MBs_flat, test_sigma_int,
                 test_mean_c, test_sigma_c, test_beta)).T
 chi2s = np.array([get_chi2(x) for x in xs]).reshape(test_oms.shape)
 ```
@@ -314,9 +314,9 @@ cbar.set_label(r"$\chi^2$"), plt.xlabel(r"$\Omega_m$"), plt.ylabel("$M_B$");
 
 
 
-    
+
 ![png](2020-04-08-ForwardModelling_files/2020-04-08-ForwardModelling_24_0.png)
-    
+
 
 
 Alright, doesn't look too bad, our true point (the red star) is roughly the place of minimum $\chi^2$ value.
@@ -360,7 +360,7 @@ We can then extra samples from our chain...
 
 ```python
 chain = sampler.chain[:, 400:, :]
-flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker 
+flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker
 ```
 
 </div>
@@ -386,9 +386,9 @@ c.plotter.plot_walks(truth=truth, figsize=(8,4));
 
 
 
-    
+
 ![png](2020-04-08-ForwardModelling_files/2020-04-08-ForwardModelling_31_0.png?class="img-invert")
-    
+
 
 
 
@@ -421,9 +421,9 @@ for key, value in summary.items():
 
 
 
-    
+
 ![png](2020-04-08-ForwardModelling_files/2020-04-08-ForwardModelling_33_1.png?class="img-invert")
-    
+
 
 
 
@@ -443,19 +443,19 @@ from scipy.stats import binned_statistic
 np.random.seed(0)
 
 def get_fake_dist(loc=0, scale=1, size=1):
-    """ To make sure we dont need a suite of tests, 
+    """ To make sure we dont need a suite of tests,
     fake sampling a normal so that it is symmetric"""
     cdfs = norm.cdf(norm.rvs(size=size))
     maxv = min(cdfs.max(), 0.999)
     vals = norm.ppf(np.linspace(1 - maxv, maxv, size)) * scale + loc
     np.random.shuffle(vals)
     return vals
-def get_events(om=0.3, MB=-19.3, sigma_int=0.1, mean_c=0, 
+def get_events(om=0.3, MB=-19.3, sigma_int=0.1, mean_c=0,
                sigma_c=0.1, beta=3.1, num=5000):
-    zs = np.linspace(0.05, 1.05, num)   
-    
-    # I sample bit by bit in redshift space to make sure our posterior 
-    # should be centered roughly on the true value, otherwise we'd have 
+    zs = np.linspace(0.05, 1.05, num)
+
+    # I sample bit by bit in redshift space to make sure our posterior
+    # should be centered roughly on the true value, otherwise we'd have
     # to run a suite of realisations to test the statistics rigorously.
     bins = 100
     n = int(num / bins)
@@ -496,7 +496,7 @@ def reweight(sim_mbs, sim_zs, sim_cs, om, MB, sigma_int, mean_c, sigma_c, beta):
     # Step 1: Use om to move from observer frame to rest frame
     distmod = FlatLambdaCDM(70, om).distmod(sim_zs).value
     sim_MBs = sim_mbs - distmod - beta * sim_cs
-    
+
     # Use top-level parameters to get pdf of simulation points
     weights = norm.logpdf(sim_MBs, MB, sigma_int) + norm.logpdf(sim_cs, mean_c, sigma_c)
     return np.exp(weights)
@@ -531,7 +531,7 @@ def get_chi2(x, plot=False):
     # Add a prior onto MB to help fitting
 
     weights = reweight(sim_mbs, sim_zs, sim_cs, om, MB, sigma_int, mean_c, sigma_c, beta)
-    # Now need a likelihood combining data and simulation. This is super simple, we'd probably 
+    # Now need a likelihood combining data and simulation. This is super simple, we'd probably
     # want something like 1712.01293 in a real analysis where we combine MC and Poisson uncert.
     sim_hist, _ = np.histogramdd(sim, bins=bins, weights=weights, density=True)
     sim_err = sim_hist * sim_err_ratio
@@ -557,7 +557,7 @@ test_mean_c = test_sigma_c * 0
 test_beta = np.ones(test_oms.size) * 3.1
 
 # Generate points with varying Om and MB only
-xs = np.vstack((test_oms_flat, test_MBs_flat, test_sigma_int, 
+xs = np.vstack((test_oms_flat, test_MBs_flat, test_sigma_int,
                 test_mean_c, test_sigma_c, test_beta)).T
 chi2s = np.array([get_chi2(x) for x in xs]).reshape(test_oms.shape)
 plt.contour(test_oms, test_MBs, chi2s, levels=30)
@@ -572,7 +572,7 @@ p0 += np.array([0, -19, -0.1, -0.3, -0.1, 2.8])
 sampler = emcee.EnsembleSampler(nwalkers, ndim, get_log_posterior)
 state = sampler.run_mcmc(p0, 2000)
 chain = sampler.chain[:, 400:, :]
-flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker 
+flat_chain = chain.reshape((-1, ndim))  # Stack the steps from each walker
 from chainconsumer import ChainConsumer
 c = ChainConsumer()
 params = [r"$\Omega_m$", "$M_B$", r"$\sigma_{int}$", r"$\hat{c}$", r"$\sigma_c$", r"$\beta$"]

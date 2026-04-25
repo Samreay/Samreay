@@ -25,7 +25,7 @@ sentence: "Lucas used to delve dungeons. Now, he has to run one."
 
 After Lucas dies during a freak explosion, divine intervention sees him brought back to life with the power to control a new dungeon.
 
-There’s just a couple of issues: his old body is bound to his dungeon, and the craziness of what he thought was his final act is only getting weirder. When he sees newbie adventures entering his dungeon, though, he decides to help them survive and complete their quests. 
+There’s just a couple of issues: his old body is bound to his dungeon, and the craziness of what he thought was his final act is only getting weirder. When he sees newbie adventures entering his dungeon, though, he decides to help them survive and complete their quests.
 
 After all, adventuring is a process, and someone needs to guide the rookies.
 
@@ -46,9 +46,9 @@ One of the downsides of watching these groups learn and improve their teamwork, 
 In terms of the wider plot, there is an aggressive and nefarious external faction set to try and conquer everything. I'll have to admit here too that I wasn't able to follow this conflict, and as a result it often seemed very forced. I thought the dungeon was located near the rich and populus city of Ketz, and the reason there weren't many adventures around was because the area was so pacified and deep in the host country that adventurers weren't needed. And yet, when this external force attacks (with tens of thousands of high-level soldiers), somehow a squad of them show up to the dungeon? Where did they come from? Why are there only two proper higher-level commanders with a few dozen troops? Are other cities being sacked? Where is literally any of the miltary might of the kingdom to face off against the Kingsguard? Is there a map? Ultimately it felt like there needed to be some external conflict and an appropriately-sized aggressive force was conjured up just at the right strength to allow the dungeon to survive. Or, earlier in the story when they are attacked by an assassin, there's this exchange:
 
 > “This is suboptimal,” Rose admitted.
-> 
-> “Where’s the Guild?” I asked. “And thanks for saving those lives.” 
-> 
+>
+> “Where’s the Guild?” I asked. “And thanks for saving those lives.”
+>
 > “Not here,” Troy said. “I suspect they’re sleeping.”
 
 It just doesn't feel very satisfying when the reason there is conflict (ie the guild didn't sort it out) is waved off like that. Aaron, if you read this, I would *love* a deeper dive into all this external conflict to help ground it in book two or beyond. There's so much fun potential in here and I think it would amazing to explore it all properly.

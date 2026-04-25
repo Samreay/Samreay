@@ -72,9 +72,9 @@ ax.set_xlabel("Time")
 
 
 
-    
+
 ![png](2024-01-09-RRAds_files/2024-01-09-RRAds_2_0.png?class="img-large")
-    
+
 
 
 
@@ -106,9 +106,9 @@ ax.set_xlabel("Final CTR (%)")
 
 
 
-    
+
 ![png](2024-01-09-RRAds_files/2024-01-09-RRAds_4_0.png)
-    
+
 
 
 Anyway, this took more time and money than I wanted, so here's hoping this is useful for someone!

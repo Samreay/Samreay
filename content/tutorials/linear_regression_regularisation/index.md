@@ -39,7 +39,7 @@ Ridge regression adds what regularization via adding the L2 penalty to the optim
 
 $$ f = \sum_i (y_i - \beta X_i) + \lambda \sum \beta^2 $$
 
-If we minimise the above function, we now want the sum of all the $\beta$ values to be as small as possible, with a quadratic pull. 
+If we minimise the above function, we now want the sum of all the $\beta$ values to be as small as possible, with a quadratic pull.
 
 
 ## Lasso Regression
@@ -93,9 +93,9 @@ plt.legend();
 
 
 
-    
+
 ![png](2020-12-27-Linear_Regression_Regularisation_files/2020-12-27-Linear_Regression_Regularisation_3_0.png)
-    
+
 
 
 Okay, so lets run our models over it now!
@@ -120,9 +120,9 @@ plt.legend(ncol=2);
 
 
 
-    
+
 ![png](2020-12-27-Linear_Regression_Regularisation_files/2020-12-27-Linear_Regression_Regularisation_5_0.png)
-    
+
 
 
 Unsurprisingly, with our perfect data, it seems like the regularization isn't helping us at all. But we can clearly see the impact of the penalties bringing our singular $
@@ -152,9 +152,9 @@ plt.legend();
 
 
 
-    
+
 ![png](2020-12-27-Linear_Regression_Regularisation_files/2020-12-27-Linear_Regression_Regularisation_8_0.png)
-    
+
 
 
 So lets fit some more models, and note that even though X is now 20-dimensional, because plotting is hard, Im just going to show $X_0$ primarily, just like above.
@@ -182,12 +182,12 @@ plt.legend(ncol=2);
 
 
 
-    
+
 ![png](2020-12-27-Linear_Regression_Regularisation_files/2020-12-27-Linear_Regression_Regularisation_11_0.png)
-    
 
 
-Another busy plot, but the take away here is that the models with regularization, are in general, *smoother* than the other models. That is, they are less prone to overfitting. You can see, for example, the ElasticNet and Lasso regularization models (with the two strongest penalties) show that the model that comes out at the end is essentially only dependent on our first feature (hence the straight line), with other smaller effects marginalised in the model fitting. 
+
+Another busy plot, but the take away here is that the models with regularization, are in general, *smoother* than the other models. That is, they are less prone to overfitting. You can see, for example, the ElasticNet and Lasso regularization models (with the two strongest penalties) show that the model that comes out at the end is essentially only dependent on our first feature (hence the straight line), with other smaller effects marginalised in the model fitting.
 
 I saved the coefficient values out into `beta_dict` so we can see this plotted now:
 
@@ -208,9 +208,9 @@ plt.legend();
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -307,14 +307,14 @@ plt.tight_layout();
 
 
 
-    
+
 ![png](2020-12-27-Linear_Regression_Regularisation_files/2020-12-27-Linear_Regression_Regularisation_20_0.png?class="img-large")
-    
 
 
 
 
-The takeaway here is that, **even though the predictions look to be pretty similar**, the methods which include regularization have much more consistent values for their $\beta$ values. To put this another way, the stock standard LinearRegression model, if we perturb our data, could have wildly changing coefficients. Because our input features are highly correlated, sometimes $\beta_0$ might be low, but it will be compensated for by $\beta_1$ being higher. This is why the top plot looks fine, but the red distribution in the histograms is spread out. Regularization will put a stop to that, as it will effectively select whatever feature fits the data with the lowest possible $\beta$ values, allowing (in this case), for a far better localisation of $\beta$. 
+
+The takeaway here is that, **even though the predictions look to be pretty similar**, the methods which include regularization have much more consistent values for their $\beta$ values. To put this another way, the stock standard LinearRegression model, if we perturb our data, could have wildly changing coefficients. Because our input features are highly correlated, sometimes $\beta_0$ might be low, but it will be compensated for by $\beta_1$ being higher. This is why the top plot looks fine, but the red distribution in the histograms is spread out. Regularization will put a stop to that, as it will effectively select whatever feature fits the data with the lowest possible $\beta$ values, allowing (in this case), for a far better localisation of $\beta$.
 
 This can become important in various machine learning pipelines. In some data sets, we have a huge number of potential features, and often we select a few of these features as ones of interest, and create models of those. These features can be extracted often by simple methods like checking the correlations with the dependent variable, but sometimes simple linear models are fit, and any with significant $\beta$ values are selected to continue down the pipeline. A correlation approach would pass all our incredibly correlated features down the line. Normal linear regression would constantly change what it is deciding to send down the line. But a nicely regularized linear regression will pass on features correlated with the dependent variable, whilst removing independent variables which are very highly correlated with each other.
 

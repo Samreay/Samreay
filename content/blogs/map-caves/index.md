@@ -23,7 +23,7 @@ So, for this map, here are the outlines and grid versions:
 
 ![](map_with_grid.jpg)
 
-And because the lava is very visually strong, if you want the play area to be more 
+And because the lava is very visually strong, if you want the play area to be more
 of the focus than the lava, use this image:
 
 ![](map_with_grid_less_lava.jpg)

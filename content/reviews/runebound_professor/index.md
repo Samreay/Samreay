@@ -17,9 +17,9 @@ sentence: "Lives are a currency, and Noah Vines is rich."
 
 **Lives are a currency, and Noah Vines is rich.**
 
-Reincarnated into the body of a poisoned magic school professor, Noah is given more than just a second chance at life. Every time he dies, his body reforms. With infinite variations of runic magic to discover and with death as a painful soul wound rather than a final end, Noah finally has a chance to wander the lands of the living once again. 
+Reincarnated into the body of a poisoned magic school professor, Noah is given more than just a second chance at life. Every time he dies, his body reforms. With infinite variations of runic magic to discover and with death as a painful soul wound rather than a final end, Noah finally has a chance to wander the lands of the living once again.
 
-And this time, he plans to get strong enough to make sure that he never has to wait around in the afterlife again. 
+And this time, he plans to get strong enough to make sure that he never has to wait around in the afterlife again.
 
 ## Thoughts
 
@@ -35,7 +35,7 @@ I got a big confused (and still am a little bit) over the mechanics, especially 
 
 But apart from this confusion, it's simple to follow. The MC has a cheat code here, in that he can break runes apart while others can't. So if he doesn't find the perfect combination of a base seven runes to get something that works nice, he can revert his change, roll back that commit, and try a different permutation.
 
-In terms of characters, we've got our impatient MC, Noah. Moxie, his professor colleague. And Isabel and Todd, his two blacklisted noble students. Their backstory does come up, but you'll have to wait for a good while until after they've left the academy for the first time. And then there's Lee, who is my favourite. But I can't talk about Lee really, because I'm keeping this spoiler free. 
+In terms of characters, we've got our impatient MC, Noah. Moxie, his professor colleague. And Isabel and Todd, his two blacklisted noble students. Their backstory does come up, but you'll have to wait for a good while until after they've left the academy for the first time. And then there's Lee, who is my favourite. But I can't talk about Lee really, because I'm keeping this spoiler free.
 
 The world is fairly limited in scope at first, as the serial focuses on the Academy and the Scorched Plains filled with monkeys outside it. And, amusingly, the last chapter available as I write this is an interlude chapter that contains a bunch of world-building that is setting up the wider plot for the next arcs. I'd love to get some more context and depth to the world which isn't explained overtly to the MC, and I'm guessing this will happen soon.
 

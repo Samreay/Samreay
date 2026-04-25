@@ -13,9 +13,9 @@ In a perfect world our experiments would capture all the data that exists. This 
 Let's begin with a motivational dataset.
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -47,7 +47,7 @@ Let's assume we have data samples of some observable $d$. In our model, $d$ is d
 
 $$ P(d|\mu, \sigma) = \mathcal{N}(d|\mu, \sigma) $$
 
-Now let's imagine the case as described in our data where we can only observe some value when its above a threshold of $\alpha$. Or more formally, 
+Now let's imagine the case as described in our data where we can only observe some value when its above a threshold of $\alpha$. Or more formally,
 
 $$P(S|d, \theta) = \mathcal{H}(d-\alpha),$$
 
@@ -125,7 +125,7 @@ Note here that I've been cheeky and included flat priors and a prior boundary to
 With that, our model is fully defined. We can now try and fit it to the data to see how we go.
 
 ### Model Fitting
-Let's use my go-to solution, `emcee` to sample our likelihood given our dataset, and `ChainConsumer` to take those samples and turn them into handy plots. If you want more details check out the [Bayesian Linear Regression tutorial](/tutorial/2019/07/27/BayesianLinearRegression.html) for implementation details. 
+Let's use my go-to solution, `emcee` to sample our likelihood given our dataset, and `ChainConsumer` to take those samples and turn them into handy plots. If you want more details check out the [Bayesian Linear Regression tutorial](/tutorial/2019/07/27/BayesianLinearRegression.html) for implementation details.
 
 
 
@@ -170,12 +170,12 @@ c.plotter.plot(truth=[mu, sigma], figsize=2.0);
 </div>
 
 
-    
 
 
-    
+
+
 ![png](2019-07-30-SampleSelectionBias_files/2019-07-30-SampleSelectionBias_11_1.png)
-    
+
 
 
 Hopefully you can now see how the correction we applied to the likelihood unbiases its estimations.

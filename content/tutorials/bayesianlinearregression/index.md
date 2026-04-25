@@ -54,9 +54,9 @@ ax.set_ylabel("y");
 
 
 
-    
+
 ![png](2019-07-27-BayesianLinearRegression_files/2019-07-27-BayesianLinearRegression_3_0.png)
-    
+
 
 
 And it does. Notice that in this data, the further you are along the x-axis, the more uncertainty we have.
@@ -73,9 +73,9 @@ Why would we care about whether we use a gradient or an angle? Well, it comes do
 
 
 
-    
+
 ![png](2019-07-27-BayesianLinearRegression_files/2019-07-27-BayesianLinearRegression_5_0.png)
-    
+
 
 
 Now it seems to me that uniformly sampling the angle, rather than the gradient, gives us an even distribution of coverage over our observational space.
@@ -227,9 +227,9 @@ c.plotter.plot_walks(figsize=(8, 4));
 
 
 
-    
+
 ![png](2019-07-27-BayesianLinearRegression_files/2019-07-27-BayesianLinearRegression_15_0.png)
-    
+
 
 
 So here we can see the walks plotted, also known as a trace plot. The blue contains all the samples from the chain we removed the burn in from. If you notice little ticks or spikes in your trace plot, you probably need to discard more initial points to allow the chains to burn in properly. What we want to do here is check that the chains are stationary (not meandering around), and we can't tell what's in one walker to another (ie imagine if you took all the points from 20k to 40k and shifted them all up, that would be a stuck walker). The fact we don't see this in the blue means we've probably removed all burn in and we're getting good samples.
@@ -252,9 +252,9 @@ summary = c.analysis.get_summary()["emcee"]
 
 
 
-    
+
 ![png](2019-07-27-BayesianLinearRegression_files/2019-07-27-BayesianLinearRegression_17_0.png)
-    
+
 
 
 So how do we read this? Well, if you look at the summary printed, that gives the bounds for the lower uncertainty, maximum value, and upper uncertainty respectively (uncertainty being the 68% confidence levels). In the actual plot, you can see a 2D surface which represents our posterior. For example, the inner circle, labelled 68%, says that 68% of the time the true value for $\phi$ and $c$ will lie in that contour. 95% of the time it will lie in the broader contour.
@@ -298,9 +298,9 @@ ax.set_xlabel("x"), ax.set_ylabel("y"), ax.set_xlim(2, 12);
 
 
 
-    
+
 ![png](2019-07-27-BayesianLinearRegression_files/2019-07-27-BayesianLinearRegression_19_0.png?class="img-main")
-    
+
 
 
 

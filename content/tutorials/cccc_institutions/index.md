@@ -142,7 +142,7 @@ def fix_site(site):
     if " " not in site:
         # Dont fix a sitename which is an acryonym
         if site != site.upper():
-            site = ''.join(map(lambda x: x if x.islower() else " " + x, site))   
+            site = ''.join(map(lambda x: x if x.islower() else " " + x, site))
     return site.strip()
 
 sites_fixed = [fix_site(s) for s in sites]
@@ -349,7 +349,7 @@ for s in sites_fixed:
     if s not in coords:
         coords[s] = get_lat_long_from_site(s)
         save = True
-        
+
     # If we've updated, save it out
     if save:
         with open(filename, "w") as f:
@@ -395,7 +395,7 @@ def get_row(date):
     row.loc[hk, "lat"] += np.random.normal(scale=0.5, size=hk.sum())
     row.loc[hk, "long"] += np.random.normal(scale=0.5, size=hk.sum())
 
-    
+
     return row
 
 test_row = get_row(data_fixed.index.max())
@@ -1898,7 +1898,7 @@ def get_base_fig():
     coast_color = "#333333"
     country_color = "#222222"
     fig = plt.figure(figsize=(12, 6))
-    m = Basemap(projection='cyl', llcrnrlat=-70,urcrnrlat=90, 
+    m = Basemap(projection='cyl', llcrnrlat=-70,urcrnrlat=90,
                 llcrnrlon=-170, urcrnrlon=190, area_thresh=10000.)
     m.fillcontinents(color=bg_color, lake_color=bg_color, zorder=-2)
     m.drawcoastlines(color=coast_color, linewidth=0.7, zorder=-1)
@@ -1912,13 +1912,13 @@ get_base_fig();
 </div>
 
 
-      
 
 
 
-    
+
+
 ![png](2020-07-31-CCCC_Institutions_files/2020-07-31-CCCC_Institutions_23_1.png)
-    
+
 
 
 ## Add each site
@@ -1976,7 +1976,7 @@ colors = {
 def get_scatter(data):
     fig, m = get_base_fig()
     # Loop over each country and its institutions
-    
+
     for country in np.unique(data.country):
         c = colors.get(country, "#FF99FF")
         subset = data.loc[(data.country == country) & (data.enrolment > 0), :]
@@ -1990,16 +1990,16 @@ get_scatter(test_row);
 </div>
 
 
-      
 
 
 
-    
+
+
 ![png](2020-07-31-CCCC_Institutions_files/2020-07-31-CCCC_Institutions_25_1.png)
-    
 
 
-I mean... it's nice. But *cool* graphics glow and have changing colours. So I'll define a colormap that allows me to brighten the colour of each site when new patients come in, so that they flicker, glow and grow as they add patients into the system. 
+
+I mean... it's nice. But *cool* graphics glow and have changing colours. So I'll define a colormap that allows me to brighten the colour of each site when new patients come in, so that they flicker, glow and grow as they add patients into the system.
 
 
 
@@ -2011,9 +2011,9 @@ from matplotlib.colors import LinearSegmentedColormap as LSC
 def get_shaded(data, date, frame=0, show=False):
     fig, m = get_base_fig()
     # Loop over each country and its institutions
-    
+
     max_v = data.change.max() + 1
-    
+
     for country in np.unique(data.country):
         c = colors.get(country)
         if c is None:
@@ -2025,13 +2025,13 @@ def get_shaded(data, date, frame=0, show=False):
         s = 10 + subset.enrolment
         cs = cmap(2 * subset.change / max_v)
         m.scatter(subset.long, subset.lat, latlon=True, c=cs, s=s, zorder=1)
-        
+
     # Set the title, and make the background black
-    plt.title("CCCC Patient Contributions", fontsize=16, 
+    plt.title("CCCC Patient Contributions", fontsize=16,
               color="#EEEEEE", fontname="Open Sans", y=1.03)
     d = pd.to_datetime(date).strftime("%d - %B")
     ax = fig.get_axes()[0]
-    plt.text(0.5, 1.02, d, c="#AAAAAA", fontsize=14, 
+    plt.text(0.5, 1.02, d, c="#AAAAAA", fontsize=14,
              verticalalignment="top", horizontalalignment="center",
              transform=ax.transAxes)
 
@@ -2049,13 +2049,13 @@ get_shaded(test_row, "2020-03-23", show=True);
 </div>
 
 
-      
 
 
 
-    
+
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -2070,7 +2070,7 @@ Now let's test this whole thing animated, so lets loop over every row and output
 def plot_date(i, date):
     data = get_row(date)
     get_shaded(data, date, i)
-    
+
 for i, date in enumerate(data_fixed.index):
     plot_date(i, date)
 ```
@@ -2078,7 +2078,7 @@ for i, date in enumerate(data_fixed.index):
 </div>
 
 
-      
+
 
 
 Now that we have a bunch of frames, lets turn it into a ncie MP4 video. But lets be fancy, and have this bad boy glow. To do this, Im going to load in a mask (to make sure the title doesnt glow), and run it through a filter complex that took me 4 hours to debug until it worked. It will also add a few seconds of pause at the end, so on looping players people can still see the final result.
@@ -2134,7 +2134,7 @@ def fix_site(site):
     if " " not in site:
         # Dont fix a sitename which is an acryonym
         if site != site.upper():
-            site = ''.join(map(lambda x: x if x.islower() else " " + x, site))   
+            site = ''.join(map(lambda x: x if x.islower() else " " + x, site))
     return site.strip()
 
 sites_fixed = [fix_site(s) for s in sites]
@@ -2188,7 +2188,7 @@ for s in sites_fixed:
     if s not in coords:
         coords[s] = get_lat_long_from_site(s)
         save = True
-        
+
     # If we've updated, save it out
     if save:
         with open(filename, "w") as f:
@@ -2215,7 +2215,7 @@ def get_row(date):
     row.loc[hk, "lat"] += np.random.normal(scale=0.5, size=hk.sum())
     row.loc[hk, "long"] += np.random.normal(scale=0.5, size=hk.sum())
 
-    
+
     return row
 
 test_row = get_row(data_fixed.index.max())
@@ -2229,7 +2229,7 @@ def get_base_fig():
     coast_color = "#333333"
     country_color = "#222222"
     fig = plt.figure(figsize=(12, 6))
-    m = Basemap(projection='cyl', llcrnrlat=-70,urcrnrlat=90, 
+    m = Basemap(projection='cyl', llcrnrlat=-70,urcrnrlat=90,
                 llcrnrlon=-170, urcrnrlon=190, area_thresh=10000.)
     m.fillcontinents(color=bg_color, lake_color=bg_color, zorder=-2)
     m.drawcoastlines(color=coast_color, linewidth=0.7, zorder=-1)
@@ -2282,7 +2282,7 @@ colors = {
 def get_scatter(data):
     fig, m = get_base_fig()
     # Loop over each country and its institutions
-    
+
     for country in np.unique(data.country):
         c = colors.get(country, "#FF99FF")
         subset = data.loc[(data.country == country) & (data.enrolment > 0), :]
@@ -2296,9 +2296,9 @@ from matplotlib.colors import LinearSegmentedColormap as LSC
 def get_shaded(data, date, frame=0, show=False):
     fig, m = get_base_fig()
     # Loop over each country and its institutions
-    
+
     max_v = data.change.max() + 1
-    
+
     for country in np.unique(data.country):
         c = colors.get(country)
         if c is None:
@@ -2310,13 +2310,13 @@ def get_shaded(data, date, frame=0, show=False):
         s = 10 + subset.enrolment
         cs = cmap(2 * subset.change / max_v)
         m.scatter(subset.long, subset.lat, latlon=True, c=cs, s=s, zorder=1)
-        
+
     # Set the title, and make the background black
-    plt.title("CCCC Patient Contributions", fontsize=16, 
+    plt.title("CCCC Patient Contributions", fontsize=16,
               color="#EEEEEE", fontname="Open Sans", y=1.03)
     d = pd.to_datetime(date).strftime("%d - %B")
     ax = fig.get_axes()[0]
-    plt.text(0.5, 1.02, d, c="#AAAAAA", fontsize=14, 
+    plt.text(0.5, 1.02, d, c="#AAAAAA", fontsize=14,
              verticalalignment="top", horizontalalignment="center",
              transform=ax.transAxes)
 
@@ -2332,7 +2332,7 @@ get_shaded(test_row, "2020-03-23", show=True);
 def plot_date(i, date):
     data = get_row(date)
     get_shaded(data, date, i)
-    
+
 for i, date in enumerate(data_fixed.index):
     plot_date(i, date)
 ```

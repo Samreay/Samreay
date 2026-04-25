@@ -1,5 +1,6 @@
-from slow import get_jobs, do_some_slow_computation
 from time import time
+
+from slow import do_some_slow_computation, get_jobs
 
 
 def work(jobs):

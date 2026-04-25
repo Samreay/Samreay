@@ -10,7 +10,7 @@ tags: [creative]
 
 This photoshop challenge was for me to try and figure out the basics of photomanipulation.
     I started with a bunch of images and textures, and turned them into what you see below.
-    
+
 
 Stocks sourced from
 

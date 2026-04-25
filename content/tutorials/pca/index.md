@@ -19,9 +19,9 @@ PCA is a way of taking a dataset (a collection of points in some parameter/featu
 Let's generate simple 2D data to begin with:
 
 
-    
+
 ![png](2020-08-27-PCA_files/2020-08-27-PCA_1_0.png)
-    
+
 
 
 We have two dimensions of data, which are highly correlated. What if we wanted to remove this correlation? What if we wanted to get a single variable that encapsulates the information on where a data point lies along the bottom-left to top-right axis that we can so clearly see?
@@ -47,9 +47,9 @@ fig.tight_layout()
 
 
 
-    
+
 ![png](2020-08-27-PCA_files/2020-08-27-PCA_3_0.png)
-    
+
 
 
 We'll get into the details of what just happened in a tick, the takeaway here is that the PCA transformation has given us an x-axis which represents where the datapoint lies from bottom-left to top-right, and the y-axis is how far away from this bottom-left to top-right axis the data point is. We'll delve into this more soon, I promise!
@@ -89,7 +89,7 @@ def manual_pca(data, n_components):
     vals, vecs = np.linalg.eig(cov)
 
     # 3: Find the largest N eigenvalue indices
-    s = np.argsort(vals)[::-1][:n_components] 
+    s = np.argsort(vals)[::-1][:n_components]
     # Sorts smallest to largest, so we reverse it and then grab the top
 
     # 4: Construct the transformation matrix
@@ -125,9 +125,9 @@ fig.tight_layout()
 
 
 
-    
+
 ![png](2020-08-27-PCA_files/2020-08-27-PCA_8_0.png)
-    
+
 
 
 You can see that this is effectively the same as the sklearn implementation!
@@ -222,26 +222,26 @@ fig.tight_layout()
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
 
 The largest eigenvector (scaled by its eigenvalue, as all eigenvectors are unit vectors) is shown in red, and the second vector is shown in blue. In the raw data, we center it on the dataset mean. On the right hand side, you can see how those two eigenvectors become the x and y axis. I've selected one point in the dataset (index 208) and plotted it using a black star, to provide a concrete example of how an individual point gets translated. You can see that the black star lies close to the red eigenvector axis in the raw data, and hence its y-value on the right is close to zero.
 
-As a note, the eigenvalues are called "explained variance" because the size of the eigenvalue is is given by how much of the variance in your data can be "explained using" (exists along) that eigenvector. 
+As a note, the eigenvalues are called "explained variance" because the size of the eigenvalue is is given by how much of the variance in your data can be "explained using" (exists along) that eigenvector.
 
-Another important thing to note here is that the eigenvalues are orthogonal to each other. This isn't a coincidence, its a central point to PCA and removing those correlations, but it might make you wonder if there are limits to PCA. What if your data isn't linearly seperable? Well, we can also do PCA using kernels which allow us to move beyond unit vectors. [See this API](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html) or [this example](https://scikit-learn.org/stable/auto_examples/decomposition/plot_kernel_pca.html) for the details. 
+Another important thing to note here is that the eigenvalues are orthogonal to each other. This isn't a coincidence, its a central point to PCA and removing those correlations, but it might make you wonder if there are limits to PCA. What if your data isn't linearly seperable? Well, we can also do PCA using kernels which allow us to move beyond unit vectors. [See this API](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html) or [this example](https://scikit-learn.org/stable/auto_examples/decomposition/plot_kernel_pca.html) for the details.
 
 
 You can also use the `PCA` object from sklearn to do inverse transformation, which is handy. If you use PCA and do some model fitting to find an optimal value or solution in the reduced dimensionality, you can translate your answer back to the original dimensions. You can use the `score` function to see how well a dataset fits your PCA. Under the hood, its calculating the probability the input new data, if it was drawn from a normal distribution configured using the mean and covariance calculated from your eigenvalues and eigenvalues.
 
 
-# Summary 
+# Summary
 
-PCA is a highly useful and efficient method of applying dimensional reduction to a dataset. Kernel based PCA methods allow for even more flexibility. 
+PCA is a highly useful and efficient method of applying dimensional reduction to a dataset. Kernel based PCA methods allow for even more flexibility.
 
 ******
 
@@ -266,7 +266,7 @@ def manual_pca(data, n_components):
     vals, vecs = np.linalg.eig(cov)
 
     # 3: Find the largest N eigenvalue indices
-    s = np.argsort(vals)[::-1][:n_components] 
+    s = np.argsort(vals)[::-1][:n_components]
     # Sorts smallest to largest, so we reverse it and then grab the top
 
     # 4: Construct the transformation matrix

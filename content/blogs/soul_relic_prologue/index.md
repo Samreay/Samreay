@@ -10,7 +10,7 @@ aliases: [/blog/soul_relic_prologue]
 ---
 
 
-Set on the continent of Rhodus, the Soul Relic series follows Raysha as she grapples with her broken soul and inability to effectively channel the spiritual force of *aeon*. In a world where those who advance in the spiritual arts enough are regarded as gods, living without this ability means living at the bottom of society. 
+Set on the continent of Rhodus, the Soul Relic series follows Raysha as she grapples with her broken soul and inability to effectively channel the spiritual force of *aeon*. In a world where those who advance in the spiritual arts enough are regarded as gods, living without this ability means living at the bottom of society.
 
 Not a place Raysha wants to remain.
 
@@ -26,7 +26,7 @@ A bloody tear leaked out of Kroenic's ruined eyes as his sobbing grew fainter. A
 
 Atareus' almost kicked the man in disgust. "Take a final comfort in the fact your power will help to preserve our country for millennia to come." With a mental flex, he shattered Kroenic's mind, turned, and tossed him like a toy down the long temple hall. The limp body bounced, skidded, and then came to a halt when it slid into other mangled corpses. Atareus put the smith from his mind and drew in a deep, calming breath.
 
-For the first time in centuries, silence reigned in the great temple. Only hours ago, the shouts of dozens of ineffectual deities would have echoed between the vaulted marble columns and intermingled with the yapping of dogs outside. 
+For the first time in centuries, silence reigned in the great temple. Only hours ago, the shouts of dozens of ineffectual deities would have echoed between the vaulted marble columns and intermingled with the yapping of dogs outside.
 
 Atareus, god of knowledge, walked down the temple hall, cataloguing the damage the temple had sustained during the theological discussions. Fractured marble busts strewn across the ground stared vacantly up at the painted ceiling, their stone gazes fixed on the charred remains of delicate frescoes. Fluted columns had been hewn down and scattered like twigs around the hall. The flagstones under his feet crunched, throwing ash into the air and adding to the haze of smoke and burnt flesh that lay thick on the god's tongue.
 
@@ -38,11 +38,11 @@ They were gods that only played at governing a nation. Bumbling halfwits content
 
 Atareus stood there silently, finishing his inspection. The damage to the temple was well within acceptable limits. He'd have thought that his brothers and sisters in the pantheon would have put up a better fight, but no, they disappointed him even in death.
 
- He looked up, his eyes falling on the prostate form of an armoured man. He clicked his fingers, and the terrified man glanced up, though he kept his gaze fixed on Atareus' sandaled feet. 
- 
+ He looked up, his eyes falling on the prostate form of an armoured man. He clicked his fingers, and the terrified man glanced up, though he kept his gaze fixed on Atareus' sandaled feet.
+
 "Up," the god commanded.
 
-The soldier stood quickly, his polished armour clinking. His once-pristine white cloak was tarnished with ash, soot, and blood, and its pallid grey appearance was strangely mirrored in the soldier's horror-stricken face. 
+The soldier stood quickly, his polished armour clinking. His once-pristine white cloak was tarnished with ash, soot, and blood, and its pallid grey appearance was strangely mirrored in the soldier's horror-stricken face.
 
 "Captain Hetados, how many live?" Atareus asked the soldier.
 
@@ -62,7 +62,7 @@ The god continued down the corridor, captain in tow, Kroenic bobbing along behin
 
 He walked towards the three doomed deities with shattered minds. Towards sources of power ripe for harvest.
 
-Towards a better future. 
+Towards a better future.
 
 </div>
 

@@ -19,9 +19,9 @@ Imagine you're in charge of a website to optimise sales. You have the current ve
 
 
 
-    
+
 ![jpeg](cover.jpg?class="img-main,img-invert,img-poster")
-    
+
 
 
 
@@ -33,7 +33,7 @@ This is an A/B test. Often this is used interchangably with the term "split test
 
 **Why is it not an A/B/C test?** Well, you can have as many perturbations running as you want, but got to keep the name simple. The more perturbations you try though, the smaller a number of samples you'll have for each case, and the harder it will be to draw statistically significant conclusions.
 
-Now, A/B tests can test anything you want, but common ones are click through/conversion, bounce rate, and how long you spend on the page. For this example, let us assume we want to optimise conversion, which in our case is clicking the "Add to cart" button above. 
+Now, A/B tests can test anything you want, but common ones are click through/conversion, bounce rate, and how long you spend on the page. For this example, let us assume we want to optimise conversion, which in our case is clicking the "Add to cart" button above.
 
 Let us assume you have 1000 users, 550 were directed to site A, 450 to site B. In site A, 48 users converted. In site B, 56 users converted. **Is this a statistically significant result?**
 
@@ -81,9 +81,9 @@ plt.xlabel("Num converted"); plt.ylabel("Probability");
 
 
 
-    
+
 ![png](2020-01-12-ABTests_files/2020-01-12-ABTests_6_0.png)
-    
+
 
 
 So we can see here that B has an edge when looking at the number of users, but its certaintly possible if we pick two random points according to the histograms for A and B, that A might actually be higher than B! But of course, we fundamentally **do not care** about the number of users, we need to move from the number of users to looking at the click through rate.
@@ -119,12 +119,12 @@ plt.xlabel("Conversion rate"); plt.ylabel("Probability");
 
 
 
-    
+
 ![png](2020-01-12-ABTests_files/2020-01-12-ABTests_8_0.png)
-    
 
 
-This is also a better plot than the first one, because we've removed the confusing effect of site A and site B having a slightly different number of visitors had. 
+
+This is also a better plot than the first one, because we've removed the confusing effect of site A and site B having a slightly different number of visitors had.
 
 To restate what the plot above is showing - it is showing, given the data we collected, the probability that the *actual* conversion rate for A and B was a certain value.
 
@@ -162,9 +162,9 @@ plt.annotate(f"Area={area_under_curve:0.3f}", (0.02, 5))
 
 
 
-    
+
 ![png](2020-01-12-ABTests_files/2020-01-12-ABTests_10_1.png)
-    
+
 
 
 Great! So, how to phrase this result? Using our frequentist approach so far, we would say that given the null hypothesis is true (that B is less then or equal to A), we would expect to get this result or a result more extreme only 2.9% of the time. As that is a significant result (typically p < 5%), we reject the null hypothesis, and state that we have evidence that B > A.
@@ -270,7 +270,7 @@ print(f"Mann-Whitney U test for null hypothesis B <= A is {p_value:0.3f}")
     Mann-Whitney U test for null hypothesis B <= A is 0.028
 
 
-So you can see that our p-value is low and we can reject the null hypthesis. Noticed too that we have `alternative="less"`, which is the null hypothesis that we are testing so that we can investigate if B > A. 
+So you can see that our p-value is low and we can reject the null hypthesis. Noticed too that we have `alternative="less"`, which is the null hypothesis that we are testing so that we can investigate if B > A.
 
 Again we can see a super similar answer to what we got before. For cases when we have hundreds of data points, these answers quickly converge, and you can pick the flavour you like.
 
@@ -375,9 +375,9 @@ c.plotter.plot();
 
 
 
-    
+
 ![png](2020-01-12-ABTests_files/2020-01-12-ABTests_25_1.png)
-    
+
 
 
 What we're interested in most of all are the constraints on $\delta_P$, which is $\delta_P = 0.037^{+0.021}_{-0.019}$ (this is the 68% confidence level). This means that we rule out $\delta_P=0$ at the $2\sigma$ confidence level (aka 95% confidence level), allowing us to say that B does in indeed produce a statistically significant increase in conversion rate.

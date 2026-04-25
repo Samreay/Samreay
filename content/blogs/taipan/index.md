@@ -8,8 +8,8 @@ tags: [creative]
 
 ---
 
-I think  a good way to not get burnt out coding and doing math 24/7 a day is to 
-do some more creative work to break the monotony. 
+I think  a good way to not get burnt out coding and doing math 24/7 a day is to
+do some more creative work to break the monotony.
 
 Or perhaps I am simply bad at saying "No!"
 
@@ -18,12 +18,12 @@ The original art was all done in green, and I thought - given the lack of green 
 astronomical surveys, and given the snake is vaguely green(ish brown), sure, sounds good! Two original
 pieces of art went into the mix, an ouroboros was requested, and then one in which the snake could have
  a texture. Not a fan of texturing logos (except if its low poly art), but hey, I can scribble something out!
- 
- So four options went out. 
+
+ So four options went out.
 
 ![](1.jpg)
 
-B didn't make the cut, and D was scrapped for obvious reasons. New request - lets put some structure 
+B didn't make the cut, and D was scrapped for obvious reasons. New request - lets put some structure
 in the background and see how that goes. Also, turns out green was not wanted, blue it is! Easy change.
 
 Wit the cosmic web in the background we had two options - a more realistic trace of actual cosmic webs (left)
@@ -35,7 +35,7 @@ with a logo that might take only a small amount of screenspace.
 At this point I requested we pick either A or C and continue from there. I definitely don't want to
 duplicate effort! We locked in C with a few provisos (rotate the snake, shrink it down a bit, remove
 the inner dark blue band), and then after a few more iterations most people were happy with the logo
-graphic itself. Which mean its time for *fun font options*. 
+graphic itself. Which mean its time for *fun font options*.
 
 ![](6.jpg)
 

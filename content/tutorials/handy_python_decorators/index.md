@@ -105,7 +105,7 @@ def debug(fn):
         logging.debug(f"  returned {result}")
         return result
     return wrapper
-    
+
 @debug
 def add(a, b):
     return a + b
@@ -287,7 +287,7 @@ def debug(fn):
         logging.debug(f"  returned {result}")
         return result
     return wrapper
-    
+
 @debug
 def add(a, b):
     return a + b

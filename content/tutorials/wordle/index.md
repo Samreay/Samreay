@@ -73,9 +73,9 @@ occurence.plot.bar(rot=0);
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -99,9 +99,9 @@ top_words.head(10)[::-1].plot.barh()
 
 
 
-    
+
 ![png](2022-01-26-Wordle_files/2022-01-26-Wordle_7_0.png)
-    
+
 
 
 I'm personally partial to arise and arose, but you can see theres lots of competition at the top.
@@ -131,7 +131,7 @@ def calc_positions(best, words):
                 # Yay for being in the right place
                 if l1 == w[i]:
                     score += 0.5
-                    
+
         scores[b] = score / len(words)
     return pd.Series(scores).sort_values(ascending=False)
 
@@ -143,14 +143,14 @@ position_score.head(10)[::-1].plot.barh()
 
 
 
-    
+
 ![png](2022-01-26-Wordle_files/2022-01-26-Wordle_9_0.png)
-    
+
 
 
 Some big upsets here. Serai dropped off, because not many words end in "i". Lots of words end with "es", so no surprise those rose to the top, even with "arise" and "arose" being great picks.
 
-Interestingly, lares and tares remain the top pair even when you reduce the extra value given to the correct position down to 0.2, with arise and arose returning to the top around 0.1 value. 
+Interestingly, lares and tares remain the top pair even when you reduce the extra value given to the correct position down to 0.2, with arise and arose returning to the top around 0.1 value.
 
 So, final question, if we now go with "lares" does not give you any letters at all, what should you do?
 
@@ -174,9 +174,9 @@ pos_arose.head(10)[::-1].plot.barh()
 
 
 
-    
+
 ![png](2022-01-26-Wordle_files/2022-01-26-Wordle_11_0.png)
-    
+
 
 
 If you try "lares" and get nothing, try "tonic" or "point".
@@ -228,7 +228,7 @@ def calc_positions(best, words):
                 # Yay for being in the right place
                 if l1 == w[i]:
                     score += 0.5
-                    
+
         scores[b] = score / len(words)
     return pd.Series(scores).sort_values(ascending=False)
 

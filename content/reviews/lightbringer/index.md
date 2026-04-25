@@ -20,11 +20,11 @@ sentence: "Kip and the Prism face down the color-wights, but who's actually in t
 
 The first three books of this series were amazing. Watching Kip, our main character, be bought from his destroyed village to the Chromeria, train with the Blackguard, develop his chromaturgy fantastic. Watching Gavin* build the Brightwater Wall in the face of the oncoming army of the Color Prince, gripping. Koios White Oak and her growth out of the Blackguard, superb.
 
-The world-building was unique, deep enough to engage, but simple enough to grasp quickly. 
+The world-building was unique, deep enough to engage, but simple enough to grasp quickly.
 
-The political and military upheaval of the Color Prince serves as the central conflict to the story, and a prophecy lurking in the background implies Kip is the Lightbringer. 
+The political and military upheaval of the Color Prince serves as the central conflict to the story, and a prophecy lurking in the background implies Kip is the Lightbringer.
 
-Boy, I was hyped to see how he'd grow into his powers and command and crush the Color Prince and his wights. 
+Boy, I was hyped to see how he'd grow into his powers and command and crush the Color Prince and his wights.
 
 And then Orholam comes along. Orholam is god, for a drop of context.
 

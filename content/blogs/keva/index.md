@@ -10,7 +10,7 @@ tags: [creative]
 
 Seeing KEVA simulations always makes my day brighter, so I thought I'd make a small one myself. This one
 has a series of very light wood blocks set on top some very heavy metal blocks as the base. Two steel balls
-are shot at the structure, and if you watch the video you can probably guess which of them is solid 
+are shot at the structure, and if you watch the video you can probably guess which of them is solid
 and which is simply a thin shell over a hollow interior!
 
 ![](keva_small.mp4" autoplay="true)

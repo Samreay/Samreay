@@ -30,12 +30,12 @@ We visited the Frauhoffer institute HHI, which does an amazing amount of work on
 and, most fun of all, virtual reality research. And as I know something of this area, this was the highlight for me. Actually
 came very close to asking right then and there if they had any positions open for next year that I could apply for.
 
-On top of all this, we went on a few walks around the city. It would be a sin to go to Berlin and not see any of the 
+On top of all this, we went on a few walks around the city. It would be a sin to go to Berlin and not see any of the
 Berlin wall.
 
 ![](berlinwall.jpg)
 
-We went to a fancy meet up at the embassy to chat with research heads from the various institutions. I 
+We went to a fancy meet up at the embassy to chat with research heads from the various institutions. I
 don't normally say this about networking events, but I actually wish that went for longer, there were so many interesting
 things to talk about and  an hour and half was by no means enough time!
 

@@ -21,7 +21,7 @@ sentence: "Harald needs to follow in his father's footsteps and become one of th
 
 Harald Darrowdelve's journey begins at rock bottom.
 
-Born into privilege, his life of indolence has left him with a weak will and a frail body. But everything changes when a demon's mysterious blessing deep within the angelic corpse dungeon beneath Flutic bestows upon him dark, formidable powers. 
+Born into privilege, his life of indolence has left him with a weak will and a frail body. But everything changes when a demon's mysterious blessing deep within the angelic corpse dungeon beneath Flutic bestows upon him dark, formidable powers.
 
 But power is a double-edged sword. As Harald trains his body and sharpens his mind, his growing accomplishments thrust him deep into the machinations of Flutic's noble houses and a relentless celestial conflict raging over the dungeon's arcane secrets.
 

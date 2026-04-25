@@ -38,11 +38,11 @@ This was a solid entry to the very few card-based books I've read. Some others h
 
 A good amount of the plot revolves around (illegal) Card Fighting, though stakes quickly climb as power consolidation comes into play. Right now there doesn't seem to be a limit to how many cards one person can have, so obvious if you're an unscrupulous card fighter, the way to gain more power seems pretty simple, right?
 
-But I can say no more, as this review won't have spoilers. 
+But I can say no more, as this review won't have spoilers.
 
 Onto the setting, there were some hints as to wider politics and systems, but Dax and friends are constrained to the Fringe and it has the vibes of a normal slum setting next to a monster pit, called, naturally, the Pit. The setting allows Dax his agency, but it doesn't have that wow factor from things like **Bastion**, **Titan Hoppers**, **Godclads** or similar fictions.
 
-Characters are fun. Dax, for all his talking about trying to do things right, is not particularly patient, nor is he a min-maxer. Which is fine, because that is his character, but for the subset of people who *want* those analytical minmax characters, Dax does not fall into this group. The cast revolves primarily around three characters, Dax, Jynn (his childhood gambler friend), and Mira (the mentor figure), and they're all distinct and look well on the way to forming a tight-knit squad. 
+Characters are fun. Dax, for all his talking about trying to do things right, is not particularly patient, nor is he a min-maxer. Which is fine, because that is his character, but for the subset of people who *want* those analytical minmax characters, Dax does not fall into this group. The cast revolves primarily around three characters, Dax, Jynn (his childhood gambler friend), and Mira (the mentor figure), and they're all distinct and look well on the way to forming a tight-knit squad.
 
 So, will you enjoy this book? If you like a broad, ever-changing skillset, cards as a LitRPG system, a focus on one-on-one fights, or a city setting, I'd say "Yeah, give it a shot."
 

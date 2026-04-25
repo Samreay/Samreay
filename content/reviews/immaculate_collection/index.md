@@ -26,7 +26,7 @@ Basen Koh is a retired adventurer and renowned mage. He has spent his life searc
 
 Now Basen finds himself in an odd and unfamiliar place. Failure isn't an easy thing to accept for someone who has the kind of power he does, yet deep down, he cannot deny that his business is teetering on the edge of a cliff. If something does not change, he might lose his collection forever.
 
-When these two men meet, they find out that not only do they need what each other have to offer, but they actually make a great team. When debt collectors, thieves, foreign powers, and competing merchants try to crush their budding business, Basen and Reid need to work together to save the Immaculate Collection. 
+When these two men meet, they find out that not only do they need what each other have to offer, but they actually make a great team. When debt collectors, thieves, foreign powers, and competing merchants try to crush their budding business, Basen and Reid need to work together to save the Immaculate Collection.
 
 ## Thoughts
 

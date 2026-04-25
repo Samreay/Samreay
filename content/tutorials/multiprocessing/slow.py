@@ -1,5 +1,6 @@
-import numpy as np
 from time import perf_counter
+
+import numpy as np
 
 
 def slow_fn(args):

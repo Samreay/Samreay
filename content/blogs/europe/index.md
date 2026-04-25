@@ -10,7 +10,7 @@ tags: [travel]
 
 Its hard to condense down such a big trip into less than
 a small book, but here goes. Started in London, went to Paris & Nice.
-Travelled down to Rome, patted a lot of stray cats in the colosseum. 
+Travelled down to Rome, patted a lot of stray cats in the colosseum.
 Went to Monaco, and then to Munich (which was the best). Munich to the
 Rhine valley, and form there to the Netherlands.
 

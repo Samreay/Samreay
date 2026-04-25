@@ -47,7 +47,7 @@ Dive into a cultivation story with LitRPG apocalypse elements, including classes
 
 *Ghost of the Truthseeker* follows in the footsteps of *Defiance of the Fall*, combining system-apocalypse, LitRPG, and cultivation all into one glorious hybrid. Like Zac, our MC (Alistair) takes on an up-close-and-personal style of problem solving. Zac hits things with an axe, Alistair hits things with his fists. Comparisons are the thief of joy, so no more of that, except to say if you did like DotF, you will like GotT. (That's right, more acronyms.)
 
-The story starts off as you might expect, some randomised teleportation, some incursions from otherworldly species (orcs instead of demons), and Alistair getting those frantic few levels that, while not putting him on the top of the planet's leaderboard, do put him well and truly above average. 
+The story starts off as you might expect, some randomised teleportation, some incursions from otherworldly species (orcs instead of demons), and Alistair getting those frantic few levels that, while not putting him on the top of the planet's leaderboard, do put him well and truly above average.
 
 The stats, levelling, classes and skill system allow for vastly different approaches to combat for other characters, and we see typical archetypes like the berserker, the mage, sniper, etc, all either working together or as characters to be defeated. The fights are fun and I enjoyed the action-packed pace of the book. It's definitely in the popcorn style of novel rather than deep-and-thoughtful or slice-of-life novels, so the same group as DotF, Primal Hunter, Randidly, and the like.
 

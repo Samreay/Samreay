@@ -13,9 +13,9 @@ I was working with some chains one day and wanted to plot different cosmologies
 against each other, and realised that they had different parameters. Unfortunately,
 this meant that the library I was using couldn't handle the task, so I wrote my own!
 
-If you want to know more and see plenty of examples see the 
+If you want to know more and see plenty of examples see the
 [**online documentation here**](https://samreay.github.io/ChainConsumer/).
- 
+
 The API is fairly straightforward I hope, with a simple example shown below.
 
 ``` python
@@ -41,7 +41,7 @@ And the above code gives the following contour:
 
 ![](two.jpg)
 
-The largest use of the library is to create corner plots like this one, and so most of the customisation 
+The largest use of the library is to create corner plots like this one, and so most of the customisation
 methods, such that you can get the plot below.
 
 ![](mixed.jpg)

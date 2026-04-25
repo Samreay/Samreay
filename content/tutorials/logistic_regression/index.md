@@ -16,17 +16,17 @@ Logistic regression is a method of calculating the probability that an event wil
 
 As the name implies, it is based off the logistic function. Often when someone says a sigmoid function, they are referring to a logistic sigmoid, which is also what we are referring to. A logistic sigmoid function has the following form:
 
-$$ f(x) = \frac{1}{1 + e^{-x}} $$ 
+$$ f(x) = \frac{1}{1 + e^{-x}} $$
 
 and looks like this:
 
 
-    
+
 ![png](2020-07-11-Logistic_Regression_files/2020-07-11-Logistic_Regression_1_0.png)
-    
 
 
-So this raises the question - now that we have some function which goes from 0 to 1... how do we actually use it? 
+
+So this raises the question - now that we have some function which goes from 0 to 1... how do we actually use it?
 
 Let's create a simple example with some data, something super easy to understand. How about the probability that an egg breaks when dropped from some distance. Our binary variable is whether the egg broke, and the single input is the height it was dropped. We can, of course, have multiple inputs.
 
@@ -50,9 +50,9 @@ plt.title("Dropping eggs... will they break??")
 
 
 
-    
+
 ![png](2020-07-11-Logistic_Regression_files/2020-07-11-Logistic_Regression_3_0.png)
-    
+
 
 
 What logistic regression is going to do, is get us $P(\text{egg broke}\ \|\ \text{height it was dropped})$. The separator there is read in English as "given that", if the syntax is new. The nomenclature generally denotes the output at $Y$ and the input as $X$, so this would be $P(Y=1\|X)$. We call these sort of models that give the output condition on the input **"discriminative models"**.
@@ -74,7 +74,7 @@ $$ \frac{P(Y=1|X)}{1 - P(Y=1|X)}. $$
 
 So if we have $P(Y=1\|X)=0.9$, thats an odds ratio of $0.9/0.1 = 9$. As the probability goes from $0$ to $1$, the odds will go from $0$ to $\infty$, which means the **log odds** will go from $-\infty$ to $\infty$. **For logistic regression, we normally optimise the log odds.**
 
-Why? A few reasons. Firstly, numerically its easier to not work with bounded functions, and having infinite range is great. More importantly, working in log odds allows us to better understand the impact of any specific $X_i$ (column") in our model. For example, if your model is predicting $p=0.5$ and you perturb $X_1$ slightly, you might get $p=0.509$. This is a negligible change. But if you your model is giving you $p=0.99$ and you perturb $X_1$ and get $p=0.999$, thats not negligible, your model is 10 times as confident! Working in odds helps us get around this potential confounder. 
+Why? A few reasons. Firstly, numerically its easier to not work with bounded functions, and having infinite range is great. More importantly, working in log odds allows us to better understand the impact of any specific $X_i$ (column") in our model. For example, if your model is predicting $p=0.5$ and you perturb $X_1$ slightly, you might get $p=0.509$. This is a negligible change. But if you your model is giving you $p=0.99$ and you perturb $X_1$ and get $p=0.999$, thats not negligible, your model is 10 times as confident! Working in odds helps us get around this potential confounder.
 
 So what we normally do is **optimise using logit transformation**, and **report probabilities based on the logistic function**.
 
@@ -106,9 +106,9 @@ plt.legend(loc=2), plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$")
 
 
 
-    
+
 ![png](2020-07-11-Logistic_Regression_files/2020-07-11-Logistic_Regression_5_0.png)
-    
+
 
 
 Notice that we are *comparing probabilities to binary outcomes here*. If we wanted outcomes, we'd add some threshold (like 0.5) that we would cut on. Over 0.5 and its a success, under 0.5 and its a failure. We'll see this down below.
@@ -138,7 +138,7 @@ xs = np.linspace(0, 1, 100)
 pred_prob = model.predict_proba(xs[:, None])
 
 # Plotting code
-plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30, 
+plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30,
             marker='x', zorder=0, c="#00796B")
 plt.scatter(height, broke, label="Data")
 plt.plot(xs, pred_prob[:, 1], label="sklearn probability", c="#006156", zorder=-1)
@@ -150,9 +150,9 @@ plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$");
 
 
 
-    
+
 ![png](2020-07-11-Logistic_Regression_files/2020-07-11-Logistic_Regression_7_0.png)
-    
+
 
 
 Now if you're looking at the probability function and thinking "this doesnt look like a sigmoid at all", you're entirely right. Welcome to the world of **regularization**. For small data like we have, the default L2 regularisation is going to ensure that our $\beta$ values stay pretty low.
@@ -180,9 +180,9 @@ plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$");
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -258,7 +258,7 @@ xs = np.linspace(0, 1, 100)
 pred_prob = model.predict_proba(xs[:, None])
 
 # Plotting code
-plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30, 
+plt.scatter(height, pred_binary, label=f"sklearn prediction", s=30,
             marker='x', zorder=0, c="#00796B")
 plt.scatter(height, broke, label="Data")
 plt.plot(xs, pred_prob[:, 1], label="sklearn probability", c="#006156", zorder=-1)

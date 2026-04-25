@@ -22,7 +22,7 @@ Drew, originally from Earth, has spent a thousand years or so cultivating on ano
 
 Except, in the space of a single afternoon, our genius MC has determined how to game the world's power, condensing down the world's mana into the far more powerful qi. Thankfully for us, we are kept in the loop about the mental capacities and system devised by Drew with analogies to Windows 10 (and its comparison to a DOS machine, references to windows explorer, and the windows interface).
 
-Which strikes me as a bit odd. Drew has been out for a thousand years but somehow sounds exactly like a teenager with an overly inflated opinion of their own intelligence transported directly from the year 2017 into a fantasy world. 
+Which strikes me as a bit odd. Drew has been out for a thousand years but somehow sounds exactly like a teenager with an overly inflated opinion of their own intelligence transported directly from the year 2017 into a fantasy world.
 
 For a poignant example into the thought and writing style characterising our 1000-year-old peak cultivator, from Chapter 6:
 
@@ -31,24 +31,24 @@ For a poignant example into the thought and writing style characterising our 100
 > 1 - GET STRONGER BE BADDER AND BIGGER while being chill about it.
 >
 > 2 - WTF ARE THESE DARN LOCALS SAYING
-> 
+>
 > 3 - WTF IS UP WITH THIS DARK MANA SHIZZLE
-> 
+>
 > 4 - GO FORTH AND EXPLORE while being low key and shit
 >
 > If you feel young, you are young. Thinks a certain thousand-year-old geezer...
-> 
+>
 > Artfully I craft number five.
 >
 > 5 - I WANT SOME FUCKING GODDAMN COFFEEEEEEEEEEEEEE
 
 
-This is probably why I ended up putting the book down. Drew is just not likeable. He is opinionated, condescending, and faces no real challenges or growth after gaming the system in the first chapter. 
+This is probably why I ended up putting the book down. Drew is just not likeable. He is opinionated, condescending, and faces no real challenges or growth after gaming the system in the first chapter.
 
 I was initially intrigued by one aspect of the cultivation system - Drew mixed in programming. Which, given my software engineering background, I am a fan of. But it quickly just became a way to allow Drew to do pretty much anything we wanted with minimal explanation. Needs to find something? Drew just magics up a search program and lets it run in his subconscious.
 
 Great. Thanks.
 
-If you don't care about the weird personality or some inconsistencies in the story, don't mind a bit of human-dragon loving, and like stupidly overpowered protagonists, this might be a good read for you. It could be satisfying to just read along and have Drew crushing any idiot that's in his path, and then you'll get to read him take on some students and apply the magic of Earth's scientific and physics knowledge to leap realms ahead of all the primitive natives. 
+If you don't care about the weird personality or some inconsistencies in the story, don't mind a bit of human-dragon loving, and like stupidly overpowered protagonists, this might be a good read for you. It could be satisfying to just read along and have Drew crushing any idiot that's in his path, and then you'll get to read him take on some students and apply the magic of Earth's scientific and physics knowledge to leap realms ahead of all the primitive natives.
 
 On the other hand, if you don't like internal monologues, if you want a story with strong direction that doesn't meander, if you want a main character that feels like an authentic part of the world and grows to face their challenges, this probably ain't it.

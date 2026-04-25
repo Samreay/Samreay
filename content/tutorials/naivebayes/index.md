@@ -19,7 +19,7 @@ $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$
 On the left hand side, we have the posterior: the probability of the output given the input. On the right, we have a few terms:
 
 * $P(X\|Y)$ - the **likelihood** - the probability of getting an input, given the output.
-* $P(Y)$ - the **prior** - the probability of getting the output in general. 
+* $P(Y)$ - the **prior** - the probability of getting the output in general.
 * $P(X)$ - the **evidence** - which is the probability of getting some input.
 
 <div class="aside" markdown="1">
@@ -188,13 +188,13 @@ def classify_outcome(X, Y, y):
             prob *= conditional(X_vec, x, Y, y)
         probs.append(prob)
     return np.array(probs)
-        
+
 def classify_emails(X, Y):
     # Inefficient row by row calculation to illustrate
     prob_spam = classify_outcome(X, Y, 1)
     prob_not_spam = classify_outcome(X, Y, 0)
     return prob_spam > prob_not_spam
-    
+
 df["prediction"] = classify_emails(df[["has_name", "has_win"]], df.spam)
 df
 ```
@@ -265,7 +265,7 @@ df
 
 
 
-So our predictions have found 3 spam emails, 2 of which are correct, and the one without my name in it from a mailing list has be flagged as well. We could play around with the amount of smoothing, and if you set it to zero you'll see that only one email gets flagged as spam. 
+So our predictions have found 3 spam emails, 2 of which are correct, and the one without my name in it from a mailing list has be flagged as well. We could play around with the amount of smoothing, and if you set it to zero you'll see that only one email gets flagged as spam.
 
 Lets now graduate from bad explantory code, to using `scikit-learn`.
 
@@ -392,9 +392,9 @@ If theres one thing in general to take away from this, its Bayes theorem. I'll p
 
 
 
-    
+
 ![jpeg](cover.jpg?class="img-main,small,img-screen")
-    
+
 
 
 
@@ -444,13 +444,13 @@ def classify_outcome(X, Y, y):
             prob *= conditional(X_vec, x, Y, y)
         probs.append(prob)
     return np.array(probs)
-        
+
 def classify_emails(X, Y):
     # Inefficient row by row calculation to illustrate
     prob_spam = classify_outcome(X, Y, 1)
     prob_not_spam = classify_outcome(X, Y, 0)
     return prob_spam > prob_not_spam
-    
+
 df["prediction"] = classify_emails(df[["has_name", "has_win"]], df.spam)
 df
 from sklearn.naive_bayes import BernoulliNB

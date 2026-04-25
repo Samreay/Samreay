@@ -50,7 +50,7 @@ Again, feel free to stop here.
 
 ### 3. Texture
 
-Adding some scratches, surface texture, brushed metal texture, tarnish, etc, is all very common. So head to deviant art or unsplash or some other free texture resource to grab *something*. 
+Adding some scratches, surface texture, brushed metal texture, tarnish, etc, is all very common. So head to deviant art or unsplash or some other free texture resource to grab *something*.
 
 Without thinking much about it, I grabbed [this texture from unsplash](https://unsplash.com/photos/brown-and-black-abstract-painting-Ax6ggq8cSxw), which looks like:
 

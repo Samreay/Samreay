@@ -8,10 +8,10 @@
 """Fetch post bodies + OP comments for each new Self-Promotion link.
 
 Inputs:
-- ``scripts/data/links.csv`` (produced by fetch_links.py)
+- ``scripts/data/historical/*.csv`` (produced by historical.py)
 - ``scripts/data/fetched.csv`` (this script's state: what we have processed)
 
-For each link in ``links.csv`` not yet in ``fetched.csv``:
+For each historical link not yet in ``fetched.csv``:
 
 1. Fetch the post JSON from Reddit.
 2. If upvotes < 5, record as ``skipped_low_upvotes`` in ``fetched.csv``.
@@ -38,11 +38,19 @@ MIN_UPVOTES = 5
 
 SKILL_DIR = Path(__file__).parent.parent
 DATA_DIR = Path(__file__).parent / "data"
-LINKS_CSV = DATA_DIR / "links.csv"
+HISTORICAL_DIR = DATA_DIR / "historical"
 FETCHED_CSV = DATA_DIR / "fetched.csv"
 TO_EXTRACT_DIR = SKILL_DIR / "references" / "to_extract"
 EXTRACTED_DIR = SKILL_DIR / "references" / "extracted"
 
+LINK_COLUMNS = ["id", "link", "upvotes", "posting_datetime", "title"]
+LINKS_SCHEMA = {
+    "id": pl.Utf8,
+    "link": pl.Utf8,
+    "upvotes": pl.Int64,
+    "posting_datetime": pl.Utf8,
+    "title": pl.Utf8,
+}
 FETCHED_SCHEMA = {
     "id": pl.Utf8,
     "status": pl.Utf8,
@@ -55,6 +63,18 @@ def load_fetched() -> pl.DataFrame:
     if FETCHED_CSV.exists():
         return pl.read_csv(FETCHED_CSV, schema_overrides=FETCHED_SCHEMA)
     return pl.DataFrame(schema=FETCHED_SCHEMA)
+
+
+def load_links() -> pl.DataFrame:
+    csvs = sorted(HISTORICAL_DIR.glob("*.csv"))
+    if not csvs:
+        return pl.DataFrame(schema=LINKS_SCHEMA)
+
+    monthly = [pl.read_csv(path, schema_overrides=LINKS_SCHEMA).select(LINK_COLUMNS) for path in csvs]
+    combined = pl.concat(monthly, how="vertical") if monthly else pl.DataFrame(schema=LINKS_SCHEMA)
+    if not combined.height:
+        return combined
+    return combined.unique(subset=["id"], keep="first").sort("posting_datetime", descending=True)
 
 
 def append_fetched(rows: list[dict]) -> None:
@@ -160,11 +180,11 @@ def render_markdown(post: dict, op_comments: list[dict]) -> str:
 
 
 def main() -> int:
-    if not LINKS_CSV.exists():
-        print("[fetch_posts] no links.csv; run fetch_links.py first.", file=sys.stderr)  # noqa: T201
+    links = load_links()
+    if not links.height:
+        print("[fetch_posts] no historical links; run historical.py first.", file=sys.stderr)  # noqa: T201
         return 1
 
-    links = pl.read_csv(LINKS_CSV)
     fetched = load_fetched()
     fetched_ids = set(fetched["id"].to_list()) if fetched.height else set()
 

@@ -148,8 +148,8 @@ async def get_stats_for_serial(link: str) -> dict:
     stats_block = soup.select(".fiction-stats .stats-content", limit=1)[0]
 
     stats = {
-        "link": url, 
-        "title": soup.select('meta [name="twitter:title"]')[0].attrs["content"], 
+        "link": url,
+        "title": soup.select('meta [name="twitter:title"]')[0].attrs["content"],
         "author": soup.select('meta [name="twitter:creator"]')[0].attrs["content"]
     }
 
@@ -246,7 +246,7 @@ patreon_stats = await launch(urls_patreon, get_patreon_stats, batch=5)
 <div class="expanded-code width-88" markdown=1>
 
 ```python
-# Turn this into a dataframe, and save it out. 
+# Turn this into a dataframe, and save it out.
 save_dir = Path("royal_road")
 save_dir.mkdir(parents=True, exist_ok=True)
 
@@ -535,7 +535,7 @@ def plot_hist(df, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.
             ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, qy))
     ax.set_xlim(*xlim)
     ax.set_xlabel(col)
-        
+
 plot_hist(df, "Followers", bins=500, xlim=(0, 6000))
 
 ```
@@ -544,9 +544,9 @@ plot_hist(df, "Followers", bins=500, xlim=(0, 6000))
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_17_0.png)
-    
+
 
 
 Let's zoom in on this distribution...
@@ -563,9 +563,9 @@ plot_hist(df, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_19_0.png)
-    
+
 
 
 Ouch. So the majority of serials have essentially no followers. The median number of followers is 4. If you break 330, you're in the top 10%. You'll need around 5000 for the top 1%.
@@ -602,7 +602,7 @@ def plot_cor(df):
     cor = df.corr(numeric_only=True)
     ax = sb.heatmap(cor, square=True)
     ax.set_title("Correlations")
-    
+
 plot_cor(df_established)
 ```
 
@@ -610,9 +610,9 @@ plot_cor(df_established)
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_23_0.png)
-    
+
 
 
 Obviously we expect most of these correlations. The more views you have, the more followers, means the more favourites, and the more ratings. And the more patrons, the higher your earnings, of course. Interestingly, page count does very little, along with Rating. So those aren't significant barriers to entry, rejoice those who have been review bombed!
@@ -630,9 +630,9 @@ plot_hist(df_established, "Rating", qfmt="%0.2f", bins=40)
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_25_0.png)
-    
+
 
 
 The standard 4.5 stars distribution seen everywhere with a 5 star rating system.
@@ -649,9 +649,9 @@ plot_hist(df_established, "Favourite Rate", qfmt="%0.2f")
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_27_0.png)
-    
+
 
 
 So for every 100 followers, the median story gains 24 favourites.
@@ -668,9 +668,9 @@ plot_hist(df_established, "Rating Rate", qfmt="%0.2f")
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_29_0.png)
-    
+
 
 
 Looks like a similar story for the ratings. Median conversion of 23% from follow to a rating.
@@ -687,12 +687,12 @@ plot_hist(df_established, "Follow Rate (Avg)", qfmt="%0.2f", bins=80)
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_31_0.png)
-    
 
 
-This is a bit harder to interpet, because I don't believe RR is giving us a total number of unique visitors (indeed its hard to determine that number without browser fingerprinting anyway). So instead we have the average views per chapter, and I'm curious how this translates into the number of followers. Note, I don't have the average number of followers *per* chapter, which would be a much better bit of data. So the plot above, in my mind, is almost useless. But what it does (maybe) show is that if an author gets 10k views per chapter, the median would have that translate into a story with 2.9k followers. 
+
+This is a bit harder to interpet, because I don't believe RR is giving us a total number of unique visitors (indeed its hard to determine that number without browser fingerprinting anyway). So instead we have the average views per chapter, and I'm curious how this translates into the number of followers. Note, I don't have the average number of followers *per* chapter, which would be a much better bit of data. So the plot above, in my mind, is almost useless. But what it does (maybe) show is that if an author gets 10k views per chapter, the median would have that translate into a story with 2.9k followers.
 
 I also expect the above to be highly dependent on hiatus and gaps in the story, but again, don't have the data. Frustrated there's no official API.
 
@@ -715,9 +715,9 @@ plot_prate(df_established)
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_33_0.png)
-    
+
 
 
 The higher conversion rate numbers might be unreliable. This assumes that the RR stories I've found are the only funnels into Patreon, and this might not be correct, especially for stories which are also released in other locations.
@@ -735,9 +735,9 @@ plot_hist(df_established, "Patron Value", qfmt="$%0.2f", bins=55, quantiles=[0.5
 
 
 
-    
+
 ![png](2022-10-14-RoyalRoad_files/2022-10-14-RoyalRoad_35_0.png)
-    
+
 
 
 As a caveat, not all patreons have their income public, so this is only using that subset where we have both income and number of patrons.
@@ -761,7 +761,7 @@ def plot_overview(df, ax, fig):
     ax.set_ylim(y.min(), 1.1 * y.max())
     ax.set_xlabel("Rating")
     ax.set_ylabel("Followers")
-    
+
     padding = y.max() * 0.01
     replace = {
         "He Who Fights With Monsters": "HWFWM",
@@ -786,10 +786,10 @@ def plot_overview(df, ax, fig):
         ax.annotate(t, pos, (x[i] + o[0], (padding * o[1]) + y[i]), va="bottom", ha="center", arrowprops=arrow)
 
     for i, row in df.head(10).iterrows():
-        annotate(i, row) 
+        annotate(i, row)
     for i, row in df.sort_values("Pages", ascending=False).head(1).iterrows():
         annotate(i, row)
-    
+
 fig, ax = plt.subplots(figsize=(10, 8))
 plot_overview(df_established, ax, fig)
 ```
@@ -798,9 +798,9 @@ plot_overview(df_established, ax, fig)
 
 
 
-    
+
 ![png](cover.png?class="img-main,img-poster")
-    
+
 
 
 
@@ -915,8 +915,8 @@ async def get_stats_for_serial(link: str) -> dict:
     stats_block = soup.select(".fiction-stats .stats-content", limit=1)[0]
 
     stats = {
-        "link": url, 
-        "title": soup.select('meta [name="twitter:title"]')[0].attrs["content"], 
+        "link": url,
+        "title": soup.select('meta [name="twitter:title"]')[0].attrs["content"],
         "author": soup.select('meta [name="twitter:creator"]')[0].attrs["content"]
     }
 
@@ -967,7 +967,7 @@ stats_w_patreon = [s for s in all_stats if "patreon_link" in s]
 urls_patreon = [s["patreon_link"] for s in stats_w_patreon]
 urls_patreon = [s for s in urls_patreon if "www.patreon.com" in s]
 patreon_stats = await launch(urls_patreon, get_patreon_stats, batch=5)
-# Turn this into a dataframe, and save it out. 
+# Turn this into a dataframe, and save it out.
 save_dir = Path("royal_road")
 save_dir.mkdir(parents=True, exist_ok=True)
 
@@ -1003,7 +1003,7 @@ def plot_hist(df, col, quantiles=[0.5, 0.9, 0.99], bins=50, xlim=None, qfmt="%0.
             ax.annotate(f"{1-q:0.0%} > {qstr} {col}", (q_val, qy))
     ax.set_xlim(*xlim)
     ax.set_xlabel(col)
-        
+
 plot_hist(df, "Followers", bins=500, xlim=(0, 6000))
 
 plot_hist(df, "Followers", bins=100, quantiles=[0.5, 0.75, 0.8], xlim=(0, 100))
@@ -1022,7 +1022,7 @@ def plot_cor(df):
     cor = df.corr(numeric_only=True)
     ax = sb.heatmap(cor, square=True)
     ax.set_title("Correlations")
-    
+
 plot_cor(df_established)
 # Look into avergae profit per patreon
 plot_hist(df_established, "Rating", qfmt="%0.2f", bins=40)
@@ -1053,7 +1053,7 @@ def plot_overview(df, ax, fig):
     ax.set_ylim(y.min(), 1.1 * y.max())
     ax.set_xlabel("Rating")
     ax.set_ylabel("Followers")
-    
+
     padding = y.max() * 0.01
     replace = {
         "He Who Fights With Monsters": "HWFWM",
@@ -1078,10 +1078,10 @@ def plot_overview(df, ax, fig):
         ax.annotate(t, pos, (x[i] + o[0], (padding * o[1]) + y[i]), va="bottom", ha="center", arrowprops=arrow)
 
     for i, row in df.head(10).iterrows():
-        annotate(i, row) 
+        annotate(i, row)
     for i, row in df.sort_values("Pages", ascending=False).head(1).iterrows():
         annotate(i, row)
-    
+
 fig, ax = plt.subplots(figsize=(10, 8))
 plot_overview(df_established, ax, fig)
 ```

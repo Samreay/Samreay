@@ -54,7 +54,7 @@ class Organism:
         self.chromosome = np.clip(genes, 0, 1)
         self.visual = None
         self.fitness = None
-        
+
     def mutate(self, rate=0.01, scale=0.3, add=0.3):
         """ Get a mutated organism given the mutation rates and scale input """
         chromosome = np.copy(self.chromosome)
@@ -79,16 +79,16 @@ class Organism:
             if random() < 0.3:
                 chromosome = np.delete(chromosome, choice(n_gene), axis=0)
             else:
-                # When we add, we'll do so by blending two existing genes 
+                # When we add, we'll do so by blending two existing genes
                 # and perturbing it. More likely to find a good gene this way.
                 a, b = choice(n_gene, 2, replace=False)
                 gene = np.atleast_2d(0.5 * (chromosome[a, :] + chromosome[b, :]))
                 gene += scale * normal(size=(1, gene.size))
                 gene[:, 2] *= 0.2
                 chromosome = np.append(chromosome, gene, axis=0)
-                
+
         return Organism(chromosome)
-    
+
 ```
 
 </div>
@@ -98,7 +98,7 @@ Here lie the main changes from the previous section - our population now acutall
 
 * `spawn` spawns a population now, not just one individual
 * `save` and `load` allow us to save out and load in a population so I can give my poor laptop a break when it starts to melt.
-* `get_child` takes two parents and picks genes from both 
+* `get_child` takes two parents and picks genes from both
 * `mutate_and_pick` which tries several times to mutate the organism to a better version
 * `step` which now generates childre, mutates them, and then picks the cream of the crop to survive.
 
@@ -116,7 +116,7 @@ class Population:
         w, h, d = self.ref.shape
         self.screen = pygame.Surface((w, h))
         self.screen.fill((255, 255, 255))
-        
+
         self.population = []
 
     def draw(self, organism):
@@ -129,15 +129,15 @@ class Population:
             c = tuple(map(lambda x: int(255 * x),  Color(hsl=hsl).rgb))
             pygame.draw.circle(screen, c, position, int((size * 0.3 + 0.01) * w))
         return screen
-    
+
     def spawn(self, pop_size=30, complexity=10):
         """ Spawn a new population with `complexity` genes in each member with """
         for i in range(pop_size):
             organism = Organism(random((complexity, 6)))
-            self.population.append(organism) 
+            self.population.append(organism)
             self.calc_fitness(organism)
         self.population = sorted(self.population, key=lambda x: -x.fitness)
-        
+
     def calc_fitness(self, organism):
         """ Calculate the fitness of a gene by drawing it and comparing
         it to the reference """
@@ -147,7 +147,7 @@ class Population:
         organism.visual = screen
 
     def get_child(self, a, b):
-        """ Breed a and b by mixing the common length genes, keeping most from 
+        """ Breed a and b by mixing the common length genes, keeping most from
         the first parent. """
         new_genes = []
         n_a, n_b = a.chromosome.shape[0], b.chromosome.shape[0]
@@ -166,13 +166,13 @@ class Population:
         o = Organism(chromosome)
         self.calc_fitness(o)
         return o
-    
+
     def save(self, path):
         """ Save population to json file """
         out = [o.chromosome.tolist() for o in self.population]
         with open(path, "w") as f:
             json.dump(out, f)
-            
+
     def load(self, path):
         """ Load population from json file """
         with open(path) as f:
@@ -180,7 +180,7 @@ class Population:
         self.population = [Organism(np.array(x)) for x in inp]
         for o in self.population:
             self.calc_fitness(o)
-            
+
     def mutate_and_pick(self, organism, rate, scale, add, attempts=10):
         """ Mutate organism attempts times to try and get something better """
         for i in range(attempts):
@@ -189,11 +189,11 @@ class Population:
             if o.fitness > organism.fitness:
                 return o
         return organism
-            
+
     def step(self, time, outdir, rate=0.01, scale=0.1, add=0.3):
         """ Take a step in time by making some kids, mutating them,
         and then letting the fittest survive. Nature is a harsh mistress."""
-        
+
         # Get some children by picking the fitter parents
         new_orgs = []
         weights = 1 - np.linspace(0, 0.2, len(self.population))
@@ -201,7 +201,7 @@ class Population:
             a, b = choice(self.population, 2, replace=True, p=weights / weights.sum())
             child = self.get_child(a, b)
             new_orgs.append(self.mutate_and_pick(child, rate, scale, add))
-            
+
         # Calculate fitness,sort fitness, update population
         for o in new_orgs:
             self.calc_fitness(o)
@@ -237,7 +237,7 @@ def evolve(rate, scale, add_chance, steps=700000):
         start = int(sorted(os.listdir(outdir))[-2][:-4]) * 2
     else:
         pop.spawn(complexity=20)
-        start = 0    
+        start = 0
     for i in range(start, steps):
         pop.step(i, outdir, rate=rate, scale=scale, add=add_chance)
 ```
@@ -250,9 +250,9 @@ With this all set up, we can now call `evolve` and see what we get. Here's our s
 
 
 
-    
+
 ![png](cover.png?class="img-main,small")
-    
+
 
 
 
@@ -277,27 +277,27 @@ I also grabbed some snapshots of the population at the start and then as we prog
 
 
 
-    
+
 ![png](2021-03-20-Genetic_Part_Two_files/2021-03-20-Genetic_Part_Two_16_0.png)
-    
 
 
 
 
 
 
-    
+
+
 ![png](2021-03-20-Genetic_Part_Two_files/2021-03-20-Genetic_Part_Two_17_0.png)
-    
 
 
 
 
 
 
-    
+
+
 ![png](2021-03-20-Genetic_Part_Two_files/2021-03-20-Genetic_Part_Two_18_0.png)
-    
+
 
 
 
@@ -315,9 +315,9 @@ Using our good friend `ffmpeg` to turn some of these PNGs into an animation, we 
 And heres a side by side:
 
 
-    
+
 ![png](2021-03-20-Genetic_Part_Two_files/2021-03-20-Genetic_Part_Two_22_0.png)
-    
+
 
 
 This still took quite a whil to run on my laptop, and there are existing solutions out there. If you have a serious problem and require an efficient and sophisticated genetic algorithm to help you out, check out the [DEAP](https://deap.readthedocs.io/en/master/) python package.
@@ -345,7 +345,7 @@ class Organism:
         self.chromosome = np.clip(genes, 0, 1)
         self.visual = None
         self.fitness = None
-        
+
     def mutate(self, rate=0.01, scale=0.3, add=0.3):
         """ Get a mutated organism given the mutation rates and scale input """
         chromosome = np.copy(self.chromosome)
@@ -370,16 +370,16 @@ class Organism:
             if random() < 0.3:
                 chromosome = np.delete(chromosome, choice(n_gene), axis=0)
             else:
-                # When we add, we'll do so by blending two existing genes 
+                # When we add, we'll do so by blending two existing genes
                 # and perturbing it. More likely to find a good gene this way.
                 a, b = choice(n_gene, 2, replace=False)
                 gene = np.atleast_2d(0.5 * (chromosome[a, :] + chromosome[b, :]))
                 gene += scale * normal(size=(1, gene.size))
                 gene[:, 2] *= 0.2
                 chromosome = np.append(chromosome, gene, axis=0)
-                
+
         return Organism(chromosome)
-    
+
 class Population:
     def __init__(self, path):
         """ Load in the reference image and create a surface we can draw on. """
@@ -388,7 +388,7 @@ class Population:
         w, h, d = self.ref.shape
         self.screen = pygame.Surface((w, h))
         self.screen.fill((255, 255, 255))
-        
+
         self.population = []
 
     def draw(self, organism):
@@ -401,15 +401,15 @@ class Population:
             c = tuple(map(lambda x: int(255 * x),  Color(hsl=hsl).rgb))
             pygame.draw.circle(screen, c, position, int((size * 0.3 + 0.01) * w))
         return screen
-    
+
     def spawn(self, pop_size=30, complexity=10):
         """ Spawn a new population with `complexity` genes in each member with """
         for i in range(pop_size):
             organism = Organism(random((complexity, 6)))
-            self.population.append(organism) 
+            self.population.append(organism)
             self.calc_fitness(organism)
         self.population = sorted(self.population, key=lambda x: -x.fitness)
-        
+
     def calc_fitness(self, organism):
         """ Calculate the fitness of a gene by drawing it and comparing
         it to the reference """
@@ -419,7 +419,7 @@ class Population:
         organism.visual = screen
 
     def get_child(self, a, b):
-        """ Breed a and b by mixing the common length genes, keeping most from 
+        """ Breed a and b by mixing the common length genes, keeping most from
         the first parent. """
         new_genes = []
         n_a, n_b = a.chromosome.shape[0], b.chromosome.shape[0]
@@ -438,13 +438,13 @@ class Population:
         o = Organism(chromosome)
         self.calc_fitness(o)
         return o
-    
+
     def save(self, path):
         """ Save population to json file """
         out = [o.chromosome.tolist() for o in self.population]
         with open(path, "w") as f:
             json.dump(out, f)
-            
+
     def load(self, path):
         """ Load population from json file """
         with open(path) as f:
@@ -452,7 +452,7 @@ class Population:
         self.population = [Organism(np.array(x)) for x in inp]
         for o in self.population:
             self.calc_fitness(o)
-            
+
     def mutate_and_pick(self, organism, rate, scale, add, attempts=10):
         """ Mutate organism attempts times to try and get something better """
         for i in range(attempts):
@@ -461,11 +461,11 @@ class Population:
             if o.fitness > organism.fitness:
                 return o
         return organism
-            
+
     def step(self, time, outdir, rate=0.01, scale=0.1, add=0.3):
         """ Take a step in time by making some kids, mutating them,
         and then letting the fittest survive. Nature is a harsh mistress."""
-        
+
         # Get some children by picking the fitter parents
         new_orgs = []
         weights = 1 - np.linspace(0, 0.2, len(self.population))
@@ -473,7 +473,7 @@ class Population:
             a, b = choice(self.population, 2, replace=True, p=weights / weights.sum())
             child = self.get_child(a, b)
             new_orgs.append(self.mutate_and_pick(child, rate, scale, add))
-            
+
         # Calculate fitness,sort fitness, update population
         for o in new_orgs:
             self.calc_fitness(o)
@@ -495,7 +495,7 @@ def evolve(rate, scale, add_chance, steps=700000):
         start = int(sorted(os.listdir(outdir))[-2][:-4]) * 2
     else:
         pop.spawn(complexity=20)
-        start = 0    
+        start = 0
     for i in range(start, steps):
         pop.step(i, outdir, rate=rate, scale=scale, add=add_chance)
 # 1% chance of mutation, scale is a normal of std 0.1, and 1% chance to add or remove

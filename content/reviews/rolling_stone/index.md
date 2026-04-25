@@ -15,14 +15,14 @@ sentence: "By a stroke of fate, a stone gains sentience and sets out on a grand 
 
 ## Blurb
 
-By a stroke of fate, a stone gains sentience and sets out on a grand quest to touch grass. 
+By a stroke of fate, a stone gains sentience and sets out on a grand quest to touch grass.
 
 However, the system forgot to change its stats from their \[Metric\] values to the appropriate \[Str, Int, Dex\] values.
 
-Things escalate. Fast. 
+Things escalate. Fast.
 
 Features:
-- Cultivation 
+- Cultivation
 - Jade Beauties
 - Numbers go up (Ridiculously up. All of them)
 - Most balanced protagonist of all time (is round, so is balanced)

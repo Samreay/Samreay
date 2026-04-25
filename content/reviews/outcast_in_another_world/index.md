@@ -29,7 +29,7 @@ Initially, I was worried when the starting chapters felt very close to both DoT 
 
 Rob, as it turns out, is up shit creek without a paddle. His sole benefit is that humans have the *Fast Learner* trait, which is the main gimmick/cheat Rob can exploit to level up fast.
 
-Rob makes an initial elf friend (Kiera), and has to work hard to try and sway the public opinion (which is effectively to put down the last human and finish the job), leading to some tense but rewarding social progress as he slowly chips away at people's defences. 
+Rob makes an initial elf friend (Kiera), and has to work hard to try and sway the public opinion (which is effectively to put down the last human and finish the job), leading to some tense but rewarding social progress as he slowly chips away at people's defences.
 
 There are a few small moments of lecturing here (ie don't generalise, sins of the father, racism, etc), however this doesn't get anywhere close to the levels of preachiness one might find in HWFWM, so if that was an issue for you in that serious, it won't be here. And, to reinforce that point, all hints of it vanish by midway through the first book and don't appear in latter books at all.
 

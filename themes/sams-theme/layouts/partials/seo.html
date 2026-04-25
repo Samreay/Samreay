@@ -11,10 +11,10 @@
 <!-- JSON-LD -->
 {{ if .IsHome }}
 <script type="application/ld+json">
-{ 
-  "@context": "http://schema.org", 
-  "@type": "WebSite", 
-  "url": "{{ .Permalink }}", 
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "{{ .Permalink }}",
   "name": "{{ .Site.Title }}",
    "author": {
       "@type": "Person",
@@ -27,11 +27,11 @@
 
 {{ if .IsPage }}
 <script type="application/ld+json">
-{ 
-    "@context": "http://schema.org", 
+{
+    "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "{{ .Title }}",
-    "genre": "{{ range .Params.categories }}{{ . }}{{ end }}",  
+    "genre": "{{ range .Params.categories }}{{ . }}{{ end }}",
     "url": "{{ .Permalink }}",
     "datePublished": "{{ time .Date }}",
     "description": "{{ if .Description }}{{ .Description | plainify }}{{ else }}{{if .IsPage}}{{ .Summary | plainify  }}{{ end }}{{ end }}",

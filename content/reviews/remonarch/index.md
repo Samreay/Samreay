@@ -39,7 +39,7 @@ For those worried about a groundhog day situation, rest assured, the time loops 
 
 That makes my normal job of "If you like *X* you'll like this," difficult, because this book is **not** similar to the biggest time-loop progression fantasy out there: *Mother of Learning*.
 
-Okay, so let's break it down. Characters are great. Cairn is **not** a generic young white male insert with no personality. The man a backstory, the man has past trauma, an abusive father, complex relationships, and has a slew of issues to work through. Side characters are also fleshed out. So, big tick there. 
+Okay, so let's break it down. Characters are great. Cairn is **not** a generic young white male insert with no personality. The man a backstory, the man has past trauma, an abusive father, complex relationships, and has a slew of issues to work through. Side characters are also fleshed out. So, big tick there.
 
 For the time looping, it's not actually used how it often is in this genre, like how Zorian uses it to grind skills over and over. Instead, there's actually not that much progression in terms of raw power growth and the rapid accumulation of skills like many serials. Instead, the time loops---or more accurately the primary loop in the first book---has a far greater focus on politics and intrigue.
 

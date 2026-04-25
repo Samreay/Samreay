@@ -1,6 +1,7 @@
-from slow import get_jobs, do_some_slow_computation_malloc
-from time import time
 import concurrent.futures
+from time import time
+
+from slow import do_some_slow_computation_malloc, get_jobs
 
 
 def work(jobs):

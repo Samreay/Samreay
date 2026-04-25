@@ -36,24 +36,24 @@ df.info()
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 661218 entries, 0 to 661217
     Data columns (total 16 columns):
-     #   Column         Non-Null Count   Dtype  
-    ---  ------         --------------   -----  
-     0   LoanRange      661218 non-null  object 
-     1   BusinessName   661210 non-null  object 
-     2   Address        661201 non-null  object 
-     3   City           661203 non-null  object 
-     4   State          661218 non-null  object 
+     #   Column         Non-Null Count   Dtype
+    ---  ------         --------------   -----
+     0   LoanRange      661218 non-null  object
+     1   BusinessName   661210 non-null  object
+     2   Address        661201 non-null  object
+     3   City           661203 non-null  object
+     4   State          661218 non-null  object
      5   Zip            661202 non-null  float64
      6   NAICSCode      654435 non-null  float64
-     7   BusinessType   659789 non-null  object 
-     8   RaceEthnicity  661218 non-null  object 
-     9   Gender         661218 non-null  object 
-     10  Veteran        661218 non-null  object 
-     11  NonProfit      42462 non-null   object 
+     7   BusinessType   659789 non-null  object
+     8   RaceEthnicity  661218 non-null  object
+     9   Gender         661218 non-null  object
+     10  Veteran        661218 non-null  object
+     11  NonProfit      42462 non-null   object
      12  JobsRetained   620712 non-null  float64
-     13  DateApproved   661218 non-null  object 
-     14  Lender         661218 non-null  object 
-     15  CD             661218 non-null  object 
+     13  DateApproved   661218 non-null  object
+     14  Lender         661218 non-null  object
+     15  CD             661218 non-null  object
     dtypes: float64(3), object(13)
     memory usage: 80.7+ MB
 
@@ -136,7 +136,7 @@ cities_p
 
 
 
-It's not 57 different spellings in our dataset, but oh boy do we have a lot of different ways of writing down Philadelphia. 
+It's not 57 different spellings in our dataset, but oh boy do we have a lot of different ways of writing down Philadelphia.
 
 Next up, lets get a proper list of cities from [this github repository](https://github.com/kelvins/US-Cities-Database/blob/master/csv/us_cities.csv). Unfortunately, this dataset is not comprehensive, but it will do for us!
 
@@ -354,7 +354,7 @@ unknown
 
 # FuzzyWuzzy
 
-Now time for the good stuff! Lets delve into the fantastic package [`fuzzywuzzy`](https://github.com/seatgeek/fuzzywuzzy). It uses some smart [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) computation to determine how similar two words are. 
+Now time for the good stuff! Lets delve into the fantastic package [`fuzzywuzzy`](https://github.com/seatgeek/fuzzywuzzy). It uses some smart [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) computation to determine how similar two words are.
 
 So for an example unknown city in the list above, we'll see how similar it is to all the potential cities we could match them to.
 
@@ -583,7 +583,7 @@ print(fuzz.token_sort_ratio(a, b), fuzz.token_set_ratio(a, b))
     59 96
 
 
-The sheer size difference between the two strings means that our `token_sort_ratio` is now not giving good results. Instead, we can use `token_set_ratio` which breaks both strings into tokens, and then takes into account the intersection of those two sets better. 
+The sheer size difference between the two strings means that our `token_sort_ratio` is now not giving good results. Instead, we can use `token_set_ratio` which breaks both strings into tokens, and then takes into account the intersection of those two sets better.
 
 As a final note, computing the distance (and thus ratios) between strings is a slow process. Running this for millions of records at a time will take a *very* long time, so this is a great process suited for cleaning data upon ingestion, such that the task is distributed over time and not run in bulk.
 
@@ -606,9 +606,9 @@ But there are plenty more, so go check out the library!
 
 
 
-    
+
 ![png](cover.png?class="img-main,remove")
-    
+
 
 
 

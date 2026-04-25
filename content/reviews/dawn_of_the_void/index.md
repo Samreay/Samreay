@@ -44,7 +44,7 @@ I've also read through the reviews on Royal Road about this, and Phil's certainl
 
 Please?
 
-I digress. The plot follows James (and Serenity) as they battle through the waves of Nemesis 1's, then Nem2s, Nem3s, etc, in preparation for the pits of hell to open after ninety days. Society slowly collapses, people make plays for political power, and the world adapts to the class system introduced to them as the difficulty of the Nemesis demons ramps up incredibly quickly. 
+I digress. The plot follows James (and Serenity) as they battle through the waves of Nemesis 1's, then Nem2s, Nem3s, etc, in preparation for the pits of hell to open after ninety days. Society slowly collapses, people make plays for political power, and the world adapts to the class system introduced to them as the difficulty of the Nemesis demons ramps up incredibly quickly.
 
 Phil's chosen to wrap this series as a trilogy instead of a much longer series, and this happens by a <span class="spoiler">rapid powerup of the main cast and subsequent release of all the remaining nemesis waves at once.</span> While it could have been fun to go for another book or two, I *do* appreciate a series that doesn't decide to add a thousand pages of filler and random arcs and instead takes the main plot, and wraps a bow on it and ties it up. On that note, the way the book ended was very nice, I didn't see it coming, but it makes so much sense.
 

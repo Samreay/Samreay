@@ -8,11 +8,11 @@ tags: [outreach]
 
 ---
 
-During the week of the 14th of May there were a host of Pint of Science events 
+During the week of the 14th of May there were a host of Pint of Science events
 presented in Brisbane. Josh and I did one together - Josh presented a talk *Dark matter, what's the matter?*,
-where he talked about the dark universe, and potential candidates for dark matter. I 
+where he talked about the dark universe, and potential candidates for dark matter. I
 gave a talk *The Brightest Fireworks in the Universe* - on supernovae, their lives, deaths and
-role in the universe. 
+role in the universe.
 
 These are apparently hot topics, as we sold out the room, reorganised to fit more people, and then sold out
 again! And whilst it was good to know so many people were interested, it was also intimidating to know that there

@@ -30,7 +30,7 @@ df = df.join(df2).reset_index()
 </div>
 
 
-I'm a simple man, and I just want everything in a single chain! 
+I'm a simple man, and I just want everything in a single chain!
 
 Yes, in the trivial example above, you could just move the indexor into the chain, but what if you need to filter based a value in the dataframe at that instant, not in the raw dataframe? Then you'll have issues.
 
@@ -467,7 +467,7 @@ df_raw = df_raw[["MONTH", "ORG_AIR", "DEST_AIR", "CANCELLED"]]
 # Patch a custom method in
 def select(df, col, val):
     return df[df[col] == val]
-    
+
 pd.DataFrame.select = select
 
 # And then pick your favourite method!
@@ -531,7 +531,7 @@ df_raw = df_raw[["MONTH", "ORG_AIR", "DEST_AIR", "CANCELLED"]]
 # Patch a custom method in
 def select(df, col, val):
     return df[df[col] == val]
-    
+
 pd.DataFrame.select = select
 
 # And then pick your favourite method!

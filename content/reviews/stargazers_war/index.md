@@ -30,7 +30,7 @@ I should know.  I've seen it.
 
 Only difference is, I didn't go mad.  I wasn't a cultivator.  Technically, I wasn't even alive.
 
-But now I can sense it.  I can touch it.  
+But now I can sense it.  I can touch it.
 
 I can *cultivate* it.
 

@@ -1,9 +1,10 @@
 import sys
 
 sys.path.append(".")
-from slow import get_jobs, slow_fn
 from time import time
+
 import ray
+from slow import get_jobs, slow_fn
 
 workfn = ray.remote(slow_fn)
 

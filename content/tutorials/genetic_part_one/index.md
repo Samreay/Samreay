@@ -31,7 +31,7 @@ The idea behind Genetic Algorithms is simple - each algorithm can be evaluated t
 5. Mutate them for fun!
 6. Continue from step 2
 
-To get us started with genetic algorithms, we are going to forget for now about a population and breeding, instead we shall have a single organism and line of descent, mutating it away as it undergoes mitosis. 
+To get us started with genetic algorithms, we are going to forget for now about a population and breeding, instead we shall have a single organism and line of descent, mutating it away as it undergoes mitosis.
 
 To begin, some necessary imports:
 
@@ -66,7 +66,7 @@ class Organism:
         self.chromosome = np.clip(genes, 0, 1)
         self.visual = None
         self.fitness = None
-        
+
     def mutate(self, mutation_rate=0.01, scale=0.3, add_chance=0.3):
         """ Get a mutated organism given the mutation rates and scale input """
         chromosome = np.copy(self.chromosome)
@@ -85,16 +85,16 @@ class Organism:
             if random() < 0.3:
                 chromosome = np.delete(chromosome, choice(n_gene), axis=0)
             else:
-                # When we add, we'll do so by blending two existing genes 
+                # When we add, we'll do so by blending two existing genes
                 # and perturbing it. More likely to find a good gene this way.
                 a, b = choice(n_gene, 2, replace=False)
                 gene = np.atleast_2d(0.5 * (chromosome[a, :] + chromosome[b, :]))
                 gene += scale * normal(size=(1, gene.size))
                 gene[:, 2] *= 0.2
                 chromosome = np.append(chromosome, gene, axis=0)
-                
+
         return Organism(chromosome)
-    
+
 ```
 
 </div>
@@ -117,7 +117,7 @@ class Population:
         w, h, d = self.ref.shape
         self.screen = pygame.Surface((w, h))
         self.screen.fill((255, 255, 255))
-        
+
         self.best_organism = None
 
     def draw(self, organism):
@@ -130,13 +130,13 @@ class Population:
             c = tuple(map(lambda x: int(255 * x),  Color(hsl=hsl).rgb))
             pygame.draw.circle(screen, c, position, int((size * 0.3 + 0.01) * w))
         return screen
-    
+
     def spawn(self, complexity=1):
         """ Spawn a new individual with `complexity` genes to start with """
         random_genes = random((complexity, 6))
         self.best_organism = Organism(random_genes)
         self.calc_fitness(self.best_organism)
-        
+
     def calc_fitness(self, organism):
         """ Calculate the fitness of a gene by drawing it and comparing
         it to the reference """
@@ -146,7 +146,7 @@ class Population:
         organism.visual = screen
 
     def step(self, time, outdir, rate=0.01, scale=0.1, add_chance=0.3):
-        """ Take a step in time by mutating the organism and seeing if its the 
+        """ Take a step in time by mutating the organism and seeing if its the
         fittest out there! This will also save out a checkpoint file so we can resume
         evolution, and save out images every 200 steps. """
         o = self.best_organism.mutate(mutation_rate=rate, scale=scale, add_chance=add_chance)
@@ -154,7 +154,7 @@ class Population:
 
         if o.fitness > self.best_organism.fitness:
             self.best_organism = o
-        
+
         # Save out the image if we want it
         if time % 200 == 0:
             path = outdir + f"{time // 200:04d}.png"
@@ -197,9 +197,9 @@ With this all set up, we can now call `evolve` and specify the mutation rate, th
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -239,9 +239,9 @@ It took thousands upon thousands of iterations to get us anything like what we w
 Obviously, it is time to increase the sophistication of our algorithm. [Onto part two](/genetic2)! And for reference, here is our final frame:
 
 
-    
+
 ![png](2021-03-19-Genetic_Part_One_files/2021-03-19-Genetic_Part_One_18_0.png)
-    
+
 
 
 ******
@@ -259,7 +259,7 @@ class Organism:
         self.chromosome = np.clip(genes, 0, 1)
         self.visual = None
         self.fitness = None
-        
+
     def mutate(self, mutation_rate=0.01, scale=0.3, add_chance=0.3):
         """ Get a mutated organism given the mutation rates and scale input """
         chromosome = np.copy(self.chromosome)
@@ -278,16 +278,16 @@ class Organism:
             if random() < 0.3:
                 chromosome = np.delete(chromosome, choice(n_gene), axis=0)
             else:
-                # When we add, we'll do so by blending two existing genes 
+                # When we add, we'll do so by blending two existing genes
                 # and perturbing it. More likely to find a good gene this way.
                 a, b = choice(n_gene, 2, replace=False)
                 gene = np.atleast_2d(0.5 * (chromosome[a, :] + chromosome[b, :]))
                 gene += scale * normal(size=(1, gene.size))
                 gene[:, 2] *= 0.2
                 chromosome = np.append(chromosome, gene, axis=0)
-                
+
         return Organism(chromosome)
-    
+
 class Population:
     def __init__(self, path):
         """ Load in the reference image and create a surface we can draw on. """
@@ -296,7 +296,7 @@ class Population:
         w, h, d = self.ref.shape
         self.screen = pygame.Surface((w, h))
         self.screen.fill((255, 255, 255))
-        
+
         self.best_organism = None
 
     def draw(self, organism):
@@ -309,13 +309,13 @@ class Population:
             c = tuple(map(lambda x: int(255 * x),  Color(hsl=hsl).rgb))
             pygame.draw.circle(screen, c, position, int((size * 0.3 + 0.01) * w))
         return screen
-    
+
     def spawn(self, complexity=1):
         """ Spawn a new individual with `complexity` genes to start with """
         random_genes = random((complexity, 6))
         self.best_organism = Organism(random_genes)
         self.calc_fitness(self.best_organism)
-        
+
     def calc_fitness(self, organism):
         """ Calculate the fitness of a gene by drawing it and comparing
         it to the reference """
@@ -325,7 +325,7 @@ class Population:
         organism.visual = screen
 
     def step(self, time, outdir, rate=0.01, scale=0.1, add_chance=0.3):
-        """ Take a step in time by mutating the organism and seeing if its the 
+        """ Take a step in time by mutating the organism and seeing if its the
         fittest out there! This will also save out a checkpoint file so we can resume
         evolution, and save out images every 200 steps. """
         o = self.best_organism.mutate(mutation_rate=rate, scale=scale, add_chance=add_chance)
@@ -333,7 +333,7 @@ class Population:
 
         if o.fitness > self.best_organism.fitness:
             self.best_organism = o
-        
+
         # Save out the image if we want it
         if time % 200 == 0:
             path = outdir + f"{time // 200:04d}.png"

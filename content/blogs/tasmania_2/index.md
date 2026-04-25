@@ -7,7 +7,7 @@ categories: [blog]
 tags: [travel]
 ---
 
-The last time I went to Tasmania I did the Overland track. 
+The last time I went to Tasmania I did the Overland track.
 
 And I was not prepared. No water-proof gear, no thick jackets, just my stubbornness. Which, as it turns out, cannot keep you warm.
 

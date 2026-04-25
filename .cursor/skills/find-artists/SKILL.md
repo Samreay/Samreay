@@ -15,7 +15,7 @@ rebuild the site** to validate naming.
 
 All state lives under this skill directory so we never re-fetch the same post:
 
-- `scripts/data/links.csv` — every self-promo post link we know about.
+- `scripts/data/historical/YYYY-MM.csv` — monthly self-promo post link exports.
 - `scripts/data/fetched.csv` — posts we have already pulled bodies for.
 - `references/to_extract/<id>.md` — queued post text waiting for artist extraction.
 - `references/extracted/<id>.md` — post text moved here after extraction.
@@ -28,18 +28,17 @@ Run all scripts via `uv run` (they use inline script metadata to pull
 Run these two scripts. They are idempotent — safe to re-run to pick up new posts.
 
 ```bash
-uv run .cursor/skills/find-artists/scripts/fetch_links.py
+uv run .cursor/skills/find-artists/scripts/historical.py
 uv run .cursor/skills/find-artists/scripts/fetch_posts.py
 ```
 
-**`fetch_links.py`** paginates `search.json?q=flair:Self-Promotion&sort=new` on
-the subreddit. It stops when the page fully overlaps with `links.csv` or when
-it reaches a post older than **2026-04-21**, then writes back
-`scripts/data/links.csv`.
+**`historical.py`** paginates the PullPush submission search API month by month,
+writing each completed month to `scripts/data/historical/YYYY-MM.csv`. It skips
+months whose CSV already exists, so it is safe to re-run.
 
-**`fetch_posts.py`** reads `links.csv`, fetches any link not in
-`scripts/data/fetched.csv`, skips posts with fewer than 5 upvotes (marked
-`skipped_low_upvotes`), and for the rest writes
+**`fetch_posts.py`** reads every CSV in `scripts/data/historical/`, fetches any
+link not in `scripts/data/fetched.csv`, skips posts with fewer than 5 upvotes
+(marked `skipped_low_upvotes`), and for the rest writes
 `references/to_extract/<id>.md` containing post front-matter, the selftext,
 any image URLs, and every comment by the OP.
 
@@ -179,10 +178,9 @@ Finally, process the covers using `hugo --gc --minify -D`
 
 ## Notes
 
-- Reddit search is capped at ~250 results, but pagination plus the
-  2026-04-21 cutoff means we cover everything posted since then across runs.
+- PullPush search is fetched month by month to keep each query window small and
+  resumable.
 - The scripts use a 2-second sleep between requests to stay polite. If you
   need to process a backlog and hit 429s, increase that delay.
-- If `links.csv` or `fetched.csv` gets corrupted, deleting them is safe —
-  any existing markdown in `references/` is treated as already-fetched on
-  the next run.
+- If `fetched.csv` gets corrupted, deleting it is safe — any existing markdown
+  in `references/` is treated as already-fetched on the next run.

@@ -34,7 +34,7 @@ Dammit Melas.
 
 Now, you might know the author more for his rampant shitposting on the /r/ProgressionFantasy sub, or perhaps one of his many other fictions, but I'll keep content here about Salvos. So let's talk plot without spoilers.
 
-It's nice to follow a protagonist that isn't a blank slate MC. Even better, the MC isn't even human, and it provides a nice change in perspectives and attitudes from many other serials. Our MC, Salvos, is a demon. The story follows literally from her laval form, through her numerous evolutions and class ups. As the blurb says, Salvos is thrown into the human world (though humans are one of many species) early on, and retruning to her companion is a central point to the overarching plot. 
+It's nice to follow a protagonist that isn't a blank slate MC. Even better, the MC isn't even human, and it provides a nice change in perspectives and attitudes from many other serials. Our MC, Salvos, is a demon. The story follows literally from her laval form, through her numerous evolutions and class ups. As the blurb says, Salvos is thrown into the human world (though humans are one of many species) early on, and retruning to her companion is a central point to the overarching plot.
 
 It's *not* obviously the onle thing going on, and mostly that plot point sits in the background as a problem almost without solution, and Salvos needs to keep searching and growing stronger to achieve her goal.
 

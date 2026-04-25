@@ -31,7 +31,7 @@ z = x | y
 
 
 
-Notice that the order of preference is right to left. So values from `y` will override values from `x`. Some may think this is a bit unintuitive - the `|` operator is tradionally used to represent bitwise `or`, and generally when we evaluate `or` expressions, we stop evaluation as soon as we get a `True`. Which, in our example, would mean to stop if the value is found in `x`. 
+Notice that the order of preference is right to left. So values from `y` will override values from `x`. Some may think this is a bit unintuitive - the `|` operator is tradionally used to represent bitwise `or`, and generally when we evaluate `or` expressions, we stop evaluation as soon as we get a `True`. Which, in our example, would mean to stop if the value is found in `x`.
 
 Do not think of the union operator as an `or` operator.
 
@@ -95,7 +95,7 @@ z = dict(x, **w)
     <ipython-input-7-7ebfe83d5cb9> in <module>
           1 w = {"mixing": "types", 5: "danger"}
     ----> 2 z = dict(x, **w)
-    
+
 
     TypeError: keywords must be strings
 

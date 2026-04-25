@@ -17,13 +17,13 @@ aliases: [/reviews/mol]
 tags: [crafting,  magic-school, time-loops]
 ---
 
-I grew up on the Belgariad, graduated through Harry Potter to the Wheel of Time, conquered Malazan, was crushed by the Farseer Trilogy, and generally docked my ship at every fantasy port I could find. 
+I grew up on the Belgariad, graduated through Harry Potter to the Wheel of Time, conquered Malazan, was crushed by the Farseer Trilogy, and generally docked my ship at every fantasy port I could find.
 
 Then I was recommended to read Mother of Learning. It was my first serial novel. And despite its 800k words, I read it in a week.
 
 And then I read it again.
 
-So many books I've read fumble the ending or the rising tension. Deus-ex-machine makes an appearance, the main character stumbles via sheer luck from solution to solution, gets a mighty boon from a deity, and suddenly I just don't care about the store. The stakes have been revealed to be spurious, the illusion is shattered, and I wonder what contrived explanation shall be presented before me next. 
+So many books I've read fumble the ending or the rising tension. Deus-ex-machine makes an appearance, the main character stumbles via sheer luck from solution to solution, gets a mighty boon from a deity, and suddenly I just don't care about the store. The stakes have been revealed to be spurious, the illusion is shattered, and I wonder what contrived explanation shall be presented before me next.
 
 This is why I love MoL. The protagonist, Zorian, has *some* lucky breaks. And also some unlucky ones. But the important thing, the thing which I appreciate dearly, is that regardless of what happens, Zorian learns. Adapts. Overcomes.
 

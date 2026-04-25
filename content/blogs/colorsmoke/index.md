@@ -8,7 +8,7 @@ tags: [creative]
 
 ---
 
-So I wanted to see how the soft body physics worked. So alright, lets just drop a ball. 
+So I wanted to see how the soft body physics worked. So alright, lets just drop a ball.
 But a bouncing ball is boring, so lets squash it completely. And because I could, why not
 have particles emit when the bottom of the ball impacts and have them shoot out.
 

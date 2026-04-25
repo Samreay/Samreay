@@ -21,20 +21,20 @@ Before I picked up this book, I must have seen *Jake's Magical Market* recommend
 
 So yeah, I thought it was pretty good.
 
-Onto the premise: our MC, Jake, is a shop assistant in a typical Earth-gets-a-system-apocalpyse scenario. After almost dying right off the bat, Jake discovers he has magic powers, as his starting card is a legendary-rarity time freeze power. It sounds overpower, and it is, it's absolutely broken. But in a fun way. 
+Onto the premise: our MC, Jake, is a shop assistant in a typical Earth-gets-a-system-apocalpyse scenario. After almost dying right off the bat, Jake discovers he has magic powers, as his starting card is a legendary-rarity time freeze power. It sounds overpower, and it is, it's absolutely broken. But in a fun way.
 
 As an aside, I feel like I need to go through my book now and rename my MC to start with J. Jake, Jason, Joe, Jaxon, apparently 'J' is all the rage.
 
 Anyway, theres a bit of world building, some elves show up to help Jake out, he learns about the cards, how they're used for trade, how he upgrade them, combine them, et cetera. I liked it, it was a nice change of pace from the stock standard attribute-point system in most LitRPGs, and also different from the normal cultivation and spiritual core system in the wuxia and xianxia novels I read.
 
-Things go well, Jake makes friends, he is super OP because has so many cards. Why other people aren't just as overpowered isn't properly explained, which is unfortunate. 
+Things go well, Jake makes friends, he is super OP because has so many cards. Why other people aren't just as overpowered isn't properly explained, which is unfortunate.
 
 All of this, though, is just one act, and then we jump into act two and things *change* a lot. The pacing changes, the system and powers change, and while its fun to see Jake grow so much, initially I was worried that we'd never make it back to the card-nature and friends from act one. Don't worry though - it all ties back together, it just takes a while, and it does include Jake having to grow emotionally and mentally, which is always great to find.
 
 
 You can definitely tell Mathews is a discovery writer by how many expected twists, turns, side adventures, and changes happen throughout the three books. This constant changing is a double-edged sword, I think. While it keeps the pacing up and constantly adds new things to keep me turning pages, it often means that secondary characters don't get to develop as much as they would in a story that had a tighter plot and focus on teamwork instead of Mathews preferred solo-MC style.
 
-With the introduction of new powers, new systems, new ways to fight and grow, I will admit that at almost no point in the story apart from act one was I able to pin Jake's power level. Many times I'd think he'd become completely OP, only to discover, for some reason or another, that the enemy or people around Jake were actually stronger, or could nullify his power, or something else. 
+With the introduction of new powers, new systems, new ways to fight and grow, I will admit that at almost no point in the story apart from act one was I able to pin Jake's power level. Many times I'd think he'd become completely OP, only to discover, for some reason or another, that the enemy or people around Jake were actually stronger, or could nullify his power, or something else.
 
 For a single example of this with some faint mechanic spoilers: Jake initially picks up a few physical enhancement cards, like Strength, Speed, Toughness, etc. He doesn't merge these cards together or even consider it, but individually they provide a big boost to his physical abilities. Then in act two he finds out that by using the energy of the world directly instead of via cards, he can enhance himself much more, and the cards are actually getting in the way. So he unequips those cards and finds himself much stronger. But then... in the next book, this rule seems to vanish and he instead takes some physical cards, merges them into a generic physical enhancement passive card, and equips it. It's still all fun to read and watch him grow stronger via these different methods, it can sometimes just be really confusing to follow why certain actions are taken.
 

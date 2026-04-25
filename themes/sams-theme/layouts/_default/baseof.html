@@ -14,10 +14,10 @@
         {{ block "main" . }} {{ end }}
     </div>
 
-    {{ partial "footer.html" . }}    
+    {{ partial "footer.html" . }}
 
     {{ if not hugo.IsServer }}
-      {{ with .Site.Params.analytics }} 
+      {{ with .Site.Params.analytics }}
         {{ partial "analytics.html" . }}
       {{ end }}
     {{ end }}

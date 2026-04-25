@@ -20,7 +20,7 @@ sentence: "Meetreadbare. He is twelve inches tall, full of fluff, and really, re
 
 I will admit to some skepticism when I read the original premise - the main character is a stuffed bear.
 
-But, in a fit of whimsy, I thought I'd give it a shot. 
+But, in a fit of whimsy, I thought I'd give it a shot.
 
 This was, as it turns out, a wonderful decision.
 
@@ -30,6 +30,6 @@ For the first book, I would rate it a definite **A**, for seeing Threadbare grow
 
 The series slows a bit in the last book, where the focus shifts too far away from our adorable teddy bear of destruction, focusing on giving more screen time and development to a larger cast of secondary characters. There is some very interesting golemisation that goes on and I wish was explored further, but instead, the camera zooms out to try and give time to the wider political issues that encapsulate the country as a whole. However I never properly invested in those issues and wished that the perspective would just switch back to Threadbare and whatever insane thing he was going to try next in his ignorance of how the world works.
 
-This was a very fun read, with an opening that worked to wonderfully draw me in almost immediately. 
+This was a very fun read, with an opening that worked to wonderfully draw me in almost immediately.
 
 Please give this book a read.

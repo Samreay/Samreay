@@ -12,10 +12,10 @@ In November 2016, Lisa Randall gave an Australian tour in the big cities. As nor
 events, they had a local scientist give an introductory talk to warm up the audience.
 
 I decided to give a brief talk about the current state of physics, and gave a brief
-explanation of the physics behind the Hubble Space Telescope, the Large Hadron Collider, 
+explanation of the physics behind the Hubble Space Telescope, the Large Hadron Collider,
 eLISA, LIGO and a few other great experiments.
 
-Unfortunately I was unable to get the recording for the event, so all I have 
+Unfortunately I was unable to get the recording for the event, so all I have
 to show for it is the original promotional image I was given to promote the event!
 
 ![](lisa.jpg)

@@ -18,7 +18,7 @@ sentence: "Hugh of Emblin is, so far as he's concerned, the worst student that t
 
 *This review focuses on first volume. As of writing I have finished the series, but won't spoiler anything, don't worry.*
 
-Hugh of Emblin is both a horrific and talented student at Skyhold Academy. 
+Hugh of Emblin is both a horrific and talented student at Skyhold Academy.
 
 He is anxious, I'm pretty sure he is depressed, and ultimately he is just not vibing about the state of the world and his own abilities.
 

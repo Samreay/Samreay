@@ -12,7 +12,7 @@ Rejection sampling is the conceptually simplest way to generate samples of some 
 
 Let's pick a super simple example: let's say you want to sample from the function
 
-$$ f(x) = 1.2 - x^4 $$ 
+$$ f(x) = 1.2 - x^4 $$
 
 between 0 and 1. It just happens this does integrate to 1, what luck! Let's visualise this function very quickly:
 
@@ -30,7 +30,7 @@ def f(x):
 xs = np.linspace(0, 1, 1000)
 ys = f(xs)
 
-plt.plot(xs, ys, label="Function") 
+plt.plot(xs, ys, label="Function")
 plt.fill_between(xs, ys, 0, alpha=0.2)
 plt.xlim(0, 1), plt.ylim(0, 1.25), plt.xlabel("x"), plt.ylabel("y"), plt.legend();
 ```
@@ -39,9 +39,9 @@ plt.xlim(0, 1), plt.ylim(0, 1.25), plt.xlabel("x"), plt.ylabel("y"), plt.legend(
 
 
 
-    
+
 ![png](2020-06-16-Rejection_Sampling_files/2020-06-16-Rejection_Sampling_1_0.png)
-    
+
 
 
 We can see the function we care about goes from 0 to 1 in the x-axis, and 0 to 1.2 in the y-axis. So to sample from it using rejection sampling is simple:
@@ -98,9 +98,9 @@ plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("y"), plt.legend()
 
 
 
-    
+
 ![png](2020-06-16-Rejection_Sampling_files/2020-06-16-Rejection_Sampling_7_0.png)
-    
+
 
 
 Hurray, a working algorithm! Of course, this is incredibly slow, because we're asking for things one at a time. Let's improve that slowly and do batches of 1000 proposals at once.
@@ -129,9 +129,9 @@ plt.xlim(0, 1), plt.ylim(0, 1.4), plt.xlabel("x"), plt.ylabel("f(x)"), plt.legen
 
 
 
-    
+
 ![png](2020-06-16-Rejection_Sampling_files/2020-06-16-Rejection_Sampling_9_0.png)
-    
+
 
 
 Whats the speed difference you ask?
@@ -194,9 +194,9 @@ plt.xlabel("x"), plt.ylabel("f(x)");
 
 
 
-    
+
 ![png](2020-06-16-Rejection_Sampling_files/2020-06-16-Rejection_Sampling_15_0.png)
-    
+
 
 
 Theres an awful lot of white space on that plot. Let's modify our batch sample function to just do a certain number of samples, but return whether they passed or failed.
@@ -229,9 +229,9 @@ print(f"Efficiency is only {passed.mean() * 100:0.1f}%")
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -254,7 +254,7 @@ def f(x):
 xs = np.linspace(0, 1, 1000)
 ys = f(xs)
 
-plt.plot(xs, ys, label="Function") 
+plt.plot(xs, ys, label="Function")
 plt.fill_between(xs, ys, 0, alpha=0.2)
 plt.xlim(0, 1), plt.ylim(0, 1.25), plt.xlabel("x"), plt.ylabel("y"), plt.legend();
 def sample(function, xmin=0, xmax=1, ymax=1.2):

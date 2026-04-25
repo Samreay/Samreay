@@ -44,7 +44,7 @@ Koji is... complex. The author's clearly written him with unexplored trauma in h
 
 > "Have you ever played any MMORPGS Ko-Koji? Or maybe you’re more of a basement dwelling D&D player?” Jake asked while his eyes continued to run over the obviously new pair of boots, the still clean white gloves, and the bulging gray backpack.
 
-Some may like these easy-to-absorb stereotypes, while others may prefer some more subtlety. 
+Some may like these easy-to-absorb stereotypes, while others may prefer some more subtlety.
 
 **Be warned stop reading now if you don't want some spoilers. These are fight spoilers, not plot spoilers.**
 
@@ -57,7 +57,7 @@ And for some more context, I am a min-maxer gamer at heart. I optimise *everythi
 *Traveller's Trials* is very much not this. Koji is, from a min-maxer or analytical perspective, stupid. But he has a really high luck stat, and what that ends up meaning is that, regardless of what Koji does or how he approaches anything, he comes out ahead of everyone else. For me, I prefer books where if the MC is stupid, they get punished and they have to learn from it. I bring three small examples:
 
 1. Koji is presented a book explaining the tutorial and how everything works, but doesn't bother to read it. When a goddess replaces the book to try and give him potentially life-saving information, he kicks her out of his mental home. For this rudeness, the goddess just waits and eventually helps him out, instead of Koji suffering for it.
-   
+
 2. Koji's luck grants him a huge amount of OP spells. And yet his battle tactics are, to quote:
 
 > With a panicked thought about what would happen if he passed out in the den of monsters, Koji flailed his hand through the screen before him. He triggered multiple spell effects as the world shuddered and went black.
@@ -69,7 +69,7 @@ One time after doing this, his spells interact with the environment and cause a 
 I was so happy, thinking "Now you're going to have to learn to not just button spam." But when Koji came too, luck had it that he was fine and had killed all the monsters in the explosion. The consequences for his stupid "teleport in and press every button strategy" vanished, and instead Koji is rewarded with numerous rare and epic skill books.
 
 3. Koji's summoned home has a magical training room he flat out doesn't use until right at the end of the book when a min-maxer *would* have been grinding that bad boy for experience.
-   
+
 4. **Bigger spoiler alert**. The final part of the tutorial was a "Every monster you've killed comes back to life and now you have to defeat them all" type deal. I was keen to see how Koji would face all these monsters at once... but *lucky* for Koji, he had just picked up a spell that effectively deleted everything from existence around him. One spell later and everything was dead. Koji wins again... not by outsmarting his opponent, or by outlasting them, or going through gruelling trials, but by simply pressing a button in his spell interface.
 
 

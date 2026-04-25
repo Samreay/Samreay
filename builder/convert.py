@@ -175,15 +175,15 @@ def add_classes(lines: list[str]) -> list[str]:
     logger.debug("\tAdding classes to images blocks")
 
     current_classes = ""
-    lines = lines[::-1]
-    for i, line in enumerate(lines):
+    lines2 = lines[::-1]
+    for i, line in enumerate(lines2):
         if "!!!" in line:
             current_classes = line.replace("!", "").strip().replace(" ", ",")
-            lines[i] = ""
+            lines2[i] = ""
         if current_classes and line.startswith("!["):
-            lines[i] = line[:-1] + f'?class="{current_classes}")'
+            lines2[i] = line[:-1] + f'?class="{current_classes}")'
             current_classes = ""
-    return lines[::-1]
+    return lines2[::-1]
 
 
 def add_thumbnail(lines: list[str], file_path: Path) -> list[str]:

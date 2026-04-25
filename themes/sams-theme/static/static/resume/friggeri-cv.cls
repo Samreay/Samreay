@@ -73,7 +73,7 @@
 \setmathfont{latinmodern-math.otf}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Open Sans Light}
 
-\renewcommand{\baselinestretch}{1.2} 
+\renewcommand{\baselinestretch}{1.2}
 
 %\setmathfont{XITS Math}
 
@@ -184,8 +184,8 @@
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   }\\}
-  
-  
+
+
 %%%%%%%%%%%%%%%%%%%%
 % List environment %
 %%%%%%%%%%%%%%%%%%%%
@@ -215,10 +215,10 @@
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}%
   }\\}
-  
-  
-  
-  
+
+
+
+
   %%%%%%%%%%%%%%%%%%%
 % SMALL %
 %%%%%%%%%%%%%%%%%%%%

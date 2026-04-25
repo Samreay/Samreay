@@ -17,7 +17,7 @@ If you want a TL;DR - I recommend trying out `loky` for single machine tasks, ch
 <div class="reduced-code width-46" markdown=1>
 
 ```python
-# Loky, great for single machine parallelism 
+# Loky, great for single machine parallelism
 from loky import get_reusable_executor
 executor = get_reusable_executor()
 results = list(executor.map(fn, jobs))
@@ -114,9 +114,9 @@ results = list(executor.map(slow_fn, jobs, chunksize=16));
 </div>
 
 
-This ran in `6.31s` on my machine, the fastest yet. 
+This ran in `6.31s` on my machine, the fastest yet.
 
-Loky has the benefit of distributing work by pickling the code you are trying to run and the arguments (using `cloudpickle`). This means it is much more flexible, and this method **will** run inside a Jupter notebook. Hell, it should run just about anywhere. 
+Loky has the benefit of distributing work by pickling the code you are trying to run and the arguments (using `cloudpickle`). This means it is much more flexible, and this method **will** run inside a Jupter notebook. Hell, it should run just about anywhere.
 
 The benefit you get from this freedom might start to be outweighed by the fact you are adding overhead (serialising the code) to your workload, but often this can be kept to a bare minimum. And in our case, the overhead of pickling the code was less than the overhead of the process setup used by the inbuilt `concurrent.futures` module, so we ran things faster.
 
@@ -178,7 +178,7 @@ ray.shutdown();
 
 ```
 
-Because this is also shipping your code elsewhere, it should run no issues in a Jupyter Notebook. Not that you'd normally want to do that, generally you'd put the ray server on a compute node somewhere, and then just connect to it, farming your jobs out. 
+Because this is also shipping your code elsewhere, it should run no issues in a Jupyter Notebook. Not that you'd normally want to do that, generally you'd put the ray server on a compute node somewhere, and then just connect to it, farming your jobs out.
 
 Anyway, the principle is straightforward. I set up a server, tell it that a specific function should be executed remotely (which in this case, is still my machine, but using all my cores now), and then send it off.
 
@@ -227,7 +227,7 @@ results = p_map(slow_fn, jobs);
 
 ```
 
-    100%|██████████| 512/512 [00:05<00:00, 96.89it/s] 
+    100%|██████████| 512/512 [00:05<00:00, 96.89it/s]
 
 
 I was surprised this ran faster than both `concurrent.futures` and `loky`, it came in at only `5.38s`. And you even get a progress bar so that you know things are still running and progressing smoothly. Obviously in my case, I don't really need it, but if you have a job which will take 10 hours to run, it would be great to know that its slowly chewing through the tasks and not actually hanging.
@@ -344,7 +344,7 @@ Anyway, hope this short example on how to use a bunch of different multiprocessi
 For your convenience, here's the code in one block:
 
 ```python
-# Loky, great for single machine parallelism 
+# Loky, great for single machine parallelism
 from loky import get_reusable_executor
 executor = get_reusable_executor()
 results = list(executor.map(fn, jobs))

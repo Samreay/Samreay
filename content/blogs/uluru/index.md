@@ -17,9 +17,9 @@ take your own pictures of the night sky makes it a great experience.
 ![](uluru.jpg)
 
 
-I was an emergency replacement, hence why I went for one week and not 
+I was an emergency replacement, hence why I went for one week and not
 two, however one week was plenty of time to settle into a comfortable
-routine focused on public outreach. I managed to get a couple of 
+routine focused on public outreach. I managed to get a couple of
 nice shots of the Milky Way and the Southern Cross.
 
 ![](aanteres.jpg)
@@ -28,7 +28,7 @@ nice shots of the Milky Way and the Southern Cross.
 
 Then one night it clouded over and the astro tour was cancelled,
 which meant I was put to the Field of Light tour to answer
-any possible questions. But the clouds stifled any questions, 
+any possible questions. But the clouds stifled any questions,
 and so I got to simply wander. Which was nice.
 
 ![](lights.jpg)

@@ -21,11 +21,11 @@ Many progression fantasy series start with a similar pattern. An unfortunate, do
 
 
 
-*Bastion* opens similarly, and I was preparing myself for a bit of 'more of the same'. When the Chancellor starts explaining a points system for Academic progression through the Gauntlet (aka dungeon / spire / magical testing realm) a spark of worry lit inside me. And then, as if Phil was watching my very expression, the author laughs, picks up the main character, Scorio, and tosses him literally out the door and into hell. 
+*Bastion* opens similarly, and I was preparing myself for a bit of 'more of the same'. When the Chancellor starts explaining a points system for Academic progression through the Gauntlet (aka dungeon / spire / magical testing realm) a spark of worry lit inside me. And then, as if Phil was watching my very expression, the author laughs, picks up the main character, Scorio, and tosses him literally out the door and into hell.
 
 
 
-Make no mistake, point systems can work. Lindon as Points-sage, Corin Cadence and Zorian in their merticulous analytics. But it wouldn't fit the rash and impulsive Scorio, and rather than shoe-horn in a system which clashes with the characters the author ups the stakes. 
+Make no mistake, point systems can work. Lindon as Points-sage, Corin Cadence and Zorian in their merticulous analytics. But it wouldn't fit the rash and impulsive Scorio, and rather than shoe-horn in a system which clashes with the characters the author ups the stakes.
 
 
 
@@ -49,7 +49,7 @@ It is massive. Huge. 800 pages of firey goodness.
 
 
 
-I was a bit surprised that the work wasn't split into two, there's a large conflict, resolution, and arc change perfectly in the center of book, but hey, I'm not complaining that I get to read twice as much great content. Thanks for that Phil, I appreciate it... even if now I chastise myself that my books aren't long enough. Size isn't everything. 
+I was a bit surprised that the work wasn't split into two, there's a large conflict, resolution, and arc change perfectly in the center of book, but hey, I'm not complaining that I get to read twice as much great content. Thanks for that Phil, I appreciate it... even if now I chastise myself that my books aren't long enough. Size isn't everything.
 
 
 
@@ -57,6 +57,6 @@ This has both size and quality.
 
 
 
-I'm waffling. If you like high stakes, gritty determination, and an amazing setup for what is no doubt going to be a hugely popular series, scroll up, click on one of those buttons, and get reading. If you don't like the book, I'll eat a Black Star plant, toxins and all. 
+I'm waffling. If you like high stakes, gritty determination, and an amazing setup for what is no doubt going to be a hugely popular series, scroll up, click on one of those buttons, and get reading. If you don't like the book, I'll eat a Black Star plant, toxins and all.
 
 

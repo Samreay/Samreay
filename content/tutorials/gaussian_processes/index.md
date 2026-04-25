@@ -48,9 +48,9 @@ plt.legend();
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_1_0.png)
-    
+
 
 
 Okay, so the idea here is that we are going to try and find some way of interpolating between the points we have (the samples), such that we can try and recover the underlying function in some way at least, but to do it in a way that **has** uncertainty on it.
@@ -82,9 +82,9 @@ plt.legend(ncol=3);
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_3_0.png)
-    
+
 
 
 Well, obviously linear isn't a good fit. Quadratic and cubic dont look too bad, but there's no uncertainty on our interpolated values, so its hard for us to know how good (accurate) our interpolation is at any point along the x-axis.
@@ -102,7 +102,7 @@ I digress, here's a covariance matrix which has values that decay as you move aw
 ```python
 import seaborn as sb
 
-def get_cov(size=20, length=50):    
+def get_cov(size=20, length=50):
     x = np.arange(size)
     cov = np.exp(-(1 / length) * (x - np.atleast_2d(x).T)**2)
     return cov
@@ -121,9 +121,9 @@ sb.heatmap(cov, ax=axes[1], square=True);
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_5_0.png)
-    
+
 
 
 To try and illustrate what covariance does, we can actually use `scipy` to generate data *according* to that covariance matrix. By tweaking the `length` argument, you can see that the longer the correlation length, the smoother the generated data trend becomes:
@@ -146,9 +146,9 @@ plt.legend(ncol=2);
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_7_0.png)
-    
+
 
 
 The take away from this is simply that increasing correlation length means you can generate smooth transitions rather than jagged, uncorrelated data. This correlation length is one of the pieces of the puzzle when creating a Gaussian process.
@@ -185,14 +185,14 @@ plt.legend();
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_9_0.png)
-    
+
 
 
 What we've done is effectively interpolated between these two points using some covariance matrix, and that covariance matrix has allowed us to produce not just the interpolation, but an uncertainty on it as well (shown by the mean and std above). The small black lines are showing independent "realisations" of the random draws, the ensemble of which determine the mean and standard deviation of our output prediction.
 
-The keen eyed among you will have seen some form of problem - we have 20 points in the x-axis here, and our covariance matrix we generated before is a 20x20 matrix. There are infinite real numbers between 0 and 20, so how on earth will we construct an infinite matrix to do this in practise? This is in fact entirely what the "non-parametric" part of Gaussian Processes refers to. Not that there are no parameters, but that there are an infinite/arbitrary number of them. 
+The keen eyed among you will have seen some form of problem - we have 20 points in the x-axis here, and our covariance matrix we generated before is a 20x20 matrix. There are infinite real numbers between 0 and 20, so how on earth will we construct an infinite matrix to do this in practise? This is in fact entirely what the "non-parametric" part of Gaussian Processes refers to. Not that there are no parameters, but that there are an infinite/arbitrary number of them.
 
 To try and hammer this part home, by drawing over and over we can come up with some mean prediction and some standard deviation on it. This is dependent on our choice for covariance. The covariance we have used has only one parameter, its length scale. The larger $l$ gets the smoother and less changing the predictions become. This number that we 'pick' is a model parameter - it's something we fit when creating a real GP.
 
@@ -221,9 +221,9 @@ plt.legend();
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_12_0.png)
-    
+
 
 
 And now to utilise the Gaussian process from sklearn. Let's make 3 different models.
@@ -236,10 +236,10 @@ And now to utilise the Gaussian process from sklearn. Let's make 3 different mod
 from sklearn.gaussian_process import GaussianProcessRegressor
 import sklearn.gaussian_process.kernels as k
 # Note I am NOT training these models. You can see in the bounds
-# I am forcing them to have specific lengths. Normally, they would 
+# I am forcing them to have specific lengths. Normally, they would
 # fit to your data
 kernels = [
-    k.RBF(length_scale=1.0, length_scale_bounds=(1.0, 1.01)), 
+    k.RBF(length_scale=1.0, length_scale_bounds=(1.0, 1.01)),
     k.RBF(length_scale=2.0, length_scale_bounds=(2.0, 2.01)),
     k.RBF(length_scale=20.0, length_scale_bounds=(20.0, 20.01)),
 ]
@@ -252,7 +252,7 @@ for kernel, ax in zip(kernels, axes):
     # Fit the GP, which doesnt do much as we fixed the length_scale
     gp = GaussianProcessRegressor(kernel=kernel)
     gp.fit(np.atleast_2d(xs).T, ys)
-    
+
     # The 2D and [:, None] stuff is because the object expects 2D data in, not 1D
     y_mean, y_std = gp.predict(x_fine[:, None], return_std=True)
 
@@ -267,9 +267,9 @@ for kernel, ax in zip(kernels, axes):
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_14_0.png)
-    
+
 
 
 You can see on the left we have a model where the length scale is too small - our uncertainty is huge between points. On the right the length scale is so large its pulling even the known data points away from where they belond (as the length scale gets larger, the line would start to flatten out and look like the mean of all data points). But the middle looks pretty good.
@@ -301,9 +301,9 @@ ax.set_title(f"RBF, length_scale={gp.kernel_.length_scale:0.3f}");
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_16_0.png)
-    
+
 
 
 But this is only talking about how to train model parameters. There are a ton of different kernels you can pick from, and thats the actual hard task. If you use deep gaussian processes they can do that for you too, but thats well beyond this write up.
@@ -316,7 +316,7 @@ Because kernels are really just functions, you can do multiple them, add them, c
 
 ```python
 kernels = [
-    k.ConstantKernel() * k.RBF(), 
+    k.ConstantKernel() * k.RBF(),
     k.ExpSineSquared(periodicity=10),
     k.ConstantKernel() * k.RationalQuadratic() + k.RBF()
 ]
@@ -327,7 +327,7 @@ fig.subplots_adjust(wspace=0, hspace=0)
 for kernel, ax in zip(kernels, axes):
     gp = GaussianProcessRegressor(kernel=kernel)
     gp.fit(np.atleast_2d(xs).T, ys)
-    
+
     y_mean, y_std = gp.predict(x_fine[:, None], return_std=True)
 
     ax.scatter(xs, ys, s=30, label="Samples", zorder=20)
@@ -341,9 +341,9 @@ for kernel, ax in zip(kernels, axes):
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_18_0.png)
-    
+
 
 
 As you can see, picking the different kernels will have a huge impact on your fits. Its important to use some domain knowledge to help you pick. Looking at weather patterns over multiple years? Maybe a periodic kernel with a yearly frequency would be good to include, with a Constant * RBF added on to add some flexibility on short timescales? We now enter the domain of art.
@@ -375,9 +375,9 @@ plt.legend(ncol=4, fontsize=12);
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -410,9 +410,9 @@ plt.legend(ncol=4, fontsize=12);
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_23_0.png)
-    
+
 
 
 We can add this uncertainty on the y-axis in incredibly easily - we just pass it in when we create the Gaussian Process.
@@ -440,12 +440,12 @@ plt.ylim(3.35, 5.5), plt.legend(ncol=4, fontsize=12);
 
 
 
-    
+
 ![png](2020-09-10-Gaussian_Processes_files/2020-09-10-Gaussian_Processes_25_0.png)
-    
 
 
-# Summary 
+
+# Summary
 
 If you've reach this point and actually gone through all the code and writing, congratulations! Probably my longest write up yet, but if you've made it here, hopefully Gaussian Processes, kernels and covariance are all more comfortable terms than when you started.
 
@@ -486,7 +486,7 @@ plt.plot(x_fine, y_cubic, label="Cubic")
 plt.legend(ncol=3);
 import seaborn as sb
 
-def get_cov(size=20, length=50):    
+def get_cov(size=20, length=50):
     x = np.arange(size)
     cov = np.exp(-(1 / length) * (x - np.atleast_2d(x).T)**2)
     return cov
@@ -532,10 +532,10 @@ plt.legend();
 from sklearn.gaussian_process import GaussianProcessRegressor
 import sklearn.gaussian_process.kernels as k
 # Note I am NOT training these models. You can see in the bounds
-# I am forcing them to have specific lengths. Normally, they would 
+# I am forcing them to have specific lengths. Normally, they would
 # fit to your data
 kernels = [
-    k.RBF(length_scale=1.0, length_scale_bounds=(1.0, 1.01)), 
+    k.RBF(length_scale=1.0, length_scale_bounds=(1.0, 1.01)),
     k.RBF(length_scale=2.0, length_scale_bounds=(2.0, 2.01)),
     k.RBF(length_scale=20.0, length_scale_bounds=(20.0, 20.01)),
 ]
@@ -548,7 +548,7 @@ for kernel, ax in zip(kernels, axes):
     # Fit the GP, which doesnt do much as we fixed the length_scale
     gp = GaussianProcessRegressor(kernel=kernel)
     gp.fit(np.atleast_2d(xs).T, ys)
-    
+
     # The 2D and [:, None] stuff is because the object expects 2D data in, not 1D
     y_mean, y_std = gp.predict(x_fine[:, None], return_std=True)
 
@@ -572,7 +572,7 @@ ax.fill_between(x_fine, y_mean + 2 * y_std, y_mean - 2 * y_std, alpha=0.3)
 ax.set_title(f"RBF, length_scale={gp.kernel_.length_scale:0.3f}");
 # Note that the fitted kernel is inside the GP, the original kernel won't be modified.
 kernels = [
-    k.ConstantKernel() * k.RBF(), 
+    k.ConstantKernel() * k.RBF(),
     k.ExpSineSquared(periodicity=10),
     k.ConstantKernel() * k.RationalQuadratic() + k.RBF()
 ]
@@ -583,7 +583,7 @@ fig.subplots_adjust(wspace=0, hspace=0)
 for kernel, ax in zip(kernels, axes):
     gp = GaussianProcessRegressor(kernel=kernel)
     gp.fit(np.atleast_2d(xs).T, ys)
-    
+
     y_mean, y_std = gp.predict(x_fine[:, None], return_std=True)
 
     ax.scatter(xs, ys, s=30, label="Samples", zorder=20)

@@ -19,17 +19,17 @@ sentence: "Randidly wakes up to a new Earth, with Levels, Skills, monsters, and 
 
 *Note: I've read the Amazon Book One, and then Royal Road chapters up to around Chapter 300 (ie many books worth). This review uses all of the content I've read, but I'll make sure to separate book vs royal road if you're thinking of buying. Actually, scrap that, just buy the first book, its great, and then continue on RR if you want.*
 
-So let's begin with the basic premise. Earth is taken over by the System, and it becomes an effective post-apocalypse LitRPG adventure, which is fairly normal for the genre. Our MC, Randidly, has the bad (but good) luck of being randomly teleported into a dungeon when the System takes over. It's a high level dungeon, and you can't earn class levels in a dungeon (but you *can* earn skill levels), and he is a scrub. 
+So let's begin with the basic premise. Earth is taken over by the System, and it becomes an effective post-apocalypse LitRPG adventure, which is fairly normal for the genre. Our MC, Randidly, has the bad (but good) luck of being randomly teleported into a dungeon when the System takes over. It's a high level dungeon, and you can't earn class levels in a dungeon (but you *can* earn skill levels), and he is a scrub.
 
-So, lets of tension, lots of fighting to survive, and lots of experimenting with the system (like discovering Farming as a skill) right out of the gate. I loved it. 
+So, lets of tension, lots of fighting to survive, and lots of experimenting with the system (like discovering Farming as a skill) right out of the gate. I loved it.
 
 Without spoiling how things happen, our MC escapes the dungeon after months and months, only to find that its only be hours since the System took over (hello 1000x time dilation mechanic). The central exploit / gimmick of the series is that once people gain a class so they can level up (which has good attribute and stat benefits), they have a limited number of skills they can learn. Without a class, Randidly can learn as many skills as he wants, but can't level up properly. So, will he grind skills forever, or wait to find the perfect class?
 
 The skill focus is a major strength of the series, as it allows Randidly to explore many, many avenues of creative problem solving in his life and the many fights he gets into. This is the joy of the series---digging into those fun skills and how they all work.
 
-It is also where things start to go off the rails eventually. I'll circle back to this in a tick. 
+It is also where things start to go off the rails eventually. I'll circle back to this in a tick.
 
-Character wise, we have Randidly, but then also a bunch of other secondary characters. These don't get much development, and the number of secondary characters continues to expand and expand as the series goes on, which gets in the way of feeling a proper connections to any of them. 
+Character wise, we have Randidly, but then also a bunch of other secondary characters. These don't get much development, and the number of secondary characters continues to expand and expand as the series goes on, which gets in the way of feeling a proper connections to any of them.
 
 As an aside, some of the characters infuriate me (in the bad way). After the apocalypse, Randidly is about to form a village, but the declines the Village Chief role. An arrogant and annoying teen runs up and makes himself Village Chief (a System role, not just words), and then refuses to give people classes unless they work under him and call him a boss. Despite the human race being in peril and how tense everything is, every character sort of shrugs and goes "yeah alright, we'll let this dumbass teenager steal the position of Village Chief, who cares." How am I supposed to feel tension about the state of humanity when the characters clearly don't care either?
 

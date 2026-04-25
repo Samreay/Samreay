@@ -45,9 +45,9 @@ plt.xlabel("x"), plt.legend();
 
 
 
-    
+
 ![png](2020-06-21-Monte_Carlo_Integration_files/2020-06-21-Monte_Carlo_Integration_1_0.png)
-    
+
 
 
 Great, so how would we use Monte-Carlo integration to get another esimtate?
@@ -72,9 +72,9 @@ plt.xlabel("x"), plt.legend();
 
 
 
-    
+
 ![png](2020-06-21-Monte_Carlo_Integration_files/2020-06-21-Monte_Carlo_Integration_3_0.png)
-    
+
 
 
 Alright, so let's dig into this a bit:
@@ -87,7 +87,7 @@ Lets start with \#1: **How does this work?**
 
 Monte-Carlo integration is all about that [Law of Large Numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers). To summarise the Wiki page, the LLN states that if you do an experiment over and over, the average of your experiment should converge to the expected value. Our experiment here is "sampling the function (uniformly)", so the LLN says if we keep sampling it, the average result should converge to the mean of the function. This should be intuitive - if you roll a fair 6-sided die a lot and take an average, you'd expect that you'd get around the same amount of each number, which would give you an average of 3.5.
 
-Let's merge in **What is `width`** now. If we have the average of a function over some arbitrary $x$-domain, to get the area we need to factor in how big that $x$-domain is. We are essentially finding the area of a rectangle `width` wide, with an average height given by our samples. 
+Let's merge in **What is `width`** now. If we have the average of a function over some arbitrary $x$-domain, to get the area we need to factor in how big that $x$-domain is. We are essentially finding the area of a rectangle `width` wide, with an average height given by our samples.
 
 If we want to be more formal about this, what we are doing is combining both our original function
 
@@ -95,7 +95,7 @@ $$ f(x) = \sin(x), $$
 
 and the probability density function that describes how we draw our samples. In our case, this function is - in English - uniformly between $0$ and $1.5\pi$, and in mathematics:
 
-$$p(x) = 
+$$p(x) =
     \begin{cases}
       \frac{1}{1.5\pi}, & \text{if}\ 0 < x < 1.5\pi \\
       0, & \text{otherwise}
@@ -135,9 +135,9 @@ plt.xlabel("x"), plt.legend();
 
 
 
-    
+
 ![png](2020-06-21-Monte_Carlo_Integration_files/2020-06-21-Monte_Carlo_Integration_5_0.png)
-    
+
 
 
 Of course, Simpsons' rule has error too, let's not forget that!
@@ -179,7 +179,7 @@ plt.plot(xs, ys, label="Function", lw=3)
 plt.fill_between(xs, 0, ys, alpha=0.1)
 plt.text(-4.8, 0.5, f"MC Area={area_2:0.2f}±{error_2:0.2f}", fontsize=12)
 plt.text(-4.8, 0.43, f"Simps Area={area_simps:0.2f}", fontsize=12)
-plt.plot((samples_2, samples_2), ([0 for i in samples_2], [fn2(i) for i in samples_2]), 
+plt.plot((samples_2, samples_2), ([0 for i in samples_2], [fn2(i) for i in samples_2]),
          c='#1c93e8', lw=0.2, ls='-', zorder=-1, alpha=0.5)
 plt.xlabel("x"), plt.legend();
 ```
@@ -188,9 +188,9 @@ plt.xlabel("x"), plt.legend();
 
 
 
-    
+
 ![png](cover.png?class="img-main")
-    
+
 
 
 
@@ -221,9 +221,9 @@ plt.legend(); plt.xlabel("x");
 
 
 
-    
+
 ![png](2020-06-21-Monte_Carlo_Integration_files/2020-06-21-Monte_Carlo_Integration_9_0.png)
-    
+
 
 
 That's fine! We can still use that normal distribution from before, we just add it into the equation. Normally, your function will not be nice and analytic like the one we've tried to use, so we can state in general:
@@ -259,7 +259,7 @@ plt.plot(xs, ys, label="Function", lw=3)
 plt.fill_between(xs, 0, ys, alpha=0.1)
 plt.text(-4.8, 0.5, f"MC Area={area:0.2f}±{error:0.2f}", fontsize=12)
 plt.text(-4.8, 0.43, f"Simps Area={area_simps:0.2f}", fontsize=12)
-plt.plot((x_samp, x_samp), ([0 for i in x_samp], [fn3(i) for i in x_samp]), 
+plt.plot((x_samp, x_samp), ([0 for i in x_samp], [fn3(i) for i in x_samp]),
          c='#e89a1c', lw=0.2, ls='-', zorder=-1, alpha=0.3)
 plt.xlabel("x"), plt.legend();
 ```
@@ -268,9 +268,9 @@ plt.xlabel("x"), plt.legend();
 
 
 
-    
+
 ![png](2020-06-21-Monte_Carlo_Integration_files/2020-06-21-Monte_Carlo_Integration_12_0.png)
-    
+
 
 
 So hopefully you can see how this would be useful. To summarise, the general process for Monte-Carlo integration is:
@@ -282,7 +282,7 @@ So hopefully you can see how this would be useful. To summarise, the general pro
 5. Take the mean for the estimate, and the standard deviation / root(N) for the error.
 6. Celebrate
 
-Finally, obviously I've kept the examples here to 1D for simplicity, but I really should stress that MC integration shines in higher dimensions. If you have a 10 dimensional function that looks roughly Gaussian (like a normal), you can sample from a 10 dimensional normal, and apply all the same steps above, nothing at all changes. 
+Finally, obviously I've kept the examples here to 1D for simplicity, but I really should stress that MC integration shines in higher dimensions. If you have a 10 dimensional function that looks roughly Gaussian (like a normal), you can sample from a 10 dimensional normal, and apply all the same steps above, nothing at all changes.
 
 ******
 
@@ -338,7 +338,7 @@ plt.plot(xs, ys, label="Function", lw=3)
 plt.fill_between(xs, 0, ys, alpha=0.1)
 plt.text(-4.8, 0.5, f"MC Area={area_2:0.2f}±{error_2:0.2f}", fontsize=12)
 plt.text(-4.8, 0.43, f"Simps Area={area_simps:0.2f}", fontsize=12)
-plt.plot((samples_2, samples_2), ([0 for i in samples_2], [fn2(i) for i in samples_2]), 
+plt.plot((samples_2, samples_2), ([0 for i in samples_2], [fn2(i) for i in samples_2]),
          c='#1c93e8', lw=0.2, ls='-', zorder=-1, alpha=0.5)
 plt.xlabel("x"), plt.legend();
 def fn3(xs):
@@ -367,7 +367,7 @@ plt.plot(xs, ys, label="Function", lw=3)
 plt.fill_between(xs, 0, ys, alpha=0.1)
 plt.text(-4.8, 0.5, f"MC Area={area:0.2f}±{error:0.2f}", fontsize=12)
 plt.text(-4.8, 0.43, f"Simps Area={area_simps:0.2f}", fontsize=12)
-plt.plot((x_samp, x_samp), ([0 for i in x_samp], [fn3(i) for i in x_samp]), 
+plt.plot((x_samp, x_samp), ([0 for i in x_samp], [fn3(i) for i in x_samp]),
          c='#e89a1c', lw=0.2, ls='-', zorder=-1, alpha=0.3)
 plt.xlabel("x"), plt.legend();
 ```

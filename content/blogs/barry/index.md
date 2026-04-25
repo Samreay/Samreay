@@ -14,9 +14,9 @@ Lagranian perturbation theory, effective field theory, etc), and with different 
 for different physical effects, the phase space of viable BAO models is huge.
 
 And this poses a problem for those of us wanting to utilise BAO models. How do we effectively compare
-them and their performance on a robust set of numerical simulations? 
+them and their performance on a robust set of numerical simulations?
 
-To try and solve this problem, Cullan Howlett and I created Barry. The idea was fairly simple - we 
+To try and solve this problem, Cullan Howlett and I created Barry. The idea was fairly simple - we
 ingest a few datasets and create a few models to start with, and then people can customise the models and use the
 framework to do model comparison on arbitrary datasets in an efficient way.
 
@@ -44,7 +44,7 @@ And it turns out that the performance gain isn't due to their extractor, its jus
 freezing model parameters to initial best fit values.
 
 On top of that, when we looked at the distribution of fitting values for our 1000 simulation realisations, we also
-found that many previous models underestimated their uncertainty, and provide a way to inflate the reported uncertainty such that it agrees 
+found that many previous models underestimated their uncertainty, and provide a way to inflate the reported uncertainty such that it agrees
 with the determined model scatter.
 
 

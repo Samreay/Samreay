@@ -23,7 +23,7 @@ sentence: "Walter Tye will destroy death, even if he has to kill everyone first.
 
 The last member of an ancient order of necromancers, Walter Tye has a goal: to achieve immortality for all mortals beings and throw off the yoke of the gods deciding the fate of mortals' afterlife. Forced to flee from paladins and witch-hunters, he must hide his identity under the cover of a humble shopkeeper, selling potions to fund his research.
 
-His quiet life of deceit and research is finally shaken with the discovery of an ancient city below ground; one that may hold the gods' most forbidden secret. But beware of paladin blues... 
+His quiet life of deceit and research is finally shaken with the discovery of an ancient city below ground; one that may hold the gods' most forbidden secret. But beware of paladin blues...
 
 ## Thoughts
 
@@ -39,6 +39,6 @@ The characters in the story are well written and varied, and *all* of them have 
 
 I liked that.
 
-Most of the LitRPG stories I binge are very black and white, and that's great for a popcorn-style read. The nuance here was change of pace that I think I needed before jumping back into more straightforward narrative structures. 
+Most of the LitRPG stories I binge are very black and white, and that's great for a popcorn-style read. The nuance here was change of pace that I think I needed before jumping back into more straightforward narrative structures.
 
 To those who like fairly OP MCs, necromancers, and plots which have you questioning at what point a hero becomes a villain, I highly recommend this story.

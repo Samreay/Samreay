@@ -46,7 +46,7 @@ As a reader, I loved it, because it meant every chapter was packed to the brim w
 
 Honestly, there *so* much going on, if you love similar non-stop serials like DotF, Primal Hunter, etc, this takes it to an even higher level. Ilea's skills are probably closest to the vitality and regeneration approach found in [*Outcast in another World*](/reviews/outcast). But I like this a fair bit more.
 
-One flaw similar serials often have is scope, item, and skill creep. Remember how Randidly Ghosthound was all about his potion making, and then discovers engraving, and forgets about potions instantly? Or when a character has hundreds of skills but they only seem to use the same three over and over? Doesn't happen here, hurray! Ilea has two classes, and they have about ten skills each. Most of them are passive, which makes it even easier. In terms of active skills, it's kept simple, and I appreciate this. 
+One flaw similar serials often have is scope, item, and skill creep. Remember how Randidly Ghosthound was all about his potion making, and then discovers engraving, and forgets about potions instantly? Or when a character has hundreds of skills but they only seem to use the same three over and over? Doesn't happen here, hurray! Ilea has two classes, and they have about ten skills each. Most of them are passive, which makes it even easier. In terms of active skills, it's kept simple, and I appreciate this.
 
 Characters are well done, which can be a weakness for solo-focused MC stories, but this book has reoccuring and numerous secondary and background characters. Worldbuilding is solid, we travel to new places, see new things, and there are teases at the wider world, and the wider elven-driven conflict that will probably crop up a lot more down the road.
 

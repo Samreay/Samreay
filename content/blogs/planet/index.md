@@ -10,8 +10,8 @@ tags: [creative]
 
 I created this image using a ton of brushes, layers, stacking
 and [this texture](http://supersprayer.deviantart.com/art/Planet-Texture-150027894).
- 
- 
+
+
 
 ![](cover.jpg)
 

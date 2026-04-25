@@ -1,9 +1,10 @@
 import sys
 
 sys.path.append(".")
-from slow import get_jobs, slow_fn
 from time import time
+
 from p_tqdm import p_map
+from slow import get_jobs, slow_fn
 
 
 def work(jobs):

@@ -9,7 +9,7 @@ math: true
 ---
 
 
-One hot encoding is something we do very commonly in machine learning, where we want to turn a categorical feature into a vector of ones and zeros that algorithms can make much easier sense of. 
+One hot encoding is something we do very commonly in machine learning, where we want to turn a categorical feature into a vector of ones and zeros that algorithms can make much easier sense of.
 
 For example, take this toy example dataframe of people and their favourite food. At the moment, it's useless to us.
 
@@ -21,7 +21,7 @@ For example, take this toy example dataframe of people and their favourite food.
 import pandas as pd
 
 df = pd.DataFrame({
-    "Person": ["Sam", "Ali", "Jane", "John"], 
+    "Person": ["Sam", "Ali", "Jane", "John"],
     "FavFood": ["Pizza", "Vegetables", "Cake", "Happiness"]
 }).set_index("Person")
 
@@ -219,7 +219,7 @@ But I've also seen survey results where there are multi-choice options, and the 
 
 ```python
 df2 = pd.DataFrame({
-    "Person": ["Sam", "Ali", "Jane", "John"], 
+    "Person": ["Sam", "Ali", "Jane", "John"],
     "Nationality": ["Australia", "Australia", "USA", "USA/German"]
 }).set_index("Person")
 display(df2)
@@ -338,9 +338,9 @@ Very, very simple. And if for some reason, `get_dummies` is not behaving nicely,
 def one_hot_melt_pivot(df):
     names = df.index.names
     melted = df.reset_index().melt(id_vars=names)
-    return melted.pivot_table(index=names, 
-                              columns=["variable", "value"], 
-                              aggfunc=len, 
+    return melted.pivot_table(index=names,
+                              columns=["variable", "value"],
+                              aggfunc=len,
                               fill_value=0)
 
 display(one_hot_melt_pivot(df))
@@ -415,7 +415,7 @@ For your convenience, here's the code in one block:
 import pandas as pd
 
 df = pd.DataFrame({
-    "Person": ["Sam", "Ali", "Jane", "John"], 
+    "Person": ["Sam", "Ali", "Jane", "John"],
     "FavFood": ["Pizza", "Vegetables", "Cake", "Happiness"]
 }).set_index("Person")
 
@@ -427,7 +427,7 @@ def one_hot_col(df, col):
     return df[col].str.get_dummies()
 display(one_hot_df(df), one_hot_col(df, "FavFood"))
 df2 = pd.DataFrame({
-    "Person": ["Sam", "Ali", "Jane", "John"], 
+    "Person": ["Sam", "Ali", "Jane", "John"],
     "Nationality": ["Australia", "Australia", "USA", "USA/German"]
 }).set_index("Person")
 display(df2)
@@ -438,9 +438,9 @@ display(hot_encode_col(df2, "Nationality"))
 def one_hot_melt_pivot(df):
     names = df.index.names
     melted = df.reset_index().melt(id_vars=names)
-    return melted.pivot_table(index=names, 
-                              columns=["variable", "value"], 
-                              aggfunc=len, 
+    return melted.pivot_table(index=names,
+                              columns=["variable", "value"],
+                              aggfunc=len,
                               fill_value=0)
 
 display(one_hot_melt_pivot(df))

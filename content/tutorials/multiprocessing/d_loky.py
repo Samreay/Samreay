@@ -1,9 +1,10 @@
 import sys
 
 sys.path.append(".")
-from slow import get_jobs, slow_fn
 from time import time
+
 from loky import get_reusable_executor
+from slow import get_jobs, slow_fn
 
 
 def work(jobs):

@@ -54,7 +54,7 @@ And you can see the author lampshading how arbitrary this all is in the last sen
 
 #### Writing women
 
-This book isn't /r/menwritingwomen... but it does give me a *lot* of similar vibes. 
+This book isn't /r/menwritingwomen... but it does give me a *lot* of similar vibes.
 
 
 > Despite everything, she marched, not walked, towards us.  Her posture was perfect and her shoulders squared.  From what I could tell, she still had a bit of curve on her, despite her recent mistreatment.  She had somehow found the means of cleaning her face off, too.  She was pretty, even possibly beautiful, but her expression was very serious.  She struck me as the kind of girl who wanted to succeed on her own merits and not on her looks, a real no nonsense kind of girl.
