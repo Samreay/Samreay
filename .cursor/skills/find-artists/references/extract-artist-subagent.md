@@ -55,8 +55,9 @@ Updating `data/artists.yml`:
   the new commented stem can sit on its own line.
 - If the artist is new, run a quick web search to confirm the preferred name
   and strongest link. Link priority is `website`, `artstation`, `instagram`,
-  `deviantart`, `behance`, then `fiverr`. Insert the new block in alphabetical
-  position:
+  `deviantart`, `behance`, then `fiverr`. Royal Road, reddit,
+  and facebook should not be allowed as links. If there are no links, skip the artist and the cover.
+  Insert the new block in alphabetical position:
 
   - name: Firstname Lastname
     links:

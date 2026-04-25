@@ -5,7 +5,7 @@ from subprocess import run
 
 import yaml
 
-input_dir = Path(__file__).parent / "tmp_covers"
+input_dir = Path(__file__).parent / ".cursor/skills/find-artists/tmp_covers"
 output_dir = Path(__file__).parent / "themes/sams-theme/assets/img/covers"
 data_file = Path(__file__).parent / "data/artists.yml"
 
@@ -42,10 +42,15 @@ for file in sorted(input_dir.glob("*")):
     print(f"Processing {file}")  # noqa: T201
 
     inp = file.absolute()
-    command = f"convert {inp} -strip -interlace Plane -quality 95% -resize x{max_height}\\> {output1}"
+    command = f"magick {inp} -strip -interlace Plane -quality 95% -resize x{max_height}\\> {output1}"
 
     # Run command in shell
     run(command, shell=True, check=False)
+
+# Stems already processed into output_dir count as available even if their
+# source file is no longer in tmp_covers (i.e. historical covers).
+already_processed = {f.stem for f in output_dir.glob("*.jpg")}
+all_available = set(available_files) | already_processed
 
 # Check now to see if there are any available covers that are not in the list
 missing_in_yaml = set(available_files) - set(all_covers)
@@ -53,7 +58,7 @@ if missing_in_yaml:
     print(f"Missing {len(missing_in_yaml)} covers in YAML")  # noqa: T201
     print(missing_in_yaml)  # noqa: T201
 
-missing_file = set(all_covers) - set(available_files)
+missing_file = set(all_covers) - all_available
 if missing_file:
     print(f"Missing {len(missing_file)} files")  # noqa: T201
     print(missing_file)  # noqa: T201
