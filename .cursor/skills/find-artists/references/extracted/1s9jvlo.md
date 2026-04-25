@@ -1,0 +1,16 @@
+---
+id: 1s9jvlo
+title: 'New Monthly Book Release Announcement Thread'
+author: AutoModerator
+url: https://www.reddit.com/r/ProgressionFantasy/comments/1s9jvlo/new_monthly_book_release_announcement_thread/
+upvotes: 8
+created: 2026-04-01
+---
+
+## Post body
+
+It's time for the monthly book release thread! If your newest progression fantasy novel or serial comes out this month, feel free to post about it in the comments! (But only if it comes out this month- if the work comes out in a different month, please post in that month's thread, on the first of that month.)
+
+Readers: Please keep top-level comments for release announcements ONLY, though you're welcome to respond to announcements.
+
+Authors: Posting about your new release in this thread does not count against the normal self-promotion quota. Feel free to post about new releases in any format- audiobooks, ebooks, etc. You're also more than welcome to post about special edition or new book Kickstarter campaign launches in this thread- but only during the month it launches. If you're a webnovel author, you can comment in this thread for the launch of an entirely new webserial, a new major arc, or a return after hiatus, but please don't post every month for an ongoing web serial.

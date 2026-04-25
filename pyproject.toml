@@ -79,6 +79,7 @@ target-version = "py311"
 [tool.ruff.extend-per-file-ignores]
 "test/***" = ["INP001"]
 "__init__.py" = ["E402", "F401"]
+".cursor/***" = ["ALL"]
 
 [tool.ruff.format]
 indent-style = "space"

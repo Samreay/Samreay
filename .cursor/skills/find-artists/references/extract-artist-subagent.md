@@ -62,9 +62,9 @@ Updating `data/artists.yml`:
   - name: Firstname Lastname
     links:
       artstation: https://www.artstation.com/handle
-    covers: [
-        series_book1,  # https://www.reddit.com/r/ProgressionFantasy/comments/<id>/
-      ]
+    covers:
+      - series_book1  # https://www.reddit.com/r/ProgressionFantasy/comments/<id>/
+
 
 Every newly added cover stem must include the source self-promo thread URL in
 an end-of-line comment. Older stems without comments are fine; do not

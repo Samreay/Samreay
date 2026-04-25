@@ -34,7 +34,7 @@ import polars as pl
 import requests
 
 USER_AGENT = "python:samreay-find-artists:v0.1 (by /u/samreay)"
-MIN_UPVOTES = 5
+MIN_UPVOTES = 10
 
 SKILL_DIR = Path(__file__).parent.parent
 DATA_DIR = Path(__file__).parent / "data"
@@ -75,6 +75,12 @@ def load_links() -> pl.DataFrame:
     if not combined.height:
         return combined
     return combined.unique(subset=["id"], keep="first").sort("posting_datetime", descending=True)
+
+
+def load_reference_ids() -> tuple[set[str], set[str]]:
+    to_extract_ids = {p.stem for p in TO_EXTRACT_DIR.glob("*.md")}
+    extracted_ids = {p.stem for p in EXTRACTED_DIR.glob("*.md")}
+    return to_extract_ids, extracted_ids
 
 
 def append_fetched(rows: list[dict]) -> None:
@@ -184,16 +190,34 @@ def main() -> int:
     if not links.height:
         print("[fetch_posts] no historical links; run historical.py first.", file=sys.stderr)  # noqa: T201
         return 1
+    print(f"[fetch_posts] {links.height} historical links", flush=True)  # noqa: T201
 
     fetched = load_fetched()
-    fetched_ids = set(fetched["id"].to_list()) if fetched.height else set()
+    print(f"[fetch_posts] {fetched.height} fetched", flush=True)  # noqa: T201
+    to_extract_ids, extracted_ids = load_reference_ids()
+    reference_ids = to_extract_ids | extracted_ids
+
+    if fetched.height:
+        queued_missing = fetched.filter(
+            (pl.col("status") == "queued") & ~pl.col("id").is_in(list(reference_ids)),
+        )
+        if queued_missing.height:
+            missing_ids = queued_missing["id"].to_list()
+            print(  # noqa: T201
+                f"[fetch_posts] {len(missing_ids)} queued rows missing markdown; re-fetching",
+                flush=True,
+            )
+        else:
+            missing_ids = []
+        fetched_ids = set(fetched.filter(~pl.col("id").is_in(missing_ids))["id"].to_list())
+    else:
+        fetched_ids = set()
 
     # Also treat anything already present in references/ as fetched, in case
     # someone nuked fetched.csv but kept the markdown.
-    for p in list(TO_EXTRACT_DIR.glob("*.md")) + list(EXTRACTED_DIR.glob("*.md")):
-        fetched_ids.add(p.stem)
+    fetched_ids.update(reference_ids)
 
-    todo = links.filter(~pl.col("id").is_in(list(fetched_ids)))
+    todo = links.filter(~pl.col("id").is_in(list(fetched_ids)) & (pl.col("upvotes") >= MIN_UPVOTES))
     print(f"[fetch_posts] {todo.height} links to process", flush=True)  # noqa: T201
 
     TO_EXTRACT_DIR.mkdir(parents=True, exist_ok=True)
@@ -201,15 +225,22 @@ def main() -> int:
     session.headers["User-Agent"] = USER_AGENT
 
     new_fetched: list[dict] = []
-    for row in todo.iter_rows(named=True):
-        post_id = row["id"]
+
+    to_download = sorted(todo["id"].to_list())
+    download_count = dict.fromkeys(to_download, 0)
+
+    while to_download:
+        post_id = to_download.pop(0)
         try:
+            download_count[post_id] += 1
             post, op_comments = fetch_post(session, post_id)
         except requests.HTTPError as exc:
             status = exc.response.status_code if exc.response is not None else "?"
             print(f"[fetch_posts] {post_id}: HTTP {status}", file=sys.stderr)  # noqa: T201
             if status == 429:
                 time.sleep(30)
+                if download_count[post_id] < 3:
+                    to_download.append(post_id)
                 continue
             # 404 / 403 -> mark as unavailable so we don't keep retrying.
             new_fetched.append(
@@ -223,6 +254,8 @@ def main() -> int:
             continue
         except (requests.RequestException, ValueError) as exc:
             print(f"[fetch_posts] {post_id}: {exc}", file=sys.stderr)  # noqa: T201
+            if download_count[post_id] < 3:
+                to_download.append(post_id)
             time.sleep(5)
             continue
 
@@ -231,13 +264,18 @@ def main() -> int:
             status = "skipped_low_upvotes"
             print(f"[fetch_posts] {post_id}: {upvotes} upvotes, skipping", flush=True)  # noqa: T201
         else:
-            out = TO_EXTRACT_DIR / f"{post_id}.md"
-            out.write_text(render_markdown(post, op_comments), encoding="utf-8")
-            status = "queued"
-            print(  # noqa: T201
-                f"[fetch_posts] {post_id}: {upvotes} upvotes, wrote {out.name} ({len(op_comments)} OP comments)",
-                flush=True,
-            )
+            content = render_markdown(post, op_comments)
+            if "art" not in content.lower() or "cover" not in content.lower():
+                status = "skipped_no_art_or_cover"
+                print(f"[fetch_posts] {post_id}: no art or cover, skipping", flush=True)  # noqa: T201
+            else:
+                out = TO_EXTRACT_DIR / f"{post_id}.md"
+                out.write_text(content, encoding="utf-8")
+                status = "queued"
+                print(  # noqa: T201
+                    f"[fetch_posts] {post_id}: {upvotes} upvotes, wrote {out.name} ({len(op_comments)} OP comments)",
+                    flush=True,
+                )
 
         new_fetched.append(
             {
