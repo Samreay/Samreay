@@ -142,7 +142,13 @@
                         <figure class="block flex-none bg-cover w-full">
                             <picture>
                                 <source srcset="${cover} 500w" type="image/webp" />
-                                <img class="block flex-none bg-cover mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg=="/>
+                                <img 
+                                  class="block flex-none bg-cover mx-auto" 
+                                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg=="
+                                  loading="lazy"
+                                  decoding="async"
+                                  fetchpriority="low"
+                                />
                             </picture>
                         </figure>
                         </div>
