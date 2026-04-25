@@ -55,6 +55,7 @@
       primal_hunter4,
       rune_seeker5,
       calamitous_bob1,
+      calamitous_bob9,  # https://www.reddit.com/r/ProgressionFantasy/comments/1icsnqm/
       isekai_for_hire1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sgpz9k/
       three_parts_ascension,  # https://www.reddit.com/r/ProgressionFantasy/comments/1khncfn/
     ]
@@ -63,6 +64,16 @@
   links:
     artstation: https://www.artstation.com/arnor
   covers: [rise_of_the_devourer, rise_of_the_devourer2, rise_of_the_devourer3]
+
+- name: artbyroseyx
+  links:
+    reddit: https://www.reddit.com/user/artbyroseyx/
+  covers: [ace_of_capes]  # https://www.reddit.com/r/ProgressionFantasy/comments/1irvtrf/
+
+- name: AsChavez
+  links:
+    royal_road: https://www.royalroad.com/fiction/109926/rise-of-the-bone-king
+  covers: [rise_of_the_bone_king]  # https://www.reddit.com/r/ProgressionFantasy/comments/1jztnt1/
 
 - name: Asur Misoa
   links:
@@ -97,7 +108,7 @@
 - name: BeeBros Team
   links:
     artstation: https://www.artstation.com/beebrosteam
-  covers: [dual_class1]
+  covers: [dual_class1]  # https://www.reddit.com/r/ProgressionFantasy/comments/1idmhq8/
 
 - name: Ben Moran (Minh Anh Nguyen Hoang)
   links:
@@ -122,7 +133,15 @@
 - name: Brian Flores
   links:
     fiverr: https://www.fiverr.com/study3_2d
-  covers: [wuts7, wuts8]
+  covers: [
+    wuts7,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ipdf0j/
+    wuts8,
+  ]
+
+- name: Cande
+  links:
+    artstation: https://www.artstation.com/candeartps
+  covers: [twelve_apocalypses1]  # https://www.reddit.com/r/ProgressionFantasy/comments/1igq8ex/
 
 - name: Capt Diablo
   links:
@@ -153,7 +172,7 @@
       ship_core,
       revelations,
       godscourge,
-      madman_apocalypse1,
+      madman_apocalypse1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1kc53lx/
       demon_tree8,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rkpctg/
       demon_tree6,  # https://www.reddit.com/r/ProgressionFantasy/comments/1kh0lga/
     ]
@@ -167,6 +186,16 @@
   links:
     artstation: https://www.artstation.com/cotta
   covers: [kara]
+
+- name: CocoaDrago
+  links:
+    twitter: https://x.com/CocoaDrago
+  covers: [weak_kobold_wants_to_conquer]  # https://www.reddit.com/r/ProgressionFantasy/comments/1jsv82u/
+
+- name: Collette C. Curran
+  links:
+    website: https://colletteccurran.com/
+  covers: [loss_of_stars_tranquility]  # https://www.reddit.com/r/ProgressionFantasy/comments/1jz4msl/
 
 - name: Cyan Gorilla
   links:
@@ -198,6 +227,7 @@
       forging_divinity,
       edge_of_the_woods,
       used_to_be_about_dragons,
+      aa6,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jpoisf/
     ]
 
 - name: Daniele Turturici
@@ -206,10 +236,22 @@
     instagram: https://www.instagram.com/danieleturturici
   covers: [jmm1, jmm2, jmm3]
 
+- name: Danny Canto
+  links:
+    instagram: https://www.instagram.com/danncanto/
+  covers: [
+      wishlist_wizard1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1iyxu2a/
+    ]
+
 - name: Darko Paganus
   links:
     99designs: https://99designs.com/profiles/paganus
   covers: [elf_empire, knightmare_arcanist1, knightmare_arcanist2]
+
+- name: David Haire (trollfeetwalker)
+  links:
+    deviantart: https://www.deviantart.com/trollfeetwalker
+  covers: [cherno_caster2]  # https://www.reddit.com/r/ProgressionFantasy/comments/1itvxye/
 
 - name: Denis Belinski
   links:
@@ -261,7 +303,7 @@
 - name: Erick Quintero Ruiz
   links:
     artstation: https://www.artstation.com/ldanny
-  covers: [rise_tank, plaguetank, mage_tank]
+  covers: [rise_tank, plaguetank, mage_tank]  # https://www.reddit.com/r/ProgressionFantasy/comments/1j3bav8/
 
 - name: Fajareka Setiawan
   links:
@@ -296,6 +338,7 @@
       system_universe3,
       system_universe4,
       knights_apocalyptica3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ssmh8y/
+      deepest_depths2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1k5tebb/
     ]
 
 - name: Franz Carlo Banocnoc (zev_art)
@@ -379,6 +422,11 @@
     artstation: https://www.artstation.com/stoica_alexandru_silviu
   covers: [orpheus_rises, elysium_falls]
 
+- name: Hugo Abeis Ruiz Toranzo
+  links:
+    artstation: https://hartcomic.artstation.com/
+  covers: [neon_dust2]  # https://www.reddit.com/r/ProgressionFantasy/comments/1ihktd8/
+
 - name: Huu Ha
   links:
     artstation: https://www.artstation.com/hahahuhi
@@ -391,6 +439,7 @@
     deviantart: https://www.deviantart.com/iboobee
   covers: [
       assassinate_wonderwind,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ry0w7m/
+      ethersmith3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1igpnog/
     ]
 
 - name: Inkary
@@ -405,6 +454,11 @@
   links:
     website: https://typobyino.crd.co/
   covers: [gunships_goodbyes, dreams, acolyte_ascension, walk_in_shadows, savage_awakening6, fearshaper1, wild_era, old_growth]
+
+- name: Ilya Nikarov
+  links:
+    facebook: https://www.facebook.com/IlyaNikorov
+  covers: [gilgamesh]  # https://www.reddit.com/r/ProgressionFantasy/comments/1ieufed/
 
 - name: Ivan Zann
   links:
@@ -425,6 +479,8 @@
       skies_asunder,
       victor3,
       cyber_dreams_4,
+      cyber_dreams_6,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jos55f/
+      victor7,  # https://www.reddit.com/r/ProgressionFantasy/comments/1j8oihq/
       victor10,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rjniuk/
     ]
 
@@ -519,6 +575,10 @@
       apocalypse_engineering2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sn22br/
       millennial_mage12,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sfqgv9/
       stormblade1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rpxg2c/
+      knight_from_nothing1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ic4uln/
+      knight_from_nothing2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jmpbr0/
+      knight_from_nothing3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jxlk40/
+      embercore1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1idmqzn/
     ]
   links:
     deviantart: https://www.deviantart.com/kartstudiodigi/
@@ -621,6 +681,11 @@
       riftside4,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r5fm3d/
     ]
 
+- name: Lit__Orange
+  links:
+    instagram: https://www.instagram.com/lit__orange/
+  covers: [legend_of_raven8]  # https://www.reddit.com/r/ProgressionFantasy/comments/1joyc25/
+
 - name: Liz C
   links:
     fiverr: https://www.fiverr.com/lizbecoetzee
@@ -649,6 +714,8 @@
   covers: [
       dear_spellbook1,
       dear_spellbook2,
+      primal_wizardry1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jz5rv0/
+      primal_wizardry1_cover_reveal,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jz5twq/
     ]
 
 - name: Lucian Acatrinei
@@ -670,6 +737,7 @@
       unbound5,
       mark_fated,
       drr,
+      drr2,  # https://www.reddit.com/r/ProgressionFantasy/comments/1j9loh3/
       soar3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1s2ek0h/
     ]
 
@@ -683,8 +751,17 @@
     artstation: https://www.artstation.com/strikingtherainwing
   covers: [gloamcaller2]
 
+- name: Lukas Ketner
+  links:
+    website: https://lukasketner.com/
+  covers: [city_that_would_eat_the_world]  # https://www.reddit.com/r/ProgressionFantasy/comments/1imyf0u/
+
 - name: Luminita Pham
-  covers: [enchanter, diviner]
+  covers: [
+    enchanter,
+    diviner,
+    archmage,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ihk7se/
+  ]
   links:
     artstation: https://www.artstation.com/luminitapham
 
@@ -705,6 +782,11 @@
   links:
     deviantart: https://www.deviantart.com/macarious
 
+- name: Madeline Hanitijo
+  links:
+    website: https://madeline-hanitijo.carrd.co/
+  covers: [music_of_an_immortal]  # https://www.reddit.com/r/ProgressionFantasy/comments/1k7wous/
+
 - name: Mansik Yang
   covers:
     [
@@ -720,6 +802,7 @@
       thrones_of_the_fallen,
       starbreaker5,
       faceless_hunter,  # https://www.reddit.com/r/ProgressionFantasy/comments/1sdzq5b/
+      sanguine_sands,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ju7h13/
     ]
   links:
     artstation: https://www.artstation.com/yam8417
@@ -761,6 +844,12 @@
     facebook: https://www.facebook.com/jollycreativecovers/
   covers: [valhalla1, valhalla4]
 
+- name: Metyuu
+  links:
+    deviantart: https://www.deviantart.com/metyuu
+    instagram: https://www.instagram.com/ave.metyuu/
+  covers: [guildless_knight]  # https://www.reddit.com/r/ProgressionFantasy/comments/1j9naon/
+
 - name: Miblart
   notes: Art Studio
   links:
@@ -772,6 +861,7 @@
       corpo_age,
       loose_kanin,
       path_of_relics1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1rlkjbw/
+      high_artificer,  # https://www.reddit.com/r/ProgressionFantasy/comments/1id95zt/
     ]
 
 - name: Michael Gladigau
@@ -816,6 +906,11 @@
       silver_empire3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ris1j8/
     ]
 
+- name: Ninir
+  links:
+    instagram: https://www.instagram.com/ni_ni_er_/
+  covers: [fearshaper2]  # https://www.reddit.com/r/ProgressionFantasy/comments/1j3sykd/
+
 - name: NOREI
   links:
     twitter: https://x.com/norei_0
@@ -829,7 +924,13 @@
     website: https://linktr.ee/Nozomi_Matsuoka
     instagram: https://www.instagram.com/nozomi_mats/
     cara: https://cara.app/nozomi
-  covers: [budding_rhythm, what_truth, truth_of_stars, blind_chaos2]
+  covers: [
+      budding_rhythm,
+      what_truth,
+      truth_of_stars,
+      blind_chaos1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jdo5j3/
+      blind_chaos2,
+    ]
 
 - name: Oleg Tsoy
   links:
@@ -844,7 +945,10 @@
 - name: Ömer Burak Önal
   links:
     artstation: https://www.artstation.com/equin0
-  covers: [panethon2]
+  covers: [
+      panethon2,
+      arcanist_in_another_world,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jaafqe/
+    ]
 
 - name: Paris Ioannou
   links:
@@ -890,7 +994,9 @@
   covers: [
     sovereign,
     kieran4,
-    godscourge3,
+    godscourge3,  # https://www.reddit.com/r/ProgressionFantasy/comments/1izfxx2/
+    no_strings_attached,  # https://www.reddit.com/r/ProgressionFantasy/comments/1j7b968/
+    split_champion1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1kbfxf9/
   ]
 
 - name: Preston Asevedo
@@ -913,6 +1019,11 @@
       zero_derby,
       see_these_bones,
     ]
+
+- name: Relm01492355
+  links:
+    twitter: https://x.com/Relm01492355
+  covers: [swan_song]  # https://www.reddit.com/r/ProgressionFantasy/comments/1jkv1jv/
 
 - name: Richard Sashigane
   covers: [wuts, proxima_legends, arcane_knight1, roots_and_steel]
@@ -942,6 +1053,13 @@
     artstation: https://www.artstation.com/rustee
     instagram: https://www.instagram.com/rusteedelacruz
 
+- name: Sad_Sehna
+  links:
+    twitter: https://x.com/Sad_Sehna
+  covers: [
+      heavenly_throne13,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jjlj2p/
+    ]
+
 - name: Sebastian Szmyd
   links:
     artstation: https://www.artstation.com/sebastiansz
@@ -950,7 +1068,12 @@
 - name: Sergey Shikin
   links:
     artstation: https://www.artstation.com/donsergio66
-  covers: [theft_of_decks1, theft_of_decks2, dark_ages]
+  covers: [
+      theft_of_decks1,
+      theft_of_decks2,
+      dark_ages,
+      welcome_to_the_dark_ages,  # https://www.reddit.com/r/ProgressionFantasy/comments/1ju7zxh/
+    ]
 
 - name: Sevenchi
   links:
@@ -993,6 +1116,13 @@
     artstation: https://www.artstation.com/teygraphy
   covers: [reclaimer1, reclaimer2, reclaimer3]
 
+- name: TheGreySun
+  links:
+    website: https://vgen.co/TheGreySun
+  covers: [
+      honey_ive_leveled_the_kids,  # https://www.reddit.com/r/ProgressionFantasy/comments/1jkfiby/
+    ]
+
 - name: themrhoggy
   links:
     instagram: https://www.instagram.com/themrhoggy/
@@ -1023,6 +1153,13 @@
       realms_eternal_light1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1r87pxd/
     ]
 
+- name: Tres Kiddos
+  links:
+    website: https://treskiddos.com/
+  covers: [
+      spark_of_the_ancients,  # https://www.reddit.com/r/ProgressionFantasy/comments/1j0cbqg/
+    ]
+
 - name: trichromachine / Spectro
   links:
     twitter: https://x.com/trichromachine
@@ -1049,9 +1186,20 @@
   links:
     deviantart: https://www.deviantart.com/alexiuss
     royal_road: https://www.royalroad.com/fiction/71439/romantically-apocalyptic-guide-to-the-multiverse/chapter/1276776/q-whats-romantically-apocalyptic
-  covers: [perfect_run, rogue_ascension1, rogue_ascension2, rogue_ascension3]
+  covers: [
+      perfect_run,
+      rogue_ascension1,
+      rogue_ascension2,
+      rogue_ascension3,
+      respec_on_death1,  # https://www.reddit.com/r/ProgressionFantasy/comments/1kd9thk/
+    ]
   hidden: true
 
+- name: Warm_Tail
+  links:
+    artstation: https://mariniurii.artstation.com/
+    instagram: https://www.instagram.com/warm_tail/
+  covers: [liches_get_scritches]  # https://www.reddit.com/r/ProgressionFantasy/comments/1jtqhcb/
 
 - name: white horn
   links:
@@ -1077,6 +1225,12 @@
   links:
     artstation: https://www.artstation.com/vikk8014
   covers: [skadis_saga]
+
+- name: Yona Saura
+  links:
+    artstation: https://www.artstation.com/yonahx
+    instagram: https://www.instagram.com/__yonax/
+  covers: [the_shirtwearer]  # https://www.reddit.com/r/ProgressionFantasy/comments/1joqull/
 
 - name: Yorulost
   links:
