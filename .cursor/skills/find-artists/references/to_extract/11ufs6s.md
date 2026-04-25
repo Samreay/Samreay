@@ -3,7 +3,7 @@ id: 11ufs6s
 title: 'Theos: Becoming a God Made Easy'
 author: ArthurWordsmith
 url: https://www.reddit.com/r/ProgressionFantasy/comments/11ufs6s/theos_becoming_a_god_made_easy/
-upvotes: 20
+upvotes: 21
 created: 2023-03-18
 ---
 
@@ -47,19 +47,3 @@ Characters that aren't all remorseless killers, and at times are even friendly.
 - https://preview.redd.it/s3kf1o0w0goa1.png?width=857&format=png&auto=webp&s=df63f72b3bc1470e5b8d3a68757e877b3ade1d93
 
 ## OP comments
-
-### Comment jcr7b0v (parent t1_jcqvck3)
-
-I tend to agree, but someone mentioned that the second one (which I wrote first) gave too little insight into the novel, and that a reader would have little to no idea what they were getting into.
-
-I think I may have over done it, but it doesn't spoil anything beyond the first chapter, and even then, it reveals some very broad strokes. There is still plently to chew on beyond what's in the Synopsis.
-
-The intention of this post is purely to get more eyes on my novel.  Perhaps even get a few people to read it, if that's not too optimistic. xD
-
-### Comment jcqdtcq (parent t1_jcp63pg)
-
-I certainly do!
-
-### Comment jpo5wpb (parent t1_jp8587k)
-
-glad you enjoyed it!

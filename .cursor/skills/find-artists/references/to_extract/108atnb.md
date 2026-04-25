@@ -30,14 +30,14 @@ I'm obviously very biased, but it looks great. ;) Check it out if you have the t
 
 &#x200B;
 
-**SPECS:**
-**•	Signed**
-**•	High-quality offset printing**
-**•	Custom interior design**
-**•	Embellished chapter headings**
-**•	Custom section breaks**
-**•	Hardcover comes with a full-wrap dust jacket**
-**•	Custom end sheets**
+**SPECS:**  
+**•	Signed**  
+**•	High-quality offset printing**  
+**•	Custom interior design**  
+**•	Embellished chapter headings**  
+**•	Custom section breaks**  
+**•	Hardcover comes with a full-wrap dust jacket**  
+**•	Custom end sheets**  
 **•	Foil bookmarks**
 
 &#x200B;
@@ -49,29 +49,3 @@ I'm obviously very biased, but it looks great. ;) Check it out if you have the t
 *But while his mage skills develop and he pursues more advanced and unusual forms of magic, Zorian must battle necromancers, fanatical cultists, and vicious creatures—all while avoiding the attention of the lich who could kill him...*
 
 *Permanently.*
-
-### Comment j3s0aip (parent t1_j3rzdhb)
-
-It's possible to order both arc 1 and 2 in this Kickstarter.
-
-### Comment j3r4mtt (parent t1_j3r4d8t)
-
-It is nice, isn't it. :) And thanks.
-
-### Comment j3s4i5i (parent t1_j3s28jh)
-
-I hope to find a way to sell the books in a more conventionally accessible way eventually, but I cannot guarantee anything. I do think there is sufficient interest in the books that it's a possibility, at least.
-
-Basically, I hope these Kickstarter campaigns aren't the only time to get them, but who knows how things work out.
-
-### Comment j3sk29f (parent t1_j3seksc)
-
-Yes.
-
-### Comment j3r6mzd (parent t1_j3r5tpk)
-
-Unfortunately, there was no way to avoid that one. Certainly I have no right to complain to anyone about delays. ;)
-
-### Comment j3vnuu5 (parent t1_j3vnt17)
-
-This is the plan, yes.

@@ -3,7 +3,7 @@ id: 12xokga
 title: 'Homunculi: Invictus Malus out now! Book 2 of the Homunculi series. Giveaway inside and 99c sale today!'
 author: ChikaoJ
 url: https://www.reddit.com/r/ProgressionFantasy/comments/12xokga/homunculi_invictus_malus_out_now_book_2_of_the/
-upvotes: 86
+upvotes: 82
 created: 2023-04-24
 ---
 
@@ -65,82 +65,3 @@ Special thank you to u/Samreay for his data and helping me with choosing the cov
   
   
 Thank you to J.R. Mathews for some inspiration and for his permission to add an extra easter egg for eagle eyed readers.
-
-### Comment jhk1jas (parent t1_jhk16mx)
-
-Late night walks in parks are nice, especially with someone special. I'll DM you a giveaway copy now!
-
-### Comment jhk2ff3 (parent t1_jhk29ya)
-
-I hope you like it!
-
-### Comment jhkenk2 (parent t1_jhkeglm)
-
-I can't stand cold showers though :0 a cold cola could be nice though definitely. I'll DM you a copy!
-
-### Comment jhks05n (parent t1_jhkrqiq)
-
-Alternatively rum and cola is good for the winter.
-
-### Comment jhkq14d (parent t1_jhkp77z)
-
-Jokes on you, I'm already a vampire and only come out during the night. Plus I drink a ton of coffee already!  
-
-
-True! I always love the disparity in power between an ordinary person and a truly powerful S-tier person who could ruin a country. Power breeds corruption after all. I'll send you a DM with your giveaway link now.
-
-### Comment jhk0nr4 (parent t1_jhk0dfq)
-
-One of my goals as an author is to someday get an audiobook deal, but sadly it has yet to happen. I primarily consume audiobooks nowadays, so I'd love to have one of my own. It just hasn't happened yet, from what I've read, I'm supposed to get enough ratings and reviews before they'll approach.
-
-### Comment jhk0z5w (parent t1_jhk0urm)
-
-Trust me I will. If I got an audiobook deal, I'd start shouting asap.
-
-### Comment jhl4fk6 (parent t1_jhl2owg)
-
-I have a rice cooker, but no slow cooker or instant pot. Mmm cold brew sounds nice. DMing you now!
-
-### Comment jhjjarp (parent t1_jhjiuh2)
-
-Thanks Felix! It still makes me smile when people say they like what I've written hah. Hopefully that never changes.
-
-### Comment jhjtu8d (parent t1_jhjt234)
-
-I'm practically nocturnal at this point anyways! I do love me some melons, Cantaloupe or Honey Dew are my favorites. I'll DM you a link for your giveaway copy of book 1.
-
-### Comment jhjtpb0 (parent t1_jhjtcd5)
-
-Probably a common question, but how was keto?
-
-### Comment jhk4rqx (parent t1_jhk4kcf)
-
-I've been considering it. Need to do more research first.
-
-### Comment jhk2hx6 (parent t1_jhk28zk)
-
-Thanks for the kind words! Fingers crossed it goes well enough I can keep doing this.
-
-### Comment jhke3h0 (parent t1_jhkdzsh)
-
-Huh?
-
-### Comment jhkkzki (parent t1_jhkjygb)
-
-That's cool.
-
-### Comment jhkfce8 (parent t1_jhkf6ju)
-
-Thanks! I hope you like it and that you enjoy reading about 6.
-
-### Comment jhl7k90 (parent t1_jhl77ot)
-
-My current place doesn't support a garden sadly. Maybe someday. Although I do have a few potted plants for fresh herbs. Sounds yum. DMing now.
-
-### Comment jhl7zd8 (parent t1_jhl7k77)
-
-Thank you very much for the kind words! I hope you enjoy book 2. I appreciate the noodle reference.
-
-### Comment jhlljyt (parent t1_jhljt5d)
-
-When you get a chance to read it you'll have to let me know what you think of that scenes placement.

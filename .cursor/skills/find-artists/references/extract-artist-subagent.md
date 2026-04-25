@@ -51,8 +51,8 @@ Updating `data/artists.yml`:
 - If the artist already has an entry, append the new stem to their `covers:`
   list with `# https://www.reddit.com/r/ProgressionFantasy/comments/<id>/` on
   the same line as the new stem.
-- If the existing `covers:` list is inline, expand it to a multiline block so
-  the new commented stem can sit on its own line.
+- If the artist already has that cover listed, do not duplicate the entry.
+- However, if the original entry does not have a comment to the reddit post, add it.
 - If the artist is new, run a quick web search to confirm the preferred name
   and strongest link. Link priority is `website`, `artstation`, `instagram`,
   `deviantart`, `behance`, then `fiverr`. Royal Road, reddit,

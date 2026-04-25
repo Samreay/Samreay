@@ -3,7 +3,7 @@ id: 14wql7l
 title: 'Crab On! The third and final book of the Twelfth Cataclysm is live!'
 author: valerios_
 url: https://www.reddit.com/r/ProgressionFantasy/comments/14wql7l/crab_on_the_third_and_final_book_of_the_twelfth/
-upvotes: 32
+upvotes: 33
 created: 2023-07-11
 ---
 
@@ -36,7 +36,3 @@ Due to the new subbreddit rules: Cover art is provided by my publisher (aethonbo
 
 Link: [https://www.amazon.com/gp/product/B0BZ14L88D](https://www.amazon.com/gp/product/B0BZ14L88D)  
 Book 1 link: [https://www.amazon.com/gp/product/B0BG1BWHM6](https://www.amazon.com/gp/product/B0BG1BWHM6)
-
-### Comment jrnckkd (parent t1_jrlpr38)
-
-Yep!

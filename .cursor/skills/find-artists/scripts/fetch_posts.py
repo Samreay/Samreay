@@ -25,6 +25,7 @@ have all the context they need.
 
 from __future__ import annotations
 
+import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -35,6 +36,7 @@ import requests
 
 USER_AGENT = "python:samreay-find-artists:v0.1 (by /u/samreay)"
 MIN_UPVOTES = 10
+ART_OR_COVER_RE = re.compile(r"\b(?:art|artist|cover)\b", re.IGNORECASE)
 
 SKILL_DIR = Path(__file__).parent.parent
 DATA_DIR = Path(__file__).parent / "data"
@@ -57,6 +59,10 @@ FETCHED_SCHEMA = {
     "upvotes": pl.Int64,
     "fetched_at": pl.Utf8,
 }
+
+
+def has_art_or_cover(text: str) -> bool:
+    return bool(ART_OR_COVER_RE.search(text))
 
 
 def load_fetched() -> pl.DataFrame:
@@ -176,6 +182,9 @@ def render_markdown(post: dict, op_comments: list[dict]) -> str:
     if op_comments:
         lines += ["## OP comments", ""]
         for c in op_comments:
+            body = c.get("body") or ""
+            if not has_art_or_cover(body):
+                continue
             parent = c.get("parent_id", "")
             lines.append(f"### Comment {c.get('id')} (parent {parent})")
             lines.append("")
@@ -234,6 +243,7 @@ def main() -> int:
         try:
             download_count[post_id] += 1
             post, op_comments = fetch_post(session, post_id)
+            time.sleep(6)  # 1 second delay to avoid rate limiting
         except requests.HTTPError as exc:
             status = exc.response.status_code if exc.response is not None else "?"
             print(f"[fetch_posts] {post_id}: HTTP {status}", file=sys.stderr)  # noqa: T201
@@ -265,7 +275,7 @@ def main() -> int:
             print(f"[fetch_posts] {post_id}: {upvotes} upvotes, skipping", flush=True)  # noqa: T201
         else:
             content = render_markdown(post, op_comments)
-            if "art" not in content.lower() or "cover" not in content.lower():
+            if not has_art_or_cover(content):
                 status = "skipped_no_art_or_cover"
                 print(f"[fetch_posts] {post_id}: no art or cover, skipping", flush=True)  # noqa: T201
             else:

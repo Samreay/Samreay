@@ -22,22 +22,6 @@ _(no body text)_
 
 ## OP comments
 
-### Comment jkd2id9 (parent t1_jkcuww3)
-
-💀👩‍🦲
-
-### Comment jkcv0qj (parent t1_jkcqn6v)
-
-Well, Book 2 is more slice of life than Book 1. Book 1 is like... getting to the slice of life part... setting up the parts to make it work.
-
-### Comment jkdqunc (parent t1_jkdoo1p)
-
-From first to last:
-
-Corbenyx, Chomong, Wani, Kaimo, and FuyuDust.
-
-I don’t have their Twitter handles on me right now, but I’ll edit it in after this :)
-
 ### Comment jkdvqfb (parent t1_jkdrota)
 
 Thank you!
@@ -73,11 +57,3 @@ Anyway, enough of my rambling. Here's the synopsis and the links:
 [Amelia The Level Zero Hero Book 1: An OP MC Isekai LitRPG - Kindle edition by Lewis, V.A., Delta, Melas. Humor & Entertainment Kindle eBooks @ Amazon.com.](https://www.amazon.com/Amelia-Level-Zero-Hero-Book-ebook/dp/B0BZDW9NVH) 
 
 [Amelia the Level Zero Hero: A LitRPG Adventure by V.A. Lewis - Audiobook - Audible.com](https://www.audible.com/pd/Amelia-the-Level-Zero-Hero-A-LitRPG-Adventure-Audiobook/B0C24W6QXX)
-
-### Comment jkcuygd (parent t1_jkcow46)
-
-I will certainly hit #1,000,000
-
-### Comment jkdvl2j (parent t1_jkdsefd)
-
-The real question is: is it a novel?

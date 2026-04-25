@@ -3,7 +3,7 @@ id: 14o5iaa
 title: 'Shades of Perception (Now at 50K words on RR)'
 author: [deleted]
 url: https://www.reddit.com/r/ProgressionFantasy/comments/14o5iaa/shades_of_perception_now_at_50k_words_on_rr/
-upvotes: 46
+upvotes: 50
 created: 2023-07-01
 ---
 
@@ -57,22 +57,8 @@ Also it's heavily inspired from Bloodborne and Lord of The Mysteries, so you wil
 
 \~FV
 
-### Comment jqcfixc (parent t1_jqc2hga)
-
-\~See you in Elmhurst.
-
-### Comment jqbnfek (parent t1_jqb4fve)
-
-Valid point. I guess, hold on tight.
-
 ### Comment jqb6oie (parent t3_14o5iaa)
 
 Great cover... ahah.
 
 I'll be sure to check it out:)
-
-### Comment jqba7iy (parent t1_jqb6oie)
-
-The toll of existence I fear, but a necessary one. 
-
-\~See you in Elmhurst.

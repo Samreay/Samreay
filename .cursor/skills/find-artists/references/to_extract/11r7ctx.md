@@ -3,7 +3,7 @@ id: 11r7ctx
 title: 'MAKANUELE RUMBLE, book 3 of my Pokemon-inspired series, is out now in ALL formats and books 1+2 are only 99c!'
 author: eightslicesofpie
 url: https://www.reddit.com/r/ProgressionFantasy/comments/11r7ctx/makanuele_rumble_book_3_of_my_pokemoninspired/
-upvotes: 38
+upvotes: 40
 created: 2023-03-14
 ---
 
@@ -44,42 +44,6 @@ With the release of this book, we're officially halfway through the series, with
 
 ## OP comments
 
-### Comment jc711wv (parent t1_jc70qqv)
-
-Hahah yes indeed. The advantage of writing them fairly far in advance. 4 is already 100% ready to go and I should finish the first draft of 5 next week!
-
-### Comment jc715yr (parent t1_jc70rpt)
-
-Dang you are blazing through them!! I hope you enjoy this new one, thanks for grabbing it! :D
-
-### Comment jc791yb (parent t1_jc77iqz)
-
-There's at least 3 right here you can check out!
-
 ### Comment jc70ykq (parent t1_jc6y21u)
 
 Thank you! Baj keeps knocking it out of the park with the colors and creature designs. We actually just finished book 4's cover and I wish I could share it already hahah
-
-### Comment jc8bt9m (parent t1_jc7zlfx)
-
-Thank YOU for checking it out!
-
-### Comment jc8jokz (parent t1_jc8jgta)
-
-Thank you dude!
-
-### Comment jc8qs8r (parent t1_jc8nuts)
-
-An honor coming from you!
-
-### Comment jc7dym3 (parent t1_jc7ctq6)
-
-Thank you for all your support over the years dude ~
-
-### Comment jc7vakn (parent t1_jc7mvzv)
-
-Thanks Zamil!
-
-### Comment jcf2ixv (parent t1_jce51kf)
-
-Thank you for reading them!

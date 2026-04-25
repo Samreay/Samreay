@@ -3,7 +3,7 @@ id: 11e4axw
 title: 'Sufficiently Advanced Magic -- Hardcover Kickstarter is Live Now!'
 author: Salaris
 url: https://www.reddit.com/r/ProgressionFantasy/comments/11e4axw/sufficiently_advanced_magic_hardcover_kickstarter/
-upvotes: 103
+upvotes: 100
 created: 2023-02-28
 ---
 
@@ -55,43 +55,3 @@ Best,
 - https://preview.redd.it/butyihzovwka1.png?width=1358&format=png&auto=webp&s=0652bd0b67e5bedd88705c683fbdf595b74dbdd5
 
 ## OP comments
-
-### Comment jacc7j3 (parent t1_jacaewl)
-
-Thanks for the support, Sam. <3 Glad you love it. I'm always thrilled by the quality of Daniel and Shawn's work.
-
-### Comment jaffkhp (parent t1_jacgh1q)
-
-I agree. Thanks. =D
-
-### Comment jafffvs (parent t1_jafd02p)
-
-Thank you for the support!
-
-### Comment jagfj7x (parent t1_jagdyxw)
-
-Thanks, glad you like the style!
-
-### Comment jaffjnx (parent t1_jachvo4)
-
-Thank you for the support!
-
-### Comment jaffiwl (parent t1_jacipo9)
-
-Thanks again, Sarah!
-
-### Comment jaffhhx (parent t1_jact62f)
-
-Thanks, Tobi!
-
-### Comment jaffh0p (parent t1_jad7kno)
-
-Thank you!
-
-### Comment jafyg9o (parent t1_jafx112)
-
-I'm looking forward to writing them. =D
-
-### Comment jaffgge (parent t1_jaezwmo)
-
-Thanks so much!

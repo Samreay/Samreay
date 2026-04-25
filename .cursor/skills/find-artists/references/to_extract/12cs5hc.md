@@ -3,7 +3,7 @@ id: 12cs5hc
 title: 'Blood and Qi: A Vampire Xianxia LitRPG on Royal Road'
 author: Tony-Alves
 url: https://www.reddit.com/r/ProgressionFantasy/comments/12cs5hc/blood_and_qi_a_vampire_xianxia_litrpg_on_royal/
-upvotes: 58
+upvotes: 61
 created: 2023-04-05
 ---
 
@@ -35,19 +35,3 @@ Just FYI – This doesn’t jump right into the action, and you learn what’s g
   
 Thank you very much for your consideration,  
 Tony
-
-### Comment jf51u1n (parent t1_jf3sceq)
-
-Yes, still a vampire.
-
-### Comment jf3e1xm (parent t1_jf2y1ul)
-
-No, sorry.  Some readers left similar comments too, so you're not alone.  Those opening chapters are meant to be read carefully, and the reader figures out what's going on along with John, whose mind is nearly gone at the start.  I'd have to switch from subjective/limited with the narrator knowing only what John does (besides one quick explanation of the brain), to objective/omniscient.  Some of the people that had a hard time in the beginning that stuck with it ended up loving it.  Thank you very much for giving it a look though!  I appreciate it!
-
-### Comment jf52899 (parent t1_jf40ze3)
-
-Thanks for the heads-up.  I think I see what you mean.
-
-### Comment jf9shqk (parent t1_jf5wq7y)
-
-No idea at this time.   Thank you for the feedback and compliment.

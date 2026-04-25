@@ -3,7 +3,7 @@ id: 105ddxj
 title: 'Reclaimer my SciFi Progression Epic has completed its first season!'
 author: waldo-rs
 url: https://www.reddit.com/r/ProgressionFantasy/comments/105ddxj/reclaimer_my_scifi_progression_epic_has_completed/
-upvotes: 28
+upvotes: 29
 created: 2023-01-07
 ---
 
@@ -45,12 +45,6 @@ Deadly traps lurk around every corner, mysterious factions move in the shadows, 
 
 ## OP comments
 
-### Comment j3c44c6 (parent t1_j3bfmlt)
-
-Hadn't heard of Digital Marines but I'll check it out.
-
-I'm actually reading Drone Ensign right now. The beginning was a roller coaster of emotions for me with combat then 1984 territory stuff, then suddenly a gnome AI and "We're gonna be space pirates!" It's been a fun ride though and I can't wait to finish it.
-
 ### Comment j3c3sqc (parent t1_j3ajo8l)
 
 The progression here primarily works through training. Early on Gabriel gets himself a wristcomp with a stat tracker that shows him how he's doing on improving his core attributes (like strength), his skills (like ranged combat), and later disciplines which are like perks.
@@ -66,17 +60,3 @@ I'm planning to get him up there by the final season. Working on two right now.
 City destroying powers would be on the lower end continent on the mid tier. Planet and reality breaking on the high end as the big bad shows the potential for in Book 4.
 
 But It's a slow burn toward that. Gabriel not only starts out physically unremarkable but in this world magic has been forgotten, which is why they made up for it with railguns and power armor. They have to rediscover it so to speak. :D
-
-### Comment lun1fx9 (parent t1_lujv1re)
-
-Don't worry fam, I gotchu:
-
-The plate at the foot of the statue read: “In darkness: I shall be light. In times of doubt: I shall keep faith. In the midst of battle: I shall have no fear. In the face of death: I shall have no remorse.”
-
-That was from book 1 and I honestly need to use it more in the second arc. Well since I'm working on book 8 I'll have plenty of time to make sure it gets included.
-
-Speaking of which book 5 should be out on Audible now. :D
-
-### Comment j3c4c07 (parent t1_j3b7bwg)
-
-And hilariously enough I'm actually reading Drone Ensign right now. lol

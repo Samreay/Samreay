@@ -3,7 +3,7 @@ id: 152yaab
 title: 'My book, The Trials of Descent – book 6 of The Menocht Loop Series – is now live on Amazon and Audible!'
 author: timelessarii
 url: https://www.reddit.com/r/ProgressionFantasy/comments/152yaab/my_book_the_trials_of_descent_book_6_of_the/
-upvotes: 84
+upvotes: 86
 created: 2023-07-18
 ---
 
@@ -17,16 +17,6 @@ _(no body text)_
 - https://i.redd.it/c3qgz3gt4qcb1.jpg
 
 ## OP comments
-
-### Comment jsh1a0e (parent t1_jsgr0r1)
-
-The books are all lightly edited from RR. Some line editing and proofreading, but nothing significant. In general I write slowly but rather cleanly.
-
-If you need help figuring out where you left off you can check out the discord server and me/other fans can help! https://discord.gg/35atMsv
-
-### Comment jsh0rl0 (parent t1_jsgw6kp)
-
-Thanks for producing the awesome audiobook!
 
 ### Comment jsg8hpk (parent t3_152yaab)
 
@@ -69,25 +59,3 @@ Joined by Maria and a new ally, Ian finds himself a surprise player in the Hall'
 **Ian must show everyone the power of an ancient.**
 
 The cover art is by [KartStudio](https://www.deviantart.com/kartstudiodigi/gallery/all). I recommend the artist – fair price, great quality. The book 5 cover of TML has been my phone’s wallpaper for over a year now… 👀
-
-### Comment jsj8ke5 (parent t1_jsj79g5)
-
-☺️
-
-### Comment jsoehc3 (parent t1_jsmxc87)
-
-I couldn't have made book 1 longer without adding unnecessary padding (boo!), but I wish it were the longest in the series, purely from a commercial standpoint. It's honestly not *that* much shorter, though. All my books range from \~100-150k, with book 1 right around 100k.
-
-I hope you enjoy the series!
-
-### Comment jsgh2gj (parent t1_jsgesb9)
-
-All 6 books are on audible — I put the audible links in my comment :)
-
-Dragons aren’t important in the books, but there is a dragon animal companion.
-
-The setting is futuristic magitech world that is similar to our own.
-
-### Comment k1p382u (parent t1_k191eos)
-
-Only 1 more planned! I’m glad you’ve been enjoying it :)
