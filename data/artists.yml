@@ -84,7 +84,6 @@
     - seventh_bridge_to_the_heavens
     - la_cite
     - tower_nerek
-    - mana_mirror  # https://www.reddit.com/r/ProgressionFantasy/comments/14l9lhu/
 
 - name: Bad Moon Art Studio
   links:
@@ -210,6 +209,7 @@
     twitter: https://twitter.com/cosmiccroissant
   covers:
     - edge_cases1  # https://www.reddit.com/r/ProgressionFantasy/comments/159955t/
+  hidden: true
 
 - name: Cyan Gorilla
   links:
@@ -257,6 +257,7 @@
     - jmm1
     - jmm2
     - jmm3
+    - portal_to_nova_roma_omnibus
 
 - name: Danny Canto
   links:
@@ -810,6 +811,7 @@
     - lord_of_the_seas1
     - sham_man1
     - the_effaced
+    - mana_mirror  # https://www.reddit.com/r/ProgressionFantasy/comments/14l9lhu/
     - justice_not_found  # https://www.reddit.com/r/ProgressionFantasy/comments/1sn20sc/
 
 - name: Lee Moyer
@@ -1429,13 +1431,15 @@
     artstation: https://www.artstation.com/yonahx
   covers:
     - bladeweaver1  # https://www.reddit.com/r/ProgressionFantasy/comments/1j2hnzq/
-    - the_shirtwearer
+    # - the_shirtwearer
+  hidden: true
 
 - name: Yorulost
   links:
     website: https://vgen.co/Yorulost
   covers:
     - far_end_world  # https://www.reddit.com/r/ProgressionFantasy/comments/1rquf0z/
+  hidden: true
 
 - name: Xeninda
   links:
