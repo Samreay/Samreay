@@ -34,7 +34,7 @@ Murdered for daring to expose the deeds of the corrupt, Brunhilde Krahe is then 
 
 As of right now, the book is available on Kindle, Kindle Unlimited, and Audible. Paperbacks coming soonTM.
 
-Kindle: [\~https://mybook.to/5NGBquP\~](https://mybook.to/5NGBquP) 
+Kindle: [\~https://mybook.to/5NGBquP\~](https://mybook.to/5NGBquP) 
 
 Audiobook: [\~https://www.audible.com/pd/Cherno-Caster-Audiobook/B0DBVWPG2V\~](https://www.audible.com/pd/Cherno-Caster-Audiobook/B0DBVWPG2V)
 

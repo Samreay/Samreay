@@ -19,8 +19,8 @@ _(no body text)_
 
 ### Comment jaf5m97 (parent t3_11eodii)
 
-🐓 Get this special edition hardcover, available for a limited time only! 🐓 To celebrate the fans that made Beware of Chicken a success, Casualfarmer and Podium have released this special edition hardcover, containing illustrations from cover designer Tsuu, for a limited time only 😱  
-  
-This book is only available for preorder, and is only available until 9PM PST TONIGHT  
-  
+🐓 Get this special edition hardcover, available for a limited time only! 🐓 To celebrate the fans that made Beware of Chicken a success, Casualfarmer and Podium have released this special edition hardcover, containing illustrations from cover designer Tsuu, for a limited time only 😱
+
+This book is only available for preorder, and is only available until 9PM PST TONIGHT
+
 ORDER HERE: https://store.podiumaudio.com/pages/bocboc

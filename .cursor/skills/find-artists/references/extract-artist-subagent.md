@@ -21,15 +21,16 @@ Workflow:
 2. Look in the post body and every OP comment for phrases like "cover by",
    "art by", "artist is", "@artist_handle", fiverr URLs, artstation URLs,
    instagram handles, deviantart, behance, and personal sites.
-3. Proceed only if there is clear attribution: an artist name plus at least one
+3. Proceed only if there is clear attribution: an artist with ideally a
    website, profile, handle, or cited link that unambiguously identifies one
-   artist.
+   artist. Self-attribution should be skipped as
+   authors are generally not accepting art commissions.
 4. If attribution is missing or ambiguous, move the markdown unchanged to
    `.cursor/skills/find-artists/references/extracted/<id>.md`, make no
    `artists.yml` or cover changes, and report the skip reason.
 5. If attribution is clear, pick a cover stem using existing
    `data/artists.yml` conventions: lowercase words joined by `_`, usually
-   `seriesname<n>` for series books or the book slug for standalones. Check both
+   `series_name<n>` for series books or the book slug for standalones. Check both
    `data/artists.yml` and `.cursor/skills/find-artists/tmp_covers/` to avoid
    collisions.
 6. Download the best front-cover image from the markdown's `## Image URLs`

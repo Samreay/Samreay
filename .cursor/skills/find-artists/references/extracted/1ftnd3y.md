@@ -20,11 +20,11 @@ _(no body text)_
 
 ### Comment lpszs07 (parent t3_1ftnd3y)
 
-The second book in my *Magical Girl Undergrad* series, *Oaths and Outfits*, went live on Kindle and Audible today. I’m excited to keep sharing this superhero slice-of-life superhero story with you all. 
+The second book in my *Magical Girl Undergrad* series, *Oaths and Outfits*, went live on Kindle and Audible today. I’m excited to keep sharing this superhero slice-of-life superhero story with you all. 
 
 *Oaths and Outfits* follows Anika, also known as Magical Girl Understudy, as she balances coursework, friendships and relationships, and, of course, her superhero TV show. When her producer offers her a chance to move her show up to a prime-time minor-league slot, Annie jumps at the opportunity—but she’ll have to win a race against another fame-hungry little league hero. As the stakes increase, so does the pressure for Magical Girl Understudy to win and claim that spot for herself.
 
-Thanks to Podium for helping make this happen, Hollie Jackson for the amazing voice work, and Kindra Tia for the outstanding cover! 
+Thanks to Podium for helping make this happen, Hollie Jackson for the amazing voice work, and Kindra Tia for the outstanding cover! 
 
 [Oaths and Outfits (Kindle)](https://www.amazon.com/gp/product/B0D5Z28CDB?ref_=dbs_m_mng_rwt_calw_tkin_1&storeType=ebooks)
 

@@ -28,13 +28,13 @@ Art Attribution: Michael Gigau!
 
 A review from "TheFurb" on Royal Road:
 
-"I have read quite a few books and stories in the litrpg genre, including many that revolve around the “card system”.  I can say without any doubt that this is among the best of them.  
+"I have read quite a few books and stories in the litrpg genre, including many that revolve around the “card system”.  I can say without any doubt that this is among the best of them.  
 
-The characters are nuanced and well thought out.  The system is highly developed and each card seems to be fully considered.  The plot has a clearly defined goal with little extra goodies such as completing card sets coming with juicy rewards.  
+The characters are nuanced and well thought out.  The system is highly developed and each card seems to be fully considered.  The plot has a clearly defined goal with little extra goodies such as completing card sets coming with juicy rewards.  
 
-The MC is completely relatable and likable with an interesting backstory.  The  action is well written and believable.  
+The MC is completely relatable and likable with an interesting backstory.  The  action is well written and believable.  
 
-Some of the common story elements for litrpg are part of this story but have been fairly scarce as of the end of book two.  We get a little dungeon action but I would love to see more down the line.  
+Some of the common story elements for litrpg are part of this story but have been fairly scarce as of the end of book two.  We get a little dungeon action but I would love to see more down the line.  
 
 The story thus far is great with loads of potential and stories left to be told. I can not recommend this enough!"
 
