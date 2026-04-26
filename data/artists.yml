@@ -292,6 +292,7 @@
     website: https://www.dilettadesantis.com/
   covers:
     - castleless  # https://www.reddit.com/r/ProgressionFantasy/comments/1f95sdy/
+  hidden: true
 
 - name: Duy Phan
   links:
@@ -633,6 +634,7 @@
     artstation: https://www.artstation.com/harprdraws
   covers:
     - the_lone_hero1  # https://www.reddit.com/r/ProgressionFantasy/comments/14psruo/
+  hidden: true
 
 - name: John Carl Flores
   links:
@@ -1252,7 +1254,8 @@
     twitter: https://twitter.com/sininenblue
   covers:
     - dmgma  # https://www.reddit.com/r/ProgressionFantasy/comments/10sq0al/
-
+  hidden: true
+  
 - name: Shen Fei
   links:
     deviantart: https://www.deviantart.com/shenfeic
