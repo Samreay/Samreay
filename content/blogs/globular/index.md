@@ -46,4 +46,4 @@ supervisor for follow up in the future.
 Now instead of going into more detail in this post on any of, I still
 have access to the presentation I gave at the end of my work there, so here it is:
 
-{% include presentation.html url="https://docs.google.com/presentation/d/1x4xm6cncCdiSzpdlAy8HEiFcOSH0zJPr_J99SKmXgXA/embed?start=false&loop=false&delayms=5000)
+{{< pdf src="presentation.pdf" title="Detecting Globular Clusters presentation" height="50vh" >}}

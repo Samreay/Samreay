@@ -15,7 +15,7 @@ surprise surprise, I made a group of tightly packed cubes and then threw a glass
 I randomised the materials of the cubes to add some spice, and fiddled around with simulation
 speed to get a slow motion section of the simulation. Enjoy!
 
-![](slowmotion_small.mp4" autoplay="true)
+![](slowmotion_small.mp4)
 
 
 ![](0020.jpg)

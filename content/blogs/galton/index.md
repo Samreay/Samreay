@@ -23,7 +23,7 @@ I had to decrease the number of spheres in the scene so my computer wouldn't cat
 but I'm fairly happy with the final output. Here are three stills to illustrate the point, after the
 all important video!
 
-{% include youtube.html url="https://www.youtube.com/embed/S5WAswaJRjw)
+![](galton_big.mp4)
 
 ![](galton2.jpg)
 ![](galton1.jpg)

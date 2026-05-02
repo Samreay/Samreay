@@ -1,0 +1,15 @@
+{{- $src := .Get "src" -}}
+{{- $title := default "PDF document" (.Get "title") -}}
+{{- $height := default "50vh" (.Get "height") -}}
+{{- with .Page.Resources.Get $src -}}
+<div class="pdf-embed">
+    <object data="{{ .RelPermalink }}" type="application/pdf" aria-label="{{ $title }}" style="width: 100%; height: {{ $height }}; border: 0;">
+        <iframe src="{{ .RelPermalink }}" title="{{ $title }}" loading="lazy" style="width: 100%; height: {{ $height }}; border: 0;">
+            <p><a href="{{ .RelPermalink }}">Open {{ $title }}</a></p>
+        </iframe>
+    </object>
+</div>
+{{- else -}}
+{{- warnf "PDF resource %q not found in page bundle %q" $src .Page.File.Path -}}
+<p><strong>PDF unavailable:</strong> {{ $src }}</p>
+{{- end -}}
