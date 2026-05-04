@@ -24,30 +24,32 @@ export default defineConfig({
   // 404. GitHub Pages does the trailing-slash redirect for us in production.
   trailingSlash: 'ignore',
   redirects,
-  // Hugo writes to `public/`, which is Astro's default `publicDir`. During the
-  // migration we keep both builds side-by-side, so we point Astro at a
-  // dedicated `astro-public/` (created on demand). Phase 14 (cutover) deletes
-  // Hugo entirely and we'll move things back to `public/` if/when convenient.
+  // We keep Astro's static assets in `astro-public/` rather than the default
+  // `public/` because, during the Hugo→Astro migration, `public/` was Hugo's
+  // build output and we needed both builds to coexist. The dedicated name
+  // also makes asset ownership unambiguous when grepping the tree.
   publicDir: 'astro-public',
   integrations: [
     svelte(),
     mdx(),
     tailwind({ applyBaseStyles: false }),
-    sitemap(),
-    // Hugo's page-bundle model published `content/<type>/<slug>/<file>` at
-    // `/<type>/<slug>/<file>`. `contentAssets()` restores that for non-image,
-    // non-markdown files (videos, PDFs, PSDs, zips, notebook downloads) so
-    // raw `<video src="...">` tags inside the markdown still work.
+    // `/kitchensink/` is a visual-regression playground that must ship to
+    // `dist/` so Playwright can target it directly, but it's not a real
+    // page and shouldn't be advertised to crawlers.
+    sitemap({
+      filter: (page) => !page.includes('/kitchensink/'),
+    }),
+    // Page-bundle assets co-located inside `content/<type>/<slug>/<file>`
+    // are republished at `/<type>/<slug>/<file>` so raw `<video src="...">`
+    // and `![...](path.png)` references in markdown keep resolving.
     contentAssets(),
   ],
   markdown: {
     remarkPlugins: [remarkMath, remarkImageClass],
     rehypePlugins: [rehypeKatex],
-    // Shiki doesn't bundle the Chroma `base16-snazzy` theme Hugo used; we
-    // ship a hand-ported TextMate JSON adaptation in
-    // `src/lib/shiki-themes/base16-snazzy.json` (Snazzy palette via the
-    // standard base16 → tmTheme mapping). Phase 10 verifier asserts the
-    // rendered swatches use the snazzy palette colours.
+    // Hand-ported TextMate JSON for the Snazzy palette Shiki doesn't ship
+    // out of the box. The Phase 10 verifier asserts the rendered swatches
+    // match this palette.
     shikiConfig: { theme: base16Snazzy },
   },
 });

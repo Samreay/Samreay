@@ -1,10 +1,11 @@
 ---
 /**
- * Books section grid + Mailerlite signup CTA.
+ * Books section grid plus the home-page newsletter CTA.
  *
- * Ports `themes/sams-theme/layouts/partials/sections/books.html`. The
- * inline newsletter card was consolidated into `<NewsletterForm
- * variant="compact" />` in Phase 15, after the Mailchimp → Mailerlite swap.
+ * The newsletter sits in the third column of the second row so two book
+ * covers and the form align cleanly on `md:` and up. The CTA itself is
+ * `<NewsletterForm variant="compact" />` — we own positioning here, the
+ * component owns the form markup.
  */
 import { books } from '../../data/books';
 import BookCard from '../BookCard.astro';
@@ -23,9 +24,7 @@ import NewsletterForm from '../NewsletterForm.astro';
       {books.map((book) => <BookCard book={book} />)}
     </div>
     <div class="grid gap-4 xs:gap-12 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
-      <div class="md:col-start-2">
-        <NewsletterForm variant="compact" />
-      </div>
+      <NewsletterForm variant="compact" class="md:col-start-2" />
     </div>
   </div>
 </div>

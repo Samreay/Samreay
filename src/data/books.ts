@@ -1,5 +1,6 @@
-// Generated from data/books.yml (Phase 4 mirror).
-// Hugo still reads the source YAML; this typed copy powers Astro pages.
+// Canonical list of Sam's published books, consumed by `<Books />` on the
+// home page. Originally a Hugo-era `data/books.yml`; this typed copy is now
+// the source of truth.
 export const books = [
   {
     "name": "Soul Relic",

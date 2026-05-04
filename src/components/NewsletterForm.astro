@@ -1,9 +1,7 @@
 ---
 /**
- * Newsletter signup CTA.
- *
- * Backed by Mailerlite (form id 176526142171252164, account 2036924). The
- * Mailchimp form that shipped with Hugo was retired in Phase 15.
+ * Newsletter signup CTA, backed by Mailerlite (form 176526142171252164,
+ * account 2036924).
  *
  * Two visual variants:
  *
@@ -14,25 +12,33 @@
  *     `<Books />` section so the CTA sits in the third column next to two
  *     book covers.
  *
- * Mailerlite requires both their `webforms.min.js` loader and a "takel"
- * tracking pixel; the success callback is keyed on the form id (the
- * `ml_webform_success_35716688` global). We render those once per page —
- * if the form happens to appear twice (currently no page does this),
- * Mailerlite tolerates the duplicate script tag.
+ * Mailerlite needs both their `webforms.min.js` loader and a per-form
+ * "takel" tracking pixel; the success callback is keyed on the form id
+ * (the `ml_webform_success_35716688` global). We render those once per
+ * page — if the form happens to appear twice (currently no page does
+ * this), Mailerlite tolerates the duplicate script tag.
  */
 interface Props {
   variant?: 'default' | 'compact';
+  /**
+   * Extra classes appended to the outer `.fancy_card` wrapper. Useful for
+   * grid-positioning (e.g. `md:col-start-2` on the home page Books section)
+   * without introducing an extra wrapper div that would shift the visual
+   * baseline.
+   */
+  class?: string;
 }
-const { variant = 'default' } = Astro.props;
+const { variant = 'default', class: extraClass = '' } = Astro.props;
 
 const DISCORD_URL = 'https://discord.gg/tfn4HVEaDz';
 
 // Outer wrappers diverge between variants; everything inside
 // `.newsletter-inner` is identical.
-const outerClass =
+const outerClassBase =
   variant === 'compact'
     ? 'fancy_card flex flex-col h-full'
     : 'relative max-w-xl mx-auto my-20 fancy_card horizontal';
+const outerClass = extraClass ? `${extraClass} ${outerClassBase}` : outerClassBase;
 const translatorClass = variant === 'compact' ? 'card_translator h-full' : 'card_translator';
 const rotatorClass =
   variant === 'compact'
@@ -44,9 +50,10 @@ const newsletterClass =
     : 'card_layer newsletter p-1';
 const newsletterInnerClass = 'newsletter-inner h-full';
 const newsletterPadStyle = variant === 'compact' ? 'padding: 0.2rem;' : '';
+const headerWrapperClass =
+  variant === 'compact' ? 'mb-6 text-center' : 'mb-6 lg:mb-12 text-center';
 const headlineClass =
   variant === 'compact' ? 'text-main-50 mb-2 lg:mb-8' : 'text-main-200 mb-2 lg:mb-8';
-const headlinePadStyle = variant === 'compact' ? '' : 'padding-top: 0;';
 const headlineText = variant === 'compact' ? 'Updates!' : 'Stay in the loop!';
 const subClass =
   variant === 'compact'
@@ -59,8 +66,12 @@ const subClass =
       <div class={newsletterClass} style={newsletterPadStyle}>
         <div class={newsletterInnerClass}>
           <div class="relative h-full sib-form-container">
-            <div class="mb-6 lg:mb-12 text-center">
-              <h3 class={headlineClass} style={headlinePadStyle}>{headlineText}</h3>
+            <div class={headerWrapperClass}>
+              {variant === 'compact' ? (
+                <h3 class={headlineClass}>{headlineText}</h3>
+              ) : (
+                <h3 class={headlineClass} style="padding-top: 0;">{headlineText}</h3>
+              )}
               {variant === 'compact' ? (
                 <p class={subClass}>
                   Join

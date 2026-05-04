@@ -187,8 +187,9 @@ def _check_no_hugo_shortcodes_in_content(ctx: Context) -> CheckResult:
 
 
 def _check_newsletter_form_present(ctx: Context) -> CheckResult:
-    """`<NewsletterForm />` ships on every review detail page. Sample
-    one and verify the Mailchimp action URL plus success/error sentinel.
+    """`<NewsletterForm />` ships on every review detail page. Sample one
+    and verify the Mailerlite endpoint and success-callback sentinel.
+    Phase 15 swapped the Mailchimp form Hugo shipped with for Mailerlite.
     """
     sample = ctx.dist_dir / "reviews" / "bobiverse" / "index.html"
     if not sample.is_file():
@@ -200,9 +201,9 @@ def _check_newsletter_form_present(ctx: Context) -> CheckResult:
         )
     html = sample.read_text(encoding="utf-8", errors="ignore")
     needles = (
-        "Cosmiccoding.us5.list-manage.com",
-        "mce-success-response",
-        'name="EMAIL"',
+        "assets.mailerlite.com/jsonp/2036924/forms/176526142171252164/subscribe",
+        "ml_webform_success_35716688",
+        'name="fields[email]"',
     )
     missing = [n for n in needles if n not in html]
     if not missing:
@@ -210,7 +211,7 @@ def _check_newsletter_form_present(ctx: Context) -> CheckResult:
             name="newsletter_form_present",
             severity="must_match",
             passed=True,
-            detail="Mailchimp newsletter form rendered on sample review page",
+            detail="Mailerlite newsletter form rendered on sample review page",
         )
     return CheckResult(
         name="newsletter_form_present",

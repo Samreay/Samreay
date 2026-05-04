@@ -1,5 +1,5 @@
-// Generated from data/podcasts.yml (Phase 4 mirror).
-// Hugo still reads the source YAML; this typed copy powers Astro pages.
+// Podcast episode list for `<Podcasts />` on the home page. Originally a
+// Hugo-era `data/podcasts.yml`; this typed copy is now the source of truth.
 export const podcasts = [
   {
     "episode": 9,

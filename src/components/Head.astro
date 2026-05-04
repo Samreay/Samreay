@@ -17,12 +17,7 @@ const finalTitle = isHome
     : SITE_TITLE;
 ---
 <head>
-  <!--
-    Transitional: matches Hugo's `<meta name="generator">` while Hugo remains
-    the source of truth. Removed at the Phase 14 cutover, alongside the rest
-    of the Hugo-only artefacts.
-  -->
-  <meta name="generator" content="Hugo 0.134.1" />
+  <meta name="generator" content={Astro.generator} />
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />

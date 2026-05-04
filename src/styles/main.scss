@@ -4,9 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-// `aos` (Animate On Scroll) is dropped in Phase 11 — its import previously
-// lived here.
-
 // @import './syntax.scss';
 @import './utility-patterns.scss';
 @import './range-slider.scss';

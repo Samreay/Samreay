@@ -1,5 +1,5 @@
-// Generated from data/other.yml (Phase 4 mirror).
-// Hugo still reads the source YAML; this typed copy powers Astro pages.
+// Misc external links section on the home page (`<Other />`). Originally
+// a Hugo-era `data/other.yml`; this typed copy is now the source of truth.
 export const other = [
   {
     "name": "CV",

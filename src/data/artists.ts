@@ -1,5 +1,6 @@
-// Generated from data/artists.yml (Phase 4 mirror).
-// Hugo still reads the source YAML; this typed copy powers Astro pages.
+// Artist Corner roster, consumed by `<ArtistsExplorer>` on `/artists/`.
+// Originally a Hugo-era `data/artists.yml`; this typed copy is now the
+// source of truth and is appended to by the `find-artists` skill.
 export const artists = [
   {
     "name": "Aaron McConnel",

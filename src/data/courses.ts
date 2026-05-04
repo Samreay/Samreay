@@ -1,5 +1,5 @@
-// Generated from data/courses.yml (Phase 4 mirror).
-// Hugo still reads the source YAML; this typed copy powers Astro pages.
+// Courses block on the home page (`<Courses />`). Originally a Hugo-era
+// `data/courses.yml`; this typed copy is now the source of truth.
 export const courses = [
   {
     "name": "Python for Statistical Analysis",

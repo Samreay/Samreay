@@ -1,5 +1,6 @@
-// Generated from data/categories.yml (Phase 4 mirror).
-// Hugo still reads the source YAML; this typed copy powers Astro pages.
+// Tag → category mapping for review/blog/tutorial pills. Originally a
+// Hugo-era `data/categories.yml`; this typed copy is now the source of
+// truth.
 export const categories = [
   "π",
   "S",

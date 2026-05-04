@@ -1,9 +1,9 @@
 
 <script lang="ts">
   /**
-   * Replaces Hugo's AlpineJS `x-data="{ expanded: false }"` hamburger
-   * drawer. Mounted with `client:idle` from `Navbar.astro`. The SSR pass
-   * leaves the drawer collapsed so the page is usable before hydration.
+   * Hamburger drawer for the navbar. Mounted with `client:idle` from
+   * `Navbar.astro`. The SSR pass leaves the drawer collapsed so the page
+   * is usable before hydration.
    */
   type NavItem = { link: string; label: string };
   type Props = { items: NavItem[] };
