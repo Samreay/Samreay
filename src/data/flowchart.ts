@@ -12,6 +12,9 @@ export interface DecisionNode {
   id: string;
   /** Headline question shown inside the diamond. */
   prompt: string;
+  /** Pick a colour from the Tailwind 500 palette for the node's border
+   *  and background tint. Omit for the default `'gray'`. */
+  color?: PaletteColor;
   /** Layout escape hatch — if set, dagre's computed position is ignored and
    *  this top-left coordinate is used instead. Use sparingly; intended for
    *  the rare node that has to sit in a hand-tuned spot (section anchors,
@@ -28,13 +31,13 @@ export interface BookNode {
 }
 
 /**
- * Named edge colours. Each maps to a Tailwind 500-shade hex in
- * `flowchart.scss`. Add new entries by editing both this union and the
- * `$edge-colors` map in the SCSS — the two are intentionally kept in
- * lockstep so a typo here fails type-checking instead of silently
- * falling back to the default green.
+ * Named palette colours used for both edges and decision-node accents.
+ * Each maps to a Tailwind 500-shade hex in `EDGE_PALETTE` inside
+ * `flowchart-layout.ts`. Add new entries by editing both this union and
+ * that map — the two are intentionally kept in lockstep so a typo here
+ * fails type-checking instead of silently falling back to the default.
  */
-export type EdgeColor =
+export type PaletteColor =
   | 'red'
   | 'orange'
   | 'amber'
@@ -54,6 +57,21 @@ export type EdgeColor =
   | 'rose'
   | 'gray';
 
+/** @deprecated Use `PaletteColor`. Kept as an alias because the union
+ *  is now shared with decision-node accents, not just edges. */
+export type EdgeColor = PaletteColor;
+
+/**
+ * Edge path style. Friendly names that the layout helper maps onto
+ * xyflow's built-in edge renderers (`'bezier'` → xyflow's `'default'`).
+ */
+export type EdgeType =
+  | 'bezier'
+  | 'simplebezier'
+  | 'smoothstep'
+  | 'step'
+  | 'straight';
+
 export interface FlowchartEdge {
   id: string;
   source: string;
@@ -62,18 +80,25 @@ export interface FlowchartEdge {
   label?: string;
   /** Pick a colour from the Tailwind 500 palette. Omit for the default
    *  accent green. */
-  color?: EdgeColor;
+  color?: PaletteColor;
+  /** Override the path style for this single edge. Falls back to
+   *  `FlowchartData.defaultEdgeType` when omitted. */
+  type?: EdgeType;
 }
 
 export interface FlowchartData {
   decisions: DecisionNode[];
   books: BookNode[];
   edges: FlowchartEdge[];
+  /** Path style applied to every edge that doesn't set its own `type`.
+   *  Defaults to `'bezier'` if omitted. */
+  defaultEdgeType?: EdgeType;
 }
 
 export const flowchart: FlowchartData = {
+  defaultEdgeType: 'bezier',
   decisions: [
-    { id: 'd_start', prompt: 'Will you die without stats or a system?' },
+    { id: 'd_start', prompt: 'Will you die without stats or a system?', color: 'amber' },
     { id: 'd_support', prompt: 'Want to support the flowchart maker?' }
   ],
   books: [

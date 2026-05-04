@@ -38,7 +38,7 @@
     proOptions={{ hideAttribution: true }}
     minZoom={0.3}
     maxZoom={1.5}
-    defaultEdgeOptions={{ type: 'smoothstep', animated: false }}
+    defaultEdgeOptions={{ animated: false }}
     nodesConnectable={false}
     nodesDraggable={false}
     edgesReconnectable={false}

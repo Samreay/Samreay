@@ -18,7 +18,12 @@ import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Node, Edge } from '@xyflow/svelte';
 import { resolveCover } from './covers';
-import type { FlowchartData, DecisionNode, EdgeColor } from '../data/flowchart';
+import type {
+  FlowchartData,
+  DecisionNode,
+  EdgeType,
+  PaletteColor,
+} from '../data/flowchart';
 
 // Book nodes mirror the "wide" review card layout from the main reviews
 // page: 250x400 cover on the left, title/sentence/tags pane on the right,
@@ -40,7 +45,7 @@ const NODE_SIZES = {
 // custom-property cascade scoped to `.svelte-flow__edge`. Inline
 // `style` / `labelStyle` is the only reliable way to keep both ends
 // in lockstep without writing 18 colour pairs of duplicate CSS.
-const EDGE_PALETTE: Record<EdgeColor | 'default', { line: string; text: string }> = {
+const EDGE_PALETTE: Record<PaletteColor | 'default', { line: string; text: string }> = {
   red:     { line: '#ef4444', text: '#fef2f2' },
   orange:  { line: '#f97316', text: '#fff7ed' },
   amber:   { line: '#f59e0b', text: '#fffbeb' },
@@ -77,6 +82,10 @@ export interface BookNodePayload extends Record<string, unknown> {
 export interface DecisionNodePayload extends Record<string, unknown> {
   kind: 'decision';
   prompt: string;
+  /** Resolved palette so the Svelte component can apply the colour
+   *  inline — same reasoning as edges (xyflow portals/scopes break
+   *  the CSS cascade for variables defined on `.svelte-flow__node`). */
+  accent: { line: string; text: string };
 }
 
 // Tighten against xyflow's own `Node<TData, TType>` so the island accepts
@@ -85,7 +94,19 @@ export interface DecisionNodePayload extends Record<string, unknown> {
 export type BookFlowNode = Node<BookNodePayload, 'book'>;
 export type DecisionFlowNode = Node<DecisionNodePayload, 'decision'>;
 export type FlowNode = BookFlowNode | DecisionFlowNode;
-export type FlowEdge = Edge<{ color?: EdgeColor }, 'smoothstep'>;
+/** xyflow's built-in edge renderer ids. `'default'` is its bezier path;
+ *  the others map 1:1 onto our friendlier `EdgeType` names. */
+type XyEdgeType = 'default' | 'simplebezier' | 'smoothstep' | 'step' | 'straight';
+
+const EDGE_TYPE_TO_XY: Record<EdgeType, XyEdgeType> = {
+  bezier: 'default',
+  simplebezier: 'simplebezier',
+  smoothstep: 'smoothstep',
+  step: 'step',
+  straight: 'straight',
+};
+
+export type FlowEdge = Edge<{ color?: PaletteColor }, XyEdgeType>;
 
 function validateFlowchart(data: FlowchartData): void {
   const errors: string[] = [];
@@ -112,7 +133,7 @@ export async function getLayoutedElements(
   validateFlowchart(data);
 
   const g = new dagre.graphlib.Graph();
-  g.setGraph({ rankdir: 'TB', nodesep: 80, ranksep: 120, edgesep: 30 });
+  g.setGraph({ rankdir: 'TB', nodesep: 80, ranksep: 150, edgesep: 30 });
   g.setDefaultEdgeLabel(() => ({}));
 
   // Resolve all book payloads in parallel. `resolveCover` calls `getImage`
@@ -174,6 +195,7 @@ export async function getLayoutedElements(
       const laidOut = g.node(d.id);
       position = { x: laidOut.x - size.width / 2, y: laidOut.y - size.height / 2 };
     }
+    const accent = EDGE_PALETTE[d.color ?? 'gray'];
     return {
       id: d.id,
       type: 'decision',
@@ -181,7 +203,7 @@ export async function getLayoutedElements(
       width: size.width,
       height: size.height,
       ariaLabel: `Decision: ${d.prompt}`,
-      data: { kind: 'decision', prompt: d.prompt },
+      data: { kind: 'decision', prompt: d.prompt, accent },
     };
   };
 
@@ -210,6 +232,7 @@ export async function getLayoutedElements(
     ...bookPayloads.map(placeBook),
   ];
 
+  const defaultEdgeType: EdgeType = data.defaultEdgeType ?? 'bezier';
   const edges: FlowEdge[] = data.edges.map((e) => {
     const palette = EDGE_PALETTE[e.color ?? 'default'];
     return {
@@ -217,7 +240,7 @@ export async function getLayoutedElements(
       source: e.source,
       target: e.target,
       label: e.label,
-      type: 'smoothstep',
+      type: EDGE_TYPE_TO_XY[e.type ?? defaultEdgeType],
       ariaLabel: e.label ? `Edge labelled "${e.label}"` : undefined,
       // `style` reaches the SVG path inside `.svelte-flow__edge`; xyflow
       // applies it via the `style` attribute on `<path>`, where SVG
