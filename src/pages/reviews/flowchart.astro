@@ -1,0 +1,71 @@
+---
+/**
+ * /reviews/flowchart/ — Phase 16 validation slice.
+ *
+ * Three nodes (one decision, two book recommendations) laid out by dagre at
+ * build time, rendered by `@xyflow/svelte` inside a `client:only` Svelte
+ * island. The same data feeds an always-rendered `<details>` fallback so
+ * the page has crawlable text content and screen readers have a working
+ * non-canvas reading path even though the canvas itself is JS-only.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Flowchart from '../../components/islands/Flowchart.svelte';
+import { flowchart } from '../../data/flowchart';
+import { getLayoutedElements } from '../../lib/flowchart-layout';
+import '../../styles/flowchart.scss';
+
+const { nodes, edges } = await getLayoutedElements(flowchart);
+
+// Build a flat list of every "from this decision, see X or Y" pair so we
+// can render an `sr-only` fallback for crawlers, screen readers, and
+// JS-disabled users. With `client:only` the canvas itself contributes
+// zero text content to the static HTML; this hidden block is the page's
+// only indexable body. Visually it's removed from the page so the canvas
+// owns the full viewport — the trade-off is intentional.
+const bookNodesById = new Map(
+  nodes.flatMap((n) => (n.type === 'book' ? [[n.id, n] as const] : [])),
+);
+const fallback = flowchart.decisions.map((d) => {
+  const branches = flowchart.edges
+    .filter((e) => e.source === d.id)
+    .flatMap((e) => {
+      const node = bookNodesById.get(e.target);
+      return node
+        ? [{ label: e.label ?? '', title: node.data.title, href: node.data.link }]
+        : [];
+    });
+  return { prompt: d.prompt, branches };
+});
+---
+<BaseLayout
+  title="Flowchart"
+  description="Pick your next progression-fantasy / LitRPG read by branching question."
+>
+  <div class="flowchart-page">
+    <div class="flowchart-page__header">
+      <h1>Recommendation Flowchart</h1>
+      <p class="flowchart-page__instructions">
+        Click and drag to pan, scroll to zoom. Keyboard: tab to focus a node,
+        arrows to pan, +/− to zoom.
+      </p>
+    </div>
+
+    <Flowchart client:only="svelte" {nodes} {edges} />
+
+    <div class="sr-only" aria-label="Flowchart as a list">
+      {fallback.map((d) => (
+        <section>
+          <h2>{d.prompt}</h2>
+          <ul>
+            {d.branches.map((b) => (
+              <li>
+                <strong>{b.label}:</strong>{' '}
+                <a href={b.href}>{b.title}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
