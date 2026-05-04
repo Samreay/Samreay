@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('blogs');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const dateString = entry.data.date.toISOString().slice(0, 10);
+---
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <div id="post-container" class="content content-wider blog-post relative">
+    <div class="section-header blog">
+      <h1 class="title">{entry.data.title}</h1>
+      <p>{dateString}</p>
+      {!entry.data.hide_description && entry.data.description ? <p>{entry.data.description}</p> : null}
+    </div>
+    <Content />
+    <NewsletterForm />
+  </div>
+</BaseLayout>

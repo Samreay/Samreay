@@ -21,7 +21,7 @@ So this is the goal for this tutorial - to turn a beautiful wallpaper (or three)
 
 
 
-![png](cover.png?class="img-main,remove")
+![png](cover.png)
 
 
 
@@ -172,7 +172,7 @@ This is actually super simple, because `scipy` has done it all for us. We'll sim
 
 
 
-![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_15_0.png?class="img-invert-dull")
+![png](2021-03-22-LowPoly_files/2021-03-22-LowPoly_15_0.png)
 
 
 
@@ -264,7 +264,7 @@ Running this will output a ton of images in the output folder, and we can pick o
 
 
 
-![](final1.mp4)
+<video src="final1.mp4" controls autoplay muted loop></video>
 
 
 
@@ -293,7 +293,7 @@ I ended up liking a frame somewhere in the middle as the "best", and here is a d
 
 
 
-![](final3.mp4)
+<video src="final3.mp4" controls autoplay muted loop></video>
 
 
 

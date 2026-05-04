@@ -256,7 +256,7 @@ Good luck!
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

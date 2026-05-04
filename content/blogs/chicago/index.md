@@ -62,7 +62,7 @@ pink lemonade ingested.
 
 Science.
 
-![](skyline.jpg?class="img-large")
+![](skyline.jpg)
 
 After the boat tour, Jacobo lead up to Hancock tower. It was
 a long wait for the one (out of three) elevators they had running,

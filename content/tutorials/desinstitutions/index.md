@@ -243,7 +243,7 @@ get_shaded();
 
 
 
-![png](cover.png?class="img-main,poster")
+![png](cover.png)
 
 
 
@@ -254,7 +254,7 @@ Great, well that's something I would call good enough for now. Of course... it w
 
 
 
-![](desinstitutions/des.mp4)
+<!-- removed missing image: desinstitutions/des.mp4 -->
 
 
 

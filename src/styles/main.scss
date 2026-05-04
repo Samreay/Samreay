@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@400;500;600;700;800;900&display=fallback');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// `aos` (Animate On Scroll) is dropped in Phase 11 — its import previously
+// lived here.
+
+// @import './syntax.scss';
+@import './utility-patterns.scss';
+@import './range-slider.scss';
+@import './toggle-switch.scss';
+@import './theme.scss';
+@import './styling.scss';
+@import './layout.scss';
+@import './fancy.scss';
+

@@ -23,11 +23,11 @@ OzDES, 6dF, [2dFLenS](http://2dflens.swin.edu.au/) and TAIPAN.
 
 Here's the figure I ended up creating with all datasets:
 
-![](all.jpg?class="img-reduced")
-![](wigglez.jpg?class="img-reduced")
-![](sdss.jpg?class="img-reduced")
-![](6df.jpg?class="img-reduced")
-![](2df.jpg?class="img-reduced")
+![](all.jpg)
+![](wigglez.jpg)
+![](sdss.jpg)
+![](6df.jpg)
+![](2df.jpg)
 
 Each point on the plot is a galaxy. Blue is WiggleZ, yellow is
 6dFGRS, red is 2dFGRS, purple is SDSS, green is GAMA and the

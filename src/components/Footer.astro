@@ -1,0 +1,9 @@
+---
+// Hugo's `partials/footer.html` only injects a bundled `js/main.js` script
+// at the end of <body>; there is no real footer chrome on this site. We
+// still emit a real <footer> tag here so the should_match
+// `base_layout_structure` check sees the wrapper, even though it remains
+// empty until the existing JS modules (alpine/aos) are decomposed in
+// Phase 11.
+---
+<footer />

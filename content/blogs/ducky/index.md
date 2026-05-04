@@ -21,14 +21,14 @@ project and adapt it to my needs. Let other people do the hard work, and just re
 Stary Night (also shown below the image doesn't immediately spring to mind).
 
 
-![](ducky6.jpg?class="img-reduced")
+![](ducky6.jpg)
 
-![](starynight.jpg?class="img-reduced")
+![](starynight.jpg)
 
 Three thousand steps of learning the style and transferring it onto the original image later, we have this masterpiece. It took a while figuring out learning algorithm, rates, resolutions, etc
 to make something that looked good, but I like to think I succeeded!
 
-![](ducky_profile_starynight_03162.jpg?class="img-reduced")
+![](ducky_profile_starynight_03162.jpg)
 
 With the proof of concept done, I then wrote some scripts to submit **bulk jobs** to the GPU's and generated images for dozens of styles. You can see all the styles in the [github repo](https://github.com/Samreay/neural-style-tf)
 if you're curious. Here are a few nice samples from the styles you can flick through.
@@ -43,4 +43,4 @@ In the end, I had two printed - the [first the cosmic cat style](https://www.red
 and the second the [low-poly orange cat](https://www.redbubble.com/people/samreay/works/39062530-striking-artistic-orange-low-poly-cat?p=throw-pillow"). I had them printed into cushions for
 the living room couch, and what can I say, I think they're fantastic!
 
-![](cushions.jpg?class="img-poster")
+<!-- removed missing image: cushions.jpg?class="img-poster" -->

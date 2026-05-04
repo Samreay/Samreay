@@ -3,79 +3,63 @@ name: Deploy Github Pages
 on:
   push:
     branches:
-      - master # Set a branch that will trigger a deployment
+      - master
   pull_request:
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
-# Default to bash
 defaults:
   run:
     shell: bash
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 1 # Fetch all history for .GitInfo and .Lastmod
+          fetch-depth: 1
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+      - uses: actions/setup-node@v4
         with:
-          hugo-version: "0.134.1"
-          extended: true
+          node-version: "22"
+          cache: "npm"
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Cache Astro build artifacts
+        uses: actions/cache@v4
         with:
-          node-version: "16"
+          path: |
+            node_modules/.astro
+            .astro
+          key: astro-${{ runner.os }}-${{ hashFiles('content/**', 'src/**', 'package-lock.json') }}
+          restore-keys: |
+            astro-${{ runner.os }}-
 
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
+      - run: npm ci
 
-      - name: Install dependencies
-        run: npm install --include=dev
-
-      - name: Build with Hugo
+      - name: Build
+        run: npm run build
         env:
-          # For maximum backward compatibility with Hugo modules
-          HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
-        run: |
-          hugo \
-            --gc \
-            --minify \
+          NODE_ENV: production
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./dist
 
-  # Deployment job
   deploy:
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Deploy to GitHub Pages

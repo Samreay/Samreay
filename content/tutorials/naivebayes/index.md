@@ -393,7 +393,7 @@ If theres one thing in general to take away from this, its Bayes theorem. I'll p
 
 
 
-![jpeg](cover.jpg?class="img-main,small,img-screen")
+![jpeg](cover.jpg)
 
 
 

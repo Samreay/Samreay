@@ -39,12 +39,12 @@ if __name__ == "__main__":
 
 And the above code gives the following contour:
 
-![](two.jpg)
+![](two.png)
 
 The largest use of the library is to create corner plots like this one, and so most of the customisation
 methods, such that you can get the plot below.
 
-![](mixed.jpg)
+![](mixed.png)
 
 Upon request by various users, ChainConsumer now has extra functionality:
 

@@ -43,7 +43,7 @@ We begin our journey with Anastasia, poor Anastasia, who just wants to study for
 
 I've sourced an illustration what Ana sees when she falls into his office.
 
-![](illusive_man.webp?class="img-smaller")
+![](illusive_man.webp)
 
 Unlike the Illusive Man, Christian is only too happy to help Ana up instead of kicking her while she was down, because that comes later, of course. You have to work up to these things. He smirks a few times, quirks a few eyebrows, and Ana blushes, flushes, and mushes over the attention.
 

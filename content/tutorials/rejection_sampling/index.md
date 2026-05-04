@@ -54,7 +54,7 @@ Simple! Play the animation below to see this in action!
 
 
 
-![](PlotDashed.mp4)
+<video src="PlotDashed.mp4" controls autoplay muted loop></video>
 
 
 
@@ -230,7 +230,7 @@ print(f"Efficiency is only {passed.mean() * 100:0.1f}%")
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

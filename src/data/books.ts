@@ -1,0 +1,50 @@
+// Generated from data/books.yml (Phase 4 mirror).
+// Hugo still reads the source YAML; this typed copy powers Astro pages.
+export const books = [
+  {
+    "name": "Soul Relic",
+    "cover": "landing/1_soul_relic.jpg",
+    "desc": "Manifestation 1: Soul Relic",
+    "link": "https://mybook.to/SoulRelic",
+    "audible": "https://www.audible.com/pd/Soul-Relic-Audiobook/B0BTZTNQZM",
+    "css": "red"
+  },
+  {
+    "name": "Scion of Storms",
+    "cover": "landing/2_Scion_of_Storms.jpg",
+    "desc": "Manifestation 2: Scion of Storms",
+    "link": "https://mybook.to/scion_of_storms",
+    "paperback": "https://www.amazon.com/dp/B0BYBF7YDB",
+    "css": "blue"
+  },
+  {
+    "name": "Sanctuary",
+    "cover": "landing/3_Sanctuary.jpg",
+    "desc": "Manifestation 3: Sanctuary",
+    "link": "https://mybook.to/hinton_sanctuary",
+    "css": "purple"
+  },
+  {
+    "name": "Shieldsmith",
+    "cover": "landing/4_Shieldsmith.jpg",
+    "desc": "Manifestation 4: Shieldsmith",
+    "link": "https://mybook.to/shieldsmith",
+    "css": "green"
+  },
+  {
+    "name": "Siegebreaker",
+    "cover": "landing/5_Siegebreaker.jpg",
+    "desc": "Manifestation 5: Siegebreaker",
+    "link": "https://mybook.to/Siegebreaker",
+    "css": "blue"
+  },
+  {
+    "name": "Sovereign",
+    "cover": "landing/6_sovereign.jpg",
+    "desc": "Manifestation 6: Sovereign",
+    "link": "https://mybook.to/SoulRelic",
+    "css": "purple"
+  }
+] as const;
+
+export default books;

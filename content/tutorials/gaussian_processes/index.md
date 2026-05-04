@@ -376,7 +376,7 @@ plt.legend(ncol=4, fontsize=12);
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

@@ -17,13 +17,13 @@ To that last question, I still have no idea - I'm not going to drop several hund
 
 Highly recommended by several other authors, has done thousands of covers. Price point is 12 euros. Three more euros for rapid turnaround. [Website link](https://www.morganwrightbooks.com/book-cover-animations-service). The colour levels got a little crushed and contrast reduced, but I really appreciated the more energetic particle effect going here.
 
-![](morgan.mp4?class="max-w-md")
+<video src="morgan.mp4" controls autoplay muted loop></video>
 
 ## Embers25 from Fiverr
 
 Approximately the same price, two day turnaround. [Fiverr link](https://www.fiverr.com/embers25/animate-your-fiction-book-cover).
 
-![](embers25.mp4?class="max-w-md")
+<video src="embers25.mp4" controls autoplay muted loop></video>
 
 ## Doing it myself
 
@@ -31,7 +31,7 @@ I noticed that both the MOV and mp4 that I got back from the two respective serv
 
 Using the motion leap app (free version, not pro), which limits the export resolution and how much I can do with it.
 
-![](soul_relic.mp4?class="max-w-md")
+<video src="soul_relic.mp4" controls autoplay muted loop></video>
 
 I provided everyone with the layers separated, so I used that here - only animating the magic and then adding it atop the static background
 with ffmpeg.

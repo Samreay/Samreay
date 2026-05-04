@@ -36,6 +36,6 @@ Also, I'm tossing up between a "drake-scale hovering" (though its occluded by th
 
 And finally, to give people a taste but no more, here's the chapter distribution I generate from my chapter tags to help me track the flow of the books.
 
-![](chapters.png?class="img-large")
+![](chapters.png)
 
 My writing productivity has been zero the past few days (thanks to Baldur's Gate 3), but I'm aiming to finish a first draft of book four by the end of the month.

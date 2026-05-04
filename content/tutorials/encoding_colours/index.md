@@ -873,7 +873,7 @@ Video("embed_2d.mp4")
 
 
 
-![](embed_2d.mp4)
+<video src="embed_2d.mp4" controls autoplay muted loop></video>
 
 
 
@@ -899,7 +899,7 @@ ax.set_title("2D Colour Embeddings");
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 
@@ -958,7 +958,7 @@ model.fit(X, y, epochs=500, verbose=0, batch_size=512, callbacks=[save]);
 And because the animation code for 3D plots is even uglier than the 2D, I've hidden it away. But here is the constrained 3D trained embeddings!
 
 
-![](embed_3d.mp4)
+<video src="embed_3d.mp4" controls autoplay muted loop></video>
 
 
 

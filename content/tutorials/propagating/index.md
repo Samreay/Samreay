@@ -269,7 +269,7 @@ plot(bounds, "Iterative non-uniform-weight sample construction")
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

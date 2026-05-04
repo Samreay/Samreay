@@ -73,7 +73,7 @@ ax.set_xlabel("Time")
 
 
 
-![png](2024-01-09-RRAds_files/2024-01-09-RRAds_2_0.png?class="img-large")
+![png](2024-01-09-RRAds_files/2024-01-09-RRAds_2_0.png)
 
 
 

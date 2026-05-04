@@ -1,0 +1,17 @@
+---
+// Google Analytics tag. Mirrors `themes/sams-theme/layouts/partials/analytics.html`
+// but only emitted in production builds — `npm run dev` should never load GA.
+const TRACKING_ID = 'G-GRX6QE03YR';
+const enabled = import.meta.env.PROD;
+---
+{enabled && (
+  <>
+    <script async defer src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`}></script>
+    <script is:inline define:vars={{ TRACKING_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', TRACKING_ID);
+    </script>
+  </>
+)}

@@ -40,5 +40,5 @@ of pizza we ordered for lunch!
 
 And, as it turns out, the kangaroos and picturesque scenery of the Mt Stromolo ANU campus in Canberra.
 
-![](cover.jpg)
+![](cover.png)
 ![](anu2.jpg)

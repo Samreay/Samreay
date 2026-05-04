@@ -81,8 +81,8 @@ Wish I knew that going in. Phil Tucker offers the following solution, and I can 
 2. **Unpublish your paperback.** As soon as you have the listing page (which will have your cover, blurb, and the paperback with whatever price you put down), copy the link. Confirm you've copied out the paperback link by checking the title has "Paperback" at the end, or that the product details on the page has things like Item Weight and Dimensions, which your ebook won't have, and it will have an ASIN. Keep the link to this page safe. [Here's what my paperback link is](https://www.amazon.com/gp/product/B0B4HJSPP7), notice the ASIN at the end of the URL, [compared to my ebook link](https://www.amazon.com/Soul-Relic-Manifestation-Cultivation-Novel-ebook/dp/B0B46Q18WK). If you lose this link, no issues, you can always see your ASIN in KDP (shown below) so you can determine the URL. Anyway, go back into KDP, and Unpublish your paperback. Screenshot of before and after for you.
 
 
-![](after_paperback.png?class="img-larger")
-![](after_unpublishing.png?class="img-larger")
+![](after_paperback.png)
+![](after_unpublishing.png)
 
 3. **Share the paperback link.** Now, people should be able to leave a review on the paperback listing, which is shared with the ebook listing.
 
@@ -101,7 +101,7 @@ But one initial tip: **don't** set them to start on your launch date. Ads can ta
 
 As to why this is important, well, I had saved up some money and wanted to spend it to kickstart the book launch. This is three days in, with a massive 600USD/day budget. Out of that So 1800USD all up was the ad spend limit. And here is the report breakdown: 0 sales, 81 cents in ad spend. Goodbye strong launch, hello slow launch.
 
-![](ad_spend.png?class="img-larger")
+![](ad_spend.png)
 
 This was incredibly frustrating. Apparently the reports page is also inaccurate, so initially I was hopeful I did manage to reach out to a larger audience. The monthly bill came in days later, and the report, which said 81c, was indeed wrong. I had actually spend 2USD. Amazing.
 

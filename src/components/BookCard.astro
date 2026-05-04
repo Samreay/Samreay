@@ -1,0 +1,64 @@
+---
+/**
+ * Single book in the Books section grid.
+ *
+ * Sources its cover from `src/assets/landing/<file>` (path is stored in
+ * `src/data/books.ts` like `landing/1_soul_relic.jpg`). Phase 14 moved the
+ * asset directory from `themes/sams-theme/assets/landing/`. Hugo got away
+ * with case-insensitive lookups because the dev box is macOS; we normalize
+ * to the on-disk casing via a case-insensitive lookup against the glob.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  book: {
+    name: string;
+    cover: string;
+    desc: string;
+    link: string;
+    css: string;
+    animated?: string;
+  };
+}
+
+const { book } = Astro.props;
+
+const landingImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/landing/*.{jpg,jpeg,png,webp}',
+  { eager: true }
+);
+const landingByLowerName = new Map<string, ImageMetadata>();
+for (const [path, mod] of Object.entries(landingImages)) {
+  const filename = path.split('/').pop()!.toLowerCase();
+  landingByLowerName.set(`landing/${filename}`, mod.default);
+}
+
+const cover = landingByLowerName.get(book.cover.toLowerCase());
+if (!cover) {
+  throw new Error(
+    `BookCard: cover not found for ${book.name} (${book.cover}). ` +
+      `Known landing files: ${[...landingByLowerName.keys()].join(', ')}`
+  );
+}
+---
+<article class="flex flex-col h-full col-span-1 fancy_card">
+  <div class="card_translator">
+    <a class="card_rotator block card_layer" href={book.link}>
+      <figure class="card_layer">
+        <Image
+          src={cover}
+          width={310}
+          height={496}
+          quality={90}
+          format="webp"
+          class="w-full h-full object-cover"
+          alt={book.desc}
+        />
+      </figure>
+      <div class={`card_layer card_overlay_motion ${book.css}`}></div>
+      <div class="card_layer card_effect card_overlay_C"></div>
+      <div class="card_layer card_effect card_glare"></div>
+    </a>
+  </div>
+</article>

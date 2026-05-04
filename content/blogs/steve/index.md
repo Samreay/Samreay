@@ -30,7 +30,7 @@ the brighter ones. The dimmer ones will be to faint for our telescopes. Take a l
 has redshift on the x-axis and distance on the y-axis. If we try and find the average brightness as a function of redshift
 we start getting biases once we start missing supernovae.
 
-![](example.jpg?class="img-reduced img-invert")
+![](example.png)
 
 The way many analyses correct for this is to calculate how much we expect to get the answer wrong by
 and then correct the data by this amount. Instead of doing this, I've incoporated Malmquist bias directly inside my model,
@@ -38,13 +38,13 @@ so it becomes a prediction instead of something to correct for. I do this essent
 designed to compute the probability that we'd observe a supernova given a redshift. The integral is given by the area under
 the curve in the plot below.
 
-![](eff.jpg?class="img-invert")
+![](eff.png)
 
 Of course, this is only a small part of the model. The other parameters and their conditional probabilities are described
 in the PGM below. Don't get fixated on the diagram unless you want to read [the paper here](https://iopscience.iop.org/article/10.3847/1538-4357/ab13a3).
 
 
-![](pgm.jpg?class="img-reduced img-invert")
+![](pgm.png)
 
 Actually, the number of parameters in this model makes it incredible difficult to fit. Each supernova has two parameters,
 plus everything else. For a few hundred supernova, we're almost at a thousand parameters. And searching that many dimensions
@@ -52,15 +52,15 @@ to find the best fitting value is actually a real pain. Especially with so many 
 correlation plot shows just some of the top level parameters. Ideally, I'd want it to be completely diagonal, all the
 bright and dark squares are correlated and anti-correlated parameters, making my life more difficult!
 
-![](corr.jpg" class=" img-invert)
+![](corr.png)
 
 Thankfully, we utilised [Stan](https://mc-stan.org/) and the joy of Hamiltonian Monte-Carlo to sample the parameter
 space in finite time, getting the familiar banana-shaped cosmology contour you can see below.
-![](contour.jpg?class="img-invert")
+![](contour.png)
 
 Of interest, because it implies future work, is a systematic difference between my method (BHM) and a method
 which corrects the data (BBC). Turns out we still don't understand the dispersion of the supernova population well
 enough, so we'll have to work on that if we want to get better constraints on dark energy and dark matter.
 
-![](bbc_vs_bhm.jpg" class=" img-invert)
+![](bbc_vs_bhm.png)
 

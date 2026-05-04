@@ -607,7 +607,7 @@ But there are plenty more, so go check out the library!
 
 
 
-![png](cover.png?class="img-main,remove")
+![png](cover.png)
 
 
 

@@ -223,7 +223,7 @@ fig.tight_layout()
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

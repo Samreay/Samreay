@@ -222,7 +222,7 @@ axes[0].set_title("PR Curve"), axes[1].set_title("ROC Curve");
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

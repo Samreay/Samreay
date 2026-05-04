@@ -1,0 +1,49 @@
+---
+/**
+ * Blogs index — ports `themes/sams-theme/layouts/_default/list.html`
+ * for the blog section. Renders a tag-filtered card grid as a
+ * `<TaggedList client:load />` Svelte island.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TaggedList from '../../components/islands/TaggedList.svelte';
+import type { TaggedPost } from '../../components/islands/TaggedList.svelte';
+import { resolveCover } from '../../lib/covers';
+
+const entries = await getCollection('blogs');
+// Hugo's `RegularPages.ByWeight` falls back to `date` (descending) when
+// every page has weight=0. None of the current blog frontmatters carry an
+// explicit weight, so this is a straight newest-first sort.
+const sorted = [...entries].sort((a, b) => +b.data.date - +a.data.date);
+
+const posts: TaggedPost[] = await Promise.all(
+  sorted.map(async (entry) => {
+    const small = await resolveCover(entry, 352, 198);
+    const large = await resolveCover(entry, 704, 396);
+    return {
+      name: entry.data.short_title ?? entry.data.title,
+      link: `/blogs/${entry.id}/`,
+      weight: 0,
+      date: entry.data.date.toISOString(),
+      tags: [...entry.data.tags].sort().map((t) => t.toLowerCase()),
+      description: entry.data.description ?? '',
+      img: small.src,
+      img_larger: large.src,
+    };
+  }),
+);
+---
+<BaseLayout
+  title="Blogs"
+  description="A vast collection of thoughts, outreach, projects and travel."
+>
+  <div class="content content-full">
+    <div class="section-header mt-12 pb-2">
+      <h1>Blogs</h1>
+      <p>A vast collection of thoughts, outreach, projects and travel.</p>
+    </div>
+
+    <div id="toggle-input" class="max-w-7xl mx-auto"></div>
+    <TaggedList client:load posts={posts} />
+  </div>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import Head from '../components/Head.astro';
+import Seo from '../components/Seo.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
+import '../styles/main.scss';
+import 'katex/dist/katex.min.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+const { title, description, image, type = 'website' } = Astro.props;
+---
+<!doctype html>
+<html lang="en-GB">
+  <Head {title} />
+  <Seo {title} {description} {image} {type} />
+  <body>
+    <div class="flex flex-col min-h-screen overflow-hidden">
+      <Navbar />
+      <div class="flex-grow"><slot /></div>
+      <Footer />
+    </div>
+    <Analytics />
+    <script>
+      // 3D hover effect for `.fancy_card` (ported from Hugo's main.js).
+      // Lives in `BaseLayout` so every page gets it, including ones whose
+      // cards are mounted later by Svelte islands. See `src/lib/fancy-card.ts`.
+      import { setupFancyCards } from '../lib/fancy-card';
+      setupFancyCards();
+    </script>
+  </body>
+</html>

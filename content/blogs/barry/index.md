@@ -22,7 +22,7 @@ framework to do model comparison on arbitrary datasets in an efficient way.
 
 We've implemented four models so far, and here are their best fit cosmologies to the SDSS DR12 simulation data.
 
-![](models.jpg?class="img-invert")
+![](models.jpg)
 
 In fact, we have a thousand realisations of the simulation data, which allows us to fit each
 model to each of the thousand realisations, and investigate the correlation in output values.
@@ -30,7 +30,7 @@ model to each of the thousand realisations, and investigate the correlation in o
 Models closer to each other (in code and in theory) will give higher correlation.
 
 
-![](scatter.jpg?class="img-invert")
+![](scatter.jpg)
 
 We also used Barry to investigate some of the claims put forward by new models. For example, Noda (2019) claimed
 to have a new method called the "BAO Extractor", which looked promising, and claimed it gave a huge benefit - resulting
@@ -38,7 +38,7 @@ in uncertainties on model fits roughly only half that of previous models. IE, it
 model, turned their assumptions on and off, and had a look at the resulting cosmological contours.
 
 
-![](noda.jpg?class="img-invert img-reduced")
+![](noda.jpg)
 
 And it turns out that the performance gain isn't due to their extractor, its just to double counting the data by
 freezing model parameters to initial best fit values.
@@ -48,7 +48,7 @@ found that many previous models underestimated their uncertainty, and provide a 
 with the determined model scatter.
 
 
-![](uncert.jpg?class="img-invert img-reduced")
+![](uncert.jpg)
 
 Our hope is to take Barry and apply it onto DESI data, and do some amazing science with it!
 

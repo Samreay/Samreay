@@ -25,8 +25,8 @@ all important video!
 
 {% include youtube.html url="https://www.youtube.com/embed/S5WAswaJRjw)
 
-![](galton2.jpg)
-![](galton1.jpg)
-![](galton3.jpg)
+![](galton2.png)
+![](galton1.png)
+![](galton3.png)
 
 

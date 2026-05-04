@@ -56,4 +56,4 @@ Look, to keep it simple, I'm jumping onto RR for this one rather than waiting fo
 
 As a final aside, there is *so much on RR*, I feel compelled to add in this scatter plot ([I did an analysis of RR stories here](/tutorials/royalroad)). *Azarinth Healer* is in the very top of followers, very highly rated, and has *far* more chapters than almost anything else. *Savage Divinity* with its almost 15k pages is the king here, but *Azarinth Healer* isn't far behind.
 
-![](scatter.png?class="img-poster")
+![](scatter.png)

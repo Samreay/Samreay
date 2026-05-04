@@ -1,0 +1,31 @@
+---
+/**
+ * Books section grid + Mailerlite signup CTA.
+ *
+ * Ports `themes/sams-theme/layouts/partials/sections/books.html`. The
+ * inline newsletter card was consolidated into `<NewsletterForm
+ * variant="compact" />` in Phase 15, after the Mailchimp → Mailerlite swap.
+ */
+import { books } from '../../data/books';
+import BookCard from '../BookCard.astro';
+import NewsletterForm from '../NewsletterForm.astro';
+---
+<div class="content content-shrink" id="books">
+  <div class="section-header">
+    <h1>Books</h1>
+    <p>
+      I'm a voracious reader of fantasy novels, especially progression fantasy. So much so,
+      that I decided to contribute to the literature. Wish me luck!
+    </p>
+  </div>
+  <div class="mx-auto mt-8">
+    <div class="grid gap-4 xs:gap-12 mb-8 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
+      {books.map((book) => <BookCard book={book} />)}
+    </div>
+    <div class="grid gap-4 xs:gap-12 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
+      <div class="md:col-start-2">
+        <NewsletterForm variant="compact" />
+      </div>
+    </div>
+  </div>
+</div>

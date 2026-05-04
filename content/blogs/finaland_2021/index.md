@@ -11,7 +11,7 @@ We had to relocate back to Australia so Kirrilee can pursue her studies at UQ. I
 
 The view from her place is amazing. Dawn and sunset are so nice, plus the aurora at night.
 
-![](sunrise.jpg?class="img-smaller")
+![](sunrise.jpg)
 
 ![](cover.jpg)
 

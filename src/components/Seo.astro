@@ -1,0 +1,44 @@
+---
+/**
+ * Hugo's `partials/seo.html` block (description, canonical, twitter cards,
+ * OpenGraph) emitted *after* the closing `</head>` tag. Keeping the same
+ * placement preserves byte-for-byte parity with Hugo for everything inside
+ * the actual `<head>` element, which is what the head_meta_parity gate
+ * checks. Browsers (and lxml's HTML5 parser) move floating <meta> tags
+ * back into <head>, but only the ones rendered before any real <body>
+ * content.
+ */
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const SITE_TITLE = 'Samuel Hinton';
+const SITE_DESCRIPTION =
+  "Samuel Hinton's latest books, blogs, tutorials, and courses. Plus just his general thoughts on the world, which probably have little value.";
+
+const { title, description, image, type = 'website' } = Astro.props;
+const finalDescription = description ?? SITE_DESCRIPTION;
+const finalTitleForSocial = title ?? SITE_TITLE;
+const siteOrigin = (Astro.site ?? new URL('https://cosmiccoding.com.au')).origin;
+const canonical = new URL(Astro.url.pathname, siteOrigin).href;
+const ogImage = image ? new URL(image, siteOrigin).href : null;
+const twitterCard = ogImage ? 'summary_large_image' : 'summary';
+---
+<meta name="description" content={finalDescription} />
+<meta name="robots" content="all" />
+<link rel="canonical" href={canonical} />
+
+<meta name="twitter:card" content={twitterCard} />
+<meta name="twitter:title" content={finalTitleForSocial} />
+<meta name="twitter:description" content={finalDescription} />
+{ogImage ? <meta name="twitter:image" content={ogImage} /> : null}
+
+<meta property="og:title" content={finalTitleForSocial} />
+<meta property="og:description" content={finalDescription} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+{ogImage ? <meta property="og:image" content={ogImage} /> : null}
+<meta property="og:site_name" content={SITE_TITLE} />

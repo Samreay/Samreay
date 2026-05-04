@@ -1,0 +1,56 @@
+---
+/**
+ * Cover-only blog/tutorial card for the home page teaser grids.
+ *
+ * Was a vertical card with the cover at the top and a stacked block of
+ * tags / title / description below; now it's the same `fancy_card` 3D
+ * tilt that the reviews use, in cover-only mode. Two deliberate
+ * differences from `ReviewCoverCard`:
+ *
+ *   1. No `review-${r}` class on the inner `<article>`, so the `.glow`
+ *      gradient border doesn't apply — blog and tutorial covers don't
+ *      carry a "tier" so a coloured ring would be misleading.
+ *   2. The shimmer overlay is locked to `card_overlay_C` regardless of
+ *      entry, matching the C-tier hover treatment per the brief.
+ *
+ * Cover aspect is enforced 16:9 (matches the previous `pb-9/16` figure
+ * shape and the `getImage` 704×396 output) so a grid of mixed-source
+ * covers stays uniform.
+ */
+import type { CollectionEntry } from 'astro:content';
+import CoverImage from './CoverImage.astro';
+
+interface Props {
+  entry: CollectionEntry<'blogs'> | CollectionEntry<'tutorials'>;
+}
+
+const { entry } = Astro.props;
+const title = entry.data.short_title ?? entry.data.title ?? entry.id;
+const href = `/${entry.collection}/${entry.id}/`;
+---
+<div class="fancy_card horizontal mx-auto w-full" data-post-card>
+  <div class="card_translator">
+    <a
+      class="card_rotator small_rot card_layer block"
+      href={href}
+      aria-label={title}
+    >
+      <div class="card_layer">
+        <article>
+          <figure class="relative h-0 pb-9/16 bg-gray-800 w-full">
+            <CoverImage
+              entry={entry}
+              width={704}
+              height={396}
+              class="absolute inset-0 w-full h-full object-cover"
+              alt={title}
+            />
+          </figure>
+          <span class="search-text" aria-hidden="true">{title}</span>
+        </article>
+      </div>
+      <div class="card_layer card_effect card_overlay_C"></div>
+      <div class="card_layer card_effect card_glare"></div>
+    </a>
+  </div>
+</div>

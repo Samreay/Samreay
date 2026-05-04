@@ -14,7 +14,7 @@ This is what we're going to make in this tutorial. Building on from the previous
 
 
 
-![](output.mp4?class="img-small")
+<video src="output.mp4" controls autoplay muted loop></video>
 
 
 
@@ -251,7 +251,7 @@ With this all set up, we can now call `evolve` and see what we get. Here's our s
 
 
 
-![png](cover.png?class="img-main,small")
+![png](cover.png)
 
 
 
@@ -306,7 +306,7 @@ Using our good friend `ffmpeg` to turn some of these PNGs into an animation, we 
 
 
 
-![](genetic2/output.mp4)
+<!-- removed missing image: genetic2/output.mp4 -->
 
 
 

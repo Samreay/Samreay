@@ -45,3 +45,17 @@ static/styles/index.js
 
 tmp_*
 .vscode
+
+# Astro
+dist/
+.astro/
+node_modules/.astro/
+astro-public/
+
+# implement-plan skill: don't commit Playwright cache or per-run reports.
+# Baselines under scripts/visual/baselines/ ARE committed (see references/visual-diff-policy.md).
+.cursor/skills/implement-plan/scripts/visual/node_modules/
+.cursor/skills/implement-plan/scripts/visual/test-results/
+.cursor/skills/implement-plan/scripts/visual/playwright-report/
+.cursor/skills/implement-plan/state/diffs/
+.cursor/skills/implement-plan/state/phase-*-report.json

@@ -18,7 +18,7 @@ I do a fair amount of (very amateur) typography for friends publishing on Royal 
 
 First, pick a font. Most fonts are available for free for personal use, and are 10-40 USD to purchase properly, though there are plenty to pick from even if you want to keep to a completely free font. For titles, it's common to go blackletter display fonts because you need them to be legible and impactful even on a tiny thumbnail, but going a thinner font is still fine if it's not competing in the visual hierarchy. The super common fantasy cover font is Cinzel, in the example below I've used Archane. The site I use to select my font (from those I've installed locally) is [wordmark.it](https://wordmark.it/), and it's super handy.
 
-![](fonts.png?class="img-full")
+![](fonts.png)
 
 So here's just the name of my book in regular old Archane, no special effects:
 
@@ -28,7 +28,7 @@ So here's just the name of my book in regular old Archane, no special effects:
 
 Who needs to pick base colours when you have the internet? There are *tons* of metallic gradient brush packs for photoshop/procreate/etc out there. I downloaded [Heatherlly's Precious Metals Gradients](https://www.deviantart.com/heatherlly/art/Precious-Metals-Gradients-76987494) and slapped it on like so:
 
-![](1_gradient_settings.png?class="img-tiny")
+![](1_gradient_settings.png)
 
 Which gives me the following look:
 
@@ -42,7 +42,7 @@ As just mentioned, this could be done using the base colour or, as I'm going to 
 
 Here I want to get more of the classic yellow-gold colour, so I'm just adding it in via a hard light.
 
-![](2_color_overlay.png?class="img-tiny")
+![](2_color_overlay.png)
 
 ![](2_color_correct.png)
 
@@ -70,11 +70,11 @@ You'd have to zoom in to see the difference easily, because we're definitely in 
 
 Put everything in a folder. Add two effects to the folder. First, a bevel.
 
-![](4_bevel_settings.png?class="img-tiny")
+![](4_bevel_settings.png)
 
 Then, a stroke.
 
-![](4_stroke_settings.png?class="img-tiny")
+![](4_stroke_settings.png)
 
 I generally go very small with my bevels, but if you want more 3D looking text, feel free to increase it. If you want even more metallic shininess, change the `Gloss Contour` to something that looks more like a wave instead of a straight line.
 
@@ -96,10 +96,10 @@ The example here is being used to lighten the '**R**' and drawn attention to it.
 
 The final layer layout looks like so:
 
-![](5_final_layer_setup.png?class="img-tiny")
+![](5_final_layer_setup.png)
 
 ### Stepwise comparison
 
 And I threw all the steps into ffmpeg so you can see them properly.
 
-![](final.mp4)
+<video src="final.mp4" controls autoplay muted loop></video>

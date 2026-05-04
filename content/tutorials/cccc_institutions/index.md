@@ -17,7 +17,7 @@ This is what we're going to be making.
 
 
 
-![](contributions.mp4)
+<video src="contributions.mp4" controls autoplay muted loop></video>
 
 
 
@@ -2054,7 +2054,7 @@ get_shaded(test_row, "2020-03-23", show=True);
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 
@@ -2109,7 +2109,7 @@ tpad=stop_mode=clone:stop_duration=4
 
 
 
-![](cccc_enrolment/contributions.mp4)
+<!-- removed missing image: cccc_enrolment/contributions.mp4 -->
 
 
 

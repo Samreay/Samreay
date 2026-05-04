@@ -44,7 +44,7 @@ Yang Kai is himself a pretty good protagonist. He's not a complete murder hobo, 
 
 Outside of Yang Kai, most reoccurring characters are his wives. There's no NSFW content (apart from revealing outfits). It's not like some web serial harems where woman *throw* themselves at the MC, instead Yang Kai forms relationships (often entirely without the sexual side being shown or implied) over the course of a realm arc, which if we convert to "page count" would be in the thousands of pages. At that slower pace, things feel a little more natural, especially given Yang Kai ends up being >10k years old. The multiple romantic interests does provide some humour sometimes as well.
 
-![](ohno.jpg?class="img-smaller")
+<!-- removed missing image: ohno.jpg?class="img-smaller" -->
 
 
 Going with the multiple women, the sexual conservatism of many eastern works comes through, where women are routinely slut shamed, which is perhaps my biggest annoyance with the series.

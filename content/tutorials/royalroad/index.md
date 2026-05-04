@@ -799,7 +799,7 @@ plot_overview(df_established, ax, fig)
 
 
 
-![png](cover.png?class="img-main,img-poster")
+![png](cover.png)
 
 
 

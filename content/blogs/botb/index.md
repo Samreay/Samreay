@@ -30,5 +30,5 @@ This is [Fermi problem](https://en.wikipedia.org/wiki/Fermi_problem), and I'm ha
 to the nearest magnitude, both panels came to exactly the same answer: $$10^{23}$$. Which, surprisingly, is the correct
 one!
 
-![](botb2.jpg?class="img-vertical")
+![](botb2.jpg)
 

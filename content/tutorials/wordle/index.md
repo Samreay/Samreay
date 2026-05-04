@@ -74,7 +74,7 @@ occurence.plot.bar(rot=0);
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

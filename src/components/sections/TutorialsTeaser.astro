@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import PostCard from '../PostCard.astro';
+
+const tutorials = (await getCollection('tutorials'))
+  .sort((a, b) => +b.data.date - +a.data.date)
+  .slice(0, 3);
+---
+<div class="content content-wide">
+  <div class="section-header">
+    <h1>Latest Tutorials</h1>
+    <p>
+      Visualisation, machine learning, modelling, statistics and other code tutorial and math tutorials from over the years.
+      <a class="under" href="/tutorials">Many more are available here!</a>
+    </p>
+  </div>
+  <div class="max-w-sm mx-auto md:max-w-none mt-8">
+    <div class="grid gap-12 grid-cols-vertical-cards items-start">
+      {tutorials.map((entry) => <PostCard entry={entry} />)}
+    </div>
+  </div>
+</div>

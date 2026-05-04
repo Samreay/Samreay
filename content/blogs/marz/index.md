@@ -70,7 +70,7 @@ and you can see this in the performance increase in the
 quasar rich targets of the OzDES survey (right hand plot). Of course, it can always be better,
 so I hope these plots become outdated in the future.
 
-![](comparison.jpg)
+![](comparison.png)
 
 
 If you've got some good ideas for me, feel free to head over to the project's [Github page](https://github.com/samreay/Marz)

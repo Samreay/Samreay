@@ -1,0 +1,58 @@
+---
+/**
+ * Cover-only review card for the home page teaser grid.
+ *
+ * Originally a flat `<article>` with a `transform hover:scale-105` zoom on
+ * the image. Now matches the same `fancy_card` 3D-tilt pattern that
+ * `ReviewCard.svelte` uses on `/reviews/`, so the home page teaser and the
+ * reviews explorer share an identical hover treatment. Cover-only mode
+ * means we drop the `side-card-content` block (title / sentence / tags)
+ * entirely — the link still navigates to the full review.
+ *
+ * The `review-${r}` class on the inner `<article>` opts into the tier
+ * gradient border via `.glow` (defined in `styling.scss`), which renders a
+ * 3-pixel `var(--grad-…)` ring around the cover. The `card_overlay_${r}`
+ * layer adds the tier-specific shimmer that animates with the cursor, and
+ * `card_glare` paints the moving highlight.
+ */
+import type { CollectionEntry } from 'astro:content';
+import CoverImage from './CoverImage.astro';
+
+interface Props {
+  entry: CollectionEntry<'reviews'>;
+}
+
+const { entry } = Astro.props;
+const r = entry.data.review;
+const title = entry.data.short_title ?? entry.data.name;
+---
+<div class="fancy_card horizontal mx-auto w-full" data-review-card>
+  <div class="card_translator">
+    <a
+      class="card_rotator small_rot card_layer block"
+      href={`/reviews/${entry.id}/`}
+      aria-label={title}
+    >
+      <div class="card_layer">
+        <article class={`review-${r}`}>
+          <div class="bg2">
+            <div class="bg-inner bg-gray-800">
+              <figure class="block w-full">
+                <CoverImage
+                  entry={entry}
+                  width={500}
+                  height={800}
+                  class="block w-full h-auto"
+                  alt={title}
+                />
+              </figure>
+              <span class="search-text" aria-hidden="true">{title}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class={`card_layer card_effect card_overlay_${r}`}></div>
+      <div class="card_layer card_effect card_glare"></div>
+    </a>
+  </div>
+</div>
