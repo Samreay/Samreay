@@ -50,7 +50,6 @@ tmp_*
 dist/
 .astro/
 node_modules/.astro/
-astro-public/
 
 # implement-plan skill: don't commit Playwright cache or per-run reports.
 # Baselines under scripts/visual/baselines/ ARE committed (see references/visual-diff-policy.md).
