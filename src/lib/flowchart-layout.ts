@@ -184,25 +184,25 @@ async function computeGraphvizLayout(
 // `style` / `labelStyle` is the only reliable way to keep both ends
 // in lockstep without writing 18 colour pairs of duplicate CSS.
 const EDGE_PALETTE: Record<PaletteColor | 'default', { line: string; text: string }> = {
-  red:     { line: '#ef4444', text: '#fef2f2' },
-  orange:  { line: '#f97316', text: '#fff7ed' },
-  amber:   { line: '#f59e0b', text: '#fffbeb' },
-  yellow:  { line: '#eab308', text: '#fefce8' },
-  lime:    { line: '#84cc16', text: '#f7fee7' },
-  green:   { line: '#22c55e', text: '#f0fdf4' },
-  emerald: { line: '#10b981', text: '#ecfdf5' },
-  teal:    { line: '#14b8a6', text: '#f0fdfa' },
-  cyan:    { line: '#06b6d4', text: '#ecfeff' },
-  sky:     { line: '#0ea5e9', text: '#f0f9ff' },
-  blue:    { line: '#3b82f6', text: '#eff6ff' },
-  indigo:  { line: '#6366f1', text: '#eef2ff' },
-  violet:  { line: '#8b5cf6', text: '#f5f3ff' },
-  purple:  { line: '#a855f7', text: '#faf5ff' },
-  fuchsia: { line: '#d946ef', text: '#fdf4ff' },
-  pink:    { line: '#ec4899', text: '#fdf2f8' },
-  gray:    { line: '#6b7280', text: '#f9fafb' },
-  // Default = main-500 (the SRH accent green).
-  default: { line: '#10b981', text: '#ecfdf5' },
+  red:     { line: '#dc2626', text: '#fef2f2' },
+  orange:  { line: '#ea580c', text: '#fff7ed' },
+  amber:   { line: '#d97706', text: '#fffbeb' },
+  yellow:  { line: '#ca8a04', text: '#fefce8' },
+  lime:    { line: '#65a30d', text: '#f7fee7' },
+  green:   { line: '#16a34a', text: '#f0fdf4' },
+  emerald: { line: '#059669', text: '#ecfdf5' },
+  teal:    { line: '#0d9488', text: '#f0fdfa' },
+  cyan:    { line: '#0891b2', text: '#ecfeff' },
+  sky:     { line: '#0284c7', text: '#f0f9ff' },
+  blue:    { line: '#2563eb', text: '#eff6ff' },
+  indigo:  { line: '#4f46e5', text: '#eef2ff' },
+  violet:  { line: '#7c3aed', text: '#f5f3ff' },
+  purple:  { line: '#9333ea', text: '#faf5ff' },
+  fuchsia: { line: '#c026d3', text: '#fdf4ff' },
+  pink:    { line: '#db2777', text: '#fdf2f8' },
+  gray:    { line: '#4b5563', text: '#f9fafb' },
+  // Default = main-600 (the SRH accent green).
+  default: { line: '#059669', text: '#ecfdf5' },
 };
 
 export interface BookNodePayload extends Record<string, unknown> {

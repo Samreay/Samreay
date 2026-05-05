@@ -20,8 +20,8 @@
    element that consumes it). */
 
 .flowchart-page {
-  /* main-500, default colour when no `color` is set on an edge. */
-  --edge-stroke: #10b981;
+  /* main-600, default colour when no `color` is set on an edge. */
+  --edge-stroke: #059669;
 }
 
 /* `BaseLayout` wraps every page in `.flex.flex-col.min-h-screen` with an
