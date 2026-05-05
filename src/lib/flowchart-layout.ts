@@ -37,6 +37,7 @@ import type { ElkExtendedEdge, ElkNode } from 'elkjs/lib/elk-api';
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Node, Edge } from '@xyflow/svelte';
+import { MarkerType } from '@xyflow/svelte';
 import { resolveCover } from './covers';
 import type {
   FlowchartData,
@@ -429,7 +430,7 @@ const LAYOUT_DESIRED_EDGE_LENGTH = 1000;
  *  defines the boundary of the cost-free band, not a separate force
  *  target. Edges with length in [`LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH`,
  *  `LAYOUT_DESIRED_EDGE_LENGTH`] pay no length cost. */
-const LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH = 350;
+const LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH = 450;
 
 /** Radius of the disk we scatter non-pinned ELK seed positions inside
  *  when the caller supplies a `seed` (the dev-toolbar Reset path).
@@ -1697,6 +1698,10 @@ export async function getLayoutedElements(
       // applies it via the `style` attribute on `<path>`, where SVG
       // `stroke` is honoured exactly like CSS.
       style: `stroke: ${palette.line};`,
+      markerEnd: {
+        type: MarkerType.ArrowClosed,
+        color: palette.line,
+      },
       // `labelStyle` reaches the portalled HTML `<div>` rendered by
       // `EdgeLabelRenderer` — we set the solid 500-shade background
       // and the brightest-shade hue tint for the text in the same
