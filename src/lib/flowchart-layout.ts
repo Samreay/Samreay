@@ -3,33 +3,22 @@
  *
  * Runs entirely on the server during `astro build` (or `astro dev`'s SSR
  * pass): walks the typed `FlowchartData`, validates references, resolves
- * each book's cover via the existing `resolveCover` helper, calls d3-dag's
- * `sugiyama()` algorithm for x/y positions, and emits arrays already typed
- * as xyflow's `Node<T, K>` / `Edge<T, K>` so the Svelte island accepts
- * them without casts.
+ * each book's cover via the existing `resolveCover` helper, calls Graphviz
+ * `neato` for x/y positions, and emits arrays already typed as xyflow's
+ * `Node<T, K>` / `Edge<T, K>` so the Svelte island accepts them without casts.
  *
- * Uses `layeringSimplex` (network-simplex layer assignment), `decrossTwoLayer`
- * (heuristic crossing minimisation, ~49 ms for ~250 nodes), and `coordQuad`
- * (balanced quadratic-program x-placement). Node sizes are passed per-node
- * via the `nodeSize` callback so the 320×90 pills, 640×180 large pills, and
- * 520×400 book cards each occupy their correct footprint.
- *
- * d3-dag returns centre coordinates; these are converted to top-left before
+ * Node sizes are passed per-node as `width`/`height`/`fixedsize=true` DOT
+ * attributes so the 320×90 pills, 640×180 large pills, and 520×400 book cards
+ * each occupy their correct footprint. Graphviz returns centre coordinates in
+ * `plain` format; these are converted to top-left (with y-axis flip) before
  * being written to the positions map or the on-disk cache.
  *
- * Because this module imports `d3-dag` and `astro:content`, it is never
- * bundled into client output — it is only ever reached from `.astro`
- * frontmatter. That keeps the layout library off the wire and the
+ * Because this module imports `@hpcc-js/wasm-graphviz` and `astro:content`,
+ * it is never bundled into client output — it is only ever reached from
+ * `.astro` frontmatter. That keeps the layout library off the wire and the
  * `getImage()` cover URLs pre-resolved before hydration.
  */
-import {
-  graphConnect,
-  sugiyama,
-  layeringSimplex,
-  decrossTwoLayer,
-  coordQuad,
-  type Graph,
-} from 'd3-dag';
+import { Graphviz } from '@hpcc-js/wasm-graphviz';
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Node, Edge } from '@xyflow/svelte';
@@ -83,9 +72,99 @@ function decisionSize(d: DecisionNode): { width: number; height: number } {
   return base;
 }
 
-// The node ELK plants at the centre. Everything else is laid out on
-// concentric rings around it, keyed by BFS distance.
 const ROOT_ID = 'd_start';
+
+// ── Graphviz WASM singleton ─────────────────────────────────────────────────
+let _graphvizPromise: Promise<Graphviz> | null = null;
+function getGraphviz(): Promise<Graphviz> {
+  if (!_graphvizPromise) _graphvizPromise = Graphviz.load();
+  return _graphvizPromise;
+}
+
+/** Scale factor applied to node centre positions after conversion from inches.
+ *  Values < 1 pack the layout tighter; 1.0 = raw Graphviz output. */
+const LAYOUT_SCALE = 0.7;
+
+function buildDotString(
+  data: FlowchartData,
+  sizes: Map<string, { w: number; h: number }>,
+): string {
+  const lines: string[] = [];
+  lines.push('digraph G {');
+  // overlap=prism removes node overlaps; sep adds padding between nodes.
+  lines.push('  graph [overlap=scale splines=spline];');
+  lines.push('  edge [len=1];');
+  for (const d of data.decisions) {
+    const sz = sizes.get(d.id)!;
+    const wIn = (sz.w / 72).toFixed(6);
+    const hIn = (sz.h / 72).toFixed(6);
+    lines.push(`  "${d.id}" [width=${wIn} height=${hIn} shape=box fixedsize=true];`);
+  }
+  for (const b of data.books) {
+    const sz = sizes.get(b.id)!;
+    const wIn = (sz.w / 72).toFixed(6);
+    const hIn = (sz.h / 72).toFixed(6);
+    lines.push(`  "${b.id}" [width=${wIn} height=${hIn} shape=box fixedsize=true];`);
+  }
+  for (const e of data.edges) {
+    lines.push(`  "${e.source}" -> "${e.target}";`);
+  }
+  lines.push('}');
+  return lines.join('\n');
+}
+
+function parsePlainOutput(
+  plain: string,
+  sizes: Map<string, { w: number; h: number }>,
+): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>();
+  let totalHeightIn = 0;
+  for (const line of plain.split('\n')) {
+    if (line.startsWith('graph ')) {
+      totalHeightIn = parseFloat(line.split(' ')[3]);
+      break;
+    }
+  }
+  for (const line of plain.split('\n')) {
+    if (!line.startsWith('node ')) continue;
+    const parts = line.split(' ');
+    const rawName = parts[1];
+    const id = rawName.startsWith('"') ? rawName.slice(1, -1) : rawName;
+    const cxIn = parseFloat(parts[2]);
+    const cyIn = parseFloat(parts[3]);
+    const sz = sizes.get(id);
+    if (!sz) continue;
+    const cxPx = cxIn * 72 * LAYOUT_SCALE;
+    const cyFlippedPx = (totalHeightIn - cyIn) * 72 * LAYOUT_SCALE;
+    positions.set(id, {
+      x: cxPx - sz.w / 2,
+      y: cyFlippedPx - sz.h / 2,
+    });
+  }
+  return positions;
+}
+
+function normaliseOrigin(positions: Map<string, { x: number; y: number }>): void {
+  const root = positions.get(ROOT_ID);
+  if (!root) return;
+  const dx = root.x;
+  const dy = root.y;
+  if (dx === 0 && dy === 0) return;
+  for (const p of positions.values()) {
+    p.x -= dx;
+    p.y -= dy;
+  }
+}
+
+async function computeGraphvizLayout(
+  data: FlowchartData,
+  sizes: Map<string, { w: number; h: number }>,
+): Promise<Map<string, { x: number; y: number }>> {
+  const gv = await getGraphviz();
+  const dotSrc = buildDotString(data, sizes);
+  const plain = gv.neato(dotSrc, 'plain');
+  return parsePlainOutput(plain, sizes);
+}
 
 // Tailwind palette pairs: `line` is the 500-shade used for the path
 // stroke and the label background; `text` is the brightest 50-shade
@@ -272,11 +351,10 @@ const RELAX_OPTS = {
    *  label-*). This is the breathing room the sim refuses to give up
    *  on. */
   PADDING: 80,
-  /** Hard iteration cap. d3-dag produces a cleaner initial layout than
-   *  ELK stress did, so the sim needs fewer iterations to reach
-   *  equilibrium. 1500 is enough budget for the KE threshold to trigger
-   *  naturally on most runs; the best-snapshot revert handles the rare
-   *  case where it doesn't. */
+  /** Hard iteration cap. Graphviz produces a clean initial layout, so the
+   *  sim needs fewer iterations to reach equilibrium. 1500 is enough budget
+   *  for the KE threshold to trigger naturally on most runs; the best-snapshot
+   *  revert handles the rare case where it doesn't. */
   MAX_ITERS: 1500,
   /** Total kinetic-energy threshold below which the sim declares
    *  convergence and exits early. Units: sum of |v|² across all nodes.
@@ -426,7 +504,7 @@ const LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH = 450;
  *  non-pinned node before relax on the Reset path. Pulls each node
  *  into a slightly different basin so the relax sim can settle into a
  *  different local minimum. ~400 is comparable to one node-width —
- *  enough to perturb the topology without destroying d3-dag's macro
+ *  enough to perturb the topology without destroying Graphviz's macro
  *  shape entirely. */
 const RESET_JITTER_SIGMA_PX = 400;
 
@@ -1071,25 +1149,24 @@ function validateFlowchart(data: FlowchartData): void {
  * `nodes` / `edges` arrays the page renders.
  *
  * Determinism contract:
- *   - The full pipeline (d3-dag sugiyama + Verlet `relax`) is
- *     deterministic given fixed input data AND no `seed` option. The
- *     seed parameter is the single, opt-in escape hatch: when supplied
- *     we drive a `mulberry32` PRNG to scatter non-pinned positions and
- *     Gaussian-jitter every non-pinned node before relax. Identical
+ *   - The full pipeline (Graphviz dot + Verlet `relax`) is deterministic
+ *     given fixed input data AND no `seed` option. The seed parameter is
+ *     the single, opt-in escape hatch: when supplied we drive a `mulberry32`
+ *     PRNG to Gaussian-jitter every non-pinned node before relax. Identical
  *     seeds still produce identical layouts.
  *   - The on-disk file `src/data/flowchart-positions.json` is the source
  *     of truth across restarts and across machines. It is committed to
  *     git so a fresh checkout sees the SAME positions the author saw.
- *   - Recomputation (full d3-dag + relax) only fires when the data
+ *   - Recomputation (full Graphviz + relax) only fires when the data
  *     file's id set changes versus what's on disk, or when the file is
  *     missing entirely.
  *
  * @param options.refine When `true` AND the cache is fully covering,
- *   skip d3-dag but still run the relax pass over the cached positions.
+ *   skip Graphviz but still run the relax pass over the cached positions.
  * @param options.seed Optional 32-bit integer seed for the Reset path.
- *   Scatters non-pinned node positions inside a disk and jitters by a
- *   Gaussian before relax, giving each Reset click a different
- *   convergence basin while keeping each individual seed reproducible.
+ *   Gaussian-jitters every non-pinned node before relax, giving each
+ *   Reset click a different convergence basin while keeping each
+ *   individual seed reproducible.
  */
 export async function getLayoutedElements(
   data: FlowchartData,
@@ -1154,9 +1231,8 @@ export async function getLayoutedElements(
   const sizes = new Map<string, { w: number; h: number }>();
 
   // Pre-fill `sizes` from the static node-kind table — it's the same
-  // regardless of which branch we take. ELK reads it from `elkChildren`,
-  // and the cache branches need it too because relax + scoring depend
-  // on it.
+  // regardless of which branch we take. Graphviz and the cache branches
+  // both need it because relax + scoring depend on it.
   for (const d of data.decisions) {
     const ds = decisionSize(d);
     sizes.set(d.id, { w: ds.width, h: ds.height });
@@ -1218,9 +1294,8 @@ export async function getLayoutedElements(
     // by the surrounding forces. For missing/refine the relax just
     // honours the authored pins.
     const effectivePinnedIds = new Set<string>(pinnedIds);
-    // Cache lookup used by `elkChildren` below to seed each known node
-    // with its previous coordinate. `null` for the missing/refine paths
-    // so the seeded-position branch is dead code there.
+    // Cached positions for the partial path — re-stamped after Graphviz
+    // so existing nodes don't move. `null` for the missing/refine paths.
     const seedPositions: Map<string, { x: number; y: number }> | null =
       coverage.kind === 'partial' ? coverage.known : null;
 
@@ -1239,11 +1314,11 @@ export async function getLayoutedElements(
     if (coverage.kind === 'missing') {
       if (rng) {
         console.log(
-          `flowchart-layout: cache missing; running full layout with ` +
+          `flowchart-layout: cache missing; running graphviz layout with ` +
             `randomised seed ${seed} (jitter σ=${RESET_JITTER_SIGMA_PX}px)`,
         );
       } else {
-        console.log('flowchart-layout: cache missing; running full layout');
+        console.log('flowchart-layout: cache missing; running graphviz layout');
       }
     } else if (coverage.kind === 'partial') {
       for (const id of coverage.known.keys()) effectivePinnedIds.add(id);
@@ -1265,70 +1340,28 @@ export async function getLayoutedElements(
         positions.set(id, { x: p.x, y: p.y });
       }
     } else {
-      // ── BRANCHES 3+4: d3-dag Sugiyama layout ─────────────────────────
+      // ── BRANCHES 3+4: Graphviz dot layout ────────────────────────────
       // Either the cache was missing entirely or only partially covered
-      // the current id set. d3-dag lays out all nodes from scratch, then
-      // the partial path re-stamps cached positions on top so existing
-      // nodes don't move — only newly added ones get placed by d3-dag.
+      // the current id set. Graphviz lays out all nodes, then the partial
+      // path re-stamps cached positions on top so existing nodes don't move.
+      const rawPositions = await computeGraphvizLayout(data, sizes);
+      normaliseOrigin(rawPositions);
 
-      // graphConnect builds a graph from a flat edge list. node.data is
-      // the string id. .single(true) allows nodes that only appear as a
-      // source or only as a target (safety valve — data is fully connected
-      // from d_start, but guards against future authoring mistakes).
-      const connect = graphConnect()
-        .sourceId((e: { source: string; target: string }) => e.source)
-        .targetId((e: { source: string; target: string }) => e.target);
-      const dagGraph = connect.single(true)(data.edges);
-
-      // sugiyama with:
-      //   layeringSimplex  = network-simplex layer assignment (minimises
-      //                      total edge length, same as ELK's default)
-      //   decrossTwoLayer  = heuristic crossing minimisation; ~49ms for
-      //                      this graph. decrossOpt (ILP) is NP-hard and
-      //                      unsuitable for 250 nodes.
-      //   coordQuad        = balanced quadratic-program x-placement
-      //   gap([80, 120])   = matches ELK's nodeNode:80 + between-layers:120
-      const layout = sugiyama()
-        .nodeSize((node) => {
-          const sz = sizes.get(node.data);
-          if (!sz) return [NODE_SIZES.decision.width, NODE_SIZES.decision.height] as const;
-          return [sz.w, sz.h] as const;
-        })
-        .gap([120, 160])
-        .layering(layeringSimplex())
-        .decross(decrossTwoLayer())
-        .coord(coordQuad());
-
-      // Synchronous — no await needed. Double-cast via unknown: sugiyama()'s
-      // default type params are Graph<never,never> but our graph carries
-      // string node data; the cast is safe since layout only reads x/y.
-      layout(dagGraph as unknown as Graph<never, never>);
-
-      // node.x / node.y are CENTRE coordinates; convert to top-left and
-      // translate so ROOT_ID lands at (0, 0).
-      let rootCx = 0;
-      let rootCy = 0;
-      for (const node of dagGraph.nodes()) {
-        if (node.data === ROOT_ID) {
-          const sz = sizes.get(ROOT_ID)!;
-          rootCx = node.x - sz.w / 2;
-          rootCy = node.y - sz.h / 2;
-          break;
-        }
+      // Re-stamp authored pins on top of Graphviz output.
+      for (const d of data.decisions) {
+        if (d.pinned) rawPositions.set(d.id, { x: d.pinned.x, y: d.pinned.y });
       }
-      for (const node of dagGraph.nodes()) {
-        const sz = sizes.get(node.data)!;
-        positions.set(node.data, {
-          x: node.x - sz.w / 2 - rootCx,
-          y: node.y - sz.h / 2 - rootCy,
-        });
+      for (const b of data.books) {
+        if (b.pinned) rawPositions.set(b.id, { x: b.pinned.x, y: b.pinned.y });
+      }
+
+      for (const [id, p] of rawPositions) {
+        positions.set(id, p);
       }
 
       // On the partial path, re-stamp every cached id back to its EXACT
-      // saved coordinate before relax sees it. d3-dag lays out every node
-      // from scratch (no seed-position API), so known positions may drift.
-      // Pinning in relax is cheap; this stamp means the user observes ZERO
-      // motion on existing nodes, which is the contract for partial cache.
+      // saved coordinate before relax sees it. Pinning in relax is cheap;
+      // this stamp means the user observes ZERO motion on existing nodes.
       if (seedPositions) {
         for (const [id, p] of seedPositions) {
           positions.set(id, { x: p.x, y: p.y });
@@ -1337,11 +1370,10 @@ export async function getLayoutedElements(
     }
 
     // ── Pre-relax jitter (Reset path only) ───────────────────────────
-    // d3-dag is deterministic, so equally valid layouts can sit in
-    // distinct basins. This Gaussian perturbation pushes us into a
-    // different basin before relax runs. The best-snapshot revert in
-    // relax compares every iteration's layoutCost against the input —
-    // if jitter made things worse, relax falls back to its best
+    // Graphviz dot is deterministic. This Gaussian perturbation pushes
+    // us into a different basin before relax runs. The best-snapshot
+    // revert in relax compares every iteration's layoutCost against the
+    // input — if jitter made things worse, relax falls back to its best
     // intermediate snapshot. The "do no harm" guarantee survives.
     if (rng) {
       let jittered = 0;
@@ -1359,75 +1391,7 @@ export async function getLayoutedElements(
       );
     }
 
-    // ── PASS 3 (shared by branches 2/3/4) ────────────────────────────
-    // Deterministic Verlet force simulation. Replaces the old straight-
-    // segment `decongestEdges` with a multi-term physics solver
-    // (`relax`) that uses the SAME bezier polylines the renderer draws.
-    // sporeOverlap (pass 2) is blind to edges entirely, so it happily
-    // leaves a curve slicing through a card it doesn't connect to. The
-    // simulation lands the four force terms documented in `RELAX_OPTS`
-    // (length spring, rectangular node-node repulsion, edge-node
-    // repulsion against the rendered polyline, edge-edge decrossing).
-    //
-    // Pinned nodes (`d_start` plus anything authored with
-    // `pinned: { x, y }`) are excluded from force accumulation and
-    // integration. Edges whose endpoint is pinned still participate in
-    // the geometry the sim pushes against — we just don't move the
-    // pinned end.
-    //
-    // We score the layout *before* and *after* the sim so the build
-    // output shows the delta. The "before" geometry uses the same
-    // bezier sampler as the sim, so the comparison is apples-to-apples.
-    const beforeGeometry = buildEdgeGeometry(positions, sizes, edgeSpecs);
-    const before = scoreLayout({
-      positions,
-      sizes,
-      geometry: beforeGeometry,
-      edges: edgeSpecs,
-      desiredEdgeLength: LAYOUT_DESIRED_EDGE_LENGTH,
-      minDesiredEdgeLength: LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH,
-    });
-
-    const {
-      iterationsUsed,
-      finalScore: after,
-      bestIter,
-      revertedFromIter,
-    } = relax({
-      positions,
-      sizes,
-      edges: edgeSpecs,
-      pinnedIds: effectivePinnedIds,
-      desiredEdgeLength: LAYOUT_DESIRED_EDGE_LENGTH,
-      minDesiredEdgeLength: LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH,
-    });
-
-    const revertNote =
-      revertedFromIter !== null
-        ? ` (reverted from iter ${revertedFromIter} to best-cost snapshot at iter ${bestIter})`
-        : '';
-    console.log(
-      `flowchart-layout: relaxation ran ${iterationsUsed} iterations${revertNote}\n` +
-        `  node-node overlaps:     ${before.nodeNodeOverlaps} -> ${after.nodeNodeOverlaps}\n` +
-        `  edge-node intrusions:   ${before.edgeNodeIntrusions} -> ${after.edgeNodeIntrusions}\n` +
-        `  edge-edge crossings:    ${before.edgeEdgeCrossings} -> ${after.edgeEdgeCrossings}\n` +
-        `  label-node overlaps:    ${before.labelNodeOverlaps} -> ${after.labelNodeOverlaps}\n` +
-        `  label-label overlaps:   ${before.labelLabelOverlaps} -> ${after.labelLabelOverlaps}\n` +
-        `  total stretch (px):     ${before.totalStretchPx.toFixed(0)} -> ${after.totalStretchPx.toFixed(0)}\n` +
-        `  total compression (px): ${before.totalCompressionPx.toFixed(0)} -> ${after.totalCompressionPx.toFixed(0)}`,
-    );
-    if (
-      after.nodeNodeOverlaps > 0 ||
-      after.edgeNodeIntrusions > 0 ||
-      after.edgeEdgeCrossings > 0 ||
-      after.labelNodeOverlaps > 0 ||
-      after.labelLabelOverlaps > 0
-    ) {
-      console.warn(
-        'flowchart-layout: residual collisions after relaxation:\n' +
-          formatOffenders(after),
-      );
-    }
+    // RELAX DISABLED — skipping Verlet force simulation pass
 
     // Save the freshly computed (or re-relaxed) positions back to disk
     // so the next run starts from a warm cache. Best-effort — see
