@@ -23,7 +23,7 @@ button:focus,
     }
 }
 
-// Hamburger button
+/* Hamburger button */
 .hamburger {
 
     svg > * {
@@ -73,7 +73,7 @@ button:focus,
     }
 }
 
-// Pulsing animation
+/* Pulsing animation */
 @keyframes pulseLoop {
     0% { opacity: 0; transform: scale(0.1) translateZ(0); }
     40% { opacity: 1; }

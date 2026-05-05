@@ -96,17 +96,20 @@ body {
   @apply gradient;
   border-radius: var(--radius);
 }
+
+/* v3 emitted `--tw-bg-opacity` for every `bg-*` utility, so overriding it
+   here fade the bg-gray-900 to 90 % opacity. v4 stopped emitting that
+   variable; the same effect comes from the slash-modifier syntax. */
 .newsletter-inner {
-  @apply p-8 bg-gray-900;
+  @apply p-8 bg-gray-900/90;
   border-radius: var(--radius);
-  --tw-bg-opacity: 0.9;
 }
 
-// Reviews / artists explorer preamble. In the Hugo template this `<div
-// id="preamble">` was nested inside the `.section-header` wrapper and
-// inherited its `max-w-3xl mx-auto text-center` constraint plus the
-// `text-xl text-gray-400` paragraph styling. The Svelte port renders the
-// preamble outside of `.section-header`, so we restate the constraint here.
+/* Reviews / artists explorer preamble. In the Hugo template this `<div
+   id="preamble">` was nested inside the `.section-header` wrapper and
+   inherited its `max-w-3xl mx-auto text-center` constraint plus the
+   `text-xl text-gray-400` paragraph styling. The Svelte port renders the
+   preamble outside of `.section-header`, so we restate the constraint here. */
 #preamble {
   @apply max-w-3xl mx-auto text-center pb-4;
 
@@ -278,7 +281,7 @@ body {
 .hide-code .highlight {
   display: none;
 }
-// Code formatting
+/* Code formatting */
 pre code:not([class]){
   @apply mx-auto text-xl text-center block font-bold text-main-300;
 }
@@ -327,7 +330,7 @@ pre code:not([class]){
 .carbon-code {
   @apply rounded-2xl max-w-4xl mx-auto gradient my-12;
   padding: 0.2rem;
-  // box-shadow: 0px 0px 21px 1px #ff964e50;
+  /* box-shadow: 0px 0px 21px 1px #ff964e50; */
   .highlight {
     @apply my-0 text-2xl;
   }
@@ -372,7 +375,7 @@ pre code:not([class]){
 }
 
 
-// Table styling
+/* Table styling */
 .table-auto {
   @apply divide-y divide-gray-700;
   margin: 0 auto;

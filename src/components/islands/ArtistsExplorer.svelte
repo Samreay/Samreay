@@ -18,7 +18,7 @@
   // Per-artist toggles; defaults match the Hugo Arrow.js controls.
   let alphabetical = $state(false);
   let showFour = $state(true);
-  let smaller = $state(false);
+  let smaller = $state(true);
 
   // Seed the shuffle once on mount so subsequent re-renders (caused by
   // toggling other controls) keep the same order — visual continuity matters

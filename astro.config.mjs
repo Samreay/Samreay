@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -32,7 +32,6 @@ export default defineConfig({
   integrations: [
     svelte(),
     mdx(),
-    tailwind({ applyBaseStyles: false }),
     // `/kitchensink/` is a visual-regression playground that must ship to
     // `dist/` so Playwright can target it directly, but it's not a real
     // page and shouldn't be advertised to crawlers.
@@ -44,6 +43,12 @@ export default defineConfig({
     // and `![...](path.png)` references in markdown keep resolving.
     contentAssets(),
   ],
+  // Tailwind v4 ships as a Vite plugin instead of an Astro integration.
+  // It only does work for stylesheets that contain `@import "tailwindcss"`,
+  // which is wired up in `src/styles/main.css`.
+  vite: {
+    plugins: [tailwindcss()],
+  },
   markdown: {
     remarkPlugins: [remarkMath, remarkImageClass],
     rehypePlugins: [rehypeKatex],

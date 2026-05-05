@@ -23,8 +23,8 @@ Each phase file lists exactly which skills its tasks need.
 | --- | --- |
 | Framework | Astro 5 (static output) |
 | Islands | Svelte 5 with runes |
-| Tailwind | v3, config copied verbatim |
-| CSS | Existing SCSS files moved as-is |
+| Tailwind | v4 (CSS-first `@theme`, see `plans/tailwind-v4/`) |
+| CSS | Plain CSS with native nesting (Tailwind v4 doesn't support Sass) |
 | Math | KaTeX (`remark-math` + `rehype-katex`) |
 | Code highlighting | Shiki, `base16-snazzy` theme |
 | Image pipeline | `astro:assets` `<Image>`, `fit: 'cover'` (no letterbox) |
@@ -100,8 +100,11 @@ Each phase file lists exactly which skills its tasks need.
 
 ## Things deferred to future PRs
 
-1. Tailwind v4 upgrade
-2. View Transitions API for soft page navigation
-3. Replacing `resize.py` with a build-time sharp script
-4. Notebook → MDX conversion as a Vite plugin (retire `convert.py`)
-5. AVIF alongside WebP
+1. View Transitions API for soft page navigation
+2. Replacing `resize.py` with a build-time sharp script
+3. Notebook → MDX conversion as a Vite plugin (retire `convert.py`)
+4. AVIF alongside WebP
+
+## Done in follow-up PRs
+
+- **Tailwind v4 upgrade** — `plans/tailwind-v4/` walks the swap from `@astrojs/tailwind` + Tailwind v3 + SCSS to `@tailwindcss/vite` + Tailwind v4 + plain CSS with a CSS-first `@theme` block.

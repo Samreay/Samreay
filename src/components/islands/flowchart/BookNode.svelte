@@ -8,7 +8,17 @@
   let { data }: NodeProps<BookFlowNode> = $props();
 </script>
 
-<Handle type="target" position={Position.Top} />
+<!--
+  Four cardinal handles, mirroring DecisionNode — see that file for the
+  rationale. Books only ever appear as edge *targets* in the data, but
+  we still ship four handles because (a) `ConnectionMode.Loose` doesn't
+  distinguish source/target and (b) the layout helper picks whichever
+  side of the book faces the incoming decision.
+-->
+<Handle type="source" position={Position.Top} id="top" />
+<Handle type="source" position={Position.Right} id="right" />
+<Handle type="source" position={Position.Bottom} id="bottom" />
+<Handle type="source" position={Position.Left} id="left" />
 
 <div class="book-node fancy_card horizontal mx-auto" data-review-card>
   <div class="card_translator">
@@ -59,5 +69,3 @@
     </a>
   </div>
 </div>
-
-<Handle type="source" position={Position.Bottom} />

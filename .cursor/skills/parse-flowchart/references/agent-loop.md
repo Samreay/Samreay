@@ -74,3 +74,32 @@ laid out by dagre. If the resulting build looks wrong, the fix is almost
 always to add or remove an edge (or change `defaultEdgeType`), never to
 pin more nodes — pinning fights dagre and immediately produces card
 overlap on the next Figma re-export.
+
+## Verification ritual
+
+After every batch of new nodes (every 2–3 tiles is a good cadence), run
+`verify.py` and read its `coverage.png`. The overlay is your checklist:
+
+- **Decision blue / book green** outlines on every captured node.
+- A **dark card or pill in the source with no outline** = a missed node.
+  Open the relevant tile and add it.
+- An **outline floating in white space** = a node whose `src_bbox` is
+  wrong (very common when manually entering coordinates instead of
+  copying from `crop.py`'s JSON output). Re-crop to fix.
+
+Common error → fix table:
+
+| Error                               | Likely cause                                                                  |
+|-------------------------------------|-------------------------------------------------------------------------------|
+| `unreachable from START`            | Edge directions are wrong, or the new subtree's parent is not yet captured.   |
+| `decision has no outgoing edges`    | Edges added but with this id as `target`; swap source/target.                 |
+| `book has outgoing edges` (warn)    | Almost always a swapped source/target on the edge.                            |
+| `cycle detected via edge X → Y`     | Either `source`/`target` are swapped on edge X→Y, or you have a real loop in
+                                          the source — check the connector arrow direction in the original.            |
+| `duplicate node id`                 | Two tiles saw the same node and you transcribed it twice; merge entries.      |
+| `tiles with zero captured nodes`    | Could be empty whitespace OR missed coverage. Cross-reference `coverage.png`. |
+| `nodes have no src_bbox`            | The state was filled in from memory; backfill via `crop.py` and re-verify.    |
+
+`verify.py --strict` promotes every warning to an error; useful when you
+think the pass is finished and want the audit to be ruthless before
+emitting.

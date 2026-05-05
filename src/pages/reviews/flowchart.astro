@@ -12,7 +12,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Flowchart from '../../components/islands/Flowchart.svelte';
 import { flowchart } from '../../data/flowchart';
 import { getLayoutedElements } from '../../lib/flowchart-layout';
-import '../../styles/flowchart.scss';
+import '../../styles/flowchart.css';
 
 const { nodes, edges } = await getLayoutedElements(flowchart);
 
@@ -44,10 +44,6 @@ const fallback = flowchart.decisions.map((d) => {
   <div class="flowchart-page">
     <div class="flowchart-page__header">
       <h1>Recommendation Flowchart</h1>
-      <p class="flowchart-page__instructions">
-        Click and drag to pan, scroll to zoom. Keyboard: tab to focus a node,
-        arrows to pan, +/− to zoom.
-      </p>
     </div>
 
     <Flowchart client:only="svelte" {nodes} {edges} />

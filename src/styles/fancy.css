@@ -18,7 +18,7 @@
 svg.ico {
   display: inline-block;
   scale: 1.0;
-  // font-size: 1em;
+  /* font-size: 1em; */
   margin-left: 0.2em;
   margin-right: 0.2em;
   font-style: normal;
@@ -48,11 +48,11 @@ svg.ico {
   }
 }
 
-// Hugo's `Fill "500x800 Center"` baked the 1.6 (height:width) book-cover
-// aspect into every artist thumbnail. `astro:assets` resizes without
-// cropping, so without this rule mismatched source ratios leak through and
-// the grid rows go ragged. Lock it to 0.625 (= 1 / 1.6) and `object-fit:
-// cover` so any source ratio gets centre-cropped to match.
+/* Hugo's `Fill "500x800 Center"` baked the 1.6 (height:width) book-cover
+   aspect into every artist thumbnail. `astro:assets` resizes without
+   cropping, so without this rule mismatched source ratios leak through and
+   the grid rows go ragged. Lock it to 0.625 (= 1 / 1.6) and `object-fit:
+   cover` so any source ratio gets centre-cropped to match. */
 #artist-content {
   .fancy_card.horizontal img {
     aspect-ratio: 0.625;

@@ -1,18 +1,18 @@
 :root {
-  // --grad-m: linear-gradient(
-  //   45deg,
-  // rgba(110,227,231,1) 0%,
-  // rgba(223,223,223,1) 8%,
-  // rgba(59,130,246,1) 13%,
-  // rgba(240,88,88,1) 23%,
-  // rgba(147,51,234,1) 32%,
-  // rgba(59,130,246,1) 42%,
-  // rgba(252,246,186,1) 52%,
-  // rgba(179,135,40,1) 60%,
-  // rgba(251,245,183,1) 68%,
-  // rgba(28,145,255,1) 86%,
-  // rgba(95,209,249,1) 100%
-  // );
+  /* --grad-m: linear-gradient(
+    45deg,
+    rgba(110,227,231,1) 0%,
+    rgba(223,223,223,1) 8%,
+    rgba(59,130,246,1) 13%,
+    rgba(240,88,88,1) 23%,
+    rgba(147,51,234,1) 32%,
+    rgba(59,130,246,1) 42%,
+    rgba(252,246,186,1) 52%,
+    rgba(179,135,40,1) 60%,
+    rgba(251,245,183,1) 68%,
+    rgba(28,145,255,1) 86%,
+    rgba(95,209,249,1) 100%
+  ); */
   --grad-m: linear-gradient(
     45deg,
     rgba(131, 58, 180, 1) 0%,
@@ -96,10 +96,21 @@
   );
 }
 
-.text-gradient {
+/* `.gradient`, `.text-gradient`, and `.under` are project-specific
+   styles that v3 invoked from regular `@apply` calls in other SCSS
+   files. v4's `@apply` only resolves against true Tailwind utilities,
+   so we register them via `@utility` here — every consumer of
+   `@apply gradient` etc. now resolves cleanly. */
+
+@utility gradient {
+  background-image: linear-gradient(132deg, #34d399 5%, #0d9488 95%);
+}
+
+@utility text-gradient {
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+  background-image: linear-gradient(132deg, #34d399 5%, #0d9488 95%);
 }
 
 .logo {
@@ -107,12 +118,7 @@
   letter-spacing: 0em;
 }
 
-.gradient,
-.text-gradient {
-  background-image: linear-gradient(132deg, #34d399 5%, #0d9488 95%);
-}
-
-.under {
+@utility under {
   transition-duration: 0.2s;
   transition-property: box-shadow, color, background;
 
@@ -323,8 +329,8 @@
     hsl(59, 92.2%, 74.9%),
     hsl(93, 71.9%, 74.9%),
     hsl(218, 97.4%, 84.7%),
-    hsl(308, 75.5%, 79.2%),
-);
+    hsl(308, 75.5%, 79.2%)
+  );
 }
 .tag-audio {
   @apply bg-orange-700 text-gray-100 font-medium;
@@ -390,7 +396,7 @@
   background-color: #911a67;
   @apply text-gray-100 font-medium;
 }
-// Turn white images to dark mode
+/* Turn white images to dark mode */
 .img-invert {
   filter: invert(1) hue-rotate(180deg) brightness(1.2) saturate(1.3);
   mix-blend-mode: screen;
@@ -419,7 +425,20 @@
 }
 
 
-.glow {
+/* `.glow` was the SCSS source class that the seven `.review-{tier}` blocks
+   below extended via `@extend .glow;`. v4 doesn't run through Sass, so the
+   `@extend` is rewritten as a multi-class selector list — every
+   `.review-{tier}` gets the same base rules `.glow` declared, then adds its
+   own gradient + animation in a separate block. Cascade order and
+   specificity are identical to the SCSS @extend output. */
+.glow,
+.review-π,
+.review-S,
+.review-A,
+.review-B,
+.review-C,
+.review-D,
+.review-F {
   position: relative;
 
   .bg2 {
@@ -435,15 +454,20 @@
 }
 
 @media (min-width: 1024px) {
-  .glow .bg2 {
+  .glow .bg2,
+  .review-π .bg2,
+  .review-S .bg2,
+  .review-A .bg2,
+  .review-B .bg2,
+  .review-C .bg2,
+  .review-D .bg2,
+  .review-F .bg2 {
       padding: 4px;
   }
 }
 
 
 .review-π {
-  @extend .glow;
-
   .bg2 {
     background: var(--grad-m);
     animation: slide 5s linear infinite;
@@ -451,8 +475,6 @@
 }
 
 .review-S {
-  @extend .glow;
-
   .bg2 {
     background: var(--grad-s);
     animation: slide 5s linear infinite;
@@ -460,8 +482,6 @@
 }
 
 .review-A {
-  @extend .glow;
-
   .bg2 {
     background: var(--grad-a);
     animation: slide 10s linear infinite;
@@ -469,7 +489,6 @@
 }
 
 .review-B {
-  @extend .glow;
   .bg2 {
     background: var(--grad-b);
     animation: slide 20s linear infinite;
@@ -477,7 +496,6 @@
 }
 
 .review-C {
-  @extend .glow;
   .bg2 {
     background: var(--grad-c);
     animation: slide 40s linear infinite;
@@ -485,7 +503,6 @@
 }
 
 .review-D {
-  @extend .glow;
   .bg2 {
     background: var(--grad-d);
     animation: slide 50s linear infinite;
@@ -493,7 +510,6 @@
 }
 
 .review-F {
-  @extend .glow;
   .bg2 {
     background: var(--grad-f);
     animation: slide 50s linear infinite;

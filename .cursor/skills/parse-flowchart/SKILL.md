@@ -82,22 +82,42 @@ zoom in selectively with `crop.py` (next section).
 
 ### 2. Plan from the overview
 
-Open `overview_grid.png`. The chart rendered by `flowchart.astro` is a
-top-to-bottom DAG, so the START HERE node is near the top centre.
-Identify roughly which tile contains it, and which tiles contain leaf
-book nodes (always have a cover image — visually distinct from the small
-dark decision rectangles). Sketch the plan in the chat: which tiles you'll
-read in what order. **Always traverse in graph order, not raster order**:
-START → its children → grandchildren. This is what keeps the eventual
-edge IDs in the order the reader experiences them.
+Open `overview_grid.png`. **Tile labels are `r{ROW}c{COL}` (row first,
+column second).** Don't transpose them when narrating — `r1_c2` is the
+tile in row 1, column 2, very different from `r2_c1`. The chart rendered
+by `flowchart.astro` is a graph laid out from the START anchor in all
+directions, so the START node sits near the geometric centre of the
+image (not the top), inside whichever tile covers `(src_w/2, src_h/2)`.
+For the 4×4 grid on the current Story-Finder image that's `r1_c2`.
+
+Identify roughly which tile contains START (see step 3 — yellow star
+icon), and which tiles contain leaf book nodes (always have a cover
+image — visually distinct from the small dark decision rectangles).
+Sketch the plan in the chat: which tiles you'll read in what order.
+**Always traverse in graph order, not raster order**: START → its
+children → grandchildren. This is what keeps the eventual edge IDs in
+the order the reader experiences them.
 
 ### 3. Locate the START anchor and pin it
 
-Read the tile containing `START HERE`. Decide its absolute centre in
-original-image pixels (`tile_local_x / scale + src_bbox[0]`). The START
-node is the *only* node we pin — set `pinned: { x: 0, y: 0 }` on it (so
-the rendered graph anchors at the page top), and let dagre position
-everything below.
+The START node is **not** labelled "START HERE" in the source. It is the
+single decision node decorated with a small **yellow star ⭐ icon centred
+on its top edge**. The current Story-Finder Figma calls it
+`Will you die without stats or a system?` and places it close to the
+geometric centre of the chart (≈source `(20000, 10000)` for the 32k×25k
+export, inside tile `r1_c2`). Don't waste time scanning for the literal
+text "START HERE" — it isn't there.
+
+**Faint lavender text is decorative.** The Figma board carries a few
+near-invisible disclaimer banners ("Title cards from
+https://cosmiccoding.com.au/reviews/", "please let me know in my discord
+…") in light purple on a white background. They are author notes, *not*
+chart nodes. Ignore them entirely.
+
+Decide the START node's absolute centre in original-image pixels
+(`tile_local_x / scale + src_bbox[0]`). The START node is the *only*
+node we pin — set `pinned: { x: 0, y: 0 }` on it (so the rendered graph
+anchors at the page top), and let dagre position everything below.
 
 ### 4. Enumerate nodes from each tile
 
@@ -168,9 +188,60 @@ literal source pixels.
 The script prints a JSON summary so you can paste the `src_bbox` straight
 into your state file.
 
-### 7. Validate and emit — `emit.py`
+### 7. Verify topology and coverage — `verify.py`
 
-Once `state.json` looks complete, run:
+Before emitting, run the audit pass. It catches the failure modes the
+manual loop is most prone to and produces a visual coverage overlay you
+can eyeball for missing books:
+
+```bash
+uv run .cursor/skills/parse-flowchart/scripts/verify.py \
+  --state    .cursor/skills/parse-flowchart/work/Story-Finder-big/state.json \
+  --prepared .cursor/skills/parse-flowchart/work/Story-Finder-big/
+```
+
+What `verify.py` enforces (exit 1 on any error):
+
+- **Orphans** — a node with zero edges in or out.
+- **Unreachable from START** — START is the decision with
+  `pinned: { x: 0, y: 0 }`, or an id of `d_start`. Anything not reachable
+  via outgoing edges is an error.
+- **Dead-end decisions** — a decision with no outgoing edges (other than
+  the START anchor itself, which may legitimately have no parent).
+- **Cycles** — back-edges in the DFS, almost always a swapped
+  `source` / `target`.
+- **Duplicate ids** — across decisions+books or across edges.
+- **Edges referencing unknown nodes**.
+
+What it warns about (stderr only, unless you pass `--strict`):
+
+- **Non-terminal books** — a book with outgoing edges. Possible but
+  almost always a swapped edge direction.
+- **Empty tiles** — a tile from `index.json` with zero captured nodes.
+  Could be intentional whitespace OR a region of book cards you missed;
+  cross-check against `coverage.png`.
+- **Nodes without `src_bbox`** — they're skipped on the overlay so you
+  can't visually verify them. Backfill the bbox so the next pass can
+  re-zoom without re-detecting.
+
+What it produces (always, even on failure):
+
+- `<prepared>/coverage.png` — the prepared overview annotated with every
+  captured node's `src_bbox`. Decisions outlined in **blue**, books in
+  **green**, START in **amber**. Read this file. **Any visible book
+  card or decision pill that does not have a coloured outline is a
+  missed node** — go back to step 4 with the relevant tile, add it,
+  and re-run `verify.py`.
+- A JSON summary on stdout with per-tile counts, error/warning totals,
+  and the overlay path.
+
+Iterate verify → fix → verify until the run is clean (or only the
+warnings you've consciously accepted remain). This is the single
+strongest defence against missed books and edge-direction bugs.
+
+### 8. Validate and emit — `emit.py`
+
+Once `verify.py` is happy, render the TypeScript:
 
 ```bash
 uv run .cursor/skills/parse-flowchart/scripts/emit.py \
@@ -178,7 +249,9 @@ uv run .cursor/skills/parse-flowchart/scripts/emit.py \
   --out  .cursor/skills/parse-flowchart/work/Story-Finder-big/flowchart.generated.ts
 ```
 
-`emit.py` will reject the run if any of these fail:
+`emit.py` re-checks a narrower set focused on the TS schema (some of
+these overlap with `verify.py` on purpose, so emission is safe even if
+someone skipped the verify step):
 
 - duplicate ids (decision/book/edge),
 - edges referencing unknown nodes,
@@ -187,9 +260,10 @@ uv run .cursor/skills/parse-flowchart/scripts/emit.py \
 
 For an in-progress draft (e.g. you've identified a book by cover but
 haven't yet picked a slug), pass `--allow-missing-reviews` to demote
-those errors to stderr warnings without blocking emission.
+the review-existence errors to stderr warnings without blocking
+emission. The other validators always block.
 
-### 8. Hand back to `src/data/flowchart.ts`
+### 9. Hand back to `src/data/flowchart.ts`
 
 Diff `work/<stem>/flowchart.generated.ts` against the live
 `src/data/flowchart.ts`. Don't blindly overwrite — copy the
@@ -233,3 +307,8 @@ can re-zoom without re-running anything but `crop.py`.
   current Story-Finder image is ~16 MB). Anything that needs to live in
   the repo (the final `flowchart.ts` snippet, the state.json once the
   pass is finished) gets copied out manually.
+- **Always run `verify.py` before `emit.py`.** Both are cheap, but
+  `verify.py` produces the coverage overlay that's the only practical
+  way to catch a missing book without re-doing the full enumeration.
+  Treat its `coverage.png` like a checklist — every dark card or pill
+  in the original *must* end up outlined.

@@ -1586,7 +1586,6 @@ export const artists = [
   {
     "name": "Richard Sashigane",
     "covers": [
-      "wuts",
       "proxima_legends",
       "arcane_knight1",
       "roots_and_steel",

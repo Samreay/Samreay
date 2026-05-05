@@ -149,6 +149,7 @@ If a critical issue surfaces post-deploy:
 - Replace `resize.py` with a sharp-based pre-commit hook.
 - Migrate `builder/convert.py` to a Vite plugin so notebooks become a build-time dependency rather than a manual `make convert` step.
 - Set up Cloudflare Pages preview deploys per PR.
-- Tailwind v4 upgrade.
 - Adopt View Transitions API for soft navigation between pages.
 - Add AVIF alongside WebP for further image weight savings.
+
+(Tailwind v4 upgrade — done in `plans/tailwind-v4/`.)

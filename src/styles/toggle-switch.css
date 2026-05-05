@@ -1,4 +1,4 @@
-// Switch element
+/* Switch element */
 .form-switch {
 
     @apply relative select-none;

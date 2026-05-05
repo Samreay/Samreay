@@ -112,7 +112,7 @@ const BUTTON_BG = ['S', 'A', 'B', 'C', 'D', 'F', 'π'] as const;
         {BUTTON_BG.map((tier) => (
           <button
             type="button"
-            class={`btn-sm bg-${tier}-700 hover:bg-${tier}-600 focus:bg-${tier}-500 text-white px-4 py-2 rounded`}
+            class={`btn-sm bg-${tier}-700 hover:bg-${tier}-600 focus:bg-${tier}-500 text-white px-4 py-2 rounded-sm`}
           >
             bg-{tier}-700 → 600 → 500
           </button>
@@ -127,7 +127,7 @@ const BUTTON_BG = ['S', 'A', 'B', 'C', 'D', 'F', 'π'] as const;
           <div class="card_translator">
             <a class="card_rotator block card_layer" href="#">
               <figure class="card_layer">
-                <div class="w-full h-72 bg-gradient-to-br from-purple-700 via-S-600 to-D-600 rounded" aria-hidden="true"></div>
+                <div class="w-full h-72 bg-linear-to-br from-purple-700 via-S-600 to-D-600 rounded-sm" aria-hidden="true"></div>
               </figure>
               <div class="card_layer card_overlay_motion red"></div>
               <div class="card_layer card_effect card_overlay_C"></div>

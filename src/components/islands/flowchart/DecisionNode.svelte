@@ -17,10 +17,19 @@
   );
 </script>
 
-<Handle type="target" position={Position.Top} />
+<!--
+  Four cardinal handles per node so `flowchart-layout.ts` can attach
+  each edge to whichever side faces its other endpoint. With
+  `ConnectionMode.Loose` on the parent `<SvelteFlow>` the same handle
+  can serve as either source OR target end (so we don't have to ship
+  eight handles per node), and the page-level CSS makes them invisible:
+  `.svelte-flow__handle { opacity: 0; pointer-events: none; }`.
+-->
+<Handle type="source" position={Position.Top} id="top" />
+<Handle type="source" position={Position.Right} id="right" />
+<Handle type="source" position={Position.Bottom} id="bottom" />
+<Handle type="source" position={Position.Left} id="left" />
 
 <div class="decision-node" style={accentStyle}>
   <p class="decision-node__prompt">{data.prompt}</p>
 </div>
-
-<Handle type="source" position={Position.Bottom} />

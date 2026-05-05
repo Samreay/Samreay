@@ -4,6 +4,7 @@
     Background,
     Controls,
     MiniMap,
+    ConnectionMode,
   } from '@xyflow/svelte';
   import '@xyflow/svelte/dist/style.css';
 
@@ -36,13 +37,14 @@
     colorMode="dark"
     fitView
     proOptions={{ hideAttribution: true }}
-    minZoom={0.3}
-    maxZoom={1.5}
+    minZoom={0.05}
+    maxZoom={2}
     defaultEdgeOptions={{ animated: false }}
     nodesConnectable={false}
     nodesDraggable={false}
     edgesReconnectable={false}
     elementsSelectable={false}
+    connectionMode={ConnectionMode.Loose}
   >
     <Background />
     <MiniMap pannable zoomable />
