@@ -3,37 +3,33 @@
  *
  * Runs entirely on the server during `astro build` (or `astro dev`'s SSR
  * pass): walks the typed `FlowchartData`, validates references, resolves
- * each book's cover via the existing `resolveCover` helper, calls ELK's
- * `stress` algorithm for x/y positions, and emits arrays already typed
+ * each book's cover via the existing `resolveCover` helper, calls d3-dag's
+ * `sugiyama()` algorithm for x/y positions, and emits arrays already typed
  * as xyflow's `Node<T, K>` / `Edge<T, K>` so the Svelte island accepts
  * them without casts.
  *
- * Why stress instead of dagre's top-down layered layout: the source data
- * is a decision tree rooted at `d_start`. Rendered top-down with 520x400
- * book cards, the bottom rank gets too wide to read and edges criss-cross
- * heavily. Stress minimisation places connected nodes near each other and
- * unconnected nodes far apart, with no inherent direction — pinning
- * `d_start` at the origin then gives a "pick your path outward from the
- * middle" feel instead of a strict top-to-bottom flow.
+ * Uses `layeringSimplex` (network-simplex layer assignment), `decrossTwoLayer`
+ * (heuristic crossing minimisation, ~49 ms for ~250 nodes), and `coordQuad`
+ * (balanced quadratic-program x-placement). Node sizes are passed per-node
+ * via the `nodeSize` callback so the 320×90 pills, 640×180 large pills, and
+ * 520×400 book cards each occupy their correct footprint.
  *
- * Other ELK algorithms considered:
- *   - `radial` produced a hollow donut on this graph because `d_start`'s
- *     two children have very lopsided subtree sizes; even `RADIAL_COMPACTION`
- *     can't fix the wedge-width math when the outer ring carries ~100 leaves.
- *   - `force` is non-deterministic across builds (bad for screenshot diffs).
- *   - `mrtree` lays out top-down, defeating the centre-out goal.
- *   - `layered` is what dagre already did, just slightly nicer.
+ * d3-dag returns centre coordinates; these are converted to top-left before
+ * being written to the positions map or the on-disk cache.
  *
- * `stress` accepts arbitrary graphs (no tree constraint), so we feed it the
- * full edge set unmodified.
- *
- * Because this module imports `elkjs` and `astro:content`, it is never
+ * Because this module imports `d3-dag` and `astro:content`, it is never
  * bundled into client output — it is only ever reached from `.astro`
- * frontmatter. That keeps ELK (~500 KB minified) off the wire and the
+ * frontmatter. That keeps the layout library off the wire and the
  * `getImage()` cover URLs pre-resolved before hydration.
  */
-import ELK from 'elkjs/lib/elk.bundled.js';
-import type { ElkExtendedEdge, ElkNode } from 'elkjs/lib/elk-api';
+import {
+  graphConnect,
+  sugiyama,
+  layeringSimplex,
+  decrossTwoLayer,
+  coordQuad,
+  type Graph,
+} from 'd3-dag';
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Node, Edge } from '@xyflow/svelte';
@@ -432,24 +428,12 @@ const LAYOUT_DESIRED_EDGE_LENGTH = 1000;
  *  `LAYOUT_DESIRED_EDGE_LENGTH`] pay no length cost. */
 const LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH = 450;
 
-/** Radius of the disk we scatter non-pinned ELK seed positions inside
- *  when the caller supplies a `seed` (the dev-toolbar Reset path).
- *  Tuned to cover roughly the same spatial extent the deterministic
- *  ELK output occupies (~4-5k px in each axis for ~215 nodes at the
- *  current `LAYOUT_DESIRED_EDGE_LENGTH`), so stress sees endpoints in
- *  the same ballpark it would normally produce — just shuffled. Too
- *  small and every node starts on top of the root, defeating the
- *  variation; too large and stress wastes most of its iteration budget
- *  pulling outliers in. */
-const RESET_SCATTER_RADIUS_PX = 5000;
-
-/** Standard deviation of the Gaussian jitter we apply to every
- *  non-pinned node *after* sporeOverlap and *before* relax on the
- *  Reset path. Pulls each node into a slightly different basin so
- *  the relax sim's force terms can settle into a different local
- *  minimum. ~400 is comparable to one node-width — enough to perturb
- *  the topology, small enough that relax's edge-length spring still
- *  recognises the macro shape ELK established. */
+/** Standard deviation of the Gaussian jitter applied to every
+ *  non-pinned node before relax on the Reset path. Pulls each node
+ *  into a slightly different basin so the relax sim can settle into a
+ *  different local minimum. ~400 is comparable to one node-width —
+ *  enough to perturb the topology without destroying d3-dag's macro
+ *  shape entirely. */
 const RESET_JITTER_SIGMA_PX = 400;
 
 /**
@@ -494,18 +478,6 @@ function gaussianPair(rng: () => number): [number, number] {
   return [u * factor, v * factor];
 }
 
-/**
- * Sample a uniform point inside a disk of the given radius. Used to
- * scatter non-pinned nodes' ELK `elk.position` seeds when the caller
- * requests a randomised reset. The √u trick gives a uniform area
- * distribution (rather than concentrating samples near the centre,
- * which a naive `r = u * radius` would).
- */
-function uniformDiskSample(rng: () => number, radius: number): { x: number; y: number } {
-  const r = Math.sqrt(rng()) * radius;
-  const theta = rng() * Math.PI * 2;
-  return { x: r * Math.cos(theta), y: r * Math.sin(theta) };
-}
 
 function relax(opts: {
   positions: Map<string, Vec2>;
@@ -1100,44 +1072,30 @@ function validateFlowchart(data: FlowchartData): void {
   }
 }
 
-const elk = new ELK();
-
 /**
  * Resolve every node's top-left coordinate and emit the typed xyflow
  * `nodes` / `edges` arrays the page renders.
  *
  * Determinism contract:
- *   - The full pipeline (ELK stress + sporeOverlap + Verlet `relax`) is
+ *   - The full pipeline (d3-dag sugiyama + Verlet `relax`) is
  *     deterministic given fixed input data AND no `seed` option. The
  *     seed parameter is the single, opt-in escape hatch: when supplied
- *     we drive a `mulberry32` PRNG to (a) scatter non-pinned ELK seed
- *     positions inside a disk and (b) Gaussian-jitter every non-pinned
- *     node before relax. Identical seeds still produce identical
- *     layouts — the randomness is fully reproducible per-seed — so the
- *     contract becomes "byte-identical output for fixed (data, seed)"
- *     rather than "for fixed data alone". Build/SSR callers that pass
- *     no `seed` keep the old behaviour exactly.
+ *     we drive a `mulberry32` PRNG to scatter non-pinned positions and
+ *     Gaussian-jitter every non-pinned node before relax. Identical
+ *     seeds still produce identical layouts.
  *   - The on-disk file `src/data/flowchart-positions.json` is the source
  *     of truth across restarts and across machines. It is committed to
  *     git so a fresh checkout sees the SAME positions the author saw.
- *   - Recomputation (full ELK + relax) only fires when the data file's
- *     id set changes versus what's on disk, or when the file is missing
- *     entirely. `classifyCoverage` makes that decision: every requested
- *     id present → cache hit; any id missing → recompute.
+ *   - Recomputation (full d3-dag + relax) only fires when the data
+ *     file's id set changes versus what's on disk, or when the file is
+ *     missing entirely.
  *
  * @param options.refine When `true` AND the cache is fully covering,
- *   skip ELK but still run the relax pass over the cached positions.
- *   Used by the dev-mode drag-and-save flow (subagent 3) so manual
- *   nudges get cleaned up by the physics step before being saved back.
- *   Defaults to `false`.
- * @param options.seed Optional 32-bit integer seed. Only consulted on
- *   the missing-cache code path (i.e. after the dev toolbar's Reset
- *   action wipes the on-disk positions); ignored on full-cache,
- *   partial-cache, and refine paths so a fresh checkout's first build
- *   stays deterministic. When set, scatters non-pinned ELK seeds in a
- *   disk and jitters every non-pinned node by a Gaussian before relax,
- *   giving each Reset click a different convergence basin while
- *   keeping each *individual* seed fully reproducible.
+ *   skip d3-dag but still run the relax pass over the cached positions.
+ * @param options.seed Optional 32-bit integer seed for the Reset path.
+ *   Scatters non-pinned node positions inside a disk and jitters by a
+ *   Gaussian before relax, giving each Reset click a different
+ *   convergence basin while keeping each individual seed reproducible.
  */
 export async function getLayoutedElements(
   data: FlowchartData,
@@ -1288,8 +1246,7 @@ export async function getLayoutedElements(
       if (rng) {
         console.log(
           `flowchart-layout: cache missing; running full layout with ` +
-            `randomised seed ${seed} (scatter ±${RESET_SCATTER_RADIUS_PX}px, ` +
-            `jitter σ=${RESET_JITTER_SIGMA_PX}px)`,
+            `randomised seed ${seed} (jitter σ=${RESET_JITTER_SIGMA_PX}px)`,
         );
       } else {
         console.log('flowchart-layout: cache missing; running full layout');
@@ -1298,7 +1255,7 @@ export async function getLayoutedElements(
       for (const id of coverage.known.keys()) effectivePinnedIds.add(id);
       console.log(
         `flowchart-layout: cache partial (${coverage.known.size} known, ` +
-          `${coverage.missing.length} new); seeding ELK with known positions`,
+          `${coverage.missing.length} new); re-stamping known positions post-layout`,
       );
     } else {
       console.log('flowchart-layout: refine over cached positions...');
@@ -1314,167 +1271,70 @@ export async function getLayoutedElements(
         positions.set(id, { x: p.x, y: p.y });
       }
     } else {
-      // ── BRANCHES 3+4: full ELK run ───────────────────────────────────
+      // ── BRANCHES 3+4: d3-dag Sugiyama layout ─────────────────────────
       // Either the cache was missing entirely or only partially covered
-      // the current id set. The partial path SEEDS ELK with the known
-      // coordinates (per-child `elk.position`) so stress treats them as
-      // good starting points and slots only the new ids around them.
-      // The missing path passes no seed and lets stress place every
-      // node from scratch.
+      // the current id set. d3-dag lays out all nodes from scratch, then
+      // the partial path re-stamps cached positions on top so existing
+      // nodes don't move — only newly added ones get placed by d3-dag.
 
-      // Stress accepts arbitrary graphs (including DAG cross-references),
-      // so every edge goes in unmodified. The per-node `elk.position` on
-      // the root pins it at (0, 0); on the partial path every cached id
-      // also gets an `elk.position` to start it where it was last time.
-      // ELK's stress solver then arranges everything else (the new ids)
-      // around them to minimise edge-length / graph-distance mismatch.
-      // `elk.position` is a SEED, not a hard pin — `elk.interactive: true`
-      // honours it as the starting coordinate but the iterative solver
-      // still moves the node. We re-stamp the cache values back on top
-      // after ELK returns so any sub-pixel drift in known-id positions
-      // is erased before relax pins them.
-      // Resolve the ELK seed coordinate for one node. Three precedence
-      // tiers, in order: (a) the cached position from a partial-cache
-      // hit (deterministic, preserves user layout); (b) when `rng` is
-      // active, a uniform disk-sample (random restart for the Reset
-      // path); (c) no seed at all (ELK starts the node from scratch,
-      // current behaviour for cold cold-cache builds). The root is
-      // excluded — it always anchors at (0, 0) above this helper.
-      const elkSeedFor = (id: string): { x: number; y: number } | null => {
-        const cached = seedPositions?.get(id);
-        if (cached) return cached;
-        // Pinned non-root nodes have authored coordinates that
-        // `placeDecision`/`placeBook` will overwrite at render time
-        // anyway — no point disturbing them with a random scatter,
-        // and seeding ELK at their authored spot also helps the
-        // surrounding network arrange around them.
-        if (rng && pinnedIds.has(id)) {
-          const pinned =
-            data.decisions.find((d) => d.id === id)?.pinned ??
-            data.books.find((b) => b.id === id)?.pinned;
-          if (pinned) return pinned;
-        }
-        if (rng) return uniformDiskSample(rng, RESET_SCATTER_RADIUS_PX);
-        return null;
-      };
+      // graphConnect builds a graph from a flat edge list. node.data is
+      // the string id. .single(true) allows nodes that only appear as a
+      // source or only as a target (safety valve — data is fully connected
+      // from d_start, but guards against future authoring mistakes).
+      const connect = graphConnect()
+        .sourceId((e: { source: string; target: string }) => e.source)
+        .targetId((e: { source: string; target: string }) => e.target);
+      const dagGraph = connect.single(true)(data.edges);
 
-      const elkChildren: ElkNode[] = [
-        ...data.decisions.map((d) => {
-          const ds = decisionSize(d);
-          // `d_start` always wins — it's authored at (0, 0) and the
-          // post-ELK origin shift below depends on it landing there.
-          if (d.id === ROOT_ID) {
-            return {
-              id: d.id,
-              width: ds.width,
-              height: ds.height,
-              layoutOptions: { 'elk.position': '(0, 0)' },
-            };
-          }
-          const seedPt = elkSeedFor(d.id);
-          return {
-            id: d.id,
-            width: ds.width,
-            height: ds.height,
-            ...(seedPt
-              ? {
-                  layoutOptions: {
-                    'elk.position': `(${seedPt.x}, ${seedPt.y})`,
-                  },
-                }
-              : {}),
-          };
-        }),
-        ...bookPayloads.map((b) => {
-          const seedPt = elkSeedFor(b.node.id);
-          return {
-            id: b.node.id,
-            width: NODE_SIZES.book.width,
-            height: NODE_SIZES.book.height,
-            ...(seedPt
-              ? {
-                  layoutOptions: {
-                    'elk.position': `(${seedPt.x}, ${seedPt.y})`,
-                  },
-                }
-              : {}),
-          };
-        }),
-      ];
+      // sugiyama with:
+      //   layeringSimplex  = network-simplex layer assignment (minimises
+      //                      total edge length, same as ELK's default)
+      //   decrossTwoLayer  = heuristic crossing minimisation; ~49ms for
+      //                      this graph. decrossOpt (ILP) is NP-hard and
+      //                      unsuitable for 250 nodes.
+      //   coordQuad        = balanced quadratic-program x-placement
+      //   gap([80, 120])   = matches ELK's nodeNode:80 + between-layers:120
+      const layout = sugiyama()
+        .nodeSize((node) => {
+          const sz = sizes.get(node.data);
+          if (!sz) return [NODE_SIZES.decision.width, NODE_SIZES.decision.height] as const;
+          return [sz.w, sz.h] as const;
+        })
+        .gap([80, 120])
+        .layering(layeringSimplex())
+        .decross(decrossTwoLayer())
+        .coord(coordQuad());
 
-      const elkEdges: ElkExtendedEdge[] = data.edges.map((e) => ({
-        id: e.id,
-        sources: [e.source],
-        targets: [e.target],
-      }));
+      // Synchronous — no await needed. Double-cast via unknown: sugiyama()'s
+      // default type params are Graph<never,never> but our graph carries
+      // string node data; the cast is safe since layout only reads x/y.
+      layout(dagGraph as unknown as Graph<never, never>);
 
-      // ELK Layered implements the full Sugiyama framework for DAG layout:
-      //   1. Cycle removal (none needed — the data is a true DAG)
-      //   2. Layer assignment via NETWORK_SIMPLEX — minimises total edge
-      //      length across layers.
-      //   3. Crossing minimisation via LAYER_SWEEP — iterative sweep that
-      //      gets very close to optimal for realistic graphs.
-      //   4. Node placement via BRANDES_KOEPF — compact, balanced
-      //      horizontal placement within each layer.
-      //   5. Edge routing via SPLINES — smooth curves (not orthogonal).
-      //
-      // Key knobs:
-      //   - `elk.direction`: DOWN = root at top, leaves at bottom.
-      //   - `elk.spacing.nodeNode`: minimum gap between nodes in the
-      //     same layer.
-      //   - `elk.layered.spacing.nodeNodeBetweenLayers`: minimum vertical
-      //     gap between layers. Set generously for 520x400 book cards.
-      //   - `elk.aspectRatio`: hint to the placer about the desired
-      //     width-to-height ratio of the output.
-      const layout = await elk.layout({
-        id: 'flowchart-root',
-        layoutOptions: {
-          'elk.algorithm': 'layered',
-          'elk.direction': 'DOWN',
-          'elk.layered.crossingMinimization.strategy': 'LAYER_SWEEP',
-          'elk.layered.nodePlacement.strategy': 'BRANDES_KOEPF',
-          'elk.layered.layering.strategy': 'NETWORK_SIMPLEX',
-          'elk.layered.spacing.nodeNodeBetweenLayers': '120',
-          'elk.spacing.nodeNode': '80',
-          'elk.edgeRouting': 'SPLINES',
-          'elk.aspectRatio': '1.7',
-        },
-        children: elkChildren,
-        edges: elkEdges,
-      });
-
-      // ELK already returns top-left coordinates (unlike dagre which
-      // returns the centre), so no per-node centring shift is needed.
-      // We do however translate the whole graph so the root lands at
-      // (0, 0) — the data file pins `d_start` at that origin and the
-      // existing `pinned` escape hatch is authored relative to it.
-      let originDx = 0;
-      let originDy = 0;
-      for (const child of layout.children ?? []) {
-        if (child.id === ROOT_ID) {
-          originDx = child.x ?? 0;
-          originDy = child.y ?? 0;
+      // node.x / node.y are CENTRE coordinates; convert to top-left and
+      // translate so ROOT_ID lands at (0, 0).
+      let rootCx = 0;
+      let rootCy = 0;
+      for (const node of dagGraph.nodes()) {
+        if (node.data === ROOT_ID) {
+          const sz = sizes.get(ROOT_ID)!;
+          rootCx = node.x - sz.w / 2;
+          rootCy = node.y - sz.h / 2;
+          break;
         }
       }
-      for (const child of layout.children ?? []) {
-        positions.set(child.id, {
-          x: (child.x ?? 0) - originDx,
-          y: (child.y ?? 0) - originDy,
-        });
-        sizes.set(child.id, {
-          w: child.width ?? 0,
-          h: child.height ?? 0,
+      for (const node of dagGraph.nodes()) {
+        const sz = sizes.get(node.data)!;
+        positions.set(node.data, {
+          x: node.x - sz.w / 2 - rootCx,
+          y: node.y - sz.h / 2 - rootCy,
         });
       }
 
       // On the partial path, re-stamp every cached id back to its EXACT
-      // saved coordinate before relax sees it. ELK's stress solver
-      // honours `elk.position` as a seed and is supposed to leave a
-      // well-positioned node alone, but in practice it nudges them by a
-      // few pixels as the global stress potential changes around them.
-      // Pinning in relax is cheap; pinning at exactly the cache values
-      // means the user observes ZERO motion on existing nodes, which is
-      // the contract this branch is supposed to enforce.
+      // saved coordinate before relax sees it. d3-dag lays out every node
+      // from scratch (no seed-position API), so known positions may drift.
+      // Pinning in relax is cheap; this stamp means the user observes ZERO
+      // motion on existing nodes, which is the contract for partial cache.
       if (seedPositions) {
         for (const [id, p] of seedPositions) {
           positions.set(id, { x: p.x, y: p.y });
@@ -1483,18 +1343,12 @@ export async function getLayoutedElements(
     }
 
     // ── Pre-relax jitter (Reset path only) ───────────────────────────
-    // ELK's stress solver is gradient-descent-ish, so equally valid
-    // layouts can sit in distinct basins separated by small barriers.
-    // The disk-scattered seeds above push us into a different basin
-    // before stress runs; this Gaussian perturbation does the same
-    // thing AGAIN after stress + sporeOverlap have settled, giving
-    // the relax sim a chance to re-explore. Crucially, relax's
-    // best-snapshot revert (see `RELAX_OPTS` and the iter-0 baseline
-    // in `relax`) compares every iteration's `layoutCost` against the
-    // input — so if the jitter actually made things worse than the
-    // un-jittered ELK output would have produced, relax falls back
-    // to its best intermediate snapshot rather than locking in a
-    // pessimised layout. The "do no harm" guarantee survives.
+    // d3-dag is deterministic, so equally valid layouts can sit in
+    // distinct basins. This Gaussian perturbation pushes us into a
+    // different basin before relax runs. The best-snapshot revert in
+    // relax compares every iteration's layoutCost against the input —
+    // if jitter made things worse, relax falls back to its best
+    // intermediate snapshot. The "do no harm" guarantee survives.
     if (rng) {
       let jittered = 0;
       for (const id of allCurrentIds) {
