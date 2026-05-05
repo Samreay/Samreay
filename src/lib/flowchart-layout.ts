@@ -272,27 +272,21 @@ const RELAX_OPTS = {
    *  label-*). This is the breathing room the sim refuses to give up
    *  on. */
   PADDING: 80,
-  /** Hard iteration cap. Was 1000; raised to give the additional label
-   *  terms time to settle. The five-way coupling (node-node, edge-node,
-   *  edge-edge, label-node, label-label) takes longer to reach a
-   *  uniform equilibrium than the original three terms did, and the
-   *  point of the longer budget is to LET it settle into a more
-   *  uniform layout instead of stopping mid-shuffle. */
-  MAX_ITERS: 4000,
+  /** Hard iteration cap. d3-dag produces a cleaner initial layout than
+   *  ELK stress did, so the sim needs fewer iterations to reach
+   *  equilibrium. 1500 is enough budget for the KE threshold to trigger
+   *  naturally on most runs; the best-snapshot revert handles the rare
+   *  case where it doesn't. */
+  MAX_ITERS: 1500,
   /** Total kinetic-energy threshold below which the sim declares
-   *  convergence and exits early. Units: sum of |v|² across all nodes,
-   *  so for ~215 nodes a value of 4 corresponds to a per-node speed of
-   *  about sqrt(4/215) ≈ 0.14 px/step. The previous threshold of 20
-   *  cut things off at ≈0.3 px/step, which left visible micro-shuffle
-   *  that the longer iteration budget can now absorb. Lower threshold
-   *  + higher MAX_ITERS together = the sim runs until the layout is
-   *  genuinely stable instead of "good enough for fast builds". */
-  CONVERGENCE_KE: 4.0,
+   *  convergence and exits early. Units: sum of |v|² across all nodes.
+   *  For ~250 nodes a value of 20 corresponds to a per-node speed of
+   *  about sqrt(20/250) ≈ 0.28 px/step — tight enough to catch genuine
+   *  convergence without running to the iteration cap on settled layouts. */
+  CONVERGENCE_KE: 20.0,
   /** How long the sim must hold below `CONVERGENCE_KE` before exiting.
-   *  A single low-KE frame can be a momentary cancellation of
-   *  oscillating forces (especially with five interacting terms);
-   *  insisting on a sustained quiet window before declaring victory
-   *  catches that case. */
+   *  A single low-KE frame can be a momentary phase-cancellation of
+   *  oscillating forces; a sustained quiet window confirms true rest. */
   CONVERGENCE_HOLD_ITERS: 25,
 } as const;
 
@@ -1300,7 +1294,7 @@ export async function getLayoutedElements(
           if (!sz) return [NODE_SIZES.decision.width, NODE_SIZES.decision.height] as const;
           return [sz.w, sz.h] as const;
         })
-        .gap([80, 120])
+        .gap([120, 160])
         .layering(layeringSimplex())
         .decross(decrossTwoLayer())
         .coord(coordQuad());
