@@ -85,14 +85,18 @@ function getGraphviz(): Promise<Graphviz> {
  *  Values < 1 pack the layout tighter; 1.0 = raw Graphviz output. */
 const LAYOUT_SCALE = 0.7;
 
+/** Number of different sfdp seeds to try on a cold layout. The best-scoring
+ *  result (lowest layoutCost after relax) is kept and saved to disk. */
+const LAYOUT_CANDIDATES = 1;
+
 function buildDotString(
   data: FlowchartData,
   sizes: Map<string, { w: number; h: number }>,
+  seed: number,
 ): string {
   const lines: string[] = [];
   lines.push('digraph G {');
-  // overlap=prism removes node overlaps; sep adds padding between nodes.
-  lines.push('  graph [overlap=scale splines=spline];');
+  lines.push(`  graph [seed=${seed} overlap=scale splines=spline mode="major" sep="+4"];`);
   lines.push('  edge [len=1];');
   for (const d of data.decisions) {
     const sz = sizes.get(d.id)!;
@@ -159,9 +163,10 @@ function normaliseOrigin(positions: Map<string, { x: number; y: number }>): void
 async function computeGraphvizLayout(
   data: FlowchartData,
   sizes: Map<string, { w: number; h: number }>,
+  seed: number,
 ): Promise<Map<string, { x: number; y: number }>> {
   const gv = await getGraphviz();
-  const dotSrc = buildDotString(data, sizes);
+  const dotSrc = buildDotString(data, sizes, seed);
   const plain = gv.neato(dotSrc, 'plain');
   return parsePlainOutput(plain, sizes);
 }
@@ -473,7 +478,7 @@ function layoutCost(s: LayoutScore): number {
     s.edgeNodeIntrusions * 50 +
     s.labelNodeOverlaps * 30 +
     s.labelLabelOverlaps * 20 +
-    s.edgeEdgeCrossings * 10 +
+    s.edgeEdgeCrossings * 50 +
     // Symmetric length-deviation penalty. Same per-pixel weight on both
     // sides of the sweet spot — an edge that's 100px too short is just
     // as visually problematic as one that's 100px too long (one squashes
@@ -1340,58 +1345,53 @@ export async function getLayoutedElements(
         positions.set(id, { x: p.x, y: p.y });
       }
     } else {
-      // ── BRANCHES 3+4: Graphviz dot layout ────────────────────────────
-      // Either the cache was missing entirely or only partially covered
-      // the current id set. Graphviz lays out all nodes, then the partial
-      // path re-stamps cached positions on top so existing nodes don't move.
-      const rawPositions = await computeGraphvizLayout(data, sizes);
-      normaliseOrigin(rawPositions);
+      // ── BRANCHES 3+4: multi-candidate Graphviz + relax ───────────────
+      // Run sfdp with LAYOUT_CANDIDATES different seeds, relax each, and
+      // keep the lowest-cost result.
+      let bestCandidateCost = Infinity;
+      let bestCandidatePositions: Map<string, { x: number; y: number }> | null = null;
 
-      // Re-stamp authored pins on top of Graphviz output.
-      for (const d of data.decisions) {
-        if (d.pinned) rawPositions.set(d.id, { x: d.pinned.x, y: d.pinned.y });
-      }
-      for (const b of data.books) {
-        if (b.pinned) rawPositions.set(b.id, { x: b.pinned.x, y: b.pinned.y });
-      }
+      for (let candidateSeed = 0; candidateSeed < LAYOUT_CANDIDATES; candidateSeed++) {
+        const rawPositions = await computeGraphvizLayout(data, sizes, candidateSeed);
+        normaliseOrigin(rawPositions);
 
-      for (const [id, p] of rawPositions) {
-        positions.set(id, p);
-      }
+        for (const d of data.decisions) {
+          if (d.pinned) rawPositions.set(d.id, { x: d.pinned.x, y: d.pinned.y });
+        }
+        for (const b of data.books) {
+          if (b.pinned) rawPositions.set(b.id, { x: b.pinned.x, y: b.pinned.y });
+        }
 
-      // On the partial path, re-stamp every cached id back to its EXACT
-      // saved coordinate before relax sees it. Pinning in relax is cheap;
-      // this stamp means the user observes ZERO motion on existing nodes.
-      if (seedPositions) {
-        for (const [id, p] of seedPositions) {
-          positions.set(id, { x: p.x, y: p.y });
+        if (seedPositions) {
+          for (const [id, p] of seedPositions) {
+            rawPositions.set(id, { x: p.x, y: p.y });
+          }
+        }
+
+        const candidatePositions = new Map(rawPositions);
+
+        const { finalScore } = relax({
+          positions: candidatePositions,
+          sizes,
+          edges: edgeSpecs,
+          pinnedIds: effectivePinnedIds,
+          desiredEdgeLength: LAYOUT_DESIRED_EDGE_LENGTH,
+          minDesiredEdgeLength: LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH,
+        });
+        const cost = layoutCost(finalScore);
+        console.log(`flowchart-layout: candidate seed=${candidateSeed} cost=${cost.toFixed(0)}`);
+
+        if (cost < bestCandidateCost) {
+          bestCandidateCost = cost;
+          bestCandidatePositions = candidatePositions;
         }
       }
-    }
 
-    // ── Pre-relax jitter (Reset path only) ───────────────────────────
-    // Graphviz dot is deterministic. This Gaussian perturbation pushes
-    // us into a different basin before relax runs. The best-snapshot
-    // revert in relax compares every iteration's layoutCost against the
-    // input — if jitter made things worse, relax falls back to its best
-    // intermediate snapshot. The "do no harm" guarantee survives.
-    if (rng) {
-      let jittered = 0;
-      for (const id of allCurrentIds) {
-        if (effectivePinnedIds.has(id)) continue;
-        const p = positions.get(id);
-        if (!p) continue;
-        const [gx, gy] = gaussianPair(rng);
-        p.x += gx * RESET_JITTER_SIGMA_PX;
-        p.y += gy * RESET_JITTER_SIGMA_PX;
-        jittered++;
+      for (const [id, p] of bestCandidatePositions!) {
+        positions.set(id, p);
       }
-      console.log(
-        `flowchart-layout: jittered ${jittered} non-pinned nodes pre-relax`,
-      );
+      console.log(`flowchart-layout: best candidate cost=${bestCandidateCost.toFixed(0)}`);
     }
-
-    // RELAX DISABLED — skipping Verlet force simulation pass
 
     // Save the freshly computed (or re-relaxed) positions back to disk
     // so the next run starts from a warm cache. Best-effort — see
