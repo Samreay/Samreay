@@ -36,6 +36,8 @@ export const RELAX_OPTS = {
   MAX_ITERS: 1500,
   CONVERGENCE_KE: 20.0,
   CONVERGENCE_HOLD_ITERS: 25,
+  /** Fraction of a node's raw force passed to each direct child; compounds along paths. */
+  FORCE_TRANSFER_SCALE: 0.9,
 } as const;
 
 export const LAYOUT_DESIRED_EDGE_LENGTH = 1000;
@@ -85,6 +87,17 @@ export class RelaxSimulator {
   private fy: Float64Array;
   private isPinned: Uint8Array;
 
+  /**
+   * Row-major force-transfer matrix (n×n). transferMatrix[j*n + i] is the
+   * fraction of node i's raw force that node j experiences, accounting for
+   * all DAG paths from i to j with per-hop scaling FORCE_TRANSFER_SCALE.
+   * The diagonal is 1 (each node fully feels its own force).
+   */
+  private transferMatrix: Float64Array;
+  /** Scratch arrays for the matrix-vector multiply each step. */
+  private txScratch: Float64Array;
+  private tyScratch: Float64Array;
+
   private bestCost: number = Infinity;
   private bestIter: number = -1;
   private bestX: Float64Array;
@@ -127,8 +140,74 @@ export class RelaxSimulator {
     this.bestX = new Float64Array(n);
     this.bestY = new Float64Array(n);
 
+    this.transferMatrix = this._buildTransferMatrix();
+    this.txScratch = new Float64Array(n);
+    this.tyScratch = new Float64Array(n);
+
     // Baseline cost so revert never worsens the input.
     this._snapshotIfBetter(0);
+  }
+
+  /**
+   * Build the n×n force-transfer matrix using a topological propagation over
+   * the DAG. M[j*n + i] = total fractional weight with which node i's raw
+   * force is felt by node j. The diagonal is 1 (identity contribution); each
+   * edge i→j adds FORCE_TRANSFER_SCALE * M[i*n + k] to M[j*n + k] for every
+   * ancestor k of i (including i itself).
+   *
+   * Nodes that are not reachable from i contribute 0. The propagation is done
+   * in topological order so every parent's row is complete before a child is
+   * processed.
+   */
+  private _buildTransferMatrix(): Float64Array {
+    const { FORCE_TRANSFER_SCALE } = RELAX_OPTS;
+    const n = this.ids.length;
+    // M[j * n + i]: fraction of i's force felt by j
+    const M = new Float64Array(n * n);
+    // Diagonal: each node fully feels its own force.
+    for (let i = 0; i < n; i++) M[i * n + i] = 1;
+
+    // Build adjacency list: children[i] = list of child indices
+    const children: number[][] = Array.from({ length: n }, () => []);
+    const inDegree = new Int32Array(n);
+    for (const e of this.edges) {
+      const si = this.idIndex.get(e.source);
+      const ti = this.idIndex.get(e.target);
+      if (si === undefined || ti === undefined) continue;
+      children[si].push(ti);
+      inDegree[ti]++;
+    }
+
+    // Kahn's topological sort
+    const queue: number[] = [];
+    for (let i = 0; i < n; i++) if (inDegree[i] === 0) queue.push(i);
+    let head = 0;
+    while (head < queue.length) {
+      const u = queue[head++];
+      for (const v of children[u]) {
+        // For every column k, propagate: M[v*n + k] += scale * M[u*n + k]
+        const uRow = u * n;
+        const vRow = v * n;
+        for (let k = 0; k < n; k++) {
+          M[vRow + k] += FORCE_TRANSFER_SCALE * M[uRow + k];
+        }
+        if (--inDegree[v] === 0) queue.push(v);
+      }
+    }
+
+    return M;
+  }
+
+  /** Apply the transfer matrix: out[j] = sum_i M[j*n+i] * in[i]. */
+  private _applyTransfer(inArr: Float64Array, outArr: Float64Array): void {
+    const n = this.ids.length;
+    const M = this.transferMatrix;
+    for (let j = 0; j < n; j++) {
+      const row = j * n;
+      let acc = 0;
+      for (let i = 0; i < n; i++) acc += M[row + i] * inArr[i];
+      outArr[j] = acc;
+    }
   }
 
   private _snapshotIfBetter(atIter: number): number | undefined {
@@ -403,12 +482,16 @@ export class RelaxSimulator {
       }
     }
 
+    // --- force transfer: propagate forces through DAG topology ---
+    this._applyTransfer(fx, this.txScratch);
+    this._applyTransfer(fy, this.tyScratch);
+
     // --- integrate ---
     let totalKE = 0;
     for (let i = 0; i < ids.length; i++) {
       if (isPinned[i]) { vx[i] = 0; vy[i] = 0; continue; }
-      let vxi = vx[i] * DAMPING + fx[i] * DT;
-      let vyi = vy[i] * DAMPING + fy[i] * DT;
+      let vxi = vx[i] * DAMPING + this.txScratch[i] * DT;
+      let vyi = vy[i] * DAMPING + this.tyScratch[i] * DT;
       const speed = Math.hypot(vxi, vyi);
       if (speed > V_MAX) { const s = V_MAX / speed; vxi *= s; vyi *= s; }
       vx[i] = vxi; vy[i] = vyi;
