@@ -9,6 +9,7 @@ import { remarkImageClass } from './src/lib/remark-image-class.ts';
 import base16Snazzy from './src/lib/shiki-themes/base16-snazzy.json' with { type: 'json' };
 import { collectRedirects } from './scripts/collect-redirects.mjs';
 import { contentAssets } from './scripts/content-assets.mjs';
+import { flowchartPositionsDev } from './scripts/flowchart-positions-dev.mjs';
 
 // Hugo's `aliases:` frontmatter is replicated as Astro's `redirects` map.
 // `collectRedirects` walks `content/{reviews,blogs,tutorials}/*/index.{md,mdx}`
@@ -42,6 +43,11 @@ export default defineConfig({
     // are republished at `/<type>/<slug>/<file>` so raw `<video src="...">`
     // and `![...](path.png)` references in markdown keep resolving.
     contentAssets(),
+    // Dev-only authoring endpoint for the flowchart's position cache.
+    // Lives at `/api/flowchart-positions.json` while `astro dev` is
+    // running; absent from the production build entirely. Backs the
+    // drag-and-save toolbar in `Flowchart.svelte`.
+    flowchartPositionsDev(),
   ],
   // Tailwind v4 ships as a Vite plugin instead of an Astro integration.
   // It only does work for stylesheets that contain `@import "tailwindcss"`,

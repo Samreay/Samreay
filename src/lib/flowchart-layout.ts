@@ -44,6 +44,21 @@ import type {
   EdgeType,
   PaletteColor,
 } from '../data/flowchart';
+import {
+  buildEdgeGeometry,
+  closestPointOnSegment,
+  pickSide,
+  polylineCrossing,
+  rectCentre,
+  type EdgeSpec,
+  type Vec2,
+} from './flowchart-edge-geometry';
+import { scoreLayout, type LayoutScore } from './flowchart-score';
+import {
+  classifyCoverage,
+  loadPositions,
+  savePositions,
+} from './flowchart-positions';
 
 // Book nodes mirror the "wide" review card layout from the main reviews
 // page: 250x400 cover on the left, title/sentence/tags pane on the right,
@@ -118,172 +133,457 @@ export interface DecisionNodePayload extends Record<string, unknown> {
 export type BookFlowNode = Node<BookNodePayload, 'book'>;
 export type DecisionFlowNode = Node<DecisionNodePayload, 'decision'>;
 export type FlowNode = BookFlowNode | DecisionFlowNode;
-/** xyflow's built-in edge renderer ids. `'default'` is its bezier path;
- *  the others map 1:1 onto our friendlier `EdgeType` names. */
-type XyEdgeType = 'default' | 'simplebezier' | 'smoothstep' | 'step' | 'straight';
-
-const EDGE_TYPE_TO_XY: Record<EdgeType, XyEdgeType> = {
-  bezier: 'default',
-  simplebezier: 'simplebezier',
-  smoothstep: 'smoothstep',
-  step: 'step',
-  straight: 'straight',
-};
-
-export type FlowEdge = Edge<{ color?: PaletteColor }, XyEdgeType>;
 
 /**
- * Closest point on segment AB to point P, plus the unsigned distance.
- * Standard parameteric projection clamped to [0, 1] so the closest point
- * stays on the segment rather than its infinite-line extension.
+ * All edges share a single custom xyflow type that re-implements the
+ * built-in path renderers and shifts the label toward the source. The
+ * original `EdgeType` from the data file is carried in `data.pathType`
+ * and read inside `OffsetLabelEdge.svelte` to pick the right path
+ * helper (bezier / smoothstep / step / straight).
  */
-function closestPointOnSegment(
-  p: { x: number; y: number },
-  a: { x: number; y: number },
-  b: { x: number; y: number },
-): { point: { x: number; y: number }; distance: number; t: number } {
-  const abx = b.x - a.x;
-  const aby = b.y - a.y;
-  const lenSq = abx * abx + aby * aby;
-  // Degenerate edge (source == target). Distance is just |P - A|.
-  if (lenSq === 0) {
-    const dx = p.x - a.x;
-    const dy = p.y - a.y;
-    return { point: { x: a.x, y: a.y }, distance: Math.hypot(dx, dy), t: 0 };
+const CUSTOM_EDGE_TYPE = 'offsetLabel';
+
+export type FlowEdge = Edge<
+  { color?: PaletteColor; pathType: EdgeType },
+  typeof CUSTOM_EDGE_TYPE
+>;
+
+/**
+ * Force-simulation tuning knobs. All in scaled pixel-units so they're
+ * roughly intuitive: a `K_LEN` of 0.01 means "for every pixel of stretch
+ * past the desired edge length, apply 0.01 px/step² of acceleration to
+ * each endpoint", and the integrator's `dt` is 1.
+ *
+ * Tuned by inspecting the build-time before/after score deltas printed
+ * in `getLayoutedElements`. The objective is monotonically decreasing
+ * `nodeNodeOverlaps + edgeNodeIntrusions + edgeEdgeCrossings` while
+ * leaving the macro shape ELK established largely intact (controlled by
+ * `K_LEN` — too high and we tear things back to a regular grid, too low
+ * and the sim drifts away from ELK's solution).
+ */
+const RELAX_OPTS = {
+  /** Edge-length spring strength. Pulls each edge back toward the macro
+   *  spacing ELK established so the sim doesn't drift to its own
+   *  unrelated equilibrium. Very small — its only job is to prevent
+   *  long-range drift, not to fight the other terms. */
+  K_LEN: 0.001,
+  /** Rectangular node-node repulsion. Scales linearly with overlap depth.
+   *  This is the term that actually fixes the 520x400 book-on-book
+   *  collisions ELK's `sporeOverlap` couldn't resolve. */
+  K_NODE_NODE: 0.3,
+  /** Edge-vs-non-endpoint-node repulsion. Quadratic in intrusion depth
+   *  so deep clips break out of their basin even when the surrounding
+   *  springs are pulling the card back. The dominant force in the sim
+   *  by design — the visible problem we set out to solve. */
+  K_EDGE_NODE: 0.5,
+  /** Edge-vs-edge decrossing. Translates each crossing edge perpendicular
+   *  to its OWN direction (away from the other edge's midpoint), scaled
+   *  by sin(crossingAngle) so a near-parallel grazing pair barely moves
+   *  while a perpendicular one feels real pressure. Deliberately weak —
+   *  empirically a stronger term creates as many new crossings as it
+   *  removes (translating an edge to clear one crossing tends to push
+   *  it across a third edge). Treated as a "gentle hint" rather than
+   *  a hard constraint; the edge-length spring + node-node basin do
+   *  most of the topological work. */
+  K_EDGE_EDGE: 0.02,
+  /** Per-step velocity damping. < 1 to shed energy each step; > 0 to
+   *  preserve enough momentum for slow constraints (long edges) to keep
+   *  pulling. Lower = more "ringing" but better basin escape. */
+  DAMPING: 0.75,
+  /** Integration step. Verlet with constant dt; the K_* constants above
+   *  are calibrated for dt=1, so don't change this without rescaling
+   *  them all. */
+  DT: 1.0,
+  /** Maximum per-step velocity. Catches single-frame blowups when many
+   *  forces pile onto the same endpoint of a high-fan-out node. Set
+   *  higher than typical equilibrium velocities so it only clamps
+   *  pathological iterations, not normal motion. */
+  V_MAX: 120,
+  /** Padding added to every separation criterion (node-node, edge-node).
+   *  This is the breathing room the sim refuses to give up on. */
+  PADDING: 60,
+  /** Hard iteration cap. */
+  MAX_ITERS: 1000,
+  /** Total kinetic-energy threshold below which the sim declares
+   *  convergence and exits early. Units: sum of |v|² across all nodes,
+   *  so for ~215 nodes this corresponds to a per-node speed of about
+   *  sqrt(20/215) ≈ 0.3 px/step — slow enough that further iterations
+   *  only shuffle pixels. */
+  CONVERGENCE_KE: 20.0,
+} as const;
+
+/**
+ * Deterministic Verlet force-simulation pass. Replaces the old
+ * straight-segment `decongestEdges` with a multi-term physics solver that
+ * shares its geometry with the analytic scorer.
+ *
+ * Per iteration:
+ *   1. Rebuild every edge's exact rendered polyline via `buildEdgeGeometry`.
+ *   2. Accumulate forces from four terms (length spring, rectangular
+ *      node-node repulsion, edge-node repulsion, edge-edge decrossing).
+ *   3. Integrate with damped Verlet, clamped to `V_MAX` per step.
+ *   4. Track total kinetic energy; exit early when it drops below
+ *      `CONVERGENCE_KE`.
+ *
+ * Mutates `positions` in place. Pinned nodes never receive force or
+ * velocity — they retain their authored coordinates exactly.
+ *
+ * Determinism: no RNG anywhere. Tiebreak directions (exact-overlap
+ * along centre-to-centre, exact crossing point) use the segment normal
+ * as a deterministic fallback. Map iteration order is insertion order
+ * which is fixed by the upstream ELK output.
+ */
+/**
+ * Pretty-print the worst-offender lists from a `LayoutScore` for the
+ * build-time warning. We deliberately keep this one-line-per-offender
+ * because the console truncates huge multi-line warnings in CI logs.
+ */
+function formatOffenders(score: LayoutScore): string {
+  const lines: string[] = [];
+  if (score.worstOffenders.nodeNode.length) {
+    lines.push('  node-node:');
+    for (const o of score.worstOffenders.nodeNode) {
+      lines.push(`    ${o.a} ↔ ${o.b}  (${o.overlapPx.toFixed(0)}px overlap)`);
+    }
   }
-  const t = Math.max(0, Math.min(1, ((p.x - a.x) * abx + (p.y - a.y) * aby) / lenSq));
-  const point = { x: a.x + t * abx, y: a.y + t * aby };
-  return { point, distance: Math.hypot(p.x - point.x, p.y - point.y), t };
+  if (score.worstOffenders.edgeNode.length) {
+    lines.push('  edge-node:');
+    for (const o of score.worstOffenders.edgeNode) {
+      lines.push(`    ${o.edgeId} clips ${o.nodeId}  (${o.depthPx.toFixed(0)}px deep)`);
+    }
+  }
+  if (score.worstOffenders.edgeEdge.length) {
+    lines.push('  edge-edge:');
+    for (const o of score.worstOffenders.edgeEdge) {
+      lines.push(`    ${o.aId} × ${o.bId}  (${o.angleDeg.toFixed(0)}°)`);
+    }
+  }
+  return lines.join('\n');
 }
 
-/**
- * Iteratively push nodes off edges they shouldn't be sitting on.
- *
- * Treats each edge as a straight segment between source-centre and
- * target-centre and each node as a circle whose radius is its
- * half-diagonal. For every (edge, non-endpoint node) pair where the
- * circle intersects the segment, we move the node along the perpendicular
- * by `(intersection_depth) * stepFactor`, away from the segment.
- *
- * Convergence: each iteration tracks the total movement applied to all
- * nodes (sum of per-push magnitudes). We stop when one of:
- *   1. Nothing moved at all (the strict convergence case).
- *   2. Total motion this iteration falls below `minTotalMotion`. With
- *      ~200 nodes and many overlapping edges, the system can't always
- *      reach perfect equilibrium — two nodes squeezed between three
- *      edges can ping-pong by a few pixels indefinitely. Once the total
- *      system motion is at the sub-card scale, we've extracted all the
- *      visual benefit pass 3 can offer and further iterations only
- *      shuffle pixels.
- *   3. We hit `maxIterations` as the hard cap.
- *
- * Damping: the per-iteration step is multiplied by an exponentially-
- * decaying annealing coefficient. Combined with the early-exit on total
- * motion, this turns the loop into a classic simulated-annealing-style
- * relaxation that lands in a clean local minimum without oscillating.
- *
- * Mutates `positions` in place. Pinned nodes are read but never written.
- *
- * @returns the number of iterations actually performed (1-based; equal to
- *   `maxIterations` if convergence was not reached, so callers can warn).
- */
-function decongestEdges(opts: {
-  positions: Map<string, { x: number; y: number }>;
+function relax(opts: {
+  positions: Map<string, Vec2>;
   sizes: Map<string, { w: number; h: number }>;
-  edges: ElkExtendedEdge[];
+  edges: EdgeSpec[];
   pinnedIds: ReadonlySet<string>;
-  padding: number;
-  maxIterations: number;
-  stepFactor: number;
-  /** Stop once total per-iteration motion across all nodes drops below
-   *  this many pixels. ~node-corner radius is a sensible default. */
-  minTotalMotion?: number;
-}): number {
+  desiredEdgeLength: number;
+}): { iterationsUsed: number; finalScore: LayoutScore } {
+  const { positions, sizes, edges, pinnedIds, desiredEdgeLength } = opts;
   const {
-    positions,
-    sizes,
-    edges,
-    pinnedIds,
-    padding,
-    maxIterations,
-    stepFactor,
-    minTotalMotion = 8,
-  } = opts;
-  // Exponential cooling: at iteration i out of N, temperature = e^(-3i/N).
-  // Picks up most of the cooling in the back half so early iterations
-  // can do real work and late iterations are forced into stillness.
-  // (3 = ln(20), so the final iteration runs at ~5% of starting strength.)
-  const COOLING_RATE = 3;
+    K_LEN,
+    K_NODE_NODE,
+    K_EDGE_NODE,
+    K_EDGE_EDGE,
+    DAMPING,
+    DT,
+    V_MAX,
+    PADDING,
+    MAX_ITERS,
+    CONVERGENCE_KE,
+  } = RELAX_OPTS;
 
-  // Pre-compute each node's bounding-circle radius once. It doesn't
-  // change between iterations and the dominant cost is the per-pair
-  // distance check, not the radius math, but caching keeps the inner
-  // loop tight.
-  const radii = new Map<string, number>();
-  for (const [id, size] of sizes) {
-    radii.set(id, Math.hypot(size.w, size.h) / 2);
+  const ids = [...positions.keys()];
+  const idIndex = new Map<string, number>();
+  for (let i = 0; i < ids.length; i++) idIndex.set(ids[i], i);
+
+  const vx = new Float64Array(ids.length);
+  const vy = new Float64Array(ids.length);
+  const fx = new Float64Array(ids.length);
+  const fy = new Float64Array(ids.length);
+
+  const isPinned = new Uint8Array(ids.length);
+  for (let i = 0; i < ids.length; i++) {
+    if (pinnedIds.has(ids[i])) isPinned[i] = 1;
   }
 
-  const centreOf = (id: string): { x: number; y: number } => {
-    const p = positions.get(id)!;
-    const s = sizes.get(id)!;
-    return { x: p.x + s.w / 2, y: p.y + s.h / 2 };
+  const addForce = (id: string, dx: number, dy: number): void => {
+    const i = idIndex.get(id)!;
+    if (isPinned[i]) return;
+    fx[i] += dx;
+    fy[i] += dy;
   };
 
-  for (let iter = 0; iter < maxIterations; iter++) {
-    const temperature = Math.exp((-COOLING_RATE * iter) / Math.max(1, maxIterations - 1));
-    let totalMotion = 0;
-    for (const edge of edges) {
-      const sourceId = edge.sources[0];
-      const targetId = edge.targets[0];
-      const a = centreOf(sourceId);
-      const b = centreOf(targetId);
-      // A pure self-edge or a zero-length placement edge has nothing to
-      // push against — skip it instead of dividing by zero downstream.
-      if (a.x === b.x && a.y === b.y) continue;
+  let iter = 0;
+  for (; iter < MAX_ITERS; iter++) {
+    fx.fill(0);
+    fy.fill(0);
+    const geometry = buildEdgeGeometry(positions, sizes, edges);
 
-      for (const [id, pos] of positions) {
-        if (id === sourceId || id === targetId) continue;
-        if (pinnedIds.has(id)) continue;
+    // --- 1. edge-length spring ------------------------------------------
+    // Pulls every edge's centre-to-centre distance toward `desiredEdgeLength`.
+    // Linear (Hookean) so far-from-target pairs feel large forces and
+    // near-target pairs feel almost none.
+    for (const e of edges) {
+      const sp = positions.get(e.source)!;
+      const ss = sizes.get(e.source)!;
+      const tp = positions.get(e.target)!;
+      const ts = sizes.get(e.target)!;
+      const scx = sp.x + ss.w / 2;
+      const scy = sp.y + ss.h / 2;
+      const tcx = tp.x + ts.w / 2;
+      const tcy = tp.y + ts.h / 2;
+      const dx = tcx - scx;
+      const dy = tcy - scy;
+      const dist = Math.hypot(dx, dy);
+      if (dist < 1e-6) continue;
+      const stretch = dist - desiredEdgeLength;
+      const mag = (K_LEN * stretch) / dist;
+      addForce(e.source, dx * mag, dy * mag);
+      addForce(e.target, -dx * mag, -dy * mag);
+    }
 
-        const cN = centreOf(id);
-        const { point: closest, distance, t } = closestPointOnSegment(cN, a, b);
-        // If the closest point is one of the segment endpoints (t hit
-        // the [0,1] clamp), the node is "past" the edge in segment-
-        // parameter space — sporeOverlap already handles that case as
-        // node-on-node, so skip to avoid double-counting and weird
-        // tangential pushes near the endpoints.
-        if (t <= 0 || t >= 1) continue;
-
-        const minClearance = radii.get(id)! + padding;
-        if (distance >= minClearance) continue;
-
-        // Push perpendicular to the segment, away from it. When the
-        // node centre lies exactly on the segment (distance === 0)
-        // the perpendicular direction is ambiguous; pick the segment's
-        // left-hand normal as a deterministic fallback so successive
-        // builds produce identical output.
-        let dx: number;
-        let dy: number;
-        if (distance > 1e-6) {
-          dx = (cN.x - closest.x) / distance;
-          dy = (cN.y - closest.y) / distance;
-        } else {
-          const segLen = Math.hypot(b.x - a.x, b.y - a.y);
-          dx = -(b.y - a.y) / segLen;
-          dy = (b.x - a.x) / segLen;
+    // --- 2. rectangular node-node repulsion -----------------------------
+    // True AABB overlap, not circumscribing-circle overlap. The fix for
+    // the 520x400 book cards ELK's circle-based reasoning forced apart
+    // by their long-axis radius rather than their actual gap.
+    for (let i = 0; i < ids.length; i++) {
+      const ap = positions.get(ids[i])!;
+      const aSz = sizes.get(ids[i])!;
+      const ax2 = ap.x + aSz.w;
+      const ay2 = ap.y + aSz.h;
+      const acx = ap.x + aSz.w / 2;
+      const acy = ap.y + aSz.h / 2;
+      for (let j = i + 1; j < ids.length; j++) {
+        const bp = positions.get(ids[j])!;
+        const bSz = sizes.get(ids[j])!;
+        const bx2 = bp.x + bSz.w;
+        const by2 = bp.y + bSz.h;
+        // Padded-overlap measure: positive only when the inflated AABBs
+        // intersect. `padOvX/Y < 0` means the boxes are further apart
+        // than `PADDING` in that axis — no force.
+        const padOvX = Math.min(ax2, bx2) - Math.max(ap.x, bp.x) + PADDING;
+        if (padOvX <= 0) continue;
+        const padOvY = Math.min(ay2, by2) - Math.max(ap.y, bp.y) + PADDING;
+        if (padOvY <= 0) continue;
+        // The smaller axis is the cheap separation direction — push along
+        // centre-to-centre but use that axis's overlap as the magnitude.
+        const overlap = Math.min(padOvX, padOvY);
+        const bcx = bp.x + bSz.w / 2;
+        const bcy = bp.y + bSz.h / 2;
+        let dx = bcx - acx;
+        let dy = bcy - acy;
+        let dlen = Math.hypot(dx, dy);
+        if (dlen < 1e-6) {
+          // Centres coincident — pick a deterministic axis. (ELK
+          // never emits this in practice; this is just a guard.)
+          dx = 1;
+          dy = 0;
+          dlen = 1;
         }
-        const push = (minClearance - distance) * stepFactor * temperature;
-        const moveX = dx * push;
-        const moveY = dy * push;
-        pos.x += moveX;
-        pos.y += moveY;
-        totalMotion += Math.hypot(moveX, moveY);
+        dx /= dlen;
+        dy /= dlen;
+        const force = K_NODE_NODE * overlap;
+        addForce(ids[j], dx * force, dy * force);
+        addForce(ids[i], -dx * force, -dy * force);
       }
     }
-    if (totalMotion < minTotalMotion) return iter + 1;
+
+    // --- 3. edge-node repulsion against the real polyline ---------------
+    // The current pass-3 lie was treating each edge as a straight segment
+    // between centres. Now we walk the *actual* sampled bezier polyline
+    // and find the closest segment, then push the node perpendicular to
+    // it. That fixes the case of a curve gracefully arcing through a
+    // card the straight-line solver thought was clear.
+    for (const g of geometry) {
+      for (let i = 0; i < ids.length; i++) {
+        const id = ids[i];
+        if (id === g.source || id === g.target) continue;
+        if (isPinned[i]) continue;
+        const np = positions.get(id)!;
+        const nSz = sizes.get(id)!;
+        // bbox prune (with padding) — most edges are far from most nodes
+        // and the per-segment loop below isn't free.
+        if (g.bbox.maxX < np.x - PADDING || g.bbox.minX > np.x + nSz.w + PADDING) continue;
+        if (g.bbox.maxY < np.y - PADDING || g.bbox.minY > np.y + nSz.h + PADDING) continue;
+        const ncx = np.x + nSz.w / 2;
+        const ncy = np.y + nSz.h / 2;
+        // Use the half-extent of the side facing the closest segment
+        // (cheaper: pre-compute as max half-extent so we definitely
+        // clear the corner case). Min half-extent under-pushes for
+        // book cards; max half-extent over-pushes for decision pills.
+        // The geometric mean is a fine compromise.
+        const buffer = Math.sqrt((nSz.w * nSz.h) / 4) + PADDING;
+        let minDist = Infinity;
+        let closestPt: Vec2 = { x: 0, y: 0 };
+        let closestSegA: Vec2 = { x: 0, y: 0 };
+        let closestSegB: Vec2 = { x: 0, y: 0 };
+        for (let s = 0; s < g.samples.length - 1; s++) {
+          const cps = closestPointOnSegment(
+            { x: ncx, y: ncy },
+            g.samples[s],
+            g.samples[s + 1],
+          );
+          if (cps.distance < minDist) {
+            minDist = cps.distance;
+            closestPt = cps.point;
+            closestSegA = g.samples[s];
+            closestSegB = g.samples[s + 1];
+          }
+        }
+        if (minDist >= buffer) continue;
+        // Normal of the closest segment, oriented toward the node.
+        const segDx = closestSegB.x - closestSegA.x;
+        const segDy = closestSegB.y - closestSegA.y;
+        const segLen = Math.hypot(segDx, segDy);
+        let nx: number;
+        let ny: number;
+        if (segLen > 1e-6) {
+          nx = -segDy / segLen;
+          ny = segDx / segLen;
+          // Flip toward node centre.
+          if (nx * (ncx - closestPt.x) + ny * (ncy - closestPt.y) < 0) {
+            nx = -nx;
+            ny = -ny;
+          }
+        } else {
+          // Degenerate segment — fall back to the centre-to-closest
+          // vector; if that's also zero, pick +x deterministically.
+          const dx = ncx - closestPt.x;
+          const dy = ncy - closestPt.y;
+          const dlen = Math.hypot(dx, dy);
+          if (dlen > 1e-6) {
+            nx = dx / dlen;
+            ny = dy / dlen;
+          } else {
+            nx = 1;
+            ny = 0;
+          }
+        }
+        // Quadratic intrusion → force mapping. Linear was too gentle on
+        // the worst cases (edge cleanly bisecting a 520x400 card), where
+        // the surrounding spring + node-node basin held the card in
+        // place against the linear push. The quadratic term kicks in
+        // hard when intrusion > buffer/2 so deep clips actually break
+        // free of their basin.
+        const intrusion = buffer - minDist;
+        const force = K_EDGE_NODE * (intrusion + (intrusion * intrusion) / buffer);
+        // Push the node away from the curve (+n is segment→node).
+        addForce(id, nx * force, ny * force);
+        // Pull the edge's endpoints in -n (away from the node) at a
+        // fraction of full strength. This translates the entire curve
+        // away from the card, doubling the effective separation rate
+        // when the card is constrained by its own neighbours and can't
+        // do all the relative motion alone. Keeping this <1 prevents
+        // the edge from "leading" the node (which would just chase the
+        // node away from the rest of its subtree).
+        const ENDPOINT_SHARE = 0.4;
+        addForce(g.source, -nx * force * ENDPOINT_SHARE, -ny * force * ENDPOINT_SHARE);
+        addForce(g.target, -nx * force * ENDPOINT_SHARE, -ny * force * ENDPOINT_SHARE);
+      }
+    }
+
+    // --- 4. edge-edge decrossing ----------------------------------------
+    // For each crossing pair, translate each edge perpendicular to the
+    // OTHER edge's direction, scaled by |sin(angle)|. Two near-parallel
+    // edges (angle ~0°) feel almost nothing; perpendicular crossings get
+    // the full force. Translation (rather than rotation) is enacted by
+    // applying the same force to both endpoint nodes of each edge.
+    for (let i = 0; i < geometry.length; i++) {
+      const ga = geometry[i];
+      for (let j = i + 1; j < geometry.length; j++) {
+        const gb = geometry[j];
+        if (
+          ga.source === gb.source ||
+          ga.source === gb.target ||
+          ga.target === gb.source ||
+          ga.target === gb.target
+        ) {
+          continue;
+        }
+        if (ga.bbox.maxX < gb.bbox.minX || gb.bbox.maxX < ga.bbox.minX) continue;
+        if (ga.bbox.maxY < gb.bbox.minY || gb.bbox.maxY < ga.bbox.minY) continue;
+        const cross = polylineCrossing(ga.samples, gb.samples);
+        if (!cross) continue;
+
+        const sinTheta = Math.abs(Math.sin((cross.angleDeg * Math.PI) / 180));
+        const weight = K_EDGE_EDGE * sinTheta;
+
+        // Endpoint-to-endpoint chord direction for each edge — using the
+        // chord (not a single sampled segment) keeps the push direction
+        // stable across iterations even as the bezier curls move.
+        const a0 = ga.sourceHandle;
+        const a1 = ga.targetHandle;
+        const b0 = gb.sourceHandle;
+        const b1 = gb.targetHandle;
+        const aMidX = (a0.x + a1.x) / 2;
+        const aMidY = (a0.y + a1.y) / 2;
+        const bMidX = (b0.x + b1.x) / 2;
+        const bMidY = (b0.y + b1.y) / 2;
+
+        // Translate each edge along its OWN normal (perpendicular to
+        // itself), with the sign chosen to move it AWAY from the other
+        // edge's midpoint. Two perpendicular crossing edges this way
+        // separate by sliding orthogonally to themselves, which is the
+        // direction that actually removes the crossing — pushing along
+        // the *other* edge's normal would just slide each edge along
+        // its own length and never decross.
+        const adx = a1.x - a0.x;
+        const ady = a1.y - a0.y;
+        const alen = Math.hypot(adx, ady) || 1;
+        let anx = -ady / alen;
+        let any = adx / alen;
+        // Sign: push A away from B's midpoint along A's normal.
+        if ((bMidX - aMidX) * anx + (bMidY - aMidY) * any > 0) {
+          anx = -anx;
+          any = -any;
+        }
+
+        const bdx = b1.x - b0.x;
+        const bdy = b1.y - b0.y;
+        const blen = Math.hypot(bdx, bdy) || 1;
+        let bnx = -bdy / blen;
+        let bny = bdx / blen;
+        if ((aMidX - bMidX) * bnx + (aMidY - bMidY) * bny > 0) {
+          bnx = -bnx;
+          bny = -bny;
+        }
+
+        // Both endpoints of A move the same way (translation, not
+        // rotation) along A's own normal; ditto B.
+        addForce(ga.source, anx * weight, any * weight);
+        addForce(ga.target, anx * weight, any * weight);
+        addForce(gb.source, bnx * weight, bny * weight);
+        addForce(gb.target, bnx * weight, bny * weight);
+      }
+    }
+
+    // --- integrate ------------------------------------------------------
+    let totalKE = 0;
+    for (let i = 0; i < ids.length; i++) {
+      if (isPinned[i]) {
+        vx[i] = 0;
+        vy[i] = 0;
+        continue;
+      }
+      let vxi = vx[i] * DAMPING + fx[i] * DT;
+      let vyi = vy[i] * DAMPING + fy[i] * DT;
+      const speed = Math.hypot(vxi, vyi);
+      if (speed > V_MAX) {
+        const scale = V_MAX / speed;
+        vxi *= scale;
+        vyi *= scale;
+      }
+      vx[i] = vxi;
+      vy[i] = vyi;
+      const p = positions.get(ids[i])!;
+      p.x += vxi * DT;
+      p.y += vyi * DT;
+      totalKE += vxi * vxi + vyi * vyi;
+    }
+    if (totalKE < CONVERGENCE_KE) {
+      iter++;
+      break;
+    }
   }
-  return maxIterations;
+
+  const finalGeometry = buildEdgeGeometry(positions, sizes, edges);
+  const finalScore = scoreLayout({
+    positions,
+    sizes,
+    geometry: finalGeometry,
+    edges,
+  });
+  return { iterationsUsed: iter, finalScore };
 }
 
 function validateFlowchart(data: FlowchartData): void {
@@ -310,10 +610,34 @@ function validateFlowchart(data: FlowchartData): void {
 
 const elk = new ELK();
 
+/**
+ * Resolve every node's top-left coordinate and emit the typed xyflow
+ * `nodes` / `edges` arrays the page renders.
+ *
+ * Determinism contract:
+ *   - The full pipeline (ELK stress + sporeOverlap + Verlet `relax`) is
+ *     deterministic given fixed input data. No RNG, fixed-step Verlet,
+ *     ELK uses its default seed.
+ *   - The on-disk file `src/data/flowchart-positions.json` is the source
+ *     of truth across restarts and across machines. It is committed to
+ *     git so a fresh checkout sees the SAME positions the author saw.
+ *   - Recomputation (full ELK + relax) only fires when the data file's
+ *     id set changes versus what's on disk, or when the file is missing
+ *     entirely. `classifyCoverage` makes that decision: every requested
+ *     id present → cache hit; any id missing → recompute.
+ *
+ * @param options.refine When `true` AND the cache is fully covering,
+ *   skip ELK but still run the relax pass over the cached positions.
+ *   Used by the dev-mode drag-and-save flow (subagent 3) so manual
+ *   nudges get cleaned up by the physics step before being saved back.
+ *   Defaults to `false`.
+ */
 export async function getLayoutedElements(
   data: FlowchartData,
+  options?: { refine?: boolean },
 ): Promise<{ nodes: FlowNode[]; edges: FlowEdge[] }> {
   validateFlowchart(data);
+  const refine = options?.refine ?? false;
 
   // Resolve all book payloads in parallel. `resolveCover` calls `getImage`
   // which can block on sharp processing for first-time encodes.
@@ -344,163 +668,328 @@ export async function getLayoutedElements(
     }),
   );
 
-  // Stress accepts arbitrary graphs (including DAG cross-references), so
-  // every edge goes in unmodified. The per-node `elk.position` on the
-  // root pins it at (0, 0); ELK's stress solver then arranges everything
-  // else around it to minimise edge-length / graph-distance mismatch.
-  const elkChildren: ElkNode[] = [
-    ...data.decisions.map((d) => ({
-      id: d.id,
-      width: NODE_SIZES.decision.width,
-      height: NODE_SIZES.decision.height,
-      ...(d.id === ROOT_ID
-        ? { layoutOptions: { 'elk.position': '(0, 0)' } }
-        : {}),
-    })),
-    ...bookPayloads.map((b) => ({
-      id: b.node.id,
-      width: NODE_SIZES.book.width,
-      height: NODE_SIZES.book.height,
-    })),
-  ];
-
-  const elkEdges: ElkExtendedEdge[] = data.edges.map((e) => ({
-    id: e.id,
-    sources: [e.source],
-    targets: [e.target],
-  }));
-
-  // ELK option keys are stringly-typed and live in the official reference at
-  // https://eclipse.dev/elk/reference.html. The pipeline is two passes:
-  //
-  // PASS 1 — `stress` (Kamada-Kawai stress minimisation): produces the
-  // overall shape by trying to make geometric distance proportional to
-  // graph-theoretic distance (BFS hop count). Nodes far from the root
-  // drift outward naturally, with no rigid rings. Knobs:
-  //   - `elk.stress.desiredEdgeLength` target distance between edge
-  //     endpoints. Bigger = more breathing room, larger overall canvas.
-  //   - `elk.stress.epsilon` convergence threshold. Lower = more
-  //     iterations, smoother result.
-  //   - `elk.stress.iterationLimit` work cap; large enough that
-  //     `epsilon` governs convergence in practice.
-  //   - `elk.interactive: true` honours the per-node `elk.position`
-  //     override that pins `d_start` at (0, 0).
-  //
-  // Stress doesn't strictly forbid overlap — it minimises stress globally
-  // and accepts collisions as a worthwhile trade-off. With 520x400 book
-  // cards that produces a noticeable amount of card-on-card overlap on
-  // any tightly-coupled subtree, so:
-  //
-  // PASS 2 — `sporeOverlap` (Spore overlap removal): takes the stress
-  // positions and runs a scanline overlap removal that nudges only the
-  // colliding nodes apart. Preserves the broad shape while guaranteeing
-  // a hard `spacing.nodeNode` gap between every pair. Knobs:
-  //   - `elk.spacing.nodeNode` the *enforced* minimum gap. Bigger here
-  //     means more aggressive nudging when pass 1 leaves overlaps.
-  //   - `elk.spore.overlapRemoval.runScanline: true` enables the
-  //     scanline pass that does the actual O(n log n) collision sweep.
-  //   - `elk.interactive: true` is critical — without it, sporeOverlap
-  //     ignores the incoming positions and starts from scratch.
-  const stressPass = await elk.layout({
-    id: 'flowchart-root',
-    layoutOptions: {
-      'elk.algorithm': 'stress',
-      'elk.stress.desiredEdgeLength': '850',
-      'elk.stress.epsilon': '0.0001',
-      'elk.stress.iterationLimit': '10000',
-      'elk.interactive': 'true',
-    },
-    children: elkChildren,
-    edges: elkEdges,
-  });
-
-  // Re-feed the stress output into sporeOverlap. Each child already has
-  // `x`/`y` from pass 1; sporeOverlap reads those, finds collisions
-  // against the spacing gap, and writes back nudged positions.
-  const layout = await elk.layout({
-    id: 'flowchart-root',
-    layoutOptions: {
-      'elk.algorithm': 'sporeOverlap',
-      'elk.spacing.nodeNode': '80',
-      'elk.spore.overlapRemoval.runScanline': 'true',
-      'elk.interactive': 'true',
-    },
-    children: stressPass.children,
-    edges: elkEdges,
-  });
-
-  // ELK already returns top-left coordinates (unlike dagre which returns
-  // the centre), so no per-node centring shift is needed. We do however
-  // translate the whole graph so the root lands at (0, 0) — the data file
-  // pins `d_start` at that origin and the existing `pinned` escape hatch
-  // is authored relative to it.
+  // Both ELK output and the on-disk cache populate `positions` (top-left
+  // coords) and `sizes` (per-node w/h). The four cache branches below
+  // each fill these maps; everything after the branch (relax, edge
+  // construction) shares a single code path.
   const positions = new Map<string, { x: number; y: number }>();
   const sizes = new Map<string, { w: number; h: number }>();
-  let originDx = 0;
-  let originDy = 0;
-  for (const child of layout.children ?? []) {
-    if (child.id === ROOT_ID) {
-      originDx = child.x ?? 0;
-      originDy = child.y ?? 0;
-    }
-  }
-  for (const child of layout.children ?? []) {
-    positions.set(child.id, {
-      x: (child.x ?? 0) - originDx,
-      y: (child.y ?? 0) - originDy,
+
+  // Pre-fill `sizes` from the static node-kind table — it's the same
+  // regardless of which branch we take. ELK reads it from `elkChildren`,
+  // and the cache branches need it too because relax + scoring depend
+  // on it.
+  for (const d of data.decisions) {
+    sizes.set(d.id, {
+      w: NODE_SIZES.decision.width,
+      h: NODE_SIZES.decision.height,
     });
-    sizes.set(child.id, {
-      w: child.width ?? 0,
-      h: child.height ?? 0,
+  }
+  for (const b of data.books) {
+    sizes.set(b.id, {
+      w: NODE_SIZES.book.width,
+      h: NODE_SIZES.book.height,
     });
   }
 
-  // PASS 3 — edge-aware decongestion. sporeOverlap (pass 2) treats nodes
-  // as the only obstacles and is blind to edges, so it happily leaves a
-  // bezier slicing through a book card it doesn't connect to. This pass
-  // walks every (edge, non-endpoint node) pair, treats the edge as a
-  // straight segment between node centres, and if the segment passes
-  // closer to a node centre than the node's circumscribing radius plus a
-  // safety margin, pushes that node *perpendicular to the segment* by
-  // enough to clear it. We iterate until a full sweep moves nothing
-  // (or we hit the cap), which is the same idempotency contract
-  // sporeOverlap promises for node-on-node.
-  //
-  // We approximate node hitboxes as circles (radius = the half-diagonal)
-  // rather than computing exact box/segment distance: it slightly
-  // overestimates collisions, which in practice means a marginally more
-  // generous gap than strictly needed — fine, because the visual cost
-  // of an under-clearance (edge clipping a card corner) is much higher
-  // than a slightly bigger graph.
-  //
-  // Pinned nodes (currently just `d_start`) are skipped — moving them
-  // would defeat the `pinned` escape hatch authored against (0, 0).
-  // Edges whose endpoint is pinned are still considered as obstacles
-  // for *other* nodes; we just can't push the pinned node itself.
+  const allCurrentIds: string[] = [
+    ...data.decisions.map((d) => d.id),
+    ...data.books.map((b) => b.id),
+  ];
+
   const pinnedIds = new Set<string>([
     ROOT_ID,
     ...data.decisions.filter((d) => d.pinned).map((d) => d.id),
     ...data.books.filter((b) => b.pinned).map((b) => b.id),
   ]);
-  const DECONGEST_ITER_CAP = 80;
-  const decongestionIterations = decongestEdges({
-    positions,
-    sizes,
-    edges: elkEdges,
-    pinnedIds,
-    padding: 30, // extra clearance beyond the node's bounding circle.
-    maxIterations: DECONGEST_ITER_CAP,
-    stepFactor: 1.05, // overshoot fractionally so we converge in fewer sweeps.
-  });
-  if (decongestionIterations >= DECONGEST_ITER_CAP) {
-    // We hit the iteration cap without convergence — either the graph
-    // genuinely can't be untangled at this density, or two nodes are
-    // ping-ponging between two edges. Surface it during build/dev so
-    // we notice rather than silently shipping a degraded layout.
-    console.warn(
-      `flowchart-layout: edge decongestion did not converge within ${DECONGEST_ITER_CAP} iterations; ` +
-        `consider raising spacing.nodeNode (pass 2) or padding (pass 3).`,
+
+  const defaultEdgeType: EdgeType = data.defaultEdgeType ?? 'bezier';
+  const edgeSpecs: EdgeSpec[] = data.edges.map((e) => ({
+    id: e.id,
+    source: e.source,
+    target: e.target,
+    pathType: e.type ?? defaultEdgeType,
+  }));
+
+  // Decide which of the four code paths to take based on the disk cache.
+  // The rule of thumb: ELK + relax is ~2-4 seconds, file IO + JSON parse
+  // is sub-millisecond, so any fully-covering cache is worth using.
+  const loadedPositions = loadPositions();
+  const coverage = classifyCoverage(loadedPositions, allCurrentIds);
+
+  if (coverage.kind === 'full' && !refine) {
+    // ── BRANCH 1: full cache hit, no refine ────────────────────────────
+    // Every current node id is in the file, so use those coordinates
+    // verbatim and skip both ELK passes AND the relax pass. We still go
+    // through the edge construction at the bottom (pickSide depends on
+    // node centres, which depend on positions, which we now have).
+    for (const id of allCurrentIds) {
+      const p = coverage.positions.get(id)!;
+      positions.set(id, { x: p.x, y: p.y });
+    }
+    console.log(
+      `flowchart-layout: cache hit (${allCurrentIds.length} nodes), skipped layout`,
     );
+  } else {
+    // The partial-coverage branch additionally pins every cached id
+    // during relax so the user's existing layout doesn't drift even by
+    // a sub-pixel — only the newly added nodes get pulled into place
+    // by the surrounding forces. For missing/refine the relax just
+    // honours the authored pins.
+    const effectivePinnedIds = new Set<string>(pinnedIds);
+    // Cache lookup used by `elkChildren` below to seed each known node
+    // with its previous coordinate. `null` for the missing/refine paths
+    // so the seeded-position branch is dead code there.
+    const seedPositions: Map<string, { x: number; y: number }> | null =
+      coverage.kind === 'partial' ? coverage.known : null;
+
+    // ── Diagnostic preamble for the three "do work" branches ──────────
+    if (coverage.kind === 'missing') {
+      console.log('flowchart-layout: cache missing; running full layout');
+    } else if (coverage.kind === 'partial') {
+      for (const id of coverage.known.keys()) effectivePinnedIds.add(id);
+      console.log(
+        `flowchart-layout: cache partial (${coverage.known.size} known, ` +
+          `${coverage.missing.length} new); seeding ELK with known positions`,
+      );
+    } else {
+      console.log('flowchart-layout: refine over cached positions...');
+    }
+
+    if (coverage.kind === 'full' && refine) {
+      // ── BRANCH 2: cache hit + refine ─────────────────────────────────
+      // Trust the on-disk positions but re-run the relax pass over them
+      // (so e.g. a future drag-and-save's hand-nudged coordinates get
+      // their physics polished before being committed back).
+      for (const id of allCurrentIds) {
+        const p = coverage.positions.get(id)!;
+        positions.set(id, { x: p.x, y: p.y });
+      }
+    } else {
+      // ── BRANCHES 3+4: full ELK run ───────────────────────────────────
+      // Either the cache was missing entirely or only partially covered
+      // the current id set. The partial path SEEDS ELK with the known
+      // coordinates (per-child `elk.position`) so stress treats them as
+      // good starting points and slots only the new ids around them.
+      // The missing path passes no seed and lets stress place every
+      // node from scratch.
+
+      // Stress accepts arbitrary graphs (including DAG cross-references),
+      // so every edge goes in unmodified. The per-node `elk.position` on
+      // the root pins it at (0, 0); on the partial path every cached id
+      // also gets an `elk.position` to start it where it was last time.
+      // ELK's stress solver then arranges everything else (the new ids)
+      // around them to minimise edge-length / graph-distance mismatch.
+      // `elk.position` is a SEED, not a hard pin — `elk.interactive: true`
+      // honours it as the starting coordinate but the iterative solver
+      // still moves the node. We re-stamp the cache values back on top
+      // after ELK returns so any sub-pixel drift in known-id positions
+      // is erased before relax pins them.
+      const elkChildren: ElkNode[] = [
+        ...data.decisions.map((d) => {
+          const seeded = seedPositions?.get(d.id);
+          return {
+            id: d.id,
+            width: NODE_SIZES.decision.width,
+            height: NODE_SIZES.decision.height,
+            // `d_start` always wins — it's authored at (0, 0) and the
+            // post-ELK origin shift below depends on it landing there.
+            ...(d.id === ROOT_ID
+              ? { layoutOptions: { 'elk.position': '(0, 0)' } }
+              : seeded
+                ? {
+                    layoutOptions: {
+                      'elk.position': `(${seeded.x}, ${seeded.y})`,
+                    },
+                  }
+                : {}),
+          };
+        }),
+        ...bookPayloads.map((b) => {
+          const seeded = seedPositions?.get(b.node.id);
+          return {
+            id: b.node.id,
+            width: NODE_SIZES.book.width,
+            height: NODE_SIZES.book.height,
+            ...(seeded
+              ? {
+                  layoutOptions: {
+                    'elk.position': `(${seeded.x}, ${seeded.y})`,
+                  },
+                }
+              : {}),
+          };
+        }),
+      ];
+
+      const elkEdges: ElkExtendedEdge[] = data.edges.map((e) => ({
+        id: e.id,
+        sources: [e.source],
+        targets: [e.target],
+      }));
+
+      // ELK option keys are stringly-typed and live in the official
+      // reference at https://eclipse.dev/elk/reference.html. The pipeline
+      // is two passes:
+      //
+      // PASS 1 — `stress` (Kamada-Kawai stress minimisation): produces
+      // the overall shape by trying to make geometric distance
+      // proportional to graph-theoretic distance (BFS hop count). Nodes
+      // far from the root drift outward naturally, with no rigid rings.
+      // Knobs:
+      //   - `elk.stress.desiredEdgeLength` target distance between edge
+      //     endpoints. Bigger = more breathing room, larger overall
+      //     canvas.
+      //   - `elk.stress.epsilon` convergence threshold. Lower = more
+      //     iterations, smoother result.
+      //   - `elk.stress.iterationLimit` work cap; large enough that
+      //     `epsilon` governs convergence in practice.
+      //   - `elk.interactive: true` honours the per-node `elk.position`
+      //     override that pins `d_start` at (0, 0).
+      //
+      // Stress doesn't strictly forbid overlap — it minimises stress
+      // globally and accepts collisions as a worthwhile trade-off. With
+      // 520x400 book cards that produces a noticeable amount of card-on-
+      // card overlap on any tightly-coupled subtree, so:
+      //
+      // PASS 2 — `sporeOverlap` (Spore overlap removal): takes the
+      // stress positions and runs a scanline overlap removal that nudges
+      // only the colliding nodes apart. Preserves the broad shape while
+      // guaranteeing a hard `spacing.nodeNode` gap between every pair.
+      // Knobs:
+      //   - `elk.spacing.nodeNode` the *enforced* minimum gap. Bigger
+      //     here means more aggressive nudging when pass 1 leaves
+      //     overlaps.
+      //   - `elk.spore.overlapRemoval.runScanline: true` enables the
+      //     scanline pass that does the actual O(n log n) collision
+      //     sweep.
+      //   - `elk.interactive: true` is critical — without it,
+      //     sporeOverlap ignores the incoming positions and starts from
+      //     scratch.
+      const stressPass = await elk.layout({
+        id: 'flowchart-root',
+        layoutOptions: {
+          'elk.algorithm': 'stress',
+          'elk.stress.desiredEdgeLength': '850',
+          'elk.stress.epsilon': '0.0001',
+          'elk.stress.iterationLimit': '10000',
+          'elk.interactive': 'true',
+        },
+        children: elkChildren,
+        edges: elkEdges,
+      });
+
+      // Re-feed the stress output into sporeOverlap. Each child already
+      // has `x`/`y` from pass 1; sporeOverlap reads those, finds
+      // collisions against the spacing gap, and writes back nudged
+      // positions.
+      const layout = await elk.layout({
+        id: 'flowchart-root',
+        layoutOptions: {
+          'elk.algorithm': 'sporeOverlap',
+          'elk.spacing.nodeNode': '80',
+          'elk.spore.overlapRemoval.runScanline': 'true',
+          'elk.interactive': 'true',
+        },
+        children: stressPass.children,
+        edges: elkEdges,
+      });
+
+      // ELK already returns top-left coordinates (unlike dagre which
+      // returns the centre), so no per-node centring shift is needed.
+      // We do however translate the whole graph so the root lands at
+      // (0, 0) — the data file pins `d_start` at that origin and the
+      // existing `pinned` escape hatch is authored relative to it.
+      let originDx = 0;
+      let originDy = 0;
+      for (const child of layout.children ?? []) {
+        if (child.id === ROOT_ID) {
+          originDx = child.x ?? 0;
+          originDy = child.y ?? 0;
+        }
+      }
+      for (const child of layout.children ?? []) {
+        positions.set(child.id, {
+          x: (child.x ?? 0) - originDx,
+          y: (child.y ?? 0) - originDy,
+        });
+        sizes.set(child.id, {
+          w: child.width ?? 0,
+          h: child.height ?? 0,
+        });
+      }
+
+      // On the partial path, re-stamp every cached id back to its EXACT
+      // saved coordinate before relax sees it. ELK's stress solver
+      // honours `elk.position` as a seed and is supposed to leave a
+      // well-positioned node alone, but in practice it nudges them by a
+      // few pixels as the global stress potential changes around them.
+      // Pinning in relax is cheap; pinning at exactly the cache values
+      // means the user observes ZERO motion on existing nodes, which is
+      // the contract this branch is supposed to enforce.
+      if (seedPositions) {
+        for (const [id, p] of seedPositions) {
+          positions.set(id, { x: p.x, y: p.y });
+        }
+      }
+    }
+
+    // ── PASS 3 (shared by branches 2/3/4) ────────────────────────────
+    // Deterministic Verlet force simulation. Replaces the old straight-
+    // segment `decongestEdges` with a multi-term physics solver
+    // (`relax`) that uses the SAME bezier polylines the renderer draws.
+    // sporeOverlap (pass 2) is blind to edges entirely, so it happily
+    // leaves a curve slicing through a card it doesn't connect to. The
+    // simulation lands the four force terms documented in `RELAX_OPTS`
+    // (length spring, rectangular node-node repulsion, edge-node
+    // repulsion against the rendered polyline, edge-edge decrossing).
+    //
+    // Pinned nodes (`d_start` plus anything authored with
+    // `pinned: { x, y }`) are excluded from force accumulation and
+    // integration. Edges whose endpoint is pinned still participate in
+    // the geometry the sim pushes against — we just don't move the
+    // pinned end.
+    //
+    // We score the layout *before* and *after* the sim so the build
+    // output shows the delta. The "before" geometry uses the same
+    // bezier sampler as the sim, so the comparison is apples-to-apples.
+    const beforeGeometry = buildEdgeGeometry(positions, sizes, edgeSpecs);
+    const before = scoreLayout({
+      positions,
+      sizes,
+      geometry: beforeGeometry,
+      edges: edgeSpecs,
+    });
+
+    const { iterationsUsed, finalScore: after } = relax({
+      positions,
+      sizes,
+      edges: edgeSpecs,
+      pinnedIds: effectivePinnedIds,
+      desiredEdgeLength: 850,
+    });
+
+    console.log(
+      `flowchart-layout: relaxation ran ${iterationsUsed} iterations\n` +
+        `  node-node overlaps:   ${before.nodeNodeOverlaps} -> ${after.nodeNodeOverlaps}\n` +
+        `  edge-node intrusions: ${before.edgeNodeIntrusions} -> ${after.edgeNodeIntrusions}\n` +
+        `  edge-edge crossings:  ${before.edgeEdgeCrossings} -> ${after.edgeEdgeCrossings}`,
+    );
+    if (
+      after.nodeNodeOverlaps > 0 ||
+      after.edgeNodeIntrusions > 0 ||
+      after.edgeEdgeCrossings > 0
+    ) {
+      console.warn(
+        'flowchart-layout: residual collisions after relaxation:\n' +
+          formatOffenders(after),
+      );
+    }
+
+    // Save the freshly computed (or re-relaxed) positions back to disk
+    // so the next run starts from a warm cache. Best-effort — see
+    // `savePositions` for the failure semantics.
+    savePositions(positions);
   }
 
   const placeDecision = (d: DecisionNode): DecisionFlowNode => {
@@ -541,43 +1030,16 @@ export async function getLayoutedElements(
   // between every edge's two endpoints. The centre is `top-left + size/2`,
   // and `size` depends on whether the node is a 320x90 decision pill or a
   // 520x400 book card — so we need both the position map and the kind.
-  const centres = new Map<string, { x: number; y: number }>();
+  // (`pickSide` and `rectCentre` come from `flowchart-edge-geometry` so
+  // the edge construction here uses the EXACT same side-picking the
+  // force sim and scorer use against the rendered curve.)
+  const centres = new Map<string, Vec2>();
   for (const n of nodes) {
     const w = n.width ?? 0;
     const h = n.height ?? 0;
-    centres.set(n.id, { x: n.position.x + w / 2, y: n.position.y + h / 2 });
+    centres.set(n.id, rectCentre({ x: n.position.x, y: n.position.y, w, h }));
   }
 
-  /**
-   * Pick which side of `from` the edge should leave from, given that it's
-   * heading toward `to`. Snaps the centre-to-centre vector to the nearest
-   * cardinal direction:
-   *
-   *     |dx| > |dy|  →  the connection is "more horizontal than vertical",
-   *                     so leave from the right or left side
-   *     otherwise    →  more vertical, so leave from the top or bottom
-   *
-   * This is the same idea xyflow's `simple-floating-edge` example uses,
-   * just discretised to four sides instead of computing exact box-line
-   * intersection points (sufficient because we have hidden cardinal
-   * handles to attach to and the bezier renderer takes the curve from
-   * there). The sign of the dominant component picks which of the two
-   * candidate sides wins.
-   *
-   * In screen coordinates +y points DOWN, so dy > 0 means "below".
-   */
-  type Side = 'top' | 'right' | 'bottom' | 'left';
-  const pickSide = (
-    from: { x: number; y: number },
-    to: { x: number; y: number },
-  ): Side => {
-    const dx = to.x - from.x;
-    const dy = to.y - from.y;
-    if (Math.abs(dx) >= Math.abs(dy)) return dx >= 0 ? 'right' : 'left';
-    return dy >= 0 ? 'bottom' : 'top';
-  };
-
-  const defaultEdgeType: EdgeType = data.defaultEdgeType ?? 'bezier';
   const edges: FlowEdge[] = data.edges.map((e) => {
     const palette = EDGE_PALETTE[e.color ?? 'default'];
     const sourceCentre = centres.get(e.source);
@@ -597,7 +1059,7 @@ export async function getLayoutedElements(
       sourceHandle,
       targetHandle,
       label: e.label,
-      type: EDGE_TYPE_TO_XY[e.type ?? defaultEdgeType],
+      type: CUSTOM_EDGE_TYPE,
       ariaLabel: e.label ? `Edge labelled "${e.label}"` : undefined,
       // `style` reaches the SVG path inside `.svelte-flow__edge`; xyflow
       // applies it via the `style` attribute on `<path>`, where SVG
@@ -608,7 +1070,7 @@ export async function getLayoutedElements(
       // and the brightest-shade hue tint for the text in the same
       // string so the two sides of the colour pair can never drift.
       labelStyle: `background: ${palette.line}; color: ${palette.text};`,
-      data: { color: e.color },
+      data: { color: e.color, pathType: e.type ?? defaultEdgeType },
     };
   });
 

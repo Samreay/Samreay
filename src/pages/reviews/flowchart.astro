@@ -14,6 +14,21 @@ import { flowchart } from '../../data/flowchart';
 import { getLayoutedElements } from '../../lib/flowchart-layout';
 import '../../styles/flowchart.css';
 
+// NOTE: the design doc asked for `?refine=1` to be read here and passed
+// to `getLayoutedElements`. That path does not work in Astro's
+// `output: 'static'` mode: prerendered routes (which this page is, since
+// it must ship in `dist/`) have their query string stripped from both
+// `Astro.url` and `Astro.request.url` — the route key is the pathname,
+// nothing more. Making this page `prerender = false` would let the
+// query through in dev but drop the page from the production build,
+// which is unacceptable.
+//
+// Instead the dev-only "Save & Refine" toolbar button POSTs to the
+// `/api/flowchart-positions.json` endpoint with `{ refine: true }` and
+// the endpoint runs the relax pass server-side before returning.
+// That keeps refining as a dev-only behaviour (the endpoint 403s in
+// production), keeps this page purely declarative, and avoids any
+// URL-string round-trip.
 const { nodes, edges } = await getLayoutedElements(flowchart);
 
 // Build a flat list of every "from this decision, see X or Y" pair so we
@@ -46,6 +61,15 @@ const fallback = flowchart.decisions.map((d) => {
       <h1>Recommendation Flowchart</h1>
     </div>
 
+    {/*
+      The island self-detects dev via `import.meta.env.DEV` rather than
+      receiving a `dev` prop from here. Both signals would be the same
+      compile-time constant, and Vite tree-shakes the island's dev
+      branch on its own — passing the prop would just duplicate the
+      truth. If the page itself ever needs to conditionally render
+      something dev-only (a banner, debug link), do `import.meta.env.DEV`
+      directly here.
+    */}
     <Flowchart client:only="svelte" {nodes} {edges} />
 
     <div class="sr-only" aria-label="Flowchart as a list">
