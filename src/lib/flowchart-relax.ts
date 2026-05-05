@@ -31,7 +31,8 @@ export const RELAX_OPTS = {
   K_LABEL_LABEL: 0.25,
   DAMPING: 0.75,
   DT: 1.0,
-  V_MAX: 120,
+  V_MAX: 10,
+  F_MAX: 20,
   PADDING: 80,
   MAX_ITERS: 1500,
   CONVERGENCE_KE: 20.0,
@@ -248,7 +249,7 @@ export class RelaxSimulator {
 
     const {
       K_LEN_COMPRESS, K_LEN_STRETCH, K_NODE_NODE, K_EDGE_NODE, K_EDGE_EDGE,
-      K_LABEL_NODE, K_LABEL_LABEL, DAMPING, DT, V_MAX, PADDING,
+      K_LABEL_NODE, K_LABEL_LABEL, DAMPING, DT, V_MAX, F_MAX, PADDING,
       CONVERGENCE_KE, CONVERGENCE_HOLD_ITERS,
     } = RELAX_OPTS;
     const { positions, sizes, edges, ids, idIndex, isPinned, fx, fy, vx, vy } = this;
@@ -485,6 +486,16 @@ export class RelaxSimulator {
     // --- force transfer: propagate forces through DAG topology ---
     this._applyTransfer(fx, this.txScratch);
     this._applyTransfer(fy, this.tyScratch);
+
+    // --- cap per-node force magnitude ---
+    for (let i = 0; i < ids.length; i++) {
+      const fmag = Math.hypot(this.txScratch[i], this.tyScratch[i]);
+      if (fmag > F_MAX) {
+        const s = F_MAX / fmag;
+        this.txScratch[i] *= s;
+        this.tyScratch[i] *= s;
+      }
+    }
 
     // --- integrate ---
     let totalKE = 0;
