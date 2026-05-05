@@ -8,6 +8,7 @@
     ConnectionMode,
   } from '@xyflow/svelte';
   import '@xyflow/svelte/dist/style.css';
+  import { setContext, onDestroy } from 'svelte';
 
   import BookNode from './flowchart/BookNode.svelte';
   import DecisionNode from './flowchart/DecisionNode.svelte';
@@ -23,6 +24,108 @@
     nodes: FlowNode[];
     edges: FlowEdge[];
   } = $props();
+
+  // ── Pulse wave animation ─────────────────────────────────────────────
+  // Emits glowing dots from d_start that travel along edges, split at
+  // each node, and traverse the full graph. One wave every 6 seconds.
+  // Uses the same in-place edge.data mutation pattern as `data.dim` so
+  // OffsetLabelEdge reads it reactively without needing a full nodes
+  // array replacement.
+
+  // Static topology — built once from the prop arrays at mount time,
+  // never mutated. Plain Maps (not $state) because the rAF loop reads
+  // them every frame and reactivity would be wasted overhead.
+  const _outEdgeIds = new Map<string, string[]>(); // nodeId → edgeIds leaving it
+  const _edgeById = new Map<string, FlowEdge>();   // edgeId → edge object
+  const _edgeTarget = new Map<string, string>();   // edgeId → target nodeId
+
+  for (const edge of initialEdges) {
+    _edgeById.set(edge.id, edge);
+    _edgeTarget.set(edge.id, edge.target);
+    const list = _outEdgeIds.get(edge.source);
+    if (list) list.push(edge.id);
+    else _outEdgeIds.set(edge.source, [edge.id]);
+  }
+
+  interface PulseInstance {
+    edgeId: string;
+    startTime: number;
+    duration: number;
+  }
+
+  // Active pulses — mutated per-frame, NOT $state.
+  const _activePulses = new Map<string, PulseInstance>();
+
+  // Node flash set IS $state so DecisionNode/BookNode re-render on change.
+  let pulsingNodeIds = $state(new Set<string>());
+
+  // Provide as a getter so nodes always read the current $state value via
+  // a stable function reference (avoids stale captures in getContext).
+  setContext<() => Set<string>>('pulsingNodes', () => pulsingNodeIds);
+
+  let _pulseRafId: number | null = null;
+  const PULSE_EDGE_DURATION_MS = 650;
+
+  function _spawnPulsesFrom(nodeId: string, now: number): void {
+    for (const edgeId of _outEdgeIds.get(nodeId) ?? []) {
+      if (!_activePulses.has(edgeId)) {
+        _activePulses.set(edgeId, { edgeId, startTime: now, duration: PULSE_EDGE_DURATION_MS });
+      }
+    }
+  }
+
+  function _pulseFrame(now: number): void {
+    const completed: string[] = [];
+
+    for (const [edgeId, pulse] of _activePulses) {
+      const progress = Math.min(1, (now - pulse.startTime) / pulse.duration);
+      const edge = _edgeById.get(edgeId);
+      if (edge?.data) edge.data.pulseProgress = progress;
+      if (progress >= 1) completed.push(edgeId);
+    }
+
+    for (const edgeId of completed) {
+      const edge = _edgeById.get(edgeId);
+      if (edge?.data) edge.data.pulseProgress = undefined;
+      _activePulses.delete(edgeId);
+
+      const targetId = _edgeTarget.get(edgeId);
+      if (!targetId) continue;
+
+      // Flash the node the pulse just reached.
+      pulsingNodeIds = new Set([...pulsingNodeIds, targetId]);
+      setTimeout(() => {
+        pulsingNodeIds = new Set([...pulsingNodeIds].filter((id) => id !== targetId));
+      }, 500);
+
+      // Propagate outward from the target node.
+      _spawnPulsesFrom(targetId, now);
+    }
+
+    if (_activePulses.size > 0) {
+      _pulseRafId = requestAnimationFrame(_pulseFrame);
+    } else {
+      _pulseRafId = null;
+    }
+  }
+
+  function _launchWave(): void {
+    const now = performance.now();
+    _spawnPulsesFrom('d_start', now);
+    if (_pulseRafId === null) {
+      _pulseRafId = requestAnimationFrame(_pulseFrame);
+    }
+  }
+
+  // Fire immediately on mount, then repeat every 6 seconds.
+  if (typeof window !== 'undefined') {
+    setTimeout(_launchWave, 800); // slight delay so the page has settled
+    const _pulseIntervalId = setInterval(_launchWave, 6000);
+    onDestroy(() => {
+      clearInterval(_pulseIntervalId);
+      if (_pulseRafId !== null) cancelAnimationFrame(_pulseRafId);
+    });
+  }
 
   // `import.meta.env.DEV` is replaced with a literal `true` / `false`
   // at build time by Vite. Keeping it as a `const` (not a prop, not

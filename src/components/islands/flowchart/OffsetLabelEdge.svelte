@@ -54,6 +54,9 @@
        *  on the path AND on a self-rendered `<EdgeLabel>` so the
        *  portalled label fades in lockstep with the path. */
       dim?: boolean;
+      /** 0–1 fraction along the edge where the travelling pulse dot
+       *  should be drawn. `undefined` = no active pulse. */
+      pulseProgress?: number;
     };
   } = $props();
 
@@ -94,6 +97,18 @@
     typeof document !== 'undefined'
       ? document.createElementNS('http://www.w3.org/2000/svg', 'path')
       : null;
+
+  const pulsePos = $derived.by(() => {
+    const progress = props.data?.pulseProgress;
+    if (progress == null || !measurer) return null;
+    measurer.setAttribute('d', path);
+    const total = measurer.getTotalLength();
+    const pt = measurer.getPointAtLength(progress * total);
+    // Two trailing ghost dots for a comet tail effect.
+    const tail1 = measurer.getPointAtLength(Math.max(0, progress * total - 12));
+    const tail2 = measurer.getPointAtLength(Math.max(0, progress * total - 26));
+    return { head: pt, tail1, tail2 };
+  });
 
   const labelPos = $derived.by(() => {
     if (!measurer) {
@@ -152,4 +167,24 @@
   >
     {props.label}
   </EdgeLabel>
+{/if}
+
+{#if pulsePos}
+  <!-- Comet tail: two trailing ghost dots, then the bright head. -->
+  <circle
+    cx={pulsePos.tail2.x} cy={pulsePos.tail2.y} r="3"
+    fill="white" opacity="0.25"
+    pointer-events="none"
+  />
+  <circle
+    cx={pulsePos.tail1.x} cy={pulsePos.tail1.y} r="4"
+    fill="white" opacity="0.5"
+    pointer-events="none"
+  />
+  <circle
+    cx={pulsePos.head.x} cy={pulsePos.head.y} r="5.5"
+    fill="white" opacity="0.92"
+    style="filter: drop-shadow(0 0 5px rgba(255,255,255,0.95)) drop-shadow(0 0 14px rgba(160,220,255,0.8))"
+    pointer-events="none"
+  />
 {/if}

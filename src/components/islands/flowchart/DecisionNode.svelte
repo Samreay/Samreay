@@ -1,8 +1,12 @@
 <script lang="ts">
   import { Handle, Position, type NodeProps } from '@xyflow/svelte';
+  import { getContext } from 'svelte';
   import type { DecisionFlowNode } from '../../../lib/flowchart-layout';
 
-  let { data }: NodeProps<DecisionFlowNode> = $props();
+  let { id, data }: NodeProps<DecisionFlowNode> = $props();
+
+  const getPulsingNodes = getContext<() => Set<string>>('pulsingNodes');
+  const isPulsing = $derived(getPulsingNodes?.().has(id) ?? false);
 
   // `accent.line` is the Tailwind 500 hex resolved server-side. We use
   // it raw for the border and as a translucent overlay on the dark
@@ -31,7 +35,7 @@
 <Handle type="source" position={Position.Left} id="left" />
 
 <div
-  class={['decision-node', data.size === 'large' && 'decision-node--large']}
+  class={['decision-node', data.size === 'large' && 'decision-node--large', isPulsing && 'decision-node--pulse']}
   style={accentStyle}
 >
   <p class="decision-node__prompt">{data.prompt}</p>

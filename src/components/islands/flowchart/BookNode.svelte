@@ -1,11 +1,15 @@
 <script lang="ts">
   import { Handle, Position, type NodeProps } from '@xyflow/svelte';
+  import { getContext } from 'svelte';
   import type { BookFlowNode } from '../../../lib/flowchart-layout';
 
   // No scoped <style>: the markup needs to compose with the global
   // `fancy_card` rules in `src/styles/fancy.scss`. Svelte's hashed scoping
   // would otherwise break `.review-S`, `.card_overlay_S`, `.tag-<name>`, etc.
-  let { data }: NodeProps<BookFlowNode> = $props();
+  let { id, data }: NodeProps<BookFlowNode> = $props();
+
+  const getPulsingNodes = getContext<() => Set<string>>('pulsingNodes');
+  const isPulsing = $derived(getPulsingNodes?.().has(id) ?? false);
 </script>
 
 <!--
@@ -20,7 +24,7 @@
 <Handle type="source" position={Position.Bottom} id="bottom" />
 <Handle type="source" position={Position.Left} id="left" />
 
-<div class="book-node fancy_card horizontal mx-auto" data-review-card>
+<div class={['book-node fancy_card horizontal mx-auto', isPulsing && 'book-node--pulse'].filter(Boolean).join(' ')} data-review-card>
   <div class="card_translator">
     <a
       class="card_rotator small_rot card_layer block"

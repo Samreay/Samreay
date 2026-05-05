@@ -273,6 +273,11 @@ export type FlowEdge = Edge<
      *  the `flowchart-dim` class to BOTH the path and the label
      *  consistently. Default false (full opacity). */
     dim?: boolean;
+    /** 0–1 progress of a travelling pulse along this edge. Set by the
+     *  wave animation loop in `Flowchart.svelte`; `undefined` means no
+     *  active pulse. `OffsetLabelEdge` renders a glowing dot at this
+     *  position along the path when set. Mutated in-place like `dim`. */
+    pulseProgress?: number;
   },
   typeof CUSTOM_EDGE_TYPE
 >;
