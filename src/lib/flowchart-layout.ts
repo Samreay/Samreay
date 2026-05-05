@@ -71,6 +71,21 @@ const NODE_SIZES = {
   book: { width: 520, height: 400 },
 } as const;
 
+/**
+ * Resolve the rendered footprint for a decision node. Defaults to the
+ * 320x90 pill, doubles to 640x180 when the author opts in via
+ * `size: 'large'` on the data file. The CSS in `.decision-node` is
+ * `width/height: 100%` so the prompt scales by container — no need to
+ * tweak the component for the larger variant.
+ */
+function decisionSize(d: DecisionNode): { width: number; height: number } {
+  const base = NODE_SIZES.decision;
+  if (d.size === 'large') {
+    return { width: base.width * 2, height: base.height * 2 };
+  }
+  return base;
+}
+
 // The node ELK plants at the centre. Everything else is laid out on
 // concentric rings around it, keyed by BFS distance.
 const ROOT_ID = 'd_start';
@@ -101,7 +116,6 @@ const EDGE_PALETTE: Record<PaletteColor | 'default', { line: string; text: strin
   purple:  { line: '#a855f7', text: '#faf5ff' },
   fuchsia: { line: '#d946ef', text: '#fdf4ff' },
   pink:    { line: '#ec4899', text: '#fdf2f8' },
-  rose:    { line: '#f43f5e', text: '#fff1f2' },
   gray:    { line: '#6b7280', text: '#f9fafb' },
   // Default = main-500 (the SRH accent green).
   default: { line: '#10b981', text: '#ecfdf5' },
@@ -132,6 +146,11 @@ export interface DecisionNodePayload extends Record<string, unknown> {
    *  inline — same reasoning as edges (xyflow portals/scopes break
    *  the CSS cascade for variables defined on `.svelte-flow__node`). */
   accent: { line: string; text: string };
+  /** Mirrors `DecisionNode.size` from `flowchart.ts`. The Svelte
+   *  component reads this and toggles `.decision-node--large`, which
+   *  bumps the prompt's font-size and padding so the doubled pill
+   *  doesn't render with timid 1.5rem text in a 640x180 box. */
+  size: 'normal' | 'large';
   /** Pre-lowercased prompt for the in-canvas search bar. See
    *  `BookNodePayload.searchHaystack`. */
   searchHaystack: string;
@@ -255,7 +274,7 @@ const RELAX_OPTS = {
   /** Padding added to every separation criterion (node-node, edge-node,
    *  label-*). This is the breathing room the sim refuses to give up
    *  on. */
-  PADDING: 60,
+  PADDING: 80,
   /** Hard iteration cap. Was 1000; raised to give the additional label
    *  terms time to settle. The five-way coupling (node-node, edge-node,
    *  edge-edge, label-node, label-label) takes longer to reach a
@@ -399,7 +418,7 @@ function layoutCost(s: LayoutScore): number {
  *  spring pulls every over-stretched edge toward this length, and the
  *  scorer counts excess over it as `totalStretchPx`. Hoisted to a
  *  module constant so the tuner only edits one number. */
-const LAYOUT_DESIRED_EDGE_LENGTH = 850;
+const LAYOUT_DESIRED_EDGE_LENGTH = 1000;
 
 /** Lower bound of the edge-length sweet spot — edges shorter than this
  *  contribute to `totalCompressionPx` in the layout score, biasing the
@@ -410,7 +429,7 @@ const LAYOUT_DESIRED_EDGE_LENGTH = 850;
  *  defines the boundary of the cost-free band, not a separate force
  *  target. Edges with length in [`LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH`,
  *  `LAYOUT_DESIRED_EDGE_LENGTH`] pay no length cost. */
-const LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH = 300;
+const LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH = 350;
 
 function relax(opts: {
   positions: Map<string, Vec2>;
@@ -1095,10 +1114,8 @@ export async function getLayoutedElements(
   // and the cache branches need it too because relax + scoring depend
   // on it.
   for (const d of data.decisions) {
-    sizes.set(d.id, {
-      w: NODE_SIZES.decision.width,
-      h: NODE_SIZES.decision.height,
-    });
+    const ds = decisionSize(d);
+    sizes.set(d.id, { w: ds.width, h: ds.height });
   }
   for (const b of data.books) {
     sizes.set(b.id, {
@@ -1208,10 +1225,11 @@ export async function getLayoutedElements(
       const elkChildren: ElkNode[] = [
         ...data.decisions.map((d) => {
           const seeded = seedPositions?.get(d.id);
+          const ds = decisionSize(d);
           return {
             id: d.id,
-            width: NODE_SIZES.decision.width,
-            height: NODE_SIZES.decision.height,
+            width: ds.width,
+            height: ds.height,
             // `d_start` always wins — it's authored at (0, 0) and the
             // post-ELK origin shift below depends on it landing there.
             ...(d.id === ROOT_ID
@@ -1290,7 +1308,7 @@ export async function getLayoutedElements(
         id: 'flowchart-root',
         layoutOptions: {
           'elk.algorithm': 'stress',
-          'elk.stress.desiredEdgeLength': '850',
+          'elk.stress.desiredEdgeLength': '1100',
           'elk.stress.epsilon': '0.0001',
           'elk.stress.iterationLimit': '10000',
           'elk.interactive': 'true',
@@ -1431,7 +1449,7 @@ export async function getLayoutedElements(
   }
 
   const placeDecision = (d: DecisionNode): DecisionFlowNode => {
-    const size = NODE_SIZES.decision;
+    const size = decisionSize(d);
     const position = d.pinned ?? positions.get(d.id) ?? { x: 0, y: 0 };
     const accent = EDGE_PALETTE[d.color ?? 'gray'];
     return {
@@ -1445,6 +1463,7 @@ export async function getLayoutedElements(
         kind: 'decision',
         prompt: d.prompt,
         accent,
+        size: d.size ?? 'normal',
         searchHaystack: d.prompt.toLowerCase(),
       },
     };

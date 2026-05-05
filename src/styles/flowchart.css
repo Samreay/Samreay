@@ -164,12 +164,32 @@
   box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.6);
 }
 
+/* Authoring opt-in for visual anchors like the "Start Here!" entry
+   point. The xyflow node bbox is doubled in `flowchart-layout.ts`
+   (640x180 instead of 320x90); this rule scales padding, border,
+   radius, and shadow up so the chrome reads as proportional rather
+   than oddly small inside the bigger pill. The prompt's typography
+   bump lives in the sibling `&__prompt` rule below. */
+.decision-node--large {
+  padding: 1.7rem 2.5rem;
+  border-width: 3px;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
 .decision-node__prompt {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
   color: #f3f4f6;
   line-height: 1.25;
+}
+
+.decision-node--large .decision-node__prompt {
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 /* ── Search dim ──────────────────────────────────────────────────────

@@ -30,6 +30,9 @@
 <Handle type="source" position={Position.Bottom} id="bottom" />
 <Handle type="source" position={Position.Left} id="left" />
 
-<div class="decision-node" style={accentStyle}>
+<div
+  class={['decision-node', data.size === 'large' && 'decision-node--large']}
+  style={accentStyle}
+>
   <p class="decision-node__prompt">{data.prompt}</p>
 </div>
