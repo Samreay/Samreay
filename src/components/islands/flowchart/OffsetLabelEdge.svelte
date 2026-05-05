@@ -17,6 +17,7 @@
    */
   import {
     BaseEdge,
+    EdgeLabel,
     getBezierPath,
     getSmoothStepPath,
     getStraightPath,
@@ -33,9 +34,30 @@
    */
   const LABEL_FRACTION = 0.25;
 
+  /**
+   * Floor (in screen pixels at zoom = 1) on the distance from the source
+   * handle to the label centre. The actual offset used is
+   *   max(arcLength * LABEL_FRACTION, min(LABEL_MIN_DISTANCE_PX, arcLength))
+   * so on long edges the label still sits at 25% of the way down, but on
+   * short edges it gets pushed out to a guaranteed clearance from the
+   * source node. Mirrors `LABEL_MIN_DISTANCE_PX` in
+   * `src/lib/flowchart-edge-geometry.ts` — keep the two in lockstep.
+   */
+  const LABEL_MIN_DISTANCE_PX = 200;
+
   let props: EdgeProps & {
-    data?: { color?: PaletteColor; pathType?: EdgeType };
+    data?: {
+      color?: PaletteColor;
+      pathType?: EdgeType;
+      /** Set true while a search query is active and this edge does
+       *  not match — see `Flowchart.svelte`. We render the dim class
+       *  on the path AND on a self-rendered `<EdgeLabel>` so the
+       *  portalled label fades in lockstep with the path. */
+      dim?: boolean;
+    };
   } = $props();
+
+  const dimClass = $derived(props.data?.dim ? 'flowchart-dim' : undefined);
 
   const path = $derived.by(() => {
     const args = {
@@ -78,27 +100,56 @@
       // SSR / no-DOM fallback: linear interpolation on the straight line
       // between endpoints. The island uses `client:only` so this branch
       // is only ever hit during type-narrowing, never at runtime.
+      const dx = props.targetX - props.sourceX;
+      const dy = props.targetY - props.sourceY;
+      const total = Math.hypot(dx, dy);
+      const distance = Math.max(
+        total * LABEL_FRACTION,
+        Math.min(LABEL_MIN_DISTANCE_PX, total),
+      );
+      const t = total > 0 ? distance / total : 0;
       return {
-        x: props.sourceX + (props.targetX - props.sourceX) * LABEL_FRACTION,
-        y: props.sourceY + (props.targetY - props.sourceY) * LABEL_FRACTION,
+        x: props.sourceX + dx * t,
+        y: props.sourceY + dy * t,
       };
     }
     measurer.setAttribute('d', path);
     const total = measurer.getTotalLength();
-    const point = measurer.getPointAtLength(total * LABEL_FRACTION);
+    const distance = Math.max(
+      total * LABEL_FRACTION,
+      Math.min(LABEL_MIN_DISTANCE_PX, total),
+    );
+    const point = measurer.getPointAtLength(distance);
     return { x: point.x, y: point.y };
   });
 </script>
 
+<!--
+  We deliberately do NOT pass `label`/`labelStyle` to BaseEdge: BaseEdge
+  would render an <EdgeLabel> internally without any way to forward our
+  `flowchart-dim` class onto it (the EdgeLabel is portalled to a separate
+  DOM container by xyflow, so a class on the parent edge group cannot
+  cascade in). Rendering the EdgeLabel ourselves is the only way to fade
+  the label in lockstep with the path.
+-->
 <BaseEdge
   id={props.id}
   {path}
-  labelX={labelPos.x}
-  labelY={labelPos.y}
-  label={props.label}
-  labelStyle={props.labelStyle}
   markerStart={props.markerStart}
   markerEnd={props.markerEnd}
   interactionWidth={props.interactionWidth}
   style={props.style}
+  class={dimClass}
 />
+
+{#if props.label}
+  <EdgeLabel
+    x={labelPos.x}
+    y={labelPos.y}
+    style={props.labelStyle}
+    class={dimClass}
+    selectEdgeOnClick
+  >
+    {props.label}
+  </EdgeLabel>
+{/if}

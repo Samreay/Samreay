@@ -40,6 +40,17 @@
  * and then runs `getLayoutedElements(flowchart, { refine: true })`,
  * which skips ELK and re-runs the Verlet relax over the just-saved
  * positions, then writes the cleaned-up coordinates back to disk.
+ *
+ * Alternative POST body shape (mutually exclusive with `positions`):
+ *   { reset: true }
+ *
+ * The `reset` form skips position parsing entirely: the middleware
+ * deletes the on-disk cache via `clearPositions()` and then invokes
+ * `getLayoutedElements(flowchart)` (no `refine`), which sees the
+ * missing cache, runs the full ELK + sporeOverlap + Verlet pipeline
+ * from scratch, and writes the freshly-computed coordinates back to
+ * disk. The Svelte toolbar follows the response with a page reload so
+ * the user immediately sees the new layout.
  */
 
 const ENDPOINT_PATH = '/api/flowchart-positions.json';
@@ -146,6 +157,41 @@ export function flowchartPositionsDev() {
                           });
                           return;
                         }
+
+                        // `{ reset: true }` is handled before the
+                        // normal positions parser runs — the body has
+                        // no `positions` field on this path, so
+                        // `parsePositionsPayload` would otherwise 400
+                        // it. Reset deletes the cache and re-runs the
+                        // full layout pipeline so the next page load
+                        // shows fresh ELK+relax output.
+                        if (parsed && typeof parsed === 'object' && parsed.reset === true) {
+                          const removed = positionsModule.clearPositions();
+                          try {
+                            const [layoutModule, dataModule] = await Promise.all([
+                              server.ssrLoadModule('/src/lib/flowchart-layout.ts'),
+                              server.ssrLoadModule('/src/data/flowchart.ts'),
+                            ]);
+                            await layoutModule.getLayoutedElements(
+                              dataModule.flowchart,
+                            );
+                          } catch (err) {
+                            sendJson(res, 500, {
+                              ok: false,
+                              reset: true,
+                              cleared: removed,
+                              error: `relayout after reset failed: ${err?.message ?? String(err)}`,
+                            });
+                            return;
+                          }
+                          sendJson(res, 200, {
+                            ok: true,
+                            reset: true,
+                            cleared: removed,
+                          });
+                          return;
+                        }
+
                         const result = parsePositionsPayload(parsed);
                         if (!result.ok) {
                           sendJson(res, result.status, {

@@ -1,0 +1,31 @@
+---
+description: How to drive the Playwright MCP browser tools when debugging the Astro/Svelte dev server in this repo. Use when about to navigate, click, snapshot, screenshot, evaluate JS, or read console/network output from a real browser.
+alwaysApply: false
+---
+
+# Playwright MCP debugging defaults
+
+## Dev server lifecycle
+
+- Astro dev server runs at `http://localhost:4321`. Only `localhost` / `127.0.0.1` origins are allowed by the MCP config.
+- Before starting a new `npm run dev`, check the `terminals/` folder for one already running. Reuse it; do not spawn duplicates.
+- If you start one, do it backgrounded (`block_until_ms: 0`) and wait for the "ready" line before navigating.
+
+## Tool preference (in order)
+
+1. **`browser_snapshot`** for inspecting page state. Returns the accessibility tree as text — far cheaper and easier to reason about than images. Pass a `ref` to scope to a subtree on busy pages (the flowchart in particular).
+2. **`browser_console_messages`** as the first stop when investigating runtime errors. Do not re-read `.svelte` / `.ts` source files until you've read what the page actually logged.
+3. **`browser_network_requests`** to verify fetches. Do not assume API behaviour from source — confirm it.
+4. **`browser_evaluate`** to inspect island state via window-exposed handles. Avoid expressions that mutate persistent state (localStorage, IndexedDB).
+5. **`browser_take_screenshot`** only when the question is genuinely visual — layout, colour, alignment, overlap. Snapshots cannot answer those.
+
+## Hydration & timing
+
+- Svelte islands hydrate after initial render. Use `browser_wait_for` (text or selector) before snapshotting interactive components.
+- The flowchart island animates node positions and edges. Wait for animations to settle before snapshotting, or you'll get flaky results.
+
+## Hygiene
+
+- Close opened tabs at the end of a debugging session so the next turn starts clean.
+- The MCP runs with `--isolated`, so browser state is ephemeral per session — don't rely on cookies/localStorage persisting across runs.
+- Default is **headed** (a real Chromium window pops up). To run headless, add `--headless` to the args in `.cursor/mcp.json`. To persist a profile across runs (e.g. to keep a logged-in session), drop `--isolated` and optionally pass `--user-data-dir=<path>`.

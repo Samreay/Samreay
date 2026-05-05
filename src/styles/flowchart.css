@@ -171,3 +171,38 @@
   color: #f3f4f6;
   line-height: 1.25;
 }
+
+/* ── Search dim ──────────────────────────────────────────────────────
+   Toggled by the search bar in `Flowchart.svelte`. Setting `node.class`
+   on a node puts the class on `.svelte-flow__node`. For edges we set
+   `data.dim = true` and `OffsetLabelEdge.svelte` reads it and applies
+   the class to BOTH the SVG path AND the (portalled) HTML label so
+   they fade as a unit. The base-state transitions are here so the
+   fade-back-up after clearing the query is smooth, not a snap. */
+.flowchart-page .svelte-flow__node,
+.flowchart-page .svelte-flow__edge-path,
+.flowchart-page .svelte-flow__edge-label {
+  transition: opacity 150ms ease;
+}
+.flowchart-page .svelte-flow__node.flowchart-dim,
+.flowchart-page .svelte-flow__edge-path.flowchart-dim,
+.flowchart-page .svelte-flow__edge-label.flowchart-dim {
+  opacity: 0.2;
+}
+
+/* ── Search bar ──────────────────────────────────────────────────────
+   xyflow's <Panel> takes care of absolute-positioning and
+   `pointer-events: auto`; we just need to lay the input + clear button
+   out horizontally. All visual styling (colours, padding, hover) is
+   applied via Tailwind classes in the markup, mirroring
+   `ReviewsExplorer.svelte`'s search row so the two pages share one
+   visual language. The `flex` layout wins over the panel default
+   `display: block` and stops the elements stacking when the search
+   panel container shrinks. */
+.flowchart-page .svelte-flow__panel.flowchart-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100vw - 6rem);
+}

@@ -39,12 +39,22 @@ export interface Rect {
 
 /** The per-edge spec the geometry helper consumes. `pathType` is the
  *  resolved type (with `FlowchartData.defaultEdgeType` already applied)
- *  so this module never has to know about defaults. */
+ *  so this module never has to know about defaults. `label` is included
+ *  here (rather than carried separately) so `buildEdgeGeometry` can
+ *  return a single `EdgeGeometry` per edge that already knows the
+ *  rendered label's bounding box — the relax sim and the scorer then
+ *  treat labels as first-class collision targets without having to do
+ *  their own text-metric estimation. */
 export interface EdgeSpec {
   id: string;
   source: string;
   target: string;
   pathType: EdgeType;
+  /** The label string xyflow renders mid-edge. Optional because not every
+   *  edge has one. When present, the geometry helper places a bbox at the
+   *  same arc-length fraction `OffsetLabelEdge.svelte` uses for the
+   *  rendered HTML div, so collision tests track the on-screen layout. */
+  label?: string;
 }
 
 export interface EdgeGeometry {
@@ -62,14 +72,32 @@ export interface EdgeGeometry {
   targetHandle: Vec2;
   sourceSide: Side;
   targetSide: Side;
+  /** Estimated rendered bounding box of the edge's text label, centred on
+   *  the point at `LABEL_FRACTION` along the polyline's arc length —
+   *  same point `OffsetLabelEdge.svelte` measures via the SVG path's
+   *  `getPointAtLength`. `undefined` when the edge has no label. */
+  label?: {
+    /** Centre point (matches xyflow's `BaseEdge` `transform: translate(-50%, -50%)`). */
+    centre: Vec2;
+    /** Top-left corner of the AABB, useful for direct overlap math. */
+    x: number;
+    y: number;
+    /** Estimated rendered width / height in pixels. */
+    w: number;
+    h: number;
+  };
 }
 
-/** Bezier curve sampling resolution. 12 segments balances visual fidelity
- *  (where the renderer's actual curve passes) with the per-iteration cost
- *  the force sim pays for every (edge, *) test. Bumping this up costs
- *  the sim O(N²) extra work for N segments per edge in the edge-edge
- *  term; bumping it down lets near-tangent crossings slip through. */
-const BEZIER_SAMPLES = 12;
+/** Bezier curve sampling resolution. Higher = more faithful approximation
+ *  of the rendered curve, fewer false-positive crossings from sparse
+ *  chord segments cutting across each other where the actual curves
+ *  don't quite meet. The cost is O(N²) work in the edge-edge term per
+ *  edge pair (24 segments → 576 pair-tests vs 12 segments → 144), but
+ *  bbox prune in the relax sim short-circuits most pairs anyway. 24
+ *  was chosen to roughly halve the per-pair sampling error of the old
+ *  12-segment approximation while keeping per-iter cost manageable for
+ *  the longer 4000-iter relax budget. */
+const BEZIER_SAMPLES = 24;
 
 /** xyflow's default bezier curvature (0.25). Documented at
  *  https://reactflow.dev/api-reference/utils/get-bezier-path */
@@ -80,6 +108,108 @@ const BEZIER_CURVATURE = 0.25;
  *  matches the renderer pixel-for-pixel at the corners. */
 const SMOOTHSTEP_OFFSET = 20;
 const SMOOTHSTEP_STEP_POSITION = 0.5;
+
+/** Fraction of arc length where edge labels sit. Matches the constant in
+ *  `OffsetLabelEdge.svelte` — the two MUST stay in lockstep, otherwise
+ *  the relax sim is pushing on a phantom box that doesn't correspond to
+ *  what the user will see on screen. If you change either one, change
+ *  both. */
+export const LABEL_FRACTION = 0.25;
+
+/** Minimum absolute distance (in world pixels) from the source handle to
+ *  the label centre. The actual offset used is
+ *    max(arcLength * LABEL_FRACTION, min(LABEL_MIN_DISTANCE_PX, arcLength))
+ *  so on long edges the label still sits at 25% of the way down, but on
+ *  short edges it gets pushed out to a guaranteed clearance from the
+ *  source node. Mirrors the constant in `OffsetLabelEdge.svelte` — the
+ *  two MUST stay in lockstep. */
+export const LABEL_MIN_DISTANCE_PX = 200;
+
+/**
+ * Empirical text-metric estimates for the rendered edge label.
+ *
+ * Labels are HTML divs styled in `src/styles/flowchart.css` at:
+ *   - `font-size: 1rem` (16px), `font-weight: 700`
+ *   - `padding: 0.2rem 0.6rem` (3.2px vertical, 9.6px horizontal)
+ *   - default `white-space: nowrap` from `@xyflow/svelte/dist/style.css`
+ *
+ * Without a DOM we can't measure exactly, so we approximate. The average
+ * advance width for a 16px bold sans-serif on macOS / Linux defaults
+ * (system-ui ≈ -apple-system / Inter / Helvetica) is ≈8.5px per glyph
+ * for mixed-case English, and the line-box height for `font-size: 16px`
+ * with `line-height: normal` is ≈ 19.2px. These are slight over-
+ * estimates for narrow letters (`i`, `l`, punctuation) and slight
+ * under-estimates for wide ones (`W`, `m`); the worst case error
+ * across the 200-odd labels in the corpus is well under a label width,
+ * which is comfortably within the relax sim's padding budget.
+ *
+ * Browser-side `OffsetLabelEdge.svelte` uses the actual rendered
+ * dimensions, so the only consumer of these estimates is the layout
+ * pipeline — the on-screen geometry stays exact regardless of how good
+ * our estimate is here. */
+const LABEL_AVG_CHAR_W = 8.5;
+const LABEL_LINE_HEIGHT = 19.2;
+const LABEL_PADDING_X = 9.6;
+const LABEL_PADDING_Y = 3.2;
+
+/**
+ * Estimate the on-screen rendered size of a label. Includes the
+ * inline padding from `.svelte-flow__edge-label` so the returned w/h is
+ * the bordering background rectangle the eye sees, not just the text
+ * baseline. */
+function estimateLabelSize(text: string): { w: number; h: number } {
+  return {
+    w: text.length * LABEL_AVG_CHAR_W + LABEL_PADDING_X * 2,
+    h: LABEL_LINE_HEIGHT + LABEL_PADDING_Y * 2,
+  };
+}
+
+/**
+ * Walk the polyline's cumulative arc length and return the point at
+ * `max(total * fraction, min(minDistancePx, total))` from the start.
+ * Mirrors what an SVG `<path>` element returns from
+ * `getPointAtLength(distance)` — but for a piecewise-linear sampling of
+ * the rendered curve, which is the only representation we have at build
+ * time. The `minDistancePx` floor guarantees a fixed pixel clearance
+ * from the source on short edges, where 25% would land on top of the
+ * source node. */
+function pointAtArcFraction(
+  samples: readonly Vec2[],
+  fraction: number,
+  minDistancePx = 0,
+): Vec2 {
+  if (samples.length === 0) return { x: 0, y: 0 };
+  if (samples.length === 1) return { x: samples[0].x, y: samples[0].y };
+  const f = Math.max(0, Math.min(1, fraction));
+  const segLens: number[] = new Array(samples.length - 1);
+  let total = 0;
+  for (let i = 0; i < samples.length - 1; i++) {
+    const len = Math.hypot(
+      samples[i + 1].x - samples[i].x,
+      samples[i + 1].y - samples[i].y,
+    );
+    segLens[i] = len;
+    total += len;
+  }
+  if (total <= 1e-9) return { x: samples[0].x, y: samples[0].y };
+  const target = Math.max(total * f, Math.min(minDistancePx, total));
+  let acc = 0;
+  for (let i = 0; i < segLens.length; i++) {
+    if (acc + segLens[i] >= target) {
+      const t = segLens[i] > 1e-9 ? (target - acc) / segLens[i] : 0;
+      const a = samples[i];
+      const b = samples[i + 1];
+      return {
+        x: a.x + (b.x - a.x) * t,
+        y: a.y + (b.y - a.y) * t,
+      };
+    }
+    acc += segLens[i];
+  }
+  // Numerical fallback for fraction === 1 (or floating-point overshoot).
+  const last = samples[samples.length - 1];
+  return { x: last.x, y: last.y };
+}
 
 const HANDLE_DIR: Record<Side, Vec2> = {
   left: { x: -1, y: 0 },
@@ -346,6 +476,23 @@ export function buildEdgeGeometry(
       if (p.y > maxY) maxY = p.y;
     }
 
+    let label: EdgeGeometry['label'];
+    if (e.label && e.label.length > 0) {
+      const centre = pointAtArcFraction(
+        samples,
+        LABEL_FRACTION,
+        LABEL_MIN_DISTANCE_PX,
+      );
+      const { w, h } = estimateLabelSize(e.label);
+      label = {
+        centre,
+        x: centre.x - w / 2,
+        y: centre.y - h / 2,
+        w,
+        h,
+      };
+    }
+
     result.push({
       id: e.id,
       source: e.source,
@@ -356,6 +503,7 @@ export function buildEdgeGeometry(
       targetHandle: targetH,
       sourceSide,
       targetSide,
+      label,
     });
   }
   return result;

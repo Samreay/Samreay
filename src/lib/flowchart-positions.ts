@@ -32,7 +32,13 @@
  * and `loadPositions` returns `null` (treat as missing) for any version
  * mismatch so we degrade gracefully to a recompute instead of crashing.
  */
-import { existsSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  readFileSync,
+  renameSync,
+  unlinkSync,
+  writeFileSync,
+} from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -183,6 +189,36 @@ export function savePositions(
     console.warn(
       `flowchart-positions: failed to write ${POSITIONS_PATH}: ${(err as Error).message}`,
     );
+  }
+}
+
+/**
+ * Delete the positions cache from disk.
+ *
+ * Used by the dev-only "Reset" toolbar action: the user wants to throw
+ * away every hand-tuned position and re-run the full layout pipeline
+ * from scratch. Removing the file is the trigger — the next call to
+ * `getLayoutedElements` will see no cache (`loadPositions` returns
+ * `null`), take the `'missing'` coverage branch, and write a freshly
+ * computed cache back out.
+ *
+ * Best-effort and non-throwing for the same reasons as `savePositions`:
+ * a missing file is the desired post-condition, and a permission error
+ * on a read-only filesystem is logged but not fatal — the caller will
+ * still see a recompute on the next read because the disk state didn't
+ * change. Returns `true` if a file was actually removed (so the dev
+ * endpoint can distinguish "reset took effect" from "nothing to do").
+ */
+export function clearPositions(): boolean {
+  if (!existsSync(POSITIONS_PATH)) return false;
+  try {
+    unlinkSync(POSITIONS_PATH);
+    return true;
+  } catch (err) {
+    console.warn(
+      `flowchart-positions: failed to delete ${POSITIONS_PATH}: ${(err as Error).message}`,
+    );
+    return false;
   }
 }
 

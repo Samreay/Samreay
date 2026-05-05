@@ -4,6 +4,7 @@
     Background,
     Controls,
     MiniMap,
+    Panel,
     ConnectionMode,
   } from '@xyflow/svelte';
   import '@xyflow/svelte/dist/style.css';
@@ -40,6 +41,175 @@
   // is to position the label closer to the source than xyflow's
   // built-in midpoint default. See OffsetLabelEdge.svelte.
   const edgeTypes = { offsetLabel: OffsetLabelEdge };
+
+  // ── Search ──────────────────────────────────────────────────────────
+  // The user types into the Panel; we lowercase + tokenise once and
+  // each node/edge keeps a pre-lowercased `searchHaystack` field built
+  // server-side in `flowchart-layout.ts`. Substring + multi-word AND,
+  // mirroring the semantics of `ReviewsExplorer.svelte` so the muscle
+  // memory between `/reviews/` and the flowchart is identical.
+  let searchTerm = $state('');
+  let searchInputEl = $state<HTMLInputElement | null>(null);
+
+  /**
+   * `null` is the sentinel for "no active query" — we treat it
+   * differently from an empty `Set`, because zero matches with an
+   * active query should still leave the canvas un-dimmed (otherwise
+   * the user is staring at a wall of 20%-opacity blobs while
+   * refining the query, which looks broken).
+   */
+  const matchedNodeIds = $derived.by((): Set<string> | null => {
+    const tokens = searchTerm.toLowerCase().split(/\s+/).filter(Boolean);
+    if (tokens.length === 0) return null;
+    const out = new Set<string>();
+    for (const node of nodes) {
+      const hay =
+        (node.data as { searchHaystack?: string }).searchHaystack ?? '';
+      if (tokens.every((t) => hay.includes(t))) out.add(node.id);
+    }
+    return out;
+  });
+
+  const matchedEdgeIds = $derived.by((): Set<string> | null => {
+    const tokens = searchTerm.toLowerCase().split(/\s+/).filter(Boolean);
+    if (tokens.length === 0) return null;
+    const matchedNodes = matchedNodeIds!;
+    const out = new Set<string>();
+    for (const edge of edges) {
+      const hay =
+        (edge.data as { searchHaystack?: string } | undefined)?.searchHaystack ??
+        '';
+      const labelMatches = tokens.every((t) => hay.includes(t));
+      // An edge stays bright if its OWN label matches OR if both
+      // endpoints matched — otherwise a search like "cradle" would
+      // keep the Cradle node bright with every connecting edge faded,
+      // which reads as "node floating in disconnected space".
+      const bothEndpointsMatch =
+        matchedNodes.has(edge.source) && matchedNodes.has(edge.target);
+      if (labelMatches || bothEndpointsMatch) out.add(edge.id);
+    }
+    return out;
+  });
+
+  /**
+   * Whether ANY node or edge matched — drives the dim gate. We keep
+   * dim active for matches against decisions and edge labels too so
+   * the user can visually navigate the graph from a phrase they
+   * remember from a decision question, not just a book title.
+   * Zero-result queries leave the canvas un-dimmed (visual cliff
+   * otherwise) and surface a "No matches" pill instead.
+   */
+  const totalMatches = $derived(
+    (matchedNodeIds?.size ?? 0) + (matchedEdgeIds?.size ?? 0),
+  );
+
+  /**
+   * Book-only count for the result pill. Decisions and edge labels
+   * can match (and we keep them lit for navigation), but the user
+   * is looking for *books* — a tally that includes "and 4 decision
+   * pills also mention this word" is noise. Counts only nodes whose
+   * `type === 'book'` so the pill reads as "books found".
+   */
+  const matchedBookCount = $derived.by(() => {
+    if (matchedNodeIds === null) return 0;
+    let n = 0;
+    for (const node of nodes) {
+      if (node.type === 'book' && matchedNodeIds.has(node.id)) n++;
+    }
+    return n;
+  });
+
+  /**
+   * Toggle the `flowchart-dim` class on each node and the
+   * `data.dim` flag on each edge so the matching CSS rule fades
+   * non-matching elements to 20% opacity.
+   *
+   * Nodes vs edges use different update paths because xyflow stores
+   * them differently:
+   *
+   *   - Nodes: REPLACE the entire `nodes` array. xyflow's
+   *     `adoptUserNodes` (see
+   *     `node_modules/@xyflow/system/dist/esm/index.js`) does a
+   *     reference-equality check `userNode === internals.userNode`
+   *     and skips re-spreading user fields onto the cached internal
+   *     node when references match. Two complications make slot-
+   *     mutation insufficient:
+   *       1. Mutating `node.class = …` in place keeps the same
+   *          reference, so checkEquality passes and the new class
+   *          never reaches the DOM.
+   *       2. Even REPLACING `nodes[i] = {...}` doesn't help on its
+   *          own — Svelte 5's recursive $state proxy returns the
+   *          SAME wrapper proxy for a given array slot regardless of
+   *          how many times we replace the underlying object, so
+   *          xyflow still sees identical references.
+   *     The reliable path is to assign a fresh array via
+   *     `nodes = nodes.map(...)`. That changes the array identity,
+   *     re-triggers the `nodesInitialized` $derived inside xyflow,
+   *     and inside that pass each individual node's userProxy is
+   *     wrapped fresh — so checkEquality fails for the entries we
+   *     spread and the new `class` is captured. Unchanged entries
+   *     are returned by-reference from `.map`, so xyflow correctly
+   *     skips re-spreading them.
+   *
+   *   - Edges: MUTATE `edge.data.dim` in place. Our custom
+   *     `OffsetLabelEdge` reads it through Svelte 5's recursive
+   *     $state proxy, which DOES intercept deep mutations because
+   *     the consumer reads through the same proxy on every render.
+   *     The dim class flows to both the path and the (portalled)
+   *     label without going through xyflow's internal-node cache.
+   *
+   * The `if (changed)` guard on the node assignment is what stops
+   * the effect from looping forever — on a stable search state no
+   * node needs reassignment, no write happens, no rerun.
+   *
+   * Position is preserved across the spread because we forward the
+   * existing `node.position` object reference, so any concurrent
+   * dev-mode drag remains valid.
+   */
+  $effect(() => {
+    const dimActive = matchedNodeIds !== null && totalMatches > 0;
+    let changed = false;
+    const nextNodes = nodes.map((node) => {
+      const matched = !dimActive || matchedNodeIds!.has(node.id);
+      const next = matched ? undefined : 'flowchart-dim';
+      if (node.class === next) return node;
+      changed = true;
+      return { ...node, class: next };
+    });
+    if (changed) nodes = nextNodes;
+    for (const edge of edges) {
+      if (!edge.data) continue; // every edge has data set in flowchart-layout.ts
+      const matched = !dimActive || matchedEdgeIds!.has(edge.id);
+      const next = !matched;
+      if (edge.data.dim !== next) edge.data.dim = next;
+    }
+  });
+
+  /**
+   * Keyboard polish, lifted from `ReviewsExplorer.svelte`'s clipboard
+   * shortcut pattern: `/` focuses the search box (unless already in an
+   * input/textarea), `Escape` clears the term and blurs. Cheap to add
+   * and matches the muscle memory the reviews page already trains.
+   */
+  $effect(() => {
+    if (typeof window === 'undefined') return;
+    const handler = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      const inField =
+        target?.tagName === 'INPUT' ||
+        target?.tagName === 'TEXTAREA' ||
+        target?.isContentEditable;
+      if (e.key === '/' && !inField) {
+        e.preventDefault();
+        searchInputEl?.focus();
+      } else if (e.key === 'Escape' && target === searchInputEl) {
+        searchTerm = '';
+        searchInputEl?.blur();
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  });
 
   // Initial viewport: zoom 1, world origin (0, 0) — where `d_start` is
   // pinned in `flowchart.ts` — placed at the visual centre of the
@@ -166,6 +336,41 @@
     if (ok) window.location.reload();
   }
 
+  // Reset: nuke the on-disk cache server-side and re-run the full ELK
+  // + sporeOverlap + Verlet pipeline from scratch. Destructive — wipes
+  // every hand-tuned position, including any unsaved drags — so we
+  // gate it behind a `window.confirm` instead of a silent click. After
+  // the server finishes the relayout we reload so the page picks up
+  // the freshly-computed positions; the on-mount snapshot below
+  // becomes the new clean baseline.
+  async function reset(): Promise<void> {
+    if (!isDev) return;
+    const dirtyNote =
+      dirtyCount > 0
+        ? ` This will also wipe ${dirtyCount} unsaved change${dirtyCount === 1 ? '' : 's'}.`
+        : '';
+    const confirmed = window.confirm(
+      `Reset every node position to a fresh ELK + relax layout?` +
+        `${dirtyNote} This can't be undone.`,
+    );
+    if (!confirmed) return;
+    saveStatus = { kind: 'saving' };
+    try {
+      const res = await fetch('/api/flowchart-positions.json', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ reset: true }),
+      });
+      if (!res.ok) {
+        const text = await res.text().catch(() => '');
+        throw new Error(`HTTP ${res.status}${text ? `: ${text}` : ''}`);
+      }
+      window.location.reload();
+    } catch (err) {
+      saveStatus = { kind: 'error', message: (err as Error).message };
+    }
+  }
+
   function discard(): void {
     if (!isDev) return;
     // In-place mutation through the $state proxy — same path xyflow
@@ -207,6 +412,60 @@
       <Background />
       <MiniMap pannable zoomable />
       <Controls />
+      <!--
+        Search lives inside the SvelteFlow viewport via xyflow's
+        `<Panel>`. Top-centre slot is free: dev toolbar owns
+        top-left, MiniMap owns top-right. Panel is built into both
+        production and dev — it's a user-facing feature, not
+        authoring chrome.
+
+        Styling mirrors the search row on `/reviews/` (see
+        `ReviewsExplorer.svelte`): `bg-gray-800` input, `bg-gray-700
+        hover:bg-main-700` accessory button, `text-gray-100` text.
+        The match-count pill borrows the same vocabulary so the
+        whole row reads as one element of the existing site
+        language, not a foreign canvas overlay.
+      -->
+      <Panel position="top-center" class="flowchart-search">
+        <input
+          bind:this={searchInputEl}
+          bind:value={searchTerm}
+          type="search"
+          class="bg-gray-800 rounded-md text-gray-100 m-2 px-3 py-2"
+          placeholder="Search... (press /)"
+          aria-label="Search the flowchart"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        {#if searchTerm}
+          {#if totalMatches > 0}
+            <span
+              class="inline-flex items-center m-2 px-3 py-2 bg-gray-700 rounded-md text-gray-100"
+              aria-live="polite"
+            >
+              {matchedBookCount} book{matchedBookCount === 1 ? '' : 's'}
+            </span>
+          {:else}
+            <span
+              class="inline-flex items-center m-2 px-3 py-2 bg-red-900 rounded-md text-red-100"
+              aria-live="polite"
+            >
+              No matches
+            </span>
+          {/if}
+          <button
+            type="button"
+            class="inline-flex items-center m-2 px-3 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
+            onclick={() => {
+              searchTerm = '';
+              searchInputEl?.focus();
+            }}
+            aria-label="Clear search"
+          >
+            Clear
+          </button>
+        {/if}
+      </Panel>
     </SvelteFlow>
   {/if}
 
@@ -236,6 +495,15 @@
         aria-label="Save positions and run physics refinement"
       >
         Save & Refine
+      </button>
+      <button
+        type="button"
+        class="dev-toolbar__btn dev-toolbar__btn--danger"
+        onclick={reset}
+        disabled={saveStatus.kind === 'saving'}
+        aria-label="Wipe the positions cache and re-run the full layout pipeline from scratch"
+      >
+        Reset
       </button>
       <button
         type="button"
@@ -321,5 +589,16 @@
   .dev-toolbar__btn--ghost:hover:not(:disabled) {
     background: rgba(185, 28, 28, 0.25);
     color: #fecaca;
+  }
+  /* Solid-red destructive variant — louder than the ghost "Discard"
+     because Reset wipes the on-disk cache, not just unsaved drags. */
+  .dev-toolbar__btn--danger {
+    background: #b91c1c;
+    color: #fef2f2;
+    border-color: #b91c1c;
+  }
+  .dev-toolbar__btn--danger:hover:not(:disabled) {
+    background: #dc2626;
+    border-color: #dc2626;
   }
 </style>

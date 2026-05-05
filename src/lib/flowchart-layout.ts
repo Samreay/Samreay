@@ -116,6 +116,13 @@ export interface BookNodePayload extends Record<string, unknown> {
   tier: CollectionEntry<'reviews'>['data']['review'];
   cover: { src: string; width: number; height: number };
   link: string;
+  /** Pre-lowercased "title sentence author tags search_terms" string for
+   *  cheap substring matching by the in-canvas search bar. Mirrors the
+   *  shape used by `src/pages/reviews/index.astro`'s `Post.search_term`
+   *  so a query that finds a book on `/reviews/` finds it here too.
+   *  Built once at build time inside `getLayoutedElements`; never
+   *  re-derived on the client. */
+  searchHaystack: string;
 }
 
 export interface DecisionNodePayload extends Record<string, unknown> {
@@ -125,6 +132,9 @@ export interface DecisionNodePayload extends Record<string, unknown> {
    *  inline — same reasoning as edges (xyflow portals/scopes break
    *  the CSS cascade for variables defined on `.svelte-flow__node`). */
   accent: { line: string; text: string };
+  /** Pre-lowercased prompt for the in-canvas search bar. See
+   *  `BookNodePayload.searchHaystack`. */
+  searchHaystack: string;
 }
 
 // Tighten against xyflow's own `Node<TData, TType>` so the island accepts
@@ -144,7 +154,23 @@ export type FlowNode = BookFlowNode | DecisionFlowNode;
 const CUSTOM_EDGE_TYPE = 'offsetLabel';
 
 export type FlowEdge = Edge<
-  { color?: PaletteColor; pathType: EdgeType },
+  {
+    color?: PaletteColor;
+    pathType: EdgeType;
+    /** Pre-lowercased edge label for the in-canvas search bar. Empty
+     *  string for unlabelled edges — they can never match a non-empty
+     *  query, which is the correct behaviour. See
+     *  `BookNodePayload.searchHaystack`. */
+    searchHaystack: string;
+    /** Toggled by the search bar in `Flowchart.svelte`. We carry it on
+     *  `data` (rather than on `edge.class`) because the edge label is
+     *  portalled outside `.svelte-flow__edge` by xyflow's
+     *  `EdgeLabelRenderer`, so a class on the parent edge group cannot
+     *  cascade into it. `OffsetLabelEdge` reads this flag and applies
+     *  the `flowchart-dim` class to BOTH the path and the label
+     *  consistently. Default false (full opacity). */
+    dim?: boolean;
+  },
   typeof CUSTOM_EDGE_TYPE
 >;
 
@@ -156,17 +182,30 @@ export type FlowEdge = Edge<
  *
  * Tuned by inspecting the build-time before/after score deltas printed
  * in `getLayoutedElements`. The objective is monotonically decreasing
- * `nodeNodeOverlaps + edgeNodeIntrusions + edgeEdgeCrossings` while
- * leaving the macro shape ELK established largely intact (controlled by
- * `K_LEN` — too high and we tear things back to a regular grid, too low
- * and the sim drifts away from ELK's solution).
+ * `nodeNodeOverlaps + edgeNodeIntrusions + edgeEdgeCrossings +
+ * labelNodeOverlaps + labelLabelOverlaps` while leaving the macro shape
+ * ELK established largely intact (controlled by `K_LEN` — too high and
+ * we tear things back to a regular grid, too low and the sim drifts
+ * away from ELK's solution).
  */
 const RELAX_OPTS = {
-  /** Edge-length spring strength. Pulls each edge back toward the macro
-   *  spacing ELK established so the sim doesn't drift to its own
-   *  unrelated equilibrium. Very small — its only job is to prevent
-   *  long-range drift, not to fight the other terms. */
-  K_LEN: 0.001,
+  /** Edge-length spring strength when an edge is SHORTER than the
+   *  desired length. Deliberately weak: a compact subtree where every
+   *  edge is at 600 instead of 850 isn't a defect, and pushing it apart
+   *  would create more crossings + force the rest of the layout out to
+   *  make room. Only here so that if the other forces ever pull two
+   *  endpoints onto the same point, there's a tiny restoring push. */
+  K_LEN_COMPRESS: 0.0005,
+  /** Edge-length spring strength when an edge is LONGER than the
+   *  desired length. The previous symmetric `K_LEN = 0.001` could not
+   *  hold the layout together against the cumulative drift the new
+   *  label-vs-* terms inject — endpoint-translation forces from
+   *  label-label and label-node have no opposing pull, so the network
+   *  spread out by hundreds of px over the longer 4000-iter budget.
+   *  This is set ~10x higher so over-stretched edges genuinely pull
+   *  back, anchoring the topology to the macro spacing without
+   *  needing a separate per-node anchor force. */
+  K_LEN_STRETCH: 0.01,
   /** Rectangular node-node repulsion. Scales linearly with overlap depth.
    *  This is the term that actually fixes the 520x400 book-on-book
    *  collisions ELK's `sporeOverlap` couldn't resolve. */
@@ -186,6 +225,20 @@ const RELAX_OPTS = {
    *  a hard constraint; the edge-length spring + node-node basin do
    *  most of the topological work. */
   K_EDGE_EDGE: 0.02,
+  /** Label-vs-non-endpoint-node repulsion. Linear in overlap depth and
+   *  weaker than `K_EDGE_NODE` because the label is a derived position
+   *  (a function of both endpoints' coordinates) — pushing on it ends
+   *  up moving two nodes by half each, so the same K constant makes
+   *  the actual coordinate motion comparable to the edge-node term. */
+  K_LABEL_NODE: 0.4,
+  /** Label-vs-label repulsion. Linear in overlap depth. Slightly weaker
+   *  than `K_LABEL_NODE` because labels are small (~ a few hundred px²)
+   *  and a fan-out of sibling answers from the same decision is the
+   *  common case — we want a gentle spread, not aggressive pushing
+   *  that rotates the whole subtree. The relax sim's other terms
+   *  (length spring, node-node basin) dominate the macro shape; this
+   *  term only does the local untangle. */
+  K_LABEL_LABEL: 0.25,
   /** Per-step velocity damping. < 1 to shed energy each step; > 0 to
    *  preserve enough momentum for slow constraints (long edges) to keep
    *  pulling. Lower = more "ringing" but better basin escape. */
@@ -199,17 +252,32 @@ const RELAX_OPTS = {
    *  higher than typical equilibrium velocities so it only clamps
    *  pathological iterations, not normal motion. */
   V_MAX: 120,
-  /** Padding added to every separation criterion (node-node, edge-node).
-   *  This is the breathing room the sim refuses to give up on. */
+  /** Padding added to every separation criterion (node-node, edge-node,
+   *  label-*). This is the breathing room the sim refuses to give up
+   *  on. */
   PADDING: 60,
-  /** Hard iteration cap. */
-  MAX_ITERS: 1000,
+  /** Hard iteration cap. Was 1000; raised to give the additional label
+   *  terms time to settle. The five-way coupling (node-node, edge-node,
+   *  edge-edge, label-node, label-label) takes longer to reach a
+   *  uniform equilibrium than the original three terms did, and the
+   *  point of the longer budget is to LET it settle into a more
+   *  uniform layout instead of stopping mid-shuffle. */
+  MAX_ITERS: 4000,
   /** Total kinetic-energy threshold below which the sim declares
    *  convergence and exits early. Units: sum of |v|² across all nodes,
-   *  so for ~215 nodes this corresponds to a per-node speed of about
-   *  sqrt(20/215) ≈ 0.3 px/step — slow enough that further iterations
-   *  only shuffle pixels. */
-  CONVERGENCE_KE: 20.0,
+   *  so for ~215 nodes a value of 4 corresponds to a per-node speed of
+   *  about sqrt(4/215) ≈ 0.14 px/step. The previous threshold of 20
+   *  cut things off at ≈0.3 px/step, which left visible micro-shuffle
+   *  that the longer iteration budget can now absorb. Lower threshold
+   *  + higher MAX_ITERS together = the sim runs until the layout is
+   *  genuinely stable instead of "good enough for fast builds". */
+  CONVERGENCE_KE: 4.0,
+  /** How long the sim must hold below `CONVERGENCE_KE` before exiting.
+   *  A single low-KE frame can be a momentary cancellation of
+   *  oscillating forces (especially with five interacting terms);
+   *  insisting on a sustained quiet window before declaring victory
+   *  catches that case. */
+  CONVERGENCE_HOLD_ITERS: 25,
 } as const;
 
 /**
@@ -258,8 +326,91 @@ function formatOffenders(score: LayoutScore): string {
       lines.push(`    ${o.aId} × ${o.bId}  (${o.angleDeg.toFixed(0)}°)`);
     }
   }
+  if (score.worstOffenders.labelNode.length) {
+    lines.push('  label-node:');
+    for (const o of score.worstOffenders.labelNode) {
+      lines.push(`    ${o.edgeId}'s label clips ${o.nodeId}  (${o.overlapPx.toFixed(0)}px overlap)`);
+    }
+  }
+  if (score.worstOffenders.labelLabel.length) {
+    lines.push('  label-label:');
+    for (const o of score.worstOffenders.labelLabel) {
+      lines.push(`    ${o.aId}'s label ↔ ${o.bId}'s label  (${o.overlapPx.toFixed(0)}px overlap)`);
+    }
+  }
+  if (score.worstOffenders.stretch.length) {
+    lines.push('  most-stretched edges:');
+    for (const o of score.worstOffenders.stretch) {
+      lines.push(`    ${o.edgeId}  (${o.lengthPx.toFixed(0)}px, ${o.excessPx.toFixed(0)}px over target)`);
+    }
+  }
+  if (score.worstOffenders.compression.length) {
+    lines.push('  most-compressed edges:');
+    for (const o of score.worstOffenders.compression) {
+      lines.push(`    ${o.edgeId}  (${o.lengthPx.toFixed(0)}px, ${o.deficitPx.toFixed(0)}px under minimum)`);
+    }
+  }
   return lines.join('\n');
 }
+
+/**
+ * Aggregate a `LayoutScore` into a single comparable badness number.
+ *
+ * Weights chosen by visual severity rather than raw count:
+ *   - node-on-node overlaps and edge-on-node intrusions are the loudest
+ *     defects (a card visibly under another card; an arrow visibly
+ *     piercing a card), so their counts dominate.
+ *   - label-on-node sits below them but above edge-edge because a label
+ *     covering a different node's content is more disruptive than a
+ *     line crossing.
+ *   - edge-edge crossings are the gentlest defect — even a 90° crossing
+ *     of two coloured curves is legible.
+ *   - edge stretch is a continuous term, weighted as cost-per-pixel-
+ *     of-excess. With `LAYOUT_DESIRED_EDGE_LENGTH = 850` and ~230
+ *     edges, average excess of ~50px → ~11500 stretch px → ~575 cost
+ *     units (about the equivalent of 50-ish edge-edge crossings or one
+ *     edge-node intrusion). Tuned so genuinely sprawled layouts cost
+ *     more than tightly-packed ones, but a small amount of stretch
+ *     can't outweigh fixing a real overlap.
+ *
+ * Used by the best-snapshot revert in `relax`. Treating this as a
+ * single scalar lets the simulation run its full budget, periodically
+ * snapshot positions when the cost drops, and revert to the lowest-
+ * cost snapshot at the end. The "do no harm" property: a longer
+ * iteration budget cannot make the layout worse than the input.
+ */
+function layoutCost(s: LayoutScore): number {
+  return (
+    s.nodeNodeOverlaps * 100 +
+    s.edgeNodeIntrusions * 50 +
+    s.labelNodeOverlaps * 30 +
+    s.labelLabelOverlaps * 20 +
+    s.edgeEdgeCrossings * 10 +
+    // Symmetric length-deviation penalty. Same per-pixel weight on both
+    // sides of the sweet spot — an edge that's 100px too short is just
+    // as visually problematic as one that's 100px too long (one squashes
+    // arrows into stubs, the other sprawls the layout).
+    s.totalStretchPx * 0.05 +
+    s.totalCompressionPx * 0.05
+  );
+}
+
+/** Upper bound of the edge-length sweet spot — the relax sim's K_LEN
+ *  spring pulls every over-stretched edge toward this length, and the
+ *  scorer counts excess over it as `totalStretchPx`. Hoisted to a
+ *  module constant so the tuner only edits one number. */
+const LAYOUT_DESIRED_EDGE_LENGTH = 850;
+
+/** Lower bound of the edge-length sweet spot — edges shorter than this
+ *  contribute to `totalCompressionPx` in the layout score, biasing the
+ *  best-snapshot revert away from layouts where overlapping label and
+ *  edge-node basins have squashed two endpoints almost on top of each
+ *  other. The relax sim's K_LEN spring still pulls toward
+ *  `LAYOUT_DESIRED_EDGE_LENGTH` (not this minimum) — the constant
+ *  defines the boundary of the cost-free band, not a separate force
+ *  target. Edges with length in [`LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH`,
+ *  `LAYOUT_DESIRED_EDGE_LENGTH`] pay no length cost. */
+const LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH = 300;
 
 function relax(opts: {
   positions: Map<string, Vec2>;
@@ -267,19 +418,37 @@ function relax(opts: {
   edges: EdgeSpec[];
   pinnedIds: ReadonlySet<string>;
   desiredEdgeLength: number;
-}): { iterationsUsed: number; finalScore: LayoutScore } {
-  const { positions, sizes, edges, pinnedIds, desiredEdgeLength } = opts;
+  minDesiredEdgeLength: number;
+}): {
+  iterationsUsed: number;
+  finalScore: LayoutScore;
+  bestCost: number;
+  bestIter: number;
+  revertedFromIter: number | null;
+} {
   const {
-    K_LEN,
+    positions,
+    sizes,
+    edges,
+    pinnedIds,
+    desiredEdgeLength,
+    minDesiredEdgeLength,
+  } = opts;
+  const {
+    K_LEN_COMPRESS,
+    K_LEN_STRETCH,
     K_NODE_NODE,
     K_EDGE_NODE,
     K_EDGE_EDGE,
+    K_LABEL_NODE,
+    K_LABEL_LABEL,
     DAMPING,
     DT,
     V_MAX,
     PADDING,
     MAX_ITERS,
     CONVERGENCE_KE,
+    CONVERGENCE_HOLD_ITERS,
   } = RELAX_OPTS;
 
   const ids = [...positions.keys()];
@@ -303,15 +472,69 @@ function relax(opts: {
     fy[i] += dy;
   };
 
+  // ── best-snapshot revert ─────────────────────────────────────────────
+  // Score every `SCORE_EVERY` iterations and remember the layout with
+  // the lowest aggregate cost. At the end we revert to that snapshot
+  // (which may be the input itself) so the longer iteration budget
+  // genuinely "lets shapes converge into more uniform layouts" without
+  // ever drifting past a better intermediate state — the failure mode
+  // when many force terms compete with no global energy minimum the
+  // pure Verlet integrator can find.
+  //
+  // Cost tip: scoreLayout is O(N² + N·E + E²) — comparable to one
+  // iteration of force computation. Sampling every 25 iters adds ~4%
+  // overhead; sampling every iter would roughly double total runtime.
+  const SCORE_EVERY = 25;
+  let bestCost = Infinity;
+  let bestIter = -1;
+  const bestX = new Float64Array(ids.length);
+  const bestY = new Float64Array(ids.length);
+  const snapshotBest = (cost: number, atIter: number): void => {
+    bestCost = cost;
+    bestIter = atIter;
+    for (let i = 0; i < ids.length; i++) {
+      const p = positions.get(ids[i])!;
+      bestX[i] = p.x;
+      bestY[i] = p.y;
+    }
+  };
+
   let iter = 0;
+  let quietStreak = 0;
   for (; iter < MAX_ITERS; iter++) {
     fx.fill(0);
     fy.fill(0);
     const geometry = buildEdgeGeometry(positions, sizes, edges);
 
-    // --- 1. edge-length spring ------------------------------------------
-    // Pulls every edge's centre-to-centre distance toward `desiredEdgeLength`.
-    // Linear (Hookean) so far-from-target pairs feel large forces and
+    // Snapshot-if-better at sample iterations. We do this BEFORE the
+    // force terms run so the geometry we just built (and the positions
+    // it was built from) describe the same instant — there's no cross-
+    // iteration smearing in the captured state. The first sample
+    // (iter=0) baselines bestCost against the input layout, so the
+    // revert below is guaranteed to never produce a worse layout than
+    // we were handed.
+    if (iter % SCORE_EVERY === 0) {
+      const stepScore = scoreLayout({
+        positions,
+        sizes,
+        geometry,
+        edges,
+        desiredEdgeLength,
+        minDesiredEdgeLength,
+      });
+      const cost = layoutCost(stepScore);
+      if (cost < bestCost) snapshotBest(cost, iter);
+    }
+
+    // --- 1. edge-length spring (asymmetric) -----------------------------
+    // Pulls every edge's centre-to-centre distance toward
+    // `desiredEdgeLength`. The constants split: `K_LEN_STRETCH` for
+    // edges longer than the target (strong pull-together — this is the
+    // term that fights the cumulative drift the label terms inject);
+    // `K_LEN_COMPRESS` for edges shorter than the target (very weak —
+    // a dense subtree at 600px is fine, we don't want to push it apart
+    // and create new overlaps to "fix" a non-defect). Linear (Hookean)
+    // either way so far-from-target pairs feel large forces and
     // near-target pairs feel almost none.
     for (const e of edges) {
       const sp = positions.get(e.source)!;
@@ -327,7 +550,8 @@ function relax(opts: {
       const dist = Math.hypot(dx, dy);
       if (dist < 1e-6) continue;
       const stretch = dist - desiredEdgeLength;
-      const mag = (K_LEN * stretch) / dist;
+      const k = stretch > 0 ? K_LEN_STRETCH : K_LEN_COMPRESS;
+      const mag = (k * stretch) / dist;
       addForce(e.source, dx * mag, dy * mag);
       addForce(e.target, -dx * mag, -dy * mag);
     }
@@ -547,6 +771,128 @@ function relax(opts: {
       }
     }
 
+    // --- 5. label-vs-non-endpoint-node repulsion ------------------------
+    // The HTML edge labels live on top of the canvas. A label sliding
+    // under a book card or onto a decision pill is exactly as broken as
+    // an edge polyline doing the same. Treated as AABB-AABB (the label
+    // is a small horizontal rectangle, no need for the polyline math
+    // the edge-node term uses).
+    //
+    // Forces apply to the EDGE'S endpoints, not the label itself — the
+    // label is a derived position, so to push it we have to translate
+    // the edge that hosts it. We split the push 50/50 across both
+    // endpoints so the edge translates roughly bodily without snapping
+    // either end faster than the other.
+    for (const g of geometry) {
+      if (!g.label) continue;
+      const lx2 = g.label.x + g.label.w;
+      const ly2 = g.label.y + g.label.h;
+      const lcx = g.label.centre.x;
+      const lcy = g.label.centre.y;
+      for (let i = 0; i < ids.length; i++) {
+        const id = ids[i];
+        if (id === g.source || id === g.target) continue;
+        const np = positions.get(id)!;
+        const nSz = sizes.get(id)!;
+        // Padded-overlap measure: positive only when the inflated AABBs
+        // intersect.
+        const padOvX = Math.min(lx2, np.x + nSz.w) - Math.max(g.label.x, np.x) + PADDING;
+        if (padOvX <= 0) continue;
+        const padOvY = Math.min(ly2, np.y + nSz.h) - Math.max(g.label.y, np.y) + PADDING;
+        if (padOvY <= 0) continue;
+        const overlap = Math.min(padOvX, padOvY);
+        const ncx = np.x + nSz.w / 2;
+        const ncy = np.y + nSz.h / 2;
+        let dx = ncx - lcx;
+        let dy = ncy - lcy;
+        let dlen = Math.hypot(dx, dy);
+        if (dlen < 1e-6) {
+          // Centres coincident — pick the smaller padded-overlap axis as
+          // the deterministic separation direction.
+          if (padOvX < padOvY) {
+            dx = 1;
+            dy = 0;
+          } else {
+            dx = 0;
+            dy = 1;
+          }
+          dlen = 1;
+        }
+        dx /= dlen;
+        dy /= dlen;
+        const force = K_LABEL_NODE * overlap;
+        // Push the node away from the label.
+        addForce(id, dx * force, dy * force);
+        // Translate the edge (and therefore its label) the other way.
+        // Half on each endpoint = unit translation magnitude on the
+        // label, matching the per-iteration "intent" the K_LABEL_NODE
+        // constant was tuned for.
+        const ENDPOINT_SHARE = 0.5;
+        addForce(g.source, -dx * force * ENDPOINT_SHARE, -dy * force * ENDPOINT_SHARE);
+        addForce(g.target, -dx * force * ENDPOINT_SHARE, -dy * force * ENDPOINT_SHARE);
+      }
+    }
+
+    // --- 6. label-vs-label repulsion ------------------------------------
+    // Two answers stacking on top of each other turn the diagram into
+    // visual noise. Includes shared-endpoint pairs (siblings of one
+    // decision node) — they're the most common collision in practice
+    // because every decision node fans out 2-5 sibling answers, and
+    // they need to spread before the eye can read them. The math falls
+    // out cleanly: the shared endpoint receives equal-and-opposite
+    // pushes that cancel, and the non-shared endpoints pull apart,
+    // which is exactly the right motion (rotate the siblings around
+    // the shared node).
+    for (let i = 0; i < geometry.length; i++) {
+      const ga = geometry[i];
+      if (!ga.label) continue;
+      const ax2 = ga.label.x + ga.label.w;
+      const ay2 = ga.label.y + ga.label.h;
+      for (let j = i + 1; j < geometry.length; j++) {
+        const gb = geometry[j];
+        if (!gb.label) continue;
+        const bx2 = gb.label.x + gb.label.w;
+        const by2 = gb.label.y + gb.label.h;
+        const padOvX =
+          Math.min(ax2, bx2) - Math.max(ga.label.x, gb.label.x) + PADDING;
+        if (padOvX <= 0) continue;
+        const padOvY =
+          Math.min(ay2, by2) - Math.max(ga.label.y, gb.label.y) + PADDING;
+        if (padOvY <= 0) continue;
+        const overlap = Math.min(padOvX, padOvY);
+        let dx = gb.label.centre.x - ga.label.centre.x;
+        let dy = gb.label.centre.y - ga.label.centre.y;
+        let dlen = Math.hypot(dx, dy);
+        if (dlen < 1e-6) {
+          // Labels exactly coincident — push along the smaller padded
+          // axis. (Common with two siblings whose answers happen to
+          // produce the same arc-length midpoint at iteration 0.)
+          if (padOvX < padOvY) {
+            dx = 1;
+            dy = 0;
+          } else {
+            dx = 0;
+            dy = 1;
+          }
+          dlen = 1;
+        }
+        dx /= dlen;
+        dy /= dlen;
+        const force = K_LABEL_LABEL * overlap;
+        // Translate edge A along -d (its label moves away from B's),
+        // edge B along +d. Both endpoints of each edge get the same
+        // push so the motion is translation, not rotation. For a
+        // shared-endpoint pair the shared node receives both pushes
+        // (one from each edge in opposite signs) and they cancel; the
+        // other endpoints are pulled apart, which is the desired
+        // behaviour for sibling answers.
+        addForce(ga.source, -dx * force, -dy * force);
+        addForce(ga.target, -dx * force, -dy * force);
+        addForce(gb.source, dx * force, dy * force);
+        addForce(gb.target, dx * force, dy * force);
+      }
+    }
+
     // --- integrate ------------------------------------------------------
     let totalKE = 0;
     for (let i = 0; i < ids.length; i++) {
@@ -571,8 +917,51 @@ function relax(opts: {
       totalKE += vxi * vxi + vyi * vyi;
     }
     if (totalKE < CONVERGENCE_KE) {
-      iter++;
-      break;
+      // A single low-KE frame can be a momentary phase-cancellation of
+      // oscillating forces (most common with the two label terms,
+      // which pull endpoints together symmetrically). Require a
+      // sustained quiet window before declaring victory so we don't
+      // exit on a false floor that the sim would have climbed back out
+      // of.
+      quietStreak++;
+      if (quietStreak >= CONVERGENCE_HOLD_ITERS) {
+        iter++;
+        break;
+      }
+    } else {
+      quietStreak = 0;
+    }
+  }
+
+  // Final scoring: snapshot the very last iteration too, in case it
+  // happens to be the best (common when convergence cleanly fires).
+  {
+    const finalGeom = buildEdgeGeometry(positions, sizes, edges);
+    const finalCost = layoutCost(
+      scoreLayout({
+        positions,
+        sizes,
+        geometry: finalGeom,
+        edges,
+        desiredEdgeLength,
+        minDesiredEdgeLength,
+      }),
+    );
+    if (finalCost < bestCost) snapshotBest(finalCost, iter);
+  }
+
+  // Revert to the best-cost snapshot. If `bestIter` is the last iter
+  // we just measured, this is a no-op; if it's earlier, we throw away
+  // the post-best drift. Either way the caller observes the lowest-
+  // cost layout this run produced, and the score we report below
+  // matches the positions we leave in the map.
+  let revertedFromIter: number | null = null;
+  if (bestIter >= 0 && bestIter !== iter) {
+    revertedFromIter = iter;
+    for (let i = 0; i < ids.length; i++) {
+      const p = positions.get(ids[i])!;
+      p.x = bestX[i];
+      p.y = bestY[i];
     }
   }
 
@@ -582,8 +971,16 @@ function relax(opts: {
     sizes,
     geometry: finalGeometry,
     edges,
+    desiredEdgeLength,
+    minDesiredEdgeLength,
   });
-  return { iterationsUsed: iter, finalScore };
+  return {
+    iterationsUsed: iter,
+    finalScore,
+    bestCost,
+    bestIter,
+    revertedFromIter,
+  };
 }
 
 function validateFlowchart(data: FlowchartData): void {
@@ -654,15 +1051,33 @@ export async function getLayoutedElements(
       // Resolve the cover at the wide-card cover dimensions, not the full
       // node dimensions — the right-hand pane holds title/sentence/tags.
       const cover = await resolveCover(entry, COVER_W, COVER_H);
+      const tags = [...entry.data.tags].sort().map((t) => t.toLowerCase());
+      const title = entry.data.short_title ?? entry.data.name;
+      // Mirror the haystack composition from `src/pages/reviews/index.astro`
+      // (auth + name + search_terms) and add the on-card text the user
+      // can actually see in the flowchart (title, sentence, tags) so a
+      // search for a tag like "audio" or a phrase from the one-liner
+      // matches even when the book's frontmatter `search_terms` doesn't
+      // mention it.
+      const searchHaystack = [
+        title,
+        entry.data.sentence,
+        entry.data.auth,
+        tags.join(' '),
+        entry.data.search_terms ?? '',
+      ]
+        .join(' ')
+        .toLowerCase();
       const payload: BookNodePayload = {
         kind: 'book',
         reviewId: entry.id,
-        title: entry.data.short_title ?? entry.data.name,
+        title,
         sentence: entry.data.sentence,
-        tags: [...entry.data.tags].sort().map((t) => t.toLowerCase()),
+        tags,
         tier: entry.data.review,
         cover,
         link: `/reviews/${entry.id}/`,
+        searchHaystack,
       };
       return { node: book, size, payload };
     }),
@@ -709,6 +1124,11 @@ export async function getLayoutedElements(
     source: e.source,
     target: e.target,
     pathType: e.type ?? defaultEdgeType,
+    // Pass the label through so `buildEdgeGeometry` can compute the
+    // rendered label bbox; the relax sim and scorer then treat labels
+    // as first-class collision targets the same way they treat nodes
+    // and edge polylines.
+    label: e.label,
   }));
 
   // Decide which of the four code paths to take based on the disk cache.
@@ -959,26 +1379,44 @@ export async function getLayoutedElements(
       sizes,
       geometry: beforeGeometry,
       edges: edgeSpecs,
+      desiredEdgeLength: LAYOUT_DESIRED_EDGE_LENGTH,
+      minDesiredEdgeLength: LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH,
     });
 
-    const { iterationsUsed, finalScore: after } = relax({
+    const {
+      iterationsUsed,
+      finalScore: after,
+      bestIter,
+      revertedFromIter,
+    } = relax({
       positions,
       sizes,
       edges: edgeSpecs,
       pinnedIds: effectivePinnedIds,
-      desiredEdgeLength: 850,
+      desiredEdgeLength: LAYOUT_DESIRED_EDGE_LENGTH,
+      minDesiredEdgeLength: LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH,
     });
 
+    const revertNote =
+      revertedFromIter !== null
+        ? ` (reverted from iter ${revertedFromIter} to best-cost snapshot at iter ${bestIter})`
+        : '';
     console.log(
-      `flowchart-layout: relaxation ran ${iterationsUsed} iterations\n` +
-        `  node-node overlaps:   ${before.nodeNodeOverlaps} -> ${after.nodeNodeOverlaps}\n` +
-        `  edge-node intrusions: ${before.edgeNodeIntrusions} -> ${after.edgeNodeIntrusions}\n` +
-        `  edge-edge crossings:  ${before.edgeEdgeCrossings} -> ${after.edgeEdgeCrossings}`,
+      `flowchart-layout: relaxation ran ${iterationsUsed} iterations${revertNote}\n` +
+        `  node-node overlaps:     ${before.nodeNodeOverlaps} -> ${after.nodeNodeOverlaps}\n` +
+        `  edge-node intrusions:   ${before.edgeNodeIntrusions} -> ${after.edgeNodeIntrusions}\n` +
+        `  edge-edge crossings:    ${before.edgeEdgeCrossings} -> ${after.edgeEdgeCrossings}\n` +
+        `  label-node overlaps:    ${before.labelNodeOverlaps} -> ${after.labelNodeOverlaps}\n` +
+        `  label-label overlaps:   ${before.labelLabelOverlaps} -> ${after.labelLabelOverlaps}\n` +
+        `  total stretch (px):     ${before.totalStretchPx.toFixed(0)} -> ${after.totalStretchPx.toFixed(0)}\n` +
+        `  total compression (px): ${before.totalCompressionPx.toFixed(0)} -> ${after.totalCompressionPx.toFixed(0)}`,
     );
     if (
       after.nodeNodeOverlaps > 0 ||
       after.edgeNodeIntrusions > 0 ||
-      after.edgeEdgeCrossings > 0
+      after.edgeEdgeCrossings > 0 ||
+      after.labelNodeOverlaps > 0 ||
+      after.labelLabelOverlaps > 0
     ) {
       console.warn(
         'flowchart-layout: residual collisions after relaxation:\n' +
@@ -1003,7 +1441,12 @@ export async function getLayoutedElements(
       width: size.width,
       height: size.height,
       ariaLabel: `Decision: ${d.prompt}`,
-      data: { kind: 'decision', prompt: d.prompt, accent },
+      data: {
+        kind: 'decision',
+        prompt: d.prompt,
+        accent,
+        searchHaystack: d.prompt.toLowerCase(),
+      },
     };
   };
 
@@ -1070,7 +1513,11 @@ export async function getLayoutedElements(
       // and the brightest-shade hue tint for the text in the same
       // string so the two sides of the colour pair can never drift.
       labelStyle: `background: ${palette.line}; color: ${palette.text};`,
-      data: { color: e.color, pathType: e.type ?? defaultEdgeType },
+      data: {
+        color: e.color,
+        pathType: e.type ?? defaultEdgeType,
+        searchHaystack: (e.label ?? '').toLowerCase(),
+      },
     };
   });
 
