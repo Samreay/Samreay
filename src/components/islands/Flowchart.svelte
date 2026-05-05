@@ -13,6 +13,8 @@
   import DecisionNode from './flowchart/DecisionNode.svelte';
   import OffsetLabelEdge from './flowchart/OffsetLabelEdge.svelte';
   import type { FlowNode, FlowEdge } from '../../lib/flowchart-layout';
+  import { RelaxSimulator } from '../../lib/flowchart-relax';
+  import type { EdgeSpec } from '../../lib/flowchart-relax';
 
   let {
     nodes: initialNodes,
@@ -35,6 +37,12 @@
   // without us mutating frozen prop arrays.
   let nodes = $state<FlowNode[]>(initialNodes);
   let edges = $state<FlowEdge[]>(initialEdges);
+
+  // Overlay of positions captured from onnodedragstop events. xyflow mutates
+  // node.position in place during drag without going through Svelte's proxy,
+  // so we capture the true post-drag position here and read it back in
+  // postPositions rather than relying on the stale `nodes` $state.
+  const _draggedPositions = new Map<string, { x: number; y: number }>();
 
   const nodeTypes = { book: BookNode, decision: DecisionNode };
   // Single custom edge type for every edge in the graph — its only job
@@ -259,8 +267,15 @@
   // Number of nodes whose live position differs from the on-disk
   // snapshot. Reactive via `$derived` so dragging a node updates the
   // pill in real time.
+  // SvelteFlow mutates node.position in place during drag, which bypasses
+  // Svelte's reactivity proxy. Track drag-dirtiness via an explicit counter
+  // incremented from onnodedragstop, and combine it with the derived check
+  // so the Save button enables correctly after both drags and sim runs.
+  let _dragDirtyCount = $state(0);
+
   const dirtyCount = $derived.by(() => {
     if (!isDev) return 0;
+    if (_dragDirtyCount > 0) return _dragDirtyCount;
     let n = 0;
     for (const node of nodes) {
       const saved = savedPositions.get(node.id);
@@ -291,9 +306,13 @@
   async function postPositions(refine: boolean): Promise<boolean> {
     if (!isDev) return false;
     saveStatus = { kind: 'saving' };
+    // Merge dragged positions (captured in onnodedragstop) over the nodes
+    // $state — xyflow mutates position in place during drag without going
+    // through Svelte's proxy, so `nodes` may be stale for dragged nodes.
     const positions: Record<string, { x: number; y: number }> = {};
     for (const node of nodes) {
-      positions[node.id] = { x: node.position.x, y: node.position.y };
+      const dragged = _draggedPositions.get(node.id);
+      positions[node.id] = dragged ?? { x: node.position.x, y: node.position.y };
     }
     try {
       const res = await fetch('/api/flowchart-positions.json', {
@@ -313,9 +332,12 @@
       // for the toolbar.)
       const next = new Map<string, { x: number; y: number }>();
       for (const node of nodes) {
-        next.set(node.id, { x: node.position.x, y: node.position.y });
+        const dragged = _draggedPositions.get(node.id);
+        next.set(node.id, dragged ?? { x: node.position.x, y: node.position.y });
       }
       savedPositions = next;
+      _draggedPositions.clear();
+      _dragDirtyCount = 0;
       saveStatus = { kind: 'saved' };
       setTimeout(() => {
         if (saveStatus.kind === 'saved') saveStatus = { kind: 'idle' };
@@ -373,16 +395,143 @@
 
   function discard(): void {
     if (!isDev) return;
-    // In-place mutation through the $state proxy — same path xyflow
-    // itself uses during a drag. Replacing the array would also work
-    // but would force SvelteFlow to remount every node.
-    for (const node of nodes) {
+    nodes = nodes.map((node) => {
       const saved = savedPositions.get(node.id);
-      if (saved) {
-        node.position.x = saved.x;
-        node.position.y = saved.y;
+      if (!saved) return node;
+      if (node.position.x === saved.x && node.position.y === saved.y) return node;
+      return { ...node, position: { x: saved.x, y: saved.y } };
+    });
+    _draggedPositions.clear();
+    _dragDirtyCount = 0;
+  }
+
+  // ── Simulate ─────────────────────────────────────────────────────────
+  // Runs the physics relaxation in-browser, one step per rAF frame.
+  // The simulator mutates a private `positions` Map; each frame we
+  // write those positions back to the `nodes` array so xyflow re-renders.
+  // "Pause" stops the rAF loop while leaving positions in place (safe to
+  // Save or drag at that point). "Stop" reverts to the pre-sim snapshot.
+
+  type SimState = 'idle' | 'running' | 'paused';
+  let simState = $state<SimState>('idle');
+  let simIter = $state(0);
+  let simCost = $state(0);
+
+  // Private sim bookkeeping — not reactive, mutated per-frame.
+  let _sim: RelaxSimulator | null = null;
+  let _simRafId: number | null = null;
+  // Snapshot taken when simulation starts so "Stop" can fully revert.
+  let _simStartPositions: Map<string, { x: number; y: number }> | null = null;
+
+  function _buildSimulator(): RelaxSimulator {
+    const positions = new Map<string, { x: number; y: number }>();
+    const sizes = new Map<string, { w: number; h: number }>();
+    for (const node of nodes) {
+      positions.set(node.id, { x: node.position.x, y: node.position.y });
+      sizes.set(node.id, { w: node.width ?? 320, h: node.height ?? 90 });
+    }
+    const edgeSpecs: EdgeSpec[] = edges.map((e) => ({
+      id: e.id,
+      source: e.source,
+      target: e.target,
+      pathType: e.data?.pathType ?? 'bezier',
+      label: typeof e.label === 'string' ? e.label : undefined,
+    }));
+    // Pin d_start plus any node that has a `pinned` coord — we can
+    // detect pinned nodes by checking if their position matches the
+    // initialNodes prop (they never move regardless of sim).
+    const pinnedIds = new Set<string>(['d_start']);
+    return new RelaxSimulator({ positions, sizes, edges: edgeSpecs, pinnedIds });
+  }
+
+  function _applySimPositions(): void {
+    if (!_sim) return;
+    // Must replace the array with nodes = nodes.map(...) rather than
+    // mutating in place. xyflow's adoptUserNodes does reference-equality
+    // on userNode === internals.userNode and skips re-spreading when
+    // references match. Svelte 5's $state proxy returns the SAME wrapper
+    // for a given slot, so even slot-replacement doesn't break equality.
+    // A fresh array forces xyflow to rewrap every entry, and returning
+    // the same node object for unchanged positions lets it correctly
+    // skip those (same object reference → no DOM update needed).
+    let changed = false;
+    const next = nodes.map((node) => {
+      const p = _sim!.positions.get(node.id);
+      if (!p) return node;
+      if (node.position.x === p.x && node.position.y === p.y) return node;
+      changed = true;
+      return { ...node, position: { x: p.x, y: p.y } };
+    });
+    if (changed) nodes = next;
+  }
+
+  function _simFrame(): void {
+    if (!_sim || simState !== 'running') return;
+    // Run several steps per frame so the animation is snappy even on
+    // large graphs (one physics step takes ~5ms for 250 nodes).
+    const STEPS_PER_FRAME = 5;
+    for (let i = 0; i < STEPS_PER_FRAME; i++) {
+      const result = _sim.step();
+      simIter = result.iter;
+      if (result.newBestCost !== undefined) simCost = result.newBestCost;
+      if (result.converged) {
+        simState = 'paused';
+        _applySimPositions();
+        return;
       }
     }
+    _applySimPositions();
+    _simRafId = requestAnimationFrame(_simFrame);
+  }
+
+  function startSim(): void {
+    if (!isDev) return;
+    if (simState === 'idle') {
+      _simStartPositions = new Map(
+        nodes.map((n) => [n.id, { x: n.position.x, y: n.position.y }]),
+      );
+      _sim = _buildSimulator();
+      simIter = 0;
+      simCost = _sim.currentBestCost;
+    } else if (simState === 'paused' && _sim) {
+      // Sync any dragged node positions into the simulator before resuming.
+      for (const node of nodes) {
+        const p = _sim.positions.get(node.id);
+        if (p) { p.x = node.position.x; p.y = node.position.y; }
+      }
+    }
+    simState = 'running';
+    _simRafId = requestAnimationFrame(_simFrame);
+  }
+
+  function pauseSim(): void {
+    if (simState !== 'running') return;
+    simState = 'paused';
+    if (_simRafId !== null) {
+      cancelAnimationFrame(_simRafId);
+      _simRafId = null;
+    }
+  }
+
+  function stopSim(): void {
+    if (_simRafId !== null) {
+      cancelAnimationFrame(_simRafId);
+      _simRafId = null;
+    }
+    if (_simStartPositions) {
+      const snap = _simStartPositions;
+      nodes = nodes.map((node) => {
+        const p = snap.get(node.id);
+        if (!p) return node;
+        if (node.position.x === p.x && node.position.y === p.y) return node;
+        return { ...node, position: { x: p.x, y: p.y } };
+      });
+    }
+    _sim = null;
+    _simStartPositions = null;
+    simState = 'idle';
+    simIter = 0;
+    simCost = 0;
   }
 </script>
 
@@ -405,6 +554,7 @@
       defaultEdgeOptions={{ animated: false }}
       nodesConnectable={false}
       nodesDraggable={isDev}
+      onnodedragstop={({ node }) => { if (isDev) { _draggedPositions.set(node.id, { x: node.position.x, y: node.position.y }); _dragDirtyCount++; } }}
       edgesReconnectable={false}
       elementsSelectable={isDev}
       connectionMode={ConnectionMode.Loose}
@@ -514,6 +664,49 @@
       >
         Discard
       </button>
+      <span class="dev-toolbar__sep" aria-hidden="true"></span>
+      {#if simState === 'idle'}
+        <button
+          type="button"
+          class="dev-toolbar__btn dev-toolbar__btn--sim"
+          onclick={startSim}
+          aria-label="Start live physics simulation"
+        >
+          Simulate
+        </button>
+      {:else if simState === 'running'}
+        <button
+          type="button"
+          class="dev-toolbar__btn dev-toolbar__btn--sim"
+          onclick={pauseSim}
+          aria-label="Pause physics simulation"
+        >
+          Pause
+        </button>
+        <span class="dev-toolbar__pill" data-tone="saving" aria-live="polite">
+          iter {simIter}
+        </span>
+      {:else}
+        <button
+          type="button"
+          class="dev-toolbar__btn dev-toolbar__btn--sim"
+          onclick={startSim}
+          aria-label="Resume physics simulation"
+        >
+          Resume
+        </button>
+        <button
+          type="button"
+          class="dev-toolbar__btn dev-toolbar__btn--ghost"
+          onclick={stopSim}
+          aria-label="Stop simulation and revert positions"
+        >
+          Stop sim
+        </button>
+        <span class="dev-toolbar__pill" data-tone="dirty" aria-live="polite">
+          cost {simCost.toFixed(0)}
+        </span>
+      {/if}
     </div>
   {/if}
 </div>
@@ -590,6 +783,23 @@
     background: rgba(185, 28, 28, 0.25);
     color: #fecaca;
   }
+  .dev-toolbar__sep {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    align-self: center;
+  }
+
+  .dev-toolbar__btn--sim {
+    background: #6366f1;
+    color: #eef2ff;
+    border-color: #6366f1;
+  }
+  .dev-toolbar__btn--sim:hover:not(:disabled) {
+    background: #818cf8;
+    border-color: #818cf8;
+  }
+
   /* Solid-red destructive variant — louder than the ghost "Discard"
      because Reset wipes the on-disk cache, not just unsaved drags. */
   .dev-toolbar__btn--danger {
