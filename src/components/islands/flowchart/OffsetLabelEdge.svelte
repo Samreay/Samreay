@@ -49,6 +49,7 @@
     data?: {
       color?: PaletteColor;
       pathType?: EdgeType;
+      lineColor?: string;
       /** Set true while a search query is active and this edge does
        *  not match — see `Flowchart.svelte`. We render the dim class
        *  on the path AND on a self-rendered `<EdgeLabel>` so the
@@ -103,11 +104,13 @@
     if (progress == null || !measurer) return null;
     measurer.setAttribute('d', path);
     const total = measurer.getTotalLength();
-    const pt = measurer.getPointAtLength(progress * total);
+    const dist = progress * total;
+    const pt = measurer.getPointAtLength(dist);
     // Two trailing ghost dots for a comet tail effect.
-    const tail1 = measurer.getPointAtLength(Math.max(0, progress * total - 12));
-    const tail2 = measurer.getPointAtLength(Math.max(0, progress * total - 26));
-    return { head: pt, tail1, tail2 };
+    const tail1 = measurer.getPointAtLength(Math.max(0, dist - 10));
+    const tail2 = measurer.getPointAtLength(Math.max(0, dist - 22));
+    const color = props.data?.lineColor ?? '#10b981';
+    return { head: pt, tail1, tail2, color };
   });
 
   const labelPos = $derived.by(() => {
@@ -170,21 +173,22 @@
 {/if}
 
 {#if pulsePos}
-  <!-- Comet tail: two trailing ghost dots, then the bright head. -->
+  <!-- Comet tail: two trailing ghost dots, then the head. All tinted
+       to match the edge's stroke colour for a coherent glow. -->
   <circle
-    cx={pulsePos.tail2.x} cy={pulsePos.tail2.y} r="3"
-    fill="white" opacity="0.25"
+    cx={pulsePos.tail2.x} cy={pulsePos.tail2.y} r="2.5"
+    fill={pulsePos.color} opacity="0.2"
     pointer-events="none"
   />
   <circle
-    cx={pulsePos.tail1.x} cy={pulsePos.tail1.y} r="4"
-    fill="white" opacity="0.5"
+    cx={pulsePos.tail1.x} cy={pulsePos.tail1.y} r="3.5"
+    fill={pulsePos.color} opacity="0.4"
     pointer-events="none"
   />
   <circle
-    cx={pulsePos.head.x} cy={pulsePos.head.y} r="5.5"
-    fill="white" opacity="0.92"
-    style="filter: drop-shadow(0 0 5px rgba(255,255,255,0.95)) drop-shadow(0 0 14px rgba(160,220,255,0.8))"
+    cx={pulsePos.head.x} cy={pulsePos.head.y} r="5"
+    fill={pulsePos.color} opacity="0.75"
+    style="filter: drop-shadow(0 0 4px {pulsePos.color}cc) drop-shadow(0 0 10px {pulsePos.color}66)"
     pointer-events="none"
   />
 {/if}

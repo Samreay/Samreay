@@ -36,7 +36,7 @@
 
 <div
   class={['decision-node', data.size === 'large' && 'decision-node--large', isPulsing && 'decision-node--pulse']}
-  style={accentStyle}
+  style={`${accentStyle} --node-flash-color: ${data.accent.line};`}
 >
   <p class="decision-node__prompt">{data.prompt}</p>
 </div>

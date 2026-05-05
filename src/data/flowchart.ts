@@ -2311,14 +2311,14 @@ export const flowchart: FlowchartData = {
       source: 'd_interesting_tell_me_more',
       target: 'b_practical_evil',
       label: 'An evil path can lead to a greater good',
-      color: 'purple',
+      color: 'emerald',
     },
     {
       id: 'e_d_interesting_tell_me_more_b_night_angel',
       source: 'd_interesting_tell_me_more',
       target: 'b_night_angel',
       label: 'Are assassins even actually evil?',
-      color: 'violet',
+      color: 'yellow',
     },
     {
       id: 'e_d_futuristic_sci_fi_b_bobiverse',

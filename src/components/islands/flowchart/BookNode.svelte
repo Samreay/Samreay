@@ -24,7 +24,11 @@
 <Handle type="source" position={Position.Bottom} id="bottom" />
 <Handle type="source" position={Position.Left} id="left" />
 
-<div class={['book-node fancy_card horizontal mx-auto', isPulsing && 'book-node--pulse'].filter(Boolean).join(' ')} data-review-card>
+<div
+  class={['book-node fancy_card horizontal mx-auto', isPulsing && 'book-node--pulse'].filter(Boolean).join(' ')}
+  style={`--node-flash-color: ${data.tierFlashColor};`}
+  data-review-card
+>
   <div class="card_translator">
     <a
       class="card_rotator small_rot card_layer block"

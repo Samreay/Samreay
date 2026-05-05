@@ -26,11 +26,20 @@
   } = $props();
 
   // ── Pulse wave animation ─────────────────────────────────────────────
-  // Emits glowing dots from d_start that travel along edges, split at
-  // each node, and traverse the full graph. One wave every 6 seconds.
+  // Emits glowing dots from d_start that travel along edges at a fixed
+  // world-space velocity, split at each node, and traverse the full
+  // graph. One wave every 12 seconds.
+  //
+  // Velocity is in world-px per ms. Duration per edge is derived from
+  // the straight-line source→target distance so longer edges take
+  // proportionally longer to traverse, giving a constant apparent speed.
   // Uses the same in-place edge.data mutation pattern as `data.dim` so
   // OffsetLabelEdge reads it reactively without needing a full nodes
   // array replacement.
+
+  // px/ms at zoom=1. At the default 0.3 zoom the dot appears to move at
+  // PULSE_VELOCITY * 0.3 screen-px/ms = ~60 screen-px/s — slow, subtle.
+  const PULSE_VELOCITY = 0.20; // world-px / ms
 
   // Static topology — built once from the prop arrays at mount time,
   // never mutated. Plain Maps (not $state) because the rAF loop reads
@@ -38,6 +47,18 @@
   const _outEdgeIds = new Map<string, string[]>(); // nodeId → edgeIds leaving it
   const _edgeById = new Map<string, FlowEdge>();   // edgeId → edge object
   const _edgeTarget = new Map<string, string>();   // edgeId → target nodeId
+  const _edgeDuration = new Map<string, number>(); // edgeId → ms to traverse
+
+  // Node centre positions for Euclidean distance calculation.
+  const _nodePos = new Map<string, { x: number; y: number; w: number; h: number }>();
+  for (const node of initialNodes) {
+    _nodePos.set(node.id, {
+      x: node.position.x,
+      y: node.position.y,
+      w: node.width ?? 320,
+      h: node.height ?? 90,
+    });
+  }
 
   for (const edge of initialEdges) {
     _edgeById.set(edge.id, edge);
@@ -45,6 +66,14 @@
     const list = _outEdgeIds.get(edge.source);
     if (list) list.push(edge.id);
     else _outEdgeIds.set(edge.source, [edge.id]);
+
+    // Duration = Euclidean centre-to-centre distance / velocity.
+    const s = _nodePos.get(edge.source);
+    const t = _nodePos.get(edge.target);
+    const dist = s && t
+      ? Math.hypot((t.x + t.w / 2) - (s.x + s.w / 2), (t.y + t.h / 2) - (s.y + s.h / 2))
+      : 500;
+    _edgeDuration.set(edge.id, Math.max(300, dist / PULSE_VELOCITY));
   }
 
   interface PulseInstance {
@@ -64,12 +93,12 @@
   setContext<() => Set<string>>('pulsingNodes', () => pulsingNodeIds);
 
   let _pulseRafId: number | null = null;
-  const PULSE_EDGE_DURATION_MS = 650;
 
   function _spawnPulsesFrom(nodeId: string, now: number): void {
     for (const edgeId of _outEdgeIds.get(nodeId) ?? []) {
       if (!_activePulses.has(edgeId)) {
-        _activePulses.set(edgeId, { edgeId, startTime: now, duration: PULSE_EDGE_DURATION_MS });
+        const duration = _edgeDuration.get(edgeId) ?? 1500;
+        _activePulses.set(edgeId, { edgeId, startTime: now, duration });
       }
     }
   }
@@ -96,7 +125,7 @@
       pulsingNodeIds = new Set([...pulsingNodeIds, targetId]);
       setTimeout(() => {
         pulsingNodeIds = new Set([...pulsingNodeIds].filter((id) => id !== targetId));
-      }, 500);
+      }, 700);
 
       // Propagate outward from the target node.
       _spawnPulsesFrom(targetId, now);
@@ -117,10 +146,10 @@
     }
   }
 
-  // Fire immediately on mount, then repeat every 6 seconds.
+  // Fire immediately on mount, then repeat every 12 seconds.
   if (typeof window !== 'undefined') {
     setTimeout(_launchWave, 800); // slight delay so the page has settled
-    const _pulseIntervalId = setInterval(_launchWave, 6000);
+    const _pulseIntervalId = setInterval(_launchWave, 8000);
     onDestroy(() => {
       clearInterval(_pulseIntervalId);
       if (_pulseRafId !== null) cancelAnimationFrame(_pulseRafId);

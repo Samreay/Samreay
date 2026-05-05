@@ -205,6 +205,20 @@ const EDGE_PALETTE: Record<PaletteColor | 'default', { line: string; text: strin
   default: { line: '#059669', text: '#ecfdf5' },
 };
 
+/** Representative single-hex colour for each review tier, sampled from
+ *  the mid-point of its `--grad-*` gradient in `styling.css`. Used as
+ *  the glow colour of the pulse-arrival flash on book nodes so the flash
+ *  reads as an extension of the card's own border colour. */
+const TIER_FLASH_COLOR: Record<string, string> = {
+  'π': '#db3d60', // warm rose — mid of --grad-m
+  'S': '#6ee3e7', // cyan     — first stop of --grad-s
+  'A': '#bf953f', // gold     — first stop of --grad-a
+  'B': '#dedede', // silver   — first stop of --grad-b
+  'C': '#ca7345', // bronze   — first stop of --grad-c
+  'D': '#912a2a', // dark red — first stop of --grad-d
+  'F': '#a2ab58', // olive    — first stop of --grad-f
+};
+
 export interface BookNodePayload extends Record<string, unknown> {
   kind: 'book';
   reviewId: string;
@@ -212,6 +226,9 @@ export interface BookNodePayload extends Record<string, unknown> {
   sentence: string;
   tags: readonly string[];
   tier: CollectionEntry<'reviews'>['data']['review'];
+  /** Representative hex colour for this tier's border gradient, used as
+   *  the glow colour when a pulse-wave arrives at this node. */
+  tierFlashColor: string;
   cover: { src: string; width: number; height: number };
   link: string;
   /** Pre-lowercased "title sentence author tags search_terms" string for
@@ -273,6 +290,11 @@ export type FlowEdge = Edge<
      *  the `flowchart-dim` class to BOTH the path and the label
      *  consistently. Default false (full opacity). */
     dim?: boolean;
+    /** Resolved Tailwind 500 hex for this edge (e.g. `#ef4444`). Stored
+     *  here so `OffsetLabelEdge` can colour the pulse dot to match the
+     *  edge stroke without re-importing the full palette map. Mirrors
+     *  `edge.style`'s `stroke` value. */
+    lineColor: string;
     /** 0–1 progress of a travelling pulse along this edge. Set by the
      *  wave animation loop in `Flowchart.svelte`; `undefined` means no
      *  active pulse. `OffsetLabelEdge` renders a glowing dot at this
@@ -492,6 +514,7 @@ export async function getLayoutedElements(
         sentence: entry.data.sentence,
         tags,
         tier: entry.data.review,
+        tierFlashColor: TIER_FLASH_COLOR[entry.data.review] ?? '#ffffff',
         cover,
         link: `/reviews/${entry.id}/`,
         searchHaystack,
@@ -761,6 +784,7 @@ export async function getLayoutedElements(
       labelStyle: `background: ${palette.line}; color: ${palette.text};`,
       data: {
         color: e.color,
+        lineColor: palette.line,
         pathType: e.type ?? defaultEdgeType,
         searchHaystack: (e.label ?? '').toLowerCase(),
       },
