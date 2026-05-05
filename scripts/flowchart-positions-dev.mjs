@@ -46,11 +46,14 @@
  *
  * The `reset` form skips position parsing entirely: the middleware
  * deletes the on-disk cache via `clearPositions()` and then invokes
- * `getLayoutedElements(flowchart)` (no `refine`), which sees the
- * missing cache, runs the full ELK + sporeOverlap + Verlet pipeline
- * from scratch, and writes the freshly-computed coordinates back to
- * disk. The Svelte toolbar follows the response with a page reload so
- * the user immediately sees the new layout.
+ * `getLayoutedElements(flowchart, { seed })` with a freshly-minted
+ * 31-bit integer seed, which drives the layout pipeline's optional
+ * randomisation (disk-scattered ELK seed positions + Gaussian jitter
+ * before relax) so two Reset clicks produce visibly different
+ * layouts. The seed is echoed back in the JSON response for
+ * reproducibility — passing the same seed value would re-derive the
+ * exact same layout. The Svelte toolbar follows the response with a
+ * page reload so the user immediately sees the new arrangement.
  */
 
 const ENDPOINT_PATH = '/api/flowchart-positions.json';
@@ -167,6 +170,15 @@ export function flowchartPositionsDev() {
                         // shows fresh ELK+relax output.
                         if (parsed && typeof parsed === 'object' && parsed.reset === true) {
                           const removed = positionsModule.clearPositions();
+                          // Mint a 31-bit non-negative integer seed.
+                          // `Math.random() * 0x7fffffff` keeps the
+                          // result inside the safe-integer range
+                          // mulberry32's `| 0` would otherwise sign-
+                          // extend, and using `Math.random` rather
+                          // than `Date.now()` means two clicks within
+                          // the same millisecond still get different
+                          // seeds.
+                          const seed = (Math.random() * 0x7fffffff) | 0;
                           try {
                             const [layoutModule, dataModule] = await Promise.all([
                               server.ssrLoadModule('/src/lib/flowchart-layout.ts'),
@@ -174,12 +186,14 @@ export function flowchartPositionsDev() {
                             ]);
                             await layoutModule.getLayoutedElements(
                               dataModule.flowchart,
+                              { seed },
                             );
                           } catch (err) {
                             sendJson(res, 500, {
                               ok: false,
                               reset: true,
                               cleared: removed,
+                              seed,
                               error: `relayout after reset failed: ${err?.message ?? String(err)}`,
                             });
                             return;
@@ -188,6 +202,7 @@ export function flowchartPositionsDev() {
                             ok: true,
                             reset: true,
                             cleared: removed,
+                            seed,
                           });
                           return;
                         }

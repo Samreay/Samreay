@@ -431,6 +431,81 @@ const LAYOUT_DESIRED_EDGE_LENGTH = 1000;
  *  `LAYOUT_DESIRED_EDGE_LENGTH`] pay no length cost. */
 const LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH = 350;
 
+/** Radius of the disk we scatter non-pinned ELK seed positions inside
+ *  when the caller supplies a `seed` (the dev-toolbar Reset path).
+ *  Tuned to cover roughly the same spatial extent the deterministic
+ *  ELK output occupies (~4-5k px in each axis for ~215 nodes at the
+ *  current `LAYOUT_DESIRED_EDGE_LENGTH`), so stress sees endpoints in
+ *  the same ballpark it would normally produce — just shuffled. Too
+ *  small and every node starts on top of the root, defeating the
+ *  variation; too large and stress wastes most of its iteration budget
+ *  pulling outliers in. */
+const RESET_SCATTER_RADIUS_PX = 5000;
+
+/** Standard deviation of the Gaussian jitter we apply to every
+ *  non-pinned node *after* sporeOverlap and *before* relax on the
+ *  Reset path. Pulls each node into a slightly different basin so
+ *  the relax sim's force terms can settle into a different local
+ *  minimum. ~400 is comparable to one node-width — enough to perturb
+ *  the topology, small enough that relax's edge-length spring still
+ *  recognises the macro shape ELK established. */
+const RESET_JITTER_SIGMA_PX = 400;
+
+/**
+ * Mulberry32 — a tiny seeded PRNG. Output is uniform on [0, 1) and
+ * deterministic for a given 32-bit integer seed, so two Reset clicks
+ * with the same seed produce the same layout (useful for reproducing
+ * a specific outcome the user liked) while different seeds produce
+ * different layouts.
+ *
+ * Source: public-domain implementation by Tommy Ettinger, also used
+ * verbatim in xoshiro / spline-related demos. Six lines of code, no
+ * dependencies, passes BigCrush-light tests adequate for layout
+ * randomisation.
+ */
+function mulberry32(seed: number): () => number {
+  let a = seed | 0;
+  return () => {
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/**
+ * Box–Muller polar form: turn two uniform [0, 1) draws from `rng`
+ * into one pair of independent N(0, 1) Gaussians. We need one number
+ * per axis (x, y) so returning both halves of the transform is
+ * convenient — neither value is "wasted" the way the basic-form
+ * unused cosine is.
+ */
+function gaussianPair(rng: () => number): [number, number] {
+  let u: number;
+  let v: number;
+  let s: number;
+  do {
+    u = rng() * 2 - 1;
+    v = rng() * 2 - 1;
+    s = u * u + v * v;
+  } while (s === 0 || s >= 1);
+  const factor = Math.sqrt((-2 * Math.log(s)) / s);
+  return [u * factor, v * factor];
+}
+
+/**
+ * Sample a uniform point inside a disk of the given radius. Used to
+ * scatter non-pinned nodes' ELK `elk.position` seeds when the caller
+ * requests a randomised reset. The √u trick gives a uniform area
+ * distribution (rather than concentrating samples near the centre,
+ * which a naive `r = u * radius` would).
+ */
+function uniformDiskSample(rng: () => number, radius: number): { x: number; y: number } {
+  const r = Math.sqrt(rng()) * radius;
+  const theta = rng() * Math.PI * 2;
+  return { x: r * Math.cos(theta), y: r * Math.sin(theta) };
+}
+
 function relax(opts: {
   positions: Map<string, Vec2>;
   sizes: Map<string, { w: number; h: number }>;
@@ -1032,8 +1107,15 @@ const elk = new ELK();
  *
  * Determinism contract:
  *   - The full pipeline (ELK stress + sporeOverlap + Verlet `relax`) is
- *     deterministic given fixed input data. No RNG, fixed-step Verlet,
- *     ELK uses its default seed.
+ *     deterministic given fixed input data AND no `seed` option. The
+ *     seed parameter is the single, opt-in escape hatch: when supplied
+ *     we drive a `mulberry32` PRNG to (a) scatter non-pinned ELK seed
+ *     positions inside a disk and (b) Gaussian-jitter every non-pinned
+ *     node before relax. Identical seeds still produce identical
+ *     layouts — the randomness is fully reproducible per-seed — so the
+ *     contract becomes "byte-identical output for fixed (data, seed)"
+ *     rather than "for fixed data alone". Build/SSR callers that pass
+ *     no `seed` keep the old behaviour exactly.
  *   - The on-disk file `src/data/flowchart-positions.json` is the source
  *     of truth across restarts and across machines. It is committed to
  *     git so a fresh checkout sees the SAME positions the author saw.
@@ -1047,13 +1129,22 @@ const elk = new ELK();
  *   Used by the dev-mode drag-and-save flow (subagent 3) so manual
  *   nudges get cleaned up by the physics step before being saved back.
  *   Defaults to `false`.
+ * @param options.seed Optional 32-bit integer seed. Only consulted on
+ *   the missing-cache code path (i.e. after the dev toolbar's Reset
+ *   action wipes the on-disk positions); ignored on full-cache,
+ *   partial-cache, and refine paths so a fresh checkout's first build
+ *   stays deterministic. When set, scatters non-pinned ELK seeds in a
+ *   disk and jitters every non-pinned node by a Gaussian before relax,
+ *   giving each Reset click a different convergence basin while
+ *   keeping each *individual* seed fully reproducible.
  */
 export async function getLayoutedElements(
   data: FlowchartData,
-  options?: { refine?: boolean },
+  options?: { refine?: boolean; seed?: number },
 ): Promise<{ nodes: FlowNode[]; edges: FlowEdge[] }> {
   validateFlowchart(data);
   const refine = options?.refine ?? false;
+  const seed = options?.seed;
 
   // Resolve all book payloads in parallel. `resolveCover` calls `getImage`
   // which can block on sharp processing for first-time encodes.
@@ -1180,9 +1271,28 @@ export async function getLayoutedElements(
     const seedPositions: Map<string, { x: number; y: number }> | null =
       coverage.kind === 'partial' ? coverage.known : null;
 
+    // Randomisation gate: only the missing-cache path consults the
+    // caller's `seed`. The partial path is contractually deterministic
+    // (must not move existing nodes) and the refine path explicitly
+    // re-runs physics over user-authored coordinates, so injecting
+    // randomness there would defeat both. `rng` stays `null` outside
+    // the missing+seed combination, and every randomisation call
+    // below short-circuits on it — the seed is silent unless the
+    // caller meant it.
+    const rng =
+      coverage.kind === 'missing' && seed != null ? mulberry32(seed) : null;
+
     // ── Diagnostic preamble for the three "do work" branches ──────────
     if (coverage.kind === 'missing') {
-      console.log('flowchart-layout: cache missing; running full layout');
+      if (rng) {
+        console.log(
+          `flowchart-layout: cache missing; running full layout with ` +
+            `randomised seed ${seed} (scatter ±${RESET_SCATTER_RADIUS_PX}px, ` +
+            `jitter σ=${RESET_JITTER_SIGMA_PX}px)`,
+        );
+      } else {
+        console.log('flowchart-layout: cache missing; running full layout');
+      }
     } else if (coverage.kind === 'partial') {
       for (const id of coverage.known.keys()) effectivePinnedIds.add(id);
       console.log(
@@ -1222,37 +1332,68 @@ export async function getLayoutedElements(
       // still moves the node. We re-stamp the cache values back on top
       // after ELK returns so any sub-pixel drift in known-id positions
       // is erased before relax pins them.
+      // Resolve the ELK seed coordinate for one node. Three precedence
+      // tiers, in order: (a) the cached position from a partial-cache
+      // hit (deterministic, preserves user layout); (b) when `rng` is
+      // active, a uniform disk-sample (random restart for the Reset
+      // path); (c) no seed at all (ELK starts the node from scratch,
+      // current behaviour for cold cold-cache builds). The root is
+      // excluded — it always anchors at (0, 0) above this helper.
+      const elkSeedFor = (id: string): { x: number; y: number } | null => {
+        const cached = seedPositions?.get(id);
+        if (cached) return cached;
+        // Pinned non-root nodes have authored coordinates that
+        // `placeDecision`/`placeBook` will overwrite at render time
+        // anyway — no point disturbing them with a random scatter,
+        // and seeding ELK at their authored spot also helps the
+        // surrounding network arrange around them.
+        if (rng && pinnedIds.has(id)) {
+          const pinned =
+            data.decisions.find((d) => d.id === id)?.pinned ??
+            data.books.find((b) => b.id === id)?.pinned;
+          if (pinned) return pinned;
+        }
+        if (rng) return uniformDiskSample(rng, RESET_SCATTER_RADIUS_PX);
+        return null;
+      };
+
       const elkChildren: ElkNode[] = [
         ...data.decisions.map((d) => {
-          const seeded = seedPositions?.get(d.id);
           const ds = decisionSize(d);
+          // `d_start` always wins — it's authored at (0, 0) and the
+          // post-ELK origin shift below depends on it landing there.
+          if (d.id === ROOT_ID) {
+            return {
+              id: d.id,
+              width: ds.width,
+              height: ds.height,
+              layoutOptions: { 'elk.position': '(0, 0)' },
+            };
+          }
+          const seedPt = elkSeedFor(d.id);
           return {
             id: d.id,
             width: ds.width,
             height: ds.height,
-            // `d_start` always wins — it's authored at (0, 0) and the
-            // post-ELK origin shift below depends on it landing there.
-            ...(d.id === ROOT_ID
-              ? { layoutOptions: { 'elk.position': '(0, 0)' } }
-              : seeded
-                ? {
-                    layoutOptions: {
-                      'elk.position': `(${seeded.x}, ${seeded.y})`,
-                    },
-                  }
-                : {}),
+            ...(seedPt
+              ? {
+                  layoutOptions: {
+                    'elk.position': `(${seedPt.x}, ${seedPt.y})`,
+                  },
+                }
+              : {}),
           };
         }),
         ...bookPayloads.map((b) => {
-          const seeded = seedPositions?.get(b.node.id);
+          const seedPt = elkSeedFor(b.node.id);
           return {
             id: b.node.id,
             width: NODE_SIZES.book.width,
             height: NODE_SIZES.book.height,
-            ...(seeded
+            ...(seedPt
               ? {
                   layoutOptions: {
-                    'elk.position': `(${seeded.x}, ${seeded.y})`,
+                    'elk.position': `(${seedPt.x}, ${seedPt.y})`,
                   },
                 }
               : {}),
@@ -1370,6 +1511,35 @@ export async function getLayoutedElements(
           positions.set(id, { x: p.x, y: p.y });
         }
       }
+    }
+
+    // ── Pre-relax jitter (Reset path only) ───────────────────────────
+    // ELK's stress solver is gradient-descent-ish, so equally valid
+    // layouts can sit in distinct basins separated by small barriers.
+    // The disk-scattered seeds above push us into a different basin
+    // before stress runs; this Gaussian perturbation does the same
+    // thing AGAIN after stress + sporeOverlap have settled, giving
+    // the relax sim a chance to re-explore. Crucially, relax's
+    // best-snapshot revert (see `RELAX_OPTS` and the iter-0 baseline
+    // in `relax`) compares every iteration's `layoutCost` against the
+    // input — so if the jitter actually made things worse than the
+    // un-jittered ELK output would have produced, relax falls back
+    // to its best intermediate snapshot rather than locking in a
+    // pessimised layout. The "do no harm" guarantee survives.
+    if (rng) {
+      let jittered = 0;
+      for (const id of allCurrentIds) {
+        if (effectivePinnedIds.has(id)) continue;
+        const p = positions.get(id);
+        if (!p) continue;
+        const [gx, gy] = gaussianPair(rng);
+        p.x += gx * RESET_JITTER_SIGMA_PX;
+        p.y += gy * RESET_JITTER_SIGMA_PX;
+        jittered++;
+      }
+      console.log(
+        `flowchart-layout: jittered ${jittered} non-pinned nodes pre-relax`,
+      );
     }
 
     // ── PASS 3 (shared by branches 2/3/4) ────────────────────────────
