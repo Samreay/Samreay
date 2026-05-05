@@ -1408,70 +1408,38 @@ export async function getLayoutedElements(
         targets: [e.target],
       }));
 
-      // ELK option keys are stringly-typed and live in the official
-      // reference at https://eclipse.dev/elk/reference.html. The pipeline
-      // is two passes:
+      // ELK Layered implements the full Sugiyama framework for DAG layout:
+      //   1. Cycle removal (none needed — the data is a true DAG)
+      //   2. Layer assignment via NETWORK_SIMPLEX — minimises total edge
+      //      length across layers.
+      //   3. Crossing minimisation via LAYER_SWEEP — iterative sweep that
+      //      gets very close to optimal for realistic graphs.
+      //   4. Node placement via BRANDES_KOEPF — compact, balanced
+      //      horizontal placement within each layer.
+      //   5. Edge routing via SPLINES — smooth curves (not orthogonal).
       //
-      // PASS 1 — `stress` (Kamada-Kawai stress minimisation): produces
-      // the overall shape by trying to make geometric distance
-      // proportional to graph-theoretic distance (BFS hop count). Nodes
-      // far from the root drift outward naturally, with no rigid rings.
-      // Knobs:
-      //   - `elk.stress.desiredEdgeLength` target distance between edge
-      //     endpoints. Bigger = more breathing room, larger overall
-      //     canvas.
-      //   - `elk.stress.epsilon` convergence threshold. Lower = more
-      //     iterations, smoother result.
-      //   - `elk.stress.iterationLimit` work cap; large enough that
-      //     `epsilon` governs convergence in practice.
-      //   - `elk.interactive: true` honours the per-node `elk.position`
-      //     override that pins `d_start` at (0, 0).
-      //
-      // Stress doesn't strictly forbid overlap — it minimises stress
-      // globally and accepts collisions as a worthwhile trade-off. With
-      // 520x400 book cards that produces a noticeable amount of card-on-
-      // card overlap on any tightly-coupled subtree, so:
-      //
-      // PASS 2 — `sporeOverlap` (Spore overlap removal): takes the
-      // stress positions and runs a scanline overlap removal that nudges
-      // only the colliding nodes apart. Preserves the broad shape while
-      // guaranteeing a hard `spacing.nodeNode` gap between every pair.
-      // Knobs:
-      //   - `elk.spacing.nodeNode` the *enforced* minimum gap. Bigger
-      //     here means more aggressive nudging when pass 1 leaves
-      //     overlaps.
-      //   - `elk.spore.overlapRemoval.runScanline: true` enables the
-      //     scanline pass that does the actual O(n log n) collision
-      //     sweep.
-      //   - `elk.interactive: true` is critical — without it,
-      //     sporeOverlap ignores the incoming positions and starts from
-      //     scratch.
-      const stressPass = await elk.layout({
-        id: 'flowchart-root',
-        layoutOptions: {
-          'elk.algorithm': 'stress',
-          'elk.stress.desiredEdgeLength': '1100',
-          'elk.stress.epsilon': '0.0001',
-          'elk.stress.iterationLimit': '10000',
-          'elk.interactive': 'true',
-        },
-        children: elkChildren,
-        edges: elkEdges,
-      });
-
-      // Re-feed the stress output into sporeOverlap. Each child already
-      // has `x`/`y` from pass 1; sporeOverlap reads those, finds
-      // collisions against the spacing gap, and writes back nudged
-      // positions.
+      // Key knobs:
+      //   - `elk.direction`: DOWN = root at top, leaves at bottom.
+      //   - `elk.spacing.nodeNode`: minimum gap between nodes in the
+      //     same layer.
+      //   - `elk.layered.spacing.nodeNodeBetweenLayers`: minimum vertical
+      //     gap between layers. Set generously for 520x400 book cards.
+      //   - `elk.aspectRatio`: hint to the placer about the desired
+      //     width-to-height ratio of the output.
       const layout = await elk.layout({
         id: 'flowchart-root',
         layoutOptions: {
-          'elk.algorithm': 'sporeOverlap',
+          'elk.algorithm': 'layered',
+          'elk.direction': 'DOWN',
+          'elk.layered.crossingMinimization.strategy': 'LAYER_SWEEP',
+          'elk.layered.nodePlacement.strategy': 'BRANDES_KOEPF',
+          'elk.layered.layering.strategy': 'NETWORK_SIMPLEX',
+          'elk.layered.spacing.nodeNodeBetweenLayers': '120',
           'elk.spacing.nodeNode': '80',
-          'elk.spore.overlapRemoval.runScanline': 'true',
-          'elk.interactive': 'true',
+          'elk.edgeRouting': 'SPLINES',
+          'elk.aspectRatio': '1.7',
         },
-        children: stressPass.children,
+        children: elkChildren,
         edges: elkEdges,
       });
 
