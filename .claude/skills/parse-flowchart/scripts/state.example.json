@@ -1,0 +1,30 @@
+{
+  "$schema": "see ../references/state-schema.md",
+  "image": "Story-Finder-big.jpg",
+  "defaultEdgeType": "bezier",
+  "decisions": [
+    {
+      "id": "d_start",
+      "prompt": "Will you die without stats or a system?",
+      "color": "amber",
+      "src_bbox": [16000, 200, 17500, 900],
+      "_note": "src_bbox is informational only — emit.py ignores it. Keep it so future passes can re-zoom."
+    }
+  ],
+  "books": [
+    {
+      "id": "b_dotf",
+      "reviewId": "defiance_of_the_fall",
+      "src_bbox": [14000, 1500, 15040, 2500]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start_dotf",
+      "source": "d_start",
+      "target": "b_dotf",
+      "label": "Instant death.",
+      "color": "red"
+    }
+  ]
+}

@@ -826,6 +826,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_hundred_reigns', reviewId: 'the_hundred_reigns' },
     { id: 'b_legend_william', reviewId: 'the_legend_of_william_oh' },
     { id: 'b_turret_mage', reviewId: 'turret_mage' },
+    { id: 'b_systema_delenda_est', reviewId: 'systema_delenda_est' },
   ],
   edges: [
     {
@@ -2333,6 +2334,13 @@ export const flowchart: FlowchartData = {
       target: 'b_skitterdoc',
       label: 'Yes, but cyberpunk',
       color: 'red',
+    },
+    {
+      id: 'e_d_futuristic_sci_fi_b_systema_delenda_est',
+      source: 'd_futuristic_sci_fi',
+      target: 'b_systema_delenda_est',
+      label: 'Yes, posthumanity against the System!',
+      color: 'sky',
     },
     {
       id: 'e_d_i_like_b_sovereign_soul',
