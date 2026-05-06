@@ -364,6 +364,7 @@
   // wrong translation.
   let canvasWidth = $state(0);
   let canvasHeight = $state(0);
+  const isMobile = $derived(canvasWidth > 0 && canvasWidth < 768);
 
   // ── Dev-only authoring state ─────────────────────────────────────────
   // Everything below this line that touches `savedPositions`,
@@ -681,7 +682,7 @@
       colorMode="dark"
       initialViewport={{ x: canvasWidth / 2, y: canvasHeight / 2, zoom: 0.3 }}
       proOptions={{ hideAttribution: true }}
-      minZoom={0.05}
+      minZoom={isMobile ? 0.1 : 0.05}
       maxZoom={2}
       defaultEdgeOptions={{ animated: false }}
       nodesConnectable={false}
