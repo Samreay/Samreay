@@ -36,7 +36,7 @@
   flex-direction: column;
   height: 100dvh;
   min-height: 600px;
-  padding: 80px 1rem 0; /* 80px = navbar height (`h-20`). */
+  padding: 80px 1rem 0; /* 80px = desktop navbar height (`md:h-20`). */
 }
 
 /* BEM children are lifted to the top level rather than nested under
@@ -237,6 +237,51 @@
 .book-node--pulse {
   animation: bookPulseFlash 900ms ease-out forwards;
   border-radius: 0.75rem;
+}
+
+/* ── Mobile overrides ────────────────────────────────────────────────
+   On narrow screens: strip horizontal padding so the canvas spans the
+   full viewport width, remove the canvas border-radius, and hide the
+   minimap (too small to be useful on a phone). */
+@media (max-width: 767px) {
+  .flowchart-page {
+    padding-top: 50px; /* mobile navbar height */
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .flowchart-canvas {
+    border-radius: 0;
+    margin-top: 0;
+  }
+
+  .flowchart-page .svelte-flow__minimap {
+    display: none;
+  }
+
+  /* Pin the "Flowchart" heading into the navbar row so it shares the
+     80px strip with the SRH logo and burger menu. Fixed so it stays
+     put while the canvas scrolls/pans beneath it. Centred horizontally
+     with pointer-events off so it doesn't block navbar tap targets. */
+  .flowchart-page__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px; /* matches mobile navbar height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    pointer-events: none;
+    z-index: 29; /* just below navbar z-30 so logo/burger stay on top */
+  }
+
+  .flowchart-page__header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
 }
 
 /* ── Search bar ──────────────────────────────────────────────────────
