@@ -1,6 +1,6 @@
 ---
 title:  "A Review of Dakota Krout's Completionist Chronicles and Ritualist from a grumpy LitRPG reader"
-short_title:  "A Review of Dakota Krout's Completionist Chronicles."
+short_title:  "Completionist Chronicles"
 description: "World-system LitRPG. Fun read with an interesting cast. Ignore the weird opening about Elon Musk. A chill, fun read."
 date: 2021-05-03
 auth: Dakota Krout
