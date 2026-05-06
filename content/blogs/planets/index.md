@@ -39,6 +39,6 @@ here to make sure there is no displacement at the image edges nor around Saturn 
 combine right before a colour correction on the right hand side of the tree, and the output you get is shown in the video
 at the bottom! Yeah, I know about node groups, but I wanted to lay it all out in one go.
 
-![](compositor.png)
+![](compositors.png)
 
 
