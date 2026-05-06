@@ -4,7 +4,7 @@
 
   type Props = {
     post: Post;
-    layout: 'wide' | 'cover' | 'tier' | 'flowchart';
+    layout: 'wide' | 'cover' | 'tier';
   };
 
   let { post, layout }: Props = $props();

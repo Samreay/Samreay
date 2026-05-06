@@ -3,7 +3,7 @@
   import type { Post, ReviewTier } from '../../lib/types';
   import ReviewCard from '../ReviewCard.svelte';
 
-  type Layout = 'wide' | 'cover' | 'tier' | 'flowchart';
+  type Layout = 'wide' | 'cover' | 'tier';
   type Props = {
     posts: Post[];
     totalReviews: number;
@@ -228,43 +228,24 @@
 </script>
 
 <div id="preamble">
-  {#if layout === 'flowchart'}
-    <p>
-      For questions, head to
-      <a
-        href="https://discord.gg/tfn4HVEaDz"
-        class="font-bold"
-        style="color: #7289da"
-      >
-        discord</a
-      >.
-      <a
-        class="under orange-under"
-        href="https://www.figma.com/board/hScNoWonDzTMTrpzUhNqzR/Story-Finder?node-id=102212-639&t=HJx9Ph1K07QlokaF-4"
-      >Direct link</a>.
-      Flowchart will take a few seconds to load. Click and drag to move. Recommend
-      fullscreen via top right button.
-    </p>
-  {:else}
-    <p>
-      {totalReviews} reviews with <em>my</em> rankings based on what I personally enjoy
-      reading. You may have opposite tastes. The below inputs should make finding
-      something easier. If you have questions, recommendations, or want to know when
-      new reviews or releases are out, join the
-      <a
-        href="https://discord.gg/tfn4HVEaDz"
-        class="font-bold"
-        style="color: #7289da"
-      >discord</a>.
-    </p>
-  {/if}
+  <p>
+    {totalReviews} reviews with <em>my</em> rankings based on what I personally enjoy
+    reading. You may have opposite tastes. The below inputs should make finding
+    something easier. If you have questions, recommendations, or want to know when
+    new reviews or releases are out, join the
+    <a
+      href="https://discord.gg/tfn4HVEaDz"
+      class="font-bold"
+      style="color: #7289da"
+    >discord</a>.
+  </p>
 </div>
 
 <div id="toggle-input" class="max-w-7xl mx-auto">
   <div class="justify-center flex flex-wrap items-center">
-    {#each ['wide', 'cover', 'tier', 'flowchart'] as opt, i (opt)}
+    {#each ['wide', 'cover', 'tier'] as opt, i (opt)}
       {@const isActive = layout === opt}
-      {@const rounded = i === 0 ? 'rounded-l-md' : i === 3 ? 'rounded-r-md' : ''}
+      {@const rounded = i === 0 ? 'rounded-l-md' : ''}
       <label
         for={`layout_${opt}`}
         class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100"
@@ -283,81 +264,73 @@
         >
       </label>
     {/each}
+    <a
+      href="/reviews/flowchart/"
+      class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100"
+    >
+      <span class="px-4 py-2 rounded-r-md bg-gray-700">Flowchart</span>
+    </a>
 
-    {#if layout !== 'flowchart'}
-      <label
-        for="sort-order"
-        class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100"
-      >
-        <input
-          id="sort-order"
-          type="checkbox"
-          checked={byRank}
-          class="hidden peer"
-          onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
-        />
-        <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-main-700' : 'bg-gray-700'}"
-          >Rank</span
-        >
-        <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-gray-700' : 'bg-main-700'}"
-          >Recent</span
-        >
-      </label>
+    <label
+      for="sort-order"
+      class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100"
+    >
       <input
-        oninput={(e) => (searchTerm = (e.currentTarget as HTMLInputElement).value)}
-        type="text"
-        id="search-input"
-        name="search"
-        bind:value={searchTerm}
-        class="bg-gray-800 rounded-md text-gray-100 m-2"
-        placeholder="Search..."
+        id="sort-order"
+        type="checkbox"
+        checked={byRank}
+        class="hidden peer"
+        onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <button
-        type="button"
-        class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
-        onclick={reset}>Reset</button
+      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-main-700' : 'bg-gray-700'}"
+        >Rank</span
       >
-    {/if}
+      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-gray-700' : 'bg-main-700'}"
+        >Recent</span
+      >
+    </label>
+    <input
+      oninput={(e) => (searchTerm = (e.currentTarget as HTMLInputElement).value)}
+      type="text"
+      id="search-input"
+      name="search"
+      bind:value={searchTerm}
+      class="bg-gray-800 rounded-md text-gray-100 m-2"
+      placeholder="Search..."
+    />
+    <button
+      type="button"
+      class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
+      onclick={reset}>Reset</button
+    >
   </div>
 </div>
 
-{#if layout !== 'flowchart'}
-  <div id="tags" class="tag-list max-w-7xl mx-auto mt-6 mb-6">
-    {#each allTags as tag (tag)}
-      <button
-        type="button"
-        class="tag tag-{tag} {activeClass(tag)}"
-        onclick={() => clickTag(tag)}
-      >
-        <span>{tag}</span>
-      </button>
-    {/each}
-  </div>
-{/if}
+<div id="tags" class="tag-list max-w-7xl mx-auto mt-6 mb-6">
+  {#each allTags as tag (tag)}
+    <button
+      type="button"
+      class="tag tag-{tag} {activeClass(tag)}"
+      onclick={() => clickTag(tag)}
+    >
+      <span>{tag}</span>
+    </button>
+  {/each}
+</div>
 
 <div id="all-card-wrapper">
-  {#if layout === 'flowchart'}
-    <div class="flowchart">
-      <iframe
-        title="Story Finder flowchart"
-        src="https://embed.figma.com/board/hScNoWonDzTMTrpzUhNqzR/Story-Finder?node-id=102212-639&embed-host=share&footer=false&theme=dark"
-        allowfullscreen
-      ></iframe>
-    </div>
-  {:else}
-    {#each groupedPosts as group, gi (group.tier ?? gi)}
-      {#if layout === 'tier' && group.tier}
-        <div class="tier-list">
-          <h1 class="text-center text-5xl mt-20 pb-8 rating-{group.tier}">
-            {group.tier}: {TIER_DESCRIPTIONS[group.tier]}
-          </h1>
-        </div>
-      {/if}
-      <div class="container mx-auto justify-center grid {gridClasses(layout)}">
-        {#each group.posts as post (post.link)}
-          <ReviewCard {post} {layout} />
-        {/each}
+  {#each groupedPosts as group, gi (group.tier ?? gi)}
+    {#if layout === 'tier' && group.tier}
+      <div class="tier-list">
+        <h1 class="text-center text-5xl mt-20 pb-8 rating-{group.tier}">
+          {group.tier}: {TIER_DESCRIPTIONS[group.tier]}
+        </h1>
       </div>
-    {/each}
-  {/if}
+    {/if}
+    <div class="container mx-auto justify-center grid {gridClasses(layout)}">
+      {#each group.posts as post (post.link)}
+        <ReviewCard {post} {layout} />
+      {/each}
+    </div>
+  {/each}
 </div>
