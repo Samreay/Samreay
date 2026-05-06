@@ -682,7 +682,7 @@
       colorMode="dark"
       initialViewport={{ x: canvasWidth / 2, y: canvasHeight / 2, zoom: 0.3 }}
       proOptions={{ hideAttribution: true }}
-      minZoom={isMobile ? 0.1 : 0.05}
+      minZoom={isMobile ? 0.12 : 0.05}
       maxZoom={2}
       defaultEdgeOptions={{ animated: false }}
       nodesConnectable={false}
