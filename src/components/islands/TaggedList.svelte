@@ -79,48 +79,48 @@
     class="container mx-auto mt-20 grid gap-12 grid-cols-vertical-cards"
   >
     {#each visiblePosts as post (post.link)}
-      <article
-        class="flex flex-col h-full rounded-lg bg-gray-800"
-        style="max-width: 500px;"
-        data-tagged-card
-      >
-        <a href={post.link}>
-          <div class="h-full">
-            <header class="mb-4">
-              <figure class="relative h-0 pb-9/16 overflow-hidden rounded-t-lg">
-                <picture>
-                  <source
-                    srcset="{post.img} 352w, {post.img_larger} 704w"
-                    type="image/webp"
-                  />
-                  <img
-                    width="352"
-                    height="198"
-                    class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPMn7vLFAAFRgH97g1QygAAAABJRU5ErkJggg=="
-                    alt={post.name}
-                  />
-                </picture>
-              </figure>
-            </header>
-            <div class="px-4 pb-4">
-              <div class="mb-3">
-                <ul class="flex flex-wrap text-xs font-medium -m-1">
-                  {#each post.tags as tag (tag)}
-                    <li
-                      class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{tag}"
-                    >
-                      {tag}
-                    </li>
-                  {/each}
-                </ul>
-              </div>
-              <h4 class="mb-2">{post.name}</h4>
-              <p class="text-lg text-gray-400 flex-grow">{post.description}</p>
+      <div class="fancy_card horizontal mx-auto w-full" data-tagged-card>
+        <div class="card_translator">
+          <a class="card_rotator small_rot card_layer block" href={post.link} aria-label={post.name}>
+            <div class="card_layer">
+              <article class="flex flex-col h-full bg-gray-800">
+                <header class="mb-4">
+                  <figure class="relative h-0 pb-9/16 overflow-hidden">
+                    <picture>
+                      <source
+                        srcset="{post.img} 352w, {post.img_larger} 704w"
+                        type="image/webp"
+                      />
+                      <img
+                        width="352"
+                        height="198"
+                        class="absolute inset-0 w-full h-full object-cover"
+                        src={post.img}
+                        alt={post.name}
+                      />
+                    </picture>
+                  </figure>
+                </header>
+                <div class="px-4 pb-4 flex flex-col flex-grow min-h-[13.25rem]">
+                  <div class="mb-3">
+                    <ul class="flex flex-wrap text-xs font-medium -m-1">
+                      {#each post.tags as tag (tag)}
+                        <li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{tag}">
+                          {tag}
+                        </li>
+                      {/each}
+                    </ul>
+                  </div>
+                  <h4 class="mb-2">{post.name}</h4>
+                  <p class="text-lg text-gray-400 flex-grow">{post.description}</p>
+                </div>
+              </article>
             </div>
-          </div>
-        </a>
-      </article>
+            <div class="card_layer card_effect card_overlay_C"></div>
+            <div class="card_layer card_effect card_glare"></div>
+          </a>
+        </div>
+      </div>
     {/each}
   </div>
 </div>
