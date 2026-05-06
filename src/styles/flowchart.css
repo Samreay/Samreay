@@ -106,7 +106,7 @@
      rule supplies typography + the default-green fallback; per-edge
      `labelStyle` overrides `background` and `color`. */
   .svelte-flow__edge-label {
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 700;
     letter-spacing: 0.01em;
     color: #ecfdf5; /* emerald-50, matches default stroke. */
