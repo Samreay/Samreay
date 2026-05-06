@@ -17,7 +17,7 @@ Here's what we'll be making:
 
 
 
-![png](2020-07-05-US_COVID19_Growth_files/2020-07-05-US_COVID19_Growth_1_0.png?class="img-poster,img-lighten")
+![png](2020-07-05-US_COVID19_Growth_files/2020-07-05-US_COVID19_Growth_1_0.png)
 
 
 
@@ -189,7 +189,7 @@ plot_evolution(df_sorted)
 
 
 
-![png](2020-07-05-US_COVID19_Growth_files/2020-07-05-US_COVID19_Growth_13_0.png?class="poster")
+![png](2020-07-05-US_COVID19_Growth_files/2020-07-05-US_COVID19_Growth_13_0.png)
 
 
 
@@ -201,7 +201,7 @@ And there we have it. Not as beautiful as the original, but hopefully a better r
 
 
 
-![png](cover.png?class="img-main,remove")
+![png](cover.png)
 
 
 

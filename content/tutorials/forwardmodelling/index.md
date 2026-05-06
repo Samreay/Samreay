@@ -95,7 +95,7 @@ plt.colorbar(h).set_label("colour"), ax.set_xlabel("$z$"), ax.set_ylabel("$m_B$"
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 
@@ -387,7 +387,7 @@ c.plotter.plot_walks(truth=truth, figsize=(8,4));
 
 
 
-![png](2020-04-08-ForwardModelling_files/2020-04-08-ForwardModelling_31_0.png?class="img-invert")
+![png](2020-04-08-ForwardModelling_files/2020-04-08-ForwardModelling_31_0.png)
 
 
 
@@ -422,7 +422,7 @@ for key, value in summary.items():
 
 
 
-![png](2020-04-08-ForwardModelling_files/2020-04-08-ForwardModelling_33_1.png?class="img-invert")
+![png](2020-04-08-ForwardModelling_files/2020-04-08-ForwardModelling_33_1.png)
 
 
 

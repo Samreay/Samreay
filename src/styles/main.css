@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@400;500;600;700;800;900&display=fallback');
+
+@import "tailwindcss";
+
+/* Form base styles (.form-input, .form-checkbox, etc.) used by our CSS. */
+@plugin "@tailwindcss/forms";
+
+@theme {
+  /* --- Custom screens (extends defaults) ----------------------------- */
+  --breakpoint-xs:  450px;
+  --breakpoint-3xl: 1200px;
+  --breakpoint-4xl: 1750px;
+  --breakpoint-6xl: 2100px;
+  --breakpoint-7xl: 2400px;
+
+  /* --- Fonts -------------------------------------------------------- */
+  --font-inter: "Inter", system-ui, -apple-system, "Roboto", sans-serif;
+  --font-architects-daughter: "Architects Daughter", sans-serif;
+
+  /* --- Font-size scale (overrides v4 defaults to match v3 values) ---
+     v4 ships --text-7xl/8xl/9xl; we leave those untouched so
+     @apply md:text-7xl in styling.css still resolves. */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.5rem;
+  --text-5xl:  3.25rem;
+  --text-6xl:  4rem;
+
+  /* --- Letter-spacing scale ----------------------------------------- */
+  --tracking-tighter: -0.02em;
+  --tracking-tight:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.01em;
+  --tracking-wider:   0.02em;
+  --tracking-widest:  0.4em;
+
+  /* --- Review-tier colour palettes ----------------------------------
+     π is a non-ASCII identifier; v4 supports it and emits
+     --color-π-500 etc. The safelist enumeration below also keeps it. */
+  --color-π-50:  #fff7ed;
+  --color-π-100: #ffedd5;
+  --color-π-200: #fed7aa;
+  --color-π-300: #fdba74;
+  --color-π-400: #fb923c;
+  --color-π-500: #f97316;
+  --color-π-600: #ea580c;
+  --color-π-700: #c2410c;
+  --color-π-800: #9a3412;
+  --color-π-900: #7c2d12;
+
+  --color-S-50:  #eef2ff;
+  --color-S-100: #e0e7ff;
+  --color-S-200: #c7d2fe;
+  --color-S-300: #a5b4fc;
+  --color-S-400: #818cf8;
+  --color-S-500: #6366f1;
+  --color-S-600: #4f46e5;
+  --color-S-700: #4338ca;
+  --color-S-800: #3730a3;
+  --color-S-900: #312e81;
+
+  --color-A-50:  #fefce8;
+  --color-A-100: #fef9c3;
+  --color-A-200: #fef08a;
+  --color-A-300: #fde047;
+  --color-A-400: #facc15;
+  --color-A-500: #eab308;
+  --color-A-600: #ca8a04;
+  --color-A-700: #a16207;
+  --color-A-800: #854d0e;
+  --color-A-900: #713f12;
+
+  --color-B-50:  #f8fafc;
+  --color-B-100: #f1f5f9;
+  --color-B-200: #e2e8f0;
+  --color-B-300: #cbd5e1;
+  --color-B-400: #94a3b8;
+  --color-B-500: #64748b;
+  --color-B-600: #475569;
+  --color-B-700: #334155;
+  --color-B-800: #1e293b;
+  --color-B-900: #0f172a;
+
+  --color-C-50:  #fff7ed;
+  --color-C-100: #ffedd5;
+  --color-C-200: #fed7aa;
+  --color-C-300: #fdba74;
+  --color-C-400: #fb923c;
+  --color-C-500: #f97316;
+  --color-C-600: #ea580c;
+  --color-C-700: #c2410c;
+  --color-C-800: #9a3412;
+  --color-C-900: #7c2d12;
+
+  --color-D-50:  #fff1f2;
+  --color-D-100: #ffe4e6;
+  --color-D-200: #fecdd3;
+  --color-D-300: #fda4af;
+  --color-D-400: #fb7185;
+  --color-D-500: #f43f5e;
+  --color-D-600: #e11d48;
+  --color-D-700: #be123c;
+  --color-D-800: #9f1239;
+  --color-D-900: #881337;
+
+  --color-F-50:  #ecfdf5;
+  --color-F-100: #d1fae5;
+  --color-F-200: #a7f3d0;
+  --color-F-300: #6ee7b7;
+  --color-F-400: #34d399;
+  --color-F-500: #10b981;
+  --color-F-600: #059669;
+  --color-F-700: #047857;
+  --color-F-800: #065f46;
+  --color-F-900: #064e3b;
+
+  /* --- Overrides for built-in palettes ------------------------------ */
+  --color-gray-100: #EBF1F5;
+  --color-gray-200: #D9E3EA;
+  --color-gray-300: #C5D2DC;
+  --color-gray-400: #9BA9B4;
+  --color-gray-500: #707D86;
+  --color-gray-600: #55595F;
+  --color-gray-700: #33363A;
+  --color-gray-800: #25282C;
+  --color-gray-900: #151719;
+  --color-gray-950: #0f1112;
+
+  --color-purple-100: #F4F4FF;
+  --color-purple-200: #E2E1FF;
+  --color-purple-300: #CBCCFF;
+  --color-purple-400: #ABABFF;
+  --color-purple-500: #af8dff;
+  --color-purple-600: #8e5dff;
+  --color-purple-700: #7b4acf;
+  --color-purple-800: #38379C;
+  --color-purple-900: #262668;
+
+  /* "main" — used by buttons, .newsletter, hover states. Identical to
+     v3's emerald palette. */
+  --color-main-50:  #ecfdf5;
+  --color-main-100: #d1fae5;
+  --color-main-200: #a7f3d0;
+  --color-main-300: #6ee7b7;
+  --color-main-400: #34d399;
+  --color-main-500: #10b981;
+  --color-main-600: #059669;
+  --color-main-700: #047857;
+  --color-main-800: #065f46;
+  --color-main-900: #064e3b;
+}
+
+/* --- Custom utilities -------------------------------------------------
+   v3 expressed these via `theme.extend.spacing`, `inset`, `scale`,
+   `minWidth`, and `gridTemplateColumns`. v4 doesn't ship a
+   --grid-template-columns-* namespace, so the grid utilities and the
+   fractional spacing land as `@utility` rules. ----------------------- */
+
+/* Forward-slash identifiers need escaping in @utility selectors. */
+@utility pb-9\/16 { padding-bottom: 56.25%; }
+@utility pb-3\/4  { padding-bottom: 75%; }
+@utility pb-1\/1  { padding-bottom: 100%; }
+
+@utility inset-full { inset: 100%; }
+@utility min-w-10   { min-width: 2.5rem; }
+@utility scale-98   { scale: 0.98; }
+
+@utility grid-cols-wide-cards               { grid-template-columns: repeat(auto-fit, minmax(calc(min(100%, 520px)), 1fr)); }
+@utility grid-cols-wide-cards-mobile        { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+@utility grid-cols-cover-cards              { grid-template-columns: repeat(auto-fit, 262px); }
+@utility grid-cols-cover-cards-tier         { grid-template-columns: repeat(auto-fit, 250px); }
+@utility grid-cols-cover-cards-large        { grid-template-columns: repeat(auto-fit, 400px); }
+@utility grid-cols-cover-cards-mobile       { grid-template-columns: repeat(auto-fit, 45%); }
+@utility grid-cols-cover-cards-mobile-large { grid-template-columns: repeat(auto-fit, 90%); }
+@utility grid-cols-vertical-cards           { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+/* --- Safelist replacement ---------------------------------------------
+   v3's `safelist` (regex + variants) becomes `@source inline()` calls
+   in v4. Brace expansion enumerates every required class. ----------- */
+
+@source inline("img-{smaller,small,reduced,poster,large,full,tiny,shrink}");
+@source inline("list-none");
+@source inline("grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
+@source inline("{hover:,focus:,}bg-{S,A,B,C,D,F}-{500,600,700,800,900}");
+@source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
+
+/* v4 silently refuses to generate `bg-π-*` utilities even when listed
+   explicitly via `@source inline()` — the non-ASCII `π` is rejected by
+   v4's class-name generator (other tier palettes `S A B C D F` work
+   fine). The colour variables `--color-π-*` *do* emit, so we just hand-
+   write the equivalent utility rules below. Rendered output is identical
+   to what v4 would have produced for the other tiers. */
+.bg-π-500 { background-color: var(--color-π-500); }
+.bg-π-600 { background-color: var(--color-π-600); }
+.bg-π-700 { background-color: var(--color-π-700); }
+.bg-π-800 { background-color: var(--color-π-800); }
+.bg-π-900 { background-color: var(--color-π-900); }
+.hover\:bg-π-500:hover { background-color: var(--color-π-500); }
+.hover\:bg-π-600:hover { background-color: var(--color-π-600); }
+.hover\:bg-π-700:hover { background-color: var(--color-π-700); }
+.hover\:bg-π-800:hover { background-color: var(--color-π-800); }
+.hover\:bg-π-900:hover { background-color: var(--color-π-900); }
+.focus\:bg-π-500:focus { background-color: var(--color-π-500); }
+.focus\:bg-π-600:focus { background-color: var(--color-π-600); }
+.focus\:bg-π-700:focus { background-color: var(--color-π-700); }
+.focus\:bg-π-800:focus { background-color: var(--color-π-800); }
+.focus\:bg-π-900:focus { background-color: var(--color-π-900); }
+
+@import './utility-patterns.css';
+@import './range-slider.css';
+@import './toggle-switch.css';
+@import './theme.css';
+@import './styling.css';
+@import './layout.css';
+@import './fancy.css';

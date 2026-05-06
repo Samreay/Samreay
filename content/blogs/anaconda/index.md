@@ -20,7 +20,7 @@ So head [here to download it](https://www.anaconda.com/download/), and pick
 the Python 3 version, 64 bits. The installation dialog should look something
 like this:
 
-![](dialog1.jpg)
+![](dialog1.png)
 
 Install it just for you, put it in some convenient location, and register
 Anaconda as the default. If you want Anaconda to be everywhere and

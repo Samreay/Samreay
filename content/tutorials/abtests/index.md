@@ -20,7 +20,7 @@ Imagine you're in charge of a website to optimise sales. You have the current ve
 
 
 
-![jpeg](cover.jpg?class="img-main,img-invert,img-poster")
+![jpeg](cover.jpg)
 
 
 

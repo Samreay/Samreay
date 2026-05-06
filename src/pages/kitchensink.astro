@@ -1,0 +1,159 @@
+---
+/**
+ * Visual regression kitchen-sink. The leading `_` keeps it out of the public
+ * sitemap and out of any link-crawl from real pages, but Astro still ships
+ * it under `dist/_kitchensink/` so the Phase 3 visual baseline can target it
+ * directly. This page must exercise every styled class that the safelist
+ * promises to keep alive (review tiers, rating chips, tag pills, bg-{tier}-N
+ * utilities) plus the `.fancy_card` 3-D effect, the buttons, and the navbar
+ * so a 1-pixel regression in `main.scss` is caught before any real page
+ * regresses.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const TIERS = ['π', 'S', 'A', 'B', 'C', 'D', 'F'] as const;
+const TAG_NAMES = [
+  'sci-fi',
+  'cyberpunk',
+  'litrpg',
+  'cultivation',
+  'time-loops',
+  'kingdom-building',
+  'wholesome',
+  'isekai',
+  'female-lead',
+  'lgbt',
+  'hard-magic',
+  'system-apocalypse',
+  'magic-school',
+  'slice-of-life',
+  'dungeon-core',
+  'companion',
+  'audio',
+  'amazon',
+  'vrmmo',
+  'parody',
+  'crafting',
+  'pf-adjacent',
+  'superhero',
+  'fanfic',
+  'cyberpunk',
+  'manhua',
+  'finished',
+  'in-progress',
+  'python',
+  'snippet',
+  'statistics',
+  'data-engineering',
+  'plotting',
+  'environment',
+  'bayesian',
+  'outreach',
+  'project',
+  'creative',
+  'travel',
+  'writing',
+];
+const BUTTON_BG = ['S', 'A', 'B', 'C', 'D', 'F', 'π'] as const;
+---
+<BaseLayout title="Kitchen sink">
+  <main class="primary-content">
+    <section class="content content-wide">
+      <div class="section-header">
+        <h1>Kitchen sink</h1>
+        <p>
+          Visual regression target. Every class that the Tailwind safelist
+          promises to keep alive is rendered at least once below; the
+          `.fancy_card` 3-D card and the review tier banners are also
+          included so hover transforms and tier gradients can be eyeballed.
+        </p>
+      </div>
+    </section>
+
+    <section class="content content-wide">
+      <h2 class="text-2xl mb-4">Tier banners (<code>.review-&#123;tier&#125;</code>)</h2>
+      <div class="grid gap-4 grid-cols-cover-cards">
+        {TIERS.map((tier) => (
+          <article class={`review review-${tier} flex flex-col h-full rounded-xl bg-gray-800`}>
+            <div class="bg2 rounded-xl">
+              <div class="bg-inner p-4 text-center">
+                <span class="text-xl">Tier {tier}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="content content-wide rating">
+      <h2 class="text-2xl mb-4">Rating chips (<code>.rating-&#123;tier&#125;</code>)</h2>
+      <div class="flex flex-wrap gap-3">
+        {TIERS.map((tier) => (
+          <span class={`rating-${tier} inline-flex items-center justify-center w-12 h-12 rounded-full text-lg font-bold`}>
+            {tier}
+          </span>
+        ))}
+      </div>
+    </section>
+
+    <section class="content content-wide">
+      <h2 class="text-2xl mb-4">Tag pills (<code>.tag-&#123;name&#125;</code>)</h2>
+      <ul class="flex flex-wrap text-xs font-medium -m-1">
+        {TAG_NAMES.map((tag) => (
+          <li class={`m-1 inline-flex text-center py-1 px-3 rounded-full tag-${tag}`}>{tag}</li>
+        ))}
+        <li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-review">tag-review</li>
+      </ul>
+    </section>
+
+    <section class="content content-wide">
+      <h2 class="text-2xl mb-4">Tier-coloured buttons (safelist <code>.bg-&#123;tier&#125;-&#123;N&#125;</code>)</h2>
+      <div class="flex flex-wrap gap-3">
+        {BUTTON_BG.map((tier) => (
+          <button
+            type="button"
+            class={`btn-sm bg-${tier}-700 hover:bg-${tier}-600 focus:bg-${tier}-500 text-white px-4 py-2 rounded-sm`}
+          >
+            bg-{tier}-700 → 600 → 500
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <section class="content content-wide">
+      <h2 class="text-2xl mb-4">Fancy card (<code>.fancy_card</code>)</h2>
+      <div class="grid gap-12 grid-cols-cover-cards">
+        <article class="flex flex-col h-full fancy_card">
+          <div class="card_translator">
+            <a class="card_rotator block card_layer" href="#">
+              <figure class="card_layer">
+                <div class="w-full h-72 bg-linear-to-br from-purple-700 via-S-600 to-D-600 rounded-sm" aria-hidden="true"></div>
+              </figure>
+              <div class="card_layer card_overlay_motion red"></div>
+              <div class="card_layer card_effect card_overlay_C"></div>
+              <div class="card_layer card_effect card_glare"></div>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content content-wide">
+      <h2 class="text-2xl mb-4">Spoiler &amp; gradient text</h2>
+      <p class="text-gradient text-3xl">Gradient title</p>
+      <p>This sentence has a <span class="spoiler">hidden spoiler</span> in it (hover to reveal).</p>
+    </section>
+
+    <section class="content content-wide">
+      <h2 class="text-2xl mb-4">Underline accents (<code>.under</code>)</h2>
+      <p>
+        I'm an
+        <a class="under red-under" href="#">author</a>,
+        <a class="under blue-under" href="#">data scientist</a>,
+        <a class="under orange-under" href="#">astrophysicist</a>,
+        <a class="under green-under" href="#">software engineer</a>, and
+        <a class="under purple-under" href="#">educator</a>.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

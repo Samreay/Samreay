@@ -1,0 +1,81 @@
+/* Typography */
+h1 {
+    @apply text-4xl font-extrabold leading-tight tracking-tight;
+}
+
+h2 {
+    @apply text-3xl font-extrabold leading-tight tracking-tight;
+}
+
+h3 {
+    @apply text-3xl font-bold leading-tight;
+}
+
+h4 {
+    @apply text-2xl font-bold leading-snug;
+}
+
+/* `@screen md { ... }` was Tailwind v3 SCSS sugar; v4 has no equivalent.
+   Use a literal media query that references the v4 breakpoint variable. */
+@media (width >= theme(--breakpoint-md)) {
+    h1 {
+        @apply text-5xl;
+    }
+
+    h2 {
+        @apply text-4xl;
+    }
+}
+
+/* Buttons.
+   Registered as `@utility` so that `@apply btn-sm` (used by
+   `.badge .connect` in layout.css) resolves under Tailwind v4 — bare
+   class selectors are no longer `@apply`-able. */
+@utility btn {
+    @apply font-medium inline-flex items-center justify-center border border-transparent rounded-xs leading-snug transition duration-150 ease-in-out;
+    @apply px-8 py-3;
+}
+
+@utility btn-sm {
+    @apply font-medium inline-flex items-center justify-center border border-transparent rounded-xs leading-snug transition duration-150 ease-in-out;
+    @apply px-4 py-2;
+}
+
+/* Forms */
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox,
+.form-radio {
+    @apply bg-transparent border border-gray-700 focus:border-gray-500;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox {
+    @apply rounded-xs;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select {
+    @apply py-3 px-4;
+}
+
+.form-input,
+.form-textarea {
+    @apply placeholder-gray-500;
+}
+
+.form-select {
+    @apply pr-10;
+}
+
+.form-checkbox,
+.form-radio {
+    @apply text-purple-600;
+}

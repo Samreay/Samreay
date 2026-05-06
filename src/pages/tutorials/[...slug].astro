@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ShowCodeToggle from '../../components/islands/ShowCodeToggle.svelte';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('tutorials');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const title = entry.data.title ?? entry.data.short_title ?? entry.id;
+const dateString = entry.data.date.toISOString().slice(0, 10);
+const containerClass =
+  'content content-wider blog-post relative' +
+  (entry.id.endsWith('_notebook') ? ' hide-code' : '');
+---
+<BaseLayout title={title} description={entry.data.description}>
+  <div id="post-container" class={containerClass}>
+    <div class="section-header blog">
+      <h1 class="title">{title}</h1>
+      <p>{dateString}</p>
+      {!entry.data.hide_description && entry.data.description ? <p>{entry.data.description}</p> : null}
+    </div>
+    {!entry.data.hide_toggle ? <ShowCodeToggle client:idle /> : null}
+    <Content />
+  </div>
+</BaseLayout>

@@ -1051,7 +1051,7 @@ plt.annotate('Source: NOAA (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.n
 
 
 
-![png](2020-07-06-US_Weather_files/2020-07-06-US_Weather_29_0.png?class="img-large")
+![png](2020-07-06-US_Weather_files/2020-07-06-US_Weather_29_0.png)
 
 
 
@@ -1063,7 +1063,7 @@ There we go! Its not perfect, but I think it's pretty, and certainly San Jose is
 
 
 
-![png](cover.png?class="img-main,remove")
+![png](cover.png)
 
 
 

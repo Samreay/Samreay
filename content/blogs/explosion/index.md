@@ -16,7 +16,7 @@ In this sim I was just trying to figure out how the volumetic shaders worked, su
 could get a two stage explosion with thick, greasy smoke. You can see the secondary explosion
 in the second still. For an afternoons work, I was pretty happy!
 
-![](explosion.mp4)
+<video src="explosion.mp4" controls autoplay muted loop></video>
 
 
 ![](0030.jpg)

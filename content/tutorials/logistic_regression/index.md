@@ -181,7 +181,7 @@ plt.xlabel("$X_1$"), plt.ylabel(r"$P(broke)$");
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

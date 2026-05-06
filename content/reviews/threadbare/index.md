@@ -13,7 +13,7 @@ links:
     audible: https://www.audible.com/pd/Stuff-and-Nonsense-Audiobook/B07D3C3KZ1
 aliases: [/reviews/threadbare]
 tags: [ litrpg]
-sentence: "Meetreadbare. He is twelve inches tall, full of fluff, and really, really bad at being a hero."
+sentence: "Meet Treadbare. He is twelve inches tall, full of fluff, and really, really bad at being a hero."
 ---
 
 *This review focuses on the trilogy as a whole, not subsequent entries.*

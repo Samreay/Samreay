@@ -33,7 +33,7 @@ The biggest issue with this fiction by far is that the MC's name is too close to
 
 LOOK AT HOW PRETTY SHE IS!
 
-![](arwen.jpg?class="img-shrink")
+![](arwen.jpg)
 
 Anyway, I'm a big fan of most of what Actus does, and this one is my favourite so far. Maybe it's because I do love a crafting MC, and maybe it's because I've really wanted to get into blacksmithing in the past. I made my own gas forge at one point, but never got the full setup. So I decided to smith vicariously.
 

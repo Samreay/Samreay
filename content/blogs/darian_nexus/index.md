@@ -13,4 +13,4 @@ I commissioned a settings piece from the amazing [Richard Lay](https://www.insta
 
 Hosting it here so you can grab a higher resolution version if you want it than will be in the Kindle publication.
 
-![](cover.jpg?class="img-full")
+![](cover.jpg)

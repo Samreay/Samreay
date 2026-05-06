@@ -43,7 +43,7 @@ suspended satellite. Not shown is me with a PuTTY terminal open behind the camer
 
 At one point, we tested our satellite against project standards. We blew them out of the water. We were so relieved, everything was perfect. Look at it fly around!
 
-![](cover.jpg)
+![](cover.png)
 
 And then we made a horrible mistake. You see, I had been testing the satellite for a while, and it has to be boxed up for a week before it gets
 demoed. We were worried about battery drain, and our satellite just not working, so the last thing we did was replace the batteries, and then ship it.

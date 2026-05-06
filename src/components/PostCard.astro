@@ -1,0 +1,82 @@
+---
+/**
+ * Wide card for blog/tutorial home-page teasers.
+ *
+ * Originally a flat `<article>` with `transform hover:scale-105` on the
+ * cover. Now wrapped in the same `fancy_card` 3D-tilt structure that
+ * `ReviewCard.svelte` uses, so blogs and tutorials share the C-tier hover
+ * treatment with the reviews row above them. Two deliberate departures
+ * from `ReviewCoverCard`:
+ *
+ *   1. No `review-${r}` class on the inner `<article>`, so `.glow`'s
+ *      gradient ring doesn't apply — blog and tutorial covers don't
+ *      carry a tier so a coloured ring would be misleading.
+ *   2. The shimmer overlay is locked to `card_overlay_C` regardless of
+ *      entry, matching the C-tier hover treatment per the brief.
+ *
+ * Unlike the cover-only review teaser, the tag row, title, and
+ * description stay visible underneath the cover — the fancy-card swap
+ * was just about hover behaviour, not about hiding content.
+ *
+ * Cover aspect is locked to 16:9 via `pb-9/16` so a grid of
+ * mixed-source covers stays uniform; `card_rotator`'s `overflow:hidden`
+ * + `--radius: 1rem` clip the outer corners.
+ */
+import type { CollectionEntry } from 'astro:content';
+import CoverImage from './CoverImage.astro';
+
+interface Props {
+  entry: CollectionEntry<'blogs'> | CollectionEntry<'tutorials'>;
+}
+
+const { entry } = Astro.props;
+const tags: string[] = (entry.data.tags as string[]) ?? [];
+const title = entry.data.short_title ?? entry.data.title ?? entry.id;
+const description = entry.data.description ?? '';
+const href = `/${entry.collection}/${entry.id}/`;
+---
+<div class="fancy_card horizontal mx-auto w-full" data-post-card>
+  <div class="card_translator">
+    <a class="card_rotator small_rot card_layer block" href={href} aria-label={title}>
+      <div class="card_layer">
+        <article class="flex flex-col h-full bg-gray-800">
+          <header class="mb-4">
+            <figure class="relative h-0 pb-9/16 overflow-hidden">
+              <CoverImage
+                entry={entry}
+                width={704}
+                height={396}
+                class="absolute inset-0 w-full h-full object-cover"
+                alt={title}
+              />
+            </figure>
+          </header>
+          {/*
+            `min-h-[12rem]` keeps every card in a row the same vertical
+            size even when descriptions and titles wrap to a different
+            number of lines. 12rem covers the worst-case observed in the
+            home teaser grids (a 2-line title plus a 3-line description,
+            ~182px measured), so a single-line entry next to it doesn't
+            end up visibly shorter. Tailwind 3.2 doesn't ship the
+            `min-h-{n}` numeric scale, hence the arbitrary value.
+            `flex-grow` on the description still pushes short copy down
+            to fill the reserved space cleanly.
+          */}
+          <div class="px-4 pb-4 flex flex-col flex-grow min-h-[12rem]">
+            <div class="mb-3">
+              <ul class="flex flex-wrap text-xs font-medium -m-1">
+                {tags.map((tag) => (
+                  <li class={`m-1 inline-flex text-center py-1 px-3 rounded-full tag-${tag}`}>{tag}</li>
+                ))}
+              </ul>
+            </div>
+            <h4 class="mb-2">{title}</h4>
+            <p class="text-lg text-gray-400 flex-grow">{description}</p>
+          </div>
+        </article>
+      </div>
+      <div class="card_layer card_effect card_overlay_C"></div>
+      <div class="card_layer card_effect card_glare"></div>
+    </a>
+  </div>
+</div>

@@ -209,7 +209,7 @@ plt.legend();
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 
@@ -308,7 +308,7 @@ plt.tight_layout();
 
 
 
-![png](2020-12-27-Linear_Regression_Regularisation_files/2020-12-27-Linear_Regression_Regularisation_20_0.png?class="img-large")
+![png](2020-12-27-Linear_Regression_Regularisation_files/2020-12-27-Linear_Regression_Regularisation_20_0.png)
 
 
 

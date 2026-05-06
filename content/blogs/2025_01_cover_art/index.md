@@ -41,11 +41,11 @@ I've seen briefs that were a paragraph and just text, and others a dozen-long pa
 
 For example, guess which two aspects from these references I asked to be part of the character design below:
 
-![](references.png?class="img-shrink")
+![](references.png)
 
 If the artist isn't familiar with ebook and some of the fun aspects of paperback (ie trim and bleed), then I like to also send over a layout template for them. Here's a [link to the full resolution file.](layout.png)
 
-![](layout.png?class="img-shrink")
+![](layout.png)
 
 At this point, throw your references and desires into a PDF and wait for the artists you reached out to get back to you. Hopefully you can find an affordable artist with availability in the next decade!
 
@@ -70,23 +70,23 @@ Most character artists will give you a line art sketch, though some do sketch wi
 
 Here's one of the sketch options I got back from Mansik Yam for my book three cover:
 
-![](cover.jpg?class="img-shrink")
+![](cover.jpg)
 
 And here's the four options Rusty provided for book five cover:
 
-![](rusty_sketch2.webp?class="img-small")
+![](rusty_sketch2.webp)
 
 And here's the sketch from Poyjeee for book six, and note that given my books have had consistent typography, I overlaid my title and design on top of the layout png above so their sketch was able to be done with full context of how it would look with typography.
 
-![](poyjeee_sketch.jpg?class="img-small")
+![](poyjeee_sketch.jpg)
 
 For block sketching, you might expect something like this sketch from Kart:
 
-![](kart_sketch.jpg?class="img-small")
+![](kart_sketch.jpg)
 
 Poyjeee's sketch was the most refined, and anything too much more refined and I would have been suspicious of AI art filtering. This is what a line-art filter on AI art will look like, so if you see something like this, cancel the commission and find a new artist. The images will also generally be low resolution, unless the artist upscales before applying the line art filter in photoshop.
 
-![](ai_sketch.png?class="img-small")
+![](ai_sketch.png)
 
 The more changes you make at this step to really nail the final layout and composition the better. It's much easier to update a rough sketch than a render.
 
@@ -106,7 +106,7 @@ This is generally the polishing phase, and if you've done a good job with guidan
 
 Here's Poyjeee's final render for my book six cover:
 
-![](6_sovereign.jpg?class="img-shrink")
+![](6_sovereign.jpg)
 
 ### Typography
 
@@ -120,7 +120,7 @@ So the real process here is similar to the art. Find some illustrators, know wha
 
 If you want to create an animation of your cover image (which is handy for engagement on social media), I have a post written up about it [here](/blog/cover_animations) you can check out. As a TLDR, [Morgan Wright](https://www.morganwrightbooks.com/book-cover-animations-service) does high quality work at a disgustingly low price.
 
-![](morgan.mp4?class="max-w-md")
+<video src="morgan.mp4" controls autoplay muted loop></video>
 
 ### Things I've done which aren't optimal
 

@@ -1,0 +1,30 @@
+---
+/**
+ * Books section grid plus the home-page newsletter CTA.
+ *
+ * The newsletter sits in the third column of the second row so two book
+ * covers and the form align cleanly on `md:` and up. The CTA itself is
+ * `<NewsletterForm variant="compact" />` — we own positioning here, the
+ * component owns the form markup.
+ */
+import { books } from '../../data/books';
+import BookCard from '../BookCard.astro';
+import NewsletterForm from '../NewsletterForm.astro';
+---
+<div class="content content-shrink" id="books">
+  <div class="section-header">
+    <h1>Books</h1>
+    <p>
+      I'm a voracious reader of fantasy novels, especially progression fantasy. So much so,
+      that I decided to contribute to the literature. Wish me luck!
+    </p>
+  </div>
+  <div class="mx-auto mt-8">
+    <div class="grid gap-4 xs:gap-12 mb-8 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
+      {books.map((book) => <BookCard book={book} />)}
+    </div>
+    <div class="grid gap-4 xs:gap-12 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
+      <NewsletterForm variant="compact" class="md:col-start-2" />
+    </div>
+  </div>
+</div>

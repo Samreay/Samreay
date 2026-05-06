@@ -1,0 +1,86 @@
+---
+/**
+ * Artist Corner — ports `themes/sams-theme/layouts/artists/list.html`.
+ *
+ * The Hugo template embedded a giant inline `<script type="module">` that
+ * built the entire grid client-side via Arrow.js. We mirror that behaviour
+ * with a Svelte 5 island (`<ArtistsExplorer client:load />`); covers are
+ * pre-resolved at build time so the bundle ships only the explorer logic,
+ * not 527 image URL strings.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArtistsExplorer from '../components/islands/ArtistsExplorer.svelte';
+import type { Artist } from '../components/islands/ArtistsExplorer.svelte';
+import { artists as rawArtists } from '../data/artists';
+import { resolveArtistCovers } from '../lib/covers';
+
+interface RawArtist {
+  name: string;
+  notes?: string;
+  hidden?: boolean;
+  links?: Readonly<Record<string, string>>;
+  covers?: readonly string[];
+}
+
+function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function titleCase(value: string): string {
+  return value
+    .replace(/_/g, ' ')
+    .split(' ')
+    .map((word) => (word ? word[0].toUpperCase() + word.slice(1) : word))
+    .join(' ');
+}
+
+const enriched: Artist[] = (
+  await Promise.all(
+    (rawArtists as readonly RawArtist[])
+      .filter((a) => !a.hidden && a.covers && a.covers.length > 0)
+      .map(async (a) => ({
+        name: a.name,
+        id: slugify(a.name),
+        notes: a.notes,
+        links: Object.entries(a.links ?? {}).map(([name, link]) => ({
+          name,
+          link,
+          title: titleCase(name),
+        })),
+        covers: await resolveArtistCovers([...a.covers!], 500, 800),
+      })),
+  )
+).filter((a) => a.covers.length > 0);
+
+const totalCovers = enriched.reduce((acc, a) => acc + a.covers.length, 0);
+---
+<BaseLayout
+  title="LitRPG / Progression Fantasy Cover Artists"
+  description="Shouting out all the great work our artists do to bring our covers alive."
+>
+  <div class="content content-full">
+    <div class="section-header">
+      <h1>Artist Corner</h1>
+      <p>
+        Because shouting out the geniuses that bring our covers to life is something I should
+        do more of. Note that some artists include typography, but most do not.
+      </p>
+      <p class="mt-4">
+        If you know a cover artist that works in the Progression Fantasy / LitRPG / Cultivation
+        genre, please use
+        <a
+          href="https://forms.gle/JLBAgYcQsnw67qpi6"
+          class="font-bold"
+          style="color: #6ee7b7"
+        >this form</a>
+        to submit them. We're at {enriched.length} artists, {totalCovers} covers on display, and
+        counting!
+      </p>
+    </div>
+
+    <ArtistsExplorer client:load artists={enriched} />
+  </div>
+</BaseLayout>

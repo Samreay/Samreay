@@ -43,8 +43,8 @@ So for thoughts right now, if you want that popcorn-style serial, enjoy a badass
 
 Oh, and I talked about art before, so here's Ria:
 
-![](ria.png?class="img-smaller")
+![](ria.png)
 
 And here's Aoihbe:
 
-![](aoihbe.png?class="img-smaller")
+![](aoihbe.png)

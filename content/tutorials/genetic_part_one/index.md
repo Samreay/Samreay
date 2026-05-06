@@ -14,7 +14,7 @@ This is what we're going to make in this tutorial. It may not look like much, bu
 
 
 
-![](output.mp4?class="img-small")
+<video src="output.mp4" controls autoplay muted loop></video>
 
 
 
@@ -198,7 +198,7 @@ With this all set up, we can now call `evolve` and specify the mutation rate, th
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 
@@ -224,7 +224,7 @@ After this has run, we will have a *lot* of PNG files in the output directory. I
 
 
 
-![](genetic1/output.mp4)
+<!-- removed missing image: genetic1/output.mp4 -->
 
 
 

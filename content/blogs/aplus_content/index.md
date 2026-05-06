@@ -12,7 +12,7 @@ Alright, so A+ content is all the extra stuff outside of your product descriptio
 
 Here's a story without A+ content (mine). Notice we go from "More Like" right into the product details.
 
-![](no_content.png?class="img-small")
+![](no_content.png)
 
 Booo! Boring! A+ content, if I had it, would go between those two sections in a "From the Publisher" section.
 

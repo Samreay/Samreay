@@ -189,7 +189,7 @@ plt.xlabel("x"), plt.legend();
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

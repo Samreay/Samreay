@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewsExplorer from '../../components/islands/ReviewsExplorer.svelte';
+import { resolveCover } from '../../lib/covers';
+import type { Post, ReviewTier } from '../../lib/types';
+
+const entries = await getCollection('reviews');
+const sorted = entries.sort((a, b) => a.data.weight - b.data.weight);
+
+const posts: Post[] = await Promise.all(
+  sorted.map(async (entry) => {
+    const cover = await resolveCover(entry, 500, 800);
+    const sortedTags = [...entry.data.tags].sort().map((t) => t.toLowerCase());
+    return {
+      name: entry.data.name,
+      link: `/reviews/${entry.id}/`,
+      abslink: new URL(`/reviews/${entry.id}/`, Astro.site!).toString(),
+      author: entry.data.auth,
+      review: entry.data.review as ReviewTier,
+      weight: entry.data.weight,
+      date: entry.data.date.toISOString(),
+      tags: sortedTags,
+      links: Object.entries(entry.data.links).map(([name, link]) => ({ name, link })),
+      sentence: entry.data.sentence,
+      description: entry.data.description,
+      search_term: `${entry.data.auth} ${entry.data.name} ${entry.data.search_terms ?? ''}`.toLowerCase(),
+      img: cover.src,
+      video: entry.data.video,
+    };
+  })
+);
+
+const totalReviews = posts.length;
+---
+<BaseLayout
+  title="Book Reviews"
+  description="Reviews of progression fantasy and LitRPG books, ranked and filtered."
+>
+  <div class="content content-full">
+    <div class="section-header mt-12 pb-2">
+      <h1>Book Reviews!</h1>
+    </div>
+    <ReviewsExplorer client:load posts={posts} totalReviews={totalReviews} />
+  </div>
+</BaseLayout>

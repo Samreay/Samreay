@@ -14,7 +14,7 @@ Let's begin with a motivational dataset.
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

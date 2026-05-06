@@ -1,0 +1,68 @@
+---
+/**
+ * Courses section. Sources thumbnails from `src/assets/landing/`
+ * (relocated from `themes/sams-theme/assets/landing/` in Phase 14 cutover).
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { courses } from '../../data/courses';
+
+const landingImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/landing/*.{jpg,jpeg,png,webp}',
+  { eager: true }
+);
+const landingByLowerName = new Map<string, ImageMetadata>();
+for (const [path, mod] of Object.entries(landingImages)) {
+  const filename = path.split('/').pop()!.toLowerCase();
+  landingByLowerName.set(`landing/${filename}`, mod.default);
+}
+
+function resolveCourseImage(imgPath: string): ImageMetadata {
+  const m = landingByLowerName.get(imgPath.toLowerCase());
+  if (!m) {
+    throw new Error(`Courses: image not found for ${imgPath}`);
+  }
+  return m;
+}
+---
+<div class="content content-standard" id="courses">
+  <div class="section-header">
+    <h1>Courses</h1>
+    <p>
+      I've partnered with SuperDataScience to produce several high quality Python courses in the area of statistics and data manipulation.
+    </p>
+  </div>
+  {courses.map((course, index) => (
+    <div class={`relative flex flex-col ${index === 0 ? 'mt-1' : 'mt-16'}`}>
+      <div class="w-full">
+        <article class="relative max-w-md mx-auto md:max-w-none">
+          <figure class="md:absolute md:inset-y-0 md:left-0 md:w-1/2">
+            <Image
+              src={resolveCourseImage(course.img)}
+              width={516}
+              height={400}
+              quality={80}
+              format="webp"
+              class="w-full h-full object-cover"
+              alt={course.name}
+            />
+          </figure>
+          <div class="relative bg-gray-800 py-8 md:py-16 px-6 md:px-16 md:max-w-lg lg:max-w-xl md:ml-auto">
+            <h4 class="h4 mb-2">{course.name}</h4>
+            <p class="text-lg text-gray-400">{course.desc}</p>
+            <a class="btn-sm text-white bg-main-600 hover:bg-main-700 mt-6" href={course.link}>
+              <span>Learn more</span>
+              <svg
+                class="w-3 h-3 fill-current text-main-400 shrink-0 ml-2"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M6 5H0v2h6v4l6-5-6-5z" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  ))}
+</div>

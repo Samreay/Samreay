@@ -15,13 +15,13 @@ As you may have guessed, said "big peak" is the oscillation of interest. Put sim
 separation at which there is an overdensity of matter in the universe. And its of interest because this peak has existed
 since the first galaxies formed, and so we can use it as a standard ruler.
 
-![](ps.jpg?class="img-invert")
+![](ps.jpg)
 
 Now, it gets even more interesting if we turn the 1D picture above into a 2D picture, but looking not at total separation,
 but at separation in two specific directions - along our line of sight, and tangential to our line of sight.
 Our correlation function might just look like this:
 
-![](2d.jpg?class="img-invert")
+![](2d.jpg)
 
 I've even decomposed the signal into its moments, so that we can see the monopole, quadrupole and hexapole
     (with their associated spherical Bessel functions), all laid out neatly.
@@ -29,7 +29,7 @@ I've even decomposed the signal into its moments, so that we can see the monopol
 So, my project was essentially to model this 2D BAO signal, and fit it to the WiggleZ data, in order to provide cosmological constraints. The WiggleZ data
     comes in three different redshift bins, with covariance between data points (shown below) determined courtesy of a set of 600 WizCOLA simulations.
 
-![](cor.jpg?class="img-invert")
+![](cor.jpg)
 
 We can start a theoretical model using some [nice linear software](http://camb.info/), fix it up slightly (those pesky
 non-linearities, amongst other things), and then throw our model creation system and the data into a cauldron of
@@ -37,7 +37,7 @@ non-linearities, amongst other things), and then throw our model creation system
 
 Here's one I prepared earlier:
 
-![](res.jpg?class="img-invert")
+![](res.jpg)
 
 I should probably have explained the WiggleZ data is broken down into three different bins. You can combine these bins either before or after fitting,
 giving the labels "All data" and "Combined" respectively.

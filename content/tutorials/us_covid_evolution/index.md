@@ -14,7 +14,7 @@ Here's what we'll be making:
 
 
 
-![](evolution.mp4)
+<video src="evolution.mp4" controls autoplay muted loop></video>
 
 
 
@@ -355,7 +355,7 @@ Image(fig.to_image(format="png", scale=2))
 
 
 
-![png](cover.png?class="img-main,poster")
+![png](cover.png)
 
 
 
@@ -419,7 +419,7 @@ After that has run, we should have a nice animated version of the PNG sequence! 
 
 
 
-![](evolution.mp4)
+<video src="evolution.mp4" controls autoplay muted loop></video>
 
 
 

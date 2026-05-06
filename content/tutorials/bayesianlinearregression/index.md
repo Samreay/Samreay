@@ -299,7 +299,7 @@ ax.set_xlabel("x"), ax.set_ylabel("y"), ax.set_xlim(2, 12);
 
 
 
-![png](2019-07-27-BayesianLinearRegression_files/2019-07-27-BayesianLinearRegression_19_0.png?class="img-main")
+![png](2019-07-27-BayesianLinearRegression_files/2019-07-27-BayesianLinearRegression_19_0.png)
 
 
 

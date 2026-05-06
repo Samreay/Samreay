@@ -45,4 +45,4 @@ Additionally, the amazing John Bierce, author of Mage Errant, was one of my beta
 
 And if that hasn't convinced you, just look at how nice the cover art is. Massive props to [Mansik Yang](https://www.artstation.com/yam8417) for his hard work and talent.
 
-![](cover.jpg?class="img-smaller")
+![](cover.jpg)

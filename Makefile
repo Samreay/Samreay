@@ -1,11 +1,6 @@
-install_tailwind:
-	@echo "Installing theme dependencies"
+install_node:
+	@echo "Installing npm dependencies"
 	@npm install
-
-install_casks:
-	@echo "Installing Hugo and npm"
-	@brew install hugo
-	@brew install nodejs
 
 install_uv:
 	@echo "Running local uv install"
@@ -24,25 +19,43 @@ convert:
 	@echo "Converting notebooks"
 	uv run python builder/convert.py
 
-prod: export HUGO_ENVIRONMENT="production"
-prod: export HUGO_ENV="production"
 prod:
-	rm -rf public && hugo --gc --minify
+	rm -rf dist && npm run build
 
 blog:
-	uv run python resize.py && hugo server -D --logLevel info
+	npm run dev
 
 summary:
 	uv run builder/summary_generator.py
 
-screenshots:
-	uv run python convert.py
-
 cv:
-	cd resume && uv run rendercv render "Hinton_CV.yaml" && cp rendercv_output/Samuel_Hinton_CV.pdf ../themes/sams-theme/static/static/resume/Samuel_Hinton_CV.pdf
+	cd resume && uv run rendercv render "Hinton_CV.yaml" \
+	  && cp rendercv_output/Samuel_Hinton_CV.pdf ../astro-public/static/resume/Samuel_Hinton_CV.pdf
 
-install: install_casks install_uv install_precommit install_tailwind tailwind precommit
+install: install_uv install_precommit install_node precommit
 
-build: tailwind convert
+# ----- implement-plan skill -----
 
-all: precommit tailwind
+IMPLEMENT_PLAN_DIR := .cursor/skills/implement-plan
+VERIFY := uv run $(IMPLEMENT_PLAN_DIR)/scripts/verify.py
+
+.PHONY: implement-plan-setup
+implement-plan-setup:
+	@echo "Installing Playwright project for visual diffs"
+	cd $(IMPLEMENT_PLAN_DIR)/scripts/visual && npm install
+	# chromium powers astro-desktop and hugo-desktop; webkit powers
+	# astro-mobile (iPhone SE descriptor uses webkit by default).
+	cd $(IMPLEMENT_PLAN_DIR)/scripts/visual && npx playwright install chromium webkit
+
+.PHONY: verify-phase-%
+verify-phase-%:
+	$(VERIFY) --phase $*
+
+.PHONY: verify-phase-keep-%
+verify-phase-keep-%:
+	$(VERIFY) --phase $* --keep-normalized
+
+.PHONY: implement-plan-update-baselines
+implement-plan-update-baselines:
+	@if [ -z "$(PHASE)" ]; then echo "Usage: make implement-plan-update-baselines PHASE=N" >&2; exit 2; fi
+	$(VERIFY) --phase $(PHASE) --update-baselines

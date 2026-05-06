@@ -13,5 +13,5 @@ and [this texture](http://supersprayer.deviantart.com/art/Planet-Texture-1500278
 
 
 
-![](cover.jpg)
+![](cover.png)
 

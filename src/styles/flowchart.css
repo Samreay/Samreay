@@ -1,0 +1,257 @@
+/* Page + node styles for /reviews/flowchart/. Imported from the .astro
+   page rather than from main.css so unrelated routes don't pay for these
+   rules.
+
+   Override patterns: prefer `.flowchart-page .svelte-flow__<part>` over
+   bare `.svelte-flow__<part>` so we don't fight other potential xyflow
+   usages elsewhere on the site, and so cascade order between Astro's
+   per-page CSS and the island's bundled `@xyflow/svelte/dist/style.css`
+   doesn't matter — specificity beats source order.
+
+   Per-edge colours live in `src/lib/flowchart-layout.ts` (`EDGE_PALETTE`)
+   and reach the DOM via inline `style` / `labelStyle` strings on each
+   edge, because xyflow portals the label out of the edge element and
+   any CSS-variable cascade scoped to `.svelte-flow__edge` would silently
+   fail to reach it. This file is responsible for typography, layout,
+   and the default-colour fallback only.
+
+   v3 used a SCSS `$edge-stroke` variable; in plain CSS we hold the same
+   value in a custom property scoped to `.flowchart-page` (the only
+   element that consumes it). */
+
+.flowchart-page {
+  /* main-600, default colour when no `color` is set on an edge. */
+  --edge-stroke: #059669;
+}
+
+/* `BaseLayout` wraps every page in `.flex.flex-col.min-h-screen` with an
+   *absolutely-positioned* navbar (`<header class="absolute w-full z-30">`)
+   and an empty footer. The slot div itself takes the full viewport
+   height. We size the page to that full height (`100dvh` survives iOS
+   Safari's collapsing toolbar) and reserve the top 80px for the navbar
+   via padding, so nothing lives behind it. `min-height: 0` on the flex
+   parent lets the canvas child shrink past its intrinsic size. */
+.flowchart-page {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 600px;
+  padding: 80px 1rem 0; /* 80px = navbar height (`h-20`). */
+}
+
+/* BEM children are lifted to the top level rather than nested under
+   `.flowchart-page` because plain CSS Nesting does not support SCSS-style
+   `&__child` concatenation — the rule would be silently dropped.
+
+   The header sits beneath an absolutely-positioned 80px navbar (see
+   `padding-top` on `.flowchart-page` above), so the visible gap above the
+   title is `padding-top + margin-top`. We deliberately use a small
+   `margin-top` here — *not* the `mt-12` (3rem) used by other pages — so
+   the canvas owns as much vertical real-estate as possible. */
+.flowchart-page__header {
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  flex: 0 0 auto;
+}
+
+.flowchart-canvas {
+  position: relative; /* xyflow children are absolutely positioned. */
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  margin-top: 0.5rem;
+  border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
+  background: #0c0d10;
+}
+
+/* xyflow theming — match the dark site palette. */
+.flowchart-page {
+  .svelte-flow {
+    background-color: transparent;
+  }
+  .svelte-flow__background {
+    color: rgba(255, 255, 255, 0.05);
+  }
+  .svelte-flow__minimap {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.5rem;
+  }
+  .svelte-flow__controls {
+    button {
+      background: #1a1a1a;
+      color: #ddd;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      &:hover {
+        background: #262626;
+      }
+    }
+  }
+
+  /* Default stroke + width. Per-edge `style="stroke: …"` (set by the
+     layout helper) overrides the colour here; this rule is purely the
+     fallback for an edge whose `color` field is unset. */
+  .svelte-flow__edge-path,
+  .svelte-flow__connectionline {
+    stroke: var(--edge-stroke);
+    stroke-width: 3;
+  }
+
+  /* Edge labels are HTML divs (class `.svelte-flow__edge-label`), *not*
+     SVG text — smoothstep edges render via the EdgeLabelRenderer portal
+     outside `.svelte-flow__edge` (which is why colour cascade fails
+     here and per-edge `labelStyle` is the only reliable hook). This
+     rule supplies typography + the default-green fallback; per-edge
+     `labelStyle` overrides `background` and `color`. */
+  .svelte-flow__edge-label {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #ecfdf5; /* emerald-50, matches default stroke. */
+    background: var(--edge-stroke);
+    border-radius: 0.4rem;
+    padding: 0.2rem 0.6rem;
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Hide the handle dots entirely. We disable `nodesConnectable` on the
+     SvelteFlow component, which removes the interaction; this CSS
+     removes the visual marker too. Edges still render at the configured
+     Position.Top / Position.Bottom because xyflow reads handle anchors
+     from the Handle component instances, not from rendered DOM
+     dimensions. */
+  .svelte-flow__handle {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Custom node visuals. */
+.book-node {
+  /* The fancy_card defaults to max-width: 600px; inside an xyflow node we
+     want it to fill the node bounding box that dagre sized. */
+  max-width: none;
+  width: 100%;
+  height: 100%;
+
+  /* Wide-card image + side panel are 250x400. Lock the rendered image
+     to that height so the side panel can fill the remaining vertical
+     space without ragged baselines. */
+  .bg-inner {
+    height: 100%;
+  }
+
+  figure img {
+    width: 250px;
+    height: 400px;
+    object-fit: cover;
+  }
+}
+
+.decision-node {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.85rem 1.25rem;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border: 2px solid var(--edge-stroke);
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.6);
+}
+
+/* Authoring opt-in for visual anchors like the "Start Here!" entry
+   point. The xyflow node bbox is doubled in `flowchart-layout.ts`
+   (640x180 instead of 320x90); this rule scales padding, border,
+   radius, and shadow up so the chrome reads as proportional rather
+   than oddly small inside the bigger pill. The prompt's typography
+   bump lives in the sibling `&__prompt` rule below. */
+.decision-node--large {
+  padding: 1.7rem 2.5rem;
+  border-width: 3px;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+.decision-node__prompt {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  line-height: 1.25;
+}
+
+.decision-node--large .decision-node__prompt {
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* ── Search dim ──────────────────────────────────────────────────────
+   Toggled by the search bar in `Flowchart.svelte`. Setting `node.class`
+   on a node puts the class on `.svelte-flow__node`. For edges we set
+   `data.dim = true` and `OffsetLabelEdge.svelte` reads it and applies
+   the class to BOTH the SVG path AND the (portalled) HTML label so
+   they fade as a unit. The base-state transitions are here so the
+   fade-back-up after clearing the query is smooth, not a snap. */
+.flowchart-page .svelte-flow__node,
+.flowchart-page .svelte-flow__edge-path,
+.flowchart-page .svelte-flow__edge-label {
+  transition: opacity 150ms ease;
+}
+.flowchart-page .svelte-flow__node.flowchart-dim,
+.flowchart-page .svelte-flow__edge-path.flowchart-dim,
+.flowchart-page .svelte-flow__edge-label.flowchart-dim {
+  opacity: 0.2;
+}
+
+/* ── Pulse wave node flash ───────────────────────────────────────────
+   Applied for ~500ms when a travelling pulse dot arrives at a node.
+   Decision nodes get a glow ring; book nodes get a border-glow.
+   Both animations use `forwards` so the glow fully fades before the
+   class is removed, avoiding a snap-back. */
+@keyframes decisionPulseFlash {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--node-flash-color) 0%, transparent),
+                     0 6px 20px -8px rgba(0, 0, 0, 0.6); }
+  25%  { box-shadow: 0 0 12px 4px color-mix(in srgb, var(--node-flash-color) 22%, transparent),
+                     0 6px 20px -8px rgba(0, 0, 0, 0.6); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--node-flash-color) 0%, transparent),
+                     0 6px 20px -8px rgba(0, 0, 0, 0.6); }
+}
+
+@keyframes bookPulseFlash {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--node-flash-color) 0%, transparent); }
+  25%  { box-shadow: 0 0 14px 5px color-mix(in srgb, var(--node-flash-color) 36%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--node-flash-color) 0%, transparent); }
+}
+
+.decision-node--pulse {
+  animation: decisionPulseFlash 900ms ease-out forwards;
+}
+
+.book-node--pulse {
+  animation: bookPulseFlash 900ms ease-out forwards;
+  border-radius: 0.75rem;
+}
+
+/* ── Search bar ──────────────────────────────────────────────────────
+   xyflow's <Panel> takes care of absolute-positioning and
+   `pointer-events: auto`; we just need to lay the input + clear button
+   out horizontally. All visual styling (colours, padding, hover) is
+   applied via Tailwind classes in the markup, mirroring
+   `ReviewsExplorer.svelte`'s search row so the two pages share one
+   visual language. The `flex` layout wins over the panel default
+   `display: block` and stops the elements stacking when the search
+   panel container shrinks. */
+.flowchart-page .svelte-flow__panel.flowchart-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100vw - 6rem);
+}

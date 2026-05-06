@@ -172,7 +172,7 @@ Beautiful. Now to try and tie it all together, here is one final, more complicat
 
 
 
-![png](cover.png?class="img-main")
+![png](cover.png)
 
 
 

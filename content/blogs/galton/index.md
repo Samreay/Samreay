@@ -25,8 +25,8 @@ all important video!
 
 ![](galton_big.mp4)
 
-![](galton2.jpg)
-![](galton1.jpg)
-![](galton3.jpg)
+![](galton2.png)
+![](galton1.png)
+![](galton3.png)
 
 

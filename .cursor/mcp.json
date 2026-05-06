@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--isolated",
+        "--viewport-size=1440x900",
+        "--allowed-origins=http://localhost;http://127.0.0.1"
+      ]
+    }
+  }
+}
