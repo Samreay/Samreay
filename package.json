@@ -39,6 +39,8 @@
     "@xyflow/svelte": "^1.5.2"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.60.2"
+    "@rollup/rollup-linux-x64-gnu": "4.60.2",
+    "@img/sharp-linux-x64": "0.34.5",
+    "@img/sharp-libvips-linux-x64": "1.2.4"
   }
 }
