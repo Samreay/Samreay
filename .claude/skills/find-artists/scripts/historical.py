@@ -208,10 +208,18 @@ def main() -> int:
         output_csv = month_path(month_start)
 
         if output_csv.exists():
-            print(f"[historical] skipping {month_start:%Y-%m}; {output_csv} exists", flush=True)  # noqa: T201
-            skipped += 1
-            month_start = add_month(month_start)
-            continue
+            # Re-fetch months whose CSV is empty — PullPush has a ~1-year lag, so
+            # a zero-row result now may have rows once the index catches up.
+            try:
+                existing = pl.read_csv(output_csv, schema=SCHEMA)
+                if existing.height > 0:
+                    print(f"[historical] skipping {month_start:%Y-%m}; {output_csv} exists ({existing.height} rows)", flush=True)  # noqa: T201
+                    skipped += 1
+                    month_start = add_month(month_start)
+                    continue
+                print(f"[historical] re-fetching {month_start:%Y-%m}; existing CSV has 0 rows", flush=True)  # noqa: T201
+            except Exception:
+                print(f"[historical] re-fetching {month_start:%Y-%m}; could not read existing CSV", flush=True)  # noqa: T201
 
         df = collect_month_rows(session, month_start, month_end)
         write_month(df, output_csv)

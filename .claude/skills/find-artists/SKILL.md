@@ -35,19 +35,23 @@ Run all scripts via `uv run` (they use inline script metadata to pull
 
 ## PART ONE — Find and fetch links
 
-Run these two scripts. They are idempotent — safe to re-run to pick up new posts.
+Run these three scripts. They are idempotent — safe to re-run to pick up new posts.
 
 ```bash
 uv run .claude/skills/find-artists/scripts/historical.py
+uv run .claude/skills/find-artists/scripts/reddit_search.py
 uv run .claude/skills/find-artists/scripts/fetch_posts.py
 ```
 
 **`historical.py`** paginates the PullPush submission search API month by month,
 writing each completed month to `scripts/data/historical/YYYY-MM.csv`. It skips
-months whose CSV already exists, so it is safe to re-run.
+months whose CSV has >0 rows already. PullPush has roughly a 1-year ingestion
+lag, so months without data yet are re-fetched on every run.
+
+**`reddit_search.py`** hits Reddit's native search API directly (`/r/ProgressionFantasy/search.json?q=flair:"Self-Promotion"&sort=new`) and paginates up to ~250 posts (Reddit's practical search limit). It overwrites `scripts/data/historical/reddit_search.csv` on every run, covering the most recent posts that PullPush hasn't indexed yet. Run this alongside `historical.py` so the two sources complement each other.
 
 **`fetch_posts.py`** reads every CSV in `scripts/data/historical/`, fetches any
-link not in `scripts/data/fetched.csv`, skips posts with fewer than 5 upvotes
+link not in `scripts/data/fetched.csv`, skips posts with fewer than 10 upvotes
 (marked `skipped_low_upvotes`), and for the rest writes
 `references/to_extract/<id>.md` containing post front-matter, the selftext,
 any image URLs, and every comment by the OP.
@@ -119,8 +123,11 @@ well.
 
 ## Notes
 
-- PullPush search is fetched month by month to keep each query window small and
-  resumable.
+- PullPush (`historical.py`) has ~1-year ingestion lag. `reddit_search.py` fills
+  the gap for recent posts; together they cover both the long tail and the present.
+- `reddit_search.py` overwrites its output CSV each run (safe, because
+  `fetched.csv` prevents re-processing bodies). Reddit's search pagination caps
+  at ~250 results sorted by new.
 - The scripts use a 2-second sleep between requests to stay polite. If you
   need to process a backlog and hit 429s, increase that delay.
 - If `fetched.csv` gets corrupted, deleting it is safe — any existing markdown
