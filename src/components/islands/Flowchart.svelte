@@ -8,12 +8,13 @@
     ConnectionMode,
   } from '@xyflow/svelte';
   import '@xyflow/svelte/dist/style.css';
-  import { setContext, onDestroy } from 'svelte';
+  import { setContext, onDestroy, tick } from 'svelte';
 
   import BookNode from './flowchart/BookNode.svelte';
   import DecisionNode from './flowchart/DecisionNode.svelte';
+  import QuizNavigator from './flowchart/QuizNavigator.svelte';
   import OffsetLabelEdge from './flowchart/OffsetLabelEdge.svelte';
-  import type { FlowNode, FlowEdge } from '../../lib/flowchart-layout';
+  import type { FlowNode, FlowEdge, BookNodePayload, DecisionNodePayload } from '../../lib/flowchart-layout';
   import { RelaxSimulator } from '../../lib/flowchart-relax';
   import type { EdgeSpec } from '../../lib/flowchart-relax';
 
@@ -181,6 +182,147 @@
   // is to position the label closer to the source than xyflow's
   // built-in midpoint default. See OffsetLabelEdge.svelte.
   const edgeTypes = { offsetLabel: OffsetLabelEdge };
+
+  // ── Quiz Mode ────────────────────────────────────────────────────────
+  // A guided single-step walk through the graph. The user picks one answer
+  // at a time; the camera pans to each node; chosen edges glow. Ends when
+  // a book node is reached.
+
+  // flyTo is provided by QuizNavigator (a child of <SvelteFlow> that can
+  // call useSvelteFlow()). We register the implementation via context so
+  // the parent never calls xyflow hooks at the top level.
+  let _flyToImpl: ((nodeId: string) => void) | null = null;
+  setContext<(fn: (nodeId: string) => void) => void>('registerFlyTo', (fn) => {
+    _flyToImpl = fn;
+  });
+
+  // Known node id set — used to sanitise the ?path= URL parameter.
+  const _knownNodeIds = new Set(initialNodes.map((n) => n.id));
+
+  let quizMode = $state(false);
+  // Ordered list of node ids visited so far, starting from 'd_start'.
+  let quizPath = $state<string[]>([]);
+  let quizPanDisabled = $state(false);
+
+  const quizCurrentNodeId = $derived(quizPath.at(-1) ?? 'd_start');
+
+  const quizCurrentNode = $derived(
+    nodes.find((n) => n.id === quizCurrentNodeId) ?? null,
+  );
+
+  const quizCurrentIsBook = $derived(
+    quizCurrentNode?.type === 'book',
+  );
+
+  // The outgoing edges from the current decision node — shown as HUD buttons.
+  const quizChoices = $derived.by(() => {
+    if (!quizMode || quizCurrentIsBook) return [];
+    return edges.filter((e) => e.source === quizCurrentNodeId);
+  });
+
+  // The book data for the result overlay.
+  const quizBookData = $derived.by((): BookNodePayload | null => {
+    if (!quizCurrentIsBook || !quizCurrentNode) return null;
+    return quizCurrentNode.data as BookNodePayload;
+  });
+
+  function _flyToNode(nodeId: string): void {
+    _flyToImpl?.(nodeId);
+  }
+
+  function _clearQuizTrail(): void {
+    for (const edge of edges) {
+      if (edge.data?.quizTrail) edge.data.quizTrail = false;
+    }
+  }
+
+  function _restoreTrailFromPath(path: string[]): void {
+    for (let i = 0; i < path.length - 1; i++) {
+      const from = path[i];
+      const to = path[i + 1];
+      const edge = edges.find((e) => e.source === from && e.target === to);
+      if (edge?.data) edge.data.quizTrail = true;
+    }
+  }
+
+  function _updateUrl(path: string[]): void {
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location.href);
+    if (path.length > 0) {
+      url.searchParams.set('path', path.join(','));
+    } else {
+      url.searchParams.delete('path');
+    }
+    history.replaceState(null, '', url.toString());
+  }
+
+  function enterQuiz(): void {
+    quizMode = true;
+    quizPanDisabled = true;
+    // Pause the ambient pulse wave.
+    if (_pulseRafId !== null) {
+      cancelAnimationFrame(_pulseRafId);
+      _pulseRafId = null;
+    }
+    _activePulses.clear();
+    // Clear any stale pulse progress from edges.
+    for (const edge of edges) {
+      if (edge.data) edge.data.pulseProgress = undefined;
+    }
+    quizPath = ['d_start'];
+    _updateUrl(quizPath);
+    // Wait one tick for Svelte to process the state change, then fly.
+    tick().then(() => _flyToNode('d_start'));
+  }
+
+  function exitQuiz(): void {
+    quizMode = false;
+    quizPanDisabled = false;
+    _clearQuizTrail();
+    quizPath = [];
+    _updateUrl([]);
+    // Restart the pulse wave.
+    if (typeof window !== 'undefined') {
+      setTimeout(_launchWave, 400);
+    }
+  }
+
+  function chooseAnswer(edgeId: string): void {
+    const edge = edges.find((e) => e.id === edgeId);
+    if (!edge) return;
+    if (edge.data) edge.data.quizTrail = true;
+    quizPath = [...quizPath, edge.target];
+    _updateUrl(quizPath);
+    tick().then(() => _flyToNode(edge.target));
+  }
+
+  function restartQuiz(): void {
+    _clearQuizTrail();
+    quizPath = ['d_start'];
+    _updateUrl(quizPath);
+    tick().then(() => _flyToNode('d_start'));
+  }
+
+  // Provide enterQuiz via context so QuizStartNode can call it.
+  setContext<() => void>('enterQuiz', enterQuiz);
+
+  // Restore quiz state from ?path= URL on mount.
+  if (typeof window !== 'undefined') {
+    const urlPath = new URL(window.location.href).searchParams.get('path');
+    if (urlPath) {
+      const ids = urlPath.split(',').filter((id) => _knownNodeIds.has(id));
+      if (ids.length > 0) {
+        // Defer until after xyflow mounts so setCenter is available.
+        setTimeout(() => {
+          quizMode = true;
+          quizPanDisabled = true;
+          quizPath = ids;
+          _restoreTrailFromPath(ids);
+          tick().then(() => _flyToNode(ids.at(-1)!));
+        }, 900);
+      }
+    }
+  }
 
   // ── Search ──────────────────────────────────────────────────────────
   // The user types into the Panel; we lowercase + tokenise once and
@@ -686,10 +828,15 @@
       maxZoom={2}
       defaultEdgeOptions={{ animated: false }}
       nodesConnectable={false}
-      nodesDraggable={isDev}
+      nodesDraggable={isDev && !quizPanDisabled}
       onnodedragstop={({ node }) => { if (isDev) { _draggedPositions.set(node.id, { x: node.position.x, y: node.position.y }); _dragDirtyCount++; } }}
       edgesReconnectable={false}
-      elementsSelectable={isDev}
+      elementsSelectable={isDev && !quizPanDisabled}
+      panOnDrag={!quizPanDisabled}
+      zoomOnScroll={!quizPanDisabled}
+      zoomOnPinch={!quizPanDisabled}
+      zoomOnDoubleClick={!quizPanDisabled}
+      panOnScroll={false}
       connectionMode={ConnectionMode.Loose}
     >
       <Background />
@@ -709,47 +856,142 @@
         whole row reads as one element of the existing site
         language, not a foreign canvas overlay.
       -->
-      <Panel position="top-center" class="flowchart-search">
-        <input
-          bind:this={searchInputEl}
-          bind:value={searchTerm}
-          type="search"
-          class="bg-gray-800 rounded-md text-gray-100 m-2 px-3 py-2"
-          placeholder="Search... (press /)"
-          aria-label="Search the flowchart"
-          autocomplete="off"
-          spellcheck="false"
-        />
-        {#if searchTerm}
-          {#if totalMatches > 0}
-            <span
-              class="inline-flex items-center m-2 px-3 py-2 bg-gray-700 rounded-md text-gray-100"
-              aria-live="polite"
+      <QuizNavigator isMobile={isMobile} />
+
+      {#if !quizMode}
+        <Panel position="top-center" class="flowchart-search">
+          <input
+            bind:this={searchInputEl}
+            bind:value={searchTerm}
+            type="search"
+            class="bg-gray-800 rounded-md text-gray-100 m-2 px-3 py-2"
+            placeholder="Search... (press /)"
+            aria-label="Search the flowchart"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          {#if searchTerm}
+            {#if totalMatches > 0}
+              <span
+                class="inline-flex items-center m-2 px-3 py-2 bg-gray-700 rounded-md text-gray-100"
+                aria-live="polite"
+              >
+                {matchedBookCount} book{matchedBookCount === 1 ? '' : 's'}
+              </span>
+            {:else}
+              <span
+                class="inline-flex items-center m-2 px-3 py-2 bg-red-900 rounded-md text-red-100"
+                aria-live="polite"
+              >
+                No matches
+              </span>
+            {/if}
+            <button
+              type="button"
+              class="inline-flex items-center m-2 px-3 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
+              onclick={() => {
+                searchTerm = '';
+                searchInputEl?.focus();
+              }}
+              aria-label="Clear search"
             >
-              {matchedBookCount} book{matchedBookCount === 1 ? '' : 's'}
-            </span>
-          {:else}
-            <span
-              class="inline-flex items-center m-2 px-3 py-2 bg-red-900 rounded-md text-red-100"
-              aria-live="polite"
-            >
-              No matches
-            </span>
+              Clear
+            </button>
           {/if}
+        </Panel>
+      {/if}
+    </SvelteFlow>
+  {/if}
+
+  <!-- ── Quiz Mode HUD ── -->
+  {#if quizMode && !quizCurrentIsBook}
+    <div class="quiz-hud" role="region" aria-label="Quiz choices">
+      <button
+        type="button"
+        class="quiz-hud__exit"
+        onclick={exitQuiz}
+        aria-label="Exit quiz mode"
+      >
+        ✕ Exit
+      </button>
+      <p class="quiz-hud__question">
+        {(quizCurrentNode?.data as DecisionNodePayload | null)?.prompt ?? ''}
+      </p>
+      <div class="quiz-hud__choices">
+        {#each quizChoices as edge (edge.id)}
           <button
             type="button"
-            class="inline-flex items-center m-2 px-3 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
-            onclick={() => {
-              searchTerm = '';
-              searchInputEl?.focus();
-            }}
-            aria-label="Clear search"
+            class="quiz-hud__choice"
+            style="--choice-color: {edge.data?.lineColor ?? '#059669'};"
+            onclick={() => chooseAnswer(edge.id)}
+            aria-label={String(edge.label ?? edge.id)}
           >
-            Clear
+            {edge.label ?? '→'}
           </button>
-        {/if}
-      </Panel>
-    </SvelteFlow>
+        {/each}
+      </div>
+    </div>
+  {/if}
+
+  <!-- ── Quiz Result Overlay ── -->
+  {#if quizMode && quizCurrentIsBook && quizBookData}
+    <div class="quiz-result" role="dialog" aria-label="Book recommendation result" aria-modal="true">
+      <div class="quiz-result__card">
+        <p class="quiz-result__label">Your next read is...</p>
+        <div class="quiz-result__book">
+          <img
+            class="quiz-result__cover"
+            src={quizBookData.cover.src}
+            width={quizBookData.cover.width}
+            height={quizBookData.cover.height}
+            alt={quizBookData.title}
+          />
+          <div class="quiz-result__info">
+            <h2 class="quiz-result__title">{quizBookData.title}</h2>
+            <p class="quiz-result__sentence">{quizBookData.sentence}</p>
+            <ul class="quiz-result__tags">
+              {#each quizBookData.tags as tag (tag)}
+                <li class="quiz-result__tag tag-{tag}">{tag}</li>
+              {/each}
+            </ul>
+          </div>
+        </div>
+        <div class="quiz-result__actions">
+          <a
+            href={quizBookData.link}
+            class="quiz-result__btn quiz-result__btn--primary"
+          >
+            View Review →
+          </a>
+          <button
+            type="button"
+            class="quiz-result__btn quiz-result__btn--secondary"
+            onclick={restartQuiz}
+          >
+            Start Over
+          </button>
+          <button
+            type="button"
+            class="quiz-result__btn quiz-result__btn--ghost"
+            onclick={exitQuiz}
+          >
+            Explore Map
+          </button>
+        </div>
+        <div class="quiz-result__share">
+          <button
+            type="button"
+            class="quiz-result__share-btn"
+            onclick={() => {
+              navigator.clipboard?.writeText(window.location.href);
+            }}
+            aria-label="Copy shareable link"
+          >
+            🔗 Copy link
+          </button>
+        </div>
+      </div>
+    </div>
   {/if}
 
   {#if isDev}

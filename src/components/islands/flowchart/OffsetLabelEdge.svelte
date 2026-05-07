@@ -58,10 +58,19 @@
       /** 0–1 fraction along the edge where the travelling pulse dot
        *  should be drawn. `undefined` = no active pulse. */
       pulseProgress?: number;
+      /** Set true when this edge is part of the user's chosen quiz trail. */
+      quizTrail?: boolean;
     };
   } = $props();
 
   const dimClass = $derived(props.data?.dim ? 'flowchart-dim' : undefined);
+  const trailClass = $derived(props.data?.quizTrail ? 'quiz-trail' : undefined);
+  const edgeClass = $derived([dimClass, trailClass].filter(Boolean).join(' ') || undefined);
+  const trailStyle = $derived(
+    props.data?.quizTrail
+      ? `${props.style ?? ''} stroke: ${props.data.lineColor ?? '#d97706'}; stroke-width: 5; filter: drop-shadow(0 0 6px ${props.data.lineColor ?? '#d97706'}aa);`
+      : props.style,
+  );
 
   const path = $derived.by(() => {
     const args = {
@@ -156,16 +165,18 @@
   markerStart={props.markerStart}
   markerEnd={props.markerEnd}
   interactionWidth={props.interactionWidth}
-  style={props.style}
-  class={dimClass}
+  style={trailStyle}
+  class={edgeClass}
 />
 
 {#if props.label}
   <EdgeLabel
     x={labelPos.x}
     y={labelPos.y}
-    style={props.labelStyle}
-    class={dimClass}
+    style={props.data?.quizTrail
+      ? `${props.labelStyle ?? ''} box-shadow: 0 0 10px 2px ${props.data.lineColor ?? '#d97706'}88; border: 2px solid ${props.data.lineColor ?? '#d97706'};`
+      : props.labelStyle}
+    class={edgeClass}
     selectEdgeOnClick
   >
     {props.label}

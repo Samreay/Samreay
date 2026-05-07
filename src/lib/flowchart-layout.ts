@@ -262,6 +262,7 @@ export interface DecisionNodePayload extends Record<string, unknown> {
 // no cast. Same trick for edges.
 export type BookFlowNode = Node<BookNodePayload, 'book'>;
 export type DecisionFlowNode = Node<DecisionNodePayload, 'decision'>;
+
 export type FlowNode = BookFlowNode | DecisionFlowNode;
 
 /**
@@ -300,6 +301,10 @@ export type FlowEdge = Edge<
      *  active pulse. `OffsetLabelEdge` renders a glowing dot at this
      *  position along the path when set. Mutated in-place like `dim`. */
     pulseProgress?: number;
+    /** Set true while the edge is part of the user's chosen quiz trail.
+     *  `OffsetLabelEdge` renders a glowing highlight on the path and
+     *  label when set. Mutated in-place like `dim`. */
+    quizTrail?: boolean;
   },
   typeof CUSTOM_EDGE_TYPE
 >;

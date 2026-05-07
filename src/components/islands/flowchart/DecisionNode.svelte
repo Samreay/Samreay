@@ -8,6 +8,9 @@
   const getPulsingNodes = getContext<() => Set<string>>('pulsingNodes');
   const isPulsing = $derived(getPulsingNodes?.().has(id) ?? false);
 
+  const isStart = id === 'd_start';
+  const enterQuiz = getContext<(() => void) | undefined>('enterQuiz');
+
   // `accent.line` is the Tailwind 500 hex resolved server-side. We use
   // it raw for the border and as a translucent overlay on the dark
   // gradient so coloured decisions read as more than a 2px ring.
@@ -35,8 +38,16 @@
 <Handle type="source" position={Position.Left} id="left" />
 
 <div
-  class={['decision-node', data.size === 'large' && 'decision-node--large', isPulsing && 'decision-node--pulse']}
+  class={['decision-node', data.size === 'large' && 'decision-node--large', isPulsing && 'decision-node--pulse', isStart && 'decision-node--start']}
   style={`${accentStyle} --node-flash-color: ${data.accent.line};`}
+  role={isStart ? 'button' : undefined}
+  tabindex={isStart ? 0 : undefined}
+  onclick={isStart ? () => enterQuiz?.() : undefined}
+  onkeydown={isStart ? (e) => { if (e.key === 'Enter' || e.key === ' ') enterQuiz?.(); } : undefined}
+  aria-label={isStart ? 'Start Here — click to start quiz' : undefined}
 >
   <p class="decision-node__prompt">{data.prompt}</p>
+  {#if isStart}
+    <p class="decision-node__quiz-hint">🎯 Click for quiz</p>
+  {/if}
 </div>
