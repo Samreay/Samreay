@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CoverImage from '../../components/CoverImage.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
+import { resolveCover } from '../../lib/covers';
 
 export async function getStaticPaths() {
   const entries = await getCollection('reviews');
@@ -12,6 +13,13 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const r = entry.data.review;
+
+const cover = await resolveCover(entry, 500, 800);
+const ogImage = cover.src;
+const ogDescription =
+  r === 'π'
+    ? "A review of my own novel — judge accordingly"
+    : entry.data.description;
 
 const RATING_TEXT = {
   'π': 'My stuff. I hope you like it.',
@@ -26,7 +34,7 @@ const ratingText = RATING_TEXT[r];
 
 const titleCase = (s: string) => s.replaceAll('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 ---
-<BaseLayout title={entry.data.name} description={entry.data.description}>
+<BaseLayout title={entry.data.name} description={ogDescription} image={ogImage} type="article">
   <div class="content content blog-post relative">
     <div class="section-header blog">
       <h1 class={`title rating rating-${r}`}>{entry.data.name}</h1>
