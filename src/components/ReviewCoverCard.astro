@@ -37,12 +37,12 @@ const title = entry.data.short_title ?? entry.data.name;
         <article class={`review-${r}`}>
           <div class="bg2">
             <div class="bg-inner bg-gray-800">
-              <figure class="block w-full">
+              <figure class="block w-full" style="aspect-ratio: 5/8; overflow: hidden;">
                 <CoverImage
                   entry={entry}
                   width={500}
                   height={800}
-                  class="block w-full h-auto rounded-xl"
+                  class="block w-full h-full object-cover rounded-xl"
                   alt={title}
                 />
               </figure>

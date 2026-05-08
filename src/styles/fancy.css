@@ -211,7 +211,7 @@ svg.ico {
       calc(var(--posx) * 1.5 - 25%) calc(var(--posy) * 1.5 - 25%),
       calc(var(--posx) * 1.5 - 25%) calc(var(--posy) * 1.5 - 25%);
     background-blend-mode: exclusion, darken, color-dodge;
-    filter: brightness(0.58) contrast(4) saturate(0.75);
+    filter: brightness(0.5) contrast(4) saturate(0.75);
     mix-blend-mode: color-dodge;
   }
 
@@ -249,7 +249,7 @@ svg.ico {
     background-size: var(--imgsize), 200% 700%, 300%, 200%;
     background-position: 50%, 0 var(--posy), var(--posx) var(--posy),
       var(--posx) var(--posy);
-    filter: brightness(calc(var(--hyp) * 0.22 + 0.25)) contrast(2) saturate(1.5);
+    filter: brightness(calc(var(--hyp) * 0.1 + 0.3)) contrast(2) saturate(1.5);
     mix-blend-mode: color-dodge;
   }
 
@@ -365,7 +365,7 @@ svg.ico {
     background-position: 50%, calc(1300% - var(--posx) * 20) 50%,
       calc(var(--posx) * -1.2) var(--posy), var(--posx), 50%;
     background-size: 100% 100%, 200% 200%, 237% 237%, 195% 195%, 120% 120%;
-    filter: brightness(calc(var(--hyp) * 0.3 + 0.4)) contrast(3) saturate(0.75);
+    filter: brightness(calc(var(--hyp) * 0.1 + 0.5)) contrast(3) saturate(0.75);
     mix-blend-mode: color-dodge;
   }
 

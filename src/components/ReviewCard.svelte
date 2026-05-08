@@ -23,13 +23,19 @@
     post.review === 'S' ? 'text-S-400' :
     post.review === 'A' ? 'text-A-400' :
     post.review === 'B' ? 'text-B-300' :
-    'text-yellow-400'
+    post.review === 'C' ? 'text-C-400' :
+    post.review === 'D' ? 'text-D-400' :
+    post.review === 'F' ? 'text-F-400' :
+    'text-purple-400'
   );
   const bookmarkHoverClass = $derived(
     post.review === 'S' ? 'hover:text-S-400' :
     post.review === 'A' ? 'hover:text-A-400' :
     post.review === 'B' ? 'hover:text-B-300' :
-    'hover:text-yellow-400'
+    post.review === 'C' ? 'hover:text-C-400' :
+    post.review === 'D' ? 'hover:text-D-400' :
+    post.review === 'F' ? 'hover:text-F-400' :
+    'hover:text-purple-400'
   );
 
   function slugFromAbslink(abslink: string): string {
@@ -60,6 +66,33 @@
               class="bg-inner flex flex-col md:flex-row w-full bg-gray-800"
               style={tierInnerStyle}
             >
+            {#if onToggleBookmark}
+                <button
+                    type="button"
+                    aria-label={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
+                    title={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
+                    class="bookmark-btn absolute top-2 right-2 z-50 p-1 rounded-full transition-all
+                        {isBookmarked
+                            ? `${bookmarkActiveColor} opacity-100`
+                            : `text-gray-400 opacity-20 ${bookmarkHoverClass} hover:opacity-100`}"
+                    onclick={toggleBookmark}
+                >
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 26"
+                    width="20"
+                    height="20"
+                    fill={isBookmarked ? 'currentColor' : 'none'}
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    >
+                    <path d="M5 2a2 2 0 0 0-2 2v20l9-4 9 4V4a2 2 0 0 0-2-2H5z" />
+                    </svg>
+                </button>
+                {/if}
               <figure
                 class="block flex-none bg-cover {layout === 'wide' ? '' : 'w-full'}"
               >
@@ -117,33 +150,6 @@
       <div class="card_layer card_effect card_overlay_{post.review}"></div>
       <div class="card_layer card_effect card_glare"></div>
     </a>
-    {#if onToggleBookmark}
-      <button
-        type="button"
-        aria-label={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
-        title={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
-        class="bookmark-btn absolute top-2 right-2 z-50 p-1 rounded-full transition-all
-               {isBookmarked
-                 ? `${bookmarkActiveColor} opacity-100`
-                 : `text-gray-400 opacity-40 ${bookmarkHoverClass} hover:opacity-100`}"
-        onclick={toggleBookmark}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="20"
-          height="20"
-          fill={isBookmarked ? 'currentColor' : 'none'}
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M5 3a2 2 0 0 0-2 2v16l9-4 9 4V5a2 2 0 0 0-2-2H5z" />
-        </svg>
-      </button>
-    {/if}
   </div>
 </div>
 

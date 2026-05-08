@@ -91,7 +91,7 @@
       }
     }
     if (params.has('reading-list')) {
-      const slugs = params.get('reading-list')!.split('_').filter(Boolean);
+      const slugs = params.get('reading-list')!.split('~').filter(Boolean);
       out.readingList = new SvelteSet(slugs);
       if (slugs.length > 0) out.showReadingList = true;
     } else if (typeof localStorage !== 'undefined') {
@@ -131,7 +131,7 @@
     if (include.length) params.set('include', include.join('_'));
     if (exclude.length) params.set('exclude', exclude.join('_'));
     const rlSlugs = Array.from(readingList);
-    if (rlSlugs.length) params.set('reading-list', rlSlugs.join('_'));
+    if (rlSlugs.length) params.set('reading-list', rlSlugs.join('~'));
     const args = params.toString();
     const newUrl = `${location.origin}${location.pathname}${args ? '?' + args : ''}`;
     history.pushState({ path: newUrl }, '', newUrl);
@@ -363,7 +363,7 @@
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
+        viewBox="0 0 24 26"
         width="16"
         height="16"
         fill={showReadingList ? 'currentColor' : 'none'}
@@ -374,7 +374,7 @@
         aria-hidden="true"
         class="inline-block"
       >
-        <path d="M5 3a2 2 0 0 0-2 2v16l9-4 9 4V5a2 2 0 0 0-2-2H5z" />
+        <path d="M5 2a2 2 0 0 0-2 2v20l9-4 9 4V4a2 2 0 0 0-2-2H5z" />
       </svg>
       Reading List{readingList.size > 0 ? ` (${readingList.size})` : ''}
     </button>

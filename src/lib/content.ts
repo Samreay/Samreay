@@ -76,41 +76,35 @@ function weightedSample<T>(pool: { item: T; weight: number }[], k: number): T[] 
 }
 
 /**
- * Return up to `n` reviews most similar to `current`, ranked by shared-tag
- * count (descending). Within each tag-overlap tier, ties are broken by
- * weighted random sampling — reviews with lower `weight` values (i.e. higher
- * editorial ranking) are proportionally more likely to appear. See
- * `reviewSamplingWeight` for the exact mapping.
+ * Return up to `n` reviews that share at least one tag with `current`.
+ * Each candidate's sampling weight is:
  *
- * The current review is always excluded.
+ *   weight = reviewSamplingWeight(frontmatterWeight) + TAG_OVERLAP_BONUS * sharedTagCount
+ *
+ * where TAG_OVERLAP_BONUS = 20, so each additional shared tag adds 20 to the
+ * probability of being drawn. The base `reviewSamplingWeight` breaks ties
+ * between candidates with identical overlap counts.
+ *
+ * The current review is always excluded. Reviews with zero shared tags are
+ * excluded entirely.
  */
 export function getSimilarReviews(
   current: import('astro:content').CollectionEntry<'reviews'>,
   all: import('astro:content').CollectionEntry<'reviews'>[],
   n = 4,
+  tagOverlapBonus = 20,
 ): import('astro:content').CollectionEntry<'reviews'>[] {
   const currentTags = new Set(current.data.tags);
 
-  // Group candidates by shared-tag count.
-  const buckets = new Map<number, import('astro:content').CollectionEntry<'reviews'>[]>();
-  for (const e of all) {
-    if (e.id === current.id) continue;
-    const shared = e.data.tags.filter((t) => currentTags.has(t)).length;
-    if (!buckets.has(shared)) buckets.set(shared, []);
-    buckets.get(shared)!.push(e);
-  }
+  const pool = all
+    .filter((e) => e.id !== current.id)
+    .flatMap((e) => {
+      const shared = e.data.tags.filter((t) => currentTags.has(t)).length;
+      if (shared === 0) return [];
+      return [{ item: e, weight: reviewSamplingWeight(e.data.weight) + tagOverlapBonus * shared }];
+    })
+    .sort((a, b) => b.weight - a.weight)
+    .slice(0, 12);
 
-  // Drain buckets highest-overlap first, sampling within each bucket.
-  const result: import('astro:content').CollectionEntry<'reviews'>[] = [];
-  for (const shared of [...buckets.keys()].sort((a, b) => b - a)) {
-    if (result.length >= n) break;
-    const pool = buckets.get(shared)!.map((entry) => ({
-      item: entry,
-      weight: reviewSamplingWeight(entry.data.weight),
-    }));
-    const needed = n - result.length;
-    result.push(...weightedSample(pool, Math.min(needed, pool.length)));
-  }
-
-  return result;
+  return weightedSample(pool, Math.min(n, pool.length));
 }

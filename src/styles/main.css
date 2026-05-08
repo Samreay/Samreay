@@ -187,7 +187,7 @@
 @source inline("list-none");
 @source inline("grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
 @source inline("{hover:,focus:,}bg-{S,A,B,C,D,F}-{500,600,700,800,900}");
-@source inline("{hover:,}text-{S,A,B}-{300,400}");
+@source inline("{hover:,}text-{S,A,B,C,D,F}-{300,400}");
 @source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
 
 /* v4 silently refuses to generate `bg-π-*` utilities even when listed
@@ -211,6 +211,8 @@
 .focus\:bg-π-700:focus { background-color: var(--color-π-700); }
 .focus\:bg-π-800:focus { background-color: var(--color-π-800); }
 .focus\:bg-π-900:focus { background-color: var(--color-π-900); }
+.text-π-400 { color: var(--color-π-400); }
+.hover\:text-π-400:hover { color: var(--color-π-400); }
 
 @import './utility-patterns.css';
 @import './range-slider.css';

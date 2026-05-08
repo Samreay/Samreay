@@ -86,7 +86,8 @@ const similarReviews = getSimilarReviews(entry, allEntries, 4);
     </div>
     {similarReviews.length > 0 && (
       <div class="mt-20">
-        <h2 class="text-2xl font-bold text-center mb-8">You might also like</h2>
+        <h2 class="text-2xl font-bold text-center mb-8">Books with similar tags:</h2>
+        <p class="text-center">(It's literally just tag overlap, nothing that works very well.)</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
           {similarReviews.map((similar) => (
             <ReviewCoverCard entry={similar} />
