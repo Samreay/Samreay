@@ -122,7 +122,7 @@
         type="button"
         aria-label={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
         title={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
-        class="bookmark-btn absolute top-2 right-2 z-10 p-1 rounded-full transition-all
+        class="bookmark-btn absolute top-2 right-2 z-50 p-1 rounded-full transition-all
                {isBookmarked
                  ? `${bookmarkActiveColor} opacity-100`
                  : `text-gray-400 opacity-40 ${bookmarkHoverClass} hover:opacity-100`}"
@@ -146,3 +146,13 @@
     {/if}
   </div>
 </div>
+
+<style>
+  /* The parent .fancy_card rule applies transform-style: preserve-3d to ALL
+     descendants, which causes 3D-rotated overlay layers inside card_rotator
+     to occlude the bookmark button during hover.  Opting the button out of
+     the 3D rendering context keeps it always on top. */
+  .bookmark-btn {
+    transform-style: flat;
+  }
+</style>
