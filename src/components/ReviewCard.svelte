@@ -19,6 +19,19 @@
   );
   const wideRoundedClass = $derived(layout === 'wide' ? 'md:rounded-l-xl' : '');
 
+  const bookmarkActiveColor = $derived(
+    post.review === 'S' ? 'text-S-400' :
+    post.review === 'A' ? 'text-A-400' :
+    post.review === 'B' ? 'text-B-300' :
+    'text-yellow-400'
+  );
+  const bookmarkHoverClass = $derived(
+    post.review === 'S' ? 'hover:text-S-400' :
+    post.review === 'A' ? 'hover:text-A-400' :
+    post.review === 'B' ? 'hover:text-B-300' :
+    'hover:text-yellow-400'
+  );
+
   function slugFromAbslink(abslink: string): string {
     // e.g. "/reviews/soul_relic/" → "soul_relic"
     return abslink.replace(/\/$/, '').split('/').pop() ?? abslink;
@@ -34,7 +47,7 @@
 </script>
 
 <div class="fancy_card horizontal mx-auto relative" data-review-card>
-  <div class="card_translator">
+  <div class="card_translator relative">
     <a
       class="card_rotator small_rot card_layer block"
       href={post.link}
@@ -104,32 +117,32 @@
       <div class="card_layer card_effect card_overlay_{post.review}"></div>
       <div class="card_layer card_effect card_glare"></div>
     </a>
-  </div>
-  {#if onToggleBookmark}
-    <button
-      type="button"
-      aria-label={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
-      title={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
-      class="bookmark-btn absolute top-2 right-2 z-10 p-1 rounded-full transition-all
-             {isBookmarked
-               ? 'text-yellow-400 opacity-100'
-               : 'text-yellow-400 opacity-40 hover:opacity-80'}"
-      onclick={toggleBookmark}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="20"
-        height="20"
-        fill={isBookmarked ? 'currentColor' : 'none'}
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
+    {#if onToggleBookmark}
+      <button
+        type="button"
+        aria-label={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
+        title={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
+        class="bookmark-btn absolute top-2 right-2 z-10 p-1 rounded-full transition-all
+               {isBookmarked
+                 ? `${bookmarkActiveColor} opacity-100`
+                 : `text-gray-400 opacity-40 ${bookmarkHoverClass} hover:opacity-100`}"
+        onclick={toggleBookmark}
       >
-        <path d="M5 3a2 2 0 0 0-2 2v16l9-4 9 4V5a2 2 0 0 0-2-2H5z" />
-      </svg>
-    </button>
-  {/if}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill={isBookmarked ? 'currentColor' : 'none'}
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M5 3a2 2 0 0 0-2 2v16l9-4 9 4V5a2 2 0 0 0-2-2H5z" />
+        </svg>
+      </button>
+    {/if}
+  </div>
 </div>
