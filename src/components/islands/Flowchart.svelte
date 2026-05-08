@@ -296,6 +296,19 @@
     tick().then(() => _flyToNode(edge.target));
   }
 
+  function goBack(): void {
+    if (quizPath.length <= 1) return;
+    const prevNodeId = quizPath[quizPath.length - 2];
+    // Un-mark the edge that led to the current node.
+    const trailingEdge = edges.find(
+      (e) => e.source === prevNodeId && e.target === quizPath[quizPath.length - 1],
+    );
+    if (trailingEdge?.data) trailingEdge.data.quizTrail = false;
+    quizPath = quizPath.slice(0, -1);
+    _updateUrl(quizPath);
+    tick().then(() => _flyToNode(prevNodeId));
+  }
+
   function restartQuiz(): void {
     _clearQuizTrail();
     quizPath = ['d_start'];
@@ -906,14 +919,6 @@
   <!-- ── Quiz Mode HUD ── -->
   {#if quizMode && !quizCurrentIsBook}
     <div class="quiz-hud" role="region" aria-label="Quiz choices">
-      <button
-        type="button"
-        class="quiz-hud__exit"
-        onclick={exitQuiz}
-        aria-label="Exit quiz mode"
-      >
-        ✕ Exit
-      </button>
       <p class="quiz-hud__question">
         {(quizCurrentNode?.data as DecisionNodePayload | null)?.prompt ?? ''}
       </p>
@@ -929,6 +934,26 @@
             {edge.label ?? '→'}
           </button>
         {/each}
+      </div>
+      <div class="quiz-hud__nav">
+        {#if quizPath.length > 1}
+          <button
+            type="button"
+            class="quiz-hud__back"
+            onclick={goBack}
+            aria-label="Go back to previous question"
+          >
+            ← Back
+          </button>
+        {/if}
+        <button
+          type="button"
+          class="quiz-hud__exit"
+          onclick={exitQuiz}
+          aria-label="Exit quiz mode"
+        >
+          ✕ Exit
+        </button>
       </div>
     </div>
   {/if}
@@ -963,6 +988,13 @@
           >
             View Review →
           </a>
+          <button
+            type="button"
+            class="quiz-result__btn quiz-result__btn--back"
+            onclick={goBack}
+          >
+            ← Back
+          </button>
           <button
             type="button"
             class="quiz-result__btn quiz-result__btn--secondary"

@@ -358,28 +358,52 @@
   pointer-events: all;
 }
 
-.quiz-hud__exit {
+.quiz-hud__nav {
+  /* Desktop: zero-height anchor so buttons can be absolutely positioned
+     relative to the HUD top edge without affecting flex layout. */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.quiz-hud__exit,
+.quiz-hud__back {
   position: absolute;
   top: 0.75rem;
-  right: 1rem;
   appearance: none;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.5);
   border-radius: 0.375rem;
-  padding: 0.25rem 0.6rem;
+  padding: 0.4rem 0.9rem;
   font-size: 0.8rem;
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
+  min-height: 36px;
+  min-width: 52px;
+  pointer-events: all;
 }
 
-.quiz-hud__exit:hover {
+.quiz-hud__exit {
+  right: 1rem;
+}
+
+.quiz-hud__back {
+  left: 1rem;
+}
+
+.quiz-hud__exit:hover,
+.quiz-hud__back:hover {
   color: #f9fafb;
   border-color: rgba(255, 255, 255, 0.5);
 }
 
 .quiz-hud__question {
   margin: 0;
+  padding-top: 2rem;
   width: 100%;
   font-size: 1.15rem;
   font-weight: 600;
@@ -559,6 +583,17 @@
   transform: translateY(-1px);
 }
 
+.quiz-result__btn--back {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.quiz-result__btn--back:hover {
+  color: #f3f4f6;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
 .quiz-result__btn--secondary {
   background: rgba(255, 255, 255, 0.08);
   color: #f3f4f6;
@@ -609,7 +644,33 @@
 
   .quiz-hud__question {
     font-size: 0.95rem;
-    padding-right: 2.5rem;
+    /* No side padding needed — nav buttons are below on mobile. */
+    padding-top: 0;
+  }
+
+  /* On mobile: nav becomes an in-flow 2-column row below the choices. */
+  .quiz-hud__nav {
+    position: static;
+    height: auto;
+    pointer-events: all;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  .quiz-hud__exit,
+  .quiz-hud__back {
+    position: static;
+    width: 100%;
+    min-height: 44px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* When only Exit is present (no back button), span both columns. */
+  .quiz-hud__exit:only-child {
+    grid-column: 1 / -1;
   }
 
   .quiz-hud__choices {
