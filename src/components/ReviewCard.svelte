@@ -110,10 +110,10 @@
       type="button"
       aria-label={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
       title={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
-      class="bookmark-btn absolute top-2 right-2 z-10 p-1 rounded-full transition-colors
+      class="bookmark-btn absolute top-2 right-2 z-10 p-1 rounded-full transition-all
              {isBookmarked
-               ? 'text-yellow-400 bg-gray-900/70 hover:bg-gray-900/90'
-               : 'text-gray-400 bg-gray-900/50 hover:text-yellow-400 hover:bg-gray-900/70'}"
+               ? 'text-yellow-400 opacity-100'
+               : 'text-yellow-400 opacity-40 hover:opacity-80'}"
       onclick={toggleBookmark}
     >
       <svg
