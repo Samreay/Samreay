@@ -35,12 +35,13 @@
     "tailwindcss": "^4.2.4"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.18",
     "@hpcc-js/wasm-graphviz": "^1.21.5",
     "@xyflow/svelte": "^1.5.2"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.60.2",
+    "@img/sharp-libvips-linux-x64": "1.2.4",
     "@img/sharp-linux-x64": "0.34.5",
-    "@img/sharp-libvips-linux-x64": "1.2.4"
+    "@rollup/rollup-linux-x64-gnu": "4.60.2"
   }
 }
