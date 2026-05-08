@@ -17,9 +17,12 @@
     const w = node.measured?.width ?? node.width ?? 320;
     const h = node.measured?.height ?? node.height ?? 90;
     const cx = node.position.x + w / 2;
-    // Offset the vertical centre upward so the HUD doesn't obscure the node.
-    const hudOffset = isMobile ? 80 : 40;
-    const cy = node.position.y + h / 2 - hudOffset;
-    setCenter(cx, cy, { zoom: isMobile ? 0.7 : 0.85, duration: 1400 });
+    const zoom = isMobile ? 0.65 : 0.85;
+    // Measure the actual rendered HUD height so the node centres in the
+    // visible space above it, not in the full canvas. Convert screen pixels
+    // to world units by dividing by zoom.
+    const hudScreenPx = (document.querySelector('.quiz-hud') as HTMLElement | null)?.offsetHeight ?? 0;
+    const cy = node.position.y + h / 2 + (hudScreenPx / 2) / zoom;
+    setCenter(cx, cy, { zoom, duration: 1400 });
   });
 </script>
