@@ -130,6 +130,12 @@
     byRank = true;
   }
 
+  function surpriseMe() {
+    if (visiblePosts.length === 0) return;
+    const post = visiblePosts[Math.floor(Math.random() * visiblePosts.length)];
+    window.location.href = post.abslink;
+  }
+
   const visiblePosts = $derived.by(() => {
     const term = searchTerm.toLowerCase();
     const words = term ? term.split(/\s+/).filter(Boolean) : [];
@@ -302,6 +308,11 @@
       type="button"
       class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
       onclick={reset}>Reset</button
+    >
+    <button
+      type="button"
+      class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
+      onclick={surpriseMe}>Surprise me</button
     >
   </div>
 </div>
