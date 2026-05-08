@@ -54,18 +54,26 @@
       ? 'wide'
       : 'cover';
 
+  function slugFromAbslink(abslink: string): string {
+    return abslink.replace(/\/$/, '').split('/').pop() ?? abslink;
+  }
+
   // Read URL state synchronously so we don't flash unfiltered cards on mount.
   function readInitialState(): {
     layout: Layout;
     byRank: boolean;
     activations: Record<string, boolean>;
     searchTerm: string;
+    readingList: Set<string>;
+    showReadingList: boolean;
   } {
     const out = {
       layout: defaultLayout,
       byRank: true,
       activations: {} as Record<string, boolean>,
       searchTerm: '',
+      readingList: new Set<string>(),
+      showReadingList: false,
     };
     if (typeof window === 'undefined') return out;
     const params = new URLSearchParams(window.location.search);
@@ -81,6 +89,21 @@
         out.activations[t] = false;
       }
     }
+    if (params.has('reading-list')) {
+      const slugs = params.get('reading-list')!.split('_').filter(Boolean);
+      out.readingList = new Set(slugs);
+      if (slugs.length > 0) out.showReadingList = true;
+    } else if (typeof localStorage !== 'undefined') {
+      // Fall back to localStorage if no URL param
+      try {
+        const stored = localStorage.getItem('reading-list');
+        if (stored) {
+          out.readingList = new Set(JSON.parse(stored) as string[]);
+        }
+      } catch {
+        // ignore parse errors
+      }
+    }
     return out;
   }
   const initial = readInitialState();
@@ -89,6 +112,8 @@
   let byRank = $state(initial.byRank);
   let tagActivations = $state<Record<string, boolean>>({ ...initial.activations });
   let searchTerm = $state(initial.searchTerm);
+  let readingList = $state<Set<string>>(initial.readingList);
+  let showReadingList = $state(initial.showReadingList);
 
   // Sync state → URL whenever any of these change.
   $effect(() => {
@@ -104,10 +129,31 @@
     }
     if (include.length) params.set('include', include.join('_'));
     if (exclude.length) params.set('exclude', exclude.join('_'));
+    const rlSlugs = Array.from(readingList);
+    if (rlSlugs.length) params.set('reading-list', rlSlugs.join('_'));
     const args = params.toString();
     const newUrl = `${location.origin}${location.pathname}${args ? '?' + args : ''}`;
     history.pushState({ path: newUrl }, '', newUrl);
+
+    // Also persist reading list to localStorage
+    if (typeof localStorage !== 'undefined') {
+      try {
+        localStorage.setItem('reading-list', JSON.stringify(rlSlugs));
+      } catch {
+        // ignore storage errors
+      }
+    }
   });
+
+  function toggleBookmark(slug: string) {
+    const next = new Set(readingList);
+    if (next.has(slug)) {
+      next.delete(slug);
+    } else {
+      next.add(slug);
+    }
+    readingList = next;
+  }
 
   function clickTag(tag: string) {
     if (tag in tagActivations) {
@@ -128,6 +174,7 @@
     searchTerm = '';
     layout = defaultLayout;
     byRank = true;
+    showReadingList = false;
   }
 
   function surpriseMe() {
@@ -141,6 +188,10 @@
     const words = term ? term.split(/\s+/).filter(Boolean) : [];
     return augmentedPosts
       .filter((post) => {
+        // Reading list filter
+        if (showReadingList && !readingList.has(slugFromAbslink(post.abslink))) {
+          return false;
+        }
         for (const [tag, active] of Object.entries(tagActivations)) {
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
@@ -306,6 +357,30 @@
     />
     <button
       type="button"
+      class="inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer text-gray-100
+             {showReadingList ? 'bg-yellow-600 hover:bg-yellow-500' : 'bg-gray-700 hover:bg-main-700'}"
+      onclick={() => (showReadingList = !showReadingList)}
+      title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="16"
+        height="16"
+        fill={showReadingList ? 'currentColor' : 'none'}
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        class="inline-block"
+      >
+        <path d="M5 3a2 2 0 0 0-2 2v16l9-4 9 4V5a2 2 0 0 0-2-2H5z" />
+      </svg>
+      Reading List{readingList.size > 0 ? ` (${readingList.size})` : ''}
+    </button>
+    <button
+      type="button"
       class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
       onclick={reset}>Reset</button
     >
@@ -340,7 +415,12 @@
     {/if}
     <div class="container mx-auto justify-center grid {gridClasses(layout)}">
       {#each group.posts as post (post.link)}
-        <ReviewCard {post} {layout} />
+        <ReviewCard
+          {post}
+          {layout}
+          isBookmarked={readingList.has(slugFromAbslink(post.abslink))}
+          onToggleBookmark={toggleBookmark}
+        />
       {/each}
     </div>
   {/each}

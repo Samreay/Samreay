@@ -5,9 +5,11 @@
   type Props = {
     post: Post;
     layout: 'wide' | 'cover' | 'tier';
+    isBookmarked?: boolean;
+    onToggleBookmark?: (slug: string) => void;
   };
 
-  let { post, layout }: Props = $props();
+  let { post, layout, isBookmarked = false, onToggleBookmark }: Props = $props();
 
   const tierStyle = $derived(
     layout === 'tier' ? 'padding: 0px; border-radius: 0px;' : ''
@@ -16,9 +18,22 @@
     layout === 'tier' ? 'border-radius: 0px;' : ''
   );
   const wideRoundedClass = $derived(layout === 'wide' ? 'md:rounded-l-xl' : '');
+
+  function slugFromAbslink(abslink: string): string {
+    // e.g. "/reviews/soul_relic/" → "soul_relic"
+    return abslink.replace(/\/$/, '').split('/').pop() ?? abslink;
+  }
+
+  function toggleBookmark(e: MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onToggleBookmark) {
+      onToggleBookmark(slugFromAbslink(post.abslink));
+    }
+  }
 </script>
 
-<div class="fancy_card horizontal mx-auto" data-review-card>
+<div class="fancy_card horizontal mx-auto relative" data-review-card>
   <div class="card_translator">
     <a
       class="card_rotator small_rot card_layer block"
@@ -90,4 +105,31 @@
       <div class="card_layer card_effect card_glare"></div>
     </a>
   </div>
+  {#if onToggleBookmark}
+    <button
+      type="button"
+      aria-label={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
+      title={isBookmarked ? 'Remove from reading list' : 'Add to reading list'}
+      class="bookmark-btn absolute top-2 right-2 z-10 p-1 rounded-full transition-colors
+             {isBookmarked
+               ? 'text-yellow-400 bg-gray-900/70 hover:bg-gray-900/90'
+               : 'text-gray-400 bg-gray-900/50 hover:text-yellow-400 hover:bg-gray-900/70'}"
+      onclick={toggleBookmark}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        fill={isBookmarked ? 'currentColor' : 'none'}
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M5 3a2 2 0 0 0-2 2v16l9-4 9 4V5a2 2 0 0 0-2-2H5z" />
+      </svg>
+    </button>
+  {/if}
 </div>
