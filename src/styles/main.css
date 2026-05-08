@@ -187,6 +187,7 @@
 @source inline("list-none");
 @source inline("grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
 @source inline("{hover:,focus:,}bg-{S,A,B,C,D,F}-{500,600,700,800,900}");
+@source inline("{hover:,}text-{S,A,B}-{300,400}");
 @source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
 
 /* v4 silently refuses to generate `bg-π-*` utilities even when listed
