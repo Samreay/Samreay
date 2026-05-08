@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const lists = [
+  {
+    slug: 'best-cultivation',
+    title: 'Best Cultivation Novels',
+    description:
+      'Xianxia, wuxia, and cultivation-flavoured progression fantasy — stories where characters absorb qi, refine their souls, and claw their way through realms of power.',
+  },
+  {
+    slug: 'best-female-lead',
+    title: 'Best Female-Lead Novels',
+    description:
+      'Progression fantasy and LitRPG with strong, complex women at the centre of the story — not as side characters, but as the driving force.',
+  },
+  {
+    slug: 'best-hard-magic',
+    title: 'Best Hard-Magic-System Novels',
+    description:
+      'Stories built on rigorously defined magic systems — with rules, limits, and internal logic you can theorise about alongside the characters.',
+  },
+];
+---
+<BaseLayout
+  title="Curated Lists — Best of Progression Fantasy"
+  description="Hand-picked curated lists of the best progression fantasy and LitRPG novels by subgenre."
+>
+  <div class="content content-wide">
+    <div class="section-header mt-12 pb-2">
+      <h1>Curated Lists</h1>
+      <p>
+        Hand-picked collections drawn from the full review archive, sorted by tier and quality.
+        Each list focuses on a specific subgenre so you can dive straight into what you love.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-3 mt-8">
+      {lists.map((list) => (
+        <a
+          href={`/reviews/lists/${list.slug}/`}
+          class="block rounded-xl border border-white/10 bg-gray-800/60 p-6 hover:border-emerald-400/50 hover:bg-gray-700/60 transition-colors"
+        >
+          <h2 class="text-xl font-bold text-emerald-300 mb-3">{list.title}</h2>
+          <p class="text-sm text-gray-300 leading-relaxed">{list.description}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

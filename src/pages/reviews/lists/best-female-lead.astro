@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ReviewCoverCard from '../../../components/ReviewCoverCard.astro';
+import type { ReviewTier } from '../../../lib/types';
+
+const TIER_ORDER: ReviewTier[] = ['S', 'A', 'B', 'C', 'D', 'F', 'π'];
+
+const entries = await getCollection('reviews');
+
+const filtered = entries
+  .filter((e) => e.data.tags.map((t) => t.toLowerCase()).includes('female-lead'))
+  .sort((a, b) => {
+    const tierDiff =
+      TIER_ORDER.indexOf(a.data.review as ReviewTier) -
+      TIER_ORDER.indexOf(b.data.review as ReviewTier);
+    if (tierDiff !== 0) return tierDiff;
+    return b.data.weight - a.data.weight;
+  });
+
+const SOUL_RELIC_ID = 'soul_relic';
+---
+<BaseLayout
+  title="Best Female-Lead Novels — Curated List"
+  description="The best progression fantasy and LitRPG novels with strong female protagonists, ranked by tier."
+>
+  <div class="content content-full">
+    <div class="section-header mt-12 pb-2">
+      <h1>Best Female-Lead Novels</h1>
+      <p>
+        Progression fantasy and LitRPG with strong, complex women at the centre of the story —
+        not as side characters, but as the driving force.
+        Sorted by tier (S down to F), then by quality within each tier.
+      </p>
+      <p class="mt-2">
+        <a class="under" href="/reviews/lists/">← All curated lists</a>
+      </p>
+    </div>
+
+    <div class="max-w-sm mx-auto md:max-w-none mt-8">
+      <div class="grid gap-12 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-x-6 md:gap-y-8 items-start">
+        {filtered.map((entry) => (
+          <div>
+            <ReviewCoverCard entry={entry} />
+            {entry.id === SOUL_RELIC_ID && (
+              <p class="mt-2 text-center text-xs text-amber-400/80 italic">
+                Disclosure: I wrote this one — judge accordingly.
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
