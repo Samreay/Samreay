@@ -3,14 +3,16 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CoverImage from '../../components/CoverImage.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
+import ReviewCoverCard from '../../components/ReviewCoverCard.astro';
 import { resolveCover } from '../../lib/covers';
+import { getSimilarReviews } from '../../lib/content';
 
 export async function getStaticPaths() {
   const entries = await getCollection('reviews');
-  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry, allEntries: entries } }));
 }
 
-const { entry } = Astro.props;
+const { entry, allEntries } = Astro.props;
 const { Content } = await render(entry);
 const r = entry.data.review;
 
@@ -33,6 +35,8 @@ const RATING_TEXT = {
 const ratingText = RATING_TEXT[r];
 
 const titleCase = (s: string) => s.replaceAll('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+
+const similarReviews = getSimilarReviews(entry, allEntries, 4);
 ---
 <BaseLayout title={entry.data.name} description={ogDescription} image={ogImage} type="article">
   <div class="content content blog-post relative">
@@ -80,6 +84,16 @@ const titleCase = (s: string) => s.replaceAll('_', ' ').replace(/\b\w/g, (c) => 
     <div class="mt-20">
       <p class="text-center"><a href="/reviews/">Return to review index.</a></p>
     </div>
+    {similarReviews.length > 0 && (
+      <div class="mt-20">
+        <h2 class="text-2xl font-bold text-center mb-8">You might also like</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {similarReviews.map((similar) => (
+            <ReviewCoverCard entry={similar} />
+          ))}
+        </div>
+      </div>
+    )}
     <div class="mt-20"><NewsletterForm /></div>
   </div>
 </BaseLayout>
