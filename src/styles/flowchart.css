@@ -321,6 +321,22 @@
   transform: translateY(0);
 }
 
+/* Non-start decision nodes that act as mid-flow quiz entry points */
+.decision-node--entry {
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.decision-node--entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -6px var(--node-flash-color, rgba(255,255,255,0.2)) !important;
+  opacity: 0.95;
+}
+
+.decision-node--entry:active {
+  transform: translateY(0);
+}
+
 .decision-node__quiz-hint {
   margin: 0 !important;
   font-size: 1rem;

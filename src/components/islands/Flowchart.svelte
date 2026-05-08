@@ -256,7 +256,7 @@
     history.replaceState(null, '', url.toString());
   }
 
-  function enterQuiz(): void {
+  function enterQuiz(startNodeId: string = 'd_start'): void {
     quizMode = true;
     quizPanDisabled = true;
     // Pause the ambient pulse wave.
@@ -269,10 +269,10 @@
     for (const edge of edges) {
       if (edge.data) edge.data.pulseProgress = undefined;
     }
-    quizPath = ['d_start'];
+    quizPath = [startNodeId];
     _updateUrl(quizPath);
     // Wait one tick for Svelte to process the state change, then fly.
-    tick().then(() => _flyToNode('d_start'));
+    tick().then(() => _flyToNode(startNodeId));
   }
 
   function exitQuiz(): void {
@@ -316,8 +316,8 @@
     tick().then(() => _flyToNode('d_start'));
   }
 
-  // Provide enterQuiz via context so QuizStartNode can call it.
-  setContext<() => void>('enterQuiz', enterQuiz);
+  // Provide enterQuiz via context so DecisionNodes can call it with their own ID.
+  setContext<(nodeId?: string) => void>('enterQuiz', enterQuiz);
 
   // Restore quiz state from ?path= URL on mount.
   if (typeof window !== 'undefined') {
