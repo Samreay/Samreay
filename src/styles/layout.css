@@ -207,7 +207,7 @@ body {
   .badge-leader p em {
     @apply text-gray-500;
   }
-  figure {
+  figure:not([data-review-card] figure) {
     @apply mx-auto my-12 max-w-4xl;
 
     &.review-card {
