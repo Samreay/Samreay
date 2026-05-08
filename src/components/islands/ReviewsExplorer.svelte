@@ -2,6 +2,7 @@
 <script lang="ts">
   import type { Post, ReviewTier } from '../../lib/types';
   import ReviewCard from '../ReviewCard.svelte';
+  import { SvelteSet } from 'svelte/reactivity';
 
   type Layout = 'wide' | 'cover' | 'tier';
   type Props = {
@@ -64,7 +65,7 @@
     byRank: boolean;
     activations: Record<string, boolean>;
     searchTerm: string;
-    readingList: Set<string>;
+    readingList: SvelteSet<string>;
     showReadingList: boolean;
   } {
     const out = {
@@ -72,7 +73,7 @@
       byRank: true,
       activations: {} as Record<string, boolean>,
       searchTerm: '',
-      readingList: new Set<string>(),
+      readingList: new SvelteSet<string>(),
       showReadingList: false,
     };
     if (typeof window === 'undefined') return out;
@@ -91,14 +92,14 @@
     }
     if (params.has('reading-list')) {
       const slugs = params.get('reading-list')!.split('_').filter(Boolean);
-      out.readingList = new Set(slugs);
+      out.readingList = new SvelteSet(slugs);
       if (slugs.length > 0) out.showReadingList = true;
     } else if (typeof localStorage !== 'undefined') {
       // Fall back to localStorage if no URL param
       try {
         const stored = localStorage.getItem('reading-list');
         if (stored) {
-          out.readingList = new Set(JSON.parse(stored) as string[]);
+          out.readingList = new SvelteSet(JSON.parse(stored) as string[]);
         }
       } catch {
         // ignore parse errors
@@ -112,7 +113,7 @@
   let byRank = $state(initial.byRank);
   let tagActivations = $state<Record<string, boolean>>({ ...initial.activations });
   let searchTerm = $state(initial.searchTerm);
-  let readingList = $state<Set<string>>(initial.readingList);
+  let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
 
   // Sync state → URL whenever any of these change.
@@ -146,13 +147,11 @@
   });
 
   function toggleBookmark(slug: string) {
-    const next = new Set(readingList);
-    if (next.has(slug)) {
-      next.delete(slug);
+    if (readingList.has(slug)) {
+      readingList.delete(slug);
     } else {
-      next.add(slug);
+      readingList.add(slug);
     }
-    readingList = next;
   }
 
   function clickTag(tag: string) {
