@@ -196,6 +196,20 @@
     _flyToImpl = fn;
   });
 
+  // fitMatches is also provided by QuizNavigator via the same pattern.
+  let _fitMatchesImpl: ((nodeIds: string[]) => void) | null = null;
+  setContext<(fn: (nodeIds: string[]) => void) => void>('registerFitMatches', (fn) => {
+    _fitMatchesImpl = fn;
+  });
+
+  function fitMatchedBooks(): void {
+    if (!matchedNodeIds) return;
+    const bookIds = nodes
+      .filter((n) => n.type === 'book' && matchedNodeIds!.has(n.id))
+      .map((n) => n.id);
+    _fitMatchesImpl?.(bookIds);
+  }
+
   // Known node id set — used to sanitise the ?path= URL parameter.
   const _knownNodeIds = new Set(initialNodes.map((n) => n.id));
 
@@ -885,12 +899,15 @@
           />
           {#if searchTerm}
             {#if totalMatches > 0}
-              <span
-                class="inline-flex items-center m-2 px-3 py-2 bg-gray-700 rounded-md text-gray-100"
+              <button
+                type="button"
+                class="inline-flex items-center m-2 px-3 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
                 aria-live="polite"
+                aria-label="Zoom to show all matched books"
+                onclick={fitMatchedBooks}
               >
-                {matchedBookCount} book{matchedBookCount === 1 ? '' : 's'}
-              </span>
+                {matchedBookCount} book{matchedBookCount === 1 ? '' : 's'} ↗
+              </button>
             {:else}
               <span
                 class="inline-flex items-center m-2 px-3 py-2 bg-red-900 rounded-md text-red-100"
