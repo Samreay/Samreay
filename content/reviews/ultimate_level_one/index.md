@@ -10,7 +10,7 @@ name: "Ultimate Level 1"
 links:
     amazon: https://www.amazon.com/Ultimate-Level-1-Shattered-Dreams-ebook/dp/B0CSF1CM8H
     audible: https://www.audible.com/pd/Shattered-Dreams-Audiobook/B0D325KNCF
-tags: [in-progress, litRPG, system-apocalypse]
+tags: [in-progress, litrpg, system-apocalypse]
 sentence: "LitRPG where Max gets a forbidden black skill: Consume."
 ---
 

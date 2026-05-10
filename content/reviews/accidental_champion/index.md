@@ -11,7 +11,7 @@ links:
     royal_road: https://www.royalroad.com/fiction/70004/accidental-champion-a-litrpg-apocalypse-tower
     amazon: https://www.amazon.com/Accidental-Champion-Adventure-Todd-Herzman-ebook/dp/B0CV64JCPC
     audible: https://www.audible.com/pd/Accidental-Champion-Audiobook/B0D79L7LNS
-tags: [in-progress, litRPG, system-apocalypse]
+tags: [in-progress, litrpg, system-apocalypse]
 sentence: "He didn't plan on becoming a top champion of the world. Then, the System arrived..."
 ---
 

@@ -131,3 +131,22 @@ change for persistence across sessions.
 presentational. If `ReviewCard` is ever used outside `ReviewsExplorer`, the
 `onToggleBookmark` prop defaults to `undefined` and the bookmark button is hidden
 entirely. This keeps the component safe for standalone use.
+
+---
+
+## ADR-009: Playwright screenshots for OG images (committed to repo)
+
+**Context:** Review pages need 1200×630 landscape OG images for social sharing.
+The ReviewCard component uses complex CSS (tier-colored gradient overlays, 3D
+transforms, card glare effects, Tailwind v4) that cannot be replicated by Satori
+or template-based OG generators. A dedicated `/og/[slug]` route renders the card
+at full width with the correct styles, and Playwright screenshots it.
+
+**Decision:** Use Playwright to screenshot a dedicated `/og/[slug]` route. Generated
+WebP images are committed to `astro-public/og/` rather than generated in CI. A
+content-hash manifest enables incremental regeneration (`make og`).
+
+**Consequences:** Repository grows by ~7MB (152 images × ~45KB each). Developers
+must run `make og` after adding/modifying reviews. Full CSS fidelity — any card
+redesign flows to OG images on next generation. No CI dependency on Chromium. The
+`/og/` routes are excluded from the sitemap and marked `noindex`.

@@ -32,6 +32,9 @@ cv:
 	cd resume && uv run rendercv render "Hinton_CV.yaml" \
 	  && cp rendercv_output/Samuel_Hinton_CV.pdf ../astro-public/static/resume/Samuel_Hinton_CV.pdf
 
+og:
+	npx tsx scripts/generate-og.ts
+
 install: install_uv install_precommit install_node precommit
 
 # ----- implement-plan skill -----

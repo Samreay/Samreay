@@ -41,4 +41,6 @@ const twitterCard = ogImage ? 'summary_large_image' : 'summary';
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonical} />
 {ogImage ? <meta property="og:image" content={ogImage} /> : null}
+{ogImage ? <meta property="og:image:width" content="1200" /> : null}
+{ogImage ? <meta property="og:image:height" content="630" /> : null}
 <meta property="og:site_name" content={SITE_TITLE} />

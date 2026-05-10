@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Die-Respawn-Repeat-LitRPG-Adventure-ebook/dp/B0D9WKQRWF
     audible: https://www.audible.com/pd/Die-Respawn-Repeat-Audiobook/B0DCGMJ1X2
     royal_road: https://www.royalroad.com/fiction/66643/die-respawn-repeat
-tags: [in-progress, litRPG, system-apocalypse, lgbt, isekai]
+tags: [in-progress, litrpg, system-apocalypse, lgbt, isekai]
 sentence: "Every time he dies, Ethan Hill gains a little more power."
 ---
 

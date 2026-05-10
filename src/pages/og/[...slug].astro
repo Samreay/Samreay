@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import CoverImage from '../../components/CoverImage.astro';
+import '../../styles/main.css';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('reviews');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const r = entry.data.review;
+
+const linkTagMap: Record<string, string> = {
+  audible: 'audio',
+  royal_road: 'royal_road',
+};
+const linkTags = Object.keys(entry.data.links).map((k) => linkTagMap[k] ?? k);
+const allTags = [...entry.data.tags, ...linkTags];
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1200" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OG: {entry.data.name}</title>
+</head>
+<body class="bg-gray-900 m-0 p-0 overflow-hidden" style="width: 1200px; height: 630px;">
+  <div class="og-card-wrapper">
+    <div class="og-card-container">
+      <article class={`review-summary review-${r} w-full rounded-xl`}>
+        <div class="bg2 rounded-xl">
+          <div class="bg-inner flex flex-row bg-gray-800 rounded-xl overflow-hidden">
+            <CoverImage
+              entry={entry}
+              width={375}
+              height={600}
+              class="block flex-none rounded-l-xl"
+              loading="eager"
+            />
+            <div class="flex flex-col justify-between p-10 text-center flex-1">
+              <div class="rating">
+                <p class={`rating-${r} mt-0 mb-4 og-title`}>{entry.data.name}</p>
+              </div>
+              <p class="og-sentence text-gray-400">{entry.data.sentence}</p>
+              <div>
+                <ul class="flex flex-wrap font-medium -m-1 justify-center og-tags">
+                  {allTags.map((tag) => (
+                    <li class={`m-1 inline-flex text-center py-2 px-4 rounded-full tag-${tag}`}>
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</body>
+</html>
+
+<style>
+  .og-card-wrapper {
+    width: 1200px;
+    height: 630px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .og-card-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .og-card-container article {
+    height: 100%;
+  }
+
+  .og-card-container .bg2 {
+    height: 100%;
+  }
+
+  .og-card-container .bg-inner {
+    height: 100%;
+  }
+
+  .og-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .og-sentence {
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+
+  .og-tags {
+    font-size: 1.2rem;
+  }
+</style>

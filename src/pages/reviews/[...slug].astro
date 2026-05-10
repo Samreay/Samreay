@@ -4,7 +4,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CoverImage from '../../components/CoverImage.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 import ReviewCoverCard from '../../components/ReviewCoverCard.astro';
-import { resolveCover } from '../../lib/covers';
 import { getSimilarReviews } from '../../lib/content';
 
 export async function getStaticPaths() {
@@ -16,8 +15,7 @@ const { entry, allEntries } = Astro.props;
 const { Content } = await render(entry);
 const r = entry.data.review;
 
-const cover = await resolveCover(entry, 500, 800);
-const ogImage = cover.src;
+const ogImage = `/og/${entry.id}.webp`;
 const ogDescription =
   r === 'π'
     ? "A review of my own novel — judge accordingly"

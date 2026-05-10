@@ -37,7 +37,7 @@ export default defineConfig({
     // `dist/` so Playwright can target it directly, but it's not a real
     // page and shouldn't be advertised to crawlers.
     sitemap({
-      filter: (page) => !page.includes('/kitchensink/'),
+      filter: (page) => !page.includes('/kitchensink/') && !page.includes('/og/'),
     }),
     // Page-bundle assets co-located inside `content/<type>/<slug>/<file>`
     // are republished at `/<type>/<slug>/<file>` so raw `<video src="...">`
