@@ -680,6 +680,13 @@ export const flowchart: FlowchartData = {
         'The reader wants a non-human isekai protagonist where arms are overrated. What kind of limb substitute do they prefer?',
     },
     {
+      id: 'd_privileged_because',
+      prompt: 'You are privileged because...',
+      description:
+        'The reader wants fast-paced traditional cultivation. What is the protagonist\'s head-start — a brutal upbringing that forged them, or prior-life knowledge from being a Godking?',
+      color: 'fuchsia',
+    },
+    {
       id: 'd_in_one_or_build_one',
       prompt: 'In one or build one?',
       description:
@@ -840,6 +847,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_turret_mage', reviewId: 'turret_mage' },
     { id: 'b_systema_delenda_est', reviewId: 'systema_delenda_est' },
     { id: 'b_discount_dan', reviewId: 'discount_dan' },
+    { id: 'b_speedrunning_the_multiverse', reviewId: 'speedrunning_the_multiverse' },
   ],
   edges: [
     {
@@ -983,11 +991,25 @@ export const flowchart: FlowchartData = {
       color: 'sky',
     },
     {
-      id: 'e_d_epic_fantasy_or_traditional_cu_b_sky_pride',
+      id: 'e_d_epic_fantasy_or_traditional_cu_d_privileged_because',
       source: 'd_epic_fantasy_or_traditional_cu',
-      target: 'b_sky_pride',
-      label: 'fastpacedtraditionaldaoplease',
+      target: 'd_privileged_because',
+      label: 'fastpacedtraditionalplease',
       color: 'fuchsia',
+    },
+    {
+      id: 'e_d_privileged_because_b_sky_pride',
+      source: 'd_privileged_because',
+      target: 'b_sky_pride',
+      label: "You didn't die when living in landfill and eating dirt",
+      color: 'fuchsia',
+    },
+    {
+      id: 'e_d_privileged_because_b_speedrunning_the_multiverse',
+      source: 'd_privileged_because',
+      target: 'b_speedrunning_the_multiverse',
+      label: "You're a reincarnated Godking doing speedruns to distract you from an empty existence",
+      color: 'violet',
     },
     {
       id: 'e_d_epic_fantasy_or_traditional_cu_b_brightest_shadow',
