@@ -651,6 +651,18 @@ export const flowchart: FlowchartData = {
         'The reader wants time loops in small doses within an organisation/politics context. What kind of time-bending protagonist does the book feature?',
     },
     {
+      id: 'd_you_got_this',
+      prompt: "You've got this and no one else does...",
+      description:
+        "The reader wants a protagonist who got OP early through lucky drops. What unique advantage does the MC's home base provide?",
+    },
+    {
+      id: 'd_and_in_this_home_you',
+      prompt: 'And in this home you...',
+      description:
+        "The reader wants a protagonist with a secure home base. What is the primary activity in that home?",
+    },
+    {
       id: 'd_vrmmo_login_as',
       prompt: 'Login as...',
       description: 'The reader wants an old-school VRMMO story. Who does the reader play as inside the game?',
@@ -827,6 +839,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_legend_william', reviewId: 'the_legend_of_william_oh' },
     { id: 'b_turret_mage', reviewId: 'turret_mage' },
     { id: 'b_systema_delenda_est', reviewId: 'systema_delenda_est' },
+    { id: 'b_discount_dan', reviewId: 'discount_dan' },
   ],
   edges: [
     {
@@ -1362,11 +1375,32 @@ export const flowchart: FlowchartData = {
       color: 'amber',
     },
     {
-      id: 'e_d_how_dat_b_travellers_trial',
+      id: 'e_d_how_dat_d_you_got_this',
       source: 'd_how_dat',
-      target: 'b_travellers_trial',
+      target: 'd_you_got_this',
       label: 'Ridiculously lucky drops',
       color: 'red',
+    },
+    {
+      id: 'e_d_you_got_this_d_and_in_this_home_you',
+      source: 'd_you_got_this',
+      target: 'd_and_in_this_home_you',
+      label: 'A secure home you can rest in',
+      color: 'amber',
+    },
+    {
+      id: 'e_d_and_in_this_home_you_b_travellers_trial',
+      source: 'd_and_in_this_home_you',
+      target: 'b_travellers_trial',
+      label: 'Train, relax, and meditate',
+      color: 'sky',
+    },
+    {
+      id: 'e_d_and_in_this_home_you_b_discount_dan',
+      source: 'd_and_in_this_home_you',
+      target: 'b_discount_dan',
+      label: "Sell shit. Make shit. Clean shit. Watch your cult's NASCAR death races. The norm.",
+      color: 'orange',
     },
     {
       id: 'e_d_how_dat_b_corruption_wielder_2',

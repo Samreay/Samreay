@@ -36,14 +36,31 @@
 
   /**
    * Floor (in screen pixels at zoom = 1) on the distance from the source
-   * handle to the label centre. The actual offset used is
-   *   max(arcLength * LABEL_FRACTION, min(LABEL_MIN_DISTANCE_PX, arcLength))
-   * so on long edges the label still sits at 25% of the way down, but on
-   * short edges it gets pushed out to a guaranteed clearance from the
-   * source node. Mirrors `LABEL_MIN_DISTANCE_PX` in
+   * handle to the label centre when no label text is present. When a label
+   * exists, the effective floor is also constrained by the label's measured
+   * half-width plus SOURCE_CLEARANCE_PX so the left edge of the label never
+   * overlaps the source node. Mirrors `LABEL_MIN_DISTANCE_PX` in
    * `src/lib/flowchart-edge-geometry.ts` — keep the two in lockstep.
    */
   const LABEL_MIN_DISTANCE_PX = 200;
+
+  /**
+   * World-unit width per character. xyflow EdgeLabel uses 12px font; at the
+   * default 0.3 zoom that's ~3.6 screen-px/char, so each character occupies
+   * roughly 12 world units. We use a slightly larger value to stay on the
+   * safe side for wider glyphs.
+   */
+  const WORLD_PX_PER_CHAR = 14;
+
+  /** Extra world-unit gap between the label's left edge and the source handle. */
+  const SOURCE_CLEARANCE_WU = 20;
+
+  function minDistanceForLabel(label: string | undefined, total: number): number {
+    const textFloor = LABEL_MIN_DISTANCE_PX;
+    if (!label || typeof label !== 'string') return Math.min(textFloor, total);
+    const halfWidthWorld = (label.length * WORLD_PX_PER_CHAR) / 2;
+    return Math.min(Math.max(textFloor, halfWidthWorld + SOURCE_CLEARANCE_WU), total);
+  }
 
   let props: EdgeProps & {
     data?: {
@@ -123,6 +140,7 @@
   });
 
   const labelPos = $derived.by(() => {
+    const labelText = typeof props.label === 'string' ? props.label : undefined;
     if (!measurer) {
       // SSR / no-DOM fallback: linear interpolation on the straight line
       // between endpoints. The island uses `client:only` so this branch
@@ -132,7 +150,7 @@
       const total = Math.hypot(dx, dy);
       const distance = Math.max(
         total * LABEL_FRACTION,
-        Math.min(LABEL_MIN_DISTANCE_PX, total),
+        minDistanceForLabel(labelText, total),
       );
       const t = total > 0 ? distance / total : 0;
       return {
@@ -144,7 +162,7 @@
     const total = measurer.getTotalLength();
     const distance = Math.max(
       total * LABEL_FRACTION,
-      Math.min(LABEL_MIN_DISTANCE_PX, total),
+      minDistanceForLabel(labelText, total),
     );
     const point = measurer.getPointAtLength(distance);
     return { x: point.x, y: point.y };
