@@ -848,6 +848,10 @@ export const flowchart: FlowchartData = {
     { id: 'b_systema_delenda_est', reviewId: 'systema_delenda_est' },
     { id: 'b_discount_dan', reviewId: 'discount_dan' },
     { id: 'b_speedrunning_the_multiverse', reviewId: 'speedrunning_the_multiverse' },
+    { id: 'b_greatest_archmage', reviewId: 'greatest_archmage' },
+    { id: 'b_terminate_other_world', reviewId: 'terminate_the_other_world' },
+    { id: 'b_keiran_eternal_mage', reviewId: 'keiran_the_eternal_mage' },
+    { id: 'b_level_one_god', reviewId: 'level_one_god' },
   ],
   edges: [
     {
@@ -1394,7 +1398,7 @@ export const flowchart: FlowchartData = {
       source: 'd_opness',
       target: 'd_how_dat',
       label: 'OP by first couple of books',
-      color: 'amber',
+      color: 'purple',
     },
     {
       id: 'e_d_how_dat_d_you_got_this',
@@ -1421,7 +1425,7 @@ export const flowchart: FlowchartData = {
       id: 'e_d_and_in_this_home_you_b_discount_dan',
       source: 'd_and_in_this_home_you',
       target: 'b_discount_dan',
-      label: "Sell shit. Make shit. Clean shit. Watch your cult's NASCAR death races. The norm.",
+      label: "Watch your cult's NASCAR death races.",
       color: 'orange',
     },
     {
@@ -1436,7 +1440,7 @@ export const flowchart: FlowchartData = {
       source: 'd_how_dat',
       target: 'b_accidental_champion',
       label: 'Achievements, bro',
-      color: 'amber',
+      color: 'green',
     },
     {
       id: 'e_d_i_gotchu_fam_b_aura_overload',
@@ -2622,6 +2626,38 @@ export const flowchart: FlowchartData = {
       target: 'b_turret_mage',
       label: 'Guns, turrets, and power armour',
       color: 'orange',
+    },
+    // Level One God — weird creature companions, "what's your kink" branch
+    {
+      id: 'e_d_whats_your_kink_b_level_one_god',
+      source: 'd_whats_your_kink',
+      target: 'b_level_one_god',
+      label: 'Hairy voyeurism',
+      color: 'indigo',
+    },
+    // Greatest Archmage — chill science-exploit branch, social anxiety flavour
+    {
+      id: 'e_d_chill_sprinkle_b_greatest_archmage',
+      source: 'd_chill_sprinkle',
+      target: 'b_greatest_archmage',
+      label: 'Social anxiety',
+      color: 'green',
+    },
+    // Terminate the Other World — female-lead isekai, violence gimmick: dual system exploitation
+    {
+      id: 'e_d_pick_your_gimmick_b_terminate_other_world',
+      source: 'd_pick_your_gimmick',
+      target: 'b_terminate_other_world',
+      label: 'Cyborg + dungeon core',
+      color: 'cyan',
+    },
+    // Keiran: The Eternal Mage — OP magic, slow rebuild from reincarnation weakness
+    {
+      id: 'e_d_how_dat_b_keiran_eternal_mage',
+      source: 'd_how_dat',
+      target: 'b_keiran_eternal_mage',
+      label: 'Reincarnated archmage',
+      color: 'sky',
     },
   ],
 };
