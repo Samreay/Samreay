@@ -10,7 +10,7 @@ name: "The Greatest Archmage To Have Ever Lived"
 links:
     royal_road: https://www.royalroad.com/fiction/140784/the-greatest-archmage-to-have-ever-lived-op-mc
 aliases: [/reviews/greatest_archmage]
-tags: [in-progress, hard-magic, slice-of-life, wholesome]
+tags: [in-progress, litrpg, slice-of-life, wholesome]
 sentence: "He stood at the forefront of humanity's greatest triumph... four hundred years ago."
 ---
 
