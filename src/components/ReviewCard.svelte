@@ -11,6 +11,21 @@
 
   let { post, layout, isBookmarked = false, onToggleBookmark }: Props = $props();
 
+  // Svelte intentionally skips writing `src`/`srcset` during hydration so it
+  // doesn't re-download images the SSR HTML already loaded. But the reviews
+  // page is statically built in Rank order while the island can hydrate in
+  // Recent order (?o=0), so each reused DOM node keeps the SSR cover (wrong
+  // book) even though its title/alt correctly update. A reactive `src={post.img}`
+  // can't fix that — it's the very attribute hydration ignores. So once mounted
+  // (no longer hydrating) we set the correct cover on the real DOM node. In the
+  // matched-order case the attribute already equals post.img, so this is a no-op.
+  let imgEl: HTMLImageElement | undefined = $state();
+  $effect(() => {
+    if (imgEl && imgEl.getAttribute('src') !== post.img) {
+      imgEl.setAttribute('src', post.img);
+    }
+  });
+
   const tierStyle = $derived(
     layout === 'tier' ? 'padding: 0px; border-radius: 0px;' : ''
   );
@@ -109,17 +124,21 @@
                     <source src={post.video} type="video/mp4" />
                   </video>
                 {:else}
-                  <picture>
-                    <source srcset="{post.img} 500w" type="image/webp" />
-                    <img
-                      loading="lazy"
-                      class="block flex-none bg-cover mx-auto {wideRoundedClass}"
-                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
-                      width="250"
-                      height="400"
-                      alt={post.name}
-                    />
-                  </picture>
+                  <!-- Bind the real cover to `src` directly. The reviews page
+                       is statically built in Rank order, but the island can
+                       hydrate in Recent order (?o=0). A constant placeholder
+                       src + `<source srcset>` left covers stuck in SSR order on
+                       a mismatched hydration, since mutating a parsed picture's
+                       source doesn't reload the img. A reactive `src` does. -->
+                  <img
+                    bind:this={imgEl}
+                    loading="lazy"
+                    class="block flex-none bg-cover mx-auto {wideRoundedClass}"
+                    src={post.img}
+                    width="250"
+                    height="400"
+                    alt={post.name}
+                  />
                 {/if}
               </figure>
               <div class="flex flex-col justify-between p-4 text-center side-card-content">
