@@ -538,7 +538,6 @@ export const artists = [
     "covers": [
       "rise_tank",
       "plaguetank",
-      "mage_tank"
     ]
   },
   {
@@ -963,7 +962,8 @@ export const artists = [
       "road_to_mastery",
       "monster_farmer2",
       "beers_and_beards",
-      "runebound_professor"
+      "runebound_professor",
+      "mage_tank"
     ]
   },
   {
