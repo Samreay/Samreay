@@ -852,6 +852,8 @@ export const flowchart: FlowchartData = {
     { id: 'b_terminate_other_world', reviewId: 'terminate_the_other_world' },
     { id: 'b_keiran_eternal_mage', reviewId: 'keiran_the_eternal_mage' },
     { id: 'b_level_one_god', reviewId: 'level_one_god' },
+    { id: 'b_path_deathless', reviewId: 'path_of_the_deathless' },
+    { id: 'b_player_manager', reviewId: 'player_manager' },
   ],
   edges: [
     {
@@ -2658,6 +2660,22 @@ export const flowchart: FlowchartData = {
       target: 'b_keiran_eternal_mage',
       label: 'Reincarnated archmage',
       color: 'sky',
+    },
+    // Path of the Deathless — gratuitous violence, death-as-progression engine
+    {
+      id: 'e_d_enabled_because_b_path_deathless',
+      source: 'd_enabled_because',
+      target: 'b_path_deathless',
+      label: 'The MC is a vitality-sucking cockroach of a man',
+      color: 'red',
+    },
+    // Player Manager — grounded real-world football, litrpg-lite stat interface
+    {
+      id: 'e_d_but_this_world_b_player_manager',
+      source: 'd_but_this_world',
+      target: 'b_player_manager',
+      label: "Football Manager, but it's real life",
+      color: 'green',
     },
   ],
 };
