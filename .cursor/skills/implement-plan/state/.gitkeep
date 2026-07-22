@@ -1,2 +1,0 @@
-# Phase gate files (`phase-N-passed.json`), reports, normalized diffs.
-# Kept under version control intentionally so each phase's gate is reviewable.

@@ -150,3 +150,30 @@ content-hash manifest enables incremental regeneration (`make og`).
 must run `make og` after adding/modifying reviews. Full CSS fidelity — any card
 redesign flows to OG images on next generation. No CI dependency on Chromium. The
 `/og/` routes are excluded from the sitemap and marked `noindex`.
+
+---
+
+## ADR-010: Single-source skills in `skills/`, symlinked per tool
+
+**Context:** Skills were duplicated under `.claude/skills/` and `.cursor/skills/`.
+The two copies drifted: divergent scripts (`find-artists` had `reddit_search.py`
+in only one copy), stale upvote thresholds, split-vs-inlined reference docs, and
+tool-specific path prefixes hardcoded throughout (`.claude/skills/...` vs
+`.cursor/skills/...`). One copy even referenced an `implement-plan` skill that
+existed only in the other tool's directory.
+
+**Decision:** Author every skill exactly once under a top-level `skills/`
+directory (git-tracked). `make install_skills` (part of `make install`) projects
+each skill into `.claude/skills/<name>` and `.cursor/skills/<name>` as symlinks
+to `../../skills/<name>`; both generated directories are git-ignored. In-skill
+path references use the canonical `skills/<name>/...` form, valid from the repo
+root under either tool. Skill scripts must not assume a fixed nesting depth from
+their own location, since a skill may be invoked through either symlink — resolve
+the repo root by walking up to the nearest `package.json` instead.
+
+**Consequences:** A skill can never again differ between tools. Adding a skill is
+`mkdir skills/<name>` + `make install_skills`. Scripts must not hardcode a
+`.claude`/`.cursor` prefix; they either use `Path(__file__)` (symlink-transparent)
+or the `skills/...` repo-relative path. Tools that discover skills only via their
+own `.claude`/`.cursor` directory still work because the symlinks are created at
+install time.

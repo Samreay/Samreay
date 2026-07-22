@@ -35,30 +35,20 @@ cv:
 og:
 	npx tsx scripts/generate-og.ts
 
-install: install_uv install_precommit install_node precommit
+install: install_uv install_skills install_precommit install_node precommit
 
-# ----- implement-plan skill -----
+# ----- skills -----
+# Authoritative skills live in skills/. Project them into the tool-specific
+# directories as symlinks so Claude Code and Cursor share one source of truth.
+SKILLS_SRC := skills
 
-IMPLEMENT_PLAN_DIR := .cursor/skills/implement-plan
-VERIFY := uv run $(IMPLEMENT_PLAN_DIR)/scripts/verify.py
-
-.PHONY: implement-plan-setup
-implement-plan-setup:
-	@echo "Installing Playwright project for visual diffs"
-	cd $(IMPLEMENT_PLAN_DIR)/scripts/visual && npm install
-	# chromium powers astro-desktop and hugo-desktop; webkit powers
-	# astro-mobile (iPhone SE descriptor uses webkit by default).
-	cd $(IMPLEMENT_PLAN_DIR)/scripts/visual && npx playwright install chromium webkit
-
-.PHONY: verify-phase-%
-verify-phase-%:
-	$(VERIFY) --phase $*
-
-.PHONY: verify-phase-keep-%
-verify-phase-keep-%:
-	$(VERIFY) --phase $* --keep-normalized
-
-.PHONY: implement-plan-update-baselines
-implement-plan-update-baselines:
-	@if [ -z "$(PHASE)" ]; then echo "Usage: make implement-plan-update-baselines PHASE=N" >&2; exit 2; fi
-	$(VERIFY) --phase $(PHASE) --update-baselines
+.PHONY: install_skills
+install_skills:
+	@echo "Symlinking skills/ into .claude/skills and .cursor/skills"
+	@rm -rf .claude/skills .cursor/skills
+	@mkdir -p .claude/skills .cursor/skills
+	@for path in $(SKILLS_SRC)/*/; do \
+		name=$$(basename "$$path"); \
+		ln -s "../../$(SKILLS_SRC)/$$name" ".claude/skills/$$name"; \
+		ln -s "../../$(SKILLS_SRC)/$$name" ".cursor/skills/$$name"; \
+	done

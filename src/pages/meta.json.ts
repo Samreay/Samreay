@@ -1,9 +1,8 @@
 /**
- * Static metadata endpoint used by the implement-plan verifier (Phase 4+).
- * Emits real `getCollection()` counts so the gate doesn't have to infer them
- * from disk. Lives at `/meta.json` in the built dist; consider gating it
- * behind a robots noindex or removing it post-cutover (Phase 14) if it
- * stays around longer than expected.
+ * Static metadata endpoint at `/meta.json`. Emits real `getCollection()` counts
+ * and a small sample of each collection. Originally added for the (now-removed)
+ * Hugo→Astro migration verifier; kept as a lightweight build sanity signal.
+ * Safe to remove if nothing consumes it.
  */
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';

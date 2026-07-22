@@ -13,7 +13,7 @@ Example: `docs/plans/2026-05-08-reviews-export.md`
 
 ## Plan template
 
-See `.claude/skills/ship-feature/references/plan-template.md` for the canonical
+See `skills/ship-feature/references/plan-template.md` for the canonical
 template. At minimum a plan should contain:
 
 - **Goal** — one sentence: what will be true when this is done?

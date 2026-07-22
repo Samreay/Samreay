@@ -9,9 +9,7 @@ islands for the interactive bits (reviews explorer, artists explorer, mobile
 menu, code-toggle on tutorials). It deploys to GitHub Pages from `master`
 via `.github/workflows/gh-pages.yml`.
 
-It used to be a Hugo site. The migration is documented under
-[`plans/`](plans/), and the per-phase implementation skill lives at
-[`.cursor/skills/implement-plan/`](.cursor/skills/implement-plan/).
+It used to be a Hugo site. The migration is documented under [`plans/`](plans/).
 
 ## Quick start
 
@@ -20,9 +18,6 @@ make install   # installs casks, node deps, python deps via uv
 make blog      # `npm run dev` — local Astro dev server with HMR
 make prod      # clean build into `dist/`
 ```
-
-`make verify-all` runs every phase verifier in `.cursor/skills/implement-plan/scripts/phases/`
-against `dist/`; that is what gates a PR before deploy.
 
 ## Layout
 
@@ -36,10 +31,10 @@ against `dist/`; that is what gates a PR before deploy.
 - `astro-public/` — verbatim static files (favicons, `CNAME`, podcast thumbnails, CV PDF).
 - `content/` — markdown sources. Tutorials are generated from notebooks via `builder/convert.py`.
 - `plans/` — phase-by-phase migration plan, kept around for context.
-- `.cursor/skills/` — operational playbooks (book reviews, find-artists, humanizer, implement-plan).
+- `skills/` — authoritative operational playbooks (book reviews, find-artists, humanizer, …). `make install` symlinks these into `.claude/skills/` and `.cursor/skills/`.
 
 ## Operational playbooks
 
-- Drafting a new review — see `.cursor/skills/book-review/`.
-- Refreshing the cover-artist database from r/ProgressionFantasy — see `.cursor/skills/find-artists/`.
-- Editing review prose without sounding AI-generated — see `.cursor/skills/humanizer/`.
+- Drafting a new review — see `skills/book-review/`.
+- Refreshing the cover-artist database from r/ProgressionFantasy — see `skills/find-artists/`.
+- Editing review prose without sounding AI-generated — see `skills/humanizer/`.

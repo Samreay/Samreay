@@ -27,14 +27,14 @@ Invoke any skill with `/skill-name` or describe the task and Claude will pick th
 
 | Skill | Trigger |
 |---|---|
-| [ship-feature](.claude/skills/ship-feature/SKILL.md) | "ship X", "implement X", "build X end-to-end" |
-| [astro-best-practices](.claude/skills/astro-best-practices/SKILL.md) | Authoring `.astro` files, content collections, routing |
-| [svelte-best-practices](.claude/skills/svelte-best-practices/SKILL.md) | Authoring `.svelte` / `.svelte.ts` files |
-| [book-review](.claude/skills/book-review/SKILL.md) | Scaffold a new book review |
-| [find-artists](.claude/skills/find-artists/SKILL.md) | Refresh cover artist data from Reddit |
-| [humanizer](.claude/skills/humanizer/SKILL.md) | Remove AI-writing patterns from text |
-| [parse-flowchart](.claude/skills/parse-flowchart/SKILL.md) | Translate Figma flowchart image → `flowchart.ts` |
-| [sync-review-voice](.claude/skills/sync-review-voice/SKILL.md) | Recalibrate humanizer voice from review corpus |
+| [ship-feature](skills/ship-feature/SKILL.md) | "ship X", "implement X", "build X end-to-end" |
+| [astro-best-practices](skills/astro-best-practices/SKILL.md) | Authoring `.astro` files, content collections, routing |
+| [svelte-best-practices](skills/svelte-best-practices/SKILL.md) | Authoring `.svelte` / `.svelte.ts` files |
+| [book-review](skills/book-review/SKILL.md) | Scaffold a new book review |
+| [find-artists](skills/find-artists/SKILL.md) | Refresh cover artist data from Reddit |
+| [humanizer](skills/humanizer/SKILL.md) | Remove AI-writing patterns from text |
+| [parse-flowchart](skills/parse-flowchart/SKILL.md) | Translate Figma flowchart image → `flowchart.ts` |
+| [sync-review-voice](skills/sync-review-voice/SKILL.md) | Recalibrate humanizer voice from review corpus |
 
 ## Plans
 
