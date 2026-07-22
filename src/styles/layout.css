@@ -278,53 +278,69 @@ body {
     @apply font-mono text-main-400;
  }
 
-.hide-code .highlight {
+.hide-code pre.astro-code {
   display: none;
 }
-/* Code formatting */
-pre code:not([class]){
+/* Code formatting. Language-less fences (notebook output text) get centered
+   bold styling. Under Hugo/Chroma this was `pre code:not([class])`, but Shiki
+   never puts a class on <code>, so we key off Shiki's data-language instead. */
+pre[data-language='plaintext'] code {
   @apply mx-auto text-xl text-center block font-bold text-main-300;
 }
+/* Shiki emits a bare `<pre class="astro-code"><code>` with no wrapper div,
+   unlike Hugo's Chroma which produced `<div class="highlight"><pre>`. All
+   code-block chrome therefore lives on the <pre> itself. `width: fit-content`
+   makes each block hug its longest line (so short snippets don't render as a
+   huge empty box) and grow as wide as the page container allows; only lines
+   that can't fit even at full container width fall back to horizontal
+   scrolling via Shiki's inline `overflow-x: auto`. At text-xl the mono font
+   is ~12px/char plus 4rem of padding, so fixed max-w-Nxl buckets would force
+   needless scrolling (e.g. 95 chars ≈ 1208px > max-w-6xl's 1152px). */
+pre.astro-code {
+  @apply my-12 mx-auto p-8 rounded-2xl text-xl leading-relaxed;
+  width: fit-content;
+  max-width: 100%;
+
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 0.25rem;
+    border: 0.125rem solid var(--scrollbarBG);
+  }
+}
+
+/* `builder/convert.py` wraps notebook code fences in
+   `<div class="[reduced-code|expanded-code] width-N" markdown=1>` where N is
+   the longest line's character count: reduced-code for N < 61, no class for
+   61-79, expanded-code for N > 79. The wrapper caps below are each bucket's
+   worst case (N × 12.04px/char + 4rem padding), so blocks in the first two
+   buckets never scroll; the fit-content <pre> hugs its content within them.
+   expanded-code has no upper bound on N, so it gets the whole page container
+   and only scrolls when a line can't fit even at full width. */
+[class*='width-'] {
+  @apply mx-auto;
+  max-width: 64rem;
+}
 .reduced-code {
-  @apply max-w-2xl mx-auto;
+  @apply mx-auto;
+  max-width: 50rem;
 }
 .expanded-code {
-  .highlight {
-    @apply max-w-6xl mx-auto;
-  }
+  @apply mx-auto;
+  max-width: none;
 }
-.highlight {
-  @apply my-12 max-w-4xl mx-auto text-xl leading-relaxed text-white overflow-hidden;
 
-  &.reduced-code {
-    @apply max-w-2xl mx-auto;
-  }
-  &.expanded-code {
-    @apply max-w-6xl mx-auto;
-  }
-  pre {
-    @apply p-8 rounded-2xl overflow-x-auto;
-
-    &::-webkit-scrollbar {
-      height: 0.5rem;
-      margin-left: 2rem;
-      margin-right: 2rem;
-    }
-    &::-webkit-scrollbar-track {
-      background: var(--scrollbarBG);
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--thumbBG);
-      border-radius: 0.25rem;
-      border: 0.125rem solid var(--scrollbarBG);
-    }
-  }
-
-  &.language-plaintext {
-    pre {
-      @apply mt-0 text-gray-400 max-w-2xl mx-auto;
-    }
-  }
+/* Language-less fences are notebook output text: tucked under the code block
+   that produced them, and muted. */
+pre.astro-code[data-language='plaintext'] {
+  @apply mt-0 text-gray-400;
 }
 
 .carbon-code {
