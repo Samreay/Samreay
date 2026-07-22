@@ -854,6 +854,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_level_one_god', reviewId: 'level_one_god' },
     { id: 'b_path_deathless', reviewId: 'path_of_the_deathless' },
     { id: 'b_player_manager', reviewId: 'player_manager' },
+    { id: 'b_this_quest_bullshit', reviewId: 'this_quest_is_bullshit' },
   ],
   edges: [
     {
@@ -2676,6 +2677,14 @@ export const flowchart: FlowchartData = {
       target: 'b_player_manager',
       label: "Football Manager, but it's real life",
       color: 'green',
+    },
+    // This Quest is Bullshit — questing-trope comedy parody
+    {
+      id: 'e_d_parody_flavour_b_this_quest_bullshit',
+      source: 'd_parody_flavour',
+      target: 'b_this_quest_bullshit',
+      label: 'A legendary quest... to fetch bread.',
+      color: 'lime',
     },
   ],
 };
