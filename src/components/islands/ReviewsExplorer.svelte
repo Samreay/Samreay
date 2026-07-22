@@ -154,6 +154,11 @@
     }
   }
 
+  function clearReadingList() {
+    readingList.clear();
+    showReadingList = false;
+  }
+
   function clickTag(tag: string) {
     if (tag in tagActivations) {
       if (tagActivations[tag] === true) {
@@ -378,6 +383,16 @@
       </svg>
       Reading List{readingList.size > 0 ? ` (${readingList.size})` : ''}
     </button>
+    {#if readingList.size > 0}
+      <button
+        type="button"
+        class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-red-700 rounded-md cursor-pointer text-gray-100"
+        onclick={clearReadingList}
+        title="Remove all books from your reading list"
+      >
+        Clear Reading List
+      </button>
+    {/if}
     <button
       type="button"
       class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
