@@ -291,7 +291,7 @@ export const flowchart: FlowchartData = {
       id: 'd_how_do_you_like_your_ears',
       prompt: 'How do you like your ears?',
       description:
-        'The reader is in a cultivation sect-life sub-tree. Is the protagonist human or a beast-kin/animal-eared character?',
+        'The reader is in a cultivation sect-life sub-tree. Is the protagonist human or a beast-kin/animal-eared character? Human MCs split further: one plays sect life straight, the other is a genre-savvy transmigrator who has read too much xianxia and would rather hide in the sect library.',
     },
     {
       id: 'd_how_much_fan_fiction_and_cross',
@@ -855,6 +855,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_path_deathless', reviewId: 'path_of_the_deathless' },
     { id: 'b_player_manager', reviewId: 'player_manager' },
     { id: 'b_this_quest_bullshit', reviewId: 'this_quest_is_bullshit' },
+    { id: 'b_cultivation_nerd', reviewId: 'cultivation_nerd' },
   ],
   edges: [
     {
@@ -2685,6 +2686,14 @@ export const flowchart: FlowchartData = {
       target: 'b_this_quest_bullshit',
       label: 'A legendary quest... to fetch bread.',
       color: 'lime',
+    },
+    // Cultivation Nerd — sect life via a genre-savvy transmigrated bookworm
+    {
+      id: 'e_d_how_do_you_like_your_ears_b_cultivation_nerd',
+      source: 'd_how_do_you_like_your_ears',
+      target: 'b_cultivation_nerd',
+      label: 'Human, and deaf to plot hooks',
+      color: 'purple',
     },
   ],
 };
