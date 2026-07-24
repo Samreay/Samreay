@@ -35,7 +35,7 @@ Liu Feng can only avoid the problems and attention of other cultivators for so l
 
 I picked this up from a Reddit thread asking for series that people often dislike but you'd personally rate 10/10. Dangerous sourcing, and having read the first two books, I can see both halves of that thread. It's a fun read if you have a laid back cultivation itch. Butttt maybe not a 10/10.
 
-The premise is a western take on transmigration cultivation. Liu Feng wakes up in the body of a middling-talented cultivator after a fight, and all he really wants is to be left alone in the library with his books. Somehow his talent starts growing anyway (the how hasn't been revealed yet, at least not where I'm up to), and that growth starts him up the ladder and draws the attention of cultivators far more notable than he'd like.
+The premise is a western take on transmigration cultivation. Liu Feng wakes up in the body of a middling-talented cultivator after a fight, and all he really wants is to be left alone in the library with his books. Somehow his talent starts growing anyway (turns out he's got a strong soul, being two people smooshed into one), and that growth starts him up the ladder and draws the attention of cultivators far more notable than he'd like.
 
 The trope-work is the best part. Liu Feng read a mountain of xianxia before he died, so he spends the whole book warily pattern-matching everything against the cliches he knows, including clocking an actual protagonist-type character: massive luck, draws conflict to him like a magnet, best avoided at all costs. When that genre-awareness is front and centre, the book is genuinely fun.
 
