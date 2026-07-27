@@ -572,6 +572,21 @@ export const artists = [
       "skythief1"
     ]
   },
+    {
+    "name": "FlynX",
+    "links": {
+      "website": "https://bookc0ver.carrd.co/",
+      "instagram": "https://www.instagram.com/flin_x0"
+    },
+    "covers": [
+      "flynx1", 
+      "flynx2",
+      "flynx3",
+      "flynx4",
+      "flynx5",
+      "flynx6"
+    ]
+  },
   {
     "name": "Francell Garrote",
     "links": {
