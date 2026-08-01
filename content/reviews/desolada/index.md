@@ -6,7 +6,7 @@ auth: Louis Kalman
 categories: [reviews]
 review: B
 weight: 28
-name: "Desolada - A Blade Through Time"
+name: "Desolada"
 links:
     amazon: https://www.amazon.com/Blade-Through-Time-Grimdark-Progression-ebook/dp/B0BBH8VPXR
     # goodreads: https://www.goodreads.com/en/book/show/62591983

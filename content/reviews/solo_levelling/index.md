@@ -8,7 +8,7 @@ auth: Chugong
 categories: [reviews]
 review: C
 weight: 34
-name: "Solo Levelling"
+name: "Solo Leveling"
 links:
     amazon: https://www.amazon.com/Solo-Leveling-Vol-1-Novel/dp/B096YCZLTL
     manhua: https://sololeveling-manhwa.online/manga/solo-leveling-chapter-1/
