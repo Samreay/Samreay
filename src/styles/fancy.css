@@ -52,9 +52,13 @@ svg.ico {
   }
   /* Shrink the card's clip radius (16px card look → 6px tier tile). The
      hover glare/shimmer `.card_effect` layers read the same variable, so
-     they stay aligned with the card corners. */
+     they stay aligned with the card corners. margin-inline: 0 defeats the
+     card's `mx-auto`: auto inline margins stop the grid item stretching,
+     so its width collapses to the intrinsic width of a not-yet-loaded
+     lazy cover (0px) and rows jump ~2000px in height as images arrive. */
   .fancy_card.horizontal {
     --radius: 0.375rem;
+    margin-inline: 0;
   }
   .review-summary .bg2 {
     padding: 0;

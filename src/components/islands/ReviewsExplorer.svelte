@@ -441,16 +441,19 @@
            container, which never scrolls, so the label would never stick. -->
       <section
         class="tier-row flex rounded-md overflow-clip bg-gray-800/50"
-        aria-label={`Tier ${group.tier}`}
+        aria-label="Tier {group.tier}"
       >
         <div
           class="flex-none w-16 sm:w-28 flex flex-col justify-center {TIER_LABEL_CLASSES[group.tier]}"
         >
           <!-- Sticky keeps the tier letter visible while scrolling tall
-               tiers (C spans several screens). The small offset matters:
-               a large one (e.g. 40vh) shoves the label of short rows that
-               sit above the line to the cell bottom instead of centering. -->
-          <div class="sticky top-4 flex flex-col items-center gap-1 p-2 text-center">
+               tiers (C spans several screens). Both insets matter: bottom-4
+               pins the (flex-centered, so initially below the fold) label
+               near the viewport bottom while entering a tall row, top-4
+               takes over when scrolling past. Small offsets only — a large
+               one (e.g. 40vh) shoves the label of short rows that sit above
+               the line to the cell bottom instead of centering. -->
+          <div class="sticky top-4 bottom-4 flex flex-col items-center gap-1 p-2 text-center">
             <span class="text-3xl sm:text-5xl font-bold text-gray-100">{group.tier}</span>
             <span class="sr-only sm:not-sr-only text-xs leading-tight text-gray-100/80">
               {TIER_DESCRIPTIONS[group.tier]}

@@ -26,18 +26,17 @@ layouts, or any other page.
 - Existing assets to reuse:
   - Tier color palettes already exist: `bg-{S,A,B,C,D,F}-{500..900}` utilities
     and hand-written `.bg-π-*` rules in `src/styles/main.css`.
-  - Gradient text classes `.rating-{tier}` (scoped under `.tier-list`) in
-    `src/styles/styling.css` — can be reused for the description line.
-  - `ReviewCard.svelte` already special-cases `layout === 'tier'` (square
-    corners, zero padding), so cards need no structural change — only the
-    container changes.
+  - Cards need no structural change — tier-specific styling (small radius,
+    no glow padding) lives in a container-scoped `.tier-grid` block in
+    `src/styles/fancy.css`, so `ReviewCard.svelte` itself only distinguishes
+    the wide layout (text panel, rounded-left cover).
 - Constraints / non-goals:
   - Wide and Cover layouts must render pixel-identical to today.
   - Grouping/sorting logic (`groupedPosts`, weight sort in tier mode) is
     already correct — markup/CSS only, no state changes.
   - Tier descriptions ("Love to pieces", …) should remain visible, not be
     dropped — but subordinate to the tier letter (small text under the letter
-    in the label column, falling back to a `title` tooltip if it can't fit).
+    in the label column; `sr-only` on mobile where it doesn't fit).
   - Keep the dark theme; ignore the white background in the reference image.
 
 ## Affected files
@@ -53,30 +52,36 @@ layouts, or any other page.
 - [x] 1. Restructure the tier branch of the card wrapper
       (`src/components/islands/ReviewsExplorer.svelte`): each tier renders as
       a `<section class="tier-row">` — fixed-width colored label column
-      (letter + description, sticky at `top-4` so it stays visible in tall
-      tiers; a large offset like `40vh` pushes short rows' labels to the
-      cell bottom) plus a `justify-start` auto-fill grid of `ReviewCard`s
-      with `gap-1`. Card markup shared between layouts via a
-      `{#snippet cards()}`. The tier wrapper is full-width (no `max-w-*`) so
-      zooming out shows the whole board at once.
+      (letter + description, sticky with `top-4 bottom-4` so it stays visible
+      while entering and scrolling through tall tiers; large offsets like
+      `40vh` push short rows' labels to the cell bottom) plus an auto-fill
+      grid of `ReviewCard`s with `gap-1`. Card markup shared between layouts
+      via a `{#snippet cards()}`. The tier wrapper is full-width (no
+      `max-w-*`) so zooming out shows the whole board at once. Sticky only
+      works because the row and the `BaseLayout` wrapper use overflow
+      *clipping* (`overflow-clip` / `overflow-x-clip`), not
+      `overflow-hidden`, which would make them the sticky scroll container.
 - [x] 2. Tier label colors via an explicit `TIER_LABEL_CLASSES` map: π uses
       `bg-violet-800` (its own palette is identical to C's orange, and the
       site's purple-800 override is too close to S's indigo), B uses
       `bg-B-600` (B-700 slate was invisible on the dark row), others use
       their `-700` shade for contrast with the white text.
-- [x] 3. Row chrome: `bg-gray-800/50` rows, `rounded-md overflow-hidden`,
+- [x] 3. Row chrome: `bg-gray-800/50` rows, `rounded-md overflow-clip`,
       `gap-1` between rows.
-- [x] 4. Mobile: label shrinks to `w-16` (letter only, description via
-      `title` tooltip), covers go 3-up via `grid-cols-3`.
+- [x] 4. Mobile: label shrinks to `w-16` (letter only, description `sr-only`),
+      covers go 3-up via `grid-cols-3`.
 - [x] 5. Density: `grid-cols-cover-cards-tier` reduced 250px → 150px
       (`auto-fill` so trailing tracks don't stretch); tier covers scale to
       their track via a new `.tier-grid` block in `src/styles/fancy.css`
-      (which also keeps `.side-card-content` hidden, since the tier grid no
-      longer carries the `grid-cols-cover-cards-mobile` class). The same
-      block zeroes the `.review-{tier} .bg2` glow padding and clears the
-      `.bg-inner` gray background so covers sit flush with no gray squares
-      behind their rounded corners (fancy.css is imported after styling.css,
-      so the equal-specificity overrides win).
+      (the card text panel is render-gated to the wide layout in
+      `ReviewCard.svelte`, so no CSS hiding is needed). The same block
+      shrinks the card's `--radius`, zeroes the `.review-{tier} .bg2` glow
+      padding, and clears the `.bg-inner` gray background so covers sit
+      flush with no gray squares behind their rounded corners (selectors
+      carry an extra class hop so they win on specificity, not import
+      order). It also zeroes the card's auto inline margins, which
+      otherwise stop grid items stretching and let rows collapse until
+      lazy-loaded covers arrive.
 - [x] 6. Confirmed empty-group behavior: searching "wight" left only the S
       row; empty tiers disappear entirely.
 
