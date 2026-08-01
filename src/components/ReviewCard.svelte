@@ -26,12 +26,6 @@
     }
   });
 
-  const tierStyle = $derived(
-    layout === 'tier' ? 'padding: 0px; border-radius: 0px;' : ''
-  );
-  const tierInnerStyle = $derived(
-    layout === 'tier' ? 'border-radius: 0px;' : ''
-  );
   const wideRoundedClass = $derived(layout === 'wide' ? 'md:rounded-l-xl' : '');
 
   const bookmarkActiveColor = $derived(
@@ -72,15 +66,11 @@
     <a
       class="card_rotator small_rot card_layer block"
       href={post.link}
-      style={tierStyle}
     >
       <div class="card_layer">
         <article class="review-summary review-{post.review}">
-          <div class="bg2" style={tierStyle}>
-            <div
-              class="bg-inner flex flex-col md:flex-row w-full bg-gray-800"
-              style={tierInnerStyle}
-            >
+          <div class="bg2">
+            <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
             {#if onToggleBookmark}
                 <button
                     type="button"
@@ -141,27 +131,32 @@
                   />
                 {/if}
               </figure>
-              <div class="flex flex-col justify-between p-4 text-center side-card-content">
-                <div class="rating">
-                  <p class="small rating-{post.review}">
-                    <span class="leader">{post.name}</span>
-                  </p>
-                </div>
-                <p class="text-lg text-gray-400 px-3">{post.sentence}</p>
-                <div>
-                  <div class="mb-3">
-                    <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
-                      {#each post.tags as tag (tag)}
-                        <li
-                          class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{tag}"
-                        >
-                          {tag}
-                        </li>
-                      {/each}
-                    </ul>
+              <!-- Only the wide layout shows the text panel; cover/tier
+                   previously hid it with CSS but rendered it for every card,
+                   which is real HTML weight across ~160 reviews. -->
+              {#if layout === 'wide'}
+                <div class="flex flex-col justify-between p-4 text-center side-card-content">
+                  <div class="rating">
+                    <p class="small rating-{post.review}">
+                      <span class="leader">{post.name}</span>
+                    </p>
+                  </div>
+                  <p class="text-lg text-gray-400 px-3">{post.sentence}</p>
+                  <div>
+                    <div class="mb-3">
+                      <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
+                        {#each post.tags as tag (tag)}
+                          <li
+                            class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{tag}"
+                          >
+                            {tag}
+                          </li>
+                        {/each}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+              {/if}
             </div>
           </div>
         </article>

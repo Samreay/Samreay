@@ -20,7 +20,10 @@ const { title, description, image, type = 'website' } = Astro.props;
   <Head {title} />
   <Seo {title} {description} {image} {type} />
   <body>
-    <div class="flex flex-col min-h-screen overflow-hidden">
+    <!-- overflow-x-clip (not overflow-hidden): clipping both axes turns
+         this wrapper into a scroll container for position:sticky, which
+         breaks sticky descendants (e.g. the reviews tier-list labels). -->
+    <div class="flex flex-col min-h-screen overflow-x-clip">
       <Navbar />
       <div class="flex-grow"><slot /></div>
       <Footer />

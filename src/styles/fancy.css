@@ -36,30 +36,32 @@ svg.ico {
   video {
     @apply mx-auto;
   }
-  .side-card-content {
-    display: none;
-  }
 }
 
 /* Tier-list rows: covers scale to their (smaller) grid track and sit
    flush in their cells. The `.review-{tier} .bg2` glow border (3-4px
    gradient padding) and the `.bg-inner` gray card box are disabled here:
-   the padding created a visible margin around each cover, and the square
-   gray box poked out behind the covers' rounded corners. This file is
-   imported after styling.css, so these equal-specificity overrides win. */
+   the padding created a visible margin around each cover, and the gray
+   box poked out behind the covers' rounded corners. The `.review-summary`
+   hop in the selectors keeps them one specificity level above the
+   `.review-{tier} .bg2` glow rules in styling.css, so the overrides hold
+   regardless of import order. */
 .tier-grid {
   video,img {
-    @apply rounded-md w-full h-auto mx-auto;
+    @apply w-full h-auto;
   }
-  .side-card-content {
-    display: none;
+  /* Shrink the card's clip radius (16px card look → 6px tier tile). The
+     hover glare/shimmer `.card_effect` layers read the same variable, so
+     they stay aligned with the card corners. */
+  .fancy_card.horizontal {
+    --radius: 0.375rem;
   }
-  .bg2 {
+  .review-summary .bg2 {
     padding: 0;
     background: none;
     animation: none;
   }
-  .bg-inner {
+  .review-summary .bg-inner {
     background: none;
   }
 }

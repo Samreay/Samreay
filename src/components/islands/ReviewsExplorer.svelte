@@ -240,15 +240,6 @@
     return groups;
   });
 
-  function gridClasses(l: Layout): string {
-    const base = 'mt-20 gap-4 sm:gap-12 ';
-    const cols =
-      l === 'wide'
-        ? 'sm:grid-cols-wide-cards grid-cols-wide-cards-mobile'
-        : 'grid-cols-cover-cards-mobile sm:grid-cols-cover-cards ';
-    return base + cols;
-  }
-
   function activeClass(tag: string): string {
     if (Object.keys(tagActivations).length === 0) return 'active-nan';
     if (tagActivations[tag] === true) return 'active-true';
@@ -445,33 +436,40 @@
 >
   {#each groupedPosts as group, gi (group.tier ?? gi)}
     {#if layout === 'tier' && group.tier}
-      <section class="tier-row flex rounded-md overflow-hidden bg-gray-800/50">
-        <!-- Label content is sticky so the tier letter stays visible while
-             scrolling through tall tiers (C spans several screens). -->
+      <!-- overflow-clip (not -hidden) so the sticky label still works:
+           overflow:hidden makes this row the sticky element's scroll
+           container, which never scrolls, so the label would never stick. -->
+      <section
+        class="tier-row flex rounded-md overflow-clip bg-gray-800/50"
+        aria-label={`Tier ${group.tier}`}
+      >
         <div
           class="flex-none w-16 sm:w-28 flex flex-col justify-center {TIER_LABEL_CLASSES[group.tier]}"
-          title={TIER_DESCRIPTIONS[group.tier]}
         >
-          <!-- Small offset: sticky must only engage once the row's top edge
-               nears the viewport top, otherwise short rows fully visible
-               below the 'top' line get their label shoved to the cell
-               bottom instead of staying centered. -->
+          <!-- Sticky keeps the tier letter visible while scrolling tall
+               tiers (C spans several screens). The small offset matters:
+               a large one (e.g. 40vh) shoves the label of short rows that
+               sit above the line to the cell bottom instead of centering. -->
           <div class="sticky top-4 flex flex-col items-center gap-1 p-2 text-center">
             <span class="text-3xl sm:text-5xl font-bold text-gray-100">{group.tier}</span>
-            <span class="hidden sm:block text-xs leading-tight text-gray-100/80">
+            <span class="sr-only sm:not-sr-only text-xs leading-tight text-gray-100/80">
               {TIER_DESCRIPTIONS[group.tier]}
             </span>
           </div>
         </div>
         <div
-          class="tier-grid grow grid content-start justify-start gap-1 px-1
+          class="tier-grid grow grid content-start gap-1 px-1
                  grid-cols-3 sm:grid-cols-cover-cards-tier"
         >
           {@render cards(group.posts)}
         </div>
       </section>
     {:else}
-      <div class="container mx-auto justify-center grid {gridClasses(layout)}">
+      {@const cols =
+        layout === 'wide'
+          ? 'sm:grid-cols-wide-cards grid-cols-wide-cards-mobile'
+          : 'grid-cols-cover-cards-mobile sm:grid-cols-cover-cards'}
+      <div class="container mx-auto justify-center grid mt-20 gap-4 sm:gap-12 {cols}">
         {@render cards(group.posts)}
       </div>
     {/if}

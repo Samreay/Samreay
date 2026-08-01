@@ -196,7 +196,7 @@
   }
 }
 
-.blog-post, .tier-list {
+.blog-post {
   .rating-π {
     background: var(--grad-m);
     background-clip: text;

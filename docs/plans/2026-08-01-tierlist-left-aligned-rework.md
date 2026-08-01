@@ -103,10 +103,13 @@ Pages to check at `http://localhost:4321`:
 
 ### Manual checks
 
-- [ ] Switching layouts via the toggle preserves filters and URL state.
-- [ ] Card hover effects (3D tilt, glare, bookmark button) still work inside
-      the new row container.
-- [ ] Reading-list bookmark toggle still works in tier layout.
+- [x] Switching layouts via the toggle preserves filters and URL state
+      (verified: `?l=tier&include=companion` → toggle → `?l=cover&include=companion`).
+- [x] Card hover effects (3D tilt, glare, bookmark button) still work inside
+      the new row container (hover is delegated from `document` in
+      `src/lib/fancy-card.ts`; overlay radius now matches the card clip).
+- [x] Reading-list bookmark toggle still works in tier layout (28×28 hit
+      target verified on a 150px tier card).
 
 ## Architectural decision (ADR)
 
