@@ -80,6 +80,37 @@ svg.ico {
   }
   .review-summary .bg-inner {
     background: none;
+    /* Cards are cover-on-top / caption-below at every width; the wide
+       layout's md:flex-row would push the caption beside the cover. */
+    flex-direction: column;
+  }
+  /* Title caption extending the card below the cover. Fixed at exactly
+     two text lines (2 × 1.2 × 0.75rem + padding) so rows stay uniform
+     whether the title needs one line or three (clamped to two). */
+  .tier-title {
+    /* The page's typography rules give <p> a vertical margin, which
+       pushes the strip off the card's bottom edge. */
+    margin: 0;
+    height: 2.4rem;
+    padding: 0.3rem 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Theme gray, not stock Tailwind's blue-tinted gray: matches the
+       page's body background (bg-gray-900). */
+    background: var(--color-gray-900);
+    color: #f3f4f6;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+
+    span {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
   }
 }
 

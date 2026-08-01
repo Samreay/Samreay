@@ -131,6 +131,12 @@
                   />
                 {/if}
               </figure>
+              {#if layout === 'tier'}
+                <!-- Caption strip below the cover (styled by .tier-grid in
+                     fancy.css). Inner span carries the 2-line clamp so the
+                     outer flex box can vertically center 1-line titles. -->
+                <p class="tier-title"><span>{post.name}</span></p>
+              {/if}
               <!-- Only the wide layout shows the text panel; cover/tier
                    previously hid it with CSS but rendered it for every card,
                    which is real HTML weight across ~160 reviews. -->
