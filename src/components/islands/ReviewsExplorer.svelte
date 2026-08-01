@@ -22,6 +22,19 @@
     F: 'Dropped these',
   };
 
+  // π shares C's orange palette, so give it a violet label (the site's
+  // purple-800 override is too close to S's indigo); B's slate needs a
+  // lighter shade than the others to stand out from the dark row background.
+  const TIER_LABEL_CLASSES: Record<ReviewTier, string> = {
+    'π': 'bg-violet-800',
+    S: 'bg-S-700',
+    A: 'bg-A-700',
+    B: 'bg-B-600',
+    C: 'bg-C-700',
+    D: 'bg-D-700',
+    F: 'bg-F-700',
+  };
+
   const LINK_TAG_MAP: Record<string, string> = {
     amazon: 'amazon',
     audible: 'audio',
@@ -228,14 +241,11 @@
   });
 
   function gridClasses(l: Layout): string {
-    const base =
-      l === 'tier' ? 'gap-2 mt-8 ' : 'mt-20 gap-4 sm:gap-12 ';
+    const base = 'mt-20 gap-4 sm:gap-12 ';
     const cols =
       l === 'wide'
         ? 'sm:grid-cols-wide-cards grid-cols-wide-cards-mobile'
-        : l === 'cover'
-          ? 'grid-cols-cover-cards-mobile sm:grid-cols-cover-cards '
-          : 'grid-cols-cover-cards-mobile sm:grid-cols-cover-cards-tier tier';
+        : 'grid-cols-cover-cards-mobile sm:grid-cols-cover-cards ';
     return base + cols;
   }
 
@@ -418,24 +428,52 @@
   {/each}
 </div>
 
-<div id="all-card-wrapper">
+{#snippet cards(posts: Post[])}
+  {#each posts as post (post.link)}
+    <ReviewCard
+      {post}
+      {layout}
+      isBookmarked={readingList.has(slugFromAbslink(post.abslink))}
+      onToggleBookmark={toggleBookmark}
+    />
+  {/each}
+{/snippet}
+
+<div
+  id="all-card-wrapper"
+  class={layout === 'tier' ? 'mt-8 flex flex-col gap-1' : ''}
+>
   {#each groupedPosts as group, gi (group.tier ?? gi)}
     {#if layout === 'tier' && group.tier}
-      <div class="tier-list">
-        <h1 class="text-center text-5xl mt-20 pb-8 rating-{group.tier}">
-          {group.tier}: {TIER_DESCRIPTIONS[group.tier]}
-        </h1>
+      <section class="tier-row flex rounded-md overflow-hidden bg-gray-800/50">
+        <!-- Label content is sticky so the tier letter stays visible while
+             scrolling through tall tiers (C spans several screens). -->
+        <div
+          class="flex-none w-16 sm:w-28 flex flex-col justify-center {TIER_LABEL_CLASSES[group.tier]}"
+          title={TIER_DESCRIPTIONS[group.tier]}
+        >
+          <!-- Small offset: sticky must only engage once the row's top edge
+               nears the viewport top, otherwise short rows fully visible
+               below the 'top' line get their label shoved to the cell
+               bottom instead of staying centered. -->
+          <div class="sticky top-4 flex flex-col items-center gap-1 p-2 text-center">
+            <span class="text-3xl sm:text-5xl font-bold text-gray-100">{group.tier}</span>
+            <span class="hidden sm:block text-xs leading-tight text-gray-100/80">
+              {TIER_DESCRIPTIONS[group.tier]}
+            </span>
+          </div>
+        </div>
+        <div
+          class="tier-grid grow grid content-start justify-start gap-1 px-1
+                 grid-cols-3 sm:grid-cols-cover-cards-tier"
+        >
+          {@render cards(group.posts)}
+        </div>
+      </section>
+    {:else}
+      <div class="container mx-auto justify-center grid {gridClasses(layout)}">
+        {@render cards(group.posts)}
       </div>
     {/if}
-    <div class="container mx-auto justify-center grid {gridClasses(layout)}">
-      {#each group.posts as post (post.link)}
-        <ReviewCard
-          {post}
-          {layout}
-          isBookmarked={readingList.has(slugFromAbslink(post.abslink))}
-          onToggleBookmark={toggleBookmark}
-        />
-      {/each}
-    </div>
   {/each}
 </div>

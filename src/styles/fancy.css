@@ -30,21 +30,37 @@ svg.ico {
 }
 
 .grid-cols-cover-cards, .grid-cols-cover-cards-mobile {
-  &:not(.tier) {
-    video,img {
-      @apply rounded-xl;
-    }
-  }
-  &.tier {
-    video,img {
-      @apply rounded-md;
-    }
+  video,img {
+    @apply rounded-xl;
   }
   video {
     @apply mx-auto;
   }
   .side-card-content {
     display: none;
+  }
+}
+
+/* Tier-list rows: covers scale to their (smaller) grid track and sit
+   flush in their cells. The `.review-{tier} .bg2` glow border (3-4px
+   gradient padding) and the `.bg-inner` gray card box are disabled here:
+   the padding created a visible margin around each cover, and the square
+   gray box poked out behind the covers' rounded corners. This file is
+   imported after styling.css, so these equal-specificity overrides win. */
+.tier-grid {
+  video,img {
+    @apply rounded-md w-full h-auto mx-auto;
+  }
+  .side-card-content {
+    display: none;
+  }
+  .bg2 {
+    padding: 0;
+    background: none;
+    animation: none;
+  }
+  .bg-inner {
+    background: none;
   }
 }
 
