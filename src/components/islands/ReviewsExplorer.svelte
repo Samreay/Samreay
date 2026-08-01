@@ -421,11 +421,13 @@
 
 {#snippet cards(posts: Post[])}
   {#each posts as post (post.link)}
+    <!-- No bookmark button in tier mode: the 150px tiles are too small
+         for the overlay and the board should read as covers only. -->
     <ReviewCard
       {post}
       {layout}
       isBookmarked={readingList.has(slugFromAbslink(post.abslink))}
-      onToggleBookmark={toggleBookmark}
+      onToggleBookmark={layout === 'tier' ? undefined : toggleBookmark}
     />
   {/each}
 {/snippet}
@@ -455,7 +457,7 @@
                the line to the cell bottom instead of centering. -->
           <div class="sticky top-4 bottom-4 flex flex-col items-center gap-1 p-2 text-center">
             <span class="text-3xl sm:text-5xl font-bold text-gray-100">{group.tier}</span>
-            <span class="sr-only sm:not-sr-only text-xs leading-tight text-gray-100/80">
+            <span class="sr-only sm:not-sr-only text-sm leading-tight text-gray-100/80">
               {TIER_DESCRIPTIONS[group.tier]}
             </span>
           </div>
