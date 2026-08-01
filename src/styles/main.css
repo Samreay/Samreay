@@ -189,10 +189,6 @@
 @source inline("{hover:,focus:,}bg-{S,A,B,C,D,F}-{500,600,700,800,900}");
 @source inline("{hover:,}text-{S,A,B,C,D,F}-{300,400}");
 @source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
-/* The π tier-list label (ReviewsExplorer TIER_LABEL_CLASSES) uses violet
-   because π's own palette duplicates C's orange. Safelisted so it survives
-   even if the map's literal strings are ever refactored away. */
-@source inline("bg-violet-800");
 
 /* v4 silently refuses to generate `bg-π-*` utilities even when listed
    explicitly via `@source inline()` — the non-ASCII `π` is rejected by

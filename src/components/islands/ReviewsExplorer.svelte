@@ -22,17 +22,18 @@
     F: 'Dropped these',
   };
 
-  // π shares C's orange palette, so give it a violet label (the site's
-  // purple-800 override is too close to S's indigo); B's slate needs a
-  // lighter shade than the others to stand out from the dark row background.
-  const TIER_LABEL_CLASSES: Record<ReviewTier, string> = {
-    'π': 'bg-violet-800',
-    S: 'bg-S-700',
-    A: 'bg-A-700',
-    B: 'bg-B-600',
-    C: 'bg-C-700',
-    D: 'bg-D-700',
-    F: 'bg-F-700',
+  // Labels reuse the card glow gradients (--grad-* in styling.css, applied
+  // by .tier-label in fancy.css). The raw gradients range from near-white
+  // (B's silver) to near-black (D's dark red), so each tier also tunes the
+  // dark scrim laid over its gradient to keep the white text readable.
+  const TIER_LABEL_STYLES: Record<ReviewTier, { grad: string; scrim: number }> = {
+    'π': { grad: 'var(--grad-m)', scrim: 0.5 },
+    S: { grad: 'var(--grad-s)', scrim: 0.5 },
+    A: { grad: 'var(--grad-a)', scrim: 0.6 },
+    B: { grad: 'var(--grad-b)', scrim: 0.62 },
+    C: { grad: 'var(--grad-c)', scrim: 0.6 },
+    D: { grad: 'var(--grad-d)', scrim: 0.2 },
+    F: { grad: 'var(--grad-f)', scrim: 0.55 },
   };
 
   const LINK_TAG_MAP: Record<string, string> = {
@@ -162,6 +163,9 @@
   function toggleBookmark(slug: string) {
     if (readingList.has(slug)) {
       readingList.delete(slug);
+      // Un-bookmarking the last book hides the reading-list toggle, so drop
+      // the filter too or the user is stranded on an empty, unescapable view.
+      if (readingList.size === 0) showReadingList = false;
     } else {
       readingList.add(slug);
     }
@@ -192,12 +196,6 @@
     layout = defaultLayout;
     byRank = true;
     showReadingList = false;
-  }
-
-  function surpriseMe() {
-    if (visiblePosts.length === 0) return;
-    const post = visiblePosts[Math.floor(Math.random() * visiblePosts.length)];
-    window.location.href = post.abslink;
   }
 
   const visiblePosts = $derived.by(() => {
@@ -360,31 +358,31 @@
       class="bg-gray-800 rounded-md text-gray-100 m-2"
       placeholder="Search..."
     />
-    <button
-      type="button"
-      class="inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer text-gray-100
-             {showReadingList ? 'bg-yellow-600 hover:bg-yellow-500' : 'bg-gray-700 hover:bg-main-700'}"
-      onclick={() => (showReadingList = !showReadingList)}
-      title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 26"
-        width="16"
-        height="16"
-        fill={showReadingList ? 'currentColor' : 'none'}
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-        class="inline-block"
-      >
-        <path d="M5 2a2 2 0 0 0-2 2v20l9-4 9 4V4a2 2 0 0 0-2-2H5z" />
-      </svg>
-      Reading List{readingList.size > 0 ? ` (${readingList.size})` : ''}
-    </button>
     {#if readingList.size > 0}
+      <button
+        type="button"
+        class="inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer text-gray-100
+               {showReadingList ? 'bg-yellow-600 hover:bg-yellow-500' : 'bg-gray-700 hover:bg-main-700'}"
+        onclick={() => (showReadingList = !showReadingList)}
+        title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 26"
+          width="16"
+          height="16"
+          fill={showReadingList ? 'currentColor' : 'none'}
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          class="inline-block"
+        >
+          <path d="M5 2a2 2 0 0 0-2 2v20l9-4 9 4V4a2 2 0 0 0-2-2H5z" />
+        </svg>
+        Reading List ({readingList.size})
+      </button>
       <button
         type="button"
         class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-red-700 rounded-md cursor-pointer text-gray-100"
@@ -398,11 +396,6 @@
       type="button"
       class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
       onclick={reset}>Reset</button
-    >
-    <button
-      type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
-      onclick={surpriseMe}>Surprise me</button
     >
   </div>
 </div>
@@ -446,7 +439,9 @@
         aria-label="Tier {group.tier}"
       >
         <div
-          class="flex-none w-16 sm:w-28 flex flex-col justify-center {TIER_LABEL_CLASSES[group.tier]}"
+          class="tier-label flex-none w-16 sm:w-28 flex flex-col justify-center"
+          style:--tier-grad={TIER_LABEL_STYLES[group.tier].grad}
+          style:--tier-scrim={TIER_LABEL_STYLES[group.tier].scrim}
         >
           <!-- Sticky keeps the tier letter visible while scrolling tall
                tiers (C spans several screens). Both insets matter: bottom-4

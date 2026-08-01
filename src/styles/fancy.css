@@ -38,6 +38,19 @@ svg.ico {
   }
 }
 
+/* Tier label columns reuse the card glow gradients (--grad-* in
+   styling.css); the island sets --tier-grad and --tier-scrim per tier.
+   The uniform dark layer on top keeps the white letter/description
+   readable over gradients that range from silver-white to gold. */
+.tier-label {
+  background-image: linear-gradient(
+      rgb(3 7 18 / var(--tier-scrim, 0.5)),
+      rgb(3 7 18 / var(--tier-scrim, 0.5))
+    ),
+    var(--tier-grad);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.6);
+}
+
 /* Tier-list rows: covers scale to their (smaller) grid track and sit
    flush in their cells. The `.review-{tier} .bg2` glow border (3-4px
    gradient padding) and the `.bg-inner` gray card box are disabled here:
