@@ -28,6 +28,66 @@
 
   const wideRoundedClass = $derived(layout === 'wide' ? 'md:rounded-l-xl' : '');
 
+  // Tint the tier caption with the cover's own colour: sample the bottom
+  // quarter of the image on a tiny canvas, average the hues of its dark
+  // pixels, then rebuild the colour at fixed saturation/lightness so every
+  // caption keeps uniform brightness. Empty string = neutral CSS fallback
+  // (videos, all-bright/grayscale bottoms, tainted canvas).
+  let captionColor = $state('');
+
+  function captionColorFor(img: HTMLImageElement): string {
+    try {
+      const w = 32;
+      const h = 16;
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      if (!ctx) return '';
+      const quarter = img.naturalHeight / 4;
+      ctx.drawImage(img, 0, img.naturalHeight - quarter, img.naturalWidth, quarter, 0, 0, w, h);
+      const data = ctx.getImageData(0, 0, w, h).data;
+      let x = 0;
+      let y = 0;
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i] / 255;
+        const g = data[i + 1] / 255;
+        const b = data[i + 2] / 255;
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        if ((max + min) / 2 > 0.5) continue; // skip pixels above 50% lightness
+        const chroma = max - min;
+        if (chroma < 0.05) continue; // near-gray pixels carry no real hue
+        let hue: number;
+        if (max === r) hue = ((g - b) / chroma + 6) % 6;
+        else if (max === g) hue = (b - r) / chroma + 2;
+        else hue = (r - g) / chroma + 4;
+        // Chroma-weighted circular mean, so hue 359° + 1° averages to 0°
+        // rather than 180°, and strongly-coloured pixels dominate.
+        const rad = (hue * 60 * Math.PI) / 180;
+        x += Math.cos(rad) * chroma;
+        y += Math.sin(rad) * chroma;
+      }
+      if (x === 0 && y === 0) return '';
+      const mean = Math.round(((Math.atan2(y, x) * 180) / Math.PI + 360) % 360);
+      return `hsl(${mean} 35% 10%)`;
+    } catch {
+      return '';
+    }
+  }
+
+  $effect(() => {
+    if (layout !== 'tier' || !imgEl) return;
+    void post.img; // re-run when the cover target changes (hydration swap)
+    const img = imgEl;
+    const run = () => (captionColor = captionColorFor(img));
+    if (img.complete && img.naturalWidth > 0) run();
+    // Keep listening (not once): the effect above may swap `src` after an
+    // order-mismatched hydration, and the new cover's load must recompute.
+    img.addEventListener('load', run);
+    return () => img.removeEventListener('load', run);
+  });
+
   const bookmarkActiveColor = $derived(
     post.review === 'S' ? 'text-S-400' :
     post.review === 'A' ? 'text-A-400' :
@@ -135,7 +195,9 @@
                 <!-- Caption strip below the cover (styled by .tier-grid in
                      fancy.css). Inner span carries the 2-line clamp so the
                      outer flex box can vertically center 1-line titles. -->
-                <p class="tier-title"><span>{post.name}</span></p>
+                <p class="tier-title" style:background-color={captionColor}>
+                  <span>{post.name}</span>
+                </p>
               {/if}
               <!-- Only the wide layout shows the text panel; cover/tier
                    previously hid it with CSS but rendered it for every card,

@@ -97,7 +97,8 @@ svg.ico {
     align-items: center;
     justify-content: center;
     /* Theme gray, not stock Tailwind's blue-tinted gray: matches the
-       page's body background (bg-gray-900). */
+       page's body background (bg-gray-900). ReviewCard overrides this
+       inline with a cover-derived hue at fixed saturation/lightness. */
     background: var(--color-gray-900);
     color: #f3f4f6;
     font-size: 0.75rem;
