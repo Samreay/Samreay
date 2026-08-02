@@ -539,3 +539,20 @@ svg.ico {
     z-index: 4;
   }
 }
+
+/* Capture-time neutralization for the reviews screenshot export (ADR-011):
+   ReviewsExplorer puts .screenshotting on #all-card-wrapper while snapdom
+   clones the DOM. fancy-card.ts sets the hover vars as inline styles, so
+   !important is required for these rules to win — a card hovered at the
+   moment the shortcut fires would otherwise be captured mid-tilt. Sticky
+   tier labels have no scrollport inside the clone; forcing static position
+   renders them at their intended flex-centered spot. */
+.screenshotting .fancy_card {
+  --rx: 0deg !important;
+  --ry: 0deg !important;
+  --o: 0 !important;
+}
+
+.screenshotting .tier-label .sticky {
+  position: static !important;
+}

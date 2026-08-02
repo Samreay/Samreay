@@ -177,3 +177,33 @@ the repo root by walking up to the nearest `package.json` instead.
 or the `skills/...` repo-relative path. Tools that discover skills only via their
 own `.claude`/`.cursor` directory still work because the symlinks are created at
 install time.
+
+---
+
+## ADR-011: Client-side screenshots via snapdom, dynamically imported on use
+
+**Context:** The reviews page needs a button that downloads the entire scrollable
+card list (wide/cover/tier layouts) as one WebP image for social sharing. The
+site is fully static, so the capture must run in the browser. Candidate
+libraries: html2canvas (unmaintained, slow JS re-paint), html-to-image /
+modern-screenshot (foreignObject, fewer fidelity features), snapdom
+(foreignObject, zero dependencies, fastest on large DOMs, native WebP export,
+inlines `<img>` from `src` which defeats `loading="lazy"` covers). A wasm WebP
+encoder was rejected: browsers encode WebP natively via `canvas.toBlob`
+(everywhere except Safari, which silently falls back to PNG — handled by
+sniffing the blob's magic bytes and naming the file accordingly).
+
+**Decision:** Use `@zumer/snapdom`, imported via `await import()` inside
+`src/lib/screenshot.ts` at the moment of first capture, never at page load.
+Output scale follows `devicePixelRatio` (which bakes in browser zoom), clamped
+to [1, 2] and shrunk to fit 16 000 px per side (WebP limit is 16 383) and a
+16 MP area budget (Safari silently blanks canvases above ~16.7 MP).
+
+**Consequences:** First capture pays a one-off chunk fetch (~50 KB gzip);
+subsequent captures are instant. Interaction-time `await import()` is now an
+established pattern for heavy, rarely-used client features — the zero-JS
+principle (ADR-001) extends to "zero JS until the interaction that needs it".
+Runtime dependency count grows from 3 to 4. Safari users receive `.png` files
+until WebKit implements canvas WebP encoding. Capture-time style
+neutralization lives in `fancy.css` under a `.screenshotting` class (flattens
+hover tilt, un-sticks tier labels inside the clone).

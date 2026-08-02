@@ -1,8 +1,10 @@
 
 <script lang="ts">
+  import { tick } from 'svelte';
   import type { Post, ReviewTier } from '../../lib/types';
   import ReviewCard from '../ReviewCard.svelte';
   import { SvelteSet } from 'svelte/reactivity';
+  import { captureElement } from '../../lib/screenshot';
 
   type Layout = 'wide' | 'cover' | 'tier';
   type Props = {
@@ -198,6 +200,37 @@
     showReadingList = false;
   }
 
+  // Screenshot export: capture the whole card list (not just the viewport)
+  // and download it as webp. Heavy lifting lives in lib/screenshot.ts, which
+  // dynamic-imports snapdom on first use (ADR-011).
+  let capturing = $state(false);
+  let captureFailed = $state(false);
+
+  async function screenshot() {
+    if (capturing || visiblePosts.length === 0) return;
+    capturing = true;
+    captureFailed = false;
+    // Flush the DOM (spinner + .screenshotting neutralization class) and let
+    // it paint before capture blocks the main thread.
+    await tick();
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    try {
+      // Tier needs the wrapper (all tier rows); wide/cover capture the inner
+      // grid to skip the side gutters and the grid's collapsed-out mt-20,
+      // which would otherwise misalign the clone.
+      const root = document.querySelector<HTMLElement>(
+        layout === 'tier' ? '#all-card-wrapper' : '[data-capture-root]'
+      );
+      if (root) await captureElement(root, layout);
+    } catch (err) {
+      console.error('Screenshot failed:', err);
+      captureFailed = true;
+      setTimeout(() => (captureFailed = false), 4000);
+    } finally {
+      capturing = false;
+    }
+  }
+
   const visiblePosts = $derived.by(() => {
     const term = searchTerm.toLowerCase();
     const words = term ? term.split(/\s+/).filter(Boolean) : [];
@@ -271,6 +304,22 @@
   $effect(() => {
     if (typeof window === 'undefined') return;
     const handler = (e: KeyboardEvent) => {
+      // Don't hijack modifier combos (Cmd+S = save page) or typing in the
+      // search box / other fields.
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+      if (e.key === 's' || e.key === 'S') {
+        void screenshot();
+        return;
+      }
       const fns: Record<string, (post: Post) => string> = {
         c: shortSummary,
         C: longSummary,
@@ -394,6 +443,52 @@
     {/if}
     <button
       type="button"
+      class="inline-flex items-center gap-2 m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100 disabled:opacity-50 disabled:cursor-default disabled:hover:bg-gray-700"
+      onclick={screenshot}
+      disabled={capturing || visiblePosts.length === 0}
+      title="Screenshot"
+      aria-label="Download a screenshot of the current view"
+    >
+      {#if capturing}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          aria-hidden="true"
+          class="animate-spin"
+        >
+          <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+        </svg>
+        Capturing…
+      {:else if captureFailed}
+        Failed — retry
+      {:else}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path
+            d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+          />
+          <circle cx="12" cy="13" r="4" />
+        </svg>
+      {/if}
+    </button>
+    <button
+      type="button"
       class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
       onclick={reset}>Reset</button
     >
@@ -427,7 +522,8 @@
 
 <div
   id="all-card-wrapper"
-  class={layout === 'tier' ? 'mt-8 flex flex-col gap-1' : ''}
+  class="{layout === 'tier' ? 'mt-8 flex flex-col gap-1' : ''}
+         {capturing ? 'screenshotting' : ''}"
 >
   {#each groupedPosts as group, gi (group.tier ?? gi)}
     {#if layout === 'tier' && group.tier}
@@ -469,7 +565,10 @@
         layout === 'wide'
           ? 'sm:grid-cols-wide-cards grid-cols-wide-cards-mobile'
           : 'grid-cols-cover-cards-mobile sm:grid-cols-cover-cards'}
-      <div class="container mx-auto justify-center grid mt-20 gap-4 sm:gap-12 {cols}">
+      <div
+        data-capture-root
+        class="container mx-auto justify-center grid mt-20 gap-4 sm:gap-12 {cols}"
+      >
         {@render cards(group.posts)}
       </div>
     {/if}
