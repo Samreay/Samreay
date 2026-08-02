@@ -183,7 +183,8 @@ export const flowchart: FlowchartData = {
     {
       id: 'd_deliver_pain_via_weapons_or_ma',
       prompt: 'Deliver pain via weapons or magic?',
-      description: "In this system-apocalypse book, what is the protagonist's primary combat approach?",
+      description:
+        "In this system-apocalypse book, where does the protagonist's effort mostly go — weapons, magic, crafting, working the economy, building up a settlement, or simply surviving?",
     },
     {
       id: 'd_do_you_like_a_good_crafting_se',
@@ -699,6 +700,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_accidental_champion', reviewId: 'accidental_champion' },
     { id: 'b_all_the_dust', reviewId: 'all_the_dust' },
     { id: 'b_all_the_skills', reviewId: 'all_the_skills' },
+    { id: 'b_andy_apocalypse', reviewId: 'andy_in_the_apocalypse' },
     { id: 'b_antimage', reviewId: 'antimage' },
     { id: 'b_apocalypse_parenting', reviewId: 'apocalypse_parenting' },
     { id: 'b_arcane_ascension', reviewId: 'arcane_ascension' },
@@ -962,6 +964,13 @@ export const flowchart: FlowchartData = {
       target: 'b_ultimate_level',
       label: 'A party-tank-mage-scout',
       color: 'orange',
+    },
+    {
+      id: 'e_d_spear_style_b_andy_apocalypse',
+      source: 'd_spear_style',
+      target: 'b_andy_apocalypse',
+      label: 'A stealthy speedy boi',
+      color: 'teal',
     },
     {
       id: 'e_d_weapon_preference_electric_boo_d_axe_style',

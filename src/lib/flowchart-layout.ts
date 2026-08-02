@@ -40,6 +40,7 @@ import type { LayoutScore } from './flowchart-score';
 import {
   RelaxSimulator,
   layoutCost,
+  RELAX_OPTS,
   LAYOUT_DESIRED_EDGE_LENGTH,
   LAYOUT_MINIMUM_DESIRED_EDGE_LENGTH,
 } from './flowchart-relax';
@@ -149,6 +150,64 @@ function parsePlainOutput(
     });
   }
   return positions;
+}
+
+/** Gap left between a newly seeded node and the neighbour it hangs off. */
+const SEED_GAP_PX = 220;
+
+/**
+ * Place cache-missing nodes next to a neighbour that already has a cached
+ * position.
+ *
+ * The partial-cache branch runs Graphviz over the whole graph and then
+ * re-stamps every cached node from disk. Those are two unrelated coordinate
+ * frames, so a brand-new node keeps a Graphviz coordinate that can sit tens
+ * of thousands of pixels away from where its parent actually is. Relax then
+ * has to walk that one unpinned node the entire distance at a capped
+ * velocity, which takes an impractical number of iterations.
+ *
+ * Seeding from an already-placed parent (or, failing that, a child) starts
+ * the node in roughly the right neighbourhood so relax only has to tidy it
+ * up. Nodes whose neighbours are all new keep Graphviz's guess.
+ */
+function seedMissingNearNeighbours(
+  data: FlowchartData,
+  missingIds: readonly string[],
+  positions: Map<string, { x: number; y: number }>,
+  placed: ReadonlyMap<string, { x: number; y: number }>,
+  sizes: Map<string, { w: number; h: number }>,
+): void {
+  const missing = new Set(missingIds);
+  // Parents are listed before children so an incoming edge wins: a new leaf
+  // reads best hanging below the question that points at it.
+  const anchors = new Map<string, string[]>();
+  const addAnchor = (id: string, anchor: string) => {
+    const list = anchors.get(id);
+    if (list) list.push(anchor);
+    else anchors.set(id, [anchor]);
+  };
+  for (const e of data.edges) if (missing.has(e.target)) addAnchor(e.target, e.source);
+  for (const e of data.edges) if (missing.has(e.source)) addAnchor(e.source, e.target);
+
+  // Two new siblings off one parent would otherwise land on the exact same
+  // point; fan them sideways so relax starts from a separated state.
+  const usedPerAnchor = new Map<string, number>();
+
+  for (const id of missingIds) {
+    const anchor = (anchors.get(id) ?? []).find((a) => placed.has(a));
+    if (!anchor) continue;
+    const anchorPos = placed.get(anchor)!;
+    const anchorSize = sizes.get(anchor)!;
+    const size = sizes.get(id)!;
+    const index = usedPerAnchor.get(anchor) ?? 0;
+    usedPerAnchor.set(anchor, index + 1);
+    // Alternate right/left of the anchor's centre line as siblings pile up.
+    const lane = Math.ceil(index / 2) * (index % 2 === 1 ? 1 : -1);
+    positions.set(id, {
+      x: anchorPos.x + anchorSize.w / 2 - size.w / 2 + lane * (size.w + SEED_GAP_PX),
+      y: anchorPos.y + anchorSize.h + SEED_GAP_PX,
+    });
+  }
 }
 
 function normaliseOrigin(positions: Map<string, { x: number; y: number }>): void {
@@ -421,7 +480,12 @@ function relax(opts: {
   minDesiredEdgeLength: number;
 }): { finalScore: LayoutScore; bestCost: number } {
   const sim = new RelaxSimulator(opts);
-  while (!sim.converged) sim.step();
+  // Convergence needs the total kinetic energy to stay quiet for a run of
+  // iterations, which a node that is still travelling never satisfies. Cap
+  // the loop so a badly seeded layout costs a bounded amount of time rather
+  // than spinning forever; `revertToBest` below still yields the best
+  // snapshot the sim reached.
+  while (!sim.converged && sim.iter < RELAX_OPTS.MAX_ITERS) sim.step();
   sim.revertToBest();
   return { finalScore: sim.finalScore!, bestCost: sim.currentBestCost };
 }
@@ -665,6 +729,15 @@ export async function getLayoutedElements(
         if (seedPositions) {
           for (const [id, p] of seedPositions) {
             rawPositions.set(id, { x: p.x, y: p.y });
+          }
+          if (coverage.kind === 'partial') {
+            seedMissingNearNeighbours(
+              data,
+              coverage.missing,
+              rawPositions,
+              seedPositions,
+              sizes,
+            );
           }
         }
 
