@@ -6,8 +6,7 @@ auth: Sixbees2
 categories: [reviews]
 review: A
 weight: 16
-name: "CyberGene: Blood and Steel"
-search_terms: "cybergene"
+name: "CyberGene"
 links:
     royal_road: https://www.royalroad.com/fiction/94452/cybergene-blood-and-steel-slice-of-crime-litrpg
 aliases: [/reviews/cybergene]

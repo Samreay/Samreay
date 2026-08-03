@@ -6,7 +6,7 @@ categories: [reviews]
 auth: Naomi Novik
 review: A
 weight: 18
-name: "The Scholomance Series"
+name: "Scholomance"
 links:
     amazon: https://www.amazon.com/Deadly-Education-Novel-Scholomance-Book-ebook/dp/B083RZC8KQ
     # goodreads: https://www.goodreads.com/series/282152-the-scholomance

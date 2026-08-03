@@ -6,7 +6,7 @@ auth: Sarah Lin
 categories: [reviews]
 review: A
 weight: 18
-name: "The Weirkey Chronicles"
+name: "Weirkey Chronicles"
 links:
     amazon: https://www.amazon.com/Soulhome-Weirkey-Chronicles-Book-1-ebook/dp/B08P7TYG41
     # goodreads: https://www.goodreads.com/series/306753-the-weirkey-chronicles

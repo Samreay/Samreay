@@ -7,7 +7,7 @@ auth: David Gemmell
 categories: [reviews]
 review: A
 weight: 15
-name: "The First Chronicles of Druss the Legend"
+name: "Druss the Legend"
 links:
     amazon: https://www.amazon.com/First-Chronicles-Legend-Drenai-Gemmell/dp/B004H9CAOO
 aliases: [/reviews/druss]

@@ -11,7 +11,7 @@ links:
     amazon: https://www.amazon.com/Legend-Arch-Magus-Expansion-Sisa-ebook/dp/B07JMVWYK6
     audible: https://www.audible.com.au/series/Legend-of-the-Arch-Magus-Audiobooks/B086WHQSL8
 aliases: [/reviews/legend_arch_magus]
-tags: [in-progress, litrpg, isekai]
+tags: [in-progress, litrpg, isekai, kingdom-building]
 sentence: "An Arch Magus dies, only to find himself in the body of a young man in a medieval Kingdom."
 ---
 
