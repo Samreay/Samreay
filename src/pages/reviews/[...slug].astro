@@ -35,6 +35,22 @@ const ratingText = RATING_TEXT[r];
 const titleCase = (s: string) => s.replaceAll('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
 const similarReviews = getSimilarReviews(entry, allEntries, 4);
+
+// Reddit-ready markdown for the `c` shortcut, built server-side so the page
+// ships one string rather than the formatting logic. `entry.body` is the raw
+// markdown source, matching what the Hugo template pasted in via `.RawContent`.
+const abslink = new URL(`/reviews/${entry.id}/`, Astro.site!).toString();
+const linkList = [
+  `[review](${abslink})`,
+  ...Object.entries(entry.data.links).map(([name, link]) => `[${name}](${link})`),
+].join(', ');
+const reviewMarkdown =
+  `# **${entry.data.name}**\n\n` +
+  `**Author:** ${entry.data.auth}\n\n` +
+  `**Links:** ${linkList}\n\n` +
+  `**Summary:** ${entry.data.description}\n\n` +
+  `**Hook:** ${entry.data.sentence}\n\n*********\n` +
+  (entry.body ?? '');
 ---
 <BaseLayout title={entry.data.name} description={ogDescription} image={ogImage} type="article">
   <div class="content content blog-post relative">
@@ -95,4 +111,22 @@ const similarReviews = getSimilarReviews(entry, allEntries, 4);
     )}
     <div class="mt-20"><NewsletterForm /></div>
   </div>
+  <script is:inline define:vars={{ reviewMarkdown }}>
+    document.addEventListener('keypress', (event) => {
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        (target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+      if (event.key !== 'c' && event.key !== 'C') return;
+      navigator.clipboard
+        ?.writeText(reviewMarkdown)
+        .catch((err) => console.error('Could not copy review markdown:', err));
+    });
+  </script>
 </BaseLayout>
