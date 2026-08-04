@@ -33,6 +33,33 @@ All state lives under this skill directory so we never re-fetch the same post:
 Run all scripts via `uv run` (they use inline script metadata to pull
 `polars` and `requests`).
 
+## Authentication
+
+Reddit returns 403 for unauthenticated `*.json` endpoints, so every Reddit
+request now goes to `oauth.reddit.com` with a bearer token. The token is the
+one the Devvit CLI stores at `~/.devvit/token` after `npx devvit login` (use
+the copy-paste flow). Access tokens last 24 hours;
+`scripts/reddit_auth.py` refreshes them automatically mid-run and writes the
+result back in the CLI's own format, so `devvit` keeps working.
+
+**This skill is read-only.** `RedditReadSession` raises `ReadOnlyViolation` on
+any method other than GET or HEAD, and refuses to send the bearer token to any
+host but `oauth.reddit.com`. Never route a write through it — voting,
+commenting, and editing are out of scope for this skill.
+
+Check auth before starting:
+
+```bash
+uv run skills/find-artists/scripts/reddit_auth.py --whoami
+```
+
+Expected: `authenticated as /u/samreay` plus a token expiry in the future. If
+it fails, run `npx devvit login` and try again.
+
+Only `reddit_search.py` and `fetch_posts.py` need the token. `historical.py`
+talks to PullPush, and cover downloads from `i.redd.it` / `preview.redd.it`
+work without auth.
+
 ## PART ONE — Find and fetch links
 
 Run these three scripts. They are idempotent — safe to re-run to pick up new posts.
@@ -48,7 +75,7 @@ writing each completed month to `scripts/data/historical/YYYY-MM.csv`. It skips
 months whose CSV has >0 rows already. PullPush has roughly a 1-year ingestion
 lag, so months without data yet are re-fetched on every run.
 
-**`reddit_search.py`** hits Reddit's native search API directly (`/r/ProgressionFantasy/search.json?q=flair:"Self-Promotion"&sort=new`) and paginates up to ~250 posts (Reddit's practical search limit). It overwrites `scripts/data/historical/reddit_search.csv` on every run, covering the most recent posts that PullPush hasn't indexed yet. Run this alongside `historical.py` so the two sources complement each other.
+**`reddit_search.py`** hits Reddit's native search API (`/r/ProgressionFantasy/search?q=flair:"Self-Promotion"&sort=new`) and paginates up to ~250 posts (Reddit's practical search limit). It overwrites `scripts/data/historical/reddit_search.csv` on every run, covering the most recent posts that PullPush hasn't indexed yet. Run this alongside `historical.py` so the two sources complement each other.
 
 **`fetch_posts.py`** reads every CSV in `scripts/data/historical/`, fetches any
 link not in `scripts/data/fetched.csv`, skips posts with fewer than 10 upvotes
@@ -56,8 +83,10 @@ link not in `scripts/data/fetched.csv`, skips posts with fewer than 10 upvotes
 `references/to_extract/<id>.md` containing post front-matter, the selftext,
 any image URLs, and every comment by the OP.
 
-If Reddit rate-limits (HTTP 429), the scripts sleep and retry. If a post is
-gone (404/403) it is marked so we never retry.
+Rate limiting and retries are handled inside the session, not by the calling
+scripts: it paces requests at roughly one per second, backs off on `Retry-After`
+when Reddit returns 429, and slows down when `X-Ratelimit-Remaining` runs low.
+If a post is gone (404/403) it is marked so we never retry.
 
 ## PART TWO — Extract artists with one-ID subagents
 
@@ -121,6 +150,21 @@ This must finish with exit code 0. Spot-check that the SSR HTML for `/artists/`
 contains exactly one `data-artist="…"` per non-hidden artist with at least one
 cover, so any dropped artist surfaces during the build.
 
+## Troubleshooting auth
+
+- **Every request 401s, or the script exits with a `devvit login` hint.** The
+  grant is gone or the token file is missing/corrupt. Run `npx devvit login`.
+- **A single post returns 403 or 404.** That post is deleted, removed, or in a
+  private subreddit. It is recorded in `fetched.csv` as `http_403`/`http_404`
+  and never retried; nothing is wrong with auth.
+- **Persistent 429s.** The Devvit client id is shared across all Devvit CLI
+  users, so the 100 QPM budget is not ours alone. Raise `min_interval` in the
+  `reddit_session(...)` call, or set `REDDIT_CLIENT_ID`,
+  `REDDIT_CLIENT_SECRET` and `REDDIT_REFRESH_TOKEN` to use a personal script
+  app registered at `reddit.com/prefs/apps`, which gets its own budget.
+- **Testing against a throwaway token.** Set `DEVVIT_TOKEN_PATH` to a copy of
+  the token file so `~/.devvit/token` is left alone.
+
 ## Notes
 
 - PullPush (`historical.py`) has ~1-year ingestion lag. `reddit_search.py` fills
@@ -128,8 +172,6 @@ cover, so any dropped artist surfaces during the build.
 - `reddit_search.py` overwrites its output CSV each run (safe, because
   `fetched.csv` prevents re-processing bodies). Reddit's search pagination caps
   at ~250 results sorted by new.
-- The scripts use a 2-second sleep between requests to stay polite. If you
-  need to process a backlog and hit 429s, increase that delay.
 - If `fetched.csv` gets corrupted, deleting it is safe — any existing markdown
   in `references/` is treated as already-fetched on the next run.
 - `sync_covers.py` only ever moves files into `src/assets/img/covers/`; it

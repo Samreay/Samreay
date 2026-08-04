@@ -25,7 +25,19 @@ export const artists = [
       "dotf3",
       "dotf4",
       "twinned_destinites",
-      "nightmare_realm_summoner3"
+      "nightmare_realm_summoner3",
+      "arcane_galaxy2", // https://www.reddit.com/r/ProgressionFantasy/comments/1v9qhzr/
+      "accidental_healer" // https://www.reddit.com/r/ProgressionFantasy/comments/1vau0nv/
+    ]
+  },
+  {
+    "name": "Aes Munandi",
+    "links": {
+      "website": "https://aesmunandi.framer.website"
+    },
+    "covers": [
+      "wuts12", // https://www.reddit.com/r/ProgressionFantasy/comments/1u2x9xm/
+      "dual_wielding1" // https://www.reddit.com/r/ProgressionFantasy/comments/1u518s5/
     ]
   },
   {
@@ -107,7 +119,8 @@ export const artists = [
       "isekai_for_hire1",
       "three_parts_ascension",
       "journey_of_black_and_red6",
-      "journey_of_black_and_red7"
+      "journey_of_black_and_red7",
+      "requiem_for_a_fallen_world" // https://www.reddit.com/r/ProgressionFantasy/comments/1v2kyor/
     ]
   },
   {
@@ -135,13 +148,23 @@ export const artists = [
     ]
   },
   {
+    "name": "Baconstrap",
+    "links": {
+      "website": "https://baconstrap.carbonmade.com/"
+    },
+    "covers": [
+      "necromancer_healer" // https://www.reddit.com/r/ProgressionFantasy/comments/1ubkadf/
+    ]
+  },
+  {
     "name": "Bad Moon Art Studio",
     "links": {
       "artstation": "https://www.artstation.com/badmoonartstudio",
       "website": "https://www.badmoonart.com/"
     },
     "covers": [
-      "voidlight2"
+      "voidlight2",
+      "last_lord_of_the_fey1" // https://www.reddit.com/r/ProgressionFantasy/comments/1u0ae0y/
     ]
   },
   {
@@ -198,7 +221,13 @@ export const artists = [
       "cardsmith4",
       "bones_in_the_dark1",
       "guild_mage4",
-      "august_intruder1" // https://www.reddit.com/r/ProgressionFantasy/comments/1sxc9mf/
+      "august_intruder1", // https://www.reddit.com/r/ProgressionFantasy/comments/1sxc9mf/
+      "soul_of_the_warrior2", // https://www.reddit.com/r/ProgressionFantasy/comments/1ulnmeg/
+      "applied_cultivation1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uosok2/
+      "legend_of_ascension1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uq2abd/
+      "cardsmith5", // https://www.reddit.com/r/ProgressionFantasy/comments/1v4dghj/
+      "gifted1", // https://www.reddit.com/r/ProgressionFantasy/comments/1v7p1pe/
+      "hell_hound_evolution1" // https://www.reddit.com/r/ProgressionFantasy/comments/1v7z15h/
     ]
   },
   {
@@ -290,7 +319,7 @@ export const artists = [
       "instagram": "https://www.instagram.com/caioyo/"
     },
     "covers": [
-      "primal_soul1"
+      "primal_soul1" // https://www.reddit.com/r/ProgressionFantasy/comments/1uy6zb1/
     ]
   },
   {
@@ -331,7 +360,8 @@ export const artists = [
       "steamforged_sorcerer",
       "cleavers_edge",
       "into_the_fire",
-      "eldritch_horror_4"
+      "eldritch_horror_4",
+      "common_sense" // https://www.reddit.com/r/ProgressionFantasy/comments/1u36pvs/
     ]
   },
   {
@@ -455,6 +485,15 @@ export const artists = [
     "hidden": true
   },
   {
+    "name": "Dotturndot",
+    "links": {
+      "website": "https://www.dotturndotcreative.com/"
+    },
+    "covers": [
+      "tamers_monster1" // https://www.reddit.com/r/ProgressionFantasy/comments/1u305c4/
+    ]
+  },
+  {
     "name": "Duy Phan",
     "links": {
       "fiverr": "https://www.fiverr.com/phanduy"
@@ -466,7 +505,16 @@ export const artists = [
       "ruins_of_valor1",
       "transmigrated_cultivation1", // https://www.reddit.com/r/ProgressionFantasy/comments/1sujphf/
       "warforged_summoner1", // https://www.reddit.com/r/ProgressionFantasy/comments/1sx4ptg/
-      "soul_blade2" // https://www.reddit.com/r/ProgressionFantasy/comments/1sz5mnc/
+      "soul_blade2", // https://www.reddit.com/r/ProgressionFantasy/comments/1sz5mnc/
+      "adam_vs_the_apocalypse1", // https://www.reddit.com/r/ProgressionFantasy/comments/1twol6d/
+      "ascendancy", // https://www.reddit.com/r/ProgressionFantasy/comments/1uck56t/
+      "a_dungeon_that_kills1", // https://www.reddit.com/r/ProgressionFantasy/comments/1ujmihg/
+      "messiah_of_steel1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uk0nh4/
+      "unconquered_tower1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uslwvj/
+      "ceaseless_horizons2", // https://www.reddit.com/r/ProgressionFantasy/comments/1utmweb/
+      "soul_blade3", // https://www.reddit.com/r/ProgressionFantasy/comments/1uvarxc/
+      "warforged_summoner2", // https://www.reddit.com/r/ProgressionFantasy/comments/1uw7vqb/
+      "vows_of_iron1" // https://www.reddit.com/r/ProgressionFantasy/comments/1uy45cc/
     ]
   },
   {
@@ -560,7 +608,8 @@ export const artists = [
       "modern_paladin",
       "jeff_game_master1",
       "jeff_game_master",
-      "mage_errant1_hc"
+      "mage_errant1_hc",
+      "symbiotic_ascension2" // https://www.reddit.com/r/ProgressionFantasy/comments/1uk6bk2/
     ]
   },
   {
@@ -579,7 +628,7 @@ export const artists = [
       "instagram": "https://www.instagram.com/flin_x0"
     },
     "covers": [
-      "flynx1", 
+      "flynx1",
       "flynx2",
       "flynx3",
       "flynx4",
@@ -601,7 +650,9 @@ export const artists = [
       "system_universe4",
       "knights_apocalyptica3",
       "deepest_depths2",
-      "elydes2"
+      "elydes2",
+      "helldiver", // https://www.reddit.com/r/ProgressionFantasy/comments/1u5kris/
+      "emberstone_farm3" // https://www.reddit.com/r/ProgressionFantasy/comments/1ux5bcp/
     ]
   },
   {
@@ -633,7 +684,8 @@ export const artists = [
       "bdr2",
       "bdr3",
       "amelia2",
-      "salt_and_blood1"
+      "salt_and_blood1",
+      "cute_godkiller1" // https://www.reddit.com/r/ProgressionFantasy/comments/1uiu3r6/
     ]
   },
   {
@@ -703,7 +755,8 @@ export const artists = [
       "hwfwm6",
       "hwfwm7",
       "hwfwm8",
-      "hwfwm9"
+      "hwfwm9",
+      "ponder_the_orb" // https://www.reddit.com/r/ProgressionFantasy/comments/1uxczyk/
     ]
   },
   {
@@ -721,7 +774,8 @@ export const artists = [
       "artstation": "https://www.artstation.com/theitor"
     },
     "covers": [
-      "max_level_archmage1" // https://www.reddit.com/r/ProgressionFantasy/comments/1t4f6e4/
+      "max_level_archmage1", // https://www.reddit.com/r/ProgressionFantasy/comments/1t4f6e4/
+      "machine_slays_dragons" // https://www.reddit.com/r/ProgressionFantasy/comments/1vc32tm/
     ]
   },
   {
@@ -732,6 +786,15 @@ export const artists = [
     "covers": [
       "orpheus_rises",
       "elysium_falls"
+    ]
+  },
+  {
+    "name": "Henry Rebolledo",
+    "links": {
+      "artstation": "https://www.artstation.com/henryarts_vzla"
+    },
+    "covers": [
+      "cloud_of_smoke" // https://www.reddit.com/r/ProgressionFantasy/comments/1ue2b0d/
     ]
   },
   {
@@ -749,7 +812,9 @@ export const artists = [
       "artstation": "https://www.artstation.com/hahahuhi"
     },
     "covers": [
-      "undead_cultivator1"
+      "undead_cultivator1",
+      "ghostslayer", // https://www.reddit.com/r/ProgressionFantasy/comments/1ucjlns/
+      "survivors_domain" // https://www.reddit.com/r/ProgressionFantasy/comments/1uwn5mm/
     ]
   },
   {
@@ -769,7 +834,8 @@ export const artists = [
     },
     "covers": [
       "deathless1",
-      "deathless2" // https://www.reddit.com/r/ProgressionFantasy/comments/1t569ln/
+      "deathless2", // https://www.reddit.com/r/ProgressionFantasy/comments/1t569ln/
+      "deathless3" // https://www.reddit.com/r/ProgressionFantasy/comments/1uwzoy5/
     ]
   },
   {
@@ -824,7 +890,8 @@ export const artists = [
       "cyber_dreams_6",
       "victor7",
       "victor10",
-      "built_different1" // https://www.reddit.com/r/ProgressionFantasy/comments/1sy4a37/
+      "built_different1", // https://www.reddit.com/r/ProgressionFantasy/comments/1sy4a37/
+      "mage_unexpected1" // https://www.reddit.com/r/ProgressionFantasy/comments/1uknsiu/
     ]
   },
   {
@@ -893,7 +960,8 @@ export const artists = [
       "website": "https://www.snapsca.com/"
     },
     "covers": [
-      "center_for_dungeon_management1"
+      "center_for_dungeon_management1",
+      "dead_end_guild_master2" // https://www.reddit.com/r/ProgressionFantasy/comments/1us0fwk/
     ]
   },
   {
@@ -978,7 +1046,8 @@ export const artists = [
       "monster_farmer2",
       "beers_and_beards",
       "runebound_professor",
-      "mage_tank"
+      "mage_tank",
+      "runebound_professor9" // https://www.reddit.com/r/ProgressionFantasy/comments/1u8ay8g/
     ]
   },
   {
@@ -997,7 +1066,11 @@ export const artists = [
       "knight_from_nothing2",
       "knight_from_nothing3",
       "embercore1",
-      "menocht_loop6"
+      "menocht_loop6",
+      "nameless_7", // https://www.reddit.com/r/ProgressionFantasy/comments/1tzalp8/
+      "bookbound_bunny2", // https://www.reddit.com/r/ProgressionFantasy/comments/1u30q5h/
+      "stormblade3", // https://www.reddit.com/r/ProgressionFantasy/comments/1ulh546/
+      "knight_from_nothing4" // https://www.reddit.com/r/ProgressionFantasy/comments/1usp9cx/
     ],
     "links": {
       "deviantart": "https://www.deviantart.com/kartstudiodigi/"
@@ -1111,6 +1184,15 @@ export const artists = [
     ]
   },
   {
+    "name": "Kira L. Nguyen",
+    "links": {
+      "artstation": "https://www.artstation.com/kiralng"
+    },
+    "covers": [
+      "sacrifice_mage3" // https://www.reddit.com/r/ProgressionFantasy/comments/1ux5rd0/
+    ]
+  },
+  {
     "name": "Koti Komori",
     "links": {
       "artstation": "https://www.artstation.com/kotikomori",
@@ -1124,6 +1206,15 @@ export const artists = [
       "hell_difficulty_tutorial_7"
     ]
   },
+//   {
+//     "name": "Lady jø",
+//     "links": {
+//       "instagram": "https://www.instagram.com/lady_jo.ys/"
+//     },
+//     "covers": [
+//       "the_price_of_defiance" // https://www.reddit.com/r/ProgressionFantasy/comments/1txnh6x/
+//     ]
+//   },
   {
     "name": "Laércio Messias",
     "links": {
@@ -1155,6 +1246,15 @@ export const artists = [
     "covers": [
       "cb1",
       "cb2"
+    ]
+  },
+  {
+    "name": "Lesia S.",
+    "links": {
+      "fiverr": "https://www.fiverr.com/germancreative"
+    },
+    "covers": [
+      "mana_mirror5" // https://www.reddit.com/r/ProgressionFantasy/comments/1u32j89/
     ]
   },
   {
@@ -1191,7 +1291,8 @@ export const artists = [
       "sham_man1",
       "the_effaced",
       "mana_mirror",
-      "justice_not_found"
+      "justice_not_found",
+      "spellwrights_guild2" // https://www.reddit.com/r/ProgressionFantasy/comments/1uf74qs/
     ]
   },
   {
@@ -1310,7 +1411,10 @@ export const artists = [
       "lord_of_farming1",
       "nameless_sovereign1",
       "godclads1",
-      "not_just_a_mage_lord"
+      "not_just_a_mage_lord",
+      "not_just_a_mage_lord2", // https://www.reddit.com/r/ProgressionFantasy/comments/1ucm8kb/
+      "fractured_tower1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uqp8ts/
+      "not_just_a_mage_lord3" // https://www.reddit.com/r/ProgressionFantasy/comments/1v2vjak/
     ],
     "links": {
       "deviantart": "https://www.deviantart.com/macarious"
@@ -1323,6 +1427,15 @@ export const artists = [
     },
     "covers": [
       "music_of_an_immortal"
+    ]
+  },
+  {
+    "name": "Magdalena Korzeniewska",
+    "links": {
+      "instagram": "https://www.instagram.com/bubug_/"
+    },
+    "covers": [
+      "goblin_teeth" // https://www.reddit.com/r/ProgressionFantasy/comments/1uqc9av/
     ]
   },
   {
@@ -1354,6 +1467,17 @@ export const artists = [
     },
     "covers": [
       "glass_kanin"
+    ]
+  },
+  {
+    "name": "Mario Teodosio",
+    "links": {
+      "website": "https://marioteodosioart.com/"
+    },
+    "covers": [
+      "years_of_apocalypse1", // https://www.reddit.com/r/ProgressionFantasy/comments/1u7dq8h/
+      "isekaid_legion_for_glory", // https://www.reddit.com/r/ProgressionFantasy/comments/1udi5dx/
+      "shadowborn_exile2" // https://www.reddit.com/r/ProgressionFantasy/comments/1v4i8nf/
     ]
   },
   {
@@ -1437,6 +1561,7 @@ export const artists = [
     },
     "covers": [
       "antimage1",
+      "antimage6", // https://www.reddit.com/r/ProgressionFantasy/comments/1vaxt33/
       "lightblade",
       "silas_sontag",
       "corpo_age",
@@ -1509,6 +1634,15 @@ export const artists = [
     ]
   },
   {
+    "name": "Nagifry",
+    "links": {
+      "website": "https://nagifry.com/"
+    },
+    "covers": [
+      "merchants_life2" // https://www.reddit.com/r/ProgressionFantasy/comments/1uurdhv/
+    ]
+  },
+  {
     "name": "Neutronboar",
     "links": {
       "artstation": "https://www.artstation.com/neutronboar7"
@@ -1526,6 +1660,15 @@ export const artists = [
     },
     "covers": [
       "fearshaper2"
+    ]
+  },
+  {
+    "name": "NK Studio (nkstudiodigital)",
+    "links": {
+      "deviantart": "https://www.deviantart.com/nkstudiodigital"
+    },
+    "covers": [
+      "dragonmancer_returns" // https://www.reddit.com/r/ProgressionFantasy/comments/1vecpbu/
     ]
   },
   {
@@ -1573,7 +1716,18 @@ export const artists = [
     "covers": [
       "panethon2",
       "arcanist_in_another_world",
-      "the_runemaster1" // https://www.reddit.com/r/ProgressionFantasy/comments/1t0mfx0/
+      "the_runemaster1", // https://www.reddit.com/r/ProgressionFantasy/comments/1t0mfx0/
+      "the_runemaster2", // https://www.reddit.com/r/ProgressionFantasy/comments/1tusk4l/
+      "the_runemaster3" // https://www.reddit.com/r/ProgressionFantasy/comments/1ukjmfe/
+    ]
+  },
+  {
+    "name": "Ömer Tunç",
+    "links": {
+      "artstation": "https://www.artstation.com/kalmahul"
+    },
+    "covers": [
+      "last_rift_dragon" // https://www.reddit.com/r/ProgressionFantasy/comments/1v1q94x/
     ]
   },
   {
@@ -1582,7 +1736,8 @@ export const artists = [
       "artstation": "https://www.artstation.com/paris60"
     },
     "covers": [
-      "unintended_cultivator"
+      "unintended_cultivator",
+      "level_9_wizard" // https://www.reddit.com/r/ProgressionFantasy/comments/1ulocmn/
     ]
   },
   {
@@ -1634,7 +1789,8 @@ export const artists = [
       "godscourge3",
       "no_strings_attached",
       "split_champion1",
-      "kieran3"
+      "kieran3",
+      "second_ascension2" // https://www.reddit.com/r/ProgressionFantasy/comments/1u0aw32/
     ]
   },
   {
@@ -1643,7 +1799,8 @@ export const artists = [
       "website": "https://artofprestonasevedo.com/"
     },
     "covers": [
-      "demon_hat1"
+      "demon_hat1",
+      "demon_hat2" // https://www.reddit.com/r/ProgressionFantasy/comments/1uw4kjd/
     ]
   },
   {
@@ -1678,7 +1835,9 @@ export const artists = [
       "roots_and_steel",
       "wish_upon_the_stars1",
       "wish_upon_the_stars5",
-      "too_stubborn_to_die2" // https://www.reddit.com/r/ProgressionFantasy/comments/1t1jt4i/
+      "too_stubborn_to_die2", // https://www.reddit.com/r/ProgressionFantasy/comments/1t1jt4i/
+      "apocalypse_slayer", // https://www.reddit.com/r/ProgressionFantasy/comments/1tvom51/
+      "too_stubborn_to_die3" // https://www.reddit.com/r/ProgressionFantasy/comments/1vdbczl/
     ],
     "links": {
       "artstation": "https://www.artstation.com/makingpicsslowly",
@@ -1705,6 +1864,15 @@ export const artists = [
     },
     "covers": [
       "rise_last_summoner"
+    ]
+  },
+  {
+    "name": "Rochalerka",
+    "links": {
+      "instagram": "https://www.instagram.com/rochalerka/"
+    },
+    "covers": [
+      "beast_core_smithing1" // https://www.reddit.com/r/ProgressionFantasy/comments/1upu7p8/
     ]
   },
   {
@@ -1782,7 +1950,7 @@ export const artists = [
       "ptnr1",
       "ptnr2",
       "ptnr3",
-      "ptnr4",
+      "ptnr4", // https://www.reddit.com/r/ProgressionFantasy/comments/1uqbu29/
       "ptnr5",
       "tomebound"
     ]
@@ -1826,12 +1994,13 @@ export const artists = [
       "artstation": "https://www.artstation.com/aslothbeing"
     },
     "covers": [
-      "dead_tired",
+      "dead_tired", // https://www.reddit.com/r/ProgressionFantasy/comments/1upzh07/
       "alexa_thyme",
       "fiends_for_hire6",
       "augmented_aspects4",
       "augmented_aspects5",
-      "ivil_antagonist1"
+      "ivil_antagonist1",
+      "fiends_for_hire8" // https://www.reddit.com/r/ProgressionFantasy/comments/1vawu07/
     ]
   },
   {
@@ -1952,7 +2121,8 @@ export const artists = [
       "website": "https://treskiddos.com/"
     },
     "covers": [
-      "spark_of_the_ancients"
+      "spark_of_the_ancients",
+      "horizons_twilight" // https://www.reddit.com/r/ProgressionFantasy/comments/1tvo2hb/
     ]
   },
   {
@@ -2027,7 +2197,8 @@ export const artists = [
       "gloamcaller",
       "pinnacle_warrior2",
       "dark_matter_ascension",
-      "dark_matter_ascension5"
+      "dark_matter_ascension5",
+      "runic_artist6" // https://www.reddit.com/r/ProgressionFantasy/comments/1ufarci/
     ]
   },
   {
@@ -2037,6 +2208,15 @@ export const artists = [
     },
     "covers": [
       "rise_of_the_devourer__2"
+    ]
+  },
+  {
+    "name": "Xavier Collette",
+    "links": {
+      "website": "https://www.xaviercollette.com/"
+    },
+    "covers": [
+      "runeblade1" // https://www.reddit.com/r/ProgressionFantasy/comments/1u8cktb/
     ]
   },
   {

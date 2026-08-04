@@ -21,6 +21,8 @@ For each historical link not yet in ``fetched.csv``:
 The generated markdown file has a small YAML front-matter block with the
 post id, title, URL, upvotes and author so that downstream agent steps
 have all the context they need.
+
+Requires a Devvit login; see ``reddit_auth.py``.
 """
 
 from __future__ import annotations
@@ -33,6 +35,7 @@ from pathlib import Path
 
 import polars as pl
 import requests
+from reddit_auth import RedditAuthError, RedditReadSession, reddit_session
 
 USER_AGENT = "python:samreay-find-artists:v0.1 (by /u/samreay)"
 MIN_UPVOTES = 10
@@ -100,15 +103,14 @@ def append_fetched(rows: list[dict]) -> None:
     combined.write_csv(FETCHED_CSV)
 
 
-def fetch_post(session: requests.Session, post_id: str) -> tuple[dict, list[dict]]:
+def fetch_post(session: RedditReadSession, post_id: str) -> tuple[dict, list[dict]]:
     """Return ``(post_data, op_comments)``.
 
     ``op_comments`` is a flat list of comment dicts authored by the
     original poster, in the order returned by the API (effectively
     best-first), walking nested replies.
     """
-    url = f"https://www.reddit.com/comments/{post_id}.json"
-    resp = session.get(url, params={"limit": 500, "raw_json": 1}, timeout=30)
+    resp = session.get(f"/comments/{post_id}", params={"limit": 500})
     resp.raise_for_status()
     data = resp.json()
     post = data[0]["data"]["children"][0]["data"]
@@ -195,6 +197,12 @@ def render_markdown(post: dict, op_comments: list[dict]) -> str:
 
 
 def main() -> int:
+    try:
+        session = reddit_session(USER_AGENT)
+    except RedditAuthError as exc:
+        print(f"[fetch_posts] {exc}", file=sys.stderr)  # noqa: T201
+        return 1
+
     links = load_links()
     if not links.height:
         print("[fetch_posts] no historical links; run historical.py first.", file=sys.stderr)  # noqa: T201
@@ -230,8 +238,6 @@ def main() -> int:
     print(f"[fetch_posts] {todo.height} links to process", flush=True)  # noqa: T201
 
     TO_EXTRACT_DIR.mkdir(parents=True, exist_ok=True)
-    session = requests.Session()
-    session.headers["User-Agent"] = USER_AGENT
 
     new_fetched: list[dict] = []
 
@@ -243,12 +249,12 @@ def main() -> int:
         try:
             download_count[post_id] += 1
             post, op_comments = fetch_post(session, post_id)
-            time.sleep(6)  # 1 second delay to avoid rate limiting
         except requests.HTTPError as exc:
             status = exc.response.status_code if exc.response is not None else "?"
             print(f"[fetch_posts] {post_id}: HTTP {status}", file=sys.stderr)  # noqa: T201
             if status == 429:
-                time.sleep(30)
+                # The session already backed off and retried; requeue and let
+                # its pacing handle the next attempt.
                 if download_count[post_id] < 3:
                     to_download.append(post_id)
                 continue
@@ -295,7 +301,6 @@ def main() -> int:
                 "fetched_at": datetime.now(tz=timezone.utc).isoformat(),
             },
         )
-        time.sleep(2)
 
     append_fetched(new_fetched)
     print(f"[fetch_posts] done; added {len(new_fetched)} rows to fetched.csv", flush=True)  # noqa: T201

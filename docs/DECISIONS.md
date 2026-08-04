@@ -207,3 +207,38 @@ Runtime dependency count grows from 3 to 4. Safari users receive `.png` files
 until WebKit implements canvas WebP encoding. Capture-time style
 neutralization lives in `fancy.css` under a `.screenshotting` class (flattens
 hover tilt, un-sticks tier labels inside the clone).
+
+---
+
+## ADR-012: `find-artists` reads Reddit via the Devvit CLI's OAuth token
+
+**Context:** Reddit now returns 403 for unauthenticated `*.json` endpoints, which
+broke both Reddit-facing scripts in the `find-artists` skill. Any fix needs an
+OAuth bearer token. Two sources were available: a personal "script" app
+registered at `reddit.com/prefs/apps`, or the token the Devvit CLI already
+stores at `~/.devvit/token` from an unrelated app-development login. The Devvit
+token is a `*`-scope user grant for `/u/samreay` with a refresh token that
+Reddit does not rotate on use, so a script can renew it without desyncing the
+CLI's copy. Its downside is that Devvit's public client id is shared by every
+Devvit CLI user, and Reddit's 100 QPM free-tier budget is per client id, so our
+share of it is unpredictable.
+
+**Decision:** Read through `oauth.reddit.com` using the Devvit token, wrapped in
+`skills/find-artists/scripts/reddit_auth.py`. The module refreshes the token
+five minutes before expiry and writes it back atomically in the CLI's exact
+base64 format at mode 0600. Its `RedditReadSession` is GET/HEAD only — anything
+else raises `ReadOnlyViolation` before a socket opens — and it refuses to send
+the bearer token to any host other than `oauth.reddit.com`. Pacing is driven by
+`X-Ratelimit-*` headers and `Retry-After` rather than fixed sleeps.
+`REDDIT_CLIENT_ID`/`REDDIT_CLIENT_SECRET`/`REDDIT_REFRESH_TOKEN` switch to a
+personal script app without a code change.
+
+**Consequences:** The skill now has a login prerequisite; `devvit logout` or a
+revoked grant breaks every fetch until `npx devvit login`. Scripts write to
+`~/.devvit/token`, outside the repo — verified byte-compatible by round-tripping
+a token we wrote through the CLI's own `AuthTokenStore`. Removing the old fixed
+8 s per-post sleep in favour of ~1.1 s header-aware pacing cuts a full backlog
+run from hours to minutes. The read-only guard, not convention, is what
+guarantees this skill never modifies Reddit; adding a write would require a
+deliberate change to `reddit_auth.py`. `historical.py` (PullPush) and cover
+downloads from `i.redd.it`/`preview.redd.it` stay unauthenticated.

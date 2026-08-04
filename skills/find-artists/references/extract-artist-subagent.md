@@ -38,7 +38,8 @@ Workflow:
    section into
    `skills/find-artists/tmp_covers/<stem>.(jpg|jpeg|png|webp)`.
    Prefer the highest-resolution `preview.redd.it` image. Keep one file only.
-   Verify it is portrait with an aspect ratio between 1.45 and 1.65. If the
+   Verify it is portrait with an aspect ratio between 1.40 and 1.65 (1.40
+   admits the standard 2048x2933 ebook cover). If the
    downloaded image is a wraparound or not in that ratio, try another image
    URL. If no acceptable front cover exists, delete any attempted download,
    move the markdown to `references/extracted/<id>.md`, and report the skip

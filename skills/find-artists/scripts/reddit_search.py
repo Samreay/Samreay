@@ -11,6 +11,8 @@ Reddit's search endpoint can return up to ~1000 posts (100 per page, 10 pages)
 via cursor-based pagination. This is a complement/replacement for historical.py
 when PullPush's index is lagging.
 
+Requires a Devvit login; see ``reddit_auth.py``.
+
 Writes ``scripts/data/historical/reddit_search.csv`` in the same schema as the
 monthly CSVs so that ``fetch_posts.py`` picks it up automatically.
 
@@ -21,21 +23,19 @@ The output file is overwritten on every run. That is safe because
 from __future__ import annotations
 
 import sys
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import polars as pl
-import requests
+from reddit_auth import RedditAuthError, RedditReadSession, reddit_session
 
 SUBREDDIT = "ProgressionFantasy"
 USER_AGENT = "python:samreay-find-artists-reddit-search:v0.1 (by /u/samreay)"
-SEARCH_URL = f"https://www.reddit.com/r/{SUBREDDIT}/search.json"
+SEARCH_PATH = f"/r/{SUBREDDIT}/search"
 FLAIR = "Self-Promotion"
 PAGE_SIZE = 100
 MAX_PAGES = 10  # Reddit hard cap is ~1000 results via search pagination
-REQUEST_DELAY_SECONDS = 2
 
 DATA_DIR = Path(__file__).parent / "data"
 HISTORICAL_DIR = DATA_DIR / "historical"
@@ -79,7 +79,7 @@ def csv_row(submission: dict[str, Any]) -> dict[str, str | int]:
 
 
 def fetch_page(
-    session: requests.Session,
+    session: RedditReadSession,
     after: str | None,
 ) -> tuple[list[dict[str, Any]], str | None]:
     """Return ``(submissions, next_after)``."""
@@ -88,12 +88,11 @@ def fetch_page(
         "restrict_sr": "1",
         "sort": "new",
         "limit": PAGE_SIZE,
-        "raw_json": "1",
     }
     if after:
         params["after"] = after
 
-    resp = session.get(SEARCH_URL, params=params, timeout=30)
+    resp = session.get(SEARCH_PATH, params=params)
     resp.raise_for_status()
     payload = resp.json()
     listing = payload.get("data", {})
@@ -103,24 +102,14 @@ def fetch_page(
     return submissions, next_after
 
 
-def fetch_page_with_retry(
-    session: requests.Session,
-    after: str | None,
-) -> tuple[list[dict[str, Any]], str | None]:
-    while True:
-        try:
-            return fetch_page(session, after)
-        except requests.HTTPError as exc:
-            print(f"[reddit_search] HTTP error: {exc}", file=sys.stderr)  # noqa: T201
-            if exc.response is None or exc.response.status_code != 429:
-                raise
-            print("[reddit_search] rate limited, sleeping 60s…", flush=True)  # noqa: T201
-            time.sleep(60)
-
-
 def main() -> int:
-    session = requests.Session()
-    session.headers["User-Agent"] = USER_AGENT
+    # The session paces itself and retries 429s, so this loop only has to
+    # worry about hard failures.
+    try:
+        session = reddit_session(USER_AGENT)
+    except RedditAuthError as exc:
+        print(f"[reddit_search] {exc}", file=sys.stderr)  # noqa: T201
+        return 1
 
     rows: list[dict[str, str | int]] = []
     seen_ids: set[str] = set()
@@ -128,7 +117,7 @@ def main() -> int:
 
     for page in range(1, MAX_PAGES + 1):
         print(f"[reddit_search] page {page} after={after!r}", flush=True)  # noqa: T201
-        submissions, after = fetch_page_with_retry(session, after)
+        submissions, after = fetch_page(session, after)
 
         if not submissions:
             print("[reddit_search] no more results", flush=True)  # noqa: T201
@@ -152,8 +141,6 @@ def main() -> int:
         if not after:
             print("[reddit_search] no next cursor, done", flush=True)  # noqa: T201
             break
-
-        time.sleep(REQUEST_DELAY_SECONDS)
 
     if not rows:
         print("[reddit_search] no self-promo posts found", flush=True)  # noqa: T201

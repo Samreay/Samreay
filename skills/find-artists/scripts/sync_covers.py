@@ -25,8 +25,22 @@ import shutil
 import sys
 from pathlib import Path
 
+
+def find_repo_root(start: Path) -> Path:
+    """Walk up to the nearest ``package.json``.
+
+    The skill is reachable through both `.claude/skills/` and `.cursor/skills/`
+    symlinks, so the depth from this file to the repo root is not fixed.
+    """
+    for candidate in (start, *start.parents):
+        if (candidate / "package.json").is_file():
+            return candidate
+    msg = f"no package.json found above {start}; cannot locate the repo root"
+    raise SystemExit(msg)
+
+
 SKILL_DIR = Path(__file__).resolve().parents[1]
-REPO_ROOT = SKILL_DIR.parents[2]
+REPO_ROOT = find_repo_root(SKILL_DIR)
 ARTISTS_TS = REPO_ROOT / "src" / "data" / "artists.ts"
 COVERS_DIR = REPO_ROOT / "src" / "assets" / "img" / "covers"
 TMP_COVERS = SKILL_DIR / "tmp_covers"
