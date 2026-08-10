@@ -858,6 +858,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_player_manager', reviewId: 'player_manager' },
     { id: 'b_this_quest_bullshit', reviewId: 'this_quest_is_bullshit' },
     { id: 'b_cultivation_nerd', reviewId: 'cultivation_nerd' },
+    { id: 'b_bookbound_bunny', reviewId: 'bookbound_bunny' },
   ],
   edges: [
     {
@@ -1721,6 +1722,13 @@ export const flowchart: FlowchartData = {
       target: 'b_archmage_coefficient',
       label: 'You can see magic. And autism.',
       color: 'purple',
+    },
+    {
+      id: 'e_d_gimme_the_gimmick_b_bookbound_bunny',
+      source: 'd_gimme_the_gimmick',
+      target: 'b_bookbound_bunny',
+      label: 'Your textbook is an imprisoned god.',
+      color: 'pink',
     },
     {
       id: 'e_d_pick_between_b_scholomance',
