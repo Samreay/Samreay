@@ -1887,19 +1887,19 @@ export const artists = [
       "birth_demonic_sword"
     ]
   },
-  {
-    "name": "Rusty Dela Cruz",
-    "covers": [
-      "shieldsmith",
-      "travelers_choice",
-      "siegebreaker",
-      "self_necromancy"
-    ],
-    "links": {
-      "artstation": "https://www.artstation.com/rustee",
-      "instagram": "https://www.instagram.com/rusteedelacruz"
-    }
-  },
+  // {
+  //   "name": "Rusty Dela Cruz",
+  //   "covers": [
+  //     "shieldsmith",
+  //     "travelers_choice",
+  //     "siegebreaker",
+  //     "self_necromancy"
+  //   ],
+  //   "links": {
+  //     "artstation": "https://www.artstation.com/rustee",
+  //     "instagram": "https://www.instagram.com/rusteedelacruz"
+  //   }
+  // },
   {
     "name": "Sad_Sehna",
     "links": {
