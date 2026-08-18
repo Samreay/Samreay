@@ -933,6 +933,7 @@ export const artists = [
   },
   {
     "name": "Jeff Brown",
+    "notes": "Doesn't do indie covers any more, unfortunately.",
     "links": {
       "website": "https://www.jeffbrowngraphics.com/"
     },
