@@ -428,7 +428,7 @@ export const flowchart: FlowchartData = {
       id: 'd_interesting_tell_me_more',
       prompt: 'Interesting, tell me more.',
       description:
-        'The reader wants complex morality in their traditional fantasy. What angle does the book take on that complexity?',
+        'The reader wants complex morality in their traditional fantasy. What angle does the book take on that complexity — an evil path toward a greater good, assassins, or a monster haunted armour that turned good?',
     },
     {
       id: 'd_pick_your_gimmick',
@@ -704,6 +704,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_antimage', reviewId: 'antimage' },
     { id: 'b_apocalypse_parenting', reviewId: 'apocalypse_parenting' },
     { id: 'b_arcane_ascension', reviewId: 'arcane_ascension' },
+    { id: 'b_armor', reviewId: 'armor' },
     { id: 'b_art_adept', reviewId: 'art_of_the_adept' },
     { id: 'b_aura_overload', reviewId: 'aura_overload' },
     { id: 'b_awaken_online', reviewId: 'awaken_online' },
@@ -859,6 +860,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_this_quest_bullshit', reviewId: 'this_quest_is_bullshit' },
     { id: 'b_cultivation_nerd', reviewId: 'cultivation_nerd' },
     { id: 'b_bookbound_bunny', reviewId: 'bookbound_bunny' },
+    { id: 'b_syl', reviewId: 'syl' },
   ],
   edges: [
     {
@@ -1864,10 +1866,17 @@ export const flowchart: FlowchartData = {
       color: 'lime',
     },
     {
+      id: 'e_d_pick_your_harmless_creature_b_syl',
+      source: 'd_pick_your_harmless_creature',
+      target: 'b_syl',
+      label: 'Slimes',
+      color: 'cyan',
+    },
+    {
       id: 'e_d_arms_are_d_youd_prefer',
       source: 'd_arms_are',
       target: 'd_youd_prefer',
-      label: 'Overrated',
+      label: 'Overrated as well.',
       color: 'lime',
     },
     {
@@ -2401,6 +2410,13 @@ export const flowchart: FlowchartData = {
       target: 'b_night_angel',
       label: 'Are assassins even actually evil?',
       color: 'yellow',
+    },
+    {
+      id: 'e_d_interesting_tell_me_more_b_armor',
+      source: 'd_interesting_tell_me_more',
+      target: 'b_armor',
+      label: 'A monster haunted armour turned good.',
+      color: 'teal',
     },
     {
       id: 'e_d_futuristic_sci_fi_b_bobiverse',

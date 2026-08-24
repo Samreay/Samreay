@@ -12,7 +12,7 @@ links:
     audible: https://www.audible.com/pd/Starbreaker-Volume-1-Audiobook/B0DW14C3QQ
 
 aliases: [/reviews/starbreaker]
-tags: [magic-school, sci-fi, in-progress]
+tags: [magic-school, sci-fi, finished]
 sentence: "Sylvas Vail, most powerful mage on his planet, triggers the apocalypse and is introduced to the wider universe."
 ---
 
