@@ -743,6 +743,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_edge_cases', reviewId: 'edge_cases' },
     { id: 'b_edge_woods', reviewId: 'edge_of_the_woods' },
     { id: 'b_eight', reviewId: 'eight' },
+    { id: 'b_elf_dragon', reviewId: 'elf_who_would_become_a_dragon' },
     { id: 'b_elydes', reviewId: 'elydes' },
     { id: 'b_enchanter', reviewId: 'enchanter' },
     { id: 'b_eternal_ephemera', reviewId: 'eternal_ephemera' },
@@ -2215,6 +2216,13 @@ export const flowchart: FlowchartData = {
       target: 'b_millenial_mage',
       label: 'Chill and fun... to start with',
       color: 'emerald',
+    },
+    {
+      id: 'e_d_what_about_tone_something_ligh_b_elf_dragon',
+      source: 'd_what_about_tone_something_ligh',
+      target: 'b_elf_dragon',
+      label: 'Tragedy. The real kind.',
+      color: 'violet',
     },
     {
       id: 'e_d_what_about_tone_something_ligh_d_parody_flavour',
