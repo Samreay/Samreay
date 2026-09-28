@@ -1,0 +1,2406 @@
+{
+  "date": "2026-09-28",
+  "brief": "docs/plans/2026-09-28-perf-02-fonts.md",
+  "artifactRoot": "artifacts/performance/20260928T083543Z-02-fonts",
+  "sourceHead": "d5ca8f8b3582dc8e5ba7533fab189de23dd70f5a",
+  "delivery": {
+    "state": "local-uncommitted",
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "decision": {
+    "disposition": "keep-with-documented-first-paint-tradeoff",
+    "strictAcceptance": "qualified: approximately 32 ms repeatable mobile flowchart FCP cost; inherited desktop reviews hydration CLS and export crops remain",
+    "reason": "Large repeatable applied font-related CLS reduction and readable delayed WebKit text; real fonts and loaded typography preserved.",
+    "retained": [
+      "nine real faces use font-display:swap",
+      "six measured Latin Inter fallback aliases using local Arial",
+      "shared font stack includes fallback aliases"
+    ],
+    "rejected": [
+      {
+        "experiment": "font-display:swap on local fallback aliases",
+        "reason": "No repeatable timing benefit; flowchart FCP cost remained. Exact original candidate restored."
+      },
+      {
+        "experiment": "font preloads",
+        "reason": "Not retried; preceding verified rejection showed duplicate WebKit transfers caused by CORS mismatch."
+      }
+    ],
+    "noNewDiscoveryGainClaim": true
+  },
+  "statisticsTuple": [
+    "median",
+    "min",
+    "max",
+    "samples"
+  ],
+  "measurement": {
+    "primary": {
+      "lighthouseLoads": 60,
+      "appliedRuns": 36,
+      "loadsPerRouteProfileCohort": 5,
+      "appliedRunsPerRouteProfileCohort": 3
+    },
+    "supplemental": {
+      "lighthouseLoads": 15,
+      "appliedRuns": 9,
+      "includedRejectedExperiment": true
+    },
+    "profiles": [
+      "mobile",
+      "desktop"
+    ],
+    "routes": [
+      "/",
+      "/reviews/",
+      "/reviews/flowchart/"
+    ],
+    "node": "22.22.2",
+    "lighthouse": "13.5.0",
+    "chromium": "147.0.7727.15",
+    "webkit": "26.4",
+    "host": {
+      "cpu": "Apple M4 Pro",
+      "logicalCpus": 12,
+      "memoryGiB": 24,
+      "platform": "Darwin 25.6.0 arm64"
+    },
+    "simulatedMobile": {
+      "viewport": [
+        412,
+        823
+      ],
+      "deviceScaleFactor": 1.75,
+      "cpuSlowdownMultiplier": 4,
+      "rttMs": 150,
+      "throughputKbps": 1638.4
+    },
+    "simulatedDesktop": {
+      "viewport": [
+        1350,
+        940
+      ],
+      "deviceScaleFactor": 1,
+      "cpuSlowdownMultiplier": 1,
+      "rttMs": 40,
+      "throughputKbps": 10240
+    },
+    "appliedMobile": {
+      "cpuSlowdownMultiplier": 4,
+      "requestLatencyMs": 150,
+      "downloadBitsPerSecond": 1600000
+    },
+    "appliedDesktop": {
+      "cpuSlowdownMultiplier": 1,
+      "requestLatencyMs": 40,
+      "downloadBitsPerSecond": 10000000
+    },
+    "cache": "Fresh contexts; disabled for applied timing; separate cold/warm diagnostic.",
+    "execution": "Sequential profilers, browser suites and builds; no concurrent measurement.",
+    "limitations": [
+      "Local preview does not prove deployed CDN behavior.",
+      "Event Timing is a lab diagnostic, not field INP.",
+      "WebKit LayoutShift API unavailable; geometry and painted pixels checked instead.",
+      "Two recurring JS chunk variants across unchanged-source builds; CSS and fonts match.",
+      "No physical devices; Chromium emulated pan/pinch, WebKit touch taps."
+    ]
+  },
+  "confirmations": {
+    "baseline-home-confirm": {
+      "performance": {
+        "median": 98,
+        "min": 97,
+        "max": 98,
+        "samples": 5
+      },
+      "fcpMs": {
+        "median": 1362.9969,
+        "min": 1361.1966000000002,
+        "max": 1370.904,
+        "samples": 5
+      },
+      "lcpMs": {
+        "median": 2411.1966,
+        "min": 2270.904,
+        "max": 2413.1744999999996,
+        "samples": 5
+      },
+      "tbtMs": {
+        "median": 19,
+        "min": 2.5,
+        "max": 24.5,
+        "samples": 5
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0,
+        "samples": 5
+      },
+      "speedIndexMs": {
+        "median": 1362.9969,
+        "min": 1361.1966000000002,
+        "max": 1370.904,
+        "samples": 5
+      },
+      "transferBytes": {
+        "median": 614076,
+        "min": 614051,
+        "max": 614341,
+        "samples": 5
+      }
+    },
+    "candidate-home-confirm": {
+      "performance": {
+        "median": 98,
+        "min": 98,
+        "max": 98,
+        "samples": 5
+      },
+      "fcpMs": {
+        "median": 1361.4261000000001,
+        "min": 1360.0209,
+        "max": 1366.9900499999999,
+        "samples": 5
+      },
+      "lcpMs": {
+        "median": 2337.864,
+        "min": 2260.0208999999995,
+        "max": 2411.03685,
+        "samples": 5
+      },
+      "tbtMs": {
+        "median": 17,
+        "min": 16,
+        "max": 23,
+        "samples": 5
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0,
+        "samples": 5
+      },
+      "speedIndexMs": {
+        "median": 1361.4261000000001,
+        "min": 1360.0209,
+        "max": 1366.9900499999999,
+        "samples": 5
+      },
+      "transferBytes": {
+        "median": 614286,
+        "min": 614279,
+        "max": 614295,
+        "samples": 5
+      }
+    },
+    "local-display-load": {
+      "performance": {
+        "median": 98,
+        "min": 97,
+        "max": 98,
+        "samples": 5
+      },
+      "fcpMs": {
+        "median": 1361.71155,
+        "min": 1360.7847000000002,
+        "max": 1362.68385,
+        "samples": 5
+      },
+      "lcpMs": {
+        "median": 2262.68385,
+        "min": 2260.7847,
+        "max": 2412.2205,
+        "samples": 5
+      },
+      "tbtMs": {
+        "median": 19.5,
+        "min": 18.5,
+        "max": 24,
+        "samples": 5
+      },
+      "cls": {
+        "median": 0,
+        "min": 0,
+        "max": 0,
+        "samples": 5
+      },
+      "speedIndexMs": {
+        "median": 1361.71155,
+        "min": 1360.7847000000002,
+        "max": 1362.68385,
+        "samples": 5
+      },
+      "transferBytes": {
+        "median": 614289,
+        "min": 614281,
+        "max": 614289,
+        "samples": 5
+      }
+    },
+    "baseline-flow-confirm": {
+      "fcpMs": {
+        "median": 776,
+        "min": 768,
+        "max": 780,
+        "samples": 3
+      },
+      "lcpMs": {
+        "median": 1972,
+        "min": 1968,
+        "max": 2032,
+        "samples": 3
+      },
+      "readyMs": {
+        "median": 1971,
+        "min": 1968.2000000029802,
+        "max": 2034.7000000029802,
+        "samples": 3
+      }
+    },
+    "candidate-flow-confirm": {
+      "fcpMs": {
+        "median": 808,
+        "min": 804,
+        "max": 808,
+        "samples": 3
+      },
+      "lcpMs": {
+        "median": 2000,
+        "min": 1968,
+        "max": 2012,
+        "samples": 3
+      },
+      "readyMs": {
+        "median": 2002.6000000014901,
+        "min": 1970.7999999970198,
+        "max": 2013.9000000059605,
+        "samples": 3
+      }
+    }
+  },
+  "waterfall": {
+    "fontBodiesPerInitialRoute": 1,
+    "fontBodyBytes": 48432,
+    "fontTransferBytes": 48752,
+    "reviewsStylesheetTransferBeforeBytes": 26234,
+    "reviewsStylesheetTransferAfterBytes": 26434,
+    "sameFontHashes": true,
+    "newFontDownloads": 0,
+    "fontPreloads": 0,
+    "googleFontsRequests": 0,
+    "before": "before-waterfall.json",
+    "after": "after-waterfall.json"
+  },
+  "verification": {
+    "astroCheck": {
+      "status": "passed",
+      "errors": 0,
+      "warnings": 0,
+      "inheritedHints": 6,
+      "evidence": "closing-check.log"
+    },
+    "build": {
+      "status": "passed",
+      "pages": 455,
+      "evidence": "candidate-confirm-build.log"
+    },
+    "typography": {
+      "status": "passed",
+      "cases": 28,
+      "measurements": 784,
+      "evidence": "candidate-typography-02/results.json"
+    },
+    "heldAndFailedFonts": {
+      "status": "passed",
+      "cases": 48,
+      "heldMs": 4500,
+      "evidence": "readability-results.json"
+    },
+    "unavailableArial": {
+      "status": "readability-and-controls-passed",
+      "cases": 4,
+      "geometricStabilityClaim": false,
+      "evidence": "unavailable-local-fallback/results.json"
+    },
+    "fontCache": {
+      "status": "passed",
+      "cases": 12,
+      "warm": "cached or 304, no repeated font body",
+      "evidence": "candidate-cache-02/results.json"
+    },
+    "exports": {
+      "fontAndPixelPreservation": "passed",
+      "downloadedImagesInspected": true,
+      "cases": 4,
+      "shortSize": [
+        2572,
+        816
+      ],
+      "longSize": [
+        269,
+        8000
+      ],
+      "layoutQuality": "inherited-failures",
+      "inheritedFailures": [
+        "Chromium short left crop",
+        "WebKit long right/second-column crop"
+      ],
+      "evidence": "export-pixel-comparison.json"
+    },
+    "flowchart": {
+      "status": "passed",
+      "profiles": 4,
+      "runtimeErrors": 0,
+      "nodeCount": 269,
+      "edgeCount": 269,
+      "bookCount": 167,
+      "decisionCount": 102,
+      "evidence": [
+        "candidate-flowchart/results.json",
+        "final-flowchart/results.json"
+      ]
+    },
+    "colorChecker": {
+      "status": "passed-with-coverage-gap",
+      "parsedEdges": 3,
+      "totalEdges": 269,
+      "fixUsed": false
+    },
+    "devAuthoring": {
+      "status": "not-rerun",
+      "inheritedException": "onnodedragstop handler destructures node; event sends targetNode",
+      "positionCacheWritten": false
+    }
+  },
+  "remaining": [
+    "Mobile flowchart applied FCP median rises 776 to 808 ms in primary and confirmation comparisons; strict no-performance-regression acceptance is qualified.",
+    "Desktop reviews applied CLS remains 0.14586491871698334; isolated pre-font hydration shift 0.13758930624872312 arises from server cover/client wide default.",
+    "Inherited export crop defects remain; images are pixel-identical to inherited files.",
+    "Arial metric matching is approximate, Latin-only and conditional on local font availability.",
+    "KaTeX global imports unchanged; page scoping outside this brief.",
+    "No Brief 3 implementation or production release performed."
+  ],
+  "patchFiles": [
+    "src/styles/fonts.css",
+    "src/styles/font-fallback.css",
+    "src/styles/main.css",
+    "src/assets/fonts/README.md",
+    "docs/DECISIONS.md",
+    "docs/performance/2026-09-28-perf-02-fonts-results.md",
+    "docs/performance/2026-09-28-perf-02-fonts-results.json"
+  ],
+  "handoff": {
+    "nextBrief": "docs/plans/2026-09-28-perf-03-images.md",
+    "requiresFullInheritedWorkingTree": true,
+    "manifests": [
+      "initial-state.json",
+      "preservation-audit.json",
+      "retained-source-manifest.json",
+      "candidate-source.json",
+      "runtime-comparison.json",
+      "final-runtime.json",
+      "process-cleanup.json"
+    ]
+  },
+  "cohorts": {
+    "before": {
+      "/": {
+        "mobile": {
+          "load": {
+            "performance": [
+              98,
+              98,
+              99,
+              5
+            ],
+            "fcpMs": [
+              1362.9079499999998,
+              1360.36935,
+              1367.6318999999999,
+              5
+            ],
+            "lcpMs": [
+              2187.90795,
+              2115.4610999999995,
+              2335.5110999999997,
+              5
+            ],
+            "tbtMs": [
+              16.5,
+              6.5,
+              26,
+              5
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "speedIndexMs": [
+              1362.9079499999998,
+              1360.36935,
+              1367.6318999999999,
+              5
+            ],
+            "transferBytes": [
+              614088,
+              614080,
+              614364,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              7,
+              7,
+              7,
+              5
+            ],
+            "imageBytes": [
+              275387,
+              275385,
+              275388,
+              5
+            ],
+            "stylesheetRequests": [
+              2,
+              2,
+              2,
+              5
+            ],
+            "stylesheetBytes": [
+              26234,
+              26234,
+              26234,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              1653.7000000029802,
+              1590,
+              1669.7000000029802,
+              3
+            ],
+            "fcpMs": [
+              544,
+              540,
+              544,
+              3
+            ],
+            "lcpMs": [
+              664,
+              652,
+              668,
+              3
+            ],
+            "cls": [
+              0.17527040097907706,
+              0.17527040097907706,
+              0.17527040097907706,
+              3
+            ],
+            "loadEventMs": [
+              3201.60000000149,
+              3186.10000000149,
+              3211.89999999851,
+              3
+            ],
+            "actions": {
+              "Open mobile menu": [
+                24,
+                24,
+                40,
+                3
+              ],
+              "Close mobile menu": [
+                24,
+                24,
+                32,
+                3
+              ],
+              "Scroll to featured reviews": [
+                null,
+                null,
+                null,
+                0
+              ]
+            }
+          }
+        },
+        "desktop": {
+          "load": {
+            "performance": [
+              100,
+              100,
+              100,
+              5
+            ],
+            "fcpMs": [
+              337.67915,
+              335.68775000000005,
+              377.6271,
+              5
+            ],
+            "lcpMs": [
+              497.67915000000005,
+              475.68775000000005,
+              517.6271,
+              5
+            ],
+            "tbtMs": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "cls": [
+              0.001454,
+              0.001454,
+              0.011183,
+              5
+            ],
+            "speedIndexMs": [
+              337.67915,
+              335.68775000000005,
+              377.6271,
+              5
+            ],
+            "transferBytes": [
+              1114084,
+              1114080,
+              1114134,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              19,
+              19,
+              19,
+              5
+            ],
+            "imageBytes": [
+              775383,
+              775382,
+              775384,
+              5
+            ],
+            "stylesheetRequests": [
+              2,
+              2,
+              2,
+              5
+            ],
+            "stylesheetBytes": [
+              26234,
+              26234,
+              26234,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              144.10000000149012,
+              142.39999999850988,
+              145,
+              3
+            ],
+            "fcpMs": [
+              140,
+              140,
+              148,
+              3
+            ],
+            "lcpMs": [
+              464,
+              460,
+              472,
+              3
+            ],
+            "cls": [
+              0.20493468522896416,
+              0.20493468522896416,
+              0.20493468522896416,
+              3
+            ],
+            "loadEventMs": [
+              1033.6999999955297,
+              1020.2999999970198,
+              1044.6000000014901,
+              3
+            ],
+            "actions": {
+              "Scroll to featured reviews": [
+                null,
+                null,
+                null,
+                0
+              ]
+            }
+          }
+        }
+      },
+      "/reviews/": {
+        "mobile": {
+          "load": {
+            "performance": [
+              95,
+              94,
+              96,
+              5
+            ],
+            "fcpMs": [
+              1819.88685,
+              1819.4171999999999,
+              1821.0068999999999,
+              5
+            ],
+            "lcpMs": [
+              2719.88685,
+              2495.9115,
+              2869.8360000000002,
+              5
+            ],
+            "tbtMs": [
+              21.5,
+              18,
+              22.5,
+              5
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "speedIndexMs": [
+              1819.88685,
+              1819.4171999999999,
+              1821.0068999999999,
+              5
+            ],
+            "transferBytes": [
+              1405906,
+              1405900,
+              1406187,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              23,
+              23,
+              23,
+              5
+            ],
+            "imageBytes": [
+              1066341,
+              1066333,
+              1066347,
+              5
+            ],
+            "stylesheetRequests": [
+              2,
+              2,
+              2,
+              5
+            ],
+            "stylesheetBytes": [
+              26234,
+              26234,
+              26234,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              3413,
+              3371.89999999851,
+              3420.8000000044703,
+              3
+            ],
+            "fcpMs": [
+              604,
+              596,
+              604,
+              3
+            ],
+            "lcpMs": [
+              804,
+              796,
+              812,
+              3
+            ],
+            "cls": [
+              0.10628301790806312,
+              0.10628301790806312,
+              0.10628301790806312,
+              3
+            ],
+            "loadEventMs": [
+              5277.60000000149,
+              5267.70000000298,
+              5306.79999999702,
+              3
+            ],
+            "actions": {
+              "Type cradle search": [
+                48,
+                40,
+                48,
+                3
+              ],
+              "Reset search": [
+                168,
+                160,
+                168,
+                3
+              ],
+              "Select first tag": [
+                48,
+                48,
+                48,
+                3
+              ],
+              "Switch to tier layout": [
+                128,
+                120,
+                144,
+                3
+              ],
+              "Reset filters and layout": [
+                136,
+                136,
+                144,
+                3
+              ]
+            }
+          }
+        },
+        "desktop": {
+          "load": {
+            "performance": [
+              100,
+              100,
+              100,
+              5
+            ],
+            "fcpMs": [
+              441.00345,
+              440.4441,
+              442.48830000000004,
+              5
+            ],
+            "lcpMs": [
+              600.7885,
+              581.7040999999999,
+              602.4883,
+              5
+            ],
+            "tbtMs": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "cls": [
+              0.001454,
+              0.001454,
+              0.001454,
+              5
+            ],
+            "speedIndexMs": [
+              441.00345,
+              440.4441,
+              442.48830000000004,
+              5
+            ],
+            "transferBytes": [
+              2062507,
+              2062499,
+              2062792,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              35,
+              35,
+              35,
+              5
+            ],
+            "imageBytes": [
+              1722934,
+              1722931,
+              1722943,
+              5
+            ],
+            "stylesheetRequests": [
+              2,
+              2,
+              2,
+              5
+            ],
+            "stylesheetBytes": [
+              26234,
+              26234,
+              26234,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              461.5,
+              450.30000000447035,
+              462,
+              3
+            ],
+            "fcpMs": [
+              140,
+              140,
+              144,
+              3
+            ],
+            "lcpMs": [
+              264,
+              256,
+              268,
+              3
+            ],
+            "cls": [
+              0.32151634211832003,
+              0.32151634211832003,
+              0.32151634211832003,
+              3
+            ],
+            "loadEventMs": [
+              1456.2999999970198,
+              1450.8000000044703,
+              1500.2000000029802,
+              3
+            ],
+            "actions": {
+              "Type cradle search": [
+                24,
+                24,
+                24,
+                3
+              ],
+              "Reset search": [
+                80,
+                80,
+                88,
+                3
+              ],
+              "Select first tag": [
+                40,
+                32,
+                40,
+                3
+              ],
+              "Switch to tier layout": [
+                48,
+                48,
+                56,
+                3
+              ],
+              "Reset filters and layout": [
+                72,
+                64,
+                72,
+                3
+              ]
+            }
+          }
+        }
+      },
+      "/reviews/flowchart/": {
+        "mobile": {
+          "load": {
+            "performance": [
+              93,
+              93,
+              93,
+              5
+            ],
+            "fcpMs": [
+              1966.10505,
+              1965.57915,
+              1969.5641999999998,
+              5
+            ],
+            "lcpMs": [
+              2612.57915,
+              2608.10505,
+              2617.9970000000003,
+              5
+            ],
+            "tbtMs": [
+              166.5,
+              154,
+              173.5,
+              5
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "speedIndexMs": [
+              1966.10505,
+              1965.57915,
+              1969.5641999999998,
+              5
+            ],
+            "transferBytes": [
+              589652,
+              589643,
+              589666,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              3,
+              3,
+              3,
+              5
+            ],
+            "imageBytes": [
+              179419,
+              179418,
+              179432,
+              5
+            ],
+            "stylesheetRequests": [
+              4,
+              4,
+              4,
+              5
+            ],
+            "stylesheetBytes": [
+              32679,
+              32679,
+              32679,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              2005.3999999985099,
+              1984.1999999955297,
+              2018.5,
+              3
+            ],
+            "fcpMs": [
+              776,
+              776,
+              780,
+              3
+            ],
+            "lcpMs": [
+              2004,
+              1984,
+              2012,
+              3
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "loadEventMs": [
+              3340.6999999955297,
+              3310.7999999970198,
+              3349.5,
+              3
+            ],
+            "actions": {
+              "Type cradle search": [
+                48,
+                40,
+                48,
+                3
+              ],
+              "Fit matching books": [
+                56,
+                56,
+                56,
+                3
+              ],
+              "Clear flowchart search": [
+                24,
+                24,
+                32,
+                3
+              ],
+              "Fit entire flowchart": [
+                120,
+                120,
+                128,
+                3
+              ],
+              "Zoom in": [
+                48,
+                48,
+                48,
+                3
+              ],
+              "Pan flowchart": [
+                32,
+                32,
+                32,
+                3
+              ]
+            }
+          }
+        },
+        "desktop": {
+          "load": {
+            "performance": [
+              100,
+              100,
+              100,
+              5
+            ],
+            "fcpMs": [
+              496.9506,
+              496.75289999999995,
+              499.62104999999997,
+              5
+            ],
+            "lcpMs": [
+              647.4506000000001,
+              596.96075,
+              650.62105,
+              5
+            ],
+            "tbtMs": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "cls": [
+              0.000271,
+              0.000271,
+              0.000271,
+              5
+            ],
+            "speedIndexMs": [
+              496.9506,
+              496.75289999999995,
+              499.62104999999997,
+              5
+            ],
+            "transferBytes": [
+              675717,
+              675704,
+              675988,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              9,
+              9,
+              9,
+              5
+            ],
+            "imageBytes": [
+              265476,
+              265472,
+              265487,
+              5
+            ],
+            "stylesheetRequests": [
+              4,
+              4,
+              4,
+              5
+            ],
+            "stylesheetBytes": [
+              32679,
+              32679,
+              32679,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              406.80000000447035,
+              405,
+              420.29999999701977,
+              3
+            ],
+            "fcpMs": [
+              164,
+              164,
+              164,
+              3
+            ],
+            "lcpMs": [
+              264,
+              264,
+              264,
+              3
+            ],
+            "cls": [
+              0.0011947606747803755,
+              0.0011947606747803755,
+              0.0011947606747803755,
+              3
+            ],
+            "loadEventMs": [
+              1190.6999999955297,
+              1091.5,
+              1285.5,
+              3
+            ],
+            "actions": {
+              "Type cradle search": [
+                32,
+                24,
+                32,
+                3
+              ],
+              "Fit matching books": [
+                48,
+                48,
+                48,
+                3
+              ],
+              "Clear flowchart search": [
+                24,
+                24,
+                24,
+                3
+              ],
+              "Fit entire flowchart": [
+                208,
+                200,
+                208,
+                3
+              ],
+              "Zoom in": [
+                112,
+                112,
+                112,
+                3
+              ],
+              "Pan flowchart": [
+                96,
+                96,
+                96,
+                3
+              ]
+            }
+          }
+        }
+      }
+    },
+    "after": {
+      "/": {
+        "mobile": {
+          "load": {
+            "performance": [
+              98,
+              97,
+              98,
+              5
+            ],
+            "fcpMs": [
+              1364.5464,
+              1361.1114,
+              1437.2029499999999,
+              5
+            ],
+            "lcpMs": [
+              2411.1114000000002,
+              2261.5489500000003,
+              2414.98125,
+              5
+            ],
+            "tbtMs": [
+              19,
+              5.5,
+              20.5,
+              5
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "speedIndexMs": [
+              1364.5464,
+              1361.1114,
+              1437.2029499999999,
+              5
+            ],
+            "transferBytes": [
+              614259,
+              614241,
+              614262,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              7,
+              7,
+              7,
+              5
+            ],
+            "imageBytes": [
+              275387,
+              275387,
+              275389,
+              5
+            ],
+            "stylesheetRequests": [
+              2,
+              2,
+              2,
+              5
+            ],
+            "stylesheetBytes": [
+              26434,
+              26434,
+              26434,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              1633.6000000014901,
+              1581.1000000014901,
+              1634.6000000014901,
+              3
+            ],
+            "fcpMs": [
+              548,
+              544,
+              556,
+              3
+            ],
+            "lcpMs": [
+              592,
+              588,
+              592,
+              3
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "loadEventMs": [
+              3166.5,
+              3164.39999999851,
+              3245.10000000149,
+              3
+            ],
+            "actions": {
+              "Open mobile menu": [
+                24,
+                24,
+                40,
+                3
+              ],
+              "Close mobile menu": [
+                24,
+                24,
+                32,
+                3
+              ],
+              "Scroll to featured reviews": [
+                null,
+                null,
+                null,
+                0
+              ]
+            }
+          }
+        },
+        "desktop": {
+          "load": {
+            "performance": [
+              100,
+              100,
+              100,
+              5
+            ],
+            "fcpMs": [
+              335.8211,
+              334.8656,
+              379.98765000000003,
+              5
+            ],
+            "lcpMs": [
+              495.8211,
+              494.8656,
+              539.98765,
+              5
+            ],
+            "tbtMs": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "cls": [
+              0.000677,
+              0.000131,
+              0.000677,
+              5
+            ],
+            "speedIndexMs": [
+              335.8211,
+              334.8656,
+              379.98765000000003,
+              5
+            ],
+            "transferBytes": [
+              1114257,
+              1114246,
+              1114541,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              19,
+              19,
+              19,
+              5
+            ],
+            "imageBytes": [
+              775384,
+              775383,
+              775385,
+              5
+            ],
+            "stylesheetRequests": [
+              2,
+              2,
+              2,
+              5
+            ],
+            "stylesheetBytes": [
+              26434,
+              26434,
+              26434,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              142.19999999552965,
+              135.40000000596046,
+              145.80000000447035,
+              3
+            ],
+            "fcpMs": [
+              140,
+              136,
+              152,
+              3
+            ],
+            "lcpMs": [
+              168,
+              160,
+              176,
+              3
+            ],
+            "cls": [
+              0.00012796055511776552,
+              0.00012796055511776552,
+              0.00012796055511776552,
+              3
+            ],
+            "loadEventMs": [
+              1045.5,
+              1016.2000000029802,
+              1051.6000000014901,
+              3
+            ],
+            "actions": {
+              "Scroll to featured reviews": [
+                null,
+                null,
+                null,
+                0
+              ]
+            }
+          }
+        }
+      },
+      "/reviews/": {
+        "mobile": {
+          "load": {
+            "performance": [
+              95,
+              94,
+              97,
+              5
+            ],
+            "fcpMs": [
+              1820.229,
+              1818.1467,
+              1893.8596499999999,
+              5
+            ],
+            "lcpMs": [
+              2720.2290000000003,
+              2421.49635,
+              2870.13675,
+              5
+            ],
+            "tbtMs": [
+              21.50000000000091,
+              14.50000000000091,
+              24,
+              5
+            ],
+            "cls": [
+              0,
+              0,
+              4e-05,
+              5
+            ],
+            "speedIndexMs": [
+              1820.229,
+              1818.1467,
+              1893.8596499999999,
+              5
+            ],
+            "transferBytes": [
+              1406071,
+              1406057,
+              1406079,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              23,
+              23,
+              23,
+              5
+            ],
+            "imageBytes": [
+              1066343,
+              1066332,
+              1066347,
+              5
+            ],
+            "stylesheetRequests": [
+              2,
+              2,
+              2,
+              5
+            ],
+            "stylesheetBytes": [
+              26434,
+              26434,
+              26434,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              3446,
+              3437.7999999970198,
+              3461.39999999851,
+              3
+            ],
+            "fcpMs": [
+              616,
+              608,
+              620,
+              3
+            ],
+            "lcpMs": [
+              652,
+              652,
+              668,
+              3
+            ],
+            "cls": [
+              3.9886648135759185e-05,
+              3.9886648135759185e-05,
+              3.9886648135759185e-05,
+              3
+            ],
+            "loadEventMs": [
+              5284.39999999851,
+              5283.79999999702,
+              5292,
+              3
+            ],
+            "actions": {
+              "Type cradle search": [
+                48,
+                48,
+                56,
+                3
+              ],
+              "Reset search": [
+                152,
+                152,
+                160,
+                3
+              ],
+              "Select first tag": [
+                48,
+                48,
+                48,
+                3
+              ],
+              "Switch to tier layout": [
+                128,
+                120,
+                136,
+                3
+              ],
+              "Reset filters and layout": [
+                128,
+                128,
+                136,
+                3
+              ]
+            }
+          }
+        },
+        "desktop": {
+          "load": {
+            "performance": [
+              100,
+              100,
+              100,
+              5
+            ],
+            "fcpMs": [
+              440.4099,
+              439.54935,
+              442.12874999999997,
+              5
+            ],
+            "lcpMs": [
+              600.4098999999999,
+              599.54935,
+              602.1287500000001,
+              5
+            ],
+            "tbtMs": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "cls": [
+              0.000677,
+              0.000677,
+              0.000677,
+              5
+            ],
+            "speedIndexMs": [
+              440.4099,
+              439.54935,
+              442.12874999999997,
+              5
+            ],
+            "transferBytes": [
+              2062665,
+              2062657,
+              2062670,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              35,
+              35,
+              35,
+              5
+            ],
+            "imageBytes": [
+              1722934,
+              1722932,
+              1722940,
+              5
+            ],
+            "stylesheetRequests": [
+              2,
+              2,
+              2,
+              5
+            ],
+            "stylesheetBytes": [
+              26434,
+              26434,
+              26434,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              466.6000000014901,
+              459.19999999552965,
+              471.79999999701977,
+              3
+            ],
+            "fcpMs": [
+              140,
+              140,
+              144,
+              3
+            ],
+            "lcpMs": [
+              188,
+              184,
+              192,
+              3
+            ],
+            "cls": [
+              0.14586491871698334,
+              0.14586491871698334,
+              0.14586491871698334,
+              3
+            ],
+            "loadEventMs": [
+              1448.7999999970198,
+              1436.1000000014901,
+              1449.3999999985099,
+              3
+            ],
+            "actions": {
+              "Type cradle search": [
+                24,
+                24,
+                24,
+                3
+              ],
+              "Reset search": [
+                88,
+                80,
+                88,
+                3
+              ],
+              "Select first tag": [
+                32,
+                24,
+                40,
+                3
+              ],
+              "Switch to tier layout": [
+                48,
+                48,
+                56,
+                3
+              ],
+              "Reset filters and layout": [
+                64,
+                64,
+                80,
+                3
+              ]
+            }
+          }
+        }
+      },
+      "/reviews/flowchart/": {
+        "mobile": {
+          "load": {
+            "performance": [
+              93,
+              91,
+              93,
+              5
+            ],
+            "fcpMs": [
+              1964.90265,
+              1964.1119999999999,
+              1967.0607,
+              5
+            ],
+            "lcpMs": [
+              2611.0606999999995,
+              2604.612,
+              2937.23685,
+              5
+            ],
+            "tbtMs": [
+              161.5,
+              157.5,
+              170,
+              5
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "speedIndexMs": [
+              1964.90265,
+              1964.1119999999999,
+              1967.0607,
+              5
+            ],
+            "transferBytes": [
+              589819,
+              589806,
+              589839,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              3,
+              3,
+              3,
+              5
+            ],
+            "imageBytes": [
+              179423,
+              179419,
+              179428,
+              5
+            ],
+            "stylesheetRequests": [
+              4,
+              4,
+              4,
+              5
+            ],
+            "stylesheetBytes": [
+              32879,
+              32879,
+              32879,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              1941.7000000029802,
+              1941.1000000014901,
+              1965.2000000029802,
+              3
+            ],
+            "fcpMs": [
+              808,
+              808,
+              816,
+              3
+            ],
+            "lcpMs": [
+              1944,
+              1940,
+              1968,
+              3
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "loadEventMs": [
+              3393.60000000149,
+              3392.4000000059605,
+              3410,
+              3
+            ],
+            "actions": {
+              "Type cradle search": [
+                48,
+                40,
+                48,
+                3
+              ],
+              "Fit matching books": [
+                56,
+                56,
+                64,
+                3
+              ],
+              "Clear flowchart search": [
+                24,
+                24,
+                24,
+                3
+              ],
+              "Fit entire flowchart": [
+                128,
+                112,
+                136,
+                3
+              ],
+              "Zoom in": [
+                40,
+                40,
+                40,
+                3
+              ],
+              "Pan flowchart": [
+                32,
+                24,
+                32,
+                3
+              ]
+            }
+          }
+        },
+        "desktop": {
+          "load": {
+            "performance": [
+              100,
+              100,
+              100,
+              5
+            ],
+            "fcpMs": [
+              497.78535,
+              496.8012,
+              501.7233,
+              5
+            ],
+            "lcpMs": [
+              601.10275,
+              596.5009999999999,
+              757.9292499999999,
+              5
+            ],
+            "tbtMs": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "cls": [
+              0.000128,
+              0.000128,
+              0.000128,
+              5
+            ],
+            "speedIndexMs": [
+              497.78535,
+              496.8012,
+              501.7233,
+              5
+            ],
+            "transferBytes": [
+              675881,
+              675866,
+              676160,
+              5
+            ],
+            "fontRequests": [
+              1,
+              1,
+              1,
+              5
+            ],
+            "fontBytes": [
+              48752,
+              48752,
+              48752,
+              5
+            ],
+            "imageRequests": [
+              9,
+              9,
+              9,
+              5
+            ],
+            "imageBytes": [
+              265479,
+              265475,
+              265484,
+              5
+            ],
+            "stylesheetRequests": [
+              4,
+              4,
+              4,
+              5
+            ],
+            "stylesheetBytes": [
+              32879,
+              32879,
+              32879,
+              5
+            ]
+          },
+          "applied": {
+            "readyMs": [
+              412.59999999403954,
+              410.3999999985099,
+              414.70000000298023,
+              3
+            ],
+            "fcpMs": [
+              172,
+              168,
+              176,
+              3
+            ],
+            "lcpMs": [
+              176,
+              176,
+              180,
+              3
+            ],
+            "cls": [
+              0.00012796055511776552,
+              0.00012796055511776552,
+              0.00012796055511776552,
+              3
+            ],
+            "loadEventMs": [
+              1109.8999999985099,
+              1099.2000000029802,
+              1121.8999999985099,
+              3
+            ],
+            "actions": {
+              "Type cradle search": [
+                32,
+                32,
+                32,
+                3
+              ],
+              "Fit matching books": [
+                48,
+                40,
+                48,
+                3
+              ],
+              "Clear flowchart search": [
+                24,
+                24,
+                24,
+                3
+              ],
+              "Fit entire flowchart": [
+                200,
+                200,
+                208,
+                3
+              ],
+              "Zoom in": [
+                112,
+                112,
+                112,
+                3
+              ],
+              "Pan flowchart": [
+                96,
+                96,
+                104,
+                3
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "fontSources": [
+    {
+      "family": "Architects Daughter",
+      "subset": "latin-ext",
+      "path": "src/assets/fonts/architects-daughter-v20-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/architectsdaughter/v20/KtkxAKiDZI_td1Lkx62xHZHDtgO_Y-bvTYdg4-7jA-Wztg.woff2",
+      "sha256": "754915135cecfaaaeb606202243d99882b7b7f403fe5d753f3a9238e1bf97279",
+      "bytes": 7008
+    },
+    {
+      "family": "Architects Daughter",
+      "subset": "latin",
+      "path": "src/assets/fonts/architects-daughter-v20-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/architectsdaughter/v20/KtkxAKiDZI_td1Lkx62xHZHDtgO_Y-bvTYlg4-7jA-U.woff2",
+      "sha256": "6f925fb5efb364273edaac21c54c387b71e3a1e3d275f2fb20709a7f225e6fb1",
+      "bytes": 13140
+    },
+    {
+      "family": "Inter",
+      "subset": "cyrillic-ext",
+      "path": "src/assets/fonts/inter-v20-cyrillic-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2",
+      "sha256": "fccca918fea40089dacadc7045861314d1a6bc91f1f323cc1eeb22ebcdb321b5",
+      "bytes": 25844
+    },
+    {
+      "family": "Inter",
+      "subset": "cyrillic",
+      "path": "src/assets/fonts/inter-v20-cyrillic.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2",
+      "sha256": "aebf2ab4a4ce6810d73c1ac7be7cafb4e5ec4cee2d6db5fb3e09691747ec4bd6",
+      "bytes": 18744
+    },
+    {
+      "family": "Inter",
+      "subset": "greek-ext",
+      "path": "src/assets/fonts/inter-v20-greek-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2",
+      "sha256": "a2e2c783ca6f9c20486e81e72a279203e86730bbf8f01ff6a5ee9dbd09e1c271",
+      "bytes": 11272
+    },
+    {
+      "family": "Inter",
+      "subset": "greek",
+      "path": "src/assets/fonts/inter-v20-greek.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2",
+      "sha256": "46dd4cdca58c26ae87cc6927657bf83b2e8abfc39ffd0ab176e301a8d28d22bf",
+      "bytes": 19044
+    },
+    {
+      "family": "Inter",
+      "subset": "vietnamese",
+      "path": "src/assets/fonts/inter-v20-vietnamese.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2",
+      "sha256": "8db00ff46c67b22cda8bed865acf7077651cac8d2841d5b40980556b48961931",
+      "bytes": 10280
+    },
+    {
+      "family": "Inter",
+      "subset": "latin-ext",
+      "path": "src/assets/fonts/inter-v20-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2",
+      "sha256": "a28eb6d3ccb534ae0c94ca999371df024aab60b08c3c8a5720ee9e32fa0faaa2",
+      "bytes": 85272
+    },
+    {
+      "family": "Inter",
+      "subset": "latin",
+      "path": "src/assets/fonts/inter-v20-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "sha256": "c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4",
+      "bytes": 48432
+    }
+  ],
+  "fallbackCalibration": {
+    "method": "Character-frequency weighted widths in two existing review texts at 100px, measured by Chromium Canvas at each intended Inter weight; Arial regular below600 and bold from600; vertical metrics from the actual bundled Inter file.",
+    "corpus": [
+      "content/reviews/reluctant_dungeon/index.md",
+      "content/reviews/terminate_the_other_world/index.md"
+    ],
+    "chars": {
+      "0": 23,
+      "2": 6,
+      "4": 2,
+      "5": 1,
+      "6": 1,
+      "8": 1,
+      "9": 1,
+      "#": 8,
+      " ": 1337,
+      "B": 5,
+      "l": 225,
+      "u": 199,
+      "r": 385,
+      "b": 80,
+      "A": 18,
+      "d": 250,
+      "n": 484,
+      "g": 176,
+      "e": 732,
+      "o": 543,
+      "'": 16,
+      "s": 426,
+      "p": 123,
+      "i": 459,
+      "v": 68,
+      "a": 492,
+      "y": 88,
+      ".": 67,
+      "f": 127,
+      "t": 581,
+      "c": 157,
+      ",": 82,
+      "T": 25,
+      "h": 361,
+      "m": 145,
+      "x": 20,
+      "w": 132,
+      "k": 40,
+      "M": 7,
+      "q": 6,
+      "R": 6,
+      "E": 20,
+      "!": 4,
+      "F": 5,
+      "*": 12,
+      "I": 31,
+      "(": 6,
+      ")": 6,
+      "-": 42,
+      "S": 16,
+      "C": 20,
+      "L": 14,
+      "P": 15,
+      "G": 3,
+      "z": 2,
+      "j": 4,
+      "O": 5,
+      "D": 2,
+      "\"": 6,
+      "N": 12,
+      "Q": 1,
+      "W": 7,
+      "?": 2,
+      "H": 2,
+      ":": 11,
+      "K": 1,
+      ">": 9,
+      "U": 1,
+      "Y": 1
+    },
+    "metrics": {
+      "familyName": "Inter",
+      "fullName": "Inter Regular",
+      "postscriptName": "Inter-Regular",
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "unitsPerEm": 2048,
+      "xHeight": 1118,
+      "xWidthAvg": 978,
+      "subsets": {
+        "latin": {
+          "xWidthAvg": 978
+        },
+        "thai": {
+          "xWidthAvg": 1344
+        }
+      }
+    },
+    "measurements": [
+      {
+        "weight": 400,
+        "fallbackWeight": 400,
+        "inter": 388457.666015625,
+        "arial": 362193.06640625,
+        "sizeAdjust": 1.0725154677033921,
+        "ascentOverride": 0.9032503764951866,
+        "descentOverride": 0.22490205947007164,
+        "lineGapOverride": 0
+      },
+      {
+        "weight": 500,
+        "fallbackWeight": 400,
+        "inter": 392400.7920227051,
+        "arial": 362193.06640625,
+        "sizeAdjust": 1.0834022746933893,
+        "ascentOverride": 0.8941738656346861,
+        "descentOverride": 0.22264208146347528,
+        "lineGapOverride": 0
+      },
+      {
+        "weight": 600,
+        "fallbackWeight": 700,
+        "inter": 396343.9118499756,
+        "arial": 390727.34375,
+        "sizeAdjust": 1.0143746481781148,
+        "ascentOverride": 0.9550218962391659,
+        "descentOverride": 0.2377927503740665,
+        "lineGapOverride": 0
+      },
+      {
+        "weight": 700,
+        "fallbackWeight": 700,
+        "inter": 400287.0789642334,
+        "arial": 390727.34375,
+        "sizeAdjust": 1.0244665119223137,
+        "ascentOverride": 0.9456141208385943,
+        "descentOverride": 0.23545029016848062,
+        "lineGapOverride": 0
+      },
+      {
+        "weight": 800,
+        "fallbackWeight": 700,
+        "inter": 405107.3804016113,
+        "arial": 390727.34375,
+        "sizeAdjust": 1.0368032513762644,
+        "ascentOverride": 0.9343624248034237,
+        "descentOverride": 0.2326487085952073,
+        "lineGapOverride": 0
+      },
+      {
+        "weight": 900,
+        "fallbackWeight": 700,
+        "inter": 410364.990234375,
+        "arial": 390727.34375,
+        "sizeAdjust": 1.050259207087743,
+        "ascentOverride": 0.9223913425012865,
+        "descentOverride": 0.22966800564296147,
+        "lineGapOverride": 0
+      }
+    ]
+  },
+  "exportPixelComparison": [
+    {
+      "browser": "chromium",
+      "mode": "short",
+      "equalBytes": true,
+      "changedChannelValues": 0,
+      "maxChannelDifference": 0,
+      "meanChannelDifference": 0,
+      "beforePixelSha256": "a77251c43b5284c73481c9cc89466658c1b7b5a97fff35ab775a7700568b4897",
+      "afterPixelSha256": "a77251c43b5284c73481c9cc89466658c1b7b5a97fff35ab775a7700568b4897"
+    },
+    {
+      "browser": "chromium",
+      "mode": "long",
+      "equalBytes": true,
+      "changedChannelValues": 0,
+      "maxChannelDifference": 0,
+      "meanChannelDifference": 0,
+      "beforePixelSha256": "549750343968fbb608913e7c24c60c39fe0dcf2543581a2c429824f781b64610",
+      "afterPixelSha256": "549750343968fbb608913e7c24c60c39fe0dcf2543581a2c429824f781b64610"
+    },
+    {
+      "browser": "webkit",
+      "mode": "short",
+      "equalBytes": true,
+      "changedChannelValues": 0,
+      "maxChannelDifference": 0,
+      "meanChannelDifference": 0,
+      "beforePixelSha256": "9572b1cad4d2c2dd7c863ffb45c1e693d3069e5637ca7c4a8a1dfba4166ae767",
+      "afterPixelSha256": "9572b1cad4d2c2dd7c863ffb45c1e693d3069e5637ca7c4a8a1dfba4166ae767"
+    },
+    {
+      "browser": "webkit",
+      "mode": "long",
+      "equalBytes": true,
+      "changedChannelValues": 0,
+      "maxChannelDifference": 0,
+      "meanChannelDifference": 0,
+      "beforePixelSha256": "e65e741b4b1c583e36df2802cf02d95ce6a9fc661703140cf167194255061345",
+      "afterPixelSha256": "e65e741b4b1c583e36df2802cf02d95ce6a9fc661703140cf167194255061345"
+    }
+  ]
+}

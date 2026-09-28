@@ -316,3 +316,30 @@ tradeoffs when changing Astro, Vite, or the island's import tree.
 
 See the [first-load follow-up](performance/2026-09-28-flowchart-first-load-results.md)
 for complete cohorts and the remaining two-second LCP gap.
+
+---
+
+## ADR-016: Match the Latin fallback to Inter and keep loading text visible
+
+**Context:** After font self-hosting, applied network throttling still exposed
+large font swaps on home and reviews. Mobile reviews changed its control layout
+when Inter arrived. WebKit also left headings blank while a font response was
+held under `font-display: fallback`.
+
+**Decision:** Use `font-display: swap` for the existing faces. Add a local Arial
+fallback for Inter's original Latin range, calibrated separately at each used
+weight. Derive horizontal adjustment from measured glyph widths and vertical
+overrides from the bundled Inter font's metrics. Preserve the real fonts,
+Unicode subsets, licenses, and existing fallback stack for other scripts and
+systems without Arial. No additional font binary or preload is needed.
+
+**Tradeoff:** The browser can swap to the intended font after a long delay, so
+fallback metrics matter. Matching reduces reflow but cannot make every glyph
+identical, and its benefit depends on the local Arial faces being available.
+Applied mobile flowchart first paint is about 32 ms later; the change is retained
+for the larger font-related layout-stability and readability gains. Recalibrate
+when updating Inter. The desktop review layout switch during
+hydration and existing screenshot-export crop defects remain separate issues.
+
+See the [font performance report](performance/2026-09-28-perf-02-fonts-results.md)
+for the calculation, delayed-font checks, complete measurements, and limits.
