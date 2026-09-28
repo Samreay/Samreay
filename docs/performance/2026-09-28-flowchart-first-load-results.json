@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-28",
+  "page": "/reviews/flowchart/",
+  "startingCommit": "02c4b3331428e55f5fe6d34194a16a3e46631e72",
+  "artifactRoot": "artifacts/performance/20260928T074452Z-flowchart-first-load",
+  "selectedCohort": "preload-low",
+  "tupleOrder": [
+    "median",
+    "min",
+    "max"
+  ],
+  "runsPerProfile": {
+    "lighthouse": 5,
+    "appliedInteractions": 3
+  },
+  "cohortStatus": {
+    "before": "fresh confirmation baseline",
+    "local-fonts": "retained foundation",
+    "raw-nodes": "reverted, negligible improvement",
+    "preload-modules-fixed": "superseded by low priority",
+    "preload-low": "retained"
+  },
+  "target": {
+    "metric": "mobile simulated LCP",
+    "targetMs": 2000,
+    "reached": false,
+    "finalMs": 2610.69455,
+    "appliedGraphReadyMs": 2024.6000000014901,
+    "approximatelyTwoSecondAppliedReadiness": true
+  },
+  "environment": {
+    "node": "22.22.2",
+    "lighthouse": "13.5.0",
+    "chromium": "147.0.7727.15",
+    "webkit": "26.4",
+    "host": "Apple M4 Pro, 12 CPU, 24 GiB, Darwin 25.6.0 arm64",
+    "baseUrl": "http://127.0.0.1:4331",
+    "lighthouseThrottling": "simulate",
+    "mobile": {
+      "cpuSlowdown": 4,
+      "rttMs": 150,
+      "lighthouseKbps": 1638.4,
+      "appliedMbitPerSecond": 1.6,
+      "viewport": [
+        412,
+        823
+      ]
+    },
+    "desktop": {
+      "cpuSlowdown": 1,
+      "rttMs": 40,
+      "lighthouseKbps": 10240,
+      "appliedMbitPerSecond": 10,
+      "viewport": [
+        1350,
+        940
+      ]
+    },
+    "cache": "fresh browser contexts and disabled cache for timing cohorts",
+    "thirdParties": "retained"
+  },
+  "cohorts": {
+    "before": {
+      "mobile": {
+        "load": {
+          "performance": [80, 76, 84],
+          "fcpMs": [2421.3084, 2394.6123, 2445.1144],
+          "lcpMs": [4059.2675, 3705.1822, 4945.4924],
+          "tbtMs": [181, 169, 218],
+          "cls": [0, 0, 0],
+          "speedIndexMs": [2421.3084, 2394.6123, 2445.1144],
+          "transferBytes": [590107, 590085, 590110],
+          "imageRequests": [3, 3, 3],
+          "imageBytes": [179416, 179402, 179424],
+          "scriptEvaluationMs": [744.352, 736.288, 788.932],
+          "styleLayoutMs": [422.508, 406.332, 447.068],
+          "paintCompositeRenderMs": [120.204, 115.808, 122.776]
+        },
+        "interactions": {
+          "readyAtMs": [3057.9, 3024.8, 3474.1],
+          "fcpMs": [1032, 1028, 1092],
+          "lcpMs": [2972, 2944, 3364],
+          "loadEventMs": [3784.2, 3783.6, 4121.4],
+          "cls": [0, 0, 0],
+          "initialDecodedImages": [0, 0, 0],
+          "initialNodes": [10, 10, 10],
+          "initialDom": [1399, 1399, 1399],
+          "loadLongTaskMs": [600, 529, 933],
+          "actions": {
+            "Type cradle search": {
+              "maxEventMs": [40, 40, 64],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Fit matching books": {
+              "maxEventMs": [64, 56, 64],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Clear flowchart search": {
+              "maxEventMs": [24, 24, 24],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Fit entire flowchart": {
+              "maxEventMs": [112, 112, 112],
+              "longTaskMs": [57, 55, 58]
+            },
+            "Zoom in": {
+              "maxEventMs": [40, 40, 48],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Pan flowchart": {
+              "maxEventMs": [32, 24, 32],
+              "longTaskMs": [0, 0, 0]
+            }
+          }
+        }
+      },
+      "desktop": {
+        "load": {
+          "performance": [97, 96, 97],
+          "fcpMs": [803.952, 777.948, 873.5555],
+          "lcpMs": [1154.4858, 1133.5874, 1244.906],
+          "tbtMs": [0, 0, 0],
+          "cls": [0.0003, 0.0003, 0.0003],
+          "speedIndexMs": [803.952, 777.948, 873.5555],
+          "transferBytes": [676161, 676143, 676163],
+          "imageRequests": [9, 9, 9],
+          "imageBytes": [265470, 265468, 265471],
+          "scriptEvaluationMs": [185.364, 178.236, 186.924],
+          "styleLayoutMs": [107.532, 103.154, 112.554],
+          "paintCompositeRenderMs": [34.402, 33.078, 34.509]
+        },
+        "interactions": {
+          "readyAtMs": [894.5, 868.7, 900.8],
+          "fcpMs": [528, 516, 528],
+          "lcpMs": [620, 608, 620],
+          "loadEventMs": [1213.5, 1179.7, 1213.6],
+          "cls": [0.0012, 0.0012, 0.0012],
+          "initialDecodedImages": [6, 6, 6],
+          "initialNodes": [19, 19, 19],
+          "initialDom": [1579, 1579, 1579],
+          "loadLongTaskMs": [114, 114, 114],
+          "actions": {
+            "Type cradle search": {
+              "maxEventMs": [24, 24, 32],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Fit matching books": {
+              "maxEventMs": [48, 40, 48],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Clear flowchart search": {
+              "maxEventMs": [24, 24, 24],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Fit entire flowchart": {
+              "maxEventMs": [200, 200, 200],
+              "longTaskMs": [144, 140, 146]
+            },
+            "Zoom in": {
+              "maxEventMs": [120, 112, 120],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Pan flowchart": {
+              "maxEventMs": [96, 88, 96],
+              "longTaskMs": [0, 0, 0]
+            }
+          }
+        }
+      }
+    },
+    "local-fonts": {
+      "mobile": {
+        "load": {
+          "fcpMs": [2114.0876, 2038.073, 2188.6398],
+          "lcpMs": [2532.1398, 2529.6968, 2545.5729],
+          "tbtMs": [165, 158.5, 197.5],
+          "cls": [0, 0, 0],
+          "transferBytes": [589507, 589504, 589516]
+        },
+        "interactions": {
+          "readyAtMs": [2532.5, 2521.9, 2537.2],
+          "fcpMs": [640, 640, 644],
+          "lcpMs": [2452, 2440, 2460],
+          "loadEventMs": [3287.5, 3287.3, 3290.5]
+        }
+      },
+      "desktop": {
+        "load": {
+          "fcpMs": [535.2016, 516.1614, 537.103],
+          "lcpMs": [599.7698, 575.2016, 601.103],
+          "tbtMs": [0, 0, 0],
+          "cls": [0.0003, 0.0003, 0.0003],
+          "transferBytes": [675561, 675551, 675569]
+        },
+        "interactions": {
+          "readyAtMs": [498, 493.1, 502.8],
+          "fcpMs": [160, 156, 160],
+          "lcpMs": [252, 248, 260],
+          "loadEventMs": [1154.6, 1143.7, 1170.2]
+        }
+      }
+    },
+    "raw-nodes": {
+      "mobile": {
+        "load": {
+          "fcpMs": [2188.2649, 2187.0564, 2189.2578],
+          "lcpMs": [2526.7578, 2523.7123, 2538.3062],
+          "tbtMs": [160.5, 155, 186.5],
+          "cls": [0, 0, 0],
+          "transferBytes": [589472, 589469, 589486]
+        },
+        "interactions": {
+          "readyAtMs": [2518.5, 2503.5, 2559.2],
+          "fcpMs": [648, 636, 652],
+          "lcpMs": [2436, 2420, 2472],
+          "loadEventMs": [3298.6, 3283.9, 3305.2]
+        }
+      },
+      "desktop": {
+        "load": {
+          "fcpMs": [535.3895, 516.97, 538.328],
+          "lcpMs": [599.3895, 576.97, 601.328],
+          "tbtMs": [0, 0, 0],
+          "cls": [0.0003, 0.0003, 0.0003],
+          "transferBytes": [675523, 675522, 675537]
+        },
+        "interactions": {
+          "readyAtMs": [487, 485.7, 494.6],
+          "fcpMs": [156, 152, 156],
+          "lcpMs": [256, 252, 256],
+          "loadEventMs": [1159.3, 1157.3, 1282.3]
+        }
+      }
+    },
+    "preload-modules-fixed": {
+      "mobile": {
+        "load": {
+          "fcpMs": [2413.8586, 2412.0663, 2417.2164],
+          "lcpMs": [2606.847, 2598.9391, 2616.5663],
+          "tbtMs": [160.5, 139.5, 181.5],
+          "cls": [0, 0, 0],
+          "transferBytes": [589632, 589622, 589645]
+        },
+        "interactions": {
+          "readyAtMs": [2043.6, 2019.6, 2049],
+          "fcpMs": [764, 760, 768],
+          "lcpMs": [2040, 2016, 2044],
+          "loadEventMs": [3325.2, 3309.8, 3339.8]
+        }
+      },
+      "desktop": {
+        "load": {
+          "fcpMs": [579.7127, 577.8964, 582.326],
+          "lcpMs": [644.4272, 599.1085, 782.4645],
+          "tbtMs": [0, 0, 0],
+          "cls": [0.0003, 0.0003, 0.0003],
+          "transferBytes": [675693, 675682, 675698]
+        },
+        "interactions": {
+          "readyAtMs": [406.9, 393, 493],
+          "fcpMs": [164, 160, 164],
+          "lcpMs": [260, 256, 264],
+          "loadEventMs": [1150.1, 1116.9, 1292.5]
+        }
+      }
+    },
+    "preload-low": {
+      "mobile": {
+        "load": {
+          "performance": [93, 92, 93],
+          "fcpMs": [1968.1945, 1965.5074, 1969.1772],
+          "lcpMs": [2610.6946, 2606.5075, 2624.1772],
+          "tbtMs": [153, 150.5, 185],
+          "cls": [0, 0, 0],
+          "speedIndexMs": [1968.1945, 1965.5074, 1969.1772],
+          "transferBytes": [589621, 589608, 589625],
+          "imageRequests": [3, 3, 3],
+          "imageBytes": [179424, 179418, 179424],
+          "scriptEvaluationMs": [788.196, 749.58, 875.092],
+          "styleLayoutMs": [330.084, 325.44, 378.664],
+          "paintCompositeRenderMs": [134.42, 124.92, 151.48]
+        },
+        "interactions": {
+          "readyAtMs": [2024.6, 2023.9, 2055.6],
+          "fcpMs": [764, 760, 772],
+          "lcpMs": [2024, 2024, 2052],
+          "loadEventMs": [3304.1, 3264.6, 3350.2],
+          "cls": [0, 0, 0],
+          "initialDecodedImages": [0, 0, 0],
+          "initialNodes": [10, 10, 10],
+          "initialDom": [1408, 1408, 1408],
+          "loadLongTaskMs": [655, 648, 731],
+          "actions": {
+            "Type cradle search": {
+              "maxEventMs": [48, 40, 56],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Fit matching books": {
+              "maxEventMs": [64, 56, 72],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Clear flowchart search": {
+              "maxEventMs": [24, 24, 32],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Fit entire flowchart": {
+              "maxEventMs": [120, 112, 128],
+              "longTaskMs": [60, 54, 62]
+            },
+            "Zoom in": {
+              "maxEventMs": [48, 48, 56],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Pan flowchart": {
+              "maxEventMs": [32, 24, 32],
+              "longTaskMs": [0, 0, 0]
+            }
+          }
+        }
+      },
+      "desktop": {
+        "load": {
+          "performance": [100, 99, 100],
+          "fcpMs": [499.7139, 497.6325, 501.7151],
+          "lcpMs": [770.756, 600.1566, 884.5561],
+          "tbtMs": [0, 0, 0],
+          "cls": [0.0003, 0.0003, 0.0003],
+          "speedIndexMs": [499.7139, 497.6325, 501.7151],
+          "transferBytes": [675671, 675670, 675678],
+          "imageRequests": [9, 9, 9],
+          "imageBytes": [265477, 265469, 265479],
+          "scriptEvaluationMs": [197.456, 179.121, 203.861],
+          "styleLayoutMs": [92.963, 78.98, 95.829],
+          "paintCompositeRenderMs": [38.348, 29.861, 39.593]
+        },
+        "interactions": {
+          "readyAtMs": [409.5, 404.7, 416.3],
+          "fcpMs": [168, 164, 168],
+          "lcpMs": [256, 256, 264],
+          "loadEventMs": [1116.9, 1103.9, 1132.9],
+          "cls": [0.0012, 0.0012, 0.0012],
+          "initialDecodedImages": [6, 6, 6],
+          "initialNodes": [19, 19, 19],
+          "initialDom": [1588, 1588, 1588],
+          "loadLongTaskMs": [110, 109, 117],
+          "actions": {
+            "Type cradle search": {
+              "maxEventMs": [32, 32, 32],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Fit matching books": {
+              "maxEventMs": [40, 40, 48],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Clear flowchart search": {
+              "maxEventMs": [24, 24, 24],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Fit entire flowchart": {
+              "maxEventMs": [200, 200, 208],
+              "longTaskMs": [143, 143, 145]
+            },
+            "Zoom in": {
+              "maxEventMs": [112, 80, 112],
+              "longTaskMs": [0, 0, 0]
+            },
+            "Pan flowchart": {
+              "maxEventMs": [104, 96, 104],
+              "longTaskMs": [0, 0, 0]
+            }
+          }
+        }
+      }
+    }
+  },
+  "fontSources": [
+    {
+      "family": "Architects Daughter",
+      "subset": "latin-ext",
+      "path": "src/assets/fonts/architects-daughter-v20-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/architectsdaughter/v20/KtkxAKiDZI_td1Lkx62xHZHDtgO_Y-bvTYdg4-7jA-Wztg.woff2",
+      "sha256": "754915135cecfaaaeb606202243d99882b7b7f403fe5d753f3a9238e1bf97279",
+      "bytes": 7008
+    },
+    {
+      "family": "Architects Daughter",
+      "subset": "latin",
+      "path": "src/assets/fonts/architects-daughter-v20-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/architectsdaughter/v20/KtkxAKiDZI_td1Lkx62xHZHDtgO_Y-bvTYlg4-7jA-U.woff2",
+      "sha256": "6f925fb5efb364273edaac21c54c387b71e3a1e3d275f2fb20709a7f225e6fb1",
+      "bytes": 13140
+    },
+    {
+      "family": "Inter",
+      "subset": "cyrillic-ext",
+      "path": "src/assets/fonts/inter-v20-cyrillic-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2",
+      "sha256": "fccca918fea40089dacadc7045861314d1a6bc91f1f323cc1eeb22ebcdb321b5",
+      "bytes": 25844
+    },
+    {
+      "family": "Inter",
+      "subset": "cyrillic",
+      "path": "src/assets/fonts/inter-v20-cyrillic.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2",
+      "sha256": "aebf2ab4a4ce6810d73c1ac7be7cafb4e5ec4cee2d6db5fb3e09691747ec4bd6",
+      "bytes": 18744
+    },
+    {
+      "family": "Inter",
+      "subset": "greek-ext",
+      "path": "src/assets/fonts/inter-v20-greek-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2",
+      "sha256": "a2e2c783ca6f9c20486e81e72a279203e86730bbf8f01ff6a5ee9dbd09e1c271",
+      "bytes": 11272
+    },
+    {
+      "family": "Inter",
+      "subset": "greek",
+      "path": "src/assets/fonts/inter-v20-greek.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2",
+      "sha256": "46dd4cdca58c26ae87cc6927657bf83b2e8abfc39ffd0ab176e301a8d28d22bf",
+      "bytes": 19044
+    },
+    {
+      "family": "Inter",
+      "subset": "vietnamese",
+      "path": "src/assets/fonts/inter-v20-vietnamese.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2",
+      "sha256": "8db00ff46c67b22cda8bed865acf7077651cac8d2841d5b40980556b48961931",
+      "bytes": 10280
+    },
+    {
+      "family": "Inter",
+      "subset": "latin-ext",
+      "path": "src/assets/fonts/inter-v20-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2",
+      "sha256": "a28eb6d3ccb534ae0c94ca999371df024aab60b08c3c8a5720ee9e32fa0faaa2",
+      "bytes": 85272
+    },
+    {
+      "family": "Inter",
+      "subset": "latin",
+      "path": "src/assets/fonts/inter-v20-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "sha256": "c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4",
+      "bytes": 48432
+    }
+  ],
+  "excludedExperiments": [
+    {
+      "name": "font-preload",
+      "reason": "WebKit downloaded the Latin font twice; rejected at network gate before a timing cohort."
+    },
+    {
+      "name": "preload-modules-load",
+      "reason": "Incomplete run interrupted after emitted-file validation caught a removed CSS-only chunk. Fixed capture from generateBundle to writeBundle, rebuilt and ran complete replacement cohorts."
+    }
+  ],
+  "verification": {
+    "status": "complete",
+    "productionRegression": {
+      "profiles": [
+        "chromium-desktop",
+        "chromium-mobile",
+        "webkit-desktop",
+        "webkit-mobile"
+      ],
+      "passed": 4,
+      "runtimeErrors": 0,
+      "inventory": {
+        "nodes": 269,
+        "edges": 269,
+        "books": 167,
+        "decisions": 102
+      },
+      "evidence": "final-regression/results.json"
+    },
+    "devRegression": {
+      "exitCode": 1,
+      "status": "inherited failure",
+      "authoringPayloadAssertions": "passed; save/reset intercepted",
+      "error": "onnodedragstop reads node.id while the callback supplies targetNode",
+      "matchesOriginalBaseline": true,
+      "evidence": "final-dev/inherited-error-comparison.json"
+    },
+    "typography": {
+      "browserProfileRouteCases": 24,
+      "matchingMetrics": 672,
+      "tolerancePx": 0.01
+    },
+    "fonts": {
+      "cache": "passed; warm revalidation headers only",
+      "abortedFonts": "readable fallback in both browsers",
+      "heldFonts": "Chromium readable; WebKit navigation passes but text can stay blank, reproduced with original CSS",
+      "exports": "short and167-book exports pass in both browsers"
+    },
+    "moduleRequests": {
+      "browsers": [
+        "chromium",
+        "webkit"
+      ],
+      "uniqueModules": 11,
+      "requestsPerModule": 1,
+      "allHttp200": true
+    },
+    "astroCheck": {
+      "errors": 0,
+      "warnings": 0,
+      "inheritedHints": 6
+    },
+    "buildPages": 455,
+    "syntaxCheck": "passed",
+    "diffCheck": "passed",
+    "colorCheck": {
+      "status": "passed",
+      "parsedEdges": 3,
+      "modelEdges": 269,
+      "limitedCoverage": true
+    },
+    "runtimeDigests": {
+      "files": 50,
+      "identicalToMeasuredBuild": true
+    },
+    "preservation": {
+      "initialFilesChecked": 3097,
+      "unexpectedChanges": 0,
+      "headUnchanged": true,
+      "indexUnchanged": true,
+      "inheritedFilesPreserved": true
+    },
+    "sourceManifest": "retained-source-manifest.json"
+  },
+  "limitations": [
+    "Local production preview and synthetic throttling are not deployed or physical-device measurements.",
+    "Interaction event duration is a local diagnostic, not field INP.",
+    "Inherited dev drag-stop exception remains visible; authoring save/reset requests are intercepted.",
+    "WebKit held-font text can remain blank with both original and bundled CSS; failed-font fallback is readable.",
+    "WebKit multitouch is unavailable in this harness.",
+    "Color checker only parses 3 of 269 edges."
+  ],
+  "completeStatistics": "comparisons.json (relative to artifactRoot)"
+}

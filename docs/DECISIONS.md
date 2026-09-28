@@ -267,3 +267,52 @@ range. Mobile search and clear-search medians fell from 200/216 ms to 48/24 ms.
 Recheck distant navigation, delayed covers, pulses and observer cleanup when
 upgrading SvelteFlow. Measurements and browser coverage are recorded in the
 [flowchart performance report](performance/2026-09-28-perf-01-flowchart-results.md).
+
+---
+
+## ADR-014: Bundle the existing website fonts
+
+**Context:** The shared Google Fonts CSS import blocked rendering and delayed
+the flowchart island's JavaScript discovery. The follow-up profile measured
+mobile simulated LCP at 4.06 seconds and graph readiness at 3.06 seconds.
+
+**Decision:** Bundle the exact Inter and Architects Daughter WOFF2 files through
+Vite and import their declarations from `main.css`. Preserve the original
+Unicode subsets, weights, and `font-display: fallback`. The shared stylesheet
+also supplies standalone OG pages and screenshot export. Keep the upstream
+licenses and provenance with the assets.
+
+**Tradeoff:** Font updates now require an explicit asset update. Only needed
+subsets download; the repository carries all nine original subsets. A Latin
+font preload was rejected because WebKit fetched separate CORS and no-CORS
+copies. Cold and warm loading, typography, export, and the flowchart were
+checked in both browsers. Font bundling alone reduced simulated LCP to
+2.53 seconds and graph readiness to 2.53 seconds in the local mobile cohort.
+
+See the [first-load follow-up](performance/2026-09-28-flowchart-first-load-results.md)
+for comparisons and browser limitations.
+
+---
+
+## ADR-015: Discover the flowchart's module tree from its HTML
+
+**Context:** After bundling fonts, the flowchart still discovered its island
+and dependencies through serial JavaScript requests. Mobile graph readiness
+measured 2.53 seconds with applied network and CPU throttling.
+
+**Decision:** Add low-priority module preload links to the generated flowchart
+page. A build integration reads the island and renderer URLs from the HTML and
+walks their final Rollup static imports. Capture imports in `writeBundle`, after
+Vite removes CSS-only chunks, and fail the build if an expected module is absent.
+Other routes keep their existing loading behavior.
+
+**Tradeoff:** Module hints compete with CSS and fonts for bandwidth. Low priority
+reduced simulated mobile FCP to 1.97 seconds, compared with 2.41 seconds for
+default-priority hints. Applied graph readiness reached 2.02 seconds. Simulated
+LCP was 2.61 seconds, slightly above the font-only 2.53 seconds; desktop simulated
+LCP also rose, although both remained below the starting baseline. Keep the
+hints for the measured useful-content gain. Recheck network reuse and these
+tradeoffs when changing Astro, Vite, or the island's import tree.
+
+See the [first-load follow-up](performance/2026-09-28-flowchart-first-load-results.md)
+for complete cohorts and the remaining two-second LCP gap.

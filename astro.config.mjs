@@ -10,6 +10,7 @@ import base16Snazzy from './src/lib/shiki-themes/base16-snazzy.json' with { type
 import { collectRedirects } from './scripts/collect-redirects.mjs';
 import { contentAssets } from './scripts/content-assets.mjs';
 import { flowchartPositionsDev } from './scripts/flowchart-positions-dev.mjs';
+import { flowchartPreload } from './scripts/flowchart-preload.mjs';
 
 // Hugo's `aliases:` frontmatter is replicated as Astro's `redirects` map.
 // `collectRedirects` walks `content/{reviews,blogs,tutorials}/*/index.{md,mdx}`
@@ -43,6 +44,7 @@ export default defineConfig({
     // are republished at `/<type>/<slug>/<file>` so raw `<video src="...">`
     // and `![...](path.png)` references in markdown keep resolving.
     contentAssets(),
+    flowchartPreload(),
     // Dev-only authoring endpoint for the flowchart's position cache.
     // Lives at `/api/flowchart-positions.json` while `astro dev` is
     // running; absent from the production build entirely. Backs the
