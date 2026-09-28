@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "ChainConsumer"
 description: "My python library to digest MCMC chains and create plots."
 date: 2016-08-01
@@ -8,6 +7,9 @@ tags: [python,project]
 
 aliases: [/blog/chainconsumer]
 ---
+
+import PostImage from '../../../src/components/PostImage.astro';
+import posterImage from './poster.jpg';
 
 I was working with some chains one day and wanted to plot different cosmologies
 against each other, and realised that they had different parameters. Unfortunately,
@@ -56,4 +58,4 @@ Upon request by various users, ChainConsumer now has extra functionality:
 
 Most of this is detailed in the glorious post I made but have yet had a chance to use!
 
-{% include image.html ?class="img-poster"  url="poster.jpg")
+<PostImage src={posterImage} class="img-poster" alt="ChainConsumer research poster" />

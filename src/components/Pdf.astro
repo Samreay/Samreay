@@ -1,0 +1,25 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  height?: string;
+}
+
+const { src, title, height = '50vh' } = Astro.props;
+---
+
+<div class="pdf-embed">
+  <object data={src} type="application/pdf" aria-label={title} style={{ height }}>
+    <iframe src={src} title={title} loading="lazy" style={{ height }}></iframe>
+    <p><a href={src}>Open {title}</a></p>
+  </object>
+</div>
+
+<style>
+  object,
+  iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+</style>

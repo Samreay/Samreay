@@ -1,11 +1,13 @@
 ---
-layout: post
 title:  "Europe Strikes Back"
 description: "The second European jaunt, featuring Switzerland and Germany"
 date: 2019-07-19
 categories: [blog]
 tags: [travel]
 ---
+
+import PostImage from '../../../src/components/PostImage.astro';
+import coverImage from './cover.jpg';
 
 # The Zurich Introduction
 
@@ -59,7 +61,7 @@ it was making such a ruckus and several times I had to stop and spray water on m
 an absolutely ridiculous temperature.
 
 ![](grindelwald1.jpg)
-{% include image.html ?class="img-poster" url="main.jpg")
+<PostImage src={coverImage} class="img-poster" alt="Scenery from the Europe trip" />
 ![](grindelwald_sunset.jpg)
 ![](gridnelwaldnotbad.jpg)
 ![](thirdwheel.jpg)

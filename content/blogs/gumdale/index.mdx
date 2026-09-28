@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Astronomy at Gumdale"
 description: "It's a great field to be in, so let's get that message out there."
 date: 2018-10-19
@@ -7,6 +6,8 @@ categories: [blog]
 tags: [outreach]
 
 ---
+
+import Pdf from '../../../src/components/Pdf.astro';
 
 Astronomy is great fun. So is coding. At least to me. But, I was invited to talk
 at Gumdale State School, I decided that it would be good to spread the good
@@ -43,4 +44,4 @@ It was great fun, and if you're curious about the other questions in the space q
 I showed them!
 
 
-{% include pdf.html url="gumdale.pdf)
+<Pdf src="/blogs/gumdale/gumdale.pdf" title="Astronomy at Gumdale presentation" height="500px" />

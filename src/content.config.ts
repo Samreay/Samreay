@@ -32,7 +32,7 @@ const reviews = defineCollection({
 });
 
 const blogs = defineCollection({
-  loader: glob({ pattern: '*/index.md', base: './content/blogs' }),
+  loader: glob({ pattern: '*/index.{md,mdx}', base: './content/blogs' }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),

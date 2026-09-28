@@ -1,0 +1,18 @@
+---
+interface Props {
+  url: string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+---
+
+<div class="youtube">
+  <iframe src={url} title={title} loading="lazy" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+<style>
+  iframe {
+    border: 0;
+  }
+</style>

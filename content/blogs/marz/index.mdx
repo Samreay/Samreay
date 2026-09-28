@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Marz"
 description: "AngularJS project to do online redshifting of galactic spectra."
 date: 2014-10-20
@@ -9,6 +8,9 @@ tags: [project]
 aliases: [/blog/marz]
 math: true
 ---
+
+import PostImage from '../../../src/components/PostImage.astro';
+import posterImage from './poster.jpg';
 
 [Marz](https://samreay.github.io/Marz) was a program I first started coding for my undergraduate software engineering thesis.
 The OzDES team was spending too much time manually redshifting spectra and wanted some improvements to the workflow done.
@@ -76,4 +78,4 @@ so I hope these plots become outdated in the future.
 If you've got some good ideas for me, feel free to head over to the project's [Github page](https://github.com/samreay/Marz)
 and contact me there!
 
-{% include image.html ?class="img-poster"  url="poster.jpg")
+<PostImage src={posterImage} class="img-poster" alt="Marz redshift tool research poster" />

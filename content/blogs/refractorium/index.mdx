@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Refractorium"
 description: "A light transport simulator written in vanilla javascript!"
 date: 2017-03-07
@@ -8,6 +7,11 @@ tags: [project]
 
 aliases: [/blog/refractorium]
 ---
+
+import PostImage from '../../../src/components/PostImage.astro';
+import coverImage from './cover.jpg';
+import mixedImage from './mixed.jpg';
+import cylinderImage from './cylinder.jpg';
 
 <h2 style="font-weight: 800; text-align: center; margin-bottom: 50px;">
     <a href="https://samreay.github.io/Refractorium/" target="_blank">Click here to run the simulator in your browser.</a>
@@ -63,8 +67,6 @@ Slapping a bit of CSS around everything and providing some basic tools to contro
 it online, and I'm fairly happy with how it turned out. I'd like to see if I can parcel light ray
 simulation out to web workers, but I'm happy with the results so far!
 
-{% include image.html ?class="img-poster" url="main.jpg")
-{% include image.html ?class="img-poster" url="mixed.jpg")
-{% include image.html ?class="img-poster" url="cylinder.jpg")
-
-
+<PostImage src={coverImage} class="img-poster" alt="Refractorium light simulation" />
+<PostImage src={mixedImage} class="img-poster" alt="Mixed light sources in Refractorium" />
+<PostImage src={cylinderImage} class="img-poster" alt="Light through a cylinder in Refractorium" />
