@@ -1,0 +1,6923 @@
+{
+  "date": "2026-09-28",
+  "brief": "docs/plans/2026-09-28-perf-03-images.md",
+  "artifactRoot": "artifacts/performance/20260928T093909Z-03-images",
+  "sourceHead": "9258973b3fd7b63cf32ed37b95e27716e939d75c",
+  "deliveryAtMeasurement": {
+    "state": "local-uncommitted",
+    "pushed": false,
+    "deployed": false
+  },
+  "lighthouse": {
+    "before": [
+      {
+        "route": "/",
+        "profile": "mobile",
+        "metrics": {
+          "performance": {
+            "median": 98,
+            "min": 97,
+            "max": 98,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 1372.4149499999999,
+            "min": 1362.34395,
+            "max": 1520.7560999999998,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 2337.34395,
+            "min": 2262.50055,
+            "max": 2413.2257999999997,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 13,
+            "min": 3,
+            "max": 26.5,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 1372.4149499999999,
+            "min": 1362.34395,
+            "max": 1520.7560999999998,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 614275,
+            "min": 614252,
+            "max": 614540,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/",
+        "profile": "desktop",
+        "metrics": {
+          "performance": {
+            "median": 100,
+            "min": 100,
+            "max": 100,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 340.61899999999997,
+            "min": 337.7066,
+            "max": 377.2464,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 500.6189999999999,
+            "min": 497.7066,
+            "max": 537.2464,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0.000131,
+            "min": 0.000128,
+            "max": 0.000677,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 340.61899999999997,
+            "min": 337.7066,
+            "max": 377.2464,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 1114266,
+            "min": 1114239,
+            "max": 1114560,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/reviews/",
+        "profile": "mobile",
+        "metrics": {
+          "performance": {
+            "median": 95,
+            "min": 95,
+            "max": 96,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 1820.3087999999998,
+            "min": 1817.3492999999999,
+            "max": 1832.5647000000001,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 2718.4539,
+            "min": 2642.3493,
+            "max": 2721.25635,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 8.5,
+            "min": 3,
+            "max": 21,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 1820.3087999999998,
+            "min": 1817.3492999999999,
+            "max": 1832.5647000000001,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 1406062,
+            "min": 1406059,
+            "max": 1406125,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/reviews/",
+        "profile": "desktop",
+        "metrics": {
+          "performance": {
+            "median": 100,
+            "min": 100,
+            "max": 100,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 442.93215,
+            "min": 438.78150000000005,
+            "max": 443.86244999999997,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 603.8624500000001,
+            "min": 580.15625,
+            "max": 622.93215,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0.000677,
+            "min": 0.000128,
+            "max": 0.000677,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 442.93215,
+            "min": 438.78150000000005,
+            "max": 443.86244999999997,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 2062658,
+            "min": 2062647,
+            "max": 2062713,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/reviews/flowchart/",
+        "profile": "mobile",
+        "metrics": {
+          "performance": {
+            "median": 93,
+            "min": 86,
+            "max": 95,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 1966.8717000000001,
+            "min": 1964.72865,
+            "max": 1971.76965,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 2615.0645000000004,
+            "min": 2609.8717,
+            "max": 3584.4200499999997,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 163,
+            "min": 83.18804999999998,
+            "max": 175.5,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 1966.8717000000001,
+            "min": 1964.72865,
+            "max": 1971.76965,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 589827,
+            "min": 589814,
+            "max": 590124,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/reviews/flowchart/",
+        "profile": "desktop",
+        "metrics": {
+          "performance": {
+            "median": 100,
+            "min": 100,
+            "max": 100,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 499.53135,
+            "min": 498.9366,
+            "max": 505.80854999999997,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 603.142375,
+            "min": 600.7805000000001,
+            "max": 650.0183499999999,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0.000128,
+            "min": 0.000128,
+            "max": 0.000128,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 499.53135,
+            "min": 498.9366,
+            "max": 505.80854999999997,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 675880,
+            "min": 675875,
+            "max": 675909,
+            "samples": 5
+          }
+        }
+      }
+    ],
+    "after": [
+      {
+        "route": "/",
+        "profile": "mobile",
+        "metrics": {
+          "performance": {
+            "median": 98,
+            "min": 98,
+            "max": 99,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 1368.4908,
+            "min": 1366.43865,
+            "max": 1515.4138500000001,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 2265.41385,
+            "min": 1763.091,
+            "max": 2341.43865,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 16,
+            "min": 13,
+            "max": 26.5,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 1368.4908,
+            "min": 1366.43865,
+            "max": 1515.4138500000001,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 614368,
+            "min": 614358,
+            "max": 614394,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/",
+        "profile": "desktop",
+        "metrics": {
+          "performance": {
+            "median": 100,
+            "min": 100,
+            "max": 100,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 345.26615000000004,
+            "min": 343.9127,
+            "max": 349.13210000000004,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 504.19259999999997,
+            "min": 409.13210000000004,
+            "max": 507.2907,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0.000128,
+            "min": 0.000128,
+            "max": 0.000128,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 345.26615000000004,
+            "min": 343.9127,
+            "max": 349.13210000000004,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 1114367,
+            "min": 1114359,
+            "max": 1114368,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/reviews/flowchart/",
+        "profile": "mobile",
+        "metrics": {
+          "performance": {
+            "median": 93,
+            "min": 93,
+            "max": 93,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 1974.8325,
+            "min": 1973.022,
+            "max": 1976.62185,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 2618.307,
+            "min": 2615.42015,
+            "max": 2623.022,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 158,
+            "min": 154.5,
+            "max": 170.5,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 1974.8325,
+            "min": 1973.022,
+            "max": 1976.62185,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 589943,
+            "min": 589930,
+            "max": 589946,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/reviews/flowchart/",
+        "profile": "desktop",
+        "metrics": {
+          "performance": {
+            "median": 100,
+            "min": 100,
+            "max": 100,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 507.4836,
+            "min": 503.736,
+            "max": 529.4027000000001,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 605.403,
+            "min": 602.7799999999999,
+            "max": 613.4027000000001,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0.000128,
+            "min": 0.000128,
+            "max": 0.000128,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 507.4836,
+            "min": 503.736,
+            "max": 529.4027000000001,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 675996,
+            "min": 675987,
+            "max": 676012,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/reviews/",
+        "profile": "mobile",
+        "metrics": {
+          "performance": {
+            "median": 96,
+            "min": 95,
+            "max": 97,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 1826.21475,
+            "min": 1824.82995,
+            "max": 1828.5342,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 2575.4514,
+            "min": 2353.0467,
+            "max": 2726.21475,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 15,
+            "min": 0,
+            "max": 31,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 1826.21475,
+            "min": 1824.82995,
+            "max": 1828.5342,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 1365134,
+            "min": 1365124,
+            "max": 1365149,
+            "samples": 5
+          }
+        }
+      },
+      {
+        "route": "/reviews/",
+        "profile": "desktop",
+        "metrics": {
+          "performance": {
+            "median": 100,
+            "min": 100,
+            "max": 100,
+            "samples": 5
+          },
+          "fcpMs": {
+            "median": 447.1335,
+            "min": 446.19015,
+            "max": 456.7741500000001,
+            "samples": 5
+          },
+          "lcpMs": {
+            "median": 567.1334999999999,
+            "min": 516.7741500000001,
+            "max": 586.19015,
+            "samples": 5
+          },
+          "tbtMs": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 5
+          },
+          "cls": {
+            "median": 0.000128,
+            "min": 0.000128,
+            "max": 0.008276,
+            "samples": 5
+          },
+          "speedIndexMs": {
+            "median": 447.1335,
+            "min": 446.19015,
+            "max": 456.7741500000001,
+            "samples": 5
+          },
+          "transferBytes": {
+            "median": 1403546,
+            "min": 1403535,
+            "max": 1403556,
+            "samples": 5
+          }
+        }
+      }
+    ]
+  },
+  "applied": {
+    "before": [
+      {
+        "route": "/",
+        "profile": "mobile",
+        "metrics": {
+          "fcpMs": {
+            "median": 548,
+            "min": 536,
+            "max": 552,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 604,
+            "min": 576,
+            "max": 604,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 1628.3000000044703,
+            "min": 1627.3999999985099,
+            "max": 1686.7000000029802,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 3195.3000000044703,
+            "min": 3182.2000000029802,
+            "max": 3229.2999999970198,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 32,
+            "min": 24,
+            "max": 40,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Open mobile menu": {
+            "median": 32,
+            "min": 24,
+            "max": 40,
+            "samples": 3
+          },
+          "Close mobile menu": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          },
+          "Scroll to featured reviews": null
+        }
+      },
+      {
+        "route": "/",
+        "profile": "desktop",
+        "metrics": {
+          "fcpMs": {
+            "median": 140,
+            "min": 140,
+            "max": 144,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 168,
+            "min": 168,
+            "max": 168,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0.00012796055511776552,
+            "min": 0.00012796055511776552,
+            "max": 0.00012796055511776552,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 142.60000000149012,
+            "min": 137.89999999850988,
+            "max": 142.89999999850988,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 1024.6000000014901,
+            "min": 1007.6000000014901,
+            "max": 1086.5,
+            "samples": 3
+          },
+          "maxEventMs": null
+        },
+        "actions": {
+          "Scroll to featured reviews": null
+        }
+      },
+      {
+        "route": "/reviews/",
+        "profile": "mobile",
+        "metrics": {
+          "fcpMs": {
+            "median": 616,
+            "min": 616,
+            "max": 620,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 664,
+            "min": 660,
+            "max": 672,
+            "samples": 3
+          },
+          "cls": {
+            "median": 3.9886648135759185e-5,
+            "min": 3.9886648135759185e-5,
+            "max": 3.9886648135759185e-5,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 3443.60000000149,
+            "min": 3437.5999999940395,
+            "max": 3469.89999999851,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 5294.5999999940395,
+            "min": 5293.5,
+            "max": 5298.70000000298,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 160,
+            "min": 152,
+            "max": 160,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Type cradle search": {
+            "median": 56,
+            "min": 56,
+            "max": 56,
+            "samples": 3
+          },
+          "Reset search": {
+            "median": 160,
+            "min": 152,
+            "max": 160,
+            "samples": 3
+          },
+          "Select first tag": {
+            "median": 48,
+            "min": 48,
+            "max": 56,
+            "samples": 3
+          },
+          "Switch to tier layout": {
+            "median": 144,
+            "min": 136,
+            "max": 144,
+            "samples": 3
+          },
+          "Reset filters and layout": {
+            "median": 144,
+            "min": 136,
+            "max": 144,
+            "samples": 3
+          }
+        }
+      },
+      {
+        "route": "/reviews/",
+        "profile": "desktop",
+        "metrics": {
+          "fcpMs": {
+            "median": 144,
+            "min": 144,
+            "max": 144,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 192,
+            "min": 184,
+            "max": 212,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0.14586491871698334,
+            "min": 0.14586491871698334,
+            "max": 0.14586491871698334,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 471.5,
+            "min": 454,
+            "max": 541.1000000014901,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 1465.6000000014901,
+            "min": 1461.9000000059605,
+            "max": 1505.5,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 88,
+            "min": 80,
+            "max": 96,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Type cradle search": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          },
+          "Reset search": {
+            "median": 88,
+            "min": 80,
+            "max": 96,
+            "samples": 3
+          },
+          "Select first tag": {
+            "median": 32,
+            "min": 32,
+            "max": 32,
+            "samples": 3
+          },
+          "Switch to tier layout": {
+            "median": 56,
+            "min": 48,
+            "max": 56,
+            "samples": 3
+          },
+          "Reset filters and layout": {
+            "median": 72,
+            "min": 72,
+            "max": 80,
+            "samples": 3
+          }
+        }
+      },
+      {
+        "route": "/reviews/flowchart/",
+        "profile": "mobile",
+        "metrics": {
+          "fcpMs": {
+            "median": 796,
+            "min": 796,
+            "max": 804,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 2020,
+            "min": 1996,
+            "max": 2056,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 2024.5,
+            "min": 1996.1999999955297,
+            "max": 2065,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 3360.39999999851,
+            "min": 3331.8000000044703,
+            "max": 3387.6999999955297,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 136,
+            "min": 120,
+            "max": 136,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Type cradle search": {
+            "median": 48,
+            "min": 48,
+            "max": 56,
+            "samples": 3
+          },
+          "Fit matching books": {
+            "median": 72,
+            "min": 64,
+            "max": 72,
+            "samples": 3
+          },
+          "Clear flowchart search": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          },
+          "Fit entire flowchart": {
+            "median": 136,
+            "min": 120,
+            "max": 136,
+            "samples": 3
+          },
+          "Zoom in": {
+            "median": 48,
+            "min": 48,
+            "max": 56,
+            "samples": 3
+          },
+          "Pan flowchart": {
+            "median": 32,
+            "min": 32,
+            "max": 32,
+            "samples": 3
+          }
+        }
+      },
+      {
+        "route": "/reviews/flowchart/",
+        "profile": "desktop",
+        "metrics": {
+          "fcpMs": {
+            "median": 168,
+            "min": 168,
+            "max": 184,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 176,
+            "min": 168,
+            "max": 192,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0.00012796055511776552,
+            "min": 0.00012796055511776552,
+            "max": 0.00012796055511776552,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 412.5,
+            "min": 410.29999999701977,
+            "max": 433.1000000014901,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 1101.1000000014901,
+            "min": 1092.7000000029802,
+            "max": 1159,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 208,
+            "min": 200,
+            "max": 232,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Type cradle search": {
+            "median": 32,
+            "min": 24,
+            "max": 32,
+            "samples": 3
+          },
+          "Fit matching books": {
+            "median": 48,
+            "min": 48,
+            "max": 48,
+            "samples": 3
+          },
+          "Clear flowchart search": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          },
+          "Fit entire flowchart": {
+            "median": 208,
+            "min": 200,
+            "max": 232,
+            "samples": 3
+          },
+          "Zoom in": {
+            "median": 120,
+            "min": 112,
+            "max": 120,
+            "samples": 3
+          },
+          "Pan flowchart": {
+            "median": 96,
+            "min": 96,
+            "max": 104,
+            "samples": 3
+          }
+        }
+      }
+    ],
+    "after": [
+      {
+        "route": "/",
+        "profile": "mobile",
+        "metrics": {
+          "fcpMs": {
+            "median": 540,
+            "min": 540,
+            "max": 556,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 580,
+            "min": 576,
+            "max": 600,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 1592.8999999985099,
+            "min": 1585.9000000059605,
+            "max": 1645.2000000029802,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 3194,
+            "min": 3187.5,
+            "max": 3218.5999999940395,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 24,
+            "min": 24,
+            "max": 40,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Open mobile menu": {
+            "median": 24,
+            "min": 24,
+            "max": 40,
+            "samples": 3
+          },
+          "Close mobile menu": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          },
+          "Scroll to featured reviews": null
+        }
+      },
+      {
+        "route": "/",
+        "profile": "desktop",
+        "metrics": {
+          "fcpMs": {
+            "median": 144,
+            "min": 140,
+            "max": 148,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 164,
+            "min": 160,
+            "max": 164,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0.00012796055511776552,
+            "min": 0.00012796055511776552,
+            "max": 0.00012796055511776552,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 139.89999999850988,
+            "min": 138.29999999701977,
+            "max": 141,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 1084.5,
+            "min": 1026,
+            "max": 1200.7999999970198,
+            "samples": 3
+          },
+          "maxEventMs": null
+        },
+        "actions": {
+          "Scroll to featured reviews": null
+        }
+      },
+      {
+        "route": "/reviews/flowchart/",
+        "profile": "mobile",
+        "metrics": {
+          "fcpMs": {
+            "median": 800,
+            "min": 796,
+            "max": 800,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 1952,
+            "min": 1948,
+            "max": 1956,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 1955.5,
+            "min": 1953.7999999970198,
+            "max": 1960.3999999985099,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 3382.89999999851,
+            "min": 3373.5,
+            "max": 3388.5,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 120,
+            "min": 112,
+            "max": 128,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Type cradle search": {
+            "median": 40,
+            "min": 40,
+            "max": 48,
+            "samples": 3
+          },
+          "Fit matching books": {
+            "median": 56,
+            "min": 56,
+            "max": 64,
+            "samples": 3
+          },
+          "Clear flowchart search": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          },
+          "Fit entire flowchart": {
+            "median": 120,
+            "min": 112,
+            "max": 128,
+            "samples": 3
+          },
+          "Zoom in": {
+            "median": 40,
+            "min": 40,
+            "max": 48,
+            "samples": 3
+          },
+          "Pan flowchart": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          }
+        }
+      },
+      {
+        "route": "/reviews/flowchart/",
+        "profile": "desktop",
+        "metrics": {
+          "fcpMs": {
+            "median": 168,
+            "min": 160,
+            "max": 168,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 176,
+            "min": 168,
+            "max": 176,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0.00012796055511776552,
+            "min": 0.00012796055511776552,
+            "max": 0.00012796055511776552,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 407.59999999403954,
+            "min": 406.1000000014901,
+            "max": 407.6000000014901,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 1098.2000000029802,
+            "min": 1092.5,
+            "max": 1102.5,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 200,
+            "min": 200,
+            "max": 200,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Type cradle search": {
+            "median": 32,
+            "min": 32,
+            "max": 40,
+            "samples": 3
+          },
+          "Fit matching books": {
+            "median": 40,
+            "min": 40,
+            "max": 48,
+            "samples": 3
+          },
+          "Clear flowchart search": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          },
+          "Fit entire flowchart": {
+            "median": 200,
+            "min": 200,
+            "max": 200,
+            "samples": 3
+          },
+          "Zoom in": {
+            "median": 112,
+            "min": 112,
+            "max": 112,
+            "samples": 3
+          },
+          "Pan flowchart": {
+            "median": 96,
+            "min": 96,
+            "max": 104,
+            "samples": 3
+          }
+        }
+      },
+      {
+        "route": "/reviews/",
+        "profile": "mobile",
+        "metrics": {
+          "fcpMs": {
+            "median": 608,
+            "min": 604,
+            "max": 616,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 640,
+            "min": 636,
+            "max": 648,
+            "samples": 3
+          },
+          "cls": {
+            "median": 3.9886648135759185e-5,
+            "min": 3.9886648135759185e-5,
+            "max": 3.9886648135759185e-5,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 3488.7000000029802,
+            "min": 3450.60000000149,
+            "max": 3500.60000000149,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 5118.20000000298,
+            "min": 5112,
+            "max": 5127.10000000149,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 160,
+            "min": 152,
+            "max": 168,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Type cradle search": {
+            "median": 48,
+            "min": 48,
+            "max": 64,
+            "samples": 3
+          },
+          "Reset search": {
+            "median": 152,
+            "min": 152,
+            "max": 168,
+            "samples": 3
+          },
+          "Select first tag": {
+            "median": 48,
+            "min": 48,
+            "max": 48,
+            "samples": 3
+          },
+          "Switch to tier layout": {
+            "median": 136,
+            "min": 128,
+            "max": 144,
+            "samples": 3
+          },
+          "Reset filters and layout": {
+            "median": 144,
+            "min": 144,
+            "max": 160,
+            "samples": 3
+          }
+        }
+      },
+      {
+        "route": "/reviews/",
+        "profile": "desktop",
+        "metrics": {
+          "fcpMs": {
+            "median": 152,
+            "min": 152,
+            "max": 156,
+            "samples": 3
+          },
+          "lcpMs": {
+            "median": 196,
+            "min": 196,
+            "max": 204,
+            "samples": 3
+          },
+          "cls": {
+            "median": 0.14586491871698334,
+            "min": 0.14586491871698334,
+            "max": 0.14586491871698334,
+            "samples": 3
+          },
+          "readyMs": {
+            "median": 429.8999999985099,
+            "min": 429.09999999403954,
+            "max": 438.8999999985099,
+            "samples": 3
+          },
+          "loadEndMs": {
+            "median": 1211.8999999985099,
+            "min": 1203.2999999970198,
+            "max": 1213.2999999970198,
+            "samples": 3
+          },
+          "maxEventMs": {
+            "median": 80,
+            "min": 80,
+            "max": 80,
+            "samples": 3
+          }
+        },
+        "actions": {
+          "Type cradle search": {
+            "median": 24,
+            "min": 24,
+            "max": 32,
+            "samples": 3
+          },
+          "Reset search": {
+            "median": 80,
+            "min": 80,
+            "max": 80,
+            "samples": 3
+          },
+          "Select first tag": {
+            "median": 24,
+            "min": 24,
+            "max": 24,
+            "samples": 3
+          },
+          "Switch to tier layout": {
+            "median": 48,
+            "min": 48,
+            "max": 56,
+            "samples": 3
+          },
+          "Reset filters and layout": {
+            "median": 72,
+            "min": 72,
+            "max": 72,
+            "samples": 3
+          }
+        }
+      }
+    ]
+  },
+  "cost": {
+    "before": {
+      "assetCount": 1918,
+      "assetBytes": 219253573,
+      "reviewsHtmlBytes": 456675,
+      "serializedPostsBytes": 134841
+    },
+    "after": {
+      "assetCount": 2852,
+      "assetBytes": 282255381,
+      "reviewsHtmlBytes": 559800,
+      "serializedPostsBytes": 176717,
+      "coverCount": 167,
+      "candidateCount": 934,
+      "candidateBytes": 62998222,
+      "gzipReviewsHtmlBytes": 69598
+    }
+  },
+  "quality": {
+    "browsers": {
+      "chromium": "147.0.7727.15",
+      "webkit": "26.4"
+    },
+    "profiles": [
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 122068
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 127304
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 121414
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 38882
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68770
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 73148
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68216
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 87.65625,
+          "height": 140.25
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 38882
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 87.65625,
+          "height": 140.25
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_aqDE9.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 47730,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 48030
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 87.671875,
+          "height": 140.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 73148
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 87.65625,
+          "height": 140.25
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1aPL6C.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 46232,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 46532
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 87.671875,
+          "height": 140.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [812, 375, 3],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [812, 375, 3],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [812, 375, 3],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 122068
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 127304
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 121414
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 38882
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68770
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 73148
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68216
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 92.65625,
+          "height": 148.25
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 38882
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 92.65625,
+          "height": 148.25
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_aqDE9.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 47730,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 48030
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 92.671875,
+          "height": 148.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 73148
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 92.65625,
+          "height": 148.25
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1aPL6C.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 46232,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 46532
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 92.671875,
+          "height": 148.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 122068
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 127304
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 121414
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 122068
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 127304
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 121414
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_aqDE9.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 47730,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 48030
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 127304
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1aPL6C.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 46232,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 46532
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_14HIhV.webp",
+        "selected": {
+          "width": 1000,
+          "height": 1600,
+          "bytes": 83228,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 83528
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_1tMqHT.webp",
+        "selected": {
+          "width": 1000,
+          "height": 1600,
+          "bytes": 182482,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 182782
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_2uweFC.webp",
+        "selected": {
+          "width": 1000,
+          "height": 1600,
+          "bytes": 185294,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 185594
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_qUssX.webp",
+        "selected": {
+          "width": 1000,
+          "height": 1600,
+          "bytes": 179256,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 179556
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 122068
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 127304
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 121414
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 60202
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68770
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 127304
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68216
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z2txn8t.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 20852,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 21152
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z1r2zCB.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 29438,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 29738
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_lm6jF.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 32966,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 33266
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1UmQT3.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 29460,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 29760
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z2txn8t.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 20852,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 21152
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z1r2zCB.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 29438,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 29738
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_lm6jF.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 32966,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 33266
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1UmQT3.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 29460,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 29760
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z2txn8t.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 20852,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 21152
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2jQPLU.webp",
+        "selected": {
+          "width": 150,
+          "height": 240,
+          "bytes": 13406,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 13706
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_lm6jF.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 32966,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 33266
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_SuYPL.webp",
+        "selected": {
+          "width": 150,
+          "height": 240,
+          "bytes": 13590,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 13890
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_ZT1mJ8.webp",
+        "selected": {
+          "width": 150,
+          "height": 240,
+          "bytes": 11624,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 11924
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 38882
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68770
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 73148
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68216
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 38882
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68770
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 73148
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68216
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 38882
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_aqDE9.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 47730,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 48030
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 73148
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 68216
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 17096
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 148.34375,
+          "height": 237.34375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 87.65625,
+          "height": 140.25
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_1Q7ES2.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 28800,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 87.671875,
+          "height": 140.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_aqDE9.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 47730,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 87.671875,
+          "height": 140.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_Zo9YsK.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 50858,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 87.671875,
+          "height": 140.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1aPL6C.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 46232,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 87.671875,
+          "height": 140.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [812, 375, 3],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [812, 375, 3],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [812, 375, 3],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 155.09375,
+          "height": 248.140625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 92.65625,
+          "height": 148.25
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_1Q7ES2.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 28800,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 92.671875,
+          "height": 148.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_aqDE9.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 47730,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 92.671875,
+          "height": 148.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_Zo9YsK.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 50858,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 92.671875,
+          "height": 148.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1aPL6C.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 46232,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 92.671875,
+          "height": 148.265625
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 173.09375,
+          "height": 276.9375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_1Q7ES2.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 28800,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_aqDE9.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 47730,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_Zo9YsK.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 50858,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1aPL6C.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 46232,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 106,
+          "height": 169.59375
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_14HIhV.webp",
+        "selected": {
+          "width": 1000,
+          "height": 1600,
+          "bytes": 83228,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_1tMqHT.webp",
+        "selected": {
+          "width": 1000,
+          "height": 1600,
+          "bytes": 182482,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_2uweFC.webp",
+        "selected": {
+          "width": 1000,
+          "height": 1600,
+          "bytes": 185294,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_qUssX.webp",
+        "selected": {
+          "width": 1000,
+          "height": 1600,
+          "bytes": 179256,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 59902,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z19PCv1.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121768,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_OV1i.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 127004,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1zPGAF.webp",
+        "selected": {
+          "width": 750,
+          "height": 1200,
+          "bytes": 121114,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 165,
+          "height": 264
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 100,
+          "height": 160
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z2txn8t.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 20852,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z1r2zCB.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 29438,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_lm6jF.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 32966,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1UmQT3.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 29460,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z2txn8t.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 20852,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z1r2zCB.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 29438,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_lm6jF.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 32966,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1UmQT3.webp",
+        "selected": {
+          "width": 250,
+          "height": 400,
+          "bytes": 29460,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_1yLSCb.webp",
+        "selected": {
+          "width": 150,
+          "height": 240,
+          "bytes": 10684,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2jQPLU.webp",
+        "selected": {
+          "width": 150,
+          "height": 240,
+          "bytes": 13406,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_ZFuKIB.webp",
+        "selected": {
+          "width": 150,
+          "height": 240,
+          "bytes": 14846,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_SuYPL.webp",
+        "selected": {
+          "width": 150,
+          "height": 240,
+          "bytes": 13590,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_ZT1mJ8.webp",
+        "selected": {
+          "width": 150,
+          "height": 240,
+          "bytes": 11624,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "wide",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "cradle",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 38582,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "bastion",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_Z2djE4J.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 68470,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_P51MR.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 72848,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_2p5Mnf.webp",
+        "selected": {
+          "width": 500,
+          "height": 800,
+          "bytes": 67916,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "cover",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 250,
+          "height": 400
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "cradle",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_1Q7ES2.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 28800,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/cradle/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "bastion",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.yDUIveTm_aqDE9.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 47730,
+          "format": "webp"
+        },
+        "original": {
+          "width": 3000,
+          "height": 4500,
+          "path": "content/reviews/bastion/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "mother_of_learning",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DPj4qSbr_Zo9YsK.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 50858,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1800,
+          "height": 2700,
+          "path": "content/reviews/mother_of_learning/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "dungeon_crawler_carl",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.DLsmFgvQ_1aPL6C.webp",
+        "selected": {
+          "width": 384,
+          "height": 614,
+          "bytes": 46232,
+          "format": "webp"
+        },
+        "original": {
+          "width": 1600,
+          "height": 2560,
+          "path": "content/reviews/dungeon_crawler_carl/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "layout": "tier",
+        "id": "greatest_archmage",
+        "css": {
+          "width": 150,
+          "height": 240
+        },
+        "src": "http://127.0.0.1:4331/_astro/cover.vRqf3uGL_Z1MiSDH.webp",
+        "selected": {
+          "width": 200,
+          "height": 300,
+          "bytes": 16796,
+          "format": "webp"
+        },
+        "original": {
+          "width": 200,
+          "height": 300,
+          "path": "content/reviews/greatest_archmage/cover.jpg"
+        },
+        "resolutionOK": true,
+        "transferBytes": 0
+      }
+    ],
+    "exports": [
+      {
+        "browser": "chromium",
+        "layout": "wide",
+        "mode": "short",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/chromium-short-wide-reviews-wide-2026-09-28.webp",
+        "output": {
+          "width": 2572,
+          "height": 816,
+          "format": "webp"
+        },
+        "coverCount": 1,
+        "failedPixels": [],
+        "letteringEdgeRatio": 0.9872665228394818,
+        "maximumColorMAE": 1.439453125
+      },
+      {
+        "browser": "chromium",
+        "layout": "wide",
+        "mode": "long",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/chromium-long-wide-reviews-wide-2026-09-28.webp",
+        "output": {
+          "width": 269,
+          "height": 8000,
+          "format": "webp"
+        },
+        "coverCount": 167,
+        "failedPixels": [],
+        "maximumColorMAE": 20.334852430555557
+      },
+      {
+        "browser": "chromium",
+        "layout": "cover",
+        "mode": "short",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/chromium-short-cover-reviews-cover-2026-09-28.webp",
+        "output": {
+          "width": 2572,
+          "height": 816,
+          "format": "webp"
+        },
+        "coverCount": 1,
+        "failedPixels": [],
+        "letteringEdgeRatio": 0.986904053296194,
+        "maximumColorMAE": 1.4503038194444444
+      },
+      {
+        "browser": "chromium",
+        "layout": "cover",
+        "mode": "long",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/chromium-long-cover-reviews-cover-2026-09-28.webp",
+        "output": {
+          "width": 539,
+          "height": 8000,
+          "format": "webp"
+        },
+        "coverCount": 167,
+        "failedPixels": [],
+        "maximumColorMAE": 10.470269097222221
+      },
+      {
+        "browser": "chromium",
+        "layout": "tier",
+        "mode": "short",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/chromium-short-tier-reviews-tier-2026-09-28.webp",
+        "output": {
+          "width": 2572,
+          "height": 557,
+          "format": "webp"
+        },
+        "coverCount": 1,
+        "failedPixels": [],
+        "letteringEdgeRatio": 0.832073577478707,
+        "maximumColorMAE": 2.7469618055555554
+      },
+      {
+        "browser": "chromium",
+        "layout": "tier",
+        "mode": "long",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/chromium-long-tier-reviews-tier-2026-09-28.webp",
+        "output": {
+          "width": 1350,
+          "height": 8000,
+          "format": "webp"
+        },
+        "coverCount": 167,
+        "failedPixels": [],
+        "maximumColorMAE": 12.158203125
+      },
+      {
+        "browser": "chromium",
+        "layout": "wide",
+        "mode": "area",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/chromium-area-wide-reviews-wide-2026-09-28.webp",
+        "output": {
+          "width": 4185,
+          "height": 3823,
+          "format": "webp"
+        },
+        "coverCount": 167,
+        "failedPixels": [],
+        "maximumColorMAE": 15.470703125
+      },
+      {
+        "browser": "chromium",
+        "layout": "wide",
+        "mode": "tiled",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/chromium-tiled-wide-reviews-wide-2026-09-28.webp",
+        "output": {
+          "width": 1750,
+          "height": 8000,
+          "format": "webp"
+        },
+        "coverCount": 25,
+        "failedPixels": [],
+        "maximumColorMAE": 6.010199652777778
+      },
+      {
+        "browser": "webkit",
+        "layout": "wide",
+        "mode": "short",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/webkit-short-wide-reviews-wide-2026-09-28.png",
+        "output": {
+          "width": 2572,
+          "height": 816,
+          "format": "png"
+        },
+        "coverCount": 1,
+        "failedPixels": [],
+        "letteringEdgeRatio": 0.9951049837341988,
+        "maximumColorMAE": 1.3524305555555556
+      },
+      {
+        "browser": "webkit",
+        "layout": "wide",
+        "mode": "long",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/webkit-long-wide-reviews-wide-2026-09-28.png",
+        "output": {
+          "width": 269,
+          "height": 8000,
+          "format": "png"
+        },
+        "coverCount": 167,
+        "failedPixels": [],
+        "maximumColorMAE": 21.766493055555557
+      },
+      {
+        "browser": "webkit",
+        "layout": "cover",
+        "mode": "short",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/webkit-short-cover-reviews-cover-2026-09-28.png",
+        "output": {
+          "width": 2572,
+          "height": 816,
+          "format": "png"
+        },
+        "coverCount": 1,
+        "failedPixels": [],
+        "letteringEdgeRatio": 0.9951049837341988,
+        "maximumColorMAE": 1.3524305555555556
+      },
+      {
+        "browser": "webkit",
+        "layout": "cover",
+        "mode": "long",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/webkit-long-cover-reviews-cover-2026-09-28.png",
+        "output": {
+          "width": 539,
+          "height": 8000,
+          "format": "png"
+        },
+        "coverCount": 167,
+        "failedPixels": [],
+        "maximumColorMAE": 10.206163194444445
+      },
+      {
+        "browser": "webkit",
+        "layout": "tier",
+        "mode": "short",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/webkit-short-tier-reviews-tier-2026-09-28.png",
+        "output": {
+          "width": 2572,
+          "height": 557,
+          "format": "png"
+        },
+        "coverCount": 1,
+        "failedPixels": [],
+        "letteringEdgeRatio": 0.8295222013661265,
+        "maximumColorMAE": 2.662326388888889
+      },
+      {
+        "browser": "webkit",
+        "layout": "tier",
+        "mode": "long",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/webkit-long-tier-reviews-tier-2026-09-28.png",
+        "output": {
+          "width": 1350,
+          "height": 8000,
+          "format": "png"
+        },
+        "coverCount": 167,
+        "failedPixels": [],
+        "maximumColorMAE": 11.036024305555555
+      },
+      {
+        "browser": "webkit",
+        "layout": "wide",
+        "mode": "area",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/webkit-area-wide-reviews-wide-2026-09-28.png",
+        "output": {
+          "width": 4185,
+          "height": 3823,
+          "format": "png"
+        },
+        "coverCount": 167,
+        "failedPixels": [],
+        "maximumColorMAE": 8.111328125
+      },
+      {
+        "browser": "webkit",
+        "layout": "wide",
+        "mode": "tiled",
+        "file": "artifacts/performance/20260928T093909Z-03-images/final-exports-02/webkit-tiled-wide-reviews-wide-2026-09-28.png",
+        "output": {
+          "width": 1750,
+          "height": 8000,
+          "format": "png"
+        },
+        "coverCount": 25,
+        "failedPixels": [],
+        "maximumColorMAE": 5.794270833333333
+      }
+    ],
+    "behavior": [
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "requestedCradleWidths": [500, 750]
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "requestedCradleWidths": [500]
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "requestedCradleWidths": [500, 750]
+      },
+      {
+        "browser": "chromium",
+        "profile": [375, 812, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "requestedCradleWidths": [500, 750]
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "requestedCradleWidths": [500]
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "requestedCradleWidths": [500]
+      },
+      {
+        "browser": "chromium",
+        "profile": [390, 844, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "requestedCradleWidths": [750]
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "requestedCradleWidths": [750]
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "requestedCradleWidths": [750]
+      },
+      {
+        "browser": "chromium",
+        "profile": [430, 932, 3],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "requestedCradleWidths": [750, 1000]
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "requestedCradleWidths": [750]
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "requestedCradleWidths": [750]
+      },
+      {
+        "browser": "chromium",
+        "profile": [412, 915, 4],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "requestedCradleWidths": [250]
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "requestedCradleWidths": [250]
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "requestedCradleWidths": [250]
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 1],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "requestedCradleWidths": [500]
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "requestedCradleWidths": [500]
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "requestedCradleWidths": [500]
+      },
+      {
+        "browser": "chromium",
+        "profile": [1350, 940, 2],
+        "errors": []
+      },
+      {
+        "browser": "chromium",
+        "filteredCount": 31,
+        "resetCount": 167,
+        "deferred": {
+          "link": "/reviews/fifty_shades_of_grey/",
+          "before": {
+            "x": 705,
+            "y": 19383,
+            "width": 250,
+            "height": 400
+          },
+          "after": {
+            "x": 705,
+            "y": 472,
+            "width": 250,
+            "height": 400
+          },
+          "listHeightBefore": 19104,
+          "listHeightAfter": 19104
+        }
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "requestedCradleWidths": [384, 500, 750]
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "requestedCradleWidths": [384, 500]
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "requestedCradleWidths": [384, 500, 750]
+      },
+      {
+        "browser": "webkit",
+        "profile": [375, 812, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "requestedCradleWidths": [384, 500, 750]
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "requestedCradleWidths": [384, 500]
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "requestedCradleWidths": [384, 500]
+      },
+      {
+        "browser": "webkit",
+        "profile": [390, 844, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "requestedCradleWidths": [384, 750]
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "requestedCradleWidths": [384, 750]
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "requestedCradleWidths": [384, 750]
+      },
+      {
+        "browser": "webkit",
+        "profile": [430, 932, 3],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "requestedCradleWidths": [500, 750, 1000]
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "requestedCradleWidths": [500, 750]
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "requestedCradleWidths": [500, 750]
+      },
+      {
+        "browser": "webkit",
+        "profile": [412, 915, 4],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "requestedCradleWidths": [150, 250]
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "requestedCradleWidths": [150, 250]
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "requestedCradleWidths": [150, 250]
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 1],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "requestedCradleWidths": [384, 500]
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "requestedCradleWidths": [384, 500]
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "requestedCradleWidths": [384, 500]
+      },
+      {
+        "browser": "webkit",
+        "profile": [1350, 940, 2],
+        "errors": []
+      },
+      {
+        "browser": "webkit",
+        "filteredCount": 31,
+        "resetCount": 167,
+        "deferred": {
+          "link": "/reviews/fifty_shades_of_grey/",
+          "before": {
+            "x": 705,
+            "y": 19439,
+            "width": 250,
+            "height": 400
+          },
+          "after": {
+            "x": 705,
+            "y": 472,
+            "width": 250,
+            "height": 400
+          },
+          "listHeightBefore": 19104,
+          "listHeightAfter": 19104
+        }
+      }
+    ],
+    "sourceLimitedAtDpr4": [
+      {
+        "id": "arcane_ascension",
+        "width": 864,
+        "height": 1296
+      },
+      {
+        "id": "the_legend_of_william_oh",
+        "width": 323,
+        "height": 500
+      },
+      {
+        "id": "super_supportive",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "thrones_of_the_fallen",
+        "width": 569,
+        "height": 907
+      },
+      {
+        "id": "the_archmage_coefficient",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "ironbound",
+        "width": 970,
+        "height": 1500
+      },
+      {
+        "id": "cybergene",
+        "width": 995,
+        "height": 1600
+      },
+      {
+        "id": "ghost_in_the_city",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "years_of_apocalypse",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "greatest_archmage",
+        "width": 200,
+        "height": 300
+      },
+      {
+        "id": "sky_pride",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "a_practical_guide_to_evil",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "bookbound_bunny",
+        "width": 971,
+        "height": 1500
+      },
+      {
+        "id": "path_of_the_deathless",
+        "width": 1000,
+        "height": 1500
+      },
+      {
+        "id": "scholomance",
+        "width": 1000,
+        "height": 1500
+      },
+      {
+        "id": "speedrunning_the_multiverse",
+        "width": 938,
+        "height": 1500
+      },
+      {
+        "id": "max_level_archmage",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "rolling_stone",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "virtuous_sons",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "id": "chaotic_craftsman",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "just_add_mana",
+        "width": 800,
+        "height": 1280
+      },
+      {
+        "id": "aura_overload",
+        "width": 820,
+        "height": 1160
+      },
+      {
+        "id": "syl",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "id": "corruption_wielder",
+        "width": 933,
+        "height": 1399
+      },
+      {
+        "id": "salvos",
+        "width": 960,
+        "height": 1440
+      },
+      {
+        "id": "runebound_professor",
+        "width": 885,
+        "height": 1500
+      },
+      {
+        "id": "system_override",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "chrysalis",
+        "width": 938,
+        "height": 1500
+      },
+      {
+        "id": "the_hundred_reigns",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "the_world_according_to_dragons",
+        "width": 800,
+        "height": 1280
+      },
+      {
+        "id": "dungeon_of_knowledge",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "level_one_god",
+        "width": 1033,
+        "height": 1500
+      },
+      {
+        "id": "player_manager",
+        "width": 1000,
+        "height": 1500
+      },
+      {
+        "id": "queen_in_the_mud",
+        "width": 575,
+        "height": 863
+      },
+      {
+        "id": "somnia",
+        "width": 704,
+        "height": 1056
+      },
+      {
+        "id": "casteless",
+        "width": 1000,
+        "height": 1500
+      },
+      {
+        "id": "discount_dan",
+        "width": 1000,
+        "height": 1500
+      },
+      {
+        "id": "never_fade_away",
+        "width": 800,
+        "height": 1280
+      },
+      {
+        "id": "solo_levelling",
+        "width": 353,
+        "height": 507
+      },
+      {
+        "id": "demon_tree",
+        "width": 788,
+        "height": 1184
+      },
+      {
+        "id": "seventh_bridge_to_the_heavens",
+        "width": 849,
+        "height": 1208
+      },
+      {
+        "id": "and_none_shall_remain",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "martial_peak",
+        "width": 794,
+        "height": 1000
+      },
+      {
+        "id": "shadow_slave",
+        "width": 600,
+        "height": 800
+      },
+      {
+        "id": "immaculate_collection",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "this_quest_is_bullshit",
+        "width": 938,
+        "height": 1500
+      },
+      {
+        "id": "tower_unbroken",
+        "width": 346,
+        "height": 500
+      },
+      {
+        "id": "commerce_emperor",
+        "width": 938,
+        "height": 1500
+      },
+      {
+        "id": "neon_dragons",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "id": "systema_delenda_est",
+        "width": 1001,
+        "height": 1500
+      },
+      {
+        "id": "turret_mage",
+        "width": 907,
+        "height": 1360
+      },
+      {
+        "id": "cultivation_nerd",
+        "width": 993,
+        "height": 1500
+      },
+      {
+        "id": "eight",
+        "width": 768,
+        "height": 1229
+      },
+      {
+        "id": "keiran_the_eternal_mage",
+        "width": 996,
+        "height": 1500
+      },
+      {
+        "id": "terminate_the_other_world",
+        "width": 1000,
+        "height": 1500
+      },
+      {
+        "id": "lightbringer",
+        "width": 500,
+        "height": 770
+      }
+    ],
+    "nativeVisualReview": {
+      "evidence": "artifacts/performance/20260928T093909Z-03-images/native-comparisons",
+      "samples": 12,
+      "method": "Unresized native crops: previous output, final output, and original-derived reference at identical geometry.",
+      "finding": "Improved DPR4 lettering and fine/dark detail, retained DPR1 readability and framing; low-resolution originals remain limited.",
+      "exportMethod": "All-cover position/content comparison plus native small-lettering inspection and targeted edge-energy regression check."
+    }
+  },
+  "verification": {
+    "flowchart": {
+      "passed": 4,
+      "failed": 0,
+      "evidence": "artifacts/performance/20260928T093909Z-03-images/final-flowchart/results.json"
+    },
+    "fonts": {
+      "passed": 28,
+      "failed": 0,
+      "evidence": "artifacts/performance/20260928T093909Z-03-images/final-fonts/results.json"
+    },
+    "fontFailuresAndExports": {
+      "passed": 10,
+      "failed": 0,
+      "evidence": "artifacts/performance/20260928T093909Z-03-images/final-font-failures-02/results.json"
+    },
+    "astroCheck": {
+      "errors": 0,
+      "warnings": 0,
+      "inheritedHints": 6,
+      "evidence": "artifacts/performance/20260928T093909Z-03-images/closing-check.log"
+    },
+    "build": {
+      "pages": 455,
+      "cachedSeconds": 5.95,
+      "evidence": "artifacts/performance/20260928T093909Z-03-images/final-export-build-03.log",
+      "coldBuildComparison": "Not collected; first-time candidate generation took 19.10s against a cached 5.91s baseline."
+    },
+    "fixtures": {
+      "passed": 6,
+      "evidence": "artifacts/performance/20260928T093909Z-03-images/fixture-results.json"
+    },
+    "zoomEquivalent": {
+      "mode": "Viewport and density equivalent of 150% desktop zoom; not a toolbar-zoom test",
+      "browser": "147.0.7727.15",
+      "rows": [
+        {
+          "label": "before",
+          "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_Z1YOrEh.webp",
+          "dpr": 2,
+          "cssWidth": 250,
+          "viewport": [1350, 940],
+          "selected": {
+            "width": 500,
+            "height": 800,
+            "bytes": 38582
+          }
+        },
+        {
+          "label": "150-percent-equivalent",
+          "src": "http://127.0.0.1:4331/_astro/cover.BEdHcDhY_2g7An5.webp",
+          "dpr": 3,
+          "cssWidth": 250,
+          "viewport": [900, 627],
+          "selected": {
+            "width": 750,
+            "height": 1200,
+            "bytes": 59902
+          }
+        }
+      ]
+    },
+    "descriptors": {
+      "covers": 167,
+      "candidates": 934,
+      "actualDimensionsChecked": true,
+      "noUpscaling": true
+    },
+    "flowchartColors": {
+      "passed": true,
+      "parsedEdges": 3,
+      "totalEdges": 269,
+      "limitation": "The separate color parser is incomplete."
+    }
+  },
+  "provenance": {
+    "beforeLoads": ["before-load", "before-load-extra"],
+    "beforeInteractions": "before-interactions",
+    "afterLoads": {
+      "/": "after-load",
+      "/reviews/": "after-reviews-load-02",
+      "/reviews/flowchart/": "after-load"
+    },
+    "afterInteractions": {
+      "/": "after-interactions",
+      "/reviews/": "after-reviews-interactions-02",
+      "/reviews/flowchart/": "after-interactions"
+    },
+    "browsingQuality": "final-quality/results.json",
+    "acceptedExports": "final-exports-02/results.json",
+    "sourceState": "final-state.json",
+    "patch": "final-owned.patch",
+    "runtime": "final-runtime.json",
+    "scope": "Production preview at 127.0.0.1:4331; no deployed, field, physical-device, or actual toolbar-zoom data.",
+    "regressionTiming": "Graph and typography checks preceded the last export-only opacity repair, with unchanged sources and graph bundle. Final exports and font failure/export checks ran after it.",
+    "excluded": "Failed NO_FCP cohort and diagnostics; earlier review timing cohorts and rejected export experiments remain in the artifact root."
+  }
+}

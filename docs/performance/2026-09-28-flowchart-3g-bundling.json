@@ -1,0 +1,143 @@
+{
+  "target": "http://127.0.0.1:4321/reviews/flowchart/",
+  "date": "2026-09-28T11:23:32.386Z",
+  "sourceHead": "9258973b3fd7b63cf32ed37b95e27716e939d75c",
+  "sourceNote": "Dirty checkout includes completed, uncommitted image work. Only bundle configuration changes between cohorts.",
+  "settings": {
+    "viewport": {
+      "width": 1350,
+      "height": 940
+    },
+    "deviceScaleFactor": 1,
+    "cpuRate": 1,
+    "latency": 2000,
+    "downloadThroughput": 50000,
+    "uploadThroughput": 50000
+  },
+  "browser": "147.0.7727.15",
+  "host": {
+    "cpu": "Apple M4 Pro",
+    "platform": "darwin",
+    "release": "25.6.0",
+    "node": "v22.22.2"
+  },
+  "cohorts": {
+    "before": {
+      "runs": 3,
+      "readyMs": {
+        "median": 10861.10000000149,
+        "min": 10857.69999999553,
+        "max": 11119.20000000298
+      },
+      "loadMs": {
+        "median": 18333.5,
+        "min": 18332.29999999702,
+        "max": 18593.30000000447
+      },
+      "fcpMs": {
+        "median": 5116,
+        "min": 5116,
+        "max": 5384
+      },
+      "lcpMs": {
+        "median": 5124,
+        "min": 5124,
+        "max": 5392
+      },
+      "transferBytes": {
+        "median": 673721,
+        "min": 673721,
+        "max": 674006
+      },
+      "localScripts": 12,
+      "pageErrors": [],
+      "localScriptBytes": 90772
+    },
+    "bundled": {
+      "runs": 3,
+      "readyMs": {
+        "median": 7231.89999999851,
+        "min": 7224.20000000298,
+        "max": 7258.79999999702
+      },
+      "loadMs": {
+        "median": 17733.69999999553,
+        "min": 17702.5,
+        "max": 17764.29999999702
+      },
+      "fcpMs": {
+        "median": 5148,
+        "min": 5148,
+        "max": 5148
+      },
+      "lcpMs": {
+        "median": 5156,
+        "min": 5156,
+        "max": 5160
+      },
+      "transferBytes": {
+        "median": 668511,
+        "min": 668501,
+        "max": 668795
+      },
+      "localScripts": 6,
+      "pageErrors": [],
+      "localScriptBytes": 85624
+    },
+    "final": {
+      "runs": 3,
+      "readyMs": {
+        "median": 7164.20000000298,
+        "min": 7145.29999999702,
+        "max": 7166.70000000298
+      },
+      "loadMs": {
+        "median": 17672,
+        "min": 17643.09999999404,
+        "max": 17674.60000000149
+      },
+      "fcpMs": {
+        "median": 5148,
+        "min": 5124,
+        "max": 5152
+      },
+      "lcpMs": {
+        "median": 5152,
+        "min": 5128,
+        "max": 5160
+      },
+      "transferBytes": {
+        "median": 667396,
+        "min": 667381,
+        "max": 667399
+      },
+      "localScripts": 4,
+      "pageErrors": [],
+      "localScriptBytes": 84532
+    }
+  },
+  "retained": "final",
+  "readinessReductionPercent": 34.03798878564789,
+  "limitations": [
+    "Local HTTP/1.1, not deployed HTTP/2 or field measurements.",
+    "Request-level CDP throttling, not a physical 3G device.",
+    "Heading LCP does not measure graph readiness.",
+    "Analytics remains enabled and may vary; each run records an aborted GA fetch plus a successful beacon.",
+    "No Lighthouse performance-score comparison is made."
+  ],
+  "verification": {
+    "astroCheck": {
+      "errors": 0,
+      "warnings": 0,
+      "inheritedHints": 6
+    },
+    "buildPages": 455,
+    "graphScenarioGroups": 34,
+    "graphBrowserProfiles": 4,
+    "graphDataUnchanged": true,
+    "sharedIslandBrowserChecks": 4,
+    "screenshotExports": 2,
+    "committedDuringProfiling": false,
+    "pushedDuringProfiling": false
+  }
+}

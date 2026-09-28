@@ -114,6 +114,40 @@ export async function resolveCover(
   return { src: optimized.src, width, height };
 }
 
+/** Review cards display a fixed 5:8 frame, including non-5:8 originals. */
+export async function resolveReviewCover(entry: CollectionEntry<'reviews'>) {
+  const smallest = await getImage({
+    src: resolveSource(entry), width: 150, height: 240, fit: 'fill',
+    quality: 85, format: 'webp',
+  });
+  // Read normalized metadata: accessing the imported proxy's dimensions also
+  // tells Astro 5 to publish every full-resolution original (about 100 MB).
+  const src = smallest.options.src as ImageMetadata;
+  const widths = [150, 250, 384, 500, 750, 1000];
+  const candidates = await Promise.all(widths
+    .filter(width => width <= src.width && Math.round(width * 1.6) <= src.height)
+    .map(async width => ({
+      width,
+      src: (await getImage({
+        src, width, height: Math.round(width * 1.6), fit: 'fill',
+        quality: width <= 250 ? 85 : 80, format: 'webp',
+      })).src,
+    })));
+  // A small original is the final candidate, without inventing more pixels.
+  if (src.width < 1000 || src.height < 1600) {
+    if (candidates.at(-1)?.width === src.width) candidates.pop();
+    candidates.push({
+      width: src.width,
+      src: (await getImage({ src, width: src.width, quality: src.width <= 250 ? 85 : 80, format: 'webp' })).src,
+    });
+  }
+  const fallback = candidates.find(image => image.width >= 500) ?? candidates.at(-1)!;
+  return {
+    src: fallback.src,
+    srcset: candidates.map(image => `${image.src} ${image.width}w`).join(', '),
+  };
+}
+
 export interface ResolvedArtistCover {
   /** Original cover id from `artists.yml`. Lets the consumer log misses. */
   id: string;

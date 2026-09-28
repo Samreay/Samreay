@@ -23,5 +23,7 @@ export interface Post {
   search_term: string;
   /** Pre-resolved cover URL (already optimized to webp by `getImage`). */
   img: string;
+  /** Width descriptors for original-derived review covers; img remains the fallback. */
+  cover?: { srcset: string };
   video?: string;
 }

@@ -11,19 +11,30 @@
 
   let { post, layout, isBookmarked = false, onToggleBookmark }: Props = $props();
 
-  // Svelte intentionally skips writing `src`/`srcset` during hydration so it
-  // doesn't re-download images the SSR HTML already loaded. But the reviews
-  // page is statically built in Rank order while the island can hydrate in
-  // Recent order (?o=0), so each reused DOM node keeps the SSR cover (wrong
-  // book) even though its title/alt correctly update. A reactive `src={post.img}`
-  // can't fix that — it's the very attribute hydration ignores. So once mounted
-  // (no longer hydrating) we set the correct cover on the real DOM node. In the
-  // matched-order case the attribute already equals post.img, so this is a no-op.
+  // Explicit sizes avoid auto sizing a newly mounted card before its grid
+  // has laid out, which can request the largest candidate during transitions.
+  const sizes = $derived(layout === 'wide' ? '250px' : layout === 'cover'
+    ? '(min-width: 640px) 250px, min(250px, calc(45vw - 20.4px))'
+    : '(min-width: 640px) 150px, calc((100vw - 112px) / 3)');
   let imgEl: HTMLImageElement | undefined = $state();
+  let coverReady = $state(true);
+
+  function selectedCoverMatches(img: HTMLImageElement): boolean {
+    return [post.img, ...(post.cover?.srcset ?? '').split(',').map(s => s.trim().split(' ')[0])]
+      .some(src => src && new URL(src, document.baseURI).href === img.currentSrc);
+  }
+
+  // Svelte skips src/srcset writes during hydration. URL sorting can reuse
+  // a rank-ordered SSR node for a different book, so repair all three attrs
+  // together before the browser selects an image. Hide any stale decoded cover.
   $effect(() => {
-    if (imgEl && imgEl.getAttribute('src') !== post.img) {
-      imgEl.setAttribute('src', post.img);
-    }
+    if (!imgEl) return;
+    if (imgEl.currentSrc && !selectedCoverMatches(imgEl)) coverReady = false;
+    if (imgEl.getAttribute('sizes') !== sizes) imgEl.setAttribute('sizes', sizes);
+    if (post.cover && imgEl.getAttribute('srcset') !== post.cover.srcset) imgEl.setAttribute('srcset', post.cover.srcset);
+    else if (!post.cover) imgEl.removeAttribute('srcset');
+    if (imgEl.getAttribute('src') !== post.img) imgEl.setAttribute('src', post.img);
+    if (imgEl.complete && imgEl.naturalWidth && selectedCoverMatches(imgEl)) coverReady = true;
   });
 
   const wideRoundedClass = $derived(layout === 'wide' ? 'md:rounded-l-xl' : '');
@@ -80,7 +91,10 @@
     if (layout !== 'tier' || !imgEl) return;
     void post.img; // re-run when the cover target changes (hydration swap)
     const img = imgEl;
-    const run = () => (captionColor = captionColorFor(img));
+    captionColor = '';
+    const run = () => {
+      if (selectedCoverMatches(img)) captionColor = captionColorFor(img);
+    };
     if (img.complete && img.naturalWidth > 0) run();
     // Keep listening (not once): the effect above may swap `src` after an
     // order-mismatched hydration, and the new cover's load must recompute.
@@ -174,17 +188,17 @@
                     <source src={post.video} type="video/mp4" />
                   </video>
                 {:else}
-                  <!-- Bind the real cover to `src` directly. The reviews page
-                       is statically built in Rank order, but the island can
-                       hydrate in Recent order (?o=0). A constant placeholder
-                       src + `<source srcset>` left covers stuck in SSR order on
-                       a mismatched hydration, since mutating a parsed picture's
-                       source doesn't reload the img. A reactive `src` does. -->
                   <img
                     bind:this={imgEl}
                     loading="lazy"
                     class="block flex-none bg-cover mx-auto {wideRoundedClass}"
+                    {sizes}
+                    srcset={post.cover?.srcset}
                     src={post.img}
+                    style:visibility={coverReady ? undefined : 'hidden'}
+                    onload={() => {
+                      if (imgEl && selectedCoverMatches(imgEl)) coverReady = true;
+                    }}
                     width="250"
                     height="400"
                     alt={post.name}

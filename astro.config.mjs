@@ -45,6 +45,26 @@ export default defineConfig({
     // and `![...](path.png)` references in markdown keep resolving.
     contentAssets(),
     flowchartPreload(),
+    {
+      name: 'svelte-runtime-bundle',
+      hooks: {
+        'astro:build:setup': ({ target, updateConfig }) => {
+          if (target !== 'client') return;
+          updateConfig({
+            build: {
+              rollupOptions: {
+                output: {
+                  onlyExplicitManualChunks: false,
+                  // Avoid many tiny runtime requests without pulling graph or
+                  // export dependencies into every page's mobile menu.
+                  manualChunks: (id) => (id.includes('/node_modules/svelte/') ? 'svelte-runtime' : undefined),
+                },
+              },
+            },
+          });
+        },
+      },
+    },
     // Dev-only authoring endpoint for the flowchart's position cache.
     // Lives at `/api/flowchart-positions.json` while `astro dev` is
     // running; absent from the production build entirely. Backs the

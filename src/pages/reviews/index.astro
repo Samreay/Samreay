@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewsExplorer from '../../components/islands/ReviewsExplorer.svelte';
-import { resolveCover } from '../../lib/covers';
+import { resolveReviewCover } from '../../lib/covers';
 import type { Post, ReviewTier } from '../../lib/types';
 
 const entries = await getCollection('reviews');
@@ -10,7 +10,7 @@ const sorted = entries.sort((a, b) => a.data.weight - b.data.weight);
 
 const posts: Post[] = await Promise.all(
   sorted.map(async (entry) => {
-    const cover = await resolveCover(entry, 500, 800);
+    const cover = await resolveReviewCover(entry);
     const sortedTags = [...entry.data.tags].sort().map((t) => t.toLowerCase());
     return {
       name: entry.data.name,
@@ -26,6 +26,7 @@ const posts: Post[] = await Promise.all(
       description: entry.data.description,
       search_term: `${entry.data.auth} ${entry.data.name} ${entry.data.search_terms ?? ''}`.toLowerCase(),
       img: cover.src,
+      cover: { srcset: cover.srcset },
       video: entry.data.video,
     };
   })

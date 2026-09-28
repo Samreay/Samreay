@@ -343,3 +343,72 @@ hydration and existing screenshot-export crop defects remain separate issues.
 
 See the [font performance report](performance/2026-09-28-perf-02-fonts-results.md)
 for the calculation, delayed-font checks, complete measurements, and limits.
+
+---
+
+## ADR-017: Size review covers for their display and export
+
+**Context:** Every review card downloaded a 500 px cover, whether displayed as a
+small tier tile or a 250 px card on a DPR 4 screen. The former wastes bytes; the
+latter lacks detail. Screenshot exports also misplaced auto-fit grid items and
+clipped long lists in WebKit.
+
+**Decision:** Generate 150, 250, 384, 500, 750, and 1,000 px WebP candidates from
+the existing source resolver at quality 80 (85 up to 250 px). Match the small
+candidates to the rendered card widths to avoid resampling tiny lettering.
+Preserve the cards' existing 5:8
+stretch in generated candidates, without cropping. When an original cannot
+support a candidate in both dimensions, stop resizing and include its native
+resolution as the final candidate. Keep `Post.img` as a fallback and add an
+optional `cover.srcset` string. Other cover consumers retain their existing
+image transforms.
+
+Use explicit, layout-aware `sizes`. Browser testing found that `sizes="auto"`
+could fetch the largest candidate while a newly mounted grid had no layout.
+Repair `sizes`, `srcset`, and `src` together after hydration, and hide any stale
+decoded cover until it belongs to the current book.
+
+For export, select and decode sources for the export scale on the detached
+clone, clearing visibility and opacity copied from hydration-hidden images.
+Preserve measured card positions and rasterize long lists in 4,000 CSS
+pixel tiles. Retain the existing 2×, 8,000 px side, and 16 MP output limits; use
+quality 90 for the final WebP to limit additional compression damage. Upscaled
+tiles use a pixel-sized SVG with an internally scaled HTML wrapper so WebKit
+does not enlarge a 1× intermediate bitmap.
+
+**Tradeoff:** More variants increase build output and serialized HTML, and high
+DPR devices can download more bytes to gain detail. Small originals remain a
+quality limit. Read original dimensions through `getImage`'s normalized options:
+reading the imported metadata proxy directly makes Astro 5 publish otherwise
+unused originals. Recheck candidate selection, native pixels, and export limits
+when changing the card layout, Astro, or snapdom.
+
+See the [image performance report](performance/2026-09-28-perf-03-images-results.md)
+for the density matrix, downloaded-pixel checks, payload costs, and measurements.
+
+---
+
+## ADR-018: Bundle the shared Svelte runtime for slow connections
+
+**Context:** With Chrome's cold 3G settings, the local HTTP/1.1 preview queued
+small shared modules even though the flowchart preloaded its complete import
+tree. Median graph readiness was 10.86 seconds across three runs.
+
+**Decision:** During the client build, assign Svelte modules and their static
+dependencies to one `svelte-runtime` chunk through Rollup's `manualChunks`.
+Keep the existing flowchart preload integration so it discovers the resulting
+three-module graph tree automatically.
+
+**Tradeoff:** Pages share a larger runtime unit, so a runtime change invalidates
+that whole chunk. Home loads 5,337 more raw JavaScript bytes, but only 61 more
+gzip bytes, while its first-party script requests drop from nine to three.
+Reviews' gzip JavaScript shrinks by 2,172 bytes. Graph code remains specific to
+the flowchart, and screenshot capture still loads snapdom on demand.
+
+The retained build reduced local cold-3G graph readiness to 7.16 seconds,
+a 34% improvement. Total loading still includes substantial image and analytics
+traffic. This does not establish the same gain on deployed HTTP/2, and it is
+not comparable to the earlier, faster network profile's two-second result.
+
+See the [3G bundling measurements](performance/2026-09-28-flowchart-3g-bundling.md)
+for request timing, visual checks, and limitations.
