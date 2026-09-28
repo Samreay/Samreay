@@ -5,6 +5,9 @@
 
   let { id, data }: NodeProps<DecisionFlowNode> = $props();
 
+  const isNodeDimmed = getContext<((nodeId: string) => boolean) | undefined>('isNodeDimmed');
+  const isDimmed = $derived(isNodeDimmed?.(id) ?? false);
+
   const getPulsingNodes = getContext<() => Set<string>>('pulsingNodes');
   const isPulsing = $derived(getPulsingNodes?.().has(id) ?? false);
 
@@ -38,7 +41,7 @@
 <Handle type="source" position={Position.Left} id="left" />
 
 <div
-  class={['decision-node', data.size === 'large' && 'decision-node--large', isPulsing && 'decision-node--pulse', isStart && 'decision-node--start', !isStart && 'decision-node--entry']}
+  class={['decision-node', data.size === 'large' && 'decision-node--large', isPulsing && 'decision-node--pulse', isDimmed && 'flowchart-dim', isStart && 'decision-node--start', !isStart && 'decision-node--entry']}
   style={`${accentStyle} --node-flash-color: ${data.accent.line};`}
   role="button"
   tabindex={0}

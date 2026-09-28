@@ -8,6 +8,9 @@
   // would otherwise break `.review-S`, `.card_overlay_S`, `.tag-<name>`, etc.
   let { id, data }: NodeProps<BookFlowNode> = $props();
 
+  const isNodeDimmed = getContext<((nodeId: string) => boolean) | undefined>('isNodeDimmed');
+  const isDimmed = $derived(isNodeDimmed?.(id) ?? false);
+
   const getPulsingNodes = getContext<() => Set<string>>('pulsingNodes');
   const isPulsing = $derived(getPulsingNodes?.().has(id) ?? false);
 </script>
@@ -25,7 +28,7 @@
 <Handle type="source" position={Position.Left} id="left" />
 
 <div
-  class={['book-node fancy_card horizontal mx-auto', isPulsing && 'book-node--pulse'].filter(Boolean).join(' ')}
+  class={['book-node fancy_card horizontal mx-auto', isPulsing && 'book-node--pulse', isDimmed && 'flowchart-dim'].filter(Boolean).join(' ')}
   style={`--node-flash-color: ${data.tierFlashColor};`}
   data-review-card
 >
@@ -41,7 +44,7 @@
             <div class="bg-inner flex flex-row w-full bg-gray-800">
               <figure class="block flex-none bg-cover">
                 <img
-                  loading="eager"
+                  loading="lazy"
                   class="block flex-none bg-cover mx-auto md:rounded-l-xl"
                   src={data.cover.src}
                   width={data.cover.width}

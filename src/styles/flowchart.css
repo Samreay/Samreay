@@ -193,19 +193,15 @@
   letter-spacing: 0.01em;
 }
 
-/* ── Search dim ──────────────────────────────────────────────────────
-   Toggled by the search bar in `Flowchart.svelte`. Setting `node.class`
-   on a node puts the class on `.svelte-flow__node`. For edges we set
-   `data.dim = true` and `OffsetLabelEdge.svelte` reads it and applies
-   the class to BOTH the SVG path AND the (portalled) HTML label so
-   they fade as a unit. The base-state transitions are here so the
-   fade-back-up after clearing the query is smooth, not a snap. */
-.flowchart-page .svelte-flow__node,
+/* Search dims custom node content and both parts of each edge. */
+.flowchart-page .book-node,
+.flowchart-page .decision-node,
 .flowchart-page .svelte-flow__edge-path,
 .flowchart-page .svelte-flow__edge-label {
   transition: opacity 150ms ease;
 }
-.flowchart-page .svelte-flow__node.flowchart-dim,
+.flowchart-page .book-node.flowchart-dim,
+.flowchart-page .decision-node.flowchart-dim,
 .flowchart-page .svelte-flow__edge-path.flowchart-dim,
 .flowchart-page .svelte-flow__edge-label.flowchart-dim {
   opacity: 0.2;

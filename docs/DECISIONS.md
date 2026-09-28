@@ -242,3 +242,28 @@ run from hours to minutes. The read-only guard, not convention, is what
 guarantees this skill never modifies Reddit; adding a write would require a
 deliberate change to `reddit_auth.py`. `historical.py` (PullPush) and cover
 downloads from `i.redd.it`/`preview.redd.it` stay unauthenticated.
+
+---
+
+## ADR-013: Render the flowchart viewport while retaining the complete model
+
+**Context:** The flowchart initially mounted 269 nodes and eagerly downloaded
+167 book covers. Native image lazy loading reduced transfer, but mounting the
+whole graph and replacing its node array on each search still caused avoidable
+rendering work.
+
+**Decision:** Enable SvelteFlow's `onlyRenderVisibleElements` in production and
+use native lazy loading for book covers. Keep every node and edge in the model,
+with the existing cached positions and explicit sizes. Search dims custom node
+content through a reactive context predicate instead of replacing the graph
+model. Dev authoring continues to mount all nodes.
+
+**Consequences:** Search, quiz navigation, fitting and the minimap still use the
+complete graph. Unmounted nodes use existing size fallbacks when the camera
+targets them. Covers retain their dimensions and image renditions; browsers
+control their loading threshold. Viewport changes can incur mount work: desktop
+Fit View measured 200 ms versus a 192 ms baseline median, within its 152–224 ms
+range. Mobile search and clear-search medians fell from 200/216 ms to 48/24 ms.
+Recheck distant navigation, delayed covers, pulses and observer cleanup when
+upgrading SvelteFlow. Measurements and browser coverage are recorded in the
+[flowchart performance report](performance/2026-09-28-perf-01-flowchart-results.md).

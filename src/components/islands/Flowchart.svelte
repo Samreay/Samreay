@@ -428,64 +428,14 @@
     return n;
   });
 
-  /**
-   * Toggle the `flowchart-dim` class on each node and the
-   * `data.dim` flag on each edge so the matching CSS rule fades
-   * non-matching elements to 20% opacity.
-   *
-   * Nodes vs edges use different update paths because xyflow stores
-   * them differently:
-   *
-   *   - Nodes: REPLACE the entire `nodes` array. xyflow's
-   *     `adoptUserNodes` (see
-   *     `node_modules/@xyflow/system/dist/esm/index.js`) does a
-   *     reference-equality check `userNode === internals.userNode`
-   *     and skips re-spreading user fields onto the cached internal
-   *     node when references match. Two complications make slot-
-   *     mutation insufficient:
-   *       1. Mutating `node.class = …` in place keeps the same
-   *          reference, so checkEquality passes and the new class
-   *          never reaches the DOM.
-   *       2. Even REPLACING `nodes[i] = {...}` doesn't help on its
-   *          own — Svelte 5's recursive $state proxy returns the
-   *          SAME wrapper proxy for a given array slot regardless of
-   *          how many times we replace the underlying object, so
-   *          xyflow still sees identical references.
-   *     The reliable path is to assign a fresh array via
-   *     `nodes = nodes.map(...)`. That changes the array identity,
-   *     re-triggers the `nodesInitialized` $derived inside xyflow,
-   *     and inside that pass each individual node's userProxy is
-   *     wrapped fresh — so checkEquality fails for the entries we
-   *     spread and the new `class` is captured. Unchanged entries
-   *     are returned by-reference from `.map`, so xyflow correctly
-   *     skips re-spreading them.
-   *
-   *   - Edges: MUTATE `edge.data.dim` in place. Our custom
-   *     `OffsetLabelEdge` reads it through Svelte 5's recursive
-   *     $state proxy, which DOES intercept deep mutations because
-   *     the consumer reads through the same proxy on every render.
-   *     The dim class flows to both the path and the (portalled)
-   *     label without going through xyflow's internal-node cache.
-   *
-   * The `if (changed)` guard on the node assignment is what stops
-   * the effect from looping forever — on a stable search state no
-   * node needs reassignment, no write happens, no rerun.
-   *
-   * Position is preserved across the spread because we forward the
-   * existing `node.position` object reference, so any concurrent
-   * dev-mode drag remains valid.
-   */
+  // Dimming custom nodes avoids replacing the graph model on every keystroke.
+  const dimActive = $derived(matchedNodeIds !== null && totalMatches > 0);
+  setContext<(nodeId: string) => boolean>(
+    'isNodeDimmed',
+    (nodeId) => dimActive && !matchedNodeIds!.has(nodeId),
+  );
+
   $effect(() => {
-    const dimActive = matchedNodeIds !== null && totalMatches > 0;
-    let changed = false;
-    const nextNodes = nodes.map((node) => {
-      const matched = !dimActive || matchedNodeIds!.has(node.id);
-      const next = matched ? undefined : 'flowchart-dim';
-      if (node.class === next) return node;
-      changed = true;
-      return { ...node, class: next };
-    });
-    if (changed) nodes = nextNodes;
     for (const edge of edges) {
       if (!edge.data) continue; // every edge has data set in flowchart-layout.ts
       const matched = !dimActive || matchedEdgeIds!.has(edge.id);
@@ -848,6 +798,7 @@
       bind:edges
       {nodeTypes}
       {edgeTypes}
+      onlyRenderVisibleElements={!isDev}
       colorMode="dark"
       initialViewport={{ x: canvasWidth / 2, y: canvasHeight / 2, zoom: 0.3 }}
       proOptions={{ hideAttribution: true }}
