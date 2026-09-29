@@ -134,6 +134,12 @@ export const flowchart: FlowchartData = {
         'Does the book feature an effectively unkillable protagonist who survives through sheer tenacity rather than power?',
     },
     {
+      id: 'd_and_they_do_what',
+      prompt: 'And they do what?',
+      description:
+        "In this system-apocalypse book, what do the protagonist's skills focus on — crafting, keeping their kids alive, or collecting loot?",
+    },
+    {
       id: 'd_are_weird_creature_companions',
       prompt: 'Are weird creature companions good?',
       description: 'Does the book feature memorable non-human companion creatures as a significant element?',
@@ -184,7 +190,7 @@ export const flowchart: FlowchartData = {
       id: 'd_deliver_pain_via_weapons_or_ma',
       prompt: 'Deliver pain via weapons or magic?',
       description:
-        "In this system-apocalypse book, where does the protagonist's effort mostly go — weapons, magic, crafting, working the economy, building up a settlement, or simply surviving?",
+        "In this system-apocalypse book, where does the protagonist's effort mostly go — weapons, magic, practical skills, or working the economy?",
     },
     {
       id: 'd_do_you_like_a_good_crafting_se',
@@ -518,7 +524,14 @@ export const flowchart: FlowchartData = {
     {
       id: 'd_weapon_preference_electric_boo',
       prompt: 'Weapon Preference... electric boogaloo',
-      description: 'The reader wants melee weapons. Which specific melee weapon does the protagonist use?',
+      description:
+        'The reader wants melee combat. Does the protagonist fight with friends, a spear, a slashing weapon, or fists and feet?',
+    },
+    {
+      id: 'd_please_be_specific',
+      prompt: 'Please be specific',
+      description:
+        'The reader wants a slashing melee weapon. Does the protagonist use a katana, an axe, or a sword with runic magic?',
     },
     {
       id: 'd_what_about_tone_something_ligh',
@@ -752,6 +765,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_forge_destiny', reviewId: 'forge_of_destiny' },
     { id: 'b_ghost_city', reviewId: 'ghost_in_the_city' },
     { id: 'b_ghost_truthseeker', reviewId: 'ghost_of_the_truthseeker' },
+    { id: 'b_gift_of_loot', reviewId: 'gift_of_loot' },
     { id: 'b_godclads', reviewId: 'godclads' },
     { id: 'b_guild_mage', reviewId: 'guild_mage' },
     { id: 'b_heretical_fishing', reviewId: 'heretical_fishing' },
@@ -798,6 +812,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_remonarch', reviewId: 'remonarch' },
     { id: 'b_rock_falls', reviewId: 'rolling_stone' },
     { id: 'b_rogue_dungeon', reviewId: 'rogue_dungeon' },
+    { id: 'b_runeblade', reviewId: 'runeblade' },
     { id: 'b_runebound_professor', reviewId: 'runebound_professor' },
     { id: 'b_runic_artist', reviewId: 'runic_artist' },
     { id: 'b_saintess_skel', reviewId: 'saintess_summons_skeletons' },
@@ -977,11 +992,32 @@ export const flowchart: FlowchartData = {
       color: 'teal',
     },
     {
-      id: 'e_d_weapon_preference_electric_boo_d_axe_style',
+      id: 'e_d_weapon_preference_electric_boo_d_please_be_specific',
       source: 'd_weapon_preference_electric_boo',
+      target: 'd_please_be_specific',
+      label: 'Slicy bois',
+      color: 'red',
+    },
+    {
+      id: 'e_d_please_be_specific_b_shadow_slave',
+      source: 'd_please_be_specific',
+      target: 'b_shadow_slave',
+      label: 'Katana',
+      color: 'sky',
+    },
+    {
+      id: 'e_d_please_be_specific_d_axe_style',
+      source: 'd_please_be_specific',
       target: 'd_axe_style',
       label: 'Axe',
       color: 'red',
+    },
+    {
+      id: 'e_d_please_be_specific_b_runeblade',
+      source: 'd_please_be_specific',
+      target: 'b_runeblade',
+      label: 'Sword and runes',
+      color: 'violet',
     },
     {
       id: 'e_d_axe_style_b_dotf',
@@ -1003,13 +1039,6 @@ export const flowchart: FlowchartData = {
       target: 'd_sassy_cat_companion',
       label: 'Fists and feet',
       color: 'yellow',
-    },
-    {
-      id: 'e_d_weapon_preference_electric_boo_b_shadow_slave',
-      source: 'd_weapon_preference_electric_boo',
-      target: 'b_shadow_slave',
-      label: 'Katana',
-      color: 'sky',
     },
     {
       id: 'e_d_epic_fantasy_or_traditional_cu_d_privileged_because',
@@ -1362,25 +1391,39 @@ export const flowchart: FlowchartData = {
       color: 'green',
     },
     {
-      id: 'e_d_deliver_pain_via_weapons_or_ma_b_industrial_magic',
-      source: 'd_deliver_pain_via_weapons_or_ma',
-      target: 'b_industrial_magic',
-      label: 'Crafting',
-      color: 'orange',
-    },
-    {
-      id: 'e_d_deliver_pain_via_weapons_or_ma_b_apocalypse_parenting',
-      source: 'd_deliver_pain_via_weapons_or_ma',
-      target: 'b_apocalypse_parenting',
-      label: 'Can we just stay alive please?',
-      color: 'purple',
-    },
-    {
       id: 'e_d_deliver_pain_via_weapons_or_ma_d_opness',
       source: 'd_deliver_pain_via_weapons_or_ma',
       target: 'd_opness',
       label: 'Magic',
       color: 'sky',
+    },
+    {
+      id: 'e_d_deliver_pain_via_weapons_or_ma_d_and_they_do_what',
+      source: 'd_deliver_pain_via_weapons_or_ma',
+      target: 'd_and_they_do_what',
+      label: 'Nah I like Skills',
+      color: 'cyan',
+    },
+    {
+      id: 'e_d_and_they_do_what_b_industrial_magic',
+      source: 'd_and_they_do_what',
+      target: 'b_industrial_magic',
+      label: 'Crafting',
+      color: 'orange',
+    },
+    {
+      id: 'e_d_and_they_do_what_b_apocalypse_parenting',
+      source: 'd_and_they_do_what',
+      target: 'b_apocalypse_parenting',
+      label: 'Keep my kids alive',
+      color: 'purple',
+    },
+    {
+      id: 'e_d_and_they_do_what_b_gift_of_loot',
+      source: 'd_and_they_do_what',
+      target: 'b_gift_of_loot',
+      label: 'Unleash the loot goblin inside us',
+      color: 'amber',
     },
     {
       id: 'e_d_how_dat_b_welcome_multiverse',
