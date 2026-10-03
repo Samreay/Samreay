@@ -36,9 +36,9 @@ Create `content/reviews/<slug>/index.md` plus assets in the same folder.
 
 ### Body markdown
 
-- Many reviews include a `## Blurb` section after optional "as of writing…" lines; paste cleaned Amazon/editorial description there (plain paragraphs; no HTML unless matching an existing review style).
+- Many reviews include a `## Blurb` section after optional "as of writing…" lines; copy the Amazon product description verbatim there, following the Amazon blurb rules below (plain paragraphs; no HTML unless matching an existing review style).
 - Some use blockquotes for blurbs instead—default to `## Blurb` + paragraphs unless user wants another style.
-- **Always** include a `## Thoughts` section after the blurb (placeholder or draft text is fine). Do not omit it from new stubs.
+- **Always** include a `## Thoughts` section after the blurb, with `### Pros` and `### Cons` containing sourced dot points. Leave review prose for the user to write unless they explicitly request it.
 - Cover in-folder: `cover.jpg` or `cover.png` as a **page resource**. The list template matches `*cover*` in page resources; inline image example used elsewhere: `![](cover.jpg?class="img-smaller")`.
 
 ### Folder slug `<slug>`
@@ -65,9 +65,11 @@ If any source is missing (no RR, no audio, etc.), omit that key—do not invent 
 ### 3. Amazon blurb
 
 - Open the Amazon product page (browser tools or fetch).
-- Extract the **product description** (not "Editorial reviews" unless that's all that exists). Strip navigation chrome, "Read more", and duplicate headings.
+- Extract the **product description** (not "Editorial reviews" unless that's all that exists).
+- Copy the description **verbatim** into `## Blurb`. Preserve its wording, punctuation, and paragraph breaks; do not summarize, paraphrase, rewrite, or humanize it. Remove only navigation chrome, "Read more" controls, and duplicate page headings, and convert HTML formatting to Markdown as needed.
+- Start the blurb directly with the copied text. Do not add an attribution preamble or label such as "adapted from", "synopsis adapted from", or "based on the Amazon description".
 - Use that text for:
-  - `## Blurb` body (cleaned markdown paragraphs).
+  - `## Blurb` body (verbatim text in Markdown paragraphs).
   - `sentence` — often the first sentence or official tagline if shown separately.
   - `description` — compress to one compelling line for the reviews index.
 
@@ -75,8 +77,8 @@ If any source is missing (no RR, no audio, etc.), omit that key—do not invent 
 
 - Fill all required front matter fields.
 - Set `links` only with verified URLs.
-- After front matter `---`, add optional one-line reading-status stub if the user wants it, then `## Blurb` and the extracted text.
-- **Always** add `## Thoughts` after the blurb. Use the user's draft if they gave one; otherwise a one-line placeholder (e.g. _To write._) is fine—do not skip the heading.
+- After front matter `---`, add optional one-line reading-status stub if the user wants it, then `## Blurb` and the verbatim product description.
+- **Always** add `## Thoughts` after the blurb and populate its `### Pros` and `### Cons` using the research workflow below. Preserve any review prose the user supplies.
 
 ### 5. Cover image
 
@@ -99,7 +101,10 @@ curl -fsSL -o "content/reviews/<slug>/cover.jpg" "<image-url>"
 
 ### 7. Thoughts
 
-Flesh out the Thoughts header initially by grabbing the reviews from royal road, amazon, audible. Turn these reviews into dot points about the system mechanics, plot, characters (and dialogue), and worldbuilding. Use the humanizer skill to then turn that into paragraphs.
+- Read accessible reader reviews on Royal Road, Amazon, and Audible. Use the available sources when a platform has no reviews or blocks access; do not invent reader opinions.
+- Under `## Thoughts`, create `### Pros` and `### Cons` with concise dot points covering system mechanics or progression, plot and pacing, characters and dialogue, and worldbuilding where the reviews support them.
+- Link each point to the review that supports it. Mark early-chapter impressions or later-book comments when the reading progress affects the claim, and retain disagreements between reviewers.
+- Keep these as research notes from other readers, not the user's personal assessment. Do not write review paragraphs or turn the bullets into prose with the humanizer skill unless the user explicitly requests prose.
 
 ## Quick reference — minimal template
 
@@ -124,11 +129,17 @@ sentence: "Official tagline or first hook sentence."
 
 ## Blurb
 
-[Paste cleaned Amazon description.]
+[Paste the Amazon product description verbatim, without an attribution preamble.]
 
 ## Thoughts
 
-<Thoughts>
+### Pros
+
+- [Specific strength paraphrased from a reader review, with a source link.]
+
+### Cons
+
+- [Specific weakness paraphrased from a reader review, with a source link.]
 
 ```
 

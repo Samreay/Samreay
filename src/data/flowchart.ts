@@ -269,7 +269,8 @@ export const flowchart: FlowchartData = {
     {
       id: 'd_futuristic_sci_fi',
       prompt: 'Futuristic sci-fi?',
-      description: 'The reader wants time-skip (not time-loop) stories. Is the book hard/classic sci-fi or cyberpunk?',
+      description:
+        'The reader wants time-skip (not time-loop) stories. Does the book focus on classic sci-fi, cyberpunk, posthumanity against the System, or robots and empire building?',
     },
     {
       id: 'd_haaaave_you_read_cradle',
@@ -725,6 +726,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_bastion', reviewId: 'bastion' },
     { id: 'b_best_friend_eldritch', reviewId: 'best_friend_eldritch_horror' },
     { id: 'b_beware_chicken', reviewId: 'beware_of_chicken' },
+    { id: 'b_blue_star_enterprises', reviewId: 'blue_star_enterprises' },
     { id: 'b_bobiverse', reviewId: 'bobiverse' },
     { id: 'b_bog_standard', reviewId: 'bog_standard_isekai' },
     { id: 'b_brightest_shadow', reviewId: 'brightest_shadow' },
@@ -2475,6 +2477,13 @@ export const flowchart: FlowchartData = {
       target: 'b_bobiverse',
       label: 'Yes',
       color: 'orange',
+    },
+    {
+      id: 'e_d_futuristic_sci_fi_b_blue_star_enterprises',
+      source: 'd_futuristic_sci_fi',
+      target: 'b_blue_star_enterprises',
+      label: 'Yes, robots and empire building',
+      color: 'emerald',
     },
     {
       id: 'e_d_futuristic_sci_fi_b_skitterdoc',
