@@ -30,19 +30,19 @@ To attain limitless progression, Deklin and his group must defy the Lightbound k
 
 ## Thoughts
 
-The worldbuilding premise of this story is what pulled me in initially. Magi (powerful Earth-based mages) can travel to worldshards in effectively a willing pesudo-isekai to gain experience in a new world and system, and when they die they return to their earth-bound body. The potential this has for different LitRPG mechanics, plot spanning worldshards, character development, are fantastic.
+The worldbuilding premise of this story is what pulled me in initially. Magi (powerful Earth-based mages) can travel to worldshards in effectively a willing pseudo-isekai to gain experience in a new world and system, and when they die they return to their earth-bound body. The potential this has for different LitRPG mechanics, plot spanning worldshards, character development, is fantastic.
 
 The book takes a little bit to get running with Deklin's arrival into the worldshard Darrow, and I'll admit I was entirely confused over what was happening during his portal into the shard with the dragons and goddess and everything, but it didn't seem to tie into any of the plot points in book one and I'm guessing it'll make more sense later when there are more published entries.
 
 Deklin is our main character, of course. He's got a ton of knowledge about the system and magic, alas he is reset back to weak-as-a-newborn-kitten when he appears in his new worldshard. Immediately he is shunted through another portal, there's some action, and then there's *another* portal to a different place, and thank goodness we didn't portal hop again and Deklin finally managed to stay in one place long enough for plot to happen. Honestly, I'm not too sure on the purpose the first 20% of the book served and the character it introduced, but again maybe this will make sense in later books.
 
-Now, I lied when I said Deklin was the MC. That's actually Kimchi, the adorable pobul (read: magical otter) who's primary three contributions to the story are being adorable, farting on things (I'm not joking), and making as many pop-culture references as possible.
+Now, I lied when I said Deklin was the MC. That's actually Kimchi, the adorable pobul (read: magical otter) whose primary three contributions to the story are being adorable, farting on things (I'm not joking), and making as many pop-culture references as possible.
 
 I'm not the biggest fan of shoe-horning in as many TV and gaming references as possible, but I know I'm probably in the minority here. If you enjoyed how *The Land* (aka *Chaos Seeds*) did it, then you'll enjoy this one too. The author even takes popular mechanics from other series in a tongue-in-cheek manner, like how Deklin is "sa-vren", which is a parody of Wheel of Time's "ta'veren", and functions in an identical way.
 
 The plot does get going after that first 20% or so, though it's another variant of 'Slavery Bad!' that seems very common in this genre. Still, everything is about the execution, and we'll have to wait for more books to figure out how the anti-slavery arc goes.
 
-In terms of characters, the main cast slowly expands over the series, and each of them provide a new dimension to explore to the existing characters.  I almost didn't make it to the first female character (Charlie) because of my *much hated trend of objectifying women*.
+In terms of characters, the main cast slowly expands over the series, and each of them provides a new dimension to explore to the existing characters.  I almost didn't make it to the first female character (Charlie) because of my *much hated trend of objectifying women*.
 
 I'm tired, boss. So tired of this shitty trope.
 
@@ -71,4 +71,4 @@ I don't care if your character is a "red-blooded man" and horny as an elk, can w
 
 Now, I will point out that nothing sexual happens with any of these characters, these incidents are kept to Deklin's thoughts and so far there hasn't been a hint of a relationship with any character. After the first 30% of the book, it doesn't happen again, either, and you just get the pop-culture, fan-service, LitRPG action goodness that, coupled with the great worldbuilding premise, has a lot of potential.
 
-If you liked *The Land*, *Noobtown*, *Dao of Magic*, or other works featuring a highly confident who uses his knowledge to get ahead, you'll like *Sovereign Soul.*
+If you liked *The Land*, *Noobtown*, *Dao of Magic*, or other works featuring a highly confident character who uses his knowledge to get ahead, you'll like *Sovereign Soul.*

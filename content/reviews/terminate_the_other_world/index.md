@@ -32,7 +32,7 @@ The world she lands in has its own ideas about what she is. The local system cla
 
 I picked this up after seeing it recommended on reddit as an interesting take on dungeons. I was hoping for something in the *Dungeon of Knowledge* vein, where the dungeon mechanic drives the whole story. What you actually get is almost the opposite: a no-nonsense military AI who treats the dungeon system as one more tool in service of a very specific objective.
 
-That framing has its appeal. If you want a hyper-focused robot protagonist who never second-guesses herself and approaches fantasy tropes with the energy of someone filing incident reports, it couldbe satisfying about watching NSLICE-00P work. She exploits the magic system well, the battles are fun, and the accumulation of an undead-and-monster household is humorous.
+That framing has its appeal. If you want a hyper-focused robot protagonist who never second-guesses herself and approaches fantasy tropes with the energy of someone filing incident reports, it could be satisfying watching NSLICE-00P work. She exploits the magic system well, the battles are fun, and the accumulation of an undead-and-monster household is humorous.
 
 The disappointment is that the premise has more ceiling than the story uses (well, at least for the first two books). The dungeon-personal fusion should theoretically be fascinating to min-max as you have a character who can stack personal skills on top of dungeon perks and run two experience trees at once. But NSLICE-00P's singular focus means she's always moving toward the next potential commander, never pausing long enough to dig into what she actually has. Compare this to an AI MC like Alexander in *Portal to Nova Roma*, where human emotional bleed-through is the whole point. *Terminate the Other World* inverts that: the cybernetics are firmly in charge, the organic host is suppressed, and the result is a protagonist who is exactly what she's described as being (a terminator). Which, it turns out, can cause some issues with prose and dialogue.
 
@@ -54,7 +54,7 @@ And so, I really got tired of the overused exposition construction and wished fo
 >
 > All of this combined meant NSLICE-00P would only withdraw if victory was practically impossible. In the case of the ursanus, even the strongest weapons in her arsenal proved almost entirely ineffective against it, while her defenses were woefully insufficient. At that point, she had no further means by which to change the probability of success, and withdrew.
 
-Onto dialogue, and I can see people loving it or hating it. Characters have unique ways of speaking, and the author has gone all in on their various affectations, whether its NSLICE-00Ps robot dialogue, the rat's skaven speech, the spider's valley-girl tic. They all read as fun worldbuilding initially but wear thin across two books. Your mileage will vary depending on how much patience you have for that kind of sustained voice gimmick.
+Onto dialogue, and I can see people loving it or hating it. Characters have unique ways of speaking, and the author has gone all in on their various affectations, whether it's NSLICE-00P's robot dialogue, the rat's skaven speech, the spider's valley-girl tic. They all read as fun worldbuilding initially but wear thin across two books. Your mileage will vary depending on how much patience you have for that kind of sustained voice gimmick.
 
 Example MC dialogue:
 

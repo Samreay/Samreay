@@ -16,7 +16,7 @@ tags: [magic-school, hard-magic,  finished]
 sentence: "Hugh of Emblin is, so far as he's concerned, the worst student that the Academy at Skyhold has ever seen."
 ---
 
-*This review focuses on first volume. As of writing I have finished the series, but won't spoiler anything, don't worry.*
+*This review focuses on the first volume. As of writing I have finished the series, but won't spoiler anything, don't worry.*
 
 Hugh of Emblin is both a horrific and talented student at Skyhold Academy.
 
@@ -28,7 +28,7 @@ And even more luckily, Bierce manages to portray these issues in a relatable way
 
 So, along with Hugh, we have his enigmatic mentor Alustin, the dreamfire-bone specialist Talia, and Sabae --- an 'untrainable' student from a long line of storm mages. Joining just a little later is Goldrick, a stone-steel-scene mage. From our main cast of four, their magical paths are distinct, innovative, and play well together. On top of this, and something I appreciate greatly, is that all four grow not just in power, but as people. Hugh gets to work on his outlook, mental health, and anxiousness. Sebae, Talia, and Goldrick don't sit idle whilst the main character marches forwards either, they keep up, each with their own goals and approaches.
 
-Even one of the earlier antagonists, Rhodes, has some character development. That being said, Rhodes was my least-liked part of the first book when I read it first, because his bullying and antagonism comes out of nowhere and felt like a plot device to add conflict rather than a genuine and understandable reaction from a character. But I was a fool! There are reasons for everything, but I just hadn't got to them yet.
+Even one of the earlier antagonists, Rhodes, has some character development. That being said, Rhodes was my least-liked part of the first book when I read it first, because his bullying and antagonism come out of nowhere and felt like a plot device to add conflict rather than a genuine and understandable reaction from a character. But I was a fool! There are reasons for everything, but I just hadn't got to them yet.
 
 Anyway, enough about Rhodes, he's not even the main antagonist!
 

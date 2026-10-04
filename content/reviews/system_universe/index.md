@@ -49,4 +49,4 @@ Now, the whole "Universe" in the title does hint as to the overarching plot. The
 
 Apart from Derek, there's a fairly wide variety of characters and some decent characterisation. There are definitely a few character archetypes used a couple of times throughout the expansive cast, but they're normally used for good effect. Maybe it's just Derek's point-of-view doing it, but for at least the first five books I think almost every single woman was introduced with a note on how stunningly beautiful they were, to the point where I was really hoping just to see some ugly crones for variety. Granny Weatherwax would have been a welcome addition, but then again, that's always true in every story.
 
-The story is definitely focused on the action and the popcorn over any deeper philophical themes (as is usual in the genre), so its a very solid recommendation for those who enjoy the overpowered MC trope.
+The story is definitely focused on the action and the popcorn over any deeper philosophical themes (as is usual in the genre), so it's a very solid recommendation for those who enjoy the overpowered MC trope.

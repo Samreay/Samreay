@@ -30,9 +30,9 @@ She was born without a core. In the new city of Threshold, baseline humans like 
 
 ## Thoughts
 
-Damn this is some fine writing. Often its a challenge when writing third person to bring the narrative camera in really close to the character, and often this is when you might transition to first person narration. But nah, Mecanimus absolutely nails the narrative voice in this series. I feel like I'm learning so much about the main character, Nestra, simply by reading how she perceives the world and the people in it. Action scenes are tight, high-paced, and get the heart racing. The writing is just top-notch.
+Damn this is some fine writing. Often it's a challenge when writing third person to bring the narrative camera in really close to the character, and often this is when you might transition to first person narration. But nah, Mecanimus absolutely nails the narrative voice in this series. I feel like I'm learning so much about the main character, Nestra, simply by reading how she perceives the world and the people in it. Action scenes are tight, high-paced, and get the heart racing. The writing is just top-notch.
 
-Characters, obviously, are as well. Our MC is cold, aloof, and has a big chip on her shoulder. Gorge is an absolute asshole, the sort of character you love to hate, until you start to realise *why* he acts like he does. Shinoda is earnest and patient. Helena is almost psychotically excitable. Each of them are a joy to read.
+Characters, obviously, are as well. Our MC is cold, aloof, and has a big chip on her shoulder. Gorge is an absolute asshole, the sort of character you love to hate, until you start to realise *why* he acts like he does. Shinoda is earnest and patient. Helena is almost psychotically excitable. Each of them is a joy to read.
 
 The setting is very cyberpunk, just more grunge and less neon. There are kaiju to deal with, after all, so brutalism has overtaken neokitsch. Gangs and corpos ostensibly make war, with the same effectiveness of a toddler making war on Mike Tyson. The plot so far focuses on Nestra's self-discoveries, and the vehicle for this in the first arc is the conflict in district fifteen. Said conflict feels very realistic for the setting, and I won't say more about it to avoid spoiling things.
 

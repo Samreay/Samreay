@@ -31,7 +31,7 @@ Jim has been given an opportunity, and he'll do his best to take advantage of it
 
 Let's start with the positives: the inversion of the demon-summoning trope that starts the book is well done. Jim's soul is summoned by a demon, instead of the usual inversion. The unique trait he has (allowing him to have multiple classes and bypass restrictions on various perks and skills) is a fun premise. So, the series has a solid foundation... why exactly did I put it in my DNF category?
 
-A few reasons. I normally try to focus on the positives when reviewing (after all, piss of a user base and they'll review bomb my own stuff and hey presto my writing career is over), but I feel like I need to delve a bit deeper than normal here.
+A few reasons. I normally try to focus on the positives when reviewing (after all, piss off a user base and they'll review bomb my own stuff and hey presto my writing career is over), but I feel like I need to delve a bit deeper than normal here.
 
 Spoiler warning.
 
@@ -76,7 +76,7 @@ Who cares about the kids? Who cares about every aspect of his relationship with 
 
 #### I hate the side characters
 
-Imagine this. You've been captured by goblins. You're trapped in cages, waiting to be tortured and killed or used a slave labour until you're worked to death. Someone comes along, and at huge risk to their own life, manages to save you and defeat the goblin outpost. Then, they take you to a city magically protected from attacks and offer you citizenship and places to stay free of charge.
+Imagine this. You've been captured by goblins. You're trapped in cages, waiting to be tortured and killed or used as slave labour until you're worked to death. Someone comes along, and at huge risk to their own life, manages to save you and defeat the goblin outpost. Then, they take you to a city magically protected from attacks and offer you citizenship and places to stay free of charge.
 
 Sounds pretty good, right?
 

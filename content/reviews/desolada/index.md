@@ -30,7 +30,7 @@ Demons, long thought to be banished, have been spotted in the city, and Leones s
 
 ## Thoughts
 
-This was one of the few books I've read this year really had me appreciating the worldbuilding going on. There's obviously been *so much effort* put into the world, the factions, religions, mythology, and it shines through. You don't feel like you've teleported into Generic Isekai Land 8193.
+This was one of the few books I've read this year that really had me appreciating the worldbuilding going on. There's obviously been *so much effort* put into the world, the factions, religions, mythology, and it shines through. You don't feel like you've teleported into Generic Isekai Land 8193.
 
 Unfortunately, I don't think I can go into detail here about the Goetia and their role in the plot, because it will probably be spoiler heavy. And none of that here! If the blurb is only going to hint at things "not being well in Odena," I'll do the same. I'll add this is a massive understatement with what goes down though, and the final quarter of the book is filled with twists, turns, and situations going to absolute shit. I loved it.
 

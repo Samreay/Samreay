@@ -43,7 +43,7 @@ Damn, this story with its autistic MC is going to resonate with a bunch of us ne
 
 I love it.
 
-The magic system is chemistry based, and I'll be the first to say that apart from imagining little balls of power floating in the all (invisible to all but Ari) I haven't a clue how it really works. But that's alright, because I'll admit I didn't take chemistry in high school. I did physics instead, a much better subject. I digress.
+The magic system is chemistry based, and I'll be the first to say that apart from imagining little balls of power floating in the air (invisible to all but Ari) I haven't a clue how it really works. But that's alright, because I'll admit I didn't take chemistry in high school. I did physics instead, a much better subject. I digress.
 
 The characters are brilliant, and while there are definitely some that might be a bit too Young Master for me (like please dial back the ridiculous arrogance 20% or more, please), the vast majority are entertaining to read. The banter... or Ari's version of not-banter... is hilarious. It's on point. Maybe a bit too on point. There's feeling seen, and then there's feeling *Seen*.
 

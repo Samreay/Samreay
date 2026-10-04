@@ -33,7 +33,7 @@ Gaea is a world entirely controlled by the System, a sarcastic and level-hungry 
 
 *As of writing this review, I've read the first book.*
 
-Ah I was so excited to read this series because its cover is on of my all-time favourites. Alas, I ended up not vibing it too hard, but mostly because the presence of the System in *everything* made it feel like I was reading a VRMMO title with low-stakes instead of a life-or-death novel.
+Ah I was so excited to read this series because its cover is one of my all-time favourites. Alas, I ended up not vibing it too hard, but mostly because the presence of the System in *everything* made it feel like I was reading a VRMMO title with low-stakes instead of a life-or-death novel.
 
 
 Anyway, onto a bit more of a spoiler-free plot synopsis, the story focuses around Devin and his close friends (in and out of the tower). There's Ben and Emma (a brother-sister pair who are also teleported into the tower), plus Jenny, his best friend. 100k people are teleported into the tower, and the first book is them just completing the tutorial levels. The fatality rate is less than 5%, so it's not a bloodbath, and the scenarios presented are very much in line with VRMMO quests.
@@ -74,9 +74,9 @@ And later on, once their (day old?) romance develops, we also get a trope I disl
 
 > I shook my head. She definitely had a way with words.
 
-It again feels like I'm reading a young adult romance aimed at early teenagers and not an authentic, emotive relationship started to form.
+It again feels like I'm reading a young adult romance aimed at early teenagers and not an authentic, emotive relationship starting to form.
 
-As I final point, I did laugh at one good point in the book. There's a subplot about a character who can mentally dominate others, and has been spreading lies about the MC. But then, out of nowhere, the MC stands up and decries all the mean things said against him, and ends with:
+As a final point, I did laugh at one good point in the book. There's a subplot about a character who can mentally dominate others, and has been spreading lies about the MC. But then, out of nowhere, the MC stands up and decries all the mean things said against him, and ends with:
 
 
 > "... May the System strike me down if any of it is a lie!” I stopped for a moment and waited.
@@ -85,6 +85,6 @@ As I final point, I did laugh at one good point in the book. There's a subplot a
 
 Like damn, way to shoot that plot point between the eyes. How can you have a serious conflict driven by misinformation and two characters saying conflicting things... in a place where you literally have an omnipresent and omniscient lie detector to validate everything you say?
 
-Anyway, I have a bad tendency to talk about things that annoy me more than things I liked. If you're a fan of tower climbers, of VRMMOs, or of party battles and monster hunting, you'll enjoy this book. Sure, there's some fairly juvenile romance elements in it, but ultimately the two characters are starting a wholesome relationship and that's something I *do* whole heartedly like to see in the genre.
+Anyway, I have a bad tendency to talk about things that annoy me more than things I liked. If you're a fan of tower climbers, of VRMMOs, or of party battles and monster hunting, you'll enjoy this book. Sure, there's some fairly juvenile romance elements in it, but ultimately the two characters are starting a wholesome relationship and that's something I *do* wholeheartedly like to see in the genre.
 
 

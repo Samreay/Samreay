@@ -18,7 +18,7 @@ sentence: "Cultivation. Magic. Empowering unwitting animals!"
 
 *I link to the Amazon publication, however, I read the Royal Road version. If there have been future substantial changes to the series since I read it, this review may not be accurate.*
 
-Drew, originally from Earth, has spent a thousand years or so cultivating on another world. He goes to ascend, but, oh no, something goes wrong, and he is send to a different world instead, to start from scratch.
+Drew, originally from Earth, has spent a thousand years or so cultivating on another world. He goes to ascend, but, oh no, something goes wrong, and he is sent to a different world instead, to start from scratch.
 
 Except, in the space of a single afternoon, our genius MC has determined how to game the world's power, condensing down the world's mana into the far more powerful qi. Thankfully for us, we are kept in the loop about the mental capacities and system devised by Drew with analogies to Windows 10 (and its comparison to a DOS machine, references to windows explorer, and the windows interface).
 

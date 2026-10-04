@@ -24,7 +24,7 @@ Koji Athame left his house for the first time in five years today. When what was
 With time ticking against him and the fate of his newfound companions hanging in the balance, Koji must navigate treacherous landscapes, battle relentless monsters, and confront his own inner demons. As tensions rise and the world crumbles around them, Koji's party must unravel the secrets hidden within the perilous trials they face.
 With each victory, Koji grows in power, learning how best to allocate his attributes and how to efficiently use his growing magical repertoire. And amidst the chaos, he has to grow and fund his personal pocket dimension, his own Home, in this unforgiving realm.
 
-Yet, not everything is as it seems. As Koji grapples with his unexpected abilities, the side effects of selecting all random for his starting gear, and a skipped tutorial that have held vital knowledge, he must confront a snarky, voyeuristic deity and escape the web of schemes his fellow humans have laid.
+Yet, not everything is as it seems. As Koji grapples with his unexpected abilities, the side effects of selecting all random for his starting gear, and a skipped tutorial that has held vital knowledge, he must confront a snarky, voyeuristic deity and escape the web of schemes his fellow humans have laid.
 
 Immerse yourself in the heart-pounding journey of Koji Athame as he battles monsters, treads the fragile line between life and death, and unravels the truth behind why he was brought here. Don't miss this pulse-pounding LitRPG fantasy, where every page brims with danger, system shenanigans, and the allure of unlimited possibilities. Grab your copy now and join Koji on his quest for survival, power, and redemption. The clock is ticking, and the adventure awaits!
 
@@ -66,11 +66,11 @@ One time after doing this, his spells interact with the environment and cause a 
 
 > A slight smile spread across Koji’s lips before he pressed Stride of ShadowFaux. His body appeared on a small section of solid ground for only a moment before he pressed Thunderdome and the world turned white. Koji snapped his eyes shut almost immediately and groaned in shock as his vision swam even against the darkness of his eyelids. When the explosion came, he was totally unprepared.
 
-I was so happy, thinking "Now you're going to have to learn to not just button spam." But when Koji came too, luck had it that he was fine and had killed all the monsters in the explosion. The consequences for his stupid "teleport in and press every button strategy" vanished, and instead Koji is rewarded with numerous rare and epic skill books.
+I was so happy, thinking "Now you're going to have to learn to not just button spam." But when Koji came to, luck had it that he was fine and had killed all the monsters in the explosion. The consequences for his stupid "teleport in and press every button strategy" vanished, and instead Koji is rewarded with numerous rare and epic skill books.
 
 3. Koji's summoned home has a magical training room he flat out doesn't use until right at the end of the book when a min-maxer *would* have been grinding that bad boy for experience.
 
-4. **Bigger spoiler alert**. The final part of the tutorial was a "Every monster you've killed comes back to life and now you have to defeat them all" type deal. I was keen to see how Koji would face all these monsters at once... but *lucky* for Koji, he had just picked up a spell that effectively deleted everything from existence around him. One spell later and everything was dead. Koji wins again... not by outsmarting his opponent, or by outlasting them, or going through gruelling trials, but by simply pressing a button in his spell interface.
+4. **Bigger spoiler alert**. The final part of the tutorial was an "Every monster you've killed comes back to life and now you have to defeat them all" type deal. I was keen to see how Koji would face all these monsters at once... but *lucky* for Koji, he had just picked up a spell that effectively deleted everything from existence around him. One spell later and everything was dead. Koji wins again... not by outsmarting his opponent, or by outlasting them, or going through gruelling trials, but by simply pressing a button in his spell interface.
 
 
 Now let me stress again that *this is just the sort of stuff I like to read!* If you like luck-based characters, if you like tons and tons of rewards, and characters winning no matter what, then you will *love* this.

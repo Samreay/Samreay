@@ -33,7 +33,7 @@ There’s work to do… and profit to make.
 
 I love Void Herald and all their works. The Perfect Run is a masterpiece. Vainqueur the Dragon is hilarious. But... I'm a bit eh on Commerce Emperor.
 
-I'm reading this after coming off *The Immaculate Collection*, as I wanted another take on merchant / commerce progression. And on the face of it, this series should deliver. After all, Robin is the Merchant, one of the seven great heros. He can trade [almost] anything, including years of life, the colour of someone's eyes, or, you know, normal things as well. He's even joined with his vassal heros, the Artistan and Alchemist, and with their powers combined, he has the means to create this empire of commerce alluded to. Marika (the Artisan) can craft a whole ship in a day, instead of the normal year it would take a ship yard?
+I'm reading this after coming off *The Immaculate Collection*, as I wanted another take on merchant / commerce progression. And on the face of it, this series should deliver. After all, Robin is the Merchant, one of the seven great heroes. He can trade [almost] anything, including years of life, the colour of someone's eyes, or, you know, normal things as well. He's even joined with his vassal heroes, the Artisan and Alchemist, and with their powers combined, he has the means to create this empire of commerce alluded to. Marika (the Artisan) can craft a whole ship in a day, instead of the normal year it would take a ship yard?
 
 So why the long face?
 

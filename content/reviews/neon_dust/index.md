@@ -35,7 +35,7 @@ The second-final installment in my recent cyberpunk binge is another of Plum's s
 
 The worldbuilding is solid, and most of the story takes place in the "Blast", an area of low-income, slumlike and ganger controlled buildings where Dust (read: magical resource which functions like mana) comes out nasty (read: radioactive). There's lots of Dust in the air, but each bit comes with a bite. This is important for Addie, one of our two MCs, as she's a natural dust user. A Spark (or more) in the parlance of the story.
 
-Our other MC is Tony, a hard-bitten operator that got stabbed in the back, stipped of cyberware, and left to die. He uses Dust-tech, but isn't a natural Dust user himself. Chapters typically bounce back and forth between the two perspectives, and given Tony and Ads work together, it's not like your preferred perspective is gone for huge arcs or novels at a time.
+Our other MC is Tony, a hard-bitten operator that got stabbed in the back, stripped of cyberware, and left to die. He uses Dust-tech, but isn't a natural Dust user himself. Chapters typically bounce back and forth between the two perspectives, and given Tony and Ads work together, it's not like your preferred perspective is gone for huge arcs or novels at a time.
 
 Tony, Ads, Beef, Glitch, and all the other characters are executed with the typical polish of all of Plum's works. Dialogue flows, technical issues are nonexistent, and the interactions between characters themselves, and the world at large, all come together well.
 

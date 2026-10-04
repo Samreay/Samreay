@@ -23,7 +23,7 @@ Then I was recommended to read Mother of Learning. It was my first serial novel.
 
 And then I read it again.
 
-So many books I've read fumble the ending or the rising tension. Deus-ex-machine makes an appearance, the main character stumbles via sheer luck from solution to solution, gets a mighty boon from a deity, and suddenly I just don't care about the store. The stakes have been revealed to be spurious, the illusion is shattered, and I wonder what contrived explanation shall be presented before me next.
+So many books I've read fumble the ending or the rising tension. Deus-ex-machina makes an appearance, the main character stumbles via sheer luck from solution to solution, gets a mighty boon from a deity, and suddenly I just don't care about the story. The stakes have been revealed to be spurious, the illusion is shattered, and I wonder what contrived explanation shall be presented before me next.
 
 This is why I love MoL. The protagonist, Zorian, has *some* lucky breaks. And also some unlucky ones. But the important thing, the thing which I appreciate dearly, is that regardless of what happens, Zorian learns. Adapts. Overcomes.
 
@@ -31,6 +31,6 @@ Sure, this is an intrinsic benefit of a time loop, but having a character who ta
 
 I'd like to think, if I was stuck in a magical time loop, I would do similar things. It's wish fulfilment, but done right.
 
-Throughout it all, there's rising tension as the time loop starts to run out, and despite the memory resets its heartening to see the main character grow his family relationships, his friendships, to grow not just in power and proficiency, but as a genuine, caring, human being.
+Throughout it all, there's rising tension as the time loop starts to run out, and despite the memory resets it's heartening to see the main character grow his family relationships, his friendships, to grow not just in power and proficiency, but as a genuine, caring, human being.
 
 I guess that's why I love this series so much. Intelligent characters who grow as people and grow in power. Crafting, magical studies, interesting lore, an entire world of non-humans, there's always something great just around the corner, and suddenly it's 3am and I have work the next day but just five more minutes, I promise.

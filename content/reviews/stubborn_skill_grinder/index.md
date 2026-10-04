@@ -35,15 +35,15 @@ Until, maybe one run, he'll grow powerful enough to stop the Cataclysm.
 
 ## Thoughts
 
-This has to be the most popcorn read I've picked up the whole year. It's pure turn-your-brain-off-and-enjoy action and its very cathartic seeing all those NumbersGoUp after a few slower, less LitRPG reads. The plot is simple---there's a local catalysm from an ancient war golem awakening, and a larger global cataclysm from Eldrith horrors, and Orodan has got to figure out a way to stop them from happening.
+This has to be the most popcorn read I've picked up the whole year. It's pure turn-your-brain-off-and-enjoy action and it's very cathartic seeing all those NumbersGoUp after a few slower, less LitRPG reads. The plot is simple---there's a local cataclysm from an ancient war golem awakening, and a larger global cataclysm from Eldritch horrors, and Orodan has got to figure out a way to stop them from happening.
 
-Don't expect deep layers to the plot like you get in time looping stories such as **Mother of Learning** or **Years of the Apocalyse**, for Orodan solves problems not by subtle machinations or unravelling mysteries, but by punching his way through them as many times as it takes. The worldbuilding isn't lacking, though. The different nations, the magical schools, especially the gods and their use of avatars is all well done, and the build up to the Eldritch cataclysm and its overwhelming strength is great.
+Don't expect deep layers to the plot like you get in time looping stories such as **Mother of Learning** or **Years of the Apocalypse**, for Orodan solves problems not by subtle machinations or unravelling mysteries, but by punching his way through them as many times as it takes. The worldbuilding isn't lacking, though. The different nations, the magical schools, especially the gods and their use of avatars are all well done, and the build up to the Eldritch cataclysm and its overwhelming strength is great.
 
-In fact... and I know some people will think I'm a monster for saying this... but I sort of wish that was it, you know. The first book is 800 pages, the second is 400, so this would be a standard trilogy, and we could have had a finished series. Adding extra worlds of different kinds (hell, tech worlds, cultivation worlds), and a shift from Orodan as a one-man powerhouse into a powerhouse plus teacher sort of felt a bit unnecessary from a narrative standing. By the time Orodan wraps the Eldritch horror, he's fighting triple Grandmasters in his sleep and its a natural finish for his skill caps as well.
+In fact... and I know some people will think I'm a monster for saying this... but I sort of wish that was it, you know. The first book is 800 pages, the second is 400, so this would be a standard trilogy, and we could have had a finished series. Adding extra worlds of different kinds (hell, tech worlds, cultivation worlds), and a shift from Orodan as a one-man powerhouse into a powerhouse plus teacher sort of felt a bit unnecessary from a narrative standing. By the time Orodan wraps the Eldritch horror, he's fighting triple Grandmasters in his sleep and it's a natural finish for his skill caps as well.
 
 Guess I'm one of the few that like finished series instead of new arcs, system changes, and thematic changes to keep things going.
 
-Alright, so I mentioned skills, and the LitRPG elements in the story focus on skill grinding (obviously), where skills have thresholds at specific numbers (Expert, Master, Grandmaster, etc), and Orodan naturally picks up a *lot* of skills. These do allow some variation in the fights so its not just punching things, but I will point out the majority of 'boss fights' so to speak follow the pattern of:
+Alright, so I mentioned skills, and the LitRPG elements in the story focus on skill grinding (obviously), where skills have thresholds at specific numbers (Expert, Master, Grandmaster, etc), and Orodan naturally picks up a *lot* of skills. These do allow some variation in the fights so it's not just punching things, but I will point out the majority of 'boss fights' so to speak follow the pattern of:
 
 1. Orodan gets almost killed and is reduced to sludge or some cells
 2. Orodan uses the stress of this to force an epiphany breakthrough, normally by combining or expanding skills into a new, higher rarity one.
@@ -54,6 +54,6 @@ Hey, if it works, it works. I'm not always convinced things make sense with skil
 
 On technical writing, no complaints. Prose is simple but clear, very minimal grammar and typos given the edit passes Aethon gives.
 
-Characters are decent. Orodan is just a ball of stubbornness --- that's his personality --- and side characters when they appear in the specific loop are fleshed out and given their own goals that don't always just serve the MC or to advance the plot.
+Characters are decent. Orodan is just a ball of stubbornness --- that's his personality --- and side characters when they appear in the specific loop are fleshed out and given their own goals that don't always just serve the MC or advance the plot.
 
-So in summary, a fun popcorn read that contain a narratively complete three-book arc for you to either stop at or continue into the multiverse.
+So in summary, a fun popcorn read that contains a narratively complete three-book arc for you to either stop at or continue into the multiverse.

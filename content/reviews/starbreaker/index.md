@@ -46,7 +46,7 @@ Ascend or die.
 
 I have *so many mixed feelings* about this series!
 
-On one hand, there are certain apsects I adore about it, but also some parts truly aggravate me! So with that hook, let us dig in!
+On one hand, there are certain aspects I adore about it, but also some parts truly aggravate me! So with that hook, let us dig in!
 
 We follow Sylvas from young orphan to most-powerful-mage-on-his-planet, and that only takes a couple of chapters to speed through in time! And then, oh no, his world ends, the Eidolons eat his world's core, and only a small number of people are evacuated on spaceships by the previously-unknown Advent (the anti-Eidolon arm of the Empyrean military forces).
 
@@ -61,19 +61,19 @@ And then Sylvas decides to join this Advent, and we head firmly into magic acade
 * MC is targetted by an over-the-top psychopath bully: check.
 * Sci-fi magic technology lets students fight all out but stops them dying: check.
 
-Unsurprisingly, the parts of Stormweaver I didn't enjoy as much as present here too:
+Unsurprisingly, the parts of Stormweaver I didn't enjoy as much are present here too:
 
 * Conflict in a magic academy setting for training purposes robs the story of actual stakes: check.
 * At least 80% of the fights could be removed and nothing in the plot would change: check.
 * Pressure from instructor manipulation or timeline changes is used to artificially try and increase tension: check.
 
-I wasn't sure if I'd make it through the series, but just after the halfway mark in book three, the conflict stop being contrived and the actual global plot seemed to move after all this time. We got juicy lore, conflict that matters, and rapid character development, and it was by far my favourite section of the series to read. I was super keen for book four, only to find out its still in progress. I wish I could actually gush about this section, but everything would be spoilers.
+I wasn't sure if I'd make it through the series, but just after the halfway mark in book three, the conflict stopped being contrived and the actual global plot seemed to move after all this time. We got juicy lore, conflict that matters, and rapid character development, and it was by far my favourite section of the series to read. I was super keen for book four, only to find out it's still in progress. I wish I could actually gush about this section, but everything would be spoilers.
 
 So let us turn to characters. The best character, by far is Malachi. Distant second place to Bael. There's a large cast, but each character has roles, a relatively distinct narrative voice, and serves purpose and depth other than "Random Teammate X" for Sylvas. Vaelith (one of his instructors) is both good (in terms of characterisation) and bad (her character gives me the shits). Sylvas also gives me the shits. Here are them both giving me the shits:
 
 > “Tell me if I’m wasting my time, Vail, and all of this will stop. I’ll wash my hands of you. I won’t push you anymore. I won’t drive you to be better. I’ll leave you be on this path of… of calculated mediocrity you’ve put yourself on.”
 
-This Vaelith upset that Sylvas isn't literally rushing to add circles (ie levels / tiers / whatever) as quickly as possible, even though he was recommended for stability and long term power *not* to. In every single training scenario, he has pushed himself almost to death. He has done things they didn't consider possible. He doesn't go the extra mile, he goes an extra hundred, every time. Vaelith at one points beats him to death for 'training' and Sylvas goes along willingly. That's separate to the time she beheads him. So all this eye-rolling crap about pushing him and is he even trying is so divorced from reality I literally almost put the book down to never pick back up. Vaelith can go die in a hole.
+This is Vaelith upset that Sylvas isn't literally rushing to add circles (ie levels / tiers / whatever) as quickly as possible, even though he was recommended for stability and long term power *not* to. In every single training scenario, he has pushed himself almost to death. He has done things they didn't consider possible. He doesn't go the extra mile, he goes an extra hundred, every time. Vaelith at one point beats him to death for 'training' and Sylvas goes along willingly. That's separate to the time she beheads him. So all this eye-rolling crap about pushing him and is he even trying is so divorced from reality I literally almost put the book down to never pick back up. Vaelith can go die in a hole.
 
 But Sylvas, oh man. After this conversation, he thinks (for the millionth time) about how he was manipulated on his home world to cause the apocalypse, and how the Advent is manipulating him again to shape him and turn him into their weapon. He resolves, over and over, to not be manipulated. To forge his own path. Blah blah blah. And yet, every single time there's a scenario or he's deliberately screwed over and manipulated, he just grits his teeth and tries to stubborn his way out of everything while still winning and remaining 100% loyal to the Advent.
 
@@ -87,7 +87,7 @@ Here's a tiny nit, though..
 
 AFFINITY SPOILER ALERT!
 
-Sylvas is a gravity mage. He manipulates gravity. He can increase it. He can decrease it. From what he's done, this seems to also include inertia and mass manipulation, but it's not quite stated outright, which has me wondering if there's some physics misunderstandings going on. Here's an example:
+Sylvas is a gravity mage. He manipulates gravity. He can increase it. He can decrease it. From what he's done, this seems to also include inertia and mass manipulation, but it's not quite stated outright, which has me wondering if there are some physics misunderstandings going on. Here's an example:
 
 > He was falling from a far greater height than he had from the tower back on Croesia... In an instant, he could strip himself of all weight and land delicately... At the last moment, he stripped away all his weight. He was already speeding down at terminal velocity, so landing hurt, but with his own Embodiment and the assistance of the boots, there wasn't enough of an impact to do any real damage.
 

@@ -29,7 +29,7 @@ I picked up this serial very early on when it was absolutely breaking records on
 
 But fun algorithms aside, why did the series take off? What tropes did it tick off?
 
-* **Blank Slate MC**: Chapter one and Ashlock is a two-year-old sapling. There's no pointless intro chapters about a life on Earth that's just fluff (looking at you *Unbound*), we get right into it. Instead, being reborn from Earth is just a way the author can easily use Earth-bound analogies and phrases without it being completely narrative-breaking.
+* **Blank Slate MC**: Chapter one and Ashlock is a two-year-old sapling. There are no pointless intro chapters about a life on Earth that's just fluff (looking at you *Unbound*), we get right into it. Instead, being reborn from Earth is just a way the author can easily use Earth-bound analogies and phrases without it being completely narrative-breaking.
 * **Simple System**: It's a daily sign in system. You get a point a day, plus points for sacrifices (ie things the tree eats), and Ashlock can bank them up to get better rewards. This system is unlocked in Chapter one. Again, no waiting around.
 * **Cultivation tropes**: We're all familiar with face and Qi and cultivation stages. With them as the background system (the daily sign in is unique to Ashlock), we don't have to spend tons of time figuring out how the world works, we can use prior works to do the heavy lifting. Notice the theme here? You get straight into it.
 * **Always Be Cliffing**: Xkarnation has really followed the playbook well on this. Each chapter ends with a tease (and I'll only do the first few chapters to keep spoilers to the "obviously that was going to happen" category)

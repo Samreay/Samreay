@@ -30,5 +30,5 @@ As the book explores the new take on the trope, Tani and Slaten do various tasks
 
 On the character side, there *is* character development, but the first half of the book (and it's a big book) is spent establishing things. I definitely think a lot could be shortened down to make things a bit zippier. Aside from the sole exception of Kolanin as an interesting character, most of them fade into the background. Or to put this another way, in many other books I end up rooting for the main character. Zorian, Lindon, Hugh, Rei, Corin, I *want* them to succeed. I never felt any of that with Tani or Slaten, which is a real shame.
 
-I'm unsure if I'll read through the next book at this point, it will all depend on the reviews and if the plot pacing points are fixed. But if don't mind a slower plot, if you enjoyed things like *A Thousand Li*, or even *Forge of Destiny* (which has its slice of life), then you'll probably enjoy this one too.
+I'm unsure if I'll read through the next book at this point, it will all depend on the reviews and if the plot pacing points are fixed. But if you don't mind a slower plot, if you enjoyed things like *A Thousand Li*, or even *Forge of Destiny* (which has its slice of life), then you'll probably enjoy this one too.
 

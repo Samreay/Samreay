@@ -37,10 +37,10 @@ LOOK AT HOW PRETTY SHE IS!
 
 Anyway, I'm a big fan of most of what Actus does, and this one is my favourite so far. Maybe it's because I do love a crafting MC, and maybe it's because I've really wanted to get into blacksmithing in the past. I made my own gas forge at one point, but never got the full setup. So I decided to smith vicariously.
 
-Alas, Arwin, as the former hero, naturally knows absolutely nothing about blacksmithing. Seeing him fumble few the first dozen crafts is painful and hilarious, but it works well to show just how far the character has to go. He finds a dilapidated and abandoned smithy in the crime-infested town of Millet and decide to start his new life there.
+Alas, Arwin, as the former hero, naturally knows absolutely nothing about blacksmithing. Seeing him fumble through the first dozen crafts is painful and hilarious, but it works well to show just how far the character has to go. He finds a dilapidated and abandoned smithy in the crime-infested town of Millet and decides to start his new life there.
 
-Whether its local thieves, Arwin's inexperience, other factions, or just how *damn expensive* blacksmithing is, the man has lots of challenges to overcome. His level ups from crafting are few, but each skill decision is impactful and well-reasons. That's right, no five common and a legendary skill "What ever shall I pick" shenanigans to make your eyes roll.
+Whether it's local thieves, Arwin's inexperience, other factions, or just how *damn expensive* blacksmithing is, the man has lots of challenges to overcome. His level ups from crafting are few, but each skill decision is impactful and well-reasoned. That's right, no five common and a legendary skill "What ever shall I pick" shenanigans to make your eyes roll.
 
-So you've got Arwin's progression with his crafting, the renovations to the smithy and the tavern, plus the growing power of the friends Arwin makes in Millet and recruits to work with him, and all of that ensures there's never a dull moment. There's always a goal, something tangible to work toward just around the corner, and its why I read every single chapter on Royal Road in a day.
+So you've got Arwin's progression with his crafting, the renovations to the smithy and the tavern, plus the growing power of the friends Arwin makes in Millet and recruits to work with him, and all of that ensures there's never a dull moment. There's always a goal, something tangible to work toward just around the corner, and it's why I read every single chapter on Royal Road in a day.
 
 Congrats Actus, you've done it again.

@@ -27,7 +27,7 @@ To survive and grow strong, Arthur must learn skills. All the skills.
 
 Damn, that blurb is light, isn't it?
 
-It does cover the more important things though. Our MC gets a Legendary tier card at a young age, and then we get to see him exploit his good fortune. Now, we should not that this isn't a *busted* card. In that there are some other similar concepts out there, like *The Legend of Randidly Ghosthound* that also make use of the MC having a surplus of skills. In Randidly's case, he is stupidly OP. Arthur, less so. One reason why is that his card is one of a number of "Master of" cards, and---no spoilers---you'll start to see the others crop up in book two.
+It does cover the more important things though. Our MC gets a Legendary tier card at a young age, and then we get to see him exploit his good fortune. Now, we should note that this isn't a *busted* card. In that there are some other similar concepts out there, like *The Legend of Randidly Ghosthound* that also make use of the MC having a surplus of skills. In Randidly's case, he is stupidly OP. Arthur, less so. One reason why is that his card is one of a number of "Master of" cards, and---no spoilers---you'll start to see the others crop up in book two.
 
 The book starts us off in the frontier-style village Arthur lives in, but soon moves onto new places. There's a global affliction around (which gives me similar vibes to the Scourge or the Blight) that provides a larger narrative problem, but the first few books our MC is learning and growing up, not changing the planet.
 

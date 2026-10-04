@@ -35,9 +35,9 @@ The first few chapters help establish the world outside of "Yeah there's a tower
 
 After the initial hectic chapters, we spend a bit of time on various levels, including a tutorial-style village level early on. This is where Ria (nickname of the MC) meets the witch Aoihbe (yes, I checked the spelling of this, don't ask me to pronounce it). Aoihbe is also the main romantic interest.
 
-That actually brings me into why I like slower stories I think. Character development and depth. Theres a three year time skip in the tutorial village as Ria learns everything and develops her relationship, but damn, I want to read that. I want to know the characters. How can I be invested in the relationship, or the other charactes that were introduced, if I barely know them?
+That actually brings me into why I like slower stories I think. Character development and depth. There's a three year time skip in the tutorial village as Ria learns everything and develops her relationship, but damn, I want to read that. I want to know the characters. How can I be invested in the relationship, or the other characters that were introduced, if I barely know them?
 
-Of course, it's still very early days for the serial. I'll update this page in a few months time when there's more to read. However, given the author has explicitly established relationships, I'm optimistic.
+Of course, it's still very early days for the serial. I'll update this page in a few months' time when there's more to read. However, given the author has explicitly established relationships, I'm optimistic.
 
 So for thoughts right now, if you want that popcorn-style serial, enjoy a badass female lead, then give this one a shot.
 

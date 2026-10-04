@@ -38,7 +38,7 @@ And with the dawn of the Void, he'll become the most important person to have ev
 
 *As of writing this review, I've read all three books.*
 
-*Dawn of the Void* follows Phil's prior approach of strong and realised characters who drive the conflict forward. In *DotV*, this is James, the ex-EMT, homeless man with a tragic backstory that underpins his character. Serenity, Jame's main partner in crime, has her own past and her own issues, as does Jessica and every other character. Characterisation, as always, is deep and thoughtful.
+*Dawn of the Void* follows Phil's prior approach of strong and realised characters who drive the conflict forward. In *DotV*, this is James, the ex-EMT, homeless man with a tragic backstory that underpins his character. Serenity, James's main partner in crime, has her own past and her own issues, as do Jessica and every other character. Characterisation, as always, is deep and thoughtful.
 
 I've also read through the reviews on Royal Road about this, and Phil's certainly copped a lot of slack from armchair psychologists and (possible) military personnel for getting various details incorrect, whether it's about trauma, military function, homelessness, etc, and this really frustrates me. I can't speak to the accuracy of any of those comments, but like, damn, the genre is already filled with cardboard characters, can we *not* try to force authors to keep to one-dimensional empty characters by leaving a slew of bad reviews whenever a character has baggage?
 

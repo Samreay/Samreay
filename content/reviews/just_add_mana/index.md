@@ -35,13 +35,13 @@ If every single *atom* had 1 mana, and you put Cale against the *entire planet*,
 
 Someone insert the DJ Kaleh 'Suffering from Success' meme here, please.
 
-Now, what that means for the plot is that to keep Cale engaged, he is confronted with problems he cannot solve, not because he lacks the magical muscle, but because he lacks information. What plot is afoot? Who is doing it? And what's the perfect starter spell for sourdough? Cale, even with a thousand lifetimes of PTSD built up in the background, approaches all questions with sass, wit, and a chipper attitude. His smiles are bright, his winks are mischieveous, and his wrath terrifying.
+Now, what that means for the plot is that to keep Cale engaged, he is confronted with problems he cannot solve, not because he lacks the magical muscle, but because he lacks information. What plot is afoot? Who is doing it? And what's the perfect starter spell for sourdough? Cale, even with a thousand lifetimes of PTSD built up in the background, approaches all questions with sass, wit, and a chipper attitude. His smiles are bright, his winks are mischievous, and his wrath terrifying.
 
 There are strong *Mage Errant* vibes from the story. Not only is Cale's 'problem' of having too much mana much like Hugh, he's also placed in the wings of the magical academy he ends up with all the other problem students (paralleling Alustin picking up the problems of Hugh and friends). Hell, there's even a Hugh cameo (well, reference, really), along with a bunch of others that I won't spoil.
 
 Oh yeah, that's right, magic academy time. Cale needs to learn how the new universe's magic functions, after all. And he and the Headmaster quickly bond over both being beings of unfathomable power compared to the average fox in the henhouse. Which takes us back to the banter---one of the strengths of the novel. Which is good, because bad dialogue when your MC is meant to be sassy and witty often comes across cringeworthy or self-serving. Happily, this is not the case.
 
-Banter is good. Characters are good. Even the supporting case are well-developed. The professors are all interesting, the classes fun, and the overarching plot being revealed already seems to have a couple of layers too it instead of being a generic Evil Lord Invades Oh No! (There is actually a Dark Lord, but they're off somewhere else for now, so don't even worry about it.)
+Banter is good. Characters are good. Even the supporting cast are well-developed. The professors are all interesting, the classes fun, and the overarching plot being revealed already seems to have a couple of layers to it instead of being a generic Evil Lord Invades Oh No! (There is actually a Dark Lord, but they're off somewhere else for now, so don't even worry about it.)
 
 Early days but super promising, and I'd bet solid money this will be my favourite of SilverLining's works.
 

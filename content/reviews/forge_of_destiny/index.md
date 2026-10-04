@@ -18,13 +18,13 @@ tags: [cultivation, female-lead, in-progress, magic-school, slice-of-life]
 sentence: "A young girl from the slums is found to have the Talent to become an Immortal."
 ---
 
-*Forge of Destiny* starts like many cultivation novels. Plucky young girl from the streets, Ling Qi, has the talent and joins the Sect of Argent Peak. She then struggles to rise up in the inner rankings of the Sect. It has your normal progression systems, spiritual pills, removing impurities, it has moves and techniques, a vide cast of characters, but at the end of the day I wasn't drawn in.
+*Forge of Destiny* starts like many cultivation novels. Plucky young girl from the streets, Ling Qi, has the talent and joins the Sect of Argent Peak. She then struggles to rise up in the inner rankings of the Sect. It has your normal progression systems, spiritual pills, removing impurities, it has moves and techniques, a wide cast of characters, but at the end of the day I wasn't drawn in.
 
 I've thought about why that is, and there are no glaring issues in the work.
 
 It just felt *flat*.
 
-This, I believe, comes down to the plot. A week after finishing the work, I asked myself "How would I boil *Forge of Destiny* down to a single sentence?" The answer was "Girl cultivates in Sect." There's a lot of time spent in the school, in the every day, and at the end of the day, that is the plot. Overaching conflict was missing, the deep-seated motivation of a character wronged or with a chip on their shoulder, gone as well.
+This, I believe, comes down to the plot. A week after finishing the work, I asked myself "How would I boil *Forge of Destiny* down to a single sentence?" The answer was "Girl cultivates in Sect." There's a lot of time spent in the school, in the every day, and at the end of the day, that is the plot. Overarching conflict was missing, the deep-seated motivation of a character wronged or with a chip on their shoulder, gone as well.
 
 Whilst there are hints of the world outside the school, they remain mostly as hints.
 
@@ -34,7 +34,7 @@ In *Cradle*, Lindon struggles to grow stronger to save his home. In *Arcane Asce
 
 Now, some people may enjoy this immensely. There are no huge stakes, no world ending events, no annoying prophecy lurking malignantly around every corner. The slower pacing and school focus may be exactly what you like. In fact, if you've read *A Thousand Li* and enjoyed it, I would say this is very similar and you'd enjoy this too.
 
-I don't necessarily mind a good school section too. *Sufficiently Advanced Magic* is ony my favourite books, but it was school with a few twists and turns and conflicts that went somewhere I wasn't expecting. *A Forge of Destiny* didn't surprise me at all, every new arc had a resolution obvious from page one that it dutifully plodded towards.
+I don't necessarily mind a good school section too. *Sufficiently Advanced Magic* is one of my favourite books, but it was school with a few twists and turns and conflicts that went somewhere I wasn't expecting. *A Forge of Destiny* didn't surprise me at all, every new arc had a resolution obvious from page one that it dutifully plodded towards.
 
 I still enjoyed reading it, knowing where it was going doesn't stop me enjoying reading about Ling Qi developing her movement techniques, or scouting abilities, or putting some newcomer in their place. But would I re-visit the series? Do I particularly care what happens next year in the school. Probably not.
 

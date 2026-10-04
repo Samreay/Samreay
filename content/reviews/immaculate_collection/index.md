@@ -32,17 +32,17 @@ When these two men meet, they find out that not only do they need what each othe
 
 *Review written after reading all (38) available chapters (490 pages).*
 
-I got this recommendation from /u/ASIC_SP, who is a legend, as I was in dire need for a chill, laid back read after my latest system apocalypse bender, and this story seemed to fit the bill perfectly.
+I got this recommendation from /u/ASIC_SP, who is a legend, as I was in dire need of a chill, laid back read after my latest system apocalypse bender, and this story seemed to fit the bill perfectly.
 
 Reid is a fun character to follow. Young, kind, and earnest. Some might say naive. Not a murderhobo, which was what I needed. He has friends, a caring family, and dreams to chase. Chase them he does, and the main plot of the story started when he reached the city of New Avennia and made friends with the retired, eccentric, famous, feared, and utterly chaotic Basen Koh.
 
-Basen is, without any doubt, the best character in the book. The epigraphs at the start of chapter from him are a clear highlight in the writing, and the humour, wit, or inanity in them brought many smiles to my face. Basen is, however, a bit of an idiot, it seems. What sort of man sets up a store and then fails so incomprehensibly at every aspect of it?
+Basen is, without any doubt, the best character in the book. The epigraphs at the start of chapters from him are a clear highlight in the writing, and the humour, wit, or inanity in them brought many smiles to my face. Basen is, however, a bit of an idiot, it seems. What sort of man sets up a store and then fails so incomprehensibly at every aspect of it?
 
-The stores many issues provide the challenges for Reid to work through, and all has to be done while learning about the city, the guilds, the factions, and in general, The Way Things Work. This source of conflict, though... felt a little contrived to me at times. I think its to do with the economics of it all not making sense to me.
+The store's many issues provide the challenges for Reid to work through, and all has to be done while learning about the city, the guilds, the factions, and in general, The Way Things Work. This source of conflict, though... felt a little contrived to me at times. I think it's to do with the economics of it all not making sense to me.
 
 Slight numerical spoilers (but no plot spoilers) below.
 
-Basen had a debt in the hundreds of gold, loaned from Redacted. He---effectively the most famous adventurer in the nation, personal friend of the King, yadda yadda yadda, doesn't have the funds to cover this or get any personal friend to cover it in the interim. Or know *anyone* who would buy one of his many *ridiculously overpowered and rare* items for a big sum of cash. So you think, alright, hundreds of gold is obviously a phenomenally large sum. But then people start getting paid in multiple gold a month for a salary. A single item of Basen goes for 200 gold, and its not even an item of the highest tier Basen has.
+Basen had a debt in the hundreds of gold, loaned from Redacted. He---effectively the most famous adventurer in the nation, personal friend of the King, yadda yadda yadda, doesn't have the funds to cover this or get any personal friend to cover it in the interim. Or know *anyone* who would buy one of his many *ridiculously overpowered and rare* items for a big sum of cash. So you think, alright, hundreds of gold is obviously a phenomenally large sum. But then people start getting paid in multiple gold a month for a salary. A single item of Basen's goes for 200 gold, and it's not even an item of the highest tier Basen has.
 
 Items have tiers, by the way. Stars, would be the proper term I guess. One, two, and three-star items are pretty common. Factories can even produce cheap magical items in bulk. Four, five, and six are in the spicier, more valuable territory, and items six stars and above are rare and highly valued. It is then also odd that Reid's minimum selling point for an item is "One gold per star". Like, my friend, you are trying to be a merchant, and a seven star item is indescribably more valuable than a one star "This rock glows in the dark", not seven times its value.
 

@@ -29,7 +29,7 @@ Hover over blurred spoilers to reveal them at your own risk.
 ## The Good
 
 * Plenty of great moments and insane shenanigans to keep you going. <span class="spoiler">Using uncontrolled zombies to power level and creating a wave of death in the initial city was an amazing read.</span>
-* The supporting characters are few but well developed and they even have their own side stores and completed arcs.
+* The supporting characters are few but well developed and they even have their own side stories and completed arcs.
 * Having the AI character as a cat.
 * At some point, there are skeleton dragons.
 

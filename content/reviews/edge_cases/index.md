@@ -28,7 +28,7 @@ And their goal isn't just to survive; it's to make things better. It's a good th
 
 *As of writing this review, I've read the first book as an ARC reviewer.*
 
-*Edge Cases* follows a party of adventurers rather than a solo MC. We start the book through the eyes of Derivan, a living suit of armour. Then we have Sev (the cleric), Vex (the not-quite-a-wizard), and Misa (the tank), and scenes alternate between those characters. This *isn't* like a GRRM book through, with different characters in different parts of the world doing entirely separate things, there's a central plot that you just view from different eyes, and I really like it because each character's perspective really shines through.
+*Edge Cases* follows a party of adventurers rather than a solo MC. We start the book through the eyes of Derivan, a living suit of armour. Then we have Sev (the cleric), Vex (the not-quite-a-wizard), and Misa (the tank), and scenes alternate between those characters. This *isn't* like a GRRM book though, with different characters in different parts of the world doing entirely separate things, there's a central plot that you just view from different eyes, and I really like it because each character's perspective really shines through.
 
 Of course, Dev and Vex are the highlight, because who doesn't love magic.
 

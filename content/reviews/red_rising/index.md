@@ -37,7 +37,7 @@ But let me be specific. Very minor generalist early-book-one spoilers.
 
 Darrow was born a Red. His people are enslaved, kept in ignorance of the reality of both Mars and the solar system itself. The low colours living on the surface are just as trapped, and even the Silvers are merely servants to the Golden rulers. And thus the great plan - can Darrow, masquerading as a Gold, ascend through their ranks? Can he play their game well and claim enough power to help his own people break their chains?
 
-For those who want an indominable protagonist, this book is for you. Darrow is passionate, arrogant, and filled with rage. With each setback, he finds a picks himself up and finds a new path forward. And make no mistake - Darrow faces so many setbacks. Everything that can goes wrong does go wrong, every single time. Betrayal, alliances, and loyalty are strong themes in the work, and I'll admit that you eventually get to the point where any time a character is introduced you try and guess how many chapters it'll take before they try and stab someone (normally Darrow) in the back.
+For those who want an indomitable protagonist, this book is for you. Darrow is passionate, arrogant, and filled with rage. With each setback, he picks himself up and finds a new path forward. And make no mistake - Darrow faces so many setbacks. Everything that can go wrong does go wrong, every single time. Betrayal, alliances, and loyalty are strong themes in the work, and I'll admit that you eventually get to the point where any time a character is introduced you try and guess how many chapters it'll take before they try and stab someone (normally Darrow) in the back.
 
 But, hey, that's exactly what the author was aiming for with the world they painted, so... good work?
 

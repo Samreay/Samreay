@@ -37,9 +37,9 @@ Ends of Magic is a best-rated serialized novel on Royal Road with thousands of f
 
 I've read a few books where a scientific MC gets isekai'd or reincarnated into a fantasy world, and (as a physicist myself) I am generally left feeling like the author missed a lot of things, be it facts or outlook, that a career scientist should possess. I am ecstatic to report that, after years of searching, I am finally happy!
 
-Few MC's have resonated as hard with me as Nathan. His angst when the system and circumstances force him into suboptimal positions. His techniques for drawing out the maximum value from his Earth knowledge. And his sheer frustration with stupid people and traditions.
+Few MCs have resonated as hard with me as Nathan. His angst when the system and circumstances force him into suboptimal positions. His techniques for drawing out the maximum value from his Earth knowledge. And his sheer frustration with stupid people and traditions.
 
-Now, the blurb doesn't give away any plot secrets, so I'll keep this spoiler free as well. Yes, there are some darker truths. Yes, it's about power and politics and parallels closely with increasingly prevalent modern issues, and no, it's not a smack-in-you-face reductionalist agenda---it's human nature that's repeated a thousand times over history. The global plot, and Nathan's conviction to *make a difference* is strong motivation for his quest to grow stronger.
+Now, the blurb doesn't give away any plot secrets, so I'll keep this spoiler free as well. Yes, there are some darker truths. Yes, it's about power and politics and parallels closely with increasingly prevalent modern issues, and no, it's not a smack-in-your-face reductionalist agenda---it's human nature that's repeated a thousand times over history. The global plot, and Nathan's conviction to *make a difference* is strong motivation for his quest to grow stronger.
 
 The main cast---the 'Heirs' squad he is put with---all have their own motivations too and realistic aspirations, family dynamics, and good characterisation. Some of that characterisation was unfortunately lost on me due to the diverse cast. There's the four other people in the squad, rivals, secondary characters, the family of each of the Heirs, guild staff, other adventuring parties, and I got very overwhelmed with trying to remember who is who and what their relationship was with everyone else.
 
@@ -47,4 +47,4 @@ I really wish I had Nathan's mind palace memory skill, because this is a common 
 
 In terms of pacing, the start is nice and action dense, there's a lot of training and experimentation, but also plenty of slice-of-life and downtime with the wider cast. Book one finishes with a relatively small fight after many chapters of different characters honing their skills, so I assume we're building to some larger conflict at the start of book two. Things are *teased*, but there's no massive cliffhanger at the end of book one to frustrate, which is nice.
 
-Anwyay, just a big "thank you" to Alexander for writing this. I really, truly, enjoyed the scientist in a fantasy world take given it was executed so well.
+Anyway, just a big "thank you" to Alexander for writing this. I really, truly, enjoyed the scientist in a fantasy world take given it was executed so well.

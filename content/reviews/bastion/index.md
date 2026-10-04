@@ -25,7 +25,7 @@ Many progression fantasy series start with a similar pattern. An unfortunate, do
 
 
 
-Make no mistake, point systems can work. Lindon as Points-sage, Corin Cadence and Zorian in their merticulous analytics. But it wouldn't fit the rash and impulsive Scorio, and rather than shoe-horn in a system which clashes with the characters the author ups the stakes.
+Make no mistake, point systems can work. Lindon as Points-sage, Corin Cadence and Zorian in their meticulous analytics. But it wouldn't fit the rash and impulsive Scorio, and rather than shoe-horn in a system which clashes with the characters the author ups the stakes.
 
 
 
@@ -33,7 +33,7 @@ Make no mistake, point systems can work. Lindon as Points-sage, Corin Cadence an
 
 
 
-And not just some standard fire and brimestone hell, no, the city of Bastion is delightfully foreign. The physicist in my approves of the non-Euclidean geometry the city inhabits. The giant filament of light called the Sunwire, delightful. The premise of the main cast - immortal great souls reincarnated over and over in the war against Hell, may seem ordinary, but it is stepped in so much rich thought and world-building that it feels fresh and original.
+And not just some standard fire and brimstone hell, no, the city of Bastion is delightfully foreign. The physicist in me approves of the non-Euclidean geometry the city inhabits. The giant filament of light called the Sunwire, delightful. The premise of the main cast - immortal great souls reincarnated over and over in the war against Hell, may seem ordinary, but it is steeped in so much rich thought and world-building that it feels fresh and original.
 
 
 
@@ -45,11 +45,11 @@ I'm trying to keep this spoiler free, so let's briefly touch on the size of the 
 
 
 
-It is massive. Huge. 800 pages of firey goodness.
+It is massive. Huge. 800 pages of fiery goodness.
 
 
 
-I was a bit surprised that the work wasn't split into two, there's a large conflict, resolution, and arc change perfectly in the center of book, but hey, I'm not complaining that I get to read twice as much great content. Thanks for that Phil, I appreciate it... even if now I chastise myself that my books aren't long enough. Size isn't everything.
+I was a bit surprised that the work wasn't split into two, there's a large conflict, resolution, and arc change perfectly in the center of the book, but hey, I'm not complaining that I get to read twice as much great content. Thanks for that Phil, I appreciate it... even if now I chastise myself that my books aren't long enough. Size isn't everything.
 
 
 

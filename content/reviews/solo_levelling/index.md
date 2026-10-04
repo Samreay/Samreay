@@ -36,7 +36,7 @@ What it doesn't do well, is the writing.
 
 Without a shadow of a doubt, out of all the books I have ever read, this one was the technically hardest to follow. There are plenty of weird (and perhaps cultural) writing quirks. Pauses are denoted by the dialogue of "...", and if I ever read the phrase "X swallowed his dry saliva" one more time I'm going to scream. Translating stuff is hard work.
 
-No, the real issue with this series is the *constant, incessant, confusing, change in perspective*. Generally, when we write limited third perspective, you are grounded in a single readers perspective. If you want to change that, you can do a section break, and make it obvious that you are now inhabiting the brain of a different character.
+No, the real issue with this series is the *constant, incessant, confusing, change in perspective*. Generally, when we write limited third perspective, you are grounded in a single reader's perspective. If you want to change that, you can do a section break, and make it obvious that you are now inhabiting the brain of a different character.
 
 Solo Levelling does none of this. In a single three-sentence conversation, you might change perspective three times, and the inner thoughts of characters are presented in italics without a tag. I have never been so confused trying to figure out who is thinking what and whose perspective I am reading from because it literally changes with each sentence. Worse than this, by the end of the book the majority of these perspective changes are simply not needed, and only are added so we can jump into a secondary character's perspective for the millionth time to think "Wow, Jinwoo is amazing, I shouldn't underestimate him, he's a great guy."
 
@@ -48,4 +48,4 @@ On the note of secondary characters, they *all* only serve the purpose of making
 
 Despite all this, I really did enjoy the first volume.
 
-I guess I can overlook almost anything so long as there's fun action sequences, people exploiting rules and stomping on monsters. Light-hearted fun, so long as you don't try and take it seriously.
+I guess I can overlook almost anything so long as there are fun action sequences, people exploiting rules and stomping on monsters. Light-hearted fun, so long as you don't try and take it seriously.

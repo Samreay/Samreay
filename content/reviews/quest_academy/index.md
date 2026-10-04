@@ -36,13 +36,13 @@ I *love* magic academy books so much, so I was super keen to pick this one up. A
 
 Yes, this is a *very* OP protagonist story, 1000% wish-fulfillment and power fantasy. Because if you thought that ability I just listed was OP, don't worry, Sal combines other abilities in his induction to get a second world-breaking ability right at the start of the semester. In fact, he's so overpowered he doesn't even know what to do with himself. Most of his attention is spent with crafting, which is effectively automated by his Mythcrafter ability, which is effectively the "Press X to craft this better than anyone else. Press X again to fix all flaws. Press X to upgrade the item."
 
-It's super fun to read, even if it *would* have felt more amazing if this was something a character had been building towards for books. I'm a fan of the slow burn, for sure, and it's like if Zorian from Mother of Learning jumped from to golem creation in the first hundred pages instead of it taking 500k words. But that's all good, because I've just read a few slow burns and its fun to just jump straight into legendarily OP protagonist right away.
+It's super fun to read, even if it *would* have felt more amazing if this was something a character had been building towards for books. I'm a fan of the slow burn, for sure, and it's like if Zorian from Mother of Learning jumped to golem creation in the first hundred pages instead of it taking 500k words. But that's all good, because I've just read a few slow burns and it's fun to just jump straight into a legendarily OP protagonist right away.
 
 Sal and Divinity are the two main characters, and I love their dynamic. Characters are varied and done well, and the cast is wider than you'd expect, with the teaching staff, Doom society, and other students providing a broad ensemble with their own personalities.
 
 On the downside, the personalities of many of the women felt a bit... sexualised. I'm all for sex positivity in books, and I think normalising casual sex and relationships that aren't so influenced by American Puritanism is great, but this one still had me scratching my head a bit. To provide some contexts:
 
-* Sal meets the crafting staff, and Upgrade (one of his lecturers) immediately gets all touchy-feel and flirts with him to get him off balance.
+* Sal meets the crafting staff, and Upgrade (one of his lecturers) immediately gets all touchy-feely and flirts with him to get him off balance.
 * Sal crafts Hannah a piece of gear. She's so happy she puts it on and then jumps his bones right then and there. (This one felt fine to me.)
 * Her friend, Victoria, heavily insinuates she wants some 'crafting' done too, and gets upset when Sal doesn't immediately agree.
 * Sal's point of business contact in the Credit floor (where he makes money) also rushed to try and bed him. Or, to use a sentence from the books: "Hopefully you can read between the lines, because I'd hate to have to spell out how I'd fuck you senseless."
@@ -58,11 +58,11 @@ Because of how OP Sal is, I feel like there are a few plot holes. Or like... a l
 **SPOILER ALERT**
 
 * Sal is surprised by how amazing his gift is, despite, you know, having had it for years. Did he never try it out properly?
-* If Sal can permanently upgrade other people's abilities... why has he done this for his crafter friends and not, you know, the Doom society, that is responsibly for averting disasters and that he is now a part of?
+* If Sal can permanently upgrade other people's abilities... why has he done this for his crafter friends and not, you know, the Doom society, that is responsible for averting disasters and that he is now a part of?
 * If he can craft evolving weapons so powerful they could change the fate of the war, why is he not being given materials and resources to do so? Why is he fucking around with the school point system and squad combat brackets?
 * If a *single* round of meditation can significantly improve his power reserves (and lead to better crafting and all that), where is the personal tutoring and mentorship to help him power through them?
 * Why are we pretending money matters anyway? The legendary sniper rifle which will evolve to mythic and become the strongest long-range weapon in the world is canonically priced only a few times more valuable than the shirt and pants his crafter friends made him while he was napping as a thank you gift.
-* If Sal can copy and combine other peoples gifts, which can then be used to imprint onto *other* people, how is this something that sits as a background "principle gave him a piece of paper with some ideas on it" plot point and not priority one? Like, Sal is regularly talking to the most powerful telepath in the world, and doesn't copy his ability? Combine it with other abilities? Improve it, for himself or Neuro? **SAL WHAT ARE YOU DOING?!**
+* If Sal can copy and combine other people's gifts, which can then be used to imprint onto *other* people, how is this something that sits as a background "principle gave him a piece of paper with some ideas on it" plot point and not priority one? Like, Sal is regularly talking to the most powerful telepath in the world, and doesn't copy his ability? Combine it with other abilities? Improve it, for himself or Neuro? **SAL WHAT ARE YOU DOING?!**
 
 
 **END SPOILER ALERT**

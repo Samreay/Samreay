@@ -31,12 +31,12 @@ This is officially the first fan-fiction I've ever read, and gotta admit... it h
 
 The plot is fairly straightforward: an unnamed person is isekai'd into the body of Motoko Kusanagi, a 14 year old girl who had Tyger Claw parents, after a scav attack kills the original Motoko Kusanagi. Unlike all the other gonks in Night City, Motoko gets experience, stats, and skills. If you've played the games, you'll be familiar with these. Reflex. Body. Intelligence. Cool. Etc.
 
-And with the power of grinding, she quickly goes from unassuming teenage girl to ninja edgerunner pulling off all sort of gigs.
+And with the power of grinding, she quickly goes from unassuming teenage girl to ninja edgerunner pulling off all sorts of gigs.
 
 While there isn't a global plot building tension all the time, it's great just to follow Motoko along in her escapades and her skill grinding, and the serial doesn't waste time getting Motoko into an area of dangerous competency. She's still challenged of course, but this gives you the mix of cathartic "time to flatline some scavs" to "going against a seasoned netrunner" in terms of tension.
 
 Characters are done well, both original ones, and those from the game. Vik, Judy, Jackie, V, etc, all sound and speak like their characters from the game, and Motoko's squad are all distinct and add to the story.
 
-In terms of technical writing, it's decent. There are a fair few grammar and punctuation issues, a lot of quick tense swaps in paragraphs, but I've never really be bothered by those things. If you *are* though, then fair warning.
+In terms of technical writing, it's decent. There are a fair few grammar and punctuation issues, a lot of quick tense swaps in paragraphs, but I've never really been bothered by those things. If you *are* though, then fair warning.
 
 If you're a fan of the game, or just the cyberpunk universe in general, I highly recommend giving this a shot.

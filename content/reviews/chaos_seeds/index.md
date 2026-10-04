@@ -35,7 +35,7 @@ It's no secret that Aleron Kong loves his memes. Loves them enough to put them i
 Maybe it doesn't help that I possess a deep and abiding hatred of that song, but there's nothing quite as good at pulling me out of a story as the main character screaming out lyrics, or reading about the master-builder Roswan with his glorious moustache, ex-wife Tamitu (Tammy Two) and Lezli Gnome. On the other hand, my wife thought it was hilarious and it made her want to read more of the series.
 
 
-So obiously this is just my own personal preferences. Maybe you smiled at the frivolity of those inclusions like my wife, in which case, you will 100% enjoy this series. To bits. Maybe except for the ridiculously detailed cave diarrhoea scene (which I actually found fairly humurous, but I've seen it lampooned in many other reviews), but hey, you can't have everything and please everyone!
+So obviously this is just my own personal preferences. Maybe you smiled at the frivolity of those inclusions like my wife, in which case, you will 100% enjoy this series. To bits. Maybe except for the ridiculously detailed cave diarrhoea scene (which I actually found fairly humorous, but I've seen it lampooned in many other reviews), but hey, you can't have everything and please everyone!
 
 So if I don't like the memes, why did I read literally all eight of the available books?
 

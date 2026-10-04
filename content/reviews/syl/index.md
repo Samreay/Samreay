@@ -17,7 +17,7 @@ sentence: "Can Syl make any friends after being reborn a slime?"
 search_terms: "Syl Nucleus Lunadea slime monster evolution LitRPG Gramps Vee"
 ---
 
-*As of writing this review, I've read all four books are out on Amazon and all available RR chapters (about two more books worth).*
+*As of writing this review, I've read all four books that are out on Amazon and all available RR chapters (about two more books' worth).*
 
 ## Blurb
 
@@ -37,7 +37,7 @@ Can Syl make any friends?
 
 ## Thoughts
 
-After reading *Bookbound Bunny* and loving it, I decided to pick up *Syl* as its by the same author. It's got quite a different vibe to it given its pseudo-monster-evoution and LitRPG roots, and it was a fun read.
+After reading *Bookbound Bunny* and loving it, I decided to pick up *Syl* as it's by the same author. It's got quite a different vibe to it given its pseudo-monster-evolution and LitRPG roots, and it was a fun read.
 
 So let's break it down.
 
@@ -47,7 +47,7 @@ The system itself is simple, generic, but that also means accessible and not ove
 
 Plot-wise, it's less an epic and more an open-world RPG that's being explored. As Syl meanders around trying to find new slimes, they get involved in various plot points that go on for an arc before wrapping up. There's some overarching threads about experiments and mayyyybe at some point we'll meet the dragon experiment that's been hinted at over and over, but for now (the latest chapters as of mid-August 2026) Syl is still learning their newest magic affinity obsession, trying to break the system, and setting up their home base.
 
-Once we get to the dwarven city, we get a permenant experiment companion (Vee, she's a teleporting spider) and I liked the character dynamic it introduced. The downside of having a solo-MC and self-contained arcs in different locations is that you don't get a wide variety of long-term character building as the characters are fleeting, so having Vee around is (to me) a great thing.
+Once we get to the dwarven city, we get a permanent experiment companion (Vee, she's a teleporting spider) and I liked the character dynamic it introduced. The downside of having a solo-MC and self-contained arcs in different locations is that you don't get a wide variety of long-term character building as the characters are fleeting, so having Vee around is (to me) a great thing.
 
 Worldbuilding starts small (forest) and opens up as Syl travels. It's fairly generic fantasy in its setting, which isn't necessarily a bad thing.
 

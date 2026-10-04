@@ -33,5 +33,5 @@ I wasn't quite sure how well this one fit the Progression Fantasy mould. For Azo
 
 There are other plotlines that are similar. His friend Logan, we follow. The romance plot line with Elene, less so. This is a great coming-of-age story with great characters and fantastic action scenes. I wasn't a big fan of how the romantic elements with Elene were treated (nor the weird triangle put into it with the female assassin), nor some of Kylar's stupidity or ignorance. Secondary plotlines in other countries (aka Khalidor and trying to break into the forest) I really liked, because they provided a great counterpoint to the main plot and introduced other systems of magic.
 
-So if you're a fan of classical "zero to hero" fantasy series, like *Magician*, the *Belgariad*, or various others that fit the mould, and want a slightly more PF bend to them, you'll probably enjoy this. It's not as mature as Weeks' other series (*Lightbringer*), but it doesn't end with awful *deus ex machina*, so that's nice.
+So if you're a fan of classical "zero to hero" fantasy series, like *Magician*, the *Belgariad*, or various others that fit the mould, and want a slightly more PF bent to them, you'll probably enjoy this. It's not as mature as Weeks' other series (*Lightbringer*), but it doesn't end with awful *deus ex machina*, so that's nice.
 

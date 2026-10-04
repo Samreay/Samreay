@@ -24,7 +24,7 @@ So, premise time. In this world, there are magical people, and not magical peopl
 
 First off, amazing take on the magical school trope already.
 
-And here is our MC, El (short for Galadriel), because her parents were feeling a bit dickish when they named her. In this world, there's a strong principle of balance, and because El's mother is such a goody-two-shoes, helping people all the time for free and just being as saintly as possible, El gets powers and skills exactly the opposite. She is---if she choses to be---a walking disaster that could give the Four Horsemen a run for their money. Except El doesn't *want* to be an evil superpower, she just wants what normal teenage girls want: not to be eaten alive.
+And here is our MC, El (short for Galadriel), because her parents were feeling a bit dickish when they named her. In this world, there's a strong principle of balance, and because El's mother is such a goody-two-shoes, helping people all the time for free and just being as saintly as possible, El gets powers and skills exactly the opposite. She is---if she chooses to be---a walking disaster that could give the Four Horsemen a run for their money. Except El doesn't *want* to be an evil superpower, she just wants what normal teenage girls want: not to be eaten alive.
 
 Entering as the secondary character is Orion, an upstanding student protecting all others by hunting down the mals in the school. He is suspicious of the evil superpower that El might be, and initially follows her around. What comes from all of this is a spoiler, but it contains some of the best characterisations, interactions, and hilariously on-point dialogue I have ever read.
 

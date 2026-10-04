@@ -37,7 +37,7 @@ Follow this wholesome vacuum on his quest to power in All the Dust that Falls, a
 
 I do like a good parody story, and so was a bit surprised by the more serious tone of this one. The concept is a parody, of course, but the story and execution are legitimate and not just there to make fun of tropes.
 
-So, you follow Spot as he is bought into a fantasy world, and the people that summon him (they were trying to summon an arch-demon) are distraught when Spot just vacuums up their anti-demon countermeasures. He is joined early on by Bee, a young apprentice that's left behind after she breaks her leg. The two eventually team up, hurray, and with their powers combined things can get even *cleaner*.
+So, you follow Spot as he is brought into a fantasy world, and the people that summon him (they were trying to summon an arch-demon) are distraught when Spot just vacuums up their anti-demon countermeasures. He is joined early on by Bee, a young apprentice that's left behind after she breaks her leg. The two eventually team up, hurray, and with their powers combined things can get even *cleaner*.
 
 Their dynamic is very fun to read, especially as you shift from Spot's PoV to Bee's---the misunderstandings and vastly different takes are a great source of comedy in the book.
 
@@ -45,7 +45,7 @@ Now, cleaning earns Spot a huge amount of experience, and despite him having ver
 
 There are some head-scratchers about power levels and consistency, but if you're reading a story about an isekai'd robovac, this probably isn't something you're too strict on.
 
-Characters are alright, and Spot's intelligence grows as he levels up. That said, the gags about Spot always choosing the cleaning option when presented with different OP abilities grows thinner as the vacuum's objectives broaden and his intelligence grows, and skipping over communication issues (he just beeps) when *so much of the plot* hinges on a lack of communication and characters talking to each other passed from being humour to being annoying. Then again, I have never liked communication-based plot points. Bee, just talk to Spot about your concerns. Spot, ask Bee to read the damned book you're trying to puzzle out. Boom, book is now 80% shorter.
+Characters are alright, and Spot's intelligence grows as he levels up. That said, the gags about Spot always choosing the cleaning option when presented with different OP abilities grow thinner as the vacuum's objectives broaden and his intelligence grows, and skipping over communication issues (he just beeps) when *so much of the plot* hinges on a lack of communication and characters talking to each other passed from being humour to being annoying. Then again, I have never liked communication-based plot points. Bee, just talk to Spot about your concerns. Spot, ask Bee to read the damned book you're trying to puzzle out. Boom, book is now 80% shorter.
 
 Progression is slower than normal. To be clear, Spot levels up quickly, but because he always picks cleaning related abilities, his levels sort of don't matter? For a concrete example with a minor spoiler, Spot at some point picks the "Air Purifier" upgrade, instead of *Myriad Tongues* or *Grant Sapience*. In most LitRPG stories I'd be excited for new skills and to see them used in creative ways or in fights, but that often doesn't happen here. Spot can now purify air, this hasn't yet helped in any part of the story, and his method of attacking things pretty much hasn't changed and thus runs the risk of growing a bit stale.
 

@@ -36,5 +36,5 @@ The overarching plot is there building in the background, but Vainqueur's priori
 
 But throughout it all, the tone remains light-hearted and playful. Characterisation is brilliant. The System is simple---you gain levels in specific classes and this unlocks skills and perks---and therefore doesn't require formulas or info dumps to make sense of.
 
-It's really just a super fun read, especially as a palate cleanser between more series and darker fictions. Check it out.
+It's really just a super fun read, especially as a palate cleanser between more serious and darker fictions. Check it out.
 

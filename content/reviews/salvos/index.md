@@ -16,7 +16,7 @@ tags: [in-progress, litrpg, female-lead,  manhua]
 sentence: "Can Salvos, a newborn demon, survive the swarms of the Nethworld? When cast to the human realm, will she find her way home?"
 ---
 
-*As of the time of writing this review, I've read about three books worth of content and plan to read much more.*
+*As of the time of writing this review, I've read about three books' worth of content and plan to read much more.*
 
 ## Blurb
 
@@ -34,11 +34,11 @@ Dammit Melas.
 
 Now, you might know the author more for his rampant shitposting on the /r/ProgressionFantasy sub, or perhaps one of his many other fictions, but I'll keep content here about Salvos. So let's talk plot without spoilers.
 
-It's nice to follow a protagonist that isn't a blank slate MC. Even better, the MC isn't even human, and it provides a nice change in perspectives and attitudes from many other serials. Our MC, Salvos, is a demon. The story follows literally from her laval form, through her numerous evolutions and class ups. As the blurb says, Salvos is thrown into the human world (though humans are one of many species) early on, and retruning to her companion is a central point to the overarching plot.
+It's nice to follow a protagonist that isn't a blank slate MC. Even better, the MC isn't even human, and it provides a nice change in perspectives and attitudes from many other serials. Our MC, Salvos, is a demon. The story follows literally from her larval form, through her numerous evolutions and class ups. As the blurb says, Salvos is thrown into the human world (though humans are one of many species) early on, and returning to her companion is a central point to the overarching plot.
 
-It's *not* obviously the onle thing going on, and mostly that plot point sits in the background as a problem almost without solution, and Salvos needs to keep searching and growing stronger to achieve her goal.
+It's *not* obviously the only thing going on, and mostly that plot point sits in the background as a problem almost without solution, and Salvos needs to keep searching and growing stronger to achieve her goal.
 
-She does this with a small cast of friends. Daniel, who would probably be the MC of a serial all by himself, is a great character with an amazing background. He fits the hero archetype, and the other main companion, Edithe, acts as a more serious character. Each of them *are* characters in their own right, and not just stereotypes come to life, or characters that exist only to highlight how amazing the MC is.
+She does this with a small cast of friends. Daniel, who would probably be the MC of a serial all by himself, is a great character with an amazing background. He fits the hero archetype, and the other main companion, Edithe, acts as a more serious character. Each of them *is* a character in their own right, and not just stereotypes come to life, or characters that exist only to highlight how amazing the MC is.
 
 Back to the MC, Salvos carries the story. She's innocent and ignorant of the world, but is also a demon that doesn't necessarily elevate human life to being sacred. And when you scratch the surface, the author peels back the veneer of selfishness to reveal a nuanced character with complexity. Salvos has layers, like an onion. She is, however, not green.
 

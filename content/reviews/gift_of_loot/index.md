@@ -18,14 +18,14 @@ sentence: "He who has the most loot, wins."
 
 System Integration has been announced on Earth and Thomas just wants to keep his skin intact, maybe carve out a life that's more interesting than the one he's had so far. Is it too much to hope for both?
 
-When he steps inside a dungeon for the first time, he receives a magical Gift reflects the shape of his soul: Now every monster kill drops mana crystals, weapons, and powerful gear.
+When he steps inside a dungeon for the first time, he receives a magical Gift that reflects the shape of his soul: Now every monster kill drops mana crystals, weapons, and powerful gear.
 
 While others struggle to survive in a new world, Thomas begins to build something far more dangerous: An advantage.
 
 ## Thoughts
 
 
-*As of writing this review, I've ready all available 80 chapters on Royal Road.*
+*As of writing this review, I've read all available 80 chapters on Royal Road.*
 
 I normally wait until stories have a few more pages (1000+) before I review them, but I jumped on this quickly because I saw it posted a few times on Reddit when talking about great reads that have recently been on rising stars. And yeah, this one is fun, and I'm very glad for a change up to the normal overpowered-combat-focused-MC to get one whose gift/skill/ability/trait/whatever is focused on the best part of stories. Loot! Thomas's ability is effectively extra loot and rarer loot. Simple but effective.
 

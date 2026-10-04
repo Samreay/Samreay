@@ -18,7 +18,7 @@ sentence: "Kip and the Prism face down the color-wights, but who's actually in t
 
 *This review will have some light spoilers.*
 
-The first three books of this series were amazing. Watching Kip, our main character, be bought from his destroyed village to the Chromeria, train with the Blackguard, develop his chromaturgy fantastic. Watching Gavin* build the Brightwater Wall in the face of the oncoming army of the Color Prince, gripping. Koios White Oak and her growth out of the Blackguard, superb.
+The first three books of this series were amazing. Watching Kip, our main character, be brought from his destroyed village to the Chromeria, train with the Blackguard, develop his chromaturgy fantastic. Watching Gavin* build the Brightwater Wall in the face of the oncoming army of the Color Prince, gripping. Koios White Oak and her growth out of the Blackguard, superb.
 
 The world-building was unique, deep enough to engage, but simple enough to grasp quickly.
 
@@ -30,7 +30,7 @@ And then Orholam comes along. Orholam is god, for a drop of context.
 
 And ultimately his intervention in the last book invalidates the development of all our favourite characters, and waving a hand to resurrect characters seems to, I don't know, literally remove the consequences of their choices.
 
-Now, this isn't to say I hate all divine intervention. Plenty of series have deities as a character, playing people like chess pieces against each other. But Orholam is an absent god, mythology rather than a character, and so his appearance simply feels unwelcome.
+Now, this isn't to say I hate all divine intervention. Plenty of series have deities as characters, playing people like chess pieces against each other. But Orholam is an absent god, mythology rather than a character, and so his appearance simply feels unwelcome.
 
 I think this is one of the series I am most salty over because I enjoyed the first half so very, very much.
 

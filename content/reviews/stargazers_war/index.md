@@ -40,12 +40,12 @@ I can *cultivate* it.
 
 There are generally two kinds of Progression Fantasy types of books: those where the MC has to claw their way up the ranks through painful hard work; and those where the MC starts out with a broken trait (or a system exploit, cheat code, etc), and goes nuts with it.
 
-Cal (our MC), manages to be both. While other cultivators have to scrounge up the mana to cultivate over long time periods, Cal has the infinite void to draw from, supercharing his cultivation speed. Of course, having lots of mana available is only one part of cultivating, and so he has to learn the others the hard way.
+Cal (our MC), manages to be both. While other cultivators have to scrounge up the mana to cultivate over long time periods, Cal has the infinite void to draw from, supercharging his cultivation speed. Of course, having lots of mana available is only one part of cultivating, and so he has to learn the others the hard way.
 
-After an initial setup, which I won't spoil, Cal finds his way to a sect, and the book becomes a more common magic school styled plot. There are the petty drama and intruige common to the 'face' cultures that we all know from traditional cultivation novels, but now things have a sci-fi twist to them. I suspect that, as the MC grows stronger and eventually moves past his small sect outpost, the sci-fi elements might come more into play, but right now they're just flavour to the setting and you could swap out the sci-fi setting for an ancient Chinese one and nothing in the plot would really need to change (barring our MC drawing from the 'void', of course).s
+After an initial setup, which I won't spoil, Cal finds his way to a sect, and the book becomes a more common magic school styled plot. There are the petty drama and intrigue common to the 'face' cultures that we all know from traditional cultivation novels, but now things have a sci-fi twist to them. I suspect that, as the MC grows stronger and eventually moves past his small sect outpost, the sci-fi elements might come more into play, but right now they're just flavour to the setting and you could swap out the sci-fi setting for an ancient Chinese one and nothing in the plot would really need to change (barring our MC drawing from the 'void', of course).
 
 Alright, onto the meat and potatoes. I'm rating this well above normal cultivation stories for two main reasons:
 
 * Prose. It's good. Clear but impactful when it needs to be.
-* Characters. Cal and the friends he make are all different, with histories and their own goals. Even the tiny side characters have life.
+* Characters. Cal and the friends he makes are all different, with histories and their own goals. Even the tiny side characters have life.
 

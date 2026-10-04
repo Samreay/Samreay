@@ -38,11 +38,11 @@ The Daily Grind is the epic beginning to a slice-of-life urban fantasy that effo
 
 The premise of this book spoke a lot to me. While I might not be an IT support worker on the graveyard shift, I have spent an uncomfortable amount of my life in an office environment. Some of that, I will admit, may have been spent daydreaming about what exactly I would do (and how I would change the world), if I suddenly had the powers of the characters in the last book or movie I'd seen.
 
-I'm sure we all have such fantasies. The Daily Grind is one of these, put down to paper. What if I, Average Office Worker, found a seemingly infinite office-themed dungeon, where stables, computers, cables, plants, and so much more came to life in a weird ecosystem that is begging to be explored?
+I'm sure we all have such fantasies. The Daily Grind is one of these, put down on paper. What if I, Average Office Worker, found a seemingly infinite office-themed dungeon, where stables, computers, cables, plants, and so much more came to life in a weird ecosystem that is begging to be explored?
 
-And what if, when killing those creatures, they dropped different sorts of skill orbs that would teach me things, from absolutely useless skills (like New York phonebook typesetting) or to something that *would* be useful (martial arts, coding skills, languages)?
+And what if, when killing those creatures, they dropped different sorts of skill orbs that would teach me things, from absolutely useless skills (like New York phonebook typesetting) to something that *would* be useful (martial arts, coding skills, languages)?
 
-You bet that I'd be in that dungeon every chance I got. And herein lies both the strength and weakness of the book in my opinion.
+You bet that I'd be in that dungeon every chance I got. And herein lie both the strength and weakness of the book in my opinion.
 
 I enjoy the office dungeon and the skills. But, throughout the whole book, that's sort of all that happens? It's one office delve after another, over and over, and I was itching for the pace to increase. For them to crack how skill orbs work so they wouldn't keep getting random (and therefore mostly useless) skills. For the MC (and Anesh) to do something radical, whether it was proper fortifications as they expand into the dungeon, crazy weapons, more taming of the office equipment. All of that they sort of start doing, but the min-maxer in me was bashing my head against the wall at their lack of progression in figuring any of it out properly. Hundreds and hundreds of pages, so many office delves, and still just random skills to show for it? *Give me more, dammit!*
 

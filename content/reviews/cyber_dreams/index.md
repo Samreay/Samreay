@@ -43,5 +43,5 @@ The action sequences are fun, and Angel's ability to improve Juliet's learning r
 
 Book two's just been released, so I think I'll have to pick it up, read it, and update this review. But I figured it'd be good to write something up before Christmas, just in case anyone else is looking for that cyberpunk fix as well.
 
-Yeah, turns out Phantom Liberty and patch 2.1 just wasn't enough for me!
+Yeah, turns out Phantom Liberty and patch 2.1 just weren't enough for me!
 

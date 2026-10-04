@@ -22,7 +22,7 @@ Initially, the premise of this book seemed super intense. Lightblades obviously 
 
 Without spoilers, the premise is simple. Jyosh, our effectively enslaved MC, wants to kill the Emperor. After all, the guy had his family all murdered, and shipped him off to the work camps. To try and achieve his goal, Jyosh swaps out his government-given dream stone, with a bootlegged stone with a lightblade training program on it, with its own more advanced, sentient training AI. Let's just say that things don't go as planned.
 
-This is a frustrating review to write, because one of the best things about this book is that you *don't* know where its going, you *don't* expect the twists and turns, and I can't talk about really anything without giving away something, and I don't want to ruin the experience for anyone else. So, let me just make a list and hope that its useful.
+This is a frustrating review to write, because one of the best things about this book is that you *don't* know where it's going, you *don't* expect the twists and turns, and I can't talk about really anything without giving away something, and I don't want to ruin the experience for anyone else. So, let me just make a list and hope that it's useful.
 
 ### The Good
 
@@ -32,14 +32,14 @@ This is a frustrating review to write, because one of the best things about this
 
 ### The Alright
 
-* In terms of relatability, the characters don't feel too deep. Jyosh has such a simple and obvious motivation, its hard to dive deeper into his character, and he's the only perspective we get.
+* In terms of relatability, the characters don't feel too deep. Jyosh has such a simple and obvious motivation, it's hard to dive deeper into his character, and he's the only perspective we get.
 
 ### The Maybe Could Be Better?
 
 Look at how diplomatic that heading is.
 
 * The concept of time-dilation in dreams means that Jyosh, as a brand new beginner, is fighting people with years, decades, or even centuries of combat experience. Somehow Jyosh wins these conflicts, and it feels like plot armour.
-* It's always good when the big reveals are foreshadowed and when it happens, everything clicks together. For anyone thats up to date with Cradle, you get this. Or Vader in Star Wars. All the foreshadowing makes sense, and you think "Damn, I knew it!" or "Damn, I should have seen that coming." There are two big reveals in this book, but I didn't think either of those two sentences, I thought "Damn, I wish there was some more buildup or foreshadowing to make this more impactful."
+* It's always good when the big reveals are foreshadowed and when it happens, everything clicks together. For anyone that's up to date with Cradle, you get this. Or Vader in Star Wars. All the foreshadowing makes sense, and you think "Damn, I knew it!" or "Damn, I should have seen that coming." There are two big reveals in this book, but I didn't think either of those two sentences, I thought "Damn, I wish there was some more buildup or foreshadowing to make this more impactful."
 
 The big, shining caveat to the above is that perhaps there *were* hints about these reveals, but either they passed over my head, or I just wasn't quite smart enough to figure it out.
 

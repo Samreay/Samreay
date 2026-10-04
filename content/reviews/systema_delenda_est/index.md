@@ -26,13 +26,13 @@ He has no magic — for the System can't be destroyed from within — but he doe
 
 ## Thoughts
 
-*As of writing I've read the whole trilogy. And its finished, which is rare in the genre.*
+*As of writing I've read the whole trilogy. And it's finished, which is rare in the genre.*
 
-This story is in a bit of weird genre subset. It's effectively an ideological fight at civilisation scale, waged across decades and tens of thousands of worlds.
+This story is in a bit of a weird genre subset. It's effectively an ideological fight at civilisation scale, waged across decades and tens of thousands of worlds.
 
-The premise is a genuine LitRPG inversion. Cato arrives in the System already at peak posthuman capability: a consciousness that can run as multiple simultaneous instances, be transferred into synthetic frames, spin up entire civilisations in accelerated simulations, lots of fun and inventive uses of technology. The levels and skill tiers everyone else grinds toward are useless to him by design (he's not in the system). His power is industrial and exponential, not personal and vertical. If you want a zero-to-hero arc, this isn't it. His is more a zero-to-galacty-spanning-factory.
+The premise is a genuine LitRPG inversion. Cato arrives in the System already at peak posthuman capability: a consciousness that can run as multiple simultaneous instances, be transferred into synthetic frames, spin up entire civilisations in accelerated simulations, lots of fun and inventive uses of technology. The levels and skill tiers everyone else grinds toward are useless to him by design (he's not in the system). His power is industrial and exponential, not personal and vertical. If you want a zero-to-hero arc, this isn't it. His is more a zero-to-galaxy-spanning-factory.
 
-Where the series is genuinely exciting is the posthuman stuff. Consciousness sharding, reconciliation of diverged instances, the weird weight of meeting a copy of yourself who's spent a decade making different choices. Earth pre-System had already developed "Summer Civilisations" (simulated realities running millions of times faster than real time, entire cultures rising and collapsing over a single season). There's Winter Civilisations too, but I don't need to cover everything. The tech is strange and good and I want more of it.
+Where the series is genuinely exciting is the posthuman stuff. Consciousness sharding, reconciliation of diverged instances, the weird weight of meeting a copy of yourself who's spent a decade making different choices. Earth pre-System had already developed "Summer Civilisations" (simulated realities running millions of times faster than real time, entire cultures rising and collapsing over a single season). There are Winter Civilisations too, but I don't need to cover everything. The tech is strange and good and I want more of it.
 
 The two companions are Raine and Leese Talis, Sydean sisters who Cato resurrects early on and converts to postbiological form. They're independent personalities, but the story's own logic eventually undermines them. Once there are dozens of copies of each sister scattered across hundreds of worlds, each accumulating their own experiences, the investment in any particular instance quietly drains away. It's consistent with the premise and also kind of a bummer. You feel it happening and can't really argue against it. It makes sense, but it also makes things a bit impersonal, if that makes sense.
 

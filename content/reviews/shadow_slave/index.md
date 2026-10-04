@@ -30,11 +30,11 @@ I have... complex thoughts on Shadow Slave. I jumped in on it after seeing a goo
 
 #### Worldbuilding
 
-It's masterful. The Nightmare Spell and the dream world are imaginative and visceral. Whether we're looking at the subsiding ocean from the first main arc, the city the MC's reach, or the Chained Isles, it's fresh and incredibly detailed. The world the Awakened have to contend with is ruthless and deadly, and the effect it has on characters is profound. Absolute top-tier marks for the worldbuilding and setting.
+It's masterful. The Nightmare Spell and the dream world are imaginative and visceral. Whether we're looking at the subsiding ocean from the first main arc, the city the MCs reach, or the Chained Isles, it's fresh and incredibly detailed. The world the Awakened have to contend with is ruthless and deadly, and the effect it has on characters is profound. Absolute top-tier marks for the worldbuilding and setting.
 
 #### Progression
 
-It's strong. Sunny doesn't get a million skills and levels and class upgrades, those are few and far between but impactful because of it. The smaller progression is focused on the Memories (and Echoes) gathered from killing Nightmare creatures, and those Memories (aka magical items) come in the form many different weapons, armour, charms, tools, and the like. Seeing how Sunny's upgrading arsenal is put to use is a joy.
+It's strong. Sunny doesn't get a million skills and levels and class upgrades, those are few and far between but impactful because of it. The smaller progression is focused on the Memories (and Echoes) gathered from killing Nightmare creatures, and those Memories (aka magical items) come in the form of many different weapons, armour, charms, tools, and the like. Seeing how Sunny's upgrading arsenal is put to use is a joy.
 
 #### Characters
 
@@ -42,7 +42,7 @@ Are generally well done. Obviously Sunny is the most developed, given he's the f
 
 #### Writing
 
-The technical writing itself, I believe, could use some refinement. I assume this is a translated work given a lack of standard things like italics for thoughts, but ignoring tiny things like there (and the occasional jump from Sunny to omniscient/someone else for a sentence or two) I think the the two biggest drawbacks are how brow-beaten some passages are, and the amount of exposition. There are *many* passages where Sunny puts something together and you get text like:
+The technical writing itself, I believe, could use some refinement. I assume this is a translated work given a lack of standard things like italics for thoughts, but ignoring tiny things like there (and the occasional jump from Sunny to omniscient/someone else for a sentence or two) I think the two biggest drawbacks are how brow-beaten some passages are, and the amount of exposition. There are *many* passages where Sunny puts something together and you get text like:
 
 > A few things became more clear from this short description. Firstly...
 

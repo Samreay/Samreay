@@ -36,7 +36,7 @@ This was one of those self-promo posts I saw on /r/LitRPG and I loved the cover 
 
 This was a solid entry to the very few card-based books I've read. Some others have had issues with the magic system getting a bit old, simply because the MC is normally very limited in the skillset due to the small number of cards (or singular one) they start out with. Dax, happily, lucks into a chaos based card that he can trigger to generate a new ability, and this keeps the action fresh by constantly forcing Dax to solve problems in new ways.
 
-A good amount of the plot revolves around (illegal) Card Fighting, though stakes quickly climb as power consolidation comes into play. Right now there doesn't seem to be a limit to how many cards one person can have, so obvious if you're an unscrupulous card fighter, the way to gain more power seems pretty simple, right?
+A good amount of the plot revolves around (illegal) Card Fighting, though stakes quickly climb as power consolidation comes into play. Right now there doesn't seem to be a limit to how many cards one person can have, so obviously if you're an unscrupulous card fighter, the way to gain more power seems pretty simple, right?
 
 But I can say no more, as this review won't have spoilers.
 

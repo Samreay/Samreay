@@ -20,7 +20,7 @@ sentence: "A world abandoned by the gods, mystifying cosmic forces, and a hero w
 
 **A world abandoned by the gods, mystifying cosmic forces, unimaginable power for those willing to ascend, and a hero who would rather... go fishing???**
 
-When summoned to a fantastical world and granted powers by a broken System, most freshly minted protagonists would strap on their big-boy boots and get ready for their stats to start climbing. But Fischer isn’tlike most MCs. In fact, he doesn’t want to be a hero at all.
+When summoned to a fantastical world and granted powers by a broken System, most freshly minted protagonists would strap on their big-boy boots and get ready for their stats to start climbing. But Fischer isn’t like most MCs. In fact, he doesn’t want to be a hero at all.
 
 Fame? Fortune? Power? He had enough of all that in his old life. Discovering forbidden fishing techniques and petting every cute animal that comes within scritching distance? Now that’s a good time.
 
@@ -47,10 +47,10 @@ So, what *is* this story? Here's a tongue-in-cheek summary:
 
 Now, if you fill in "own thing = farming" and "animal companions = chicken + farm animals", you're reading **Beware of Chicken**. If you fill in "own thing = fishing" and "animal companions = crab + others" then you're reading **Heretical Fishing**.
 
-I, obviously, am deliberately highlighting all the similarities and glossing over the many differences here. It's clear that the story was inspired from Beware of Chicken, but it still does its own thing to make it fun, standalone read. The characters have similar beats (Jin and Fischer are just genuinely nice blokes trying to do their best and be good people), and in **Heretical Fishing** the evil characters are obviously bad. Whether it's the (hilariously over the top) rendition of the fat noble leader, or the toe-faced prince and his deviant activities, there's no ambiguity in the story as to the good and bad characters.
+I, obviously, am deliberately highlighting all the similarities and glossing over the many differences here. It's clear that the story was inspired by Beware of Chicken, but it still does its own thing to make it a fun, standalone read. The characters have similar beats (Jin and Fischer are just genuinely nice blokes trying to do their best and be good people), and in **Heretical Fishing** the evil characters are obviously bad. Whether it's the (hilariously over the top) rendition of the fat noble leader, or the toe-faced prince and his deviant activities, there's no ambiguity in the story as to the good and bad characters.
 
 In a story that wasn't meant to be slice-of-life and wholesome, I'd put this as a flaw. In a story where the focus is on all the positive vibes from Fischer and his interactions with the townspeople, having the dichotomy keeps the narrative lines separate and stakes obvious.
 
-Character are still well-developed, make no mistake. Sergeant Snips is clearly the best, and her differing interactions with Corporal Claws, Rocky, and Fischer's friends goes to show that it doesn't matter if your character is a crab, there's no excuse not to pack in a ton of personality. Back to bideps, and Fischer and Maria's slow-burn romance feels authentic and the riffing between the two reminded me a *lot* of the back and forth between me and my wife when we first started dating. So, big kudos to Haylock for nailing this.
+Characters are still well-developed, make no mistake. Sergeant Snips is clearly the best, and her differing interactions with Corporal Claws, Rocky, and Fischer's friends go to show that it doesn't matter if your character is a crab, there's no excuse not to pack in a ton of personality. Back to bipeds, and Fischer and Maria's slow-burn romance feels authentic and the riffing between the two reminded me a *lot* of the back and forth between me and my wife when we first started dating. So, big kudos to Haylock for nailing this.
 
 The main downside to this story is that I now know more fishing terms than I ever wanted (including actual Australian brands of equipment like Alvey), but my brain should hopefully purge this information in the coming weeks. The upside to this story is everything else, and I highly recommend it as a joyful break between the grim reality of system apocalypse stories so popular in LitRPG.

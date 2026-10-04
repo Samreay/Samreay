@@ -33,7 +33,7 @@ Off the bat, this is a different sort of magic school book to classics like **Ma
 
 In effect, what this means is more time spent in character work, more time spent prior to being accepted, and time spent after leaving. And a greater focus on the world and wider plot than class-based assessment. Which is all good to me, because the characters are interesting, book one sets up a great change of pace and location for book two, and the progression---while slow---is still consistent.
 
-And surprisingly (given some fortuitous circumstances in how Deryn gains his shards), it still feels earned. So how to describe this book? It's hard. It's more school focused than *Bastion*, but less than something like *Art of the Adept* or *The Enchanter*. It's got exploration outside the school, but not (yet") to the scope we see in *Mage Errant*. It's got a small cast of three, like *Cradle*, while still having secondary characters with depth.
+And surprisingly (given some fortuitous circumstances in how Deryn gains his shards), it still feels earned. So how to describe this book? It's hard. It's more school focused than *Bastion*, but less than something like *Art of the Adept* or *The Enchanter*. It's got exploration outside the school, but not (yet) to the scope we see in *Mage Errant*. It's got a small cast of three, like *Cradle*, while still having secondary characters with depth.
 
 Look, at the end of the day, I really enjoyed it, so go read it for yourself and let me know of similar works that I can add to my reading list.
 

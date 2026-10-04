@@ -32,7 +32,7 @@ There's been so much content I don't really know how to summarise it. In general
 2. Oh no, Yang Kai isn't the strongest, let's start fixing that
 3. Accumulate artifacts/resources/pills.
 4. Look at this woman with giant tits. Let's wife her.
-5. Breakthrough as many times as needed.
+5. Break through as many times as needed.
 6. Oh no, there's a realm above this one? Can't have that. Go to new realm. Repeat from step one.
 
 
@@ -42,11 +42,11 @@ Yang Kai is himself a pretty good protagonist. He's not a complete murder hobo, 
 
 > He wasn't addicted to killing, but some people were addicted to courting death.
 
-Outside of Yang Kai, most reoccurring characters are his wives. There's no NSFW content (apart from revealing outfits). It's not like some web serial harems where woman *throw* themselves at the MC, instead Yang Kai forms relationships (often entirely without the sexual side being shown or implied) over the course of a realm arc, which if we convert to "page count" would be in the thousands of pages. At that slower pace, things feel a little more natural, especially given Yang Kai ends up being >10k years old. The multiple romantic interests does provide some humour sometimes as well.
+Outside of Yang Kai, most reoccurring characters are his wives. There's no NSFW content (apart from revealing outfits). It's not like some web serial harems where women *throw* themselves at the MC, instead Yang Kai forms relationships (often entirely without the sexual side being shown or implied) over the course of a realm arc, which if we convert to "page count" would be in the thousands of pages. At that slower pace, things feel a little more natural, especially given Yang Kai ends up being >10k years old. The multiple romantic interests do provide some humour sometimes as well.
 
 <!-- removed missing image: ohno.jpg?class="img-smaller" -->
 
 
 Going with the multiple women, the sexual conservatism of many eastern works comes through, where women are routinely slut shamed, which is perhaps my biggest annoyance with the series.
 
-To refocus on the good, the art style is amazing. The translations are above average, and then pacing is almost always extraordinarily fast-paced. So head over to whatever place you normally use to read manga, and give the first few chapters a shot.
+To refocus on the good, the art style is amazing. The translations are above average, and the pacing is almost always extraordinarily fast-paced. So head over to whatever place you normally use to read manga, and give the first few chapters a shot.
