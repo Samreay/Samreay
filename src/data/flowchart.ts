@@ -229,7 +229,7 @@ export const flowchart: FlowchartData = {
       id: 'd_epic_fantasy_or_traditional_cu',
       prompt: 'Epic fantasy or traditional cultivation?',
       description:
-        'The reader is in the cultivation sub-tree. Does the book offer fast-paced traditional xianxia/dao cultivation or a slower-paced epic fantasy cultivation style?',
+        'The reader wants cultivation with plenty of conflict. Does the book offer fast-paced traditional xianxia, a slower-paced epic, Roman legion fantasy, or slow survival and ominous mysteries?',
     },
     {
       id: 'd_families_are',
@@ -792,6 +792,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_millenial_mage', reviewId: 'millenial_mage' },
     { id: 'b_minute_mage', reviewId: 'minute_mage' },
     { id: 'b_mother_learning', reviewId: 'mother_of_learning' },
+    { id: 'b_nameless_sovereign', reviewId: 'nameless_sovereign' },
     { id: 'b_neon_dragons', reviewId: 'neon_dragons' },
     { id: 'b_neon_dust', reviewId: 'neon_dust' },
     { id: 'b_never_die_twice', reviewId: 'never_die_twice' },
@@ -1069,6 +1070,13 @@ export const flowchart: FlowchartData = {
       target: 'b_brightest_shadow',
       label: 'Slower paced epic',
       color: 'sky',
+    },
+    {
+      id: 'e_d_epic_fantasy_or_traditional_cu_b_nameless_sovereign',
+      source: 'd_epic_fantasy_or_traditional_cu',
+      target: 'b_nameless_sovereign',
+      label: 'Slow western cultivation',
+      color: 'violet',
     },
     {
       id: 'e_d_theme_d_enabled_because',
