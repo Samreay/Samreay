@@ -493,30 +493,31 @@ export const artists = [
       "tamers_monster1" // https://www.reddit.com/r/ProgressionFantasy/comments/1u305c4/
     ]
   },
-  {
-    "name": "Duy Phan",
-    "links": {
-      "fiverr": "https://www.fiverr.com/phanduy"
-    },
-    "covers": [
-      "aura_overload",
-      "ceaseless_horizons1",
-      "apocalypse_farmer",
-      "ruins_of_valor1",
-      "transmigrated_cultivation1", // https://www.reddit.com/r/ProgressionFantasy/comments/1sujphf/
-      "warforged_summoner1", // https://www.reddit.com/r/ProgressionFantasy/comments/1sx4ptg/
-      "soul_blade2", // https://www.reddit.com/r/ProgressionFantasy/comments/1sz5mnc/
-      "adam_vs_the_apocalypse1", // https://www.reddit.com/r/ProgressionFantasy/comments/1twol6d/
-      "ascendancy", // https://www.reddit.com/r/ProgressionFantasy/comments/1uck56t/
-      "a_dungeon_that_kills1", // https://www.reddit.com/r/ProgressionFantasy/comments/1ujmihg/
-      "messiah_of_steel1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uk0nh4/
-      "unconquered_tower1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uslwvj/
-      "ceaseless_horizons2", // https://www.reddit.com/r/ProgressionFantasy/comments/1utmweb/
-      "soul_blade3", // https://www.reddit.com/r/ProgressionFantasy/comments/1uvarxc/
-      "warforged_summoner2", // https://www.reddit.com/r/ProgressionFantasy/comments/1uw7vqb/
-      "vows_of_iron1" // https://www.reddit.com/r/ProgressionFantasy/comments/1uy45cc/
-    ]
-  },
+  // Removed due to ai usage now
+  // {
+  //   "name": "Duy Phan",
+  //   "links": {
+  //     "fiverr": "https://www.fiverr.com/phanduy"
+  //   },
+  //   "covers": [
+  //     "aura_overload",
+  //     "ceaseless_horizons1",
+  //     "apocalypse_farmer",
+  //     "ruins_of_valor1",
+  //     "transmigrated_cultivation1", // https://www.reddit.com/r/ProgressionFantasy/comments/1sujphf/
+  //     "warforged_summoner1", // https://www.reddit.com/r/ProgressionFantasy/comments/1sx4ptg/
+  //     "soul_blade2", // https://www.reddit.com/r/ProgressionFantasy/comments/1sz5mnc/
+  //     "adam_vs_the_apocalypse1", // https://www.reddit.com/r/ProgressionFantasy/comments/1twol6d/
+  //     "ascendancy", // https://www.reddit.com/r/ProgressionFantasy/comments/1uck56t/
+  //     "a_dungeon_that_kills1", // https://www.reddit.com/r/ProgressionFantasy/comments/1ujmihg/
+  //     "messiah_of_steel1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uk0nh4/
+  //     "unconquered_tower1", // https://www.reddit.com/r/ProgressionFantasy/comments/1uslwvj/
+  //     "ceaseless_horizons2", // https://www.reddit.com/r/ProgressionFantasy/comments/1utmweb/
+  //     "soul_blade3", // https://www.reddit.com/r/ProgressionFantasy/comments/1uvarxc/
+  //     "warforged_summoner2", // https://www.reddit.com/r/ProgressionFantasy/comments/1uw7vqb/
+  //     "vows_of_iron1" // https://www.reddit.com/r/ProgressionFantasy/comments/1uy45cc/
+  //   ]
+  // },
   {
     "name": "Ece Yatim",
     "links": {
