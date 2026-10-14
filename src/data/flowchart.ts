@@ -378,7 +378,7 @@ export const flowchart: FlowchartData = {
       id: 'd_mtg_is',
       prompt: 'MtG is...',
       description:
-        'The reader is in the serious-tone magic-school sub-tree. Does the book feature Magic: the Gathering as a core element?',
+        'The reader wants a serious setting. Do they want card-based magic, tragedy, or a story chosen by its approach to morality?',
     },
     {
       id: 'd_okay_but_magic_schools_are_coo',
@@ -429,13 +429,13 @@ export const flowchart: FlowchartData = {
       id: 'd_pick_your_backdrop',
       prompt: 'Good and bad are...',
       description:
-        'The reader is in a non-LitRPG traditional fantasy sub-tree. How does the book treat morality — black and white, many shades of colour, or complex?',
+        'The reader is in a traditional fantasy sub-tree. Is morality black and white, many shades of colour, complex, or less important than everyday pleasures like coffee?',
     },
     {
       id: 'd_interesting_tell_me_more',
       prompt: 'Interesting, tell me more.',
       description:
-        'The reader wants complex morality in their traditional fantasy. What angle does the book take on that complexity — an evil path toward a greater good, assassins, or a monster haunted armour that turned good?',
+        'The reader wants complex morality in their traditional fantasy. Do they want an evil path toward a greater good, assassins, a monster haunted armour turned good, or a lich who sees necromancy as freedom?',
     },
     {
       id: 'd_pick_your_gimmick',
@@ -537,7 +537,8 @@ export const flowchart: FlowchartData = {
     {
       id: 'd_what_about_tone_something_ligh',
       prompt: 'What about tone? Something light? Serious?',
-      description: "The reader wants a slow-burn original fantasy. What is the book's tone?",
+      description:
+        'The reader wants a slow-burn original fantasy. Do they want a serious setting or a parody?',
     },
     {
       id: 'd_what_s_better',
@@ -780,6 +781,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_just_add_mana', reviewId: 'just_add_mana' },
     { id: 'b_last_physicist', reviewId: 'last_physicist' },
     { id: 'b_legend_arch_magus', reviewId: 'legend_arch_magus' },
+    { id: 'b_lich_king_baby', reviewId: 'the_lich_king_reincarnates_as_a_baby' },
     { id: 'b_lightblade', reviewId: 'lightblade' },
     { id: 'b_lightbringer', reviewId: 'lightbringer' },
     { id: 'b_living_forge', reviewId: 'rise_of_the_living_forge' },
@@ -2264,20 +2266,6 @@ export const flowchart: FlowchartData = {
       color: 'amber',
     },
     {
-      id: 'e_d_what_about_tone_something_ligh_b_millenial_mage',
-      source: 'd_what_about_tone_something_ligh',
-      target: 'b_millenial_mage',
-      label: 'Chill and fun... to start with',
-      color: 'emerald',
-    },
-    {
-      id: 'e_d_what_about_tone_something_ligh_b_elf_dragon',
-      source: 'd_what_about_tone_something_ligh',
-      target: 'b_elf_dragon',
-      label: 'Tragedy. The real kind.',
-      color: 'violet',
-    },
-    {
       id: 'e_d_what_about_tone_something_ligh_d_parody_flavour',
       source: 'd_what_about_tone_something_ligh',
       target: 'd_parody_flavour',
@@ -2302,7 +2290,7 @@ export const flowchart: FlowchartData = {
       id: 'e_d_what_about_tone_something_ligh_d_mtg_is',
       source: 'd_what_about_tone_something_ligh',
       target: 'd_mtg_is',
-      label: 'A serious settings',
+      label: 'A serious setting',
       color: 'orange',
     },
     {
@@ -2411,6 +2399,13 @@ export const flowchart: FlowchartData = {
       color: 'emerald',
     },
     {
+      id: 'e_d_mtg_is_b_elf_dragon',
+      source: 'd_mtg_is',
+      target: 'b_elf_dragon',
+      label: 'Tragedy. The real kind.',
+      color: 'violet',
+    },
+    {
       id: 'e_d_mtg_is_d_pick_your_backdrop',
       source: 'd_mtg_is',
       target: 'd_pick_your_backdrop',
@@ -2452,6 +2447,13 @@ export const flowchart: FlowchartData = {
       color: 'amber',
     },
     {
+      id: 'e_d_pick_your_backdrop_b_millenial_mage',
+      source: 'd_pick_your_backdrop',
+      target: 'b_millenial_mage',
+      label: 'Less important than coffee',
+      color: 'emerald',
+    },
+    {
       id: 'e_d_pick_your_backdrop_d_interesting_tell_me_more',
       source: 'd_pick_your_backdrop',
       target: 'd_interesting_tell_me_more',
@@ -2478,6 +2480,13 @@ export const flowchart: FlowchartData = {
       target: 'b_armor',
       label: 'A monster haunted armour turned good.',
       color: 'teal',
+    },
+    {
+      id: 'e_d_interesting_tell_me_more_b_lich_king_baby',
+      source: 'd_interesting_tell_me_more',
+      target: 'b_lich_king_baby',
+      label: 'Necromancy is freedom.',
+      color: 'lime',
     },
     {
       id: 'e_d_futuristic_sci_fi_b_bobiverse',
