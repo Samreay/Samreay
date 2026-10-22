@@ -316,7 +316,7 @@ export const flowchart: FlowchartData = {
       id: 'd_humanity_is',
       prompt: 'Humanity is...',
       description:
-        'The reader chose isekai/portal fantasy. Is the protagonist human, somewhat non-human, or fully non-human?',
+        'The reader chose isekai/portal fantasy. Is the protagonist human, somewhat non-human, fully non-human, or a god creating a world and its inhabitants?',
     },
     {
       id: 'd_by_how_much',
@@ -882,6 +882,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_cultivation_nerd', reviewId: 'cultivation_nerd' },
     { id: 'b_bookbound_bunny', reviewId: 'bookbound_bunny' },
     { id: 'b_syl', reviewId: 'syl' },
+    { id: 'b_neophyte_world_builder', reviewId: 'neophyte_world_builder' },
   ],
   edges: [
     {
@@ -1815,6 +1816,13 @@ export const flowchart: FlowchartData = {
       target: 'd_but_i_want_a_focus_on',
       label: 'Alright I guess',
       color: 'green',
+    },
+    {
+      id: 'e_d_humanity_is_b_neophyte_world_builder',
+      source: 'd_humanity_is',
+      target: 'b_neophyte_world_builder',
+      label: 'Mine to create',
+      color: 'violet',
     },
     {
       id: 'e_d_by_how_much_d_so_youre_thinking',
