@@ -772,11 +772,21 @@ export const artists = [
   {
     "name": "Heitor Santos",
     "links": {
-      "artstation": "https://www.artstation.com/theitor"
+      "artstation": "https://www.artstation.com/theitor",
+      "instagram": "https://www.instagram.com/imheitorsantos"
     },
     "covers": [
       "max_level_archmage1", // https://www.reddit.com/r/ProgressionFantasy/comments/1t4f6e4/
-      "machine_slays_dragons" // https://www.reddit.com/r/ProgressionFantasy/comments/1vc32tm/
+      "max_level_archmage2", // https://www.reddit.com/r/ProgressionFantasy/comments/1t4f6e4/
+      "machine_slays_dragons", // https://www.reddit.com/r/ProgressionFantasy/comments/1vc32tm/
+      "ether_torn", // https://www.reddit.com/r/royalroad/comments/1xc0hua
+      "silvereye1", // https://www.reddit.com/r/royalroad/comments/1xc0hua
+      "wind_and_water", // https://www.reddit.com/r/royalroad/comments/1xc0hua
+      "soulchanter", // https://www.reddit.com/r/royalroad/comments/1xc0hua
+      "caffeine_transcendent", // https://www.reddit.com/r/royalroad/comments/1xc0hua
+      "grave_robber", // https://www.reddit.com/r/royalroad/comments/1xc0hua
+      "game_of_gods", // https://www.reddit.com/r/royalroad/comments/1xc0hua
+      "black_fire_mage", // https://www.reddit.com/r/royalroad/comments/1xc0hua
     ]
   },
   {
