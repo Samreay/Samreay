@@ -408,6 +408,13 @@ export const flowchart: FlowchartData = {
         'The reader wants a protagonist who becomes OP within the first couple of books. What is the specific mechanism?',
     },
     {
+      id: 'd_tutorial_disaster',
+      prompt: 'Pick your poison?',
+      description:
+        'The reader wants a system-apocalypse protagonist made powerful by a disastrous tutorial. Do they weaponise the corruption threatening them, or invest in irresponsible amounts of mana?',
+      color: 'orange',
+    },
+    {
       id: 'd_organization_or_character_poli',
       prompt: 'Organization or character politics?',
       description:
@@ -768,6 +775,7 @@ export const flowchart: FlowchartData = {
     { id: 'b_forge_destiny', reviewId: 'forge_of_destiny' },
     { id: 'b_ghost_city', reviewId: 'ghost_in_the_city' },
     { id: 'b_ghost_truthseeker', reviewId: 'ghost_of_the_truthseeker' },
+    { id: 'b_hell_difficulty_tutorial', reviewId: 'hell_difficulty_tutorial' },
     { id: 'b_gift_of_loot', reviewId: 'gift_of_loot' },
     { id: 'b_godclads', reviewId: 'godclads' },
     { id: 'b_guild_mage', reviewId: 'guild_mage' },
@@ -1502,11 +1510,18 @@ export const flowchart: FlowchartData = {
       color: 'orange',
     },
     {
-      id: 'e_d_how_dat_b_corruption_wielder_2',
+      id: 'e_d_how_dat_d_tutorial_disaster',
       source: 'd_how_dat',
-      target: 'b_corruption_wielder',
+      target: 'd_tutorial_disaster',
       label: 'Tutorial was fucked',
       color: 'orange',
+    },
+    {
+      id: 'e_d_tutorial_disaster_b_corruption_wielder',
+      source: 'd_tutorial_disaster',
+      target: 'b_corruption_wielder',
+      label: 'Weaponise the thing trying to kill me',
+      color: 'violet',
     },
     {
       id: 'e_d_how_dat_b_accidental_champion',
@@ -2772,6 +2787,14 @@ export const flowchart: FlowchartData = {
       target: 'b_terminate_other_world',
       label: 'Cyborg + dungeon core',
       color: 'cyan',
+    },
+    // Both disastrous tutorials share a branch before splitting into recommendations.
+    {
+      id: 'e_d_tutorial_disaster_b_hell_difficulty_tutorial',
+      source: 'd_tutorial_disaster',
+      target: 'b_hell_difficulty_tutorial',
+      label: 'Irresponsible amounts of mana',
+      color: 'blue',
     },
     // Keiran: The Eternal Mage — OP magic, slow rebuild from reincarnation weakness
     {
