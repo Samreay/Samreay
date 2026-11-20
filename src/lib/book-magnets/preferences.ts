@@ -12,7 +12,7 @@ export function defaultSettings(books: Book[]): Settings {
     paper: 'A4', paperW: 210, paperH: 297, height: 40, ratio: 1.6, spine: 7, dpi: 600,
     binding: 'fillet', texture: 'leather', transform: 'uppercase', lettering: 'dynamic',
     ...backgroundDefaults,
-    ids: books.slice(0, 12).map(b => b.id), titles: {}, fullPage: false,
+    ids: books.filter(b => !b.series || b.series.volume === 1).slice(0, 12).map(b => b.id), titles: {}, fullPage: false,
   };
 }
 
@@ -40,14 +40,16 @@ function overrides(value: Record<string, unknown>, defaults: Settings, books: Bo
   Object.assign(result, Object.fromEntries(Object.entries(options).filter(([key, v]) => v !== defaults[key as keyof typeof options])));
   if (value.fullPage === true) result.fullPage = true;
 
-  const byId = new Map(books.map(book => [book.id, book.title]));
+  const byId = new Map(books.map(book => [book.id, book]));
+  // Another tab may have saved its selection before we received its library update.
+  const savedBook = (id: string) => !id.startsWith('visit:') && (byId.has(id) || /^custom:[a-f0-9]{32}$/.test(id));
   if (Array.isArray(value.ids)) {
-    const ids = [...new Set(value.ids.filter((id): id is string => typeof id === 'string' && byId.has(id)))];
+    const ids = [...new Set(value.ids.filter((id): id is string => typeof id === 'string' && savedBook(id)))];
     if (ids.length !== defaults.ids.length || ids.some((id, i) => id !== defaults.ids[i])) result.ids = ids;
   }
   if (value.titles && typeof value.titles === 'object') {
     const titles = Object.entries(value.titles).filter(([id, title]) =>
-      byId.has(id) && typeof title === 'string' && title.trim() && title.trim() !== byId.get(id));
+      savedBook(id) && typeof title === 'string' && title.trim() && (byId.get(id)?.series || title.trim() !== byId.get(id)?.title));
     if (titles.length) result.titles = Object.fromEntries(titles);
   }
   return result;

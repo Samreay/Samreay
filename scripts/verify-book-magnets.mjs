@@ -12,14 +12,35 @@ try {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(new URL('/reviews/book-magnets/', base).href);
-  await page.locator('astro-island:not([ssr]) .workshop').waitFor();
+  await page.locator('astro-island:not([ssr]) .workshop:not([inert])').waitFor();
+  const thumbnails = await page.locator('.book img').evaluateAll(async images => {
+    for (const image of images) image.loading = 'eager';
+    return Promise.all(images.map(async image => {
+      await image.decode();
+      return image.currentSrc;
+    }));
+  });
+  // Force the thumbnail failure from the library report and decode every print original.
+  const fallbackPage = await browser.newPage();
+  const thumbnailUrls = new Set(thumbnails);
+  await fallbackPage.route(url => thumbnailUrls.has(url.href), route => route.abort());
+  await fallbackPage.goto(page.url());
+  await fallbackPage.locator('.workshop:not([inert])').waitFor();
+  const libraryImages = fallbackPage.locator('.book img');
+  assert.equal(await libraryImages.count(), thumbnails.length);
+  await libraryImages.evaluateAll(images => { for (const image of images) image.loading = 'eager'; });
+  await fallbackPage.waitForFunction(() => [...document.querySelectorAll('.book img')].every(image => image.naturalWidth > 0));
+  const originals = await libraryImages.evaluateAll(images => images.map(image => image.currentSrc));
+  assert(originals.every(url => !thumbnailUrls.has(url)), 'every failed thumbnail should show its print original');
+  await fallbackPage.close();
   const download = page.getByRole('button', { name: 'Download print sheets' });
   const capture = async () => {
     const pending = page.waitForEvent('download', { timeout: 120_000 });
     await download.click();
     return unzipSync(await readFile(await (await pending).path()));
   };
-  const libraryTitles = await page.locator('.book strong').allTextContents();
+  const volumes = ['Soul Relic', 'Scion of Storms', 'Sanctuary', 'Shieldsmith', 'Siegebreaker', 'Sovereign'];
+  const libraryTitles = (await page.locator('.book strong').allTextContents()).filter(title => !volumes.slice(1).includes(title));
   const selectedTitles = await page.locator('.book[aria-pressed=true] strong').allTextContents();
   assert.deepEqual(selectedTitles, libraryTitles.slice(0, 12));
   assert.equal(await page.locator('.gallery canvas').count(), 12);
@@ -47,10 +68,31 @@ try {
   assert.equal(await lettering.inputValue(), 'dynamic');
   const stored = () => page.evaluate(() => localStorage.getItem('book-magnets.settings.v1'));
   assert.equal(await stored(), null);
+  const search = page.getByLabel('Search covers');
+  const volumeButton = title => page.locator('.book').filter({ has: page.getByText(title, { exact: true }) });
+  const spineTitle = title => page.getByLabel('Spine title for ' + title, { exact: true });
+  await search.fill('Manifestation');
+  assert.deepEqual(await page.locator('.book strong').allTextContents(), volumes);
+  assert.equal(new Set(await page.locator('.book img').evaluateAll(images => images.map(img => img.src))).size, 6);
+  assert.equal(await spineTitle('Soul Relic').inputValue(), 'Manifestation');
+  for (const title of volumes.slice(1)) await volumeButton(title).click();
+  await page.reload();
+  await page.locator('.workshop:not([inert])').waitFor();
+  for (const title of volumes) assert.equal(await spineTitle(title).inputValue(), title);
+  for (const title of volumes.slice(0, -1)) await volumeButton(title).click();
+  assert.equal(await spineTitle('Sovereign').inputValue(), 'Manifestation');
+  await spineTitle('Sovereign').fill('Sovereign');
+  await page.reload();
+  await page.locator('.workshop:not([inert])').waitFor();
+  assert.equal(await spineTitle('Sovereign').inputValue(), 'Sovereign');
+  await spineTitle('Sovereign').fill('');
+  await page.evaluate(() => localStorage.removeItem('book-magnets.settings.v1'));
+  await page.reload();
+  await page.locator('.workshop:not([inert])').waitFor();
   await transform.selectOption('title');
   assert.deepEqual(JSON.parse(await stored()), { transform: 'title' });
   await page.reload();
-  await page.locator('astro-island:not([ssr]) .workshop').waitFor();
+  await page.locator('astro-island:not([ssr]) .workshop:not([inert])').waitFor();
   assert.equal(await transform.inputValue(), 'title');
   await transform.selectOption('uppercase');
   assert.equal(await stored(), null);
@@ -108,7 +150,7 @@ try {
   await page.getByText(/Sheet 2 of 12/).waitFor();
   await page.getByLabel('Binding', { exact: true }).selectOption('none');
   const fontFile = 'src/assets/fonts/architects-daughter-v20-latin.woff2';
-  await page.locator('input[type=file]').setInputFiles(fontFile);
+  await page.getByLabel('Open font file', { exact: true }).setInputFiles(fontFile);
   await fontPicker.locator('option[value^=file-]').waitFor({ state: 'attached' });
   await page.waitForFunction(() => localStorage.getItem('book-magnets.font.v1')?.includes('file-'));
   await page.reload();
@@ -137,7 +179,7 @@ try {
   await fontPicker.selectOption(bundledId);
   await page.getByRole('button', { name: 'Clear selection' }).click();
   await page.getByLabel('Search covers').fill('Manifestation');
-  await page.getByRole('button', { name: /Manifestation/ }).click();
+  await volumeButton('Soul Relic').click();
   await page.getByLabel('Paper', { exact: true }).selectOption('Custom');
   await page.getByLabel('Paper width (mm)').fill('54');
   await texture.selectOption('none');
@@ -151,6 +193,13 @@ try {
   assert(compressed.length < original.length, 'optimisation should reduce the PNG itself');
   assert((await sharp(original).ensureAlpha().raw().toBuffer()).equals(await sharp(compressed).ensureAlpha().raw().toBuffer()));
   assert.equal((await sharp(compressed).metadata()).density, 600);
+  // The second volume is on another sheet, but both spines use their book titles.
+  await volumeButton('Scion of Storms').click();
+  assert(!(await sharp((await capture())['sheet-01.png']).raw().toBuffer()).equals(await sharp(compressed).raw().toBuffer()));
+  await spineTitle('Soul Relic').fill('Manifestation');
+  assert((await sharp((await capture())['sheet-01.png']).raw().toBuffer()).equals(await sharp(compressed).raw().toBuffer()));
+  await spineTitle('Soul Relic').fill('');
+  await volumeButton('Scion of Storms').click();
   async function sampleWrap() {
     const png = (await capture())['sheet-01.png'];
     const { data, info } = await sharp(png).removeAlpha().raw().toBuffer({ resolveWithObject: true });
@@ -178,7 +227,7 @@ try {
   await saturation.press('Home');
   await darkness.press('Home');
   await page.reload();
-  await page.locator('astro-island:not([ssr]) .workshop').waitFor();
+  await page.locator('astro-island:not([ssr]) .workshop:not([inert])').waitFor();
   assert.equal(await saturation.inputValue(), '0');
   assert.equal(await darkness.inputValue(), '0');
   const neutral = await sampleWrap();
@@ -286,7 +335,7 @@ try {
   await lettering.selectOption('flat');
   await transform.selectOption('uppercase');
   await page.getByLabel('Spine (mm)').fill('2');
-  await page.getByLabel('Spine title for Manifestation', { exact: true }).fill('A very long title with a flourish at either end');
+  await spineTitle('Soul Relic').fill('A very long title with a flourish at either end');
   const testPpm = 600 / 25.4;
   for (const style of ['fillet', 'double', 'weighted', 'tapered', 'diamond']) {
     await page.getByLabel('Binding', { exact: true }).selectOption(style);
@@ -349,7 +398,7 @@ try {
   await page.getByLabel('Resolution (DPI)').fill('300');
   await page.getByLabel('Paper', { exact: true }).selectOption('A4');
   await page.reload();
-  await page.locator('astro-island:not([ssr]) .workshop').waitFor();
+  await page.locator('astro-island:not([ssr]) .workshop:not([inert])').waitFor();
   assert.equal(await page.locator('.gallery canvas').count(), 2);
   assert.equal(await page.getByLabel('Spine title for Mage Errant').inputValue(), 'Into the Labyrinth');
   assert.equal(await page.getByLabel('Resolution (DPI)').inputValue(), '300');

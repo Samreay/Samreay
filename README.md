@@ -31,7 +31,7 @@ make prod      # clean build into `dist/`
 - `astro-public/` — verbatim static files (favicons, `CNAME`, podcast thumbnails, CV PDF).
 - `content/` — markdown sources. Tutorials are generated from notebooks via `builder/convert.py`.
 - `plans/` — phase-by-phase migration plan, kept around for context.
-- `skills/` — authoritative operational playbooks (book reviews, find-artists, humanizer, …). `make install` symlinks these into `.claude/skills/` and `.cursor/skills/`.
+- `skills/` — authoritative operational playbooks (book reviews, find-artists, humanizer, …). `make install` symlinks these into `.agents/skills/`, `.claude/skills/`, and `.cursor/skills/`.
 
 ## Operational playbooks
 

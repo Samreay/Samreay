@@ -4,15 +4,31 @@ import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BookMagnets from '../../components/islands/BookMagnets.svelte';
+import { books as publishedBooks, seriesName } from '../../data/books';
+import type { Book } from '../../lib/book-magnets/layout';
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('/content/reviews/*/cover.{jpg,jpeg,png,webp}', { eager: true });
-const byId = new Map(Object.entries(covers).map(([path, { default: source }]) => [path.split('/').at(-2), source]));
+const byId = new Map(Object.entries(covers).map(([path, { default: source }]) => [
+  path.split('/').at(-2), { source, originalUrl: path.slice('/content'.length) },
+]));
 const reviews = (await getCollection('reviews')).sort((a, b) => a.data.weight - b.data.weight);
-const books = await Promise.all(reviews.filter(review => byId.has(review.id)).map(async review => {
-  const source = byId.get(review.id)!;
+type LibraryEntry = Pick<Book, 'id' | 'title' | 'author' | 'series'> & { source: ImageMetadata; originalUrl?: string };
+const entries = reviews.flatMap((review): LibraryEntry[] => {
+  const author = review.data.auth;
+  const reviewCover = byId.get(review.id);
+  if (review.id === 'soul_relic') {
+    return publishedBooks.map(({ name, cover, volume }) => ({
+      id: volume === 1 ? review.id : `${review.id}-${volume}`,
+      title: name, author, source: cover, series: { name: seriesName, volume },
+      originalUrl: volume === 1 ? reviewCover?.originalUrl : undefined,
+    }));
+  }
+  return reviewCover ? [{ id: review.id, title: review.data.name, author, ...reviewCover }] : [];
+});
+const books = await Promise.all(entries.map(async ({ source, originalUrl, ...book }) => {
   const thumb = await getImage({ src: source, width: 160, height: 240, fit: 'cover', position: 'centre', format: 'webp', quality: 85 });
-  return { id: review.id, title: review.data.name, author: review.data.auth, src: source.src,
-    thumb: thumb.src, width: source.width, height: source.height };
+  const { width, height } = thumb.options.src as ImageMetadata;
+  return { ...book, src: originalUrl ?? source.src, thumb: thumb.src, width, height };
 }));
 ---
 <BaseLayout title="Book magnet workshop" description="Make printable miniature book covers and matching spines for fridge magnets.">

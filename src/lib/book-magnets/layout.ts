@@ -1,9 +1,11 @@
 export interface Book {
   id: string;
   title: string;
+  series?: { name: string; volume: number };
   author: string;
   src: string;
   thumb: string;
+  original?: Blob;
   width: number;
   height: number;
 }

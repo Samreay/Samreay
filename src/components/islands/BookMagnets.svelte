@@ -5,11 +5,18 @@
   import MagnetProof from './MagnetProof.svelte';
   import { availableDpi, backgroundControls, layout, papers, fillets, type Book } from '../../lib/book-magnets/layout';
   import { defaultFont, exportSheets, type SpineFont } from '../../lib/book-magnets/export';
+  import { asBook, deleteCustomCover, importCover, listCustomCovers, releaseCover, type CustomBook } from '../../lib/book-magnets/custom-covers';
 
   let { books }: { books: Book[] } = $props();
   const defaults = untrack(() => defaultSettings(books));
   let prefs = $state(defaults);
   let ready = $state(false), storageNotice = $state('');
+  let custom = $state.raw<CustomBook[]>([]);
+  let catalogue = $derived([...custom, ...books]);
+  let picker: HTMLInputElement;
+  let importing = $state(false), dragging = $state(false), importNotice = $state(''), libraryNotice = $state('');
+  let libraryChanges: BroadcastChannel | undefined;
+  let mounted = false, libraryVersion = 0;
   let search = $state(''), comparing = $state(false);
   const filletStyles = Object.keys(fillets) as (keyof typeof fillets)[];
   let finish = $derived({
@@ -17,29 +24,70 @@
     saturation: prefs.saturation, darkness: prefs.darkness,
   });
 
+  async function refreshLibrary() {
+    const version = ++libraryVersion;
+    try {
+      const records = await listCustomCovers();
+      if (!mounted || version !== libraryVersion) return;
+      const existing = new Map(custom.map(book => [book.id, book]));
+      const saved = records.map(record => {
+        const book = existing.get(record.id) ?? asBook(record);
+        existing.delete(record.id);
+        return book;
+      });
+      for (const book of existing.values()) if (!book.sessionOnly) releaseCover(book);
+      custom = [...saved, ...custom.filter(book => book.sessionOnly)];
+      libraryNotice = '';
+    } catch {
+      if (mounted) libraryNotice = 'Could not open My covers on this device. You can still add covers for this visit.';
+    }
+  }
+
   onMount(() => {
-    const restore = () => { prefs = restoreSettings(defaults, books); };
-    restore();
-    ready = true;
-    const sync = (event: StorageEvent) => { if (event.key === settingsKey || event.key === null) restore(); };
+    mounted = true;
+    const restore = () => {
+      const restored = restoreSettings(defaults, catalogue);
+      const visits = prefs.ids.filter(id => id.startsWith('visit:'));
+      const titles = Object.entries(prefs.titles).filter(([id]) => id.startsWith('visit:'));
+      prefs = { ...restored, ids: [...restored.ids, ...visits], titles: { ...restored.titles, ...Object.fromEntries(titles) } };
+    };
+    void refreshLibrary().then(() => { if (mounted) { restore(); ready = true; } });
+    try {
+      libraryChanges = new BroadcastChannel('book-magnets.covers');
+      libraryChanges.onmessage = () => { void refreshLibrary(); };
+    } catch { /* Refreshing the page still restores the library. */ }
+    const sync = (event: StorageEvent) => { if (ready && (event.key === settingsKey || event.key === null)) restore(); };
     window.addEventListener('storage', sync);
-    return () => window.removeEventListener('storage', sync);
+    return () => {
+      mounted = false;
+      libraryChanges?.close();
+      window.removeEventListener('storage', sync);
+      custom.forEach(releaseCover);
+    };
   });
   $effect(() => {
     if (!ready) return;
-    try { saveSettings(prefs, defaults, books); storageNotice = ''; }
+    try { saveSettings(prefs, defaults, untrack(() => catalogue)); storageNotice = ''; }
     catch { storageNotice = 'Browser storage is unavailable. These settings apply to this visit.'; }
   });
   let font = $state.raw<SpineFont>(defaultFont);
   let fontLoading = $state(false), busy = $state(false);
   let message = $state(''), failure = $state('');
   let pageIndex = $state(0);
-  let byId = $derived(new Map(books.map(book => [book.id, book])));
-  let filtered = $derived(books.filter(b => (b.title + ' ' + b.author).toLowerCase().includes(search.trim().toLowerCase())));
-  let selected = $derived(prefs.ids.flatMap(id => {
-    const b = byId.get(id);
-    return b ? [{ ...b, title: prefs.titles[id]?.trim() || b.title }] : [];
-  }));
+  let byId = $derived(new Map(catalogue.map(book => [book.id, book])));
+  let filtered = $derived(catalogue.filter(b =>
+    [b.title, b.series?.name, b.series?.volume, b.author, prefs.titles[b.id]].join(' ').toLowerCase().includes(search.trim().toLowerCase())));
+  let selected = $derived.by(() => {
+    const chosen = prefs.ids.map(id => byId.get(id)).filter((book): book is Book => !!book);
+    const counts = new Map<string, number>();
+    for (const { series } of chosen) {
+      if (series) counts.set(series.name, (counts.get(series.name) ?? 0) + 1);
+    }
+    return chosen.map(book => {
+      const autoTitle = book.series && counts.get(book.series.name) === 1 ? book.series.name : book.title;
+      return { ...book, title: prefs.titles[book.id]?.trim() || autoTitle };
+    });
+  });
   let dims = $derived(prefs.paper === 'Custom' ? [prefs.paperW, prefs.paperH] : papers[prefs.paper]);
   let sheet = $derived(layout(dims[0], dims[1], prefs.height, prefs.ratio, prefs.spine, prefs.dpi));
   let pages = $derived(sheet.error ? 0 : Math.ceil(selected.length / sheet.capacity));
@@ -51,6 +99,48 @@
     if (prefs.ids.includes(id)) prefs.ids = prefs.ids.filter(item => item !== id);
     else prefs.ids = [...prefs.ids, id];
     message = failure = '';
+  }
+  async function addCovers(files: File[]) {
+    if (!ready || importing || !files.length) return;
+    importing = true;
+    importNotice = '';
+    const issues: string[] = [];
+    let added = 0;
+    try {
+      for (const file of files) {
+        try {
+          const book = await importCover(file);
+          if (!mounted) { releaseCover(book); return; }
+          ++libraryVersion;
+          if (custom.some(existing => existing.id === book.id)) releaseCover(book);
+          else custom = [...custom, book];
+          prefs.ids = [...prefs.ids, book.id];
+          search = '';
+          added++;
+          if (!book.sessionOnly) libraryChanges?.postMessage('updated');
+        } catch (error) {
+          issues.push(file.name + ' — ' + (error instanceof Error ? error.message : 'Could not import this cover.'));
+        }
+      }
+      if (added) await refreshLibrary();
+      importNotice = [added ? 'Added ' + added + (added === 1 ? ' cover.' : ' covers.') : '', ...issues].filter(Boolean).join(' ');
+    } finally { importing = false; }
+  }
+
+  async function removeCover(book: CustomBook) {
+    try { await deleteCustomCover(book); }
+    catch { importNotice = 'Could not remove this saved cover. Try again.'; return; }
+    if (!mounted) return;
+    ++libraryVersion;
+    custom = custom.filter(b => b.id !== book.id);
+    prefs.ids = prefs.ids.filter(id => id !== book.id);
+    delete prefs.titles[book.id];
+    releaseCover(book);
+    importNotice = 'Removed ' + book.title + '.';
+    if (!book.sessionOnly) {
+      libraryChanges?.postMessage('updated');
+      void refreshLibrary();
+    }
   }
   async function download() {
     if (busy || fontLoading || sheet.error || !selected.length) return;
@@ -72,17 +162,42 @@
   }
 </script>
 
-<div class="workshop">
+<div class="workshop" inert={!ready}>
   <section class="panel catalogue">
-    <div class="bar"><h2>Cover library</h2><span>{books.length} books</span></div>
-    <input type="search" aria-label="Search covers" placeholder="Search by title or author" bind:value={search} />
+    <div class="bar"><h2>Cover library</h2><span>{catalogue.length} books</span></div>
+    <button class="import-zone" class:dragging disabled={importing} onclick={() => picker.click()}
+      ondragover={e => { e.preventDefault(); dragging = true; }} ondragleave={() => dragging = false}
+      ondrop={e => { e.preventDefault(); dragging = false; void addCovers(Array.from(e.dataTransfer?.files ?? [])); }}>
+      <strong>{importing ? 'Adding covers…' : 'Add covers'}</strong>
+      <small>Choose or drop JPEG, PNG or WebP files</small>
+    </button>
+    <input class="file-picker" type="file" aria-label="Choose cover files" multiple accept="image/jpeg,image/png,image/webp"
+      bind:this={picker} onchange={e => {
+        const files = Array.from(e.currentTarget.files ?? []);
+        e.currentTarget.value = '';
+        void addCovers(files);
+      }} />
+    {#if libraryNotice || importNotice}<p class="import-note" role="status">{libraryNotice} {importNotice}</p>{/if}
+    <input type="search" aria-label="Search covers" placeholder="Search by title, series or author" bind:value={search} />
     <div class="library">
-      {#each filtered as book (book.id)}
+      {#each filtered as book, i (book.id)}
+        {#if book.original && i === 0}<h3>My covers</h3>{:else if !book.original && filtered[i - 1]?.original}<h3>Reviewed books</h3>{/if}
+        <div class="book-row">
         <button class="book" aria-pressed={prefs.ids.includes(book.id)} onclick={() => toggle(book.id)}>
-          <img src={book.thumb} alt="" width="32" height="48" loading="lazy" />
-          <span class="bookname"><strong>{book.title}</strong><small>{book.author}</small></span>
+          <img src={book.thumb} alt="" width="32" height="48" loading="lazy"
+            onerror={e => {
+              const image = e.currentTarget;
+              if (image.getAttribute('src') !== book.src) image.src = book.src;
+            }} />
+          <span class="bookname"><strong>{book.original ? prefs.titles[book.id]?.trim() || book.title : book.title}</strong>
+            {#if book.id.startsWith('visit:')}<small>Available for this visit only</small>{:else if book.author}<small>{#if book.series}{book.series.name} {book.series.volume} · {/if}{book.author}</small>{/if}
+          </span>
           <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d={prefs.ids.includes(book.id) ? 'M3 8l3.2 3.2L13 4.8' : 'M8 3v10M3 8h10'} /></svg></span>
         </button>
+        {#if book.original}
+          <button class="remove" aria-label={'Remove ' + book.title + ' from My covers'} disabled={busy} onclick={() => removeCover(book as CustomBook)}>Remove</button>
+        {/if}
+        </div>
       {:else}<p class="muted">No matching books.</p>{/each}
     </div>
     <div class="bar foot"><strong>{selected.length} selected</strong><button class="textbtn" disabled={!selected.length} onclick={() => { prefs.ids = []; message = failure = ''; }}>Clear selection</button></div>
@@ -170,7 +285,10 @@
               <figure>
                 <MagnetProof items={[book]} {sheet} {finish} {font} fullPage={false} />
                 <figcaption>
-                  <label>Spine title<input aria-label={'Spine title for ' + byId.get(book.id)?.title} value={prefs.titles[book.id] ?? book.title} oninput={e => prefs.titles[book.id] = e.currentTarget.value} /></label>
+                  <label>Spine title<input aria-label={'Spine title for ' + byId.get(book.id)?.title}
+                    value={prefs.titles[book.id] ?? book.title} placeholder={book.title}
+                    oninput={e => prefs.titles[book.id] = e.currentTarget.value}
+                    onblur={e => { if (!e.currentTarget.value.trim()) delete prefs.titles[book.id]; }} /></label>
                 </figcaption>
               </figure>
             {/each}
@@ -210,6 +328,15 @@
   input[type=search] { width:calc(100% - 2.3rem); margin:0 1.15rem .8rem; }
   .library { flex:1; min-height:12rem; contain:size; overflow:auto; scrollbar-color:var(--color-gray-600) transparent; }
   .library .muted { padding:1rem; }
+  .import-zone { margin:0 1.15rem .8rem; padding:.65rem; border:1px dashed var(--border); border-radius:5px; color:var(--accent); }
+  .import-zone small { display:block; margin-top:.15rem; }
+  .import-zone:hover,.import-zone.dragging { border-color:var(--accent); background:var(--color-gray-900); }
+  input.file-picker { display:none; }
+  .import-note,.library h3 { padding:0 1.15rem .6rem; font-size:.85rem; overflow-wrap:anywhere; }
+  .library h3 { padding-top:.6rem; font-weight:600; }
+  .book-row { display:flex; align-items:stretch; }
+  .book-row .book { min-width:0; }
+  .remove { padding:.35rem .6rem; border-top:1px solid var(--border); color:var(--muted); font-size:.8rem; }
   .book { display:flex; align-items:center; text-align:left; gap:.8rem; width:100%; padding:.55rem 1.15rem; border-top:1px solid var(--border); }
   button { cursor:pointer; }
   button:hover:not(:disabled) { filter:brightness(1.12); }

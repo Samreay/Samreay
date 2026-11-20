@@ -7,9 +7,13 @@ const palettes = new Map<string, ReturnType<typeof bindingColours>>();
 export async function loadCover(book: Book) {
   // An immutable native-resolution bitmap also isolates print resampling from
   // the browser's adaptive JPEG decoding for smaller previews of the same URL.
-  const response = await fetch(book.src);
-  if (!response.ok) throw new Error('Could not load the cover for ' + book.title + '.');
-  const image = await createImageBitmap(await response.blob());
+  let blob = book.original;
+  if (!blob) {
+    const response = await fetch(book.src);
+    if (!response.ok) throw new Error('Could not load the cover for ' + book.title + '.');
+    blob = await response.blob();
+  }
+  const image = await createImageBitmap(blob);
   let palette = palettes.get(book.src);
   if (!palette) {
     palette = bindingColours(image);

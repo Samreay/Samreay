@@ -39,16 +39,17 @@ install: install_uv install_skills install_precommit install_node precommit
 
 # ----- skills -----
 # Authoritative skills live in skills/. Project them into the tool-specific
-# directories as symlinks so Claude Code and Cursor share one source of truth.
+# directories as symlinks so Codex, Claude Code, and Cursor share one source.
 SKILLS_SRC := skills
 
 .PHONY: install_skills
 install_skills:
-	@echo "Symlinking skills/ into .claude/skills and .cursor/skills"
-	@rm -rf .claude/skills .cursor/skills
-	@mkdir -p .claude/skills .cursor/skills
+	@echo "Symlinking skills/ into .agents/skills, .claude/skills and .cursor/skills"
+	@rm -rf .agents/skills .claude/skills .cursor/skills
+	@mkdir -p .agents/skills .claude/skills .cursor/skills
 	@for path in $(SKILLS_SRC)/*/; do \
 		name=$$(basename "$$path"); \
 		ln -s "../../$(SKILLS_SRC)/$$name" ".claude/skills/$$name"; \
 		ln -s "../../$(SKILLS_SRC)/$$name" ".cursor/skills/$$name"; \
+		ln -s "../../$(SKILLS_SRC)/$$name" ".agents/skills/$$name"; \
 	done

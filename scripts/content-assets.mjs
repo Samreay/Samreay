@@ -18,7 +18,8 @@
  *
  * Markdown / image-pipeline files are deliberately skipped:
  *   - `.md` / `.mdx` are content, not assets.
- *   - Images (`png`, `jpg`, `jpeg`, `webp`, `gif`, `svg`) are already
+ *   - Review cover originals are served for full-resolution magnet printing.
+ *   - Other images (`png`, `jpg`, `jpeg`, `webp`, `gif`, `svg`) are already
  *     processed by `astro:assets` for `![]()` markdown references; we
  *     don't want a duplicate, unoptimised copy in the output. The rare
  *     `[link](image.png)` text-link case keeps needing a manual copy
@@ -37,6 +38,10 @@ const SKIP_EXT = new Set([
 ]);
 
 const MIME_TYPES = {
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
   '.mp4': 'video/mp4',
   '.webm': 'video/webm',
   '.mov': 'video/quicktime',
@@ -54,8 +59,9 @@ const MIME_TYPES = {
   '.json': 'application/json; charset=utf-8',
 };
 
-/** @param {string} ext */
-function shouldServe(ext) {
+function shouldServe(type, filename) {
+  if (type === 'reviews' && /^cover\.(jpg|jpeg|png|webp)$/.test(filename)) return true;
+  const ext = path.extname(filename);
   return ext.length > 0 && !SKIP_EXT.has(ext.toLowerCase());
 }
 
@@ -77,8 +83,7 @@ function resolveContentAsset(urlPath, repoRoot) {
   // Defence in depth against `..` segments that would escape `content/`.
   if (rest.some((seg) => seg === '..' || seg === '')) return null;
   const filename = rest.join('/');
-  const ext = path.extname(filename);
-  if (!shouldServe(ext)) return null;
+  if (!shouldServe(type, filename)) return null;
   const filepath = path.resolve(repoRoot, 'content', type, slug, filename);
   if (!filepath.startsWith(path.resolve(repoRoot, 'content') + path.sep)) return null;
   if (!fs.existsSync(filepath)) return null;
@@ -110,9 +115,8 @@ function* walkContentAssets(repoRoot) {
             continue;
           }
           if (!entry.isFile()) continue;
-          const ext = path.extname(entry.name);
-          if (!shouldServe(ext)) continue;
           const rel = path.relative(slugDir, full);
+          if (!shouldServe(type, rel)) continue;
           yield {
             source: full,
             // URL-style separators on Windows too.
