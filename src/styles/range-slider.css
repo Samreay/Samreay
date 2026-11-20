@@ -2,7 +2,7 @@
    v3 used a SCSS `$range-thumb-size` variable; in plain CSS we use a
    custom property scoped to the input. */
 
-input[type=range] {
+input[type=range]:not(.custom-range) {
     --range-thumb-size: 36px;
 
     appearance: none;

@@ -1,12 +1,13 @@
 ---
-title:  "A review of Phil Tucker's 'Thrones of the Fallen'"
+title:  "A review of Phil Tucker's 'Throne Hunters'"
 description: "Dungeon delving LitRPG with heavy focus on characters and great worldbuilding. Excellent dialogue and action."
 date: 2024-04-01
 auth: Phil Tucker
 categories: [reviews]
 review: A
 weight: 12
-name: "Thrones of the Fallen"
+name: "Throne Hunters"
+search_terms: "Thrones of the Fallen"
 links:
     patreon: https://www.patreon.com/philtucker
     royal_road: https://www.royalroad.com/fiction/85769/thrones-of-the-fallen
@@ -15,7 +16,7 @@ tags: [in-progress, litrpg]
 sentence: "Harald needs to follow in his father's footsteps and become one of the greatest dungeon delvers of all time."
 ---
 
-*As of writing this review, I've read the first fifty chapters.*
+*I read the first fifty chapters when the series was called Thrones of the Fallen.*
 
 ## Blurb
 

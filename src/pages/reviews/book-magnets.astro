@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookMagnets from '../../components/islands/BookMagnets.svelte';
+
+const covers = import.meta.glob<{ default: ImageMetadata }>('/content/reviews/*/cover.{jpg,jpeg,png,webp}', { eager: true });
+const byId = new Map(Object.entries(covers).map(([path, { default: source }]) => [path.split('/').at(-2), source]));
+const reviews = (await getCollection('reviews')).sort((a, b) => a.data.weight - b.data.weight);
+const books = await Promise.all(reviews.filter(review => byId.has(review.id)).map(async review => {
+  const source = byId.get(review.id)!;
+  const thumb = await getImage({ src: source, width: 160, height: 240, fit: 'cover', position: 'centre', format: 'webp', quality: 85 });
+  return { id: review.id, title: review.data.name, author: review.data.auth, src: source.src,
+    thumb: thumb.src, width: source.width, height: source.height };
+}));
+---
+<BaseLayout title="Book magnet workshop" description="Make printable miniature book covers and matching spines for fridge magnets.">
+  <main class="content">
+    <header class="section-header pt-6">
+      <h1>Book magnet workshop</h1>
+      <p>Choose your books and print a wrap for each magnet.</p>
+    </header>
+    <BookMagnets client:load {books} />
+    <noscript>Enable JavaScript to preview covers and generate print sheets.</noscript>
+  </main>
+</BaseLayout>
