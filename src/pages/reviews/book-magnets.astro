@@ -4,28 +4,37 @@ import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BookMagnets from '../../components/islands/BookMagnets.svelte';
-import { books as publishedBooks, seriesName } from '../../data/books';
+import { coverSets } from '../../data/magnet-covers';
 import type { Book } from '../../lib/book-magnets/layout';
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('/content/reviews/*/cover.{jpg,jpeg,png,webp}', { eager: true });
 const byId = new Map(Object.entries(covers).map(([path, { default: source }]) => [
   path.split('/').at(-2), { source, originalUrl: path.slice('/content'.length) },
 ]));
-const reviews = (await getCollection('reviews')).sort((a, b) => a.data.weight - b.data.weight);
+const curatedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/magnet-covers/*/*.webp', { eager: true });
 type LibraryEntry = Pick<Book, 'id' | 'title' | 'author' | 'series'> & { source: ImageMetadata; originalUrl?: string };
-const entries = reviews.flatMap((review): LibraryEntry[] => {
-  const author = review.data.auth;
-  const reviewCover = byId.get(review.id);
-  if (review.id === 'soul_relic') {
-    return publishedBooks.map(({ name, cover, volume }) => ({
-      id: volume === 1 ? review.id : `${review.id}-${volume}`,
-      title: name, author, source: cover, series: { name: seriesName, volume },
-      originalUrl: volume === 1 ? reviewCover?.originalUrl : undefined,
-    }));
-  }
-  return reviewCover ? [{ id: review.id, title: review.data.name, author, ...reviewCover }] : [];
+
+const curated: LibraryEntry[] = coverSets.flatMap(set => set.books.map(book => {
+  const source = curatedImages['/src/assets/magnet-covers/' + book.cover]?.default;
+  if (!source) throw new Error(`Missing magnet cover for ${book.title}: ${book.cover}`);
+  const prefix = set.reviewId ?? set.id;
+  // Keep previously saved review and Manifestation volume IDs.
+  const id = set.reviewId && book.volume === 1 && !book.part ? set.reviewId
+    : [prefix, book.volume, book.part].filter(value => value !== undefined).join('-');
+  return { id, title: book.title, author: book.author ?? set.author, source,
+    series: { name: set.series, volume: book.volume, part: book.part, edition: set.edition } };
+}));
+const curatedIds = new Set(curated.map(book => book.id));
+if (curatedIds.size !== curated.length) throw new Error('Duplicate ID in magnet cover catalogue');
+
+const reviews = (await getCollection('reviews')).sort((a, b) => a.data.weight - b.data.weight);
+const reviewed: LibraryEntry[] = reviews.flatMap(review => {
+  const cover = byId.get(review.id);
+  return cover && !curatedIds.has(review.id)
+    ? [{ id: review.id, title: review.data.name, author: review.data.auth, ...cover }] : [];
 });
-const books = await Promise.all(entries.map(async ({ source, originalUrl, ...book }) => {
+const rankedIds = reviews.filter(review => byId.has(review.id) || curatedIds.has(review.id)).map(review => review.id);
+const books = await Promise.all([...curated, ...reviewed].map(async ({ source, originalUrl, ...book }) => {
   const thumb = await getImage({ src: source, width: 160, height: 240, fit: 'cover', position: 'centre', format: 'webp', quality: 85 });
   const { width, height } = thumb.options.src as ImageMetadata;
   return { ...book, src: originalUrl ?? source.src, thumb: thumb.src, width, height };
@@ -37,7 +46,7 @@ const books = await Promise.all(entries.map(async ({ source, originalUrl, ...boo
       <h1>Book magnet workshop</h1>
       <p>Choose your books and print a wrap for each magnet.</p>
     </header>
-    <BookMagnets client:load {books} />
+    <BookMagnets client:load {books} {rankedIds} />
     <noscript>Enable JavaScript to preview covers and generate print sheets.</noscript>
   </main>
 </BaseLayout>

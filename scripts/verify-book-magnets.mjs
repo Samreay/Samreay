@@ -2,6 +2,8 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
+import { glob } from 'glob';
+import matter from 'gray-matter';
 import { unzipSync } from 'fflate';
 import sharp from 'sharp';
 
@@ -40,10 +42,29 @@ try {
     return unzipSync(await readFile(await (await pending).path()));
   };
   const volumes = ['Soul Relic', 'Scion of Storms', 'Sanctuary', 'Shieldsmith', 'Siegebreaker', 'Sovereign'];
-  const libraryTitles = (await page.locator('.book strong').allTextContents()).filter(title => !volumes.slice(1).includes(title));
-  const selectedTitles = await page.locator('.book[aria-pressed=true] strong').allTextContents();
-  assert.deepEqual(selectedTitles, libraryTitles.slice(0, 12));
+  const covers = await glob('content/reviews/*/cover.{jpg,jpeg,png,webp}');
+  const rankings = await Promise.all(covers.map(async path => {
+    const id = path.split('/')[2];
+    const { data } = matter(await readFile(`content/reviews/${id}/index.md`, 'utf8'));
+    return { id, weight: data.weight };
+  }));
+  rankings.sort((a, b) => a.weight - b.weight || a.id.localeCompare(b.id));
+  const selectedIds = await page.locator('.book[aria-pressed=true]').evaluateAll(buttons => buttons.map(b => b.dataset.bookId));
+  assert.deepEqual(selectedIds.sort(), rankings.slice(0, 12).map(b => b.id).sort());
   assert.equal(await page.locator('.gallery canvas').count(), 12);
+  const wrapWidth = () => page.locator('.gallery figure').first().evaluate(el => el.getBoundingClientRect().width);
+  const desktopWidth = await wrapWidth();
+  assert.equal(desktopWidth, 400);
+  const settingsToggle = page.getByRole('button', { name: 'Print settings', exact: true });
+  await settingsToggle.press('Enter');
+  assert.equal(await settingsToggle.getAttribute('aria-expanded'), 'false');
+  assert(await page.getByLabel('Book height (mm)').isHidden());
+  assert(await download.isVisible());
+  await page.reload();
+  await page.locator('.workshop:not([inert])').waitFor();
+  assert.equal(await settingsToggle.getAttribute('aria-expanded'), 'false');
+  await settingsToggle.press('Space');
+  assert(await page.getByLabel('Book height (mm)').isVisible());
   const physical = page.getByRole('group', { name: 'Physical', exact: true });
   const visual = page.getByRole('group', { name: 'Visual', exact: true });
   assert.equal(await physical.getByRole('spinbutton').count(), 4);
@@ -69,6 +90,44 @@ try {
   const stored = () => page.evaluate(() => localStorage.getItem('book-magnets.settings.v1'));
   assert.equal(await stored(), null);
   const search = page.getByLabel('Search covers');
+  const sort = page.getByRole('combobox', { name: 'Sort by', exact: true });
+  const libraryOrder = () => page.locator('.book').evaluateAll(rows => rows.map(row => row.dataset.bookId));
+  const proofOrder = () => page.locator('.gallery input').evaluateAll(inputs => inputs.map(input => input.getAttribute('aria-label')));
+  const initialProof = await proofOrder();
+  assert.equal(await sort.inputValue(), 'ranking');
+  const rankOrder = await libraryOrder();
+  assert.deepEqual(rankOrder.slice(0, 12).sort(), selectedIds);
+  const weights = new Map(rankings.map(book => [book.id, book.weight]));
+  assert.deepEqual(rankOrder.slice(0, rankings.length).map(id => weights.get(id)), rankings.map(book => book.weight));
+  await sort.selectOption('series');
+  const seriesOrder = await libraryOrder();
+  assert(seriesOrder.indexOf('iron_prince') > seriesOrder.indexOf('soul_relic'));
+  assert(seriesOrder.indexOf('wandering-inn-2') < seriesOrder.indexOf('wandering-inn-10'));
+  await sort.selectOption('author');
+  const authorOrder = await libraryOrder();
+  assert(authorOrder.indexOf('iron_prince') < authorOrder.indexOf('soul_relic'));
+  assert.deepEqual(await proofOrder(), initialProof);
+  assert.deepEqual(JSON.parse(await stored()), { librarySort: 'author' });
+  await page.reload();
+  await page.locator('.workshop:not([inert])').waitFor();
+  assert.equal(await sort.inputValue(), 'author');
+  assert.deepEqual(await libraryOrder(), authorOrder);
+  assert.deepEqual(await proofOrder(), initialProof);
+  await sort.selectOption('ranking');
+  assert.deepEqual(await libraryOrder(), rankOrder);
+  assert.equal(await stored(), null);
+  // Two editions of the same volume must be independently selectable and persist across refresh.
+  const hardcover = page.locator('.book[data-book-id="carl-print-1"]');
+  const originalEdition = page.locator('.book[data-book-id="dungeon_crawler_carl"]');
+  await search.fill('Carl hardcover');
+  await hardcover.click();
+  await page.reload();
+  await page.locator('.workshop:not([inert])').waitFor();
+  assert.equal(await hardcover.getAttribute('aria-pressed'), 'true');
+  assert.equal(await originalEdition.getAttribute('aria-pressed'), 'true');
+  assert.notEqual(await hardcover.locator('img').getAttribute('src'), await originalEdition.locator('img').getAttribute('src'));
+  await hardcover.click();
+  assert.equal(await originalEdition.getAttribute('aria-pressed'), 'true');
   const volumeButton = title => page.locator('.book').filter({ has: page.getByText(title, { exact: true }) });
   const spineTitle = title => page.getByLabel('Spine title for ' + title, { exact: true });
   await search.fill('Manifestation');
@@ -132,7 +191,9 @@ try {
     return [...data.subarray(i, i + 3)];
   };
   assert(pixel(10, 20).some(channel => channel > 10)); // colour-matched leather back
-  assert.deepEqual(pixel(20, 50), [0, 0, 0]); // row gutter
+  assert(pixel(48, 48.2).some(channel => channel > 10), 'second row touches the first');
+  assert(pixel(65.2, 20).some(channel => channel > 0), 'second column touches the first');
+  assert.equal(await page.getByText('1 sheet · 21 wraps per sheet', { exact: true }).count(), 1);
   assert(pixel(44, 20).some(channel => channel > 12)); // original front cover
   assert(pixel(8, 7).some(channel => channel > 60)); // trim mark at the back edge
   assert(pixel(33, 7).some(channel => channel > 60)); // first fold
@@ -176,6 +237,7 @@ try {
   await page.getByText(/Below 600 DPI/).waitFor();
   await page.getByRole('button', { name: 'Wraps', exact: true }).click();
   await page.getByLabel(/Spine title for/).fill('Archmage');
+  assert.equal(await wrapWidth(), desktopWidth, 'a single wrap keeps its desktop card width');
   await fontPicker.selectOption(bundledId);
   await page.getByRole('button', { name: 'Clear selection' }).click();
   await page.getByLabel('Search covers').fill('Manifestation');
@@ -303,8 +365,8 @@ try {
   async function extractSpine(png, index) {
     const ppm = 600 / 25.4;
     return sharp(png).extract({
-      left: Math.ceil((23.625 + (index % 2) * 41.25) * ppm),
-      top: Math.ceil((8 + Math.floor(index / 2) * 30) * ppm),
+      left: Math.ceil((23.625 + (index % 2) * 36.25) * ppm),
+      top: Math.ceil((8 + Math.floor(index / 2) * 25) * ppm),
       width: Math.floor(5 * ppm) - 1, height: Math.floor(25 * ppm) - 1,
     }).raw().toBuffer();
   }
@@ -388,6 +450,7 @@ try {
   await page.setViewportSize({ width: 375, height: 812 });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await page.getByRole('button', { name: 'Wraps', exact: true }).click();
+  assert.equal(await wrapWidth(), await page.locator('.gallery').evaluate(el => el.getBoundingClientRect().width));
   await page.getByRole('button', { name: 'Clear selection' }).click();
   for (const name of ['Mage Errant', 'Mother of Learning']) {
     await page.getByLabel('Search covers').fill(name);
@@ -422,13 +485,52 @@ try {
       const expected = await sharp('content/reviews/' + id + '/cover.jpg').resize({ ...target, fit: 'cover', position: 'centre' }).removeAlpha().raw().toBuffer();
       for (const [png, left, top, scale] of [
         [preview, face + 5, 0, dimensions.width / wrap],
-        [sheetPng, 8 + i * (wrap + 5) + face + 5, 8, 300 / 25.4],
+        [sheetPng, 8 + i * wrap + face + 5, 8, 300 / 25.4],
       ]) {
         const actual = await sharp(png).extract({ left: Math.round(left * scale), top: Math.round(top * scale),
           width: Math.floor(face * scale), height: Math.floor(25 * scale) }).resize({ ...target, fit: 'fill' }).removeAlpha().raw().toBuffer();
         const meanError = actual.reduce((sum, v, j) => sum + Math.abs(v - expected[j]), 0) / actual.length;
         assert(meanError < 6, id + ' should have a centred, full-bleed front (mean error ' + meanError + ')');
       }
+    }
+  }
+  // The yellow illustrations on these hardcovers compete with the solid title ink.
+  await page.getByRole('button', { name: 'Clear selection' }).click();
+  await search.fill('Carl hardcover');
+  await page.getByLabel('Height / width').fill('1.6');
+  await lettering.selectOption('dynamic');
+  // Use the undarkened source colour so shading cannot mask a bad sample.
+  await darkness.press('Home');
+  const hardcovers = [
+    { id: 'carl-print-2', ink: (r, g, b) => r > 210 && g < 100 && b > 150 },
+    { id: 'carl-print-3', ink: (r, g, b) => r > 210 && g < 100 && b < 100 },
+  ];
+  for (const { id } of hardcovers) await page.locator(`.book[data-book-id="${id}"]`).click();
+  const hardcoverSheet = (await capture())['sheet-01.png'];
+  for (const [i, { id, ink }] of hardcovers.entries()) {
+    const proof = page.locator('.gallery figure').nth(i);
+    await proof.getByText('Dynamic · flat', { exact: true }).waitFor();
+    const preview = Buffer.from(await proof.locator('canvas').evaluate(c => c.toDataURL().split(',')[1]), 'base64');
+    const face = 25 / 1.6, wrap = 2 * face + 5;
+    for (const [source, left, top, scale] of [
+      [preview, face, 0, (await sharp(preview).metadata()).width / wrap],
+      [hardcoverSheet, 8 + i * wrap + face, 8, 300 / 25.4],
+    ]) {
+      const pixels = await sharp(source).extract({
+        left: Math.ceil(left * scale), top: Math.ceil(top * scale),
+        width: Math.floor(5 * scale) - 1, height: Math.floor(25 * scale) - 1,
+      }).removeAlpha().raw().toBuffer();
+      const back = await sharp(source).extract({
+        left: Math.round((left - face / 2) * scale), top: Math.round((top + 12.5) * scale), width: 1, height: 1,
+      }).removeAlpha().raw().toBuffer();
+      assert(Math.max(...back) <= 6, id + ' should have a black back');
+      let matching = 0, black = 0;
+      for (let p = 0; p < pixels.length; p += 3) {
+        if (ink(pixels[p], pixels[p + 1], pixels[p + 2])) matching++;
+        if (Math.max(pixels[p], pixels[p + 1], pixels[p + 2]) <= 6) black++;
+      }
+      assert(matching > pixels.length / 3 * 0.01, id + ' should use the cover title colour on its spine');
+      assert(black > pixels.length / 3 * 0.75, id + ' should have a black spine behind the lettering');
     }
   }
   assert.deepEqual(errors, []);

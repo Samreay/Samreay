@@ -24,6 +24,12 @@ function luminance(rgb: RGB) {
   const [r, g, b] = rgb.map(v => v <= 10 ? v / 3294.6 : ((v / 255 + 0.055) / 1.055) ** 2.4);
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
+function legibleInk(ink: RGB, base: RGB, shadeFactor: number, minContrast: number): RGB {
+  const background = luminance(base) + 0.05;
+  while ((luminance(shade(ink, shadeFactor)) + 0.05) / background < minContrast)
+    ink = ink.map(v => Math.round(v + (255 - v) * 0.10)) as RGB;
+  return ink;
+}
 type Bin = { weight: number; sum: RGB };
 function add(bins: Map<number, Bin>, key: number, rgb: RGB, weight: number) {
   const bin = bins.get(key) ?? { weight: 0, sum: [0, 0, 0] };
@@ -43,6 +49,47 @@ function hueGroup([r, g, b]: RGB) {
 }
 
 type Stroke = { rgb: RGB; strength: number; y: number };
+
+// On poster-style covers a thick red or pink letter can be darker than a
+// yellow illustration. Look for repeated solid strokes bounded by near-black
+// on both sides, using colour and width rather than brightness to find them.
+function blockLetterInk(data: Uint8ClampedArray, w: number, h: number): RGB | undefined {
+  const colours = new Map<number, Bin>();
+  const top = Math.floor(h * 0.05);
+  const bottom = Math.floor(h * 0.60);
+  const rowStep = 2;
+  for (let y = top; y < bottom; y += rowStep) {
+    const row = new Map<number, Bin>();
+    let lastDark = -1;
+    for (let x = 0; x < w; x++) {
+      const offset = (y * w + x) * 4;
+      if (Math.max(data[offset], data[offset + 1], data[offset + 2]) > 55) continue;
+      const width = x - lastDark - 1;
+      if (lastDark >= 0 && width >= 4 && width <= w / 4) {
+        const at = (fraction: number) => (y * w + lastDark + 1 + Math.floor(width * fraction)) * 4;
+        const mid = at(0.5);
+        const rgb: RGB = [data[mid], data[mid + 1], data[mid + 2]];
+        if (Math.max(...rgb) - Math.min(...rgb) > 110 && [at(0.25), at(0.75)].every(
+          p => rgb.every((channel, i) => Math.abs(channel - data[p + i]) <= 20)
+        )) {
+          add(row, hueGroup(rgb), rgb, 1);
+        }
+      }
+      lastDark = x;
+    }
+    for (const [key, bin] of row) {
+      if (bin.weight < 3) continue;
+      const mean = bin.sum.map(c => c / bin.weight) as RGB;
+      add(colours, key, mean, 1);
+    }
+  }
+  // Require a consistent fill across a substantial height of the title area.
+  const best = [...colours.values()].sort((a, b) => b.weight - a.weight)[0];
+  if (best && best.weight * rowStep >= (bottom - top) / 4) {
+    return best.sum.map(c => Math.round(c / best.weight)) as RGB;
+  }
+}
+
 function quantile(sorted: number[], fraction: number) {
   return sorted[Math.floor((sorted.length - 1) * fraction)];
 }
@@ -73,6 +120,37 @@ function classifyInk(strokes: Stroke[], hue: number, start: number, height: numb
   return glint >= 12 && spread >= 30 ? 'metallic' : 'flat';
 }
 
+function sampleBackground(data: Uint8ClampedArray, light: Float32Array, w: number, h: number, ink?: RGB): RGB {
+  const colours = new Map<number, Bin>();
+  let samples = 0;
+  // Sample smooth patches along the edge that meets the spine.
+  for (let y = 3; y < h - 3; y++) {
+    for (let x = 7; x < w * 0.23; x++) {
+      const p = y * w + x;
+      if (Math.abs(light[p - 3] - light[p + 3]) + Math.abs(light[p - w] - light[p + w]) >= 45) continue;
+      const rgb: RGB = [data[4 * p], data[4 * p + 1], data[4 * p + 2]];
+      // Allow for compression and antialiasing, while retaining backgrounds
+      // that share the title's hue at a distinctly different brightness.
+      if (ink && rgb.every((v, i) => Math.abs(v - ink[i]) <= 48)) continue;
+      const key = (rgb[0] >> 5) * 64 + (rgb[1] >> 5) * 8 + (rgb[2] >> 5);
+      add(colours, key, rgb, 1);
+      samples++;
+    }
+  }
+  let best: RGB = [0, 0, 0], bestScore = 0;
+  for (const { sum, weight } of colours.values()) {
+    const rgb = sum.map(c => Math.round(c / weight)) as RGB;
+    // A majority of the remaining surface wins, including pure black.
+    if (weight > samples / 2) return rgb;
+    // In variegated artwork, keep the existing preference for a coloured midtone.
+    const chroma = Math.max(...rgb) - Math.min(...rgb);
+    const brightness = rgb[0] * 0.21 + rgb[1] * 0.72 + rgb[2] * 0.07;
+    const score = weight * (1 + chroma / 22) * (brightness < 18 ? 0.12 : 1);
+    if (score > bestScore) { best = rgb; bestScore = score; }
+  }
+  return best;
+}
+
 export function bindingColours(image: ImageBitmap) {
   const sample = document.createElement('canvas');
   const w = sample.width = 192, h = sample.height = 288;
@@ -86,7 +164,6 @@ export function bindingColours(image: ImageBitmap) {
   for (let p = 0; p < light.length; p++)
     light[p] = data[p * 4] * 0.21 + data[p * 4 + 1] * 0.72 + data[p * 4 + 2] * 0.07;
 
-  const cloth = new Map<number, Bin>();
   const strokes: Stroke[] = [];
   const lineScores = new Float64Array(h);
   for (let y = 3; y < h - 3; y++) {
@@ -95,10 +172,6 @@ export function bindingColours(image: ImageBitmap) {
       const p = y * w + x;
       const rgb: RGB = [data[4 * p], data[4 * p + 1], data[4 * p + 2]];
       const chroma = Math.max(...rgb) - Math.min(...rgb);
-      if (x < w * 0.23 && Math.abs(light[p - 3] - light[p + 3]) + Math.abs(light[p - w] - light[p + w]) < 45) {
-        const key = (rgb[0] >> 5) * 64 + (rgb[1] >> 5) * 8 + (rgb[2] >> 5);
-        add(cloth, key, rgb, (1 + chroma / 22) * (light[p] < 18 ? 0.12 : 1));
-      }
       // A bright letter stem often has darker pixels on *both* sides within a few pixels.
       const left = Math.min(light[p - 2], light[p - 4], light[p - 7]);
       const right = Math.min(light[p + 2], light[p + 4], light[p + 7]);
@@ -124,12 +197,13 @@ export function bindingColours(image: ImageBitmap) {
     const chroma = Math.max(...rgb) - Math.min(...rgb);
     add(inks, hueGroup(rgb), rgb, strength * (1 + chroma / 40) ** 2);
   }
-  const sampleColour = winner(cloth, [45, 47, 54]);
-  let base = shade(sampleColour, 0.35);
-  while (luminance(base) > 0.014) base = shade(base, 0.90);
   let ink = winner(inks, [233, 218, 192]);
   const hue = hueGroup(ink);
-  if (hue >= 0) {
+  const blockInk = blockLetterInk(data, w, h);
+  const useBlockInk = blockInk !== undefined && hueGroup(blockInk) !== hue;
+  if (useBlockInk) {
+    ink = blockInk;
+  } else if (hue >= 0) {
     const pigments = titleStrokes.filter(({ rgb }) => {
       const group = hueGroup(rgb), distance = Math.abs(group - hue);
       return group >= 0 && (distance <= 1 || distance === 23);
@@ -145,8 +219,9 @@ export function bindingColours(image: ImageBitmap) {
       ink = shade(ink, Math.max(1, brightest / Math.max(...ink)));
     }
   }
-  // Keep the dimmest end of the ink gradient legible on the lightest cloth.
-  while ((luminance(shade(ink, 0.87)) + 0.05) / (luminance(base) + 0.05) < 5)
-    ink = ink.map(v => Math.round(v + (255 - v) * 0.10)) as RGB;
-  return { sampleColour, base, ink, effect: classifyInk(titleStrokes, hue, bestStart, bandHeight) };
+  const sampleColour = sampleBackground(data, light, w, h, inks.size || useBlockInk ? ink : undefined);
+  let base = shade(sampleColour, 0.35);
+  while (luminance(base) > 0.014) base = shade(base, 0.90);
+  const effect = useBlockInk ? 'flat' : classifyInk(titleStrokes, hue, bestStart, bandHeight);
+  return { sampleColour, base, ink: legibleInk(ink, base, useBlockInk ? 1 : 0.87, useBlockInk ? 4.5 : 5), effect };
 }

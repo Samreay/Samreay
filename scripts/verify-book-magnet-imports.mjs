@@ -49,6 +49,7 @@ try {
   assert.equal(await page.getByLabel('Resolution (DPI)').inputValue(), '120');
   assert.equal(await page.locator('.gallery canvas').count(), 2);
   const image = page.locator('.book').filter({ hasText: 'Edited title' }).locator('img');
+  await image.scrollIntoViewIfNeeded();
   assert(await image.evaluate(async img => { await img.decode(); return img.naturalWidth <= 96; }));
 
   const pending = page.waitForEvent('download', { timeout: 120_000 });

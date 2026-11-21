@@ -1,4 +1,4 @@
-import soulRelic from '../../content/reviews/soul_relic/cover.jpg';
+import soulRelic from '../assets/landing/1_Soul_Relic.jpg';
 import scionOfStorms from '../assets/landing/2_Scion_of_Storms.jpg';
 import sanctuary from '../assets/landing/3_Sanctuary.jpg';
 import shieldsmith from '../assets/landing/4_Shieldsmith.jpg';

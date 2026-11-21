@@ -1,19 +1,20 @@
 <script lang="ts">
-  import { onMount, untrack } from 'svelte';
-  import { defaultSettings, restoreSettings, saveSettings, settingsKey } from '../../lib/book-magnets/preferences';
+  import { onMount, tick, untrack } from 'svelte';
+  import { defaultSettings, librarySorts, restoreSettings, saveSettings, settingsKey } from '../../lib/book-magnets/preferences';
   import SpineFontPicker from './SpineFontPicker.svelte';
   import MagnetProof from './MagnetProof.svelte';
   import { availableDpi, backgroundControls, layout, papers, fillets, type Book } from '../../lib/book-magnets/layout';
   import { defaultFont, exportSheets, type SpineFont } from '../../lib/book-magnets/export';
   import { asBook, deleteCustomCover, importCover, listCustomCovers, releaseCover, type CustomBook } from '../../lib/book-magnets/custom-covers';
 
-  let { books }: { books: Book[] } = $props();
-  const defaults = untrack(() => defaultSettings(books));
+  let { books, rankedIds }: { books: Book[]; rankedIds: string[] } = $props();
+  const defaults = untrack(() => defaultSettings(rankedIds));
   let prefs = $state(defaults);
   let ready = $state(false), storageNotice = $state('');
   let custom = $state.raw<CustomBook[]>([]);
   let catalogue = $derived([...custom, ...books]);
   let picker: HTMLInputElement;
+  let libraryList: HTMLDivElement;
   let importing = $state(false), dragging = $state(false), importNotice = $state(''), libraryNotice = $state('');
   let libraryChanges: BroadcastChannel | undefined;
   let mounted = false, libraryVersion = 0;
@@ -75,8 +76,41 @@
   let message = $state(''), failure = $state('');
   let pageIndex = $state(0);
   let byId = $derived(new Map(catalogue.map(book => [book.id, book])));
-  let filtered = $derived(catalogue.filter(b =>
-    [b.title, b.series?.name, b.series?.volume, b.author, prefs.titles[b.id]].join(' ').toLowerCase().includes(search.trim().toLowerCase())));
+  const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' });
+  let rank = $derived(new Map(rankedIds.map((id, index) => [id, index])));
+  const groupName = (book: Book) => rank.has(book.id) ? 'Ranked books' : book.original ? 'My covers' : 'Curated covers';
+  const displayTitle = (book: Book) => (book.original && prefs.titles[book.id]?.trim()) || book.title;
+  function compareSeries(a: Book, b: Book) {
+    return collator.compare(a.series?.name ?? displayTitle(a), b.series?.name ?? displayTitle(b))
+      || (a.series?.volume ?? 0) - (b.series?.volume ?? 0)
+      || (a.series?.part ?? 0) - (b.series?.part ?? 0)
+      || collator.compare(displayTitle(a), displayTitle(b))
+      || collator.compare(a.series?.edition ?? '', b.series?.edition ?? '');
+  }
+  function seriesLabel(book: Book) {
+    const series = book.series;
+    if (!series) return '';
+    const part = series.part ? `, Part ${series.part}` : '';
+    const edition = series.edition ? ` · ${series.edition}` : '';
+    return `${series.name} ${series.volume}${part}${edition}`;
+  }
+  const editorLabel = (book: Book) => book.series?.edition ? `${book.title} (${seriesLabel(book)})` : book.title;
+  const normalizeSearch = (value: string) => value.toLowerCase().replace(/[’‘]/g, "'");
+  let filtered = $derived.by(() => {
+    const terms = normalizeSearch(search).trim().split(/\s+/);
+    const matches = catalogue.filter(book => {
+      const text = normalizeSearch([book.title, seriesLabel(book), book.author, prefs.titles[book.id]].join(' '));
+      return terms.every(term => text.includes(term));
+    });
+    if (prefs.librarySort === 'ranking') {
+      return matches.sort((a, b) => (rank.get(a.id) ?? rankedIds.length) - (rank.get(b.id) ?? rankedIds.length));
+    }
+    if (prefs.librarySort === 'author') {
+      return matches.sort((a, b) => Number(!a.author) - Number(!b.author)
+        || collator.compare(a.author, b.author) || compareSeries(a, b));
+    }
+    return matches.sort(compareSeries);
+  });
   let selected = $derived.by(() => {
     const chosen = prefs.ids.map(id => byId.get(id)).filter((book): book is Book => !!book);
     const counts = new Map<string, number>();
@@ -179,18 +213,23 @@
       }} />
     {#if libraryNotice || importNotice}<p class="import-note" role="status">{libraryNotice} {importNotice}</p>{/if}
     <input type="search" aria-label="Search covers" placeholder="Search by title, series or author" bind:value={search} />
-    <div class="library">
+    <label class="library-sort">Sort by
+      <select bind:value={prefs.librarySort} onchange={async () => { await tick(); libraryList.scrollTop = 0; }}>
+        {#each Object.entries(librarySorts) as [value, label] (value)}<option {value}>{label}</option>{/each}
+      </select>
+    </label>
+    <div class="library" bind:this={libraryList}>
       {#each filtered as book, i (book.id)}
-        {#if book.original && i === 0}<h3>My covers</h3>{:else if !book.original && filtered[i - 1]?.original}<h3>Reviewed books</h3>{/if}
+        {#if prefs.librarySort === 'ranking' && (i === 0 || groupName(book) !== groupName(filtered[i - 1]))}<h3>{groupName(book)}</h3>{/if}
         <div class="book-row">
-        <button class="book" aria-pressed={prefs.ids.includes(book.id)} onclick={() => toggle(book.id)}>
+        <button class="book" data-book-id={book.id} aria-pressed={prefs.ids.includes(book.id)} onclick={() => toggle(book.id)}>
           <img src={book.thumb} alt="" width="32" height="48" loading="lazy"
             onerror={e => {
               const image = e.currentTarget;
               if (image.getAttribute('src') !== book.src) image.src = book.src;
             }} />
-          <span class="bookname"><strong>{book.original ? prefs.titles[book.id]?.trim() || book.title : book.title}</strong>
-            {#if book.id.startsWith('visit:')}<small>Available for this visit only</small>{:else if book.author}<small>{#if book.series}{book.series.name} {book.series.volume} · {/if}{book.author}</small>{/if}
+          <span class="bookname"><strong>{displayTitle(book)}</strong>
+            {#if book.id.startsWith('visit:')}<small>Available for this visit only</small>{:else if book.author}<small>{#if book.series}{seriesLabel(book)} · {/if}{book.author}</small>{/if}
           </span>
           <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d={prefs.ids.includes(book.id) ? 'M3 8l3.2 3.2L13 4.8' : 'M8 3v10M3 8h10'} /></svg></span>
         </button>
@@ -204,58 +243,66 @@
   </section>
 
     <section class="panel settings">
-      <h2>Print settings</h2>
-      <fieldset><legend>Physical</legend>
-        <div class="fields">
-          <label>Book height (mm)<input type="number" min="5" step="any" bind:value={prefs.height} /></label>
-          <label>Height / width<input type="number" min="0.1" step="any" bind:value={prefs.ratio} /></label>
-          <label>Spine (mm)<input type="number" min="1" step="any" bind:value={prefs.spine} /></label>
-          <label>Paper<select aria-label="Paper" bind:value={prefs.paper}>{#each Object.keys(papers) as name (name)}<option>{name}</option>{/each}<option>Custom</option></select></label>
-          <label>Resolution (DPI)<input type="number" min="72" step="1" bind:value={prefs.dpi} /></label>
-          {#if prefs.paper === 'Custom'}
-            <label>Paper width (mm)<input type="number" step="any" bind:value={prefs.paperW} /></label>
-            <label>Paper height (mm)<input type="number" step="any" bind:value={prefs.paperH} /></label>
-          {/if}
-        </div>
-      </fieldset>
-      <fieldset><legend>Visual</legend>
-        <div class="fields">
-          <SpineFontPicker bind:font bind:loading={fontLoading} disabled={busy} />
-          <label>Text transform<select aria-label="Text transform" bind:value={prefs.transform}>
-            <option value="title">Title</option><option value="uppercase">Uppercase</option><option value="small-caps">Small caps</option>
-          </select></label>
-          <label>Spine text effect<select aria-label="Spine text effect" bind:value={prefs.lettering}>
-            <option value="flat">Flat</option><option value="gradient">Gradient</option><option value="metallic">Metallic</option><option value="dynamic">Dynamic</option>
-          </select></label>
-          <label>Texture<select aria-label="Texture" bind:value={prefs.texture}>
-            <option value="leather">Leather</option><option value="gradient">Gradient</option><option value="none">None</option>
-          </select></label>
-          <label>Binding<select aria-label="Binding" bind:value={prefs.binding}><option value="none">None</option>{#each filletStyles as style (style)}<option value={style}>{fillets[style]}</option>{/each}</select></label>
-        </div>
-        <div class="fields background-controls">
-          {#each backgroundControls as control (control.key)}
-            <label>{control.label} <span class="percentage" aria-hidden="true">{prefs[control.key]}%</span>
-              <input class="custom-range" type="range" min="0" max={control.max} aria-valuetext={prefs[control.key] + '%'}
-                style:--fill={100 * prefs[control.key] / control.max + '%'} bind:value={prefs[control.key]} />
-            </label>
-          {/each}
-        </div>
-        {#if selected.length && !sheet.error}
-          <details bind:open={comparing}>
-            <summary>Compare five spine fillets</summary>
-            {#if comparing}
-              <div class="samples">
-                {#each filletStyles as style (style)}
-                  <button aria-pressed={prefs.binding === style} onclick={() => prefs.binding = style}>
-                    <MagnetProof items={[selected[0]]} {sheet} finish={{ ...finish, binding: style }} {font} fullPage={false} spineOnly />
-                    <span>{fillets[style]}</span>
-                  </button>
-                {/each}
-              </div>
+      <h2>
+        <button class="settings-toggle" aria-expanded={!prefs.settingsCollapsed} aria-controls="magnet-print-options"
+          onclick={() => prefs.settingsCollapsed = !prefs.settingsCollapsed}>
+          Print settings
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 6 4 4 4-4" /></svg>
+        </button>
+      </h2>
+      <div id="magnet-print-options" hidden={prefs.settingsCollapsed}>
+        <fieldset><legend>Physical</legend>
+          <div class="fields">
+            <label>Book height (mm)<input type="number" min="5" step="any" bind:value={prefs.height} /></label>
+            <label>Height / width<input type="number" min="0.1" step="any" bind:value={prefs.ratio} /></label>
+            <label>Spine (mm)<input type="number" min="1" step="any" bind:value={prefs.spine} /></label>
+            <label>Paper<select aria-label="Paper" bind:value={prefs.paper}>{#each Object.keys(papers) as name (name)}<option>{name}</option>{/each}<option>Custom</option></select></label>
+            <label>Resolution (DPI)<input type="number" min="72" step="1" bind:value={prefs.dpi} /></label>
+            {#if prefs.paper === 'Custom'}
+              <label>Paper width (mm)<input type="number" step="any" bind:value={prefs.paperW} /></label>
+              <label>Paper height (mm)<input type="number" step="any" bind:value={prefs.paperH} /></label>
             {/if}
-          </details>
-        {/if}
-      </fieldset>
+          </div>
+        </fieldset>
+        <fieldset><legend>Visual</legend>
+          <div class="fields">
+            <SpineFontPicker bind:font bind:loading={fontLoading} disabled={busy} />
+            <label>Text transform<select aria-label="Text transform" bind:value={prefs.transform}>
+              <option value="title">Title</option><option value="uppercase">Uppercase</option><option value="small-caps">Small caps</option>
+            </select></label>
+            <label>Spine text effect<select aria-label="Spine text effect" bind:value={prefs.lettering}>
+              <option value="flat">Flat</option><option value="gradient">Gradient</option><option value="metallic">Metallic</option><option value="dynamic">Dynamic</option>
+            </select></label>
+            <label>Texture<select aria-label="Texture" bind:value={prefs.texture}>
+              <option value="leather">Leather</option><option value="gradient">Gradient</option><option value="none">None</option>
+            </select></label>
+            <label>Binding<select aria-label="Binding" bind:value={prefs.binding}><option value="none">None</option>{#each filletStyles as style (style)}<option value={style}>{fillets[style]}</option>{/each}</select></label>
+          </div>
+          <div class="fields background-controls">
+            {#each backgroundControls as control (control.key)}
+              <label>{control.label} <span class="percentage" aria-hidden="true">{prefs[control.key]}%</span>
+                <input class="custom-range" type="range" min="0" max={control.max} aria-valuetext={prefs[control.key] + '%'}
+                  style:--fill={100 * prefs[control.key] / control.max + '%'} bind:value={prefs[control.key]} />
+              </label>
+            {/each}
+          </div>
+          {#if selected.length && !sheet.error}
+            <details bind:open={comparing}>
+              <summary>Compare five spine fillets</summary>
+              {#if comparing}
+                <div class="samples">
+                  {#each filletStyles as style (style)}
+                    <button aria-pressed={prefs.binding === style} onclick={() => prefs.binding = style}>
+                      <MagnetProof items={[selected[0]]} {sheet} finish={{ ...finish, binding: style }} {font} fullPage={false} spineOnly />
+                      <span>{fillets[style]}</span>
+                    </button>
+                  {/each}
+                </div>
+              {/if}
+            </details>
+          {/if}
+        </fieldset>
+      </div>
       {#if lowRes.length && !sheet.error}
         <p class="warning" role="status">Below {prefs.dpi} DPI at this size: {lowRes.map(b => b.title + ' (' + Math.floor(availableDpi(b, sheet)) + ' DPI)').join(', ')}.</p>
       {/if}
@@ -263,7 +310,6 @@
         <button class="download" disabled={!selected.length || !!sheet.error || busy || fontLoading} onclick={download}>{busy ? 'Preparing sheets…' : 'Download print sheets'}</button>
         {#if pages}<span>{pages} {pages === 1 ? 'sheet' : 'sheets'} · {sheet.capacity} wraps per sheet</span>{/if}
       </div>
-      <p class="caption">ZIP with PNG sheets{font.file || font.family === defaultFont.family ? ' and the spine font' : ' rendered with ' + font.name}.{#if !font.file && font.family !== defaultFont.family} To include the font file, share installed fonts or open its file in the spine font menu.{/if} Print at 100%. The outer marks are cuts and the inner marks are folds. Wraps have 5 mm gaps and an 8 mm page margin.</p>
       {#if message}<p role="status">{message}</p>{/if}
       {#if storageNotice}<p role="status">{storageNotice}</p>{/if}
       {#if failure}<p class="warning" role="alert">{failure}</p>{/if}
@@ -285,7 +331,7 @@
               <figure>
                 <MagnetProof items={[book]} {sheet} {finish} {font} fullPage={false} />
                 <figcaption>
-                  <label>Spine title<input aria-label={'Spine title for ' + byId.get(book.id)?.title}
+                  <label>Spine title<input aria-label={'Spine title for ' + editorLabel(byId.get(book.id)!)}
                     value={prefs.titles[book.id] ?? book.title} placeholder={book.title}
                     oninput={e => prefs.titles[book.id] = e.currentTarget.value}
                     onblur={e => { if (!e.currentTarget.value.trim()) delete prefs.titles[book.id]; }} /></label>
@@ -317,6 +363,8 @@
   .panel { background:var(--color-gray-800); border:1px solid var(--border); border-radius:10px; min-width:0; }
   .catalogue { grid-area:library; display:flex; flex-direction:column; overflow:hidden; }
   .settings { grid-area:settings; padding:1rem 1.15rem; }
+  .settings-toggle { display:flex; align-items:center; justify-content:space-between; width:100%; text-align:left; font:inherit; }
+  .settings-toggle[aria-expanded="false"] svg { transform:rotate(-90deg); }
   .proof { grid-area:proof; align-self:start; overflow:hidden; }
   h2 { margin:0; color:var(--color-gray-100); font:600 1.25rem/1.4 Inter,sans-serif; }
   .bar,.export { display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap; }
@@ -326,6 +374,8 @@
   input:not([type=range]),select { display:block; width:100%; min-width:0; border:1px solid var(--color-gray-600); border-radius:5px; background-color:var(--color-gray-900); color:var(--color-gray-100); font:inherit; font-size:.92rem; padding:.45rem .55rem; }
   select { padding-right:1.65rem; }
   input[type=search] { width:calc(100% - 2.3rem); margin:0 1.15rem .8rem; }
+  .library-sort { display:flex; align-items:center; gap:.75rem; margin:0 1.15rem .8rem; white-space:nowrap; }
+  .library-sort select { flex:1; margin:0; }
   .library { flex:1; min-height:12rem; contain:size; overflow:auto; scrollbar-color:var(--color-gray-600) transparent; }
   .library .muted { padding:1rem; }
   .import-zone { margin:0 1.15rem .8rem; padding:.65rem; border:1px dashed var(--border); border-radius:5px; color:var(--accent); }
@@ -354,7 +404,7 @@
   .switch { display:flex; border:1px solid var(--color-gray-600); border-radius:6px; overflow:hidden; }
   .switch button { padding:.25rem .75rem; font-size:.84rem; }
   .mat { padding:1.15rem; min-height:10rem; background:var(--color-gray-900); }
-  .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,22.5rem),1fr)); gap:1.5rem; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit,min(100%,400px)); gap:1.5rem; }
   .gallery figure { min-width:0; margin:0; }
   .gallery figcaption { margin-top:.5rem; }
   fieldset { min-width:0; margin-top:1rem; border-top:1px solid var(--border); }
@@ -387,6 +437,7 @@
   .warning { color:#ffcf97; margin:.75rem 0; }
   @media(max-width:740px) {
     .workshop { grid-template-columns:minmax(0,1fr); grid-template-areas:"settings" "library" "proof"; grid-template-rows:auto auto auto; }
+    .gallery { grid-template-columns:minmax(0,1fr); }
     .library { flex:auto; height:13rem; }
     .fields { grid-template-columns:repeat(2,minmax(0,1fr)); }
   }

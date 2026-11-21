@@ -1,7 +1,7 @@
 export interface Book {
   id: string;
   title: string;
-  series?: { name: string; volume: number };
+  series?: { name: string; volume: number; edition?: string; part?: number };
   author: string;
   src: string;
   thumb: string;
@@ -31,14 +31,13 @@ export const papers = {
   'US Letter': [215.9, 279.4], 'US Legal': [215.9, 355.6],
   '8 × 12 in': [203.2, 304.8], '8 × 8 in': [203.2, 203.2],
 } as const;
-export const gap = 5;
 export const margin = 8;
 
 export function layout(paperW: number, paperH: number, height: number, ratio: number, spine: number, dpi: number) {
   const face = height / ratio;
   const wrap = 2 * face + spine;
-  const columns = Math.floor((paperW - 2 * margin + gap) / (wrap + gap));
-  const rows = Math.floor((paperH - 2 * margin + gap) / (height + gap));
+  const columns = Math.floor((paperW - 2 * margin) / wrap);
+  const rows = Math.floor((paperH - 2 * margin) / height);
   const widthPx = Math.round(paperW * dpi / 25.4);
   const heightPx = Math.round(paperH * dpi / 25.4);
   let error = '';

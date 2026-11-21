@@ -1,5 +1,5 @@
 import { zipSync, strToU8 } from 'fflate';
-import { drawSheetItem, loadCover } from './render';
+import { drawSheetGuides, drawSheetItem, loadCover } from './render';
 import type { Finish, Book, Layout } from './layout';
 import bundledFont from '../../assets/fonts/inter-v20-latin.woff2?url';
 import license from '../../assets/fonts/Inter-OFL.txt?raw';
@@ -88,6 +88,7 @@ export async function exportSheets(books: Book[], sheet: Layout, font: SpineFont
         try { drawSheetItem(ctx, i, sheet, cover, book.title, font.family, finish); }
         finally { cover.image.close(); }
       }
+      drawSheetGuides(ctx, sheet, items.length);
       const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(b => b ? resolve(b) : reject(new Error('Could not encode this sheet.')), 'image/png'));
       progress('Compressing sheet ' + (page + 1) + ' of ' + pages + '…');
       files['sheet-' + String(page + 1).padStart(2, '0') + '.png'] = setDensity(await compressSheet(blob), sheet.dpi);

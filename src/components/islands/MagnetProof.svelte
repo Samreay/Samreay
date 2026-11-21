@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { drawSheetItem, drawWrap, loadProofCover } from '../../lib/book-magnets/render';
+  import { drawSheetGuides, drawSheetItem, drawWrap, loadProofCover } from '../../lib/book-magnets/render';
   import type { Book, Layout, Finish, InkEffect } from '../../lib/book-magnets/layout';
   import { defaultFont, prepareDefaultFont, type SpineFont } from '../../lib/book-magnets/export';
 
@@ -39,6 +39,7 @@
         else drawWrap(ctx, layout, cover, book.title, type.family, style);
       }
       if (cancelled) return;
+      if (page) drawSheetGuides(ctx, layout, books.length);
       resolved = observed;
       target.width = buffer.width;
       target.height = buffer.height;
