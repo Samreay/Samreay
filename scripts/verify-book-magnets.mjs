@@ -191,14 +191,27 @@ try {
     return [...data.subarray(i, i + 3)];
   };
   assert(pixel(10, 20).some(channel => channel > 10)); // colour-matched leather back
-  assert(pixel(48, 48.2).some(channel => channel > 10), 'second row touches the first');
-  assert(pixel(65.2, 20).some(channel => channel > 0), 'second column touches the first');
-  assert.equal(await page.getByText('1 sheet · 21 wraps per sheet', { exact: true }).count(), 1);
+  function assertBlackStrip(left, top, right, bottom) {
+    const x = mm => Math.round(mm * info.width / 210);
+    const y = mm => Math.round(mm * info.height / 297);
+    for (let row = y(top); row < y(bottom); row++) {
+      const start = (row * info.width + x(left)) * info.channels;
+      const end = (row * info.width + x(right)) * info.channels;
+      assert(data.subarray(start, end).every(v => v === 0), 'the entire gap between wraps should print black');
+    }
+  }
+  const gap = 0.3; // specified physical spacing, in mm
+  for (const left of [65, 122 + gap]) assertBlackStrip(left, 8, left + gap, 168 + 3 * gap);
+  for (const top of [48, 88 + gap, 128 + 2 * gap]) assertBlackStrip(8, top, 179 + 2 * gap, top + gap);
+  assert(pixel(48, 48.4).some(channel => channel > 10), 'artwork resumes after the row gap');
+  assert(pixel(65.4, 20).some(channel => channel > 0), 'artwork resumes after the column gap');
+  assert.equal(await page.getByText('1 sheet · 18 wraps per sheet', { exact: true }).count(), 1);
   assert(pixel(44, 20).some(channel => channel > 12)); // original front cover
   assert(pixel(8, 7).some(channel => channel > 60)); // trim mark at the back edge
   assert(pixel(33, 7).some(channel => channel > 60)); // first fold
   assert(pixel(40, 7).some(channel => channel > 60)); // second fold
   assert(pixel(65, 7).some(channel => channel > 60)); // front edge
+  assert(pixel(65 + gap, 7).some(channel => channel > 60)); // next wrap's back edge
   assert(Buffer.from((await capture())['sheet-01.png']).equals(first), 'repeated exports must match');
 
   await bookHeight.fill('25');
@@ -365,8 +378,8 @@ try {
   async function extractSpine(png, index) {
     const ppm = 600 / 25.4;
     return sharp(png).extract({
-      left: Math.ceil((23.625 + (index % 2) * 36.25) * ppm),
-      top: Math.ceil((8 + Math.floor(index / 2) * 25) * ppm),
+      left: Math.ceil((23.625 + (index % 2) * (36.25 + gap)) * ppm),
+      top: Math.ceil((8 + Math.floor(index / 2) * (25 + gap)) * ppm),
       width: Math.floor(5 * ppm) - 1, height: Math.floor(25 * ppm) - 1,
     }).raw().toBuffer();
   }
@@ -485,7 +498,7 @@ try {
       const expected = await sharp('content/reviews/' + id + '/cover.jpg').resize({ ...target, fit: 'cover', position: 'centre' }).removeAlpha().raw().toBuffer();
       for (const [png, left, top, scale] of [
         [preview, face + 5, 0, dimensions.width / wrap],
-        [sheetPng, 8 + i * wrap + face + 5, 8, 300 / 25.4],
+        [sheetPng, 8 + i * (wrap + gap) + face + 5, 8, 300 / 25.4],
       ]) {
         const actual = await sharp(png).extract({ left: Math.round(left * scale), top: Math.round(top * scale),
           width: Math.floor(face * scale), height: Math.floor(25 * scale) }).resize({ ...target, fit: 'fill' }).removeAlpha().raw().toBuffer();
@@ -514,7 +527,7 @@ try {
     const face = 25 / 1.6, wrap = 2 * face + 5;
     for (const [source, left, top, scale] of [
       [preview, face, 0, (await sharp(preview).metadata()).width / wrap],
-      [hardcoverSheet, 8 + i * wrap + face, 8, 300 / 25.4],
+      [hardcoverSheet, 8 + i * (wrap + gap) + face, 8, 300 / 25.4],
     ]) {
       const pixels = await sharp(source).extract({
         left: Math.ceil(left * scale), top: Math.ceil(top * scale),

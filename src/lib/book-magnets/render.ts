@@ -137,23 +137,24 @@ export function drawWrap(ctx: CanvasRenderingContext2D, sheet: Layout, cover: Co
 }
 
 export function drawSheetItem(ctx: CanvasRenderingContext2D, index: number, sheet: Layout, cover: Cover, title: string, family: string, finish: Finish) {
-  const { columns, wrap, height } = sheet;
-  const column = index % columns, row = Math.floor(index / columns);
+  const { columns, wrap, height, columnPitch, rowPitch } = sheet;
+  const left = margin + (index % columns) * columnPitch;
+  const top = margin + Math.floor(index / columns) * rowPitch;
   const { a, d } = ctx.getTransform();
-  // Adjacent wraps share the same pixel edge, even at fractional pixels per mm.
-  const x = (col: number) => Math.round((margin + col * wrap) * a) / a;
-  const y = (row: number) => Math.round((margin + row * height) * d) / d;
+  // Snap each cut edge independently so fractional pixels do not accumulate across the sheet.
+  const x = (mm: number) => Math.round(mm * a) / a;
+  const y = (mm: number) => Math.round(mm * d) / d;
   ctx.save();
-  ctx.translate(x(column), y(row));
-  ctx.scale((x(column + 1) - x(column)) / wrap, (y(row + 1) - y(row)) / height);
+  ctx.translate(x(left), y(top));
+  ctx.scale((x(left + wrap) - x(left)) / wrap, (y(top + height) - y(top)) / height);
   drawWrap(ctx, sheet, cover, title, family, finish);
   ctx.restore();
 }
 
 export function drawSheetGuides(ctx: CanvasRenderingContext2D, sheet: Layout, count: number) {
-  const { columns, wrap, height, face, spine } = sheet;
+  const { columns, wrap, height, face, spine, columnPitch, rowPitch } = sheet;
   const usedColumns = Math.min(count, columns), rows = Math.ceil(count / columns);
-  const right = usedColumns * wrap, bottom = rows * height;
+  const right = (usedColumns - 1) * columnPitch + wrap, bottom = (rows - 1) * rowPitch + height;
   ctx.save();
   ctx.translate(margin, margin);
   ctx.strokeStyle = '#bbb';
@@ -161,19 +162,19 @@ export function drawSheetGuides(ctx: CanvasRenderingContext2D, sheet: Layout, co
   ctx.beginPath();
   // Put cut and fold guides outside the grid so none print on neighbouring wraps.
   for (let column = 0; column < usedColumns; column++) {
-    for (const offset of [0, face, face + spine]) {
-      verticalMarks(column * wrap + offset);
+    for (const offset of [0, face, face + spine, wrap]) {
+      verticalMarks(column * columnPitch + offset);
     }
   }
-  verticalMarks(right);
   function verticalMarks(x: number) {
     ctx.moveTo(x, -1.6); ctx.lineTo(x, -0.3);
     ctx.moveTo(x, bottom + 0.3); ctx.lineTo(x, bottom + 1.6);
   }
-  for (let row = 0; row <= rows; row++) {
-    const y = row * height;
-    ctx.moveTo(-1.6, y); ctx.lineTo(-0.3, y);
-    ctx.moveTo(right + 0.3, y); ctx.lineTo(right + 1.6, y);
+  for (let row = 0; row < rows; row++) {
+    for (const y of [row * rowPitch, row * rowPitch + height]) {
+      ctx.moveTo(-1.6, y); ctx.lineTo(-0.3, y);
+      ctx.moveTo(right + 0.3, y); ctx.lineTo(right + 1.6, y);
+    }
   }
   ctx.stroke();
   ctx.restore();

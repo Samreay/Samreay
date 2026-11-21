@@ -32,12 +32,14 @@ export const papers = {
   '8 × 12 in': [203.2, 304.8], '8 × 8 in': [203.2, 203.2],
 } as const;
 export const margin = 8;
+const wrapGap = 0.3; // mm between finished wraps
 
 export function layout(paperW: number, paperH: number, height: number, ratio: number, spine: number, dpi: number) {
   const face = height / ratio;
   const wrap = 2 * face + spine;
-  const columns = Math.floor((paperW - 2 * margin) / wrap);
-  const rows = Math.floor((paperH - 2 * margin) / height);
+  const columnPitch = wrap + wrapGap, rowPitch = height + wrapGap;
+  const columns = Math.floor((paperW - 2 * margin + wrapGap) / columnPitch);
+  const rows = Math.floor((paperH - 2 * margin + wrapGap) / rowPitch);
   const widthPx = Math.round(paperW * dpi / 25.4);
   const heightPx = Math.round(paperH * dpi / 25.4);
   let error = '';
@@ -48,7 +50,7 @@ export function layout(paperW: number, paperH: number, height: number, ratio: nu
   else if (columns < 1 || rows < 1) error = 'This wrap is too large for the paper and its 8 mm margins.';
   else if (widthPx * heightPx > 72_000_000 || Math.max(widthPx, heightPx) > 10000)
     error = 'Choose a smaller sheet or lower DPI to fit the 72 megapixel and 10000 px export limits.';
-  return { face, wrap, spine, height, paperW, paperH, dpi, widthPx, heightPx, columns, capacity: columns * rows, error };
+  return { face, wrap, spine, height, paperW, paperH, dpi, widthPx, heightPx, columnPitch, rowPitch, columns, capacity: columns * rows, error };
 }
 export type Layout = ReturnType<typeof layout>;
 
