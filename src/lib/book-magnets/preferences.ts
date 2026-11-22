@@ -7,7 +7,7 @@ export const librarySorts = {
 type Settings = Finish & {
   paper: keyof typeof papers | 'Custom'; paperW: number; paperH: number;
   height: number; ratio: number; spine: number; dpi: number;
-  ids: string[]; titles: Record<string, string>; fullPage: boolean; settingsCollapsed: boolean; librarySort: keyof typeof librarySorts;
+  ids: string[]; titles: Record<string, string>; settingsCollapsed: boolean; librarySort: keyof typeof librarySorts;
 };
 
 export function defaultSettings(rankedIds: string[]): Settings {
@@ -15,7 +15,7 @@ export function defaultSettings(rankedIds: string[]): Settings {
     paper: 'A4', paperW: 210, paperH: 297, height: 40, ratio: 1.6, spine: 7, dpi: 600,
     binding: 'fillet', texture: 'leather', transform: 'uppercase', lettering: 'dynamic',
     ...backgroundDefaults,
-    ids: rankedIds.slice(0, 12), titles: {}, fullPage: false, settingsCollapsed: false, librarySort: 'ranking',
+    ids: rankedIds.slice(0, 12), titles: {}, settingsCollapsed: false, librarySort: 'ranking',
   };
 }
 
@@ -43,7 +43,6 @@ function overrides(value: Record<string, unknown>, defaults: Settings, books: Bo
   };
   Object.assign(result, Object.fromEntries(Object.entries(options).filter(([key, v]) => v !== defaults[key as keyof typeof options])));
   if (value.settingsCollapsed === true) result.settingsCollapsed = true;
-  if (value.fullPage === true) result.fullPage = true;
 
   const byId = new Map(books.map(book => [book.id, book]));
   // Another tab may have saved its selection before we received its library update.

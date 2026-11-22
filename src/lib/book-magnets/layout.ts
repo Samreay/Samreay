@@ -1,6 +1,7 @@
 export interface Book {
   id: string;
   title: string;
+  reviewId?: string;
   series?: { name: string; volume: number; edition?: string; part?: number };
   author: string;
   src: string;

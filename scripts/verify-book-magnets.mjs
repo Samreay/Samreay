@@ -35,7 +35,7 @@ try {
   const originals = await libraryImages.evaluateAll(images => images.map(image => image.currentSrc));
   assert(originals.every(url => !thumbnailUrls.has(url)), 'every failed thumbnail should show its print original');
   await fallbackPage.close();
-  const download = page.getByRole('button', { name: 'Download print sheets' });
+  const download = page.getByRole('button', { name: /^Download (?:\d+ )?sheets?$/ });
   const capture = async () => {
     const pending = page.waitForEvent('download', { timeout: 120_000 });
     await download.click();
@@ -54,7 +54,7 @@ try {
   assert.equal(await page.locator('.gallery canvas').count(), 12);
   const wrapWidth = () => page.locator('.gallery figure').first().evaluate(el => el.getBoundingClientRect().width);
   const desktopWidth = await wrapWidth();
-  assert.equal(desktopWidth, 400);
+  assert.equal(desktopWidth, 360);
   const settingsToggle = page.getByRole('button', { name: 'Print settings', exact: true });
   await settingsToggle.press('Enter');
   assert.equal(await settingsToggle.getAttribute('aria-expanded'), 'false');
@@ -205,7 +205,7 @@ try {
   for (const top of [48, 88 + gap, 128 + 2 * gap]) assertBlackStrip(8, top, 179 + 2 * gap, top + gap);
   assert(pixel(48, 48.4).some(channel => channel > 10), 'artwork resumes after the row gap');
   assert(pixel(65.4, 20).some(channel => channel > 0), 'artwork resumes after the column gap');
-  assert.equal(await page.getByText('1 sheet · 18 wraps per sheet', { exact: true }).count(), 1);
+  assert.equal(await page.getByRole('button', { name: 'Download 1 sheet', exact: true }).count(), 1);
   assert(pixel(44, 20).some(channel => channel > 12)); // original front cover
   assert(pixel(8, 7).some(channel => channel > 60)); // trim mark at the back edge
   assert(pixel(33, 7).some(channel => channel > 60)); // first fold
@@ -219,9 +219,8 @@ try {
   await page.getByLabel('Paper', { exact: true }).selectOption('Custom');
   await page.getByLabel('Paper width (mm)').fill('54');
   await page.getByLabel('Paper height (mm)').fill('50');
-  await page.getByRole('button', { name: 'Sheet', exact: true }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByText(/Sheet 2 of 12/).waitFor();
+  assert.equal(await page.getByRole('button', { name: 'Sheet', exact: true }).count(), 0);
+  assert.equal(await page.locator('.gallery canvas').count(), 12);
   await page.getByLabel('Binding', { exact: true }).selectOption('none');
   const fontFile = 'src/assets/fonts/architects-daughter-v20-latin.woff2';
   await page.getByLabel('Open font file', { exact: true }).setInputFiles(fontFile);
@@ -247,8 +246,9 @@ try {
   await page.getByLabel('Search covers').fill('greatest archmage');
   await page.getByRole('button', { name: /The Greatest Archmage/ }).click();
   await page.getByLabel('Resolution (DPI)').fill('600');
+  await bookHeight.fill('90');
   await page.getByText(/Below 600 DPI/).waitFor();
-  await page.getByRole('button', { name: 'Wraps', exact: true }).click();
+  await bookHeight.fill('25');
   await page.getByLabel(/Spine title for/).fill('Archmage');
   assert.equal(await wrapWidth(), desktopWidth, 'a single wrap keeps its desktop card width');
   await fontPicker.selectOption(bundledId);
@@ -391,7 +391,7 @@ try {
         title + ' should match only its expected manual effect');
     }
   }
-  await page.locator('summary').filter({ hasText: 'Compare five spine fillets' }).click();
+  await page.getByRole('button', { name: 'Compare five spine fillets' }).click();
   await page.locator('.samples button').last().waitFor();
   assert.equal(await page.locator('.samples button').count(), 5);
   const heads = new Set(), feet = new Set(), centres = new Set();
@@ -454,15 +454,9 @@ try {
     .every((c, i) => c.toDataURL() !== before[i]), {before, selector});
   const deviceExport = await capture();
   assert(Object.keys(deviceExport).some(name => /^fonts\/.+\.(ttf|otf|ttc)$/.test(name)), 'include the selected font bytes');
-  await page.getByRole('button', { name: 'Sheet', exact: true }).click();
-  const sheetCanvas = page.locator('.mat canvas');
-  await page.waitForFunction(() => document.querySelector('.mat canvas')?.width > 300);
-  const deviceSheet = await sheetCanvas.evaluate(c => c.toDataURL());
   await fontPicker.selectOption('auto');
-  await page.waitForFunction(previous => document.querySelector('.mat canvas').toDataURL() !== previous, deviceSheet);
   await page.setViewportSize({ width: 375, height: 812 });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-  await page.getByRole('button', { name: 'Wraps', exact: true }).click();
   assert.equal(await wrapWidth(), await page.locator('.gallery').evaluate(el => el.getBoundingClientRect().width));
   await page.getByRole('button', { name: 'Clear selection' }).click();
   for (const name of ['Mage Errant', 'Mother of Learning']) {

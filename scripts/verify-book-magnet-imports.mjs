@@ -53,7 +53,7 @@ try {
   assert(await image.evaluate(async img => { await img.decode(); return img.naturalWidth <= 96; }));
 
   const pending = page.waitForEvent('download', { timeout: 120_000 });
-  await page.getByRole('button', { name: 'Download print sheets' }).click();
+  await page.getByRole('button', { name: /^Download (?:\d+ )?sheets?$/ }).click();
   const sheet = unzipSync(await readFile(await (await pending).path()))['sheet-01.png'];
   // The second wrap's front panel is solid blue in the saved original.
   const rgb = await sharp(sheet).extract({ left: Math.round(112 * 120 / 25.4), top: Math.round(26 * 120 / 25.4), width: 1, height: 1 }).removeAlpha().raw().toBuffer();

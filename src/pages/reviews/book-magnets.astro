@@ -12,8 +12,9 @@ const byId = new Map(Object.entries(covers).map(([path, { default: source }]) =>
   path.split('/').at(-2), { source, originalUrl: path.slice('/content'.length) },
 ]));
 const curatedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/magnet-covers/*/*.webp', { eager: true });
-type LibraryEntry = Pick<Book, 'id' | 'title' | 'author' | 'series'> & { source: ImageMetadata; originalUrl?: string };
+type LibraryEntry = Pick<Book, 'id' | 'title' | 'author' | 'series' | 'reviewId'> & { source: ImageMetadata; originalUrl?: string };
 
+const seriesReviews = new Map(coverSets.filter(set => set.reviewId).map(set => [set.series, set.reviewId]));
 const curated: LibraryEntry[] = coverSets.flatMap(set => set.books.map(book => {
   const source = curatedImages['/src/assets/magnet-covers/' + book.cover]?.default;
   if (!source) throw new Error(`Missing magnet cover for ${book.title}: ${book.cover}`);
@@ -21,7 +22,7 @@ const curated: LibraryEntry[] = coverSets.flatMap(set => set.books.map(book => {
   // Keep previously saved review and Manifestation volume IDs.
   const id = set.reviewId && book.volume === 1 && !book.part ? set.reviewId
     : [prefix, book.volume, book.part].filter(value => value !== undefined).join('-');
-  return { id, title: book.title, author: book.author ?? set.author, source,
+  return { id, reviewId: seriesReviews.get(set.series), title: book.title, author: book.author ?? set.author, source,
     series: { name: set.series, volume: book.volume, part: book.part, edition: set.edition } };
 }));
 const curatedIds = new Set(curated.map(book => book.id));
@@ -31,7 +32,7 @@ const reviews = (await getCollection('reviews')).sort((a, b) => a.data.weight - 
 const reviewed: LibraryEntry[] = reviews.flatMap(review => {
   const cover = byId.get(review.id);
   return cover && !curatedIds.has(review.id)
-    ? [{ id: review.id, title: review.data.name, author: review.data.auth, ...cover }] : [];
+    ? [{ id: review.id, reviewId: review.id, title: review.data.name, author: review.data.auth, ...cover }] : [];
 });
 const rankedIds = reviews.filter(review => byId.has(review.id) || curatedIds.has(review.id)).map(review => review.id);
 const books = await Promise.all([...curated, ...reviewed].map(async ({ source, originalUrl, ...book }) => {

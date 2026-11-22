@@ -1,23 +1,23 @@
 <script lang="ts">
-  import { drawSheetGuides, drawSheetItem, drawWrap, loadProofCover } from '../../lib/book-magnets/render';
+  import { drawWrap, loadProofCover } from '../../lib/book-magnets/render';
   import type { Book, Layout, Finish, InkEffect } from '../../lib/book-magnets/layout';
   import { defaultFont, prepareDefaultFont, type SpineFont } from '../../lib/book-magnets/export';
 
-  type Props = { items: Book[]; sheet: Layout; finish: Finish; font: SpineFont; fullPage: boolean; spineOnly?: boolean };
-  let { items, sheet, finish, font, fullPage, spineOnly = false }: Props = $props();
+  type Props = { book: Book; sheet: Layout; finish: Finish; font: SpineFont; spineOnly?: boolean };
+  let { book, sheet, finish, font, spineOnly = false }: Props = $props();
   let canvas: HTMLCanvasElement;
   let error = $state('');
   let resolved = $state<InkEffect>();
   $effect(() => {
-    const books = items, layout = sheet, style = finish, type = font, page = fullPage, strip = spineOnly;
+    const item = book, layout = sheet, style = finish, type = font, strip = spineOnly;
     const target = canvas;
     let cancelled = false;
     error = '';
     async function render() {
       if (type.family === defaultFont.family) await prepareDefaultFont();
-      const width = page ? layout.paperW : strip ? layout.height : layout.wrap;
-      const height = page ? layout.paperH : strip ? layout.spine : layout.height;
-      const scale = Math.min((page ? 1800 : 960) / width, (page ? 1950 : 960) / height);
+      const width = strip ? layout.height : layout.wrap;
+      const height = strip ? layout.spine : layout.height;
+      const scale = Math.min(960 / width, 960 / height);
       const buffer = document.createElement('canvas');
       buffer.width = Math.ceil(width * scale);
       buffer.height = Math.ceil(height * scale);
@@ -30,17 +30,10 @@
         ctx.rotate(-Math.PI / 2);
         ctx.translate(-layout.face, 0);
       }
-      let observed: InkEffect | undefined;
-      for (const [i, book] of books.entries()) {
-        if (cancelled) return;
-        const cover = await loadProofCover(book);
-        observed = cover.effect;
-        if (page) drawSheetItem(ctx, i, layout, cover, book.title, type.family, style);
-        else drawWrap(ctx, layout, cover, book.title, type.family, style);
-      }
+      const cover = await loadProofCover(item);
       if (cancelled) return;
-      if (page) drawSheetGuides(ctx, layout, books.length);
-      resolved = observed;
+      drawWrap(ctx, layout, cover, item.title, type.family, style);
+      resolved = cover.effect;
       target.width = buffer.width;
       target.height = buffer.height;
       target.getContext('2d')!.drawImage(buffer, 0, 0);
@@ -51,14 +44,18 @@
 </script>
 
 {#if error}<p role="alert">{error}</p>{/if}
-<canvas bind:this={canvas} style:aspect-ratio={fullPage ? sheet.paperW / sheet.paperH : spineOnly ? sheet.height / sheet.spine : sheet.wrap / sheet.height} class:page={fullPage} aria-label={fullPage ? 'Print sheet preview' : (spineOnly ? 'Spine for ' : 'Wrap for ') + items[0]?.title}></canvas>
+<canvas bind:this={canvas} style:aspect-ratio={spineOnly ? sheet.height / sheet.spine : sheet.wrap / sheet.height} aria-label={(spineOnly ? 'Spine for ' : 'Wrap for ') + book.title}></canvas>
 
-{#if !fullPage && !spineOnly && finish.lettering === 'dynamic' && resolved}
-  <small class="effect">Dynamic · {resolved}</small>
+{#if !spineOnly}
+  <div class="proof-meta">
+    {#if finish.lettering === 'dynamic' && resolved}<small>Dynamic · {resolved}</small>{/if}
+    {#if book.reviewId}<a href={'/reviews/' + book.reviewId + '/'}>My Review</a>{/if}
+  </div>
 {/if}
 
 <style>
-  .effect { display:block; color:var(--color-gray-300); font-size:.8rem; margin-top:.3rem; }
+  .proof-meta { display:flex; align-items:baseline; color:var(--color-gray-300); font-size:.8rem; margin-top:.3rem; }
+  .proof-meta small { font-size:inherit; }
+  .proof-meta a { margin-left:auto; color:var(--accent); text-decoration:underline; }
   canvas { display: block; width: 100%; height: auto; box-shadow: 0 8px 18px #30231540; outline: 1px solid #ffffff45; }
-  .page { width:100%; }
 </style>
