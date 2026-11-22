@@ -42,6 +42,8 @@ const title = entry.data.short_title ?? entry.data.name;
                   entry={entry}
                   width={500}
                   height={800}
+                  sizes="(max-width: 767px) min(100vw, 378px), 320px"
+                  fit="cover"
                   class="block w-full h-full object-cover rounded-xl"
                   alt={title}
                 />
