@@ -1,0 +1,12 @@
+series: Labyrinth
+author: Timothy Hickson (editor)
+editions:
+  - id: wraith-labyrinth
+    name: Wraithmarked
+    books:
+      - volume: 0
+        title: Labyrinth, Vol. 0
+        cover: wraith-labyrinth/0.webp
+        sources:
+          Edition source: https://www.kickstarter.com/projects/wraithmarked/labyrinthvol0
+          Publisher render: https://wraithmarked.com/cdn/shop/files/LABV0_2000x.webp?v=1761764758

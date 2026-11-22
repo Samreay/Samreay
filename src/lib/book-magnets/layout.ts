@@ -1,8 +1,12 @@
+import type { ReviewTier } from '../types';
+
 export interface Book {
   id: string;
   title: string;
   reviewId?: string;
-  series?: { name: string; volume: number; edition?: string; part?: number };
+  rating?: ReviewTier;
+  spineStyle?: SpineStyle;
+  series?: { name: string; volume: number; edition?: string; part?: number; omnibus?: boolean; collection?: boolean };
   author: string;
   src: string;
   thumb: string;
@@ -16,6 +20,7 @@ export const fillets = {
 } as const;
 export type Binding = keyof typeof fillets | 'none';
 export type InkEffect = 'flat' | 'gradient' | 'metallic';
+export type SpineStyle = { lettering?: Finish['lettering']; colour?: string; background?: string };
 export const backgroundDefaults = { saturation: 100, darkness: 65 };
 export const backgroundControls = [
   { key: 'saturation', label: 'Background saturation', max: 200 },

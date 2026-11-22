@@ -1,0 +1,19 @@
+series: The Shattered Reigns
+author: Bryce O’Connor & Luke Chmilenko
+editions:
+  - id: shattered-reigns-wraithmarked
+    name: Wraithmarked Illustrated Deluxe Edition
+    books:
+      - volume: 1
+        title: A Mark of Kings
+        cover: wraith-al/a-mark-of-kings.webp
+        sources:
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/amarkofkings
+          Edition source: https://wraithmarked.com/products/a-mark-of-kings-signed-limited-edition
+      - volume: 2
+        title: A Blood of Kings
+        cover: wraith-al/a-blood-of-kings.webp
+        sources:
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/abloodofkings
+          Edition source: https://wraithmarked.com/pages/campaign-progress
+          Image: https://wraithmarked.com/cdn/shop/files/ABOK_5000x.webp?v=1770127727

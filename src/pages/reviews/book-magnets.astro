@@ -4,31 +4,25 @@ import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BookMagnets from '../../components/islands/BookMagnets.svelte';
-import { coverSets } from '../../data/magnet-covers';
+import { loadMagnetCatalogue } from '../../data/magnet-covers';
 import type { Book } from '../../lib/book-magnets/layout';
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('/content/reviews/*/cover.{jpg,jpeg,png,webp}', { eager: true });
 const byId = new Map(Object.entries(covers).map(([path, { default: source }]) => [
   path.split('/').at(-2), { source, originalUrl: path.slice('/content'.length) },
 ]));
-const curatedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/magnet-covers/*/*.webp', { eager: true });
+const catalogueFiles = import.meta.glob<string>('/src/data/magnet-covers/*.yaml', { eager: true, query: '?raw', import: 'default' });
+const curatedImages = import.meta.glob<ImageMetadata>('/src/assets/magnet-covers/**/*.webp', { eager: true, import: 'default' });
+const imageByPath = new Map(Object.entries(curatedImages).map(([path, image]) => [path.slice('/src/assets/magnet-covers/'.length), image]));
 type LibraryEntry = Pick<Book, 'id' | 'title' | 'author' | 'series' | 'reviewId'> & { source: ImageMetadata; originalUrl?: string };
 
-const seriesReviews = new Map(coverSets.filter(set => set.reviewId).map(set => [set.series, set.reviewId]));
-const curated: LibraryEntry[] = coverSets.flatMap(set => set.books.map(book => {
-  const source = curatedImages['/src/assets/magnet-covers/' + book.cover]?.default;
-  if (!source) throw new Error(`Missing magnet cover for ${book.title}: ${book.cover}`);
-  const prefix = set.reviewId ?? set.id;
-  // Keep previously saved review and Manifestation volume IDs.
-  const id = set.reviewId && book.volume === 1 && !book.part ? set.reviewId
-    : [prefix, book.volume, book.part].filter(value => value !== undefined).join('-');
-  return { id, reviewId: seriesReviews.get(set.series), title: book.title, author: book.author ?? set.author, source,
-    series: { name: set.series, volume: book.volume, part: book.part, edition: set.edition } };
+const reviews = (await getCollection('reviews')).sort((a, b) => a.data.weight - b.data.weight);
+const ratings = new Map(reviews.map(review => [review.id, review.data.review]));
+const catalogue = loadMagnetCatalogue(catalogueFiles, new Set(imageByPath.keys()), new Set(ratings.keys()));
+const curated: LibraryEntry[] = catalogue.map(({ id, title, author, series, reviewId, cover }) => ({
+  id, title, author, series, reviewId, source: imageByPath.get(cover)!,
 }));
 const curatedIds = new Set(curated.map(book => book.id));
-if (curatedIds.size !== curated.length) throw new Error('Duplicate ID in magnet cover catalogue');
-
-const reviews = (await getCollection('reviews')).sort((a, b) => a.data.weight - b.data.weight);
 const reviewed: LibraryEntry[] = reviews.flatMap(review => {
   const cover = byId.get(review.id);
   return cover && !curatedIds.has(review.id)
@@ -38,14 +32,14 @@ const rankedIds = reviews.filter(review => byId.has(review.id) || curatedIds.has
 const books = await Promise.all([...curated, ...reviewed].map(async ({ source, originalUrl, ...book }) => {
   const thumb = await getImage({ src: source, width: 160, height: 240, fit: 'cover', position: 'centre', format: 'webp', quality: 85 });
   const { width, height } = thumb.options.src as ImageMetadata;
-  return { ...book, src: originalUrl ?? source.src, thumb: thumb.src, width, height };
+  return { ...book, rating: book.reviewId ? ratings.get(book.reviewId) : undefined, src: originalUrl ?? source.src, thumb: thumb.src, width, height };
 }));
 ---
 <BaseLayout title="Book magnet workshop" description="Make printable miniature book covers and matching spines for fridge magnets.">
   <main class="content">
     <header class="section-header pt-6">
       <h1>Book magnet workshop</h1>
-      <p>Choose your books and print a wrap for each magnet.</p>
+      <p>Choose your books and print a wrap for each magnet. Looking for your next read? I've got a <a class="under" href="/reviews/flowchart/">massive flowchart</a> for that.</p>
     </header>
     <BookMagnets client:load {books} {rankedIds} />
     <noscript>Enable JavaScript to preview covers and generate print sheets.</noscript>

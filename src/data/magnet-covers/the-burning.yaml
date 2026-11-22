@@ -1,0 +1,21 @@
+series: The Burning
+author: Evan Winter
+editions:
+  - id: wraithmarked-rage-of-dragons-deluxe
+    name: Wraithmarked Illustrated Deluxe Edition
+    books:
+      - volume: 1
+        title: The Rage of Dragons
+        cover: wraith-mz/rage-of-dragons.webp
+        sources:
+          Edition: https://wraithmarked.com/products/the-rage-of-dragons-deluxe-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/TB1-DXHC-1.webp?v=1786737340
+  - id: wraithmarked-rage-of-dragons-deluxe-case
+    name: Wraithmarked Illustrated Deluxe Hardcover Case
+    books:
+      - volume: 1
+        title: The Rage of Dragons
+        cover: wraith-mz/rage-of-dragons-case.webp
+        sources:
+          Edition: https://wraithmarked.com/products/the-rage-of-dragons-deluxe-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/TB1-DXHC-4.webp?v=1786737340

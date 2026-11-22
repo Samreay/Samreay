@@ -2,6 +2,9 @@
   import { onMount, tick, untrack } from 'svelte';
   import { defaultSettings, librarySorts, restoreSettings, saveSettings, settingsKey } from '../../lib/book-magnets/preferences';
   import SpineFontPicker from './SpineFontPicker.svelte';
+  import ownBooksPreview from '../../assets/magnet-own-books.webp?url';
+  import reviewsPreview from '../../assets/magnet-reviews.webp?url';
+  import tierlistPreview from '../../assets/magnet-reading-tierlist.webp?url';
   import flowchartPreview from '../../assets/magnet-flowchart.webp?url';
   import MagnetProof from './MagnetProof.svelte';
   import { availableDpi, backgroundControls, layout, papers, fillets, type Book } from '../../lib/book-magnets/layout';
@@ -51,7 +54,8 @@
       const restored = restoreSettings(defaults, catalogue);
       const visits = prefs.ids.filter(id => id.startsWith('visit:'));
       const titles = Object.entries(prefs.titles).filter(([id]) => id.startsWith('visit:'));
-      prefs = { ...restored, ids: [...restored.ids, ...visits], titles: { ...restored.titles, ...Object.fromEntries(titles) } };
+      const visitStyles = Object.entries(prefs.spineStyles).filter(([id]) => id.startsWith('visit:'));
+      prefs = { ...restored, spineStyles: { ...restored.spineStyles, ...Object.fromEntries(visitStyles) }, ids: [...restored.ids, ...visits], titles: { ...restored.titles, ...Object.fromEntries(titles) } };
     };
     void refreshLibrary().then(() => { if (mounted) { restore(); ready = true; } });
     try {
@@ -92,7 +96,9 @@
     if (!series) return '';
     const part = series.part ? `, Part ${series.part}` : '';
     const edition = series.edition ? ` · ${series.edition}` : '';
-    return `${series.name} ${series.volume}${part}${edition}`;
+    const volume = series.collection ? ' · Short-story collection'
+      : series.omnibus ? ` · Omnibus ${series.volume}` : ` ${series.volume}${part}`;
+    return series.name + volume + edition;
   }
   const editorLabel = (book: Book) => book.series?.edition ? `${book.title} (${seriesLabel(book)})` : book.title;
   const normalizeSearch = (value: string) => value.toLowerCase().replace(/[’‘]/g, "'");
@@ -118,8 +124,8 @@
       if (series) counts.set(series.name, (counts.get(series.name) ?? 0) + 1);
     }
     return chosen.map(book => {
-      const autoTitle = book.series && counts.get(book.series.name) === 1 ? book.series.name : book.title;
-      return { ...book, title: prefs.titles[book.id]?.trim() || autoTitle };
+      const autoTitle = book.series && !book.series.collection && counts.get(book.series.name) === 1 ? book.series.name : book.title;
+      return { ...book, spineStyle: prefs.spineStyles[book.id], title: prefs.titles[book.id]?.trim() || autoTitle };
     });
   });
   let dims = $derived(prefs.paper === 'Custom' ? [prefs.paperW, prefs.paperH] : papers[prefs.paper]);
@@ -167,6 +173,7 @@
     custom = custom.filter(b => b.id !== book.id);
     prefs.ids = prefs.ids.filter(id => id !== book.id);
     delete prefs.titles[book.id];
+    delete prefs.spineStyles[book.id];
     releaseCover(book);
     importNotice = 'Removed ' + book.title + '.';
     if (!book.sessionOnly) {
@@ -327,26 +334,44 @@
           <div class="gallery">
             {#each selected as book (book.id)}
               <figure>
-                <MagnetProof {book} {sheet} {finish} {font} />
+                <MagnetProof {book} {sheet} {finish} {font} onstyle={style => {
+                  if (style.colour || style.lettering || style.background) prefs.spineStyles[book.id] = style;
+                  else delete prefs.spineStyles[book.id];
+                }} />
                 <figcaption>
                   <label>Spine title<input aria-label={'Spine title for ' + editorLabel(byId.get(book.id)!)}
                     value={prefs.titles[book.id] ?? book.title} placeholder={book.title}
                     oninput={e => prefs.titles[book.id] = e.currentTarget.value}
                     onblur={e => { if (!e.currentTarget.value.trim()) delete prefs.titles[book.id]; }} /></label>
+                  {#if book.reviewId && book.rating}
+                    <a class="review-tier" href={'/reviews/' + book.reviewId + '/'} target="_blank" rel="noopener"
+                      aria-label={'Read my review of ' + editorLabel(byId.get(book.id)!) + ' · Tier ' + book.rating}
+                      style:--review-gradient={'var(--grad-' + (book.rating === 'π' ? 'm' : book.rating.toLowerCase()) + ')'}>
+                      <span class="tier-letter">{book.rating}</span>
+                      <span class="review-tip" aria-hidden="true">My Review</span>
+                    </a>
+                  {/if}
                 </figcaption>
               </figure>
             {/each}
           </div>
         {/if}
       </div>
-      {#if selected.length && !sheet.error}
-        <p class="caption">{selected.length} enlarged {selected.length === 1 ? 'wrap' : 'wraps'} · {sheet.wrap.toFixed(2)} × {prefs.height} mm each</p>
-      {/if}
       <nav class="discovery" aria-label="Book recommendations">
-        <a href="/reviews/flowchart/">
-          <img src={flowchartPreview} width="160" height="96" alt="" loading="lazy" />
-          <span><strong>Find my next read →</strong><small>Explore the book flowchart · Not printed</small></span>
-        </a>
+        <small>Website links · Not printed</small>
+        <div class="discovery-links">
+          {#each [
+            { href: '/reviews/flowchart/', title: 'Find your next read', image: flowchartPreview },
+            { href: '/#books', title: 'My own books', image: ownBooksPreview },
+            { href: '/reviews/?l=wide', title: 'My reviews', image: reviewsPreview },
+            { href: '/reviews/?l=tier', title: 'My reading tierlist', image: tierlistPreview },
+          ] as link (link.href)}
+            <a href={link.href}>
+              <img src={link.image} alt="" loading="lazy" />
+              <strong>{link.title} <span aria-hidden="true">→</span></strong>
+            </a>
+          {/each}
+        </div>
       </nav>
     </section>
 
@@ -365,9 +390,10 @@
   h2 { margin:0; color:var(--color-gray-100); font:600 1.25rem/1.4 Inter,sans-serif; }
   .bar { display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap; }
   .bar { padding:1rem 1.15rem; }
-  .bar > span,.caption,.muted,small { color:var(--muted); font-size:.83rem; }
-  .caption { margin:.65rem 0 0; line-height:1.5; }
-  input:not([type=range]),select { display:block; width:100%; min-width:0; border:1px solid var(--color-gray-600); border-radius:5px; background-color:var(--color-gray-900); color:var(--color-gray-100); font:inherit; font-size:.92rem; padding:.45rem .55rem; }
+  .proof > .bar { padding-block:.3rem; }
+  .bar > span,.muted,small { color:var(--muted); font-size:.83rem; }
+  input:not([type=range]),select,.review-tier { border-radius:5px; }
+  input:not([type=range]),select { display:block; width:100%; min-width:0; border:1px solid var(--color-gray-600); background-color:var(--color-gray-900); color:var(--color-gray-100); font:inherit; font-size:.92rem; padding:.45rem .55rem; }
   select { padding-right:1.65rem; }
   input[type=search] { width:calc(100% - 2.3rem); margin:0 1.15rem .8rem; }
   .library-sort { display:flex; align-items:center; gap:.75rem; margin:0 1.15rem .8rem; white-space:nowrap; }
@@ -398,9 +424,23 @@
   .textbtn { color:var(--accent); font-size:.83rem; text-decoration:underline; text-underline-offset:3px; padding:.25rem; }
   button:disabled { opacity:.45; cursor:default; }
   .mat { padding:1.15rem; min-height:10rem; background:var(--color-gray-900); }
-  .gallery { display:grid; grid-template-columns:repeat(auto-fit,min(100%,360px)); gap:1.5rem; }
-  .gallery figure { min-width:0; margin:0; }
-  .gallery figcaption { margin-top:.5rem; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit,min(100%,324px)); gap:1.5rem; }
+  .gallery figure,.discovery-links a { min-width:0; margin:0; align-self:start; background:var(--color-gray-800);
+    box-shadow:var(--card-resting-shadow); border-radius:0 0 .5rem .5rem; }
+  .gallery figure { --proof-button-size:2.35rem; }
+  .gallery figcaption { display:flex; align-items:flex-end; gap:.55rem; padding:.5rem .75rem .75rem; }
+  .gallery figcaption label { flex:1; min-width:0; }
+  .review-tier { position:relative; display:grid; place-items:center; width:var(--proof-button-size); height:var(--proof-button-size); flex:none;
+    border:2px solid transparent; background:linear-gradient(#101212,#101212) padding-box,var(--review-gradient) border-box;
+    font-size:1.35rem; font-weight:750; line-height:1; text-decoration:none; }
+  .tier-letter { --letter-screen:rgb(255 255 255 / 60%); color:transparent;
+    background:linear-gradient(var(--letter-screen),var(--letter-screen)),var(--review-gradient); background-clip:text; }
+  @media (forced-colors:active) { .tier-letter { color:LinkText; } }
+  .review-tip { position:absolute; left:50%; transform:translateX(-50%); text-align:center; bottom:calc(100% + .4rem); z-index:2; visibility:hidden; pointer-events:none;
+    padding:.4rem .6rem; border-radius:inherit; background:var(--color-gray-900);
+    color:white; font-size:.8rem; font-weight:500; white-space:nowrap; text-shadow:none; box-shadow:0 2px 6px #0006; }
+  .review-tier:is(:hover,:focus-visible) .review-tip { visibility:visible; }
+  .review-tier:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
   fieldset { min-width:0; margin-top:1rem; border-top:1px solid var(--border); }
   legend { padding-right:.65rem; font-weight:600; font-size:.94rem; color:var(--color-gray-100); }
   .samples { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr)); gap:.7rem; margin:.75rem 0; }
@@ -425,13 +465,14 @@
   .custom-range::-webkit-slider-thumb { appearance:none; margin-top:-5px; width:16px; height:16px; border:0; border-radius:50%; background:var(--accent); }
   .custom-range::-moz-range-thumb { width:16px; height:16px; border:0; border-radius:50%; background:var(--accent); }
   .custom-range:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
-  .proof > .caption { padding:.3rem 1.15rem .8rem; }
   label { display:block; color:var(--color-gray-300); font-size:.83rem; min-width:0; }
   label input,label select { margin-top:.25rem; }
   .download-status { padding:0 1.15rem .7rem; }
-  .discovery { padding:1rem 1.15rem; border-top:1px solid var(--border); }
-  .discovery a { display:inline-flex; gap:1rem; align-items:center; color:var(--accent); }
-  .discovery img { width:clamp(6rem,12vw,10rem); height:auto; border-radius:.4rem; }
+  .discovery { background:var(--color-gray-800); padding:1rem 1.15rem; border-top:1px solid var(--border); border-radius:.5rem .5rem 0 0; }
+  .discovery-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)); gap:1rem; margin-top:.65rem; }
+  .discovery-links a { display:grid; color:var(--accent); border-radius:.5rem; overflow:hidden; }
+  .discovery strong { padding:.65rem .75rem; }
+  .discovery img { display:block; width:100%; aspect-ratio:16/9; object-fit:contain; background:var(--color-gray-950); }
   .discovery small { display:block; color:var(--muted); }
   .discovery a:hover strong { text-decoration:underline; }
   @media print { .discovery, .download { display:none; } }

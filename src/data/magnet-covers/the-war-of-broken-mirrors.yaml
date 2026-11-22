@@ -1,0 +1,21 @@
+series: The War of Broken Mirrors
+author: Andrew Rowe
+editions:
+  - id: rowe-standard-war-of-broken-mirrors
+    name: Original
+    books:
+      - volume: 1
+        title: Forging Divinity
+        cover: rowe-standard-war-of-broken-mirrors/1.webp
+        sources:
+          Paperback: https://www.amazon.com.au/dp/1505886554
+      - volume: 2
+        title: Stealing Sorcery
+        cover: rowe-standard-war-of-broken-mirrors/2.webp
+        sources:
+          Author: https://andrewkrowe.wordpress.com/2015/10/12/stealing-sorcery-preorders-and-cover-reveal/
+      - volume: 3
+        title: Defying Destiny
+        cover: rowe-standard-war-of-broken-mirrors/3.webp
+        sources:
+          Author: https://andrewkrowe.wordpress.com/2019/08/25/defying-destiny-cover-large-size/

@@ -50,6 +50,8 @@ export function loadProofCover(book: Book): Promise<Cover> {
 
 const css = (rgb: RGB) => 'rgb(' + rgb.join(',') + ')';
 
+const fromHex = (hex: string) => [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16)) as RGB;
+
 function letteringPaint(ctx: CanvasRenderingContext2D, ink: RGB, width: number, height: number, effect: InkEffect) {
   if (effect === 'flat' || height === 0) return css(ink);
   if (effect === 'gradient') {
@@ -88,10 +90,10 @@ function titleCase(title: string) {
   }).join('');
 }
 
-export function drawWrap(ctx: CanvasRenderingContext2D, sheet: Layout, cover: Cover, title: string, family: string, finish: Finish) {
+export function drawWrap(ctx: CanvasRenderingContext2D, sheet: Layout, cover: Cover, book: Book, family: string, finish: Finish) {
   const { height, face, spine } = sheet;
   const { binding, texture, transform } = finish;
-  const colour = backgroundColour(cover.sampleColour, cover.base, finish.saturation, finish.darkness);
+  const colour = book.spineStyle?.background ? fromHex(book.spineStyle.background) : backgroundColour(cover.sampleColour, cover.base, finish.saturation, finish.darkness);
   const base = css(colour);
   const back = texture === 'leather' ? css(shade(colour, 0.82)) : base;
   ctx.fillStyle = back;
@@ -118,6 +120,7 @@ export function drawWrap(ctx: CanvasRenderingContext2D, sheet: Layout, cover: Co
   ctx.rotate(Math.PI / 2);
   ctx.font = (transform === 'small-caps' ? 'small-caps ' : '') + '600 100px "' + family + '"';
   ctx.letterSpacing = '2.5px'; // 0.025 em at the 100 px size used to measure and fit the title.
+  const title = book.title;
   const text = transform === 'uppercase' ? title.toUpperCase() : titleCase(title);
   const m = ctx.measureText(text);
   const glyphWidth = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
@@ -125,8 +128,11 @@ export function drawWrap(ctx: CanvasRenderingContext2D, sheet: Layout, cover: Co
   const titleLength = height - 2 * endMargin;
   const scale = Math.min(spine * 0.54 / Math.max(glyphHeight, 1), titleLength / Math.max(glyphWidth, 1));
   ctx.scale(scale, scale);
-  const effect = finish.lettering === 'dynamic' ? cover.effect : finish.lettering;
-  ctx.fillStyle = letteringPaint(ctx, cover.ink, glyphWidth, glyphHeight, effect);
+  const lettering = book.spineStyle?.lettering ?? finish.lettering;
+  const effect = lettering === 'dynamic' ? cover.effect : lettering;
+  const hex = book.spineStyle?.colour;
+  const ink = hex ? fromHex(hex) : cover.ink;
+  ctx.fillStyle = letteringPaint(ctx, ink, glyphWidth, glyphHeight, effect);
   ctx.fillText(text, (m.actualBoundingBoxLeft - m.actualBoundingBoxRight) / 2, (m.actualBoundingBoxAscent - m.actualBoundingBoxDescent) / 2);
   ctx.restore();
   const density = coverPixelsPerMm(cover.image, sheet);
@@ -134,9 +140,10 @@ export function drawWrap(ctx: CanvasRenderingContext2D, sheet: Layout, cover: Co
   const left = (cover.image.width - cropWidth) / 2, top = (cover.image.height - cropHeight) / 2;
   ctx.imageSmoothingQuality = 'high';
   ctx.drawImage(cover.image, left, top, cropWidth, cropHeight, face + spine, 0, face, height);
+  return colour;
 }
 
-export function drawSheetItem(ctx: CanvasRenderingContext2D, index: number, sheet: Layout, cover: Cover, title: string, family: string, finish: Finish) {
+export function drawSheetItem(ctx: CanvasRenderingContext2D, index: number, sheet: Layout, cover: Cover, book: Book, family: string, finish: Finish) {
   const { columns, wrap, height, columnPitch, rowPitch } = sheet;
   const left = margin + (index % columns) * columnPitch;
   const top = margin + Math.floor(index / columns) * rowPitch;
@@ -147,7 +154,7 @@ export function drawSheetItem(ctx: CanvasRenderingContext2D, index: number, shee
   ctx.save();
   ctx.translate(x(left), y(top));
   ctx.scale((x(left + wrap) - x(left)) / wrap, (y(top + height) - y(top)) / height);
-  drawWrap(ctx, sheet, cover, title, family, finish);
+  drawWrap(ctx, sheet, cover, book, family, finish);
   ctx.restore();
 }
 

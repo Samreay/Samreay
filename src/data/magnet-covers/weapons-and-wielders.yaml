@@ -1,0 +1,30 @@
+series: Weapons & Wielders
+author: Andrew Rowe
+editions:
+  - id: rowe-standard-weapons-and-wielders
+    name: Original
+    notes: Mallory Reaves co-wrote Flowbreaker.
+    books:
+      - volume: 1
+        title: Six Sacred Swords
+        cover: rowe-standard-weapons-and-wielders/1.webp
+        sources:
+          Author: https://andrewkrowe.wordpress.com/2019/01/22/six-sacred-swords-updates-and-cover-reveal/
+      - volume: 2
+        title: Diamantine
+        cover: rowe-standard-weapons-and-wielders/2.webp
+        sources:
+          Author: https://andrewkrowe.wordpress.com/2020/01/03/new-site-sections-and-diamantine-cover-reveal/
+      - volume: 3
+        title: Soulbrand
+        cover: rowe-standard-weapons-and-wielders/3.webp
+        sources:
+          Author: https://andrewkrowe.wordpress.com/wp-content/uploads/2021/07/soulbrand-ecover-small.jpg
+          Author archive: https://andrewkrowe.wordpress.com/page/17/
+      - volume: 4
+        title: Flowbreaker
+        author: Andrew Rowe & Mallory Reaves
+        cover: rowe-standard-weapons-and-wielders/4.webp
+        sources:
+          Paperback: https://www.amazon.com.au/dp/B0HM6KDBRR
+          Publisher: https://www.podiumentertainment.com/titles/165706/flowbreaker

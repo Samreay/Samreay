@@ -1,4 +1,4 @@
-import { backgroundControls, backgroundDefaults, fillets, papers, type Book, type Finish } from './layout';
+import { backgroundControls, backgroundDefaults, fillets, papers, type Book, type Finish, type SpineStyle } from './layout';
 
 export const settingsKey = 'book-magnets.settings.v1';
 export const librarySorts = {
@@ -7,6 +7,7 @@ export const librarySorts = {
 type Settings = Finish & {
   paper: keyof typeof papers | 'Custom'; paperW: number; paperH: number;
   height: number; ratio: number; spine: number; dpi: number;
+  spineStyles: Record<string, SpineStyle>;
   ids: string[]; titles: Record<string, string>; settingsCollapsed: boolean; librarySort: keyof typeof librarySorts;
 };
 
@@ -15,7 +16,7 @@ export function defaultSettings(rankedIds: string[]): Settings {
     paper: 'A4', paperW: 210, paperH: 297, height: 40, ratio: 1.6, spine: 7, dpi: 600,
     binding: 'fillet', texture: 'leather', transform: 'uppercase', lettering: 'dynamic',
     ...backgroundDefaults,
-    ids: rankedIds.slice(0, 12), titles: {}, settingsCollapsed: false, librarySort: 'ranking',
+    ids: rankedIds.slice(0, 8), titles: {}, spineStyles: {}, settingsCollapsed: false, librarySort: 'ranking',
   };
 }
 
@@ -55,6 +56,19 @@ function overrides(value: Record<string, unknown>, defaults: Settings, books: Bo
     const titles = Object.entries(value.titles).filter(([id, title]) =>
       savedBook(id) && typeof title === 'string' && title.trim() && (byId.get(id)?.series || title.trim() !== byId.get(id)?.title));
     if (titles.length) result.titles = Object.fromEntries(titles);
+  }
+  if (value.spineStyles && typeof value.spineStyles === 'object') {
+    const styles: Record<string, SpineStyle> = {};
+    for (const [id, stored] of Object.entries(value.spineStyles)) {
+      if (!savedBook(id) || !stored || typeof stored !== 'object') continue;
+      const style: SpineStyle = {};
+      if (['dynamic', 'flat', 'gradient', 'metallic'].includes(stored.lettering)) style.lettering = stored.lettering;
+      for (const key of ['colour', 'background'] as const) {
+        if (typeof stored[key] === 'string' && /^#[0-9a-f]{6}$/i.test(stored[key])) style[key] = stored[key];
+      }
+      if (style.lettering || style.colour || style.background) styles[id] = style;
+    }
+    if (Object.keys(styles).length) result.spineStyles = styles;
   }
   return result;
 }

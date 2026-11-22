@@ -12,7 +12,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "inventory:covers": "node --experimental-strip-types scripts/generate-magnet-inventory.ts",
+    "postbuild": "npm run inventory:covers"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
@@ -32,7 +34,8 @@
     "remark-math": "^6.0.0",
     "sharp": "^0.34.5",
     "svelte": "^5.55.5",
-    "tailwindcss": "^4.2.4"
+    "tailwindcss": "^4.2.4",
+    "yaml": "^2.8.4"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",

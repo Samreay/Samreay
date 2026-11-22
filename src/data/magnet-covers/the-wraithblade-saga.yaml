@@ -1,0 +1,35 @@
+series: The Wraithblade Saga
+author: S. M. Boyce
+editions:
+  - id: wraithmarked-wraithblade-hardcover
+    name: Wraithmarked Hardcover
+    sources:
+      Campaign: https://www.kickstarter.com/projects/wraithmarked/wraithblade
+    books:
+      - volume: 1
+        title: Wraithblade
+        cover: wraith-mz/wraithblade-1.webp
+        sources:
+          Edition: https://wraithmarked.com/products/wraithblade-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/WBS1-HC-1.webp?v=1788364029
+      - volume: 2
+        title: Wraithforged
+        cover: wraith-mz/wraithblade-2.webp
+        sources:
+          Edition: https://wraithmarked.com/products/wraithforged-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/WBS2-HC-1.webp?v=1788364120
+  - id: wraithmarked-wraithblade-hardcover-case
+    name: Wraithmarked Illustrated Hardcover Case
+    books:
+      - volume: 1
+        title: Wraithblade
+        cover: wraith-mz/wraithblade-1-case.webp
+        sources:
+          Edition: https://wraithmarked.com/products/wraithblade-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/WBS1-HC-3.webp?v=1788364029
+      - volume: 2
+        title: Wraithforged
+        cover: wraith-mz/wraithblade-2-case.webp
+        sources:
+          Edition: https://wraithmarked.com/products/wraithforged-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/WBS2-HC-3.webp?v=1788364120

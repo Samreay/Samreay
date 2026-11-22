@@ -1,0 +1,21 @@
+series: Shattered Legacy
+author: Kayleigh Nicol & Andrew Rowe
+editions:
+  - id: rowe-standard-shattered-legacy
+    name: Podium
+    notes: Kayleigh Nicol co-wrote both novels.
+    sources:
+      Co-author’s catalogue: https://kayleighnicol.com/books/
+    books:
+      - volume: 1
+        title: Crystal Awakening
+        cover: rowe-standard-shattered-legacy/1.webp
+        sources:
+          Co-author: https://kayleighnicol.com/wp-content/uploads/2023/05/b1_crystal-awakening_shattered-legacy_ebook.jpg
+          Publisher: https://podiumentertainment.com/titles/6161/crystal-awakening
+      - volume: 2
+        title: Phantom Chamber
+        cover: rowe-standard-shattered-legacy/2.webp
+        sources:
+          Co-author: https://kayleighnicol.com/wp-content/uploads/2023/05/b2_ebook_phantom-chamber_shattered-legacy_ebook.jpg
+          Publisher: https://podiumentertainment.com/titles/3662/phantom-chamber-an-epic-fantasy-adventure

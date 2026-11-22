@@ -1,0 +1,18 @@
+series: The Lost Edge
+author: Andrew Rowe
+reviewId: edge_of_the_woods
+editions:
+  - id: rowe-standard-lost-edge
+    name: Podium
+    books:
+      - volume: 1
+        title: Edge of the Woods
+        rankedReviewId: edge_of_the_woods
+        cover: rowe-standard-lost-edge/1.webp
+        sources:
+          Author: https://andrewkrowe.wordpress.com/wp-content/uploads/2023/09/edge-of-the-woods_the-lost-edge-medium-res.jpg
+      - volume: 2
+        title: Edge of the Dream
+        cover: rowe-standard-lost-edge/2.webp
+        sources:
+          Paperback: https://images-us.bookshop.org/ingram/9781039439276.jpg

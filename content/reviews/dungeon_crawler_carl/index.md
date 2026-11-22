@@ -5,7 +5,7 @@ date: 2022-01-10
 auth: Matt Dinniman
 categories: [reviews]
 review: S
-weight: 8
+weight: 3
 name: "Dungeon Crawler Carl"
 links:
     amazon: https://www.amazon.com/Dungeon-Crawler-Carl-Gamelit-Adventure-ebook/dp/B08BKGYQXW

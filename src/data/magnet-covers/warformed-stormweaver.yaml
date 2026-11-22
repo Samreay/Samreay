@@ -1,0 +1,37 @@
+series: "Warformed: Stormweaver"
+author: Bryce O’Connor
+reviewId: iron_prince
+editions:
+  - id: warformed
+    idPrefix: iron_prince
+    books:
+      - volume: 1
+        title: Iron Prince
+        author: Bryce O’Connor & Luke Chmilenko
+        rankedReviewId: iron_prince
+        cover: warformed/1.webp
+        sources:
+          Kindle: https://www.amazon.com/dp/B08KGT4CLQ
+      - volume: 2
+        title: Fire and Song
+        cover: warformed/2.webp
+        sources:
+          Author: https://www.reddit.com/r/ProgressionFantasy/comments/152x2j7/
+  - id: wraithmarked-stormweaver-hardcover-case
+    name: Wraithmarked Illustrated Hardcover Case
+    sources:
+      Campaign: https://www.kickstarter.com/projects/wraithmarked/stormweaver1and2
+    books:
+      - volume: 1
+        title: Iron Prince
+        author: Bryce O’Connor & Luke Chmilenko
+        cover: wraith-mz/stormweaver-1.webp
+        sources:
+          Edition: https://wraithmarked.com/products/iron-prince-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/SW1-HC-3.webp?v=1788361217
+      - volume: 2
+        title: Fire and Song
+        cover: wraith-mz/stormweaver-2.webp
+        sources:
+          Edition: https://wraithmarked.com/products/fire-and-song-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/SW2-HC-3.webp?v=1788361039

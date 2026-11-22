@@ -1,0 +1,13 @@
+series: Defiance of the Fall
+author: J. F. Brink
+reviewId: defiance_of_the_fall
+editions:
+  - id: defiance-of-the-fall-wraithmarked
+    name: Wraithmarked Illustrated Deluxe Edition
+    books:
+      - volume: 1
+        title: Defiance of the Fall
+        cover: wraith-al/defiance-of-the-fall.webp
+        sources:
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/dotf1
+          Edition source: https://wraithmarked.com/products/defiance-of-the-fall-vol-1-deluxe-hardcover

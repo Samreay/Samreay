@@ -1,0 +1,14 @@
+series: The Scholomance
+author: Naomi Novik
+reviewId: scholomance
+editions:
+  - id: scholomance-wraithmarked
+    name: Wraithmarked Full-Color Illustrated Deluxe Edition
+    books:
+      - volume: 1
+        title: A Deadly Education
+        cover: wraith-al/a-deadly-education.webp
+        sources:
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/scholomance1
+          Edition source: https://wraithmarked.com/pages/campaign-progress
+          Image: https://wraithmarked.com/cdn/shop/files/TS1_5000x.webp?v=1754222463

@@ -1,0 +1,23 @@
+series: 101 Artists
+author: Bryce O’Connor and Spiridon (editors)
+editions:
+  - id: wraith-101-artists
+    name: Wraithmarked Standard
+    notes: Justin Gerard illustrated the hardcover front shown in the campaign render.
+    books:
+      - volume: 1
+        title: 101 Artists, Vol. 1
+        cover: wraith-101-artists/1.webp
+        sources:
+          Edition source: https://www.kickstarter.com/projects/wraithmarked/wmartbook
+          Publisher render: https://wraithmarked.com/cdn/shop/files/101AV1_3000x.webp?v=1786457065
+  - id: wraith-101-artists-premium
+    name: Wraithmarked Premium
+    notes: Dustin Panzino’s illustration is cropped to the front panel shown in the campaign.
+    books:
+      - volume: 1
+        title: 101 Artists, Vol. 1
+        cover: wraith-101-artists-premium/1.webp
+        sources:
+          Edition source: https://www.inkwellillustrations.com/
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/wmartbook

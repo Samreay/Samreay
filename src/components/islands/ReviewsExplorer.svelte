@@ -24,20 +24,6 @@
     F: 'Dropped these',
   };
 
-  // Labels reuse the card glow gradients (--grad-* in styling.css, applied
-  // by .tier-label in fancy.css). The raw gradients range from near-white
-  // (B's silver) to near-black (D's dark red), so each tier also tunes the
-  // dark scrim laid over its gradient to keep the white text readable.
-  const TIER_LABEL_STYLES: Record<ReviewTier, { grad: string; scrim: number }> = {
-    'π': { grad: 'var(--grad-m)', scrim: 0.5 },
-    S: { grad: 'var(--grad-s)', scrim: 0.5 },
-    A: { grad: 'var(--grad-a)', scrim: 0.6 },
-    B: { grad: 'var(--grad-b)', scrim: 0.62 },
-    C: { grad: 'var(--grad-c)', scrim: 0.6 },
-    D: { grad: 'var(--grad-d)', scrim: 0.2 },
-    F: { grad: 'var(--grad-f)', scrim: 0.55 },
-  };
-
   const LINK_TAG_MAP: Record<string, string> = {
     amazon: 'amazon',
     audible: 'audio',
@@ -531,13 +517,12 @@
            overflow:hidden makes this row the sticky element's scroll
            container, which never scrolls, so the label would never stick. -->
       <section
-        class="tier-row flex rounded-md overflow-clip bg-gray-800/50"
+        class="tier-row flex rounded-md overflow-clip"
+        style:--tier-tone={group.tier === 'S' ? '#3b82f6' : 'var(--color-' + group.tier + '-500)'}
         aria-label="Tier {group.tier}"
       >
         <div
           class="tier-label flex-none w-16 sm:w-28 flex flex-col justify-center"
-          style:--tier-grad={TIER_LABEL_STYLES[group.tier].grad}
-          style:--tier-scrim={TIER_LABEL_STYLES[group.tier].scrim}
         >
           <!-- Sticky keeps the tier letter visible while scrolling tall
                tiers (C spans several screens). Both insets matter: bottom-4

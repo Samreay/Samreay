@@ -50,11 +50,11 @@ try {
   }));
   rankings.sort((a, b) => a.weight - b.weight || a.id.localeCompare(b.id));
   const selectedIds = await page.locator('.book[aria-pressed=true]').evaluateAll(buttons => buttons.map(b => b.dataset.bookId));
-  assert.deepEqual(selectedIds.sort(), rankings.slice(0, 12).map(b => b.id).sort());
-  assert.equal(await page.locator('.gallery canvas').count(), 12);
+  assert.deepEqual(selectedIds.sort(), rankings.slice(0, 8).map(b => b.id).sort());
+  assert.equal(await page.locator('.gallery canvas').count(), 8);
   const wrapWidth = () => page.locator('.gallery figure').first().evaluate(el => el.getBoundingClientRect().width);
   const desktopWidth = await wrapWidth();
-  assert.equal(desktopWidth, 360);
+  assert.equal(desktopWidth, 324);
   const settingsToggle = page.getByRole('button', { name: 'Print settings', exact: true });
   await settingsToggle.press('Enter');
   assert.equal(await settingsToggle.getAttribute('aria-expanded'), 'false');
@@ -96,7 +96,7 @@ try {
   const initialProof = await proofOrder();
   assert.equal(await sort.inputValue(), 'ranking');
   const rankOrder = await libraryOrder();
-  assert.deepEqual(rankOrder.slice(0, 12).sort(), selectedIds);
+  assert.deepEqual(rankOrder.slice(0, 8).sort(), selectedIds);
   const weights = new Map(rankings.map(book => [book.id, book.weight]));
   assert.deepEqual(rankOrder.slice(0, rankings.length).map(id => weights.get(id)), rankings.map(book => book.weight));
   await sort.selectOption('series');
@@ -116,6 +116,21 @@ try {
   await sort.selectOption('ranking');
   assert.deepEqual(await libraryOrder(), rankOrder);
   assert.equal(await stored(), null);
+  // The existing ranked Cradle selection represents the Foundation omnibus.
+  const bookById = id => page.locator(`.book[data-book-id="${id}"]`);
+  await search.fill('Cradle Omnibus Digital collection');
+  assert.deepEqual(await page.locator('.book strong').allTextContents(), ['Foundation', 'Path of Gold', 'Rise of Lords', 'Ascension']);
+  assert.equal(await bookById('cradle').getAttribute('aria-pressed'), 'true');
+  await search.fill('Cradle Unsouled');
+  const originalUnsouled = bookById('cradle-standard-1');
+  const torUnsouled = bookById('cradle-special-tor-1');
+  assert.match(await originalUnsouled.innerText(), /Cradle 1 · Original ebook/);
+  assert.match(await torUnsouled.innerText(), /Cradle 1 · Tor UK/);
+  assert.notEqual(await originalUnsouled.locator('img').getAttribute('src'), await torUnsouled.locator('img').getAttribute('src'));
+  await search.fill('Cradle Threshold');
+  assert.match(await bookById('cradle-standard-13').innerText(), /Cradle · Short-story collection · Original ebook/);
+  assert.match(await bookById('cradle-special-tor-13').innerText(), /Cradle · Short-story collection · Tor UK/);
+
   // Two editions of the same volume must be independently selectable and persist across refresh.
   const hardcover = page.locator('.book[data-book-id="carl-print-1"]');
   const originalEdition = page.locator('.book[data-book-id="dungeon_crawler_carl"]');
@@ -201,8 +216,8 @@ try {
     }
   }
   const gap = 0.3; // specified physical spacing, in mm
-  for (const left of [65, 122 + gap]) assertBlackStrip(left, 8, left + gap, 168 + 3 * gap);
-  for (const top of [48, 88 + gap, 128 + 2 * gap]) assertBlackStrip(8, top, 179 + 2 * gap, top + gap);
+  for (const left of [65, 122 + gap]) assertBlackStrip(left, 8, left + gap, 128 + 2 * gap);
+  for (const top of [48, 88 + gap]) assertBlackStrip(8, top, 179 + 2 * gap, top + gap);
   assert(pixel(48, 48.4).some(channel => channel > 10), 'artwork resumes after the row gap');
   assert(pixel(65.4, 20).some(channel => channel > 0), 'artwork resumes after the column gap');
   assert.equal(await page.getByRole('button', { name: 'Download 1 sheet', exact: true }).count(), 1);
@@ -220,7 +235,7 @@ try {
   await page.getByLabel('Paper width (mm)').fill('54');
   await page.getByLabel('Paper height (mm)').fill('50');
   assert.equal(await page.getByRole('button', { name: 'Sheet', exact: true }).count(), 0);
-  assert.equal(await page.locator('.gallery canvas').count(), 12);
+  assert.equal(await page.locator('.gallery canvas').count(), 8);
   await page.getByLabel('Binding', { exact: true }).selectOption('none');
   const fontFile = 'src/assets/fonts/architects-daughter-v20-latin.woff2';
   await page.getByLabel('Open font file', { exact: true }).setInputFiles(fontFile);
@@ -233,9 +248,9 @@ try {
   assert.equal(await page.getByLabel('Paper width (mm)').inputValue(), '54');
   assert.equal(await page.getByLabel('Binding', { exact: true }).inputValue(), 'none');
   const custom = await capture();
-  assert.equal(Object.keys(custom).filter(k => k.endsWith('.png')).length, 12);
+  assert.equal(Object.keys(custom).filter(k => k.endsWith('.png')).length, 8);
   assert.deepEqual(Buffer.from(custom['fonts/architects-daughter-v20-latin.woff2']), await readFile(fontFile));
-  const small = await sharp(custom['sheet-12.png']).metadata();
+  const small = await sharp(custom['sheet-08.png']).metadata();
   assert.deepEqual([small.width, small.height, small.density], [1276, 1181, 600]);
 
   await page.getByLabel('Paper width (mm)').fill('20');
@@ -372,7 +387,7 @@ try {
   for (const [i, [, expected]] of examples.entries()) {
     const wrap = page.locator('.gallery figure').nth(i);
     await wrap.locator('canvas').scrollIntoViewIfNeeded();
-    await wrap.getByText('Dynamic · ' + expected, { exact: true }).waitFor();
+    await wrap.locator('canvas[data-text-effect=' + expected + ']').waitFor();
   }
   const automatic = (await capture())['sheet-01.png'];
   async function extractSpine(png, index) {
@@ -516,7 +531,7 @@ try {
   const hardcoverSheet = (await capture())['sheet-01.png'];
   for (const [i, { id, ink }] of hardcovers.entries()) {
     const proof = page.locator('.gallery figure').nth(i);
-    await proof.getByText('Dynamic · flat', { exact: true }).waitFor();
+    await proof.locator('canvas[data-text-effect=flat]').waitFor();
     const preview = Buffer.from(await proof.locator('canvas').evaluate(c => c.toDataURL().split(',')[1]), 'base64');
     const face = 25 / 1.6, wrap = 2 * face + 5;
     for (const [source, left, top, scale] of [
@@ -540,6 +555,76 @@ try {
       assert(black > pixels.length / 3 * 0.75, id + ' should have a black spine behind the lettering');
     }
   }
+  const firstProof = page.locator('.gallery figure').first();
+  const stylePicker = firstProof.getByRole('combobox');
+  const swatch = firstProof.getByRole('button', { name: /^Spine text colour for/ });
+  await swatch.click();
+  const colourPicker = firstProof.getByLabel('Hex', { exact: true });
+  const initialColour = await colourPicker.inputValue();
+  await firstProof.getByRole('button', { name: 'Pick from cover' }).click();
+  const front = firstProof.getByRole('button', { name: 'Sample a pixel from the front cover' });
+  await front.scrollIntoViewIfNeeded();
+  const box = await front.boundingBox();
+  const point = { x: Math.floor(box.x + box.width / 2), y: Math.floor(box.y + box.height / 2) };
+  const sampled = await firstProof.locator('canvas').evaluate((canvas, pt) => {
+    const r = canvas.getBoundingClientRect();
+    const pixel = canvas.getContext('2d').getImageData(Math.floor((pt.x-r.left)*canvas.width/r.width), Math.floor((pt.y-r.top)*canvas.height/r.height), 1, 1).data;
+    return '#' + [...pixel.slice(0,3)].map(c => c.toString(16).padStart(2,'0')).join('');
+  }, point);
+  await page.mouse.click(point.x, point.y);
+  await swatch.click();
+  assert.equal(await colourPicker.inputValue(), sampled);
+  await stylePicker.selectOption('flat');
+  if (!(await colourPicker.isVisible())) await swatch.click();
+  await colourPicker.fill('#12f792');
+  await page.reload();
+  await page.locator('.workshop:not([inert])').waitFor();
+  assert.equal(await stylePicker.inputValue(), 'flat');
+  await swatch.click();
+  assert.equal(await colourPicker.inputValue(), '#12f792');
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('.gallery figure').nth(1).getByRole('combobox').inputValue(), '');
+  const customisedSheet = (await capture())['sheet-01.png'];
+  const countInk = async png => {
+    const pixels = await sharp(png).extract({
+      left: Math.ceil((8 + 25 / 1.6) * 300 / 25.4), top: Math.ceil(8 * 300 / 25.4),
+      width: 55, height: 290,
+    }).removeAlpha().raw().toBuffer();
+    let hits = 0;
+    for (let p = 0; p < pixels.length; p += 3)
+      if (pixels[p] === 18 && pixels[p + 1] === 247 && pixels[p + 2] === 146) hits++;
+    return hits;
+  };
+  assert(await countInk(customisedSheet) > 10);
+  assert.equal(await countInk(hardcoverSheet), 0);
+  await stylePicker.selectOption('metallic');
+  assert(!(await sharp((await capture())['sheet-01.png']).raw().toBuffer()).equals(await sharp(customisedSheet).raw().toBuffer()));
+  await swatch.click();
+  await firstProof.getByRole('button', { name: 'Use cover colour' }).click();
+  await stylePicker.selectOption('');
+  await swatch.click();
+  assert.equal(await colourPicker.inputValue(), initialColour);
+  assert.equal(JSON.parse(await stored()).spineStyles, undefined);
+  await page.keyboard.press('Escape');
+  const backgroundSwatch = firstProof.getByRole('button', { name: /^Background colour for/ });
+  await backgroundSwatch.click();
+  await colourPicker.fill('#2389ab');
+  await page.keyboard.press('Escape');
+  await saturation.press('Home');
+  await darkness.press('End');
+  await page.reload();
+  await page.locator('.workshop:not([inert])').waitFor();
+  await backgroundSwatch.click();
+  assert.equal(await colourPicker.inputValue(), '#2389ab');
+  await page.keyboard.press('Escape');
+  const customBackgroundSheet = (await capture())['sheet-01.png'];
+  const backPixel = await sharp(customBackgroundSheet).extract({
+    left: Math.ceil(12 * 300 / 25.4), top: Math.ceil(12 * 300 / 25.4), width: 1, height: 1,
+  }).removeAlpha().raw().toBuffer();
+  assert.deepEqual([...backPixel], [35, 137, 171]);
+  await backgroundSwatch.click();
+  await firstProof.getByRole('button', { name: 'Use cover colour' }).click();
+  assert.equal(JSON.parse(await stored()).spineStyles, undefined);
   assert.deepEqual(errors, []);
   console.log('Passed default and custom exports, repeatability, cut and fold positions, pagination, fonts, resolution warnings and mobile layout.');
 } finally {

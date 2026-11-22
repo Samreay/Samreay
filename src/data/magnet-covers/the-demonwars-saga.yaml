@@ -1,0 +1,27 @@
+series: The DemonWars Saga
+author: R. A. Salvatore
+editions:
+  - id: demonwars-wraithmarked
+    name: Wraithmarked Illustrated Deluxe Edition
+    books:
+      - volume: 1
+        title: The Demon Awakens
+        cover: wraith-al/the-demon-awakens.webp
+        sources:
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/dw1
+          Edition source: https://wraithmarked.com/products/the-demon-awakens-deluxe-hardcover
+      - volume: 2
+        title: The Demon Spirit
+        cover: wraith-al/the-demon-spirit.webp
+        sources:
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/dw2
+          Edition source: https://dw2.backerkit.com/hosted_preorders/project_updates
+  - id: demonwars-wraithmarked-case
+    name: Wraithmarked Illustrated Deluxe Hardcover Case
+    books:
+      - volume: 1
+        title: The Demon Awakens
+        cover: wraith-al/the-demon-awakens-case.webp
+        sources:
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/dw1
+          Edition source: https://wraithmarked.com/products/the-demon-awakens-deluxe-hardcover

@@ -1,0 +1,43 @@
+series: "Error: Hero Not Found"
+author: Andrew Rowe
+reviewId: how_to_defeat_a_demon_king_in_ten_easy_steps
+editions:
+  - id: rowe-standard-demon-king-original
+    name: Original
+    notes: The independent ebook cover keeps the original selection for the site’s review.
+    sources:
+      Author’s ebook cover: https://andrewkrowe.wordpress.com/wp-content/uploads/2020/11/demon_king-ecover-medium.jpg
+    books:
+      - volume: 1
+        title: How to Defeat a Demon King in Ten Easy Steps
+        rankedReviewId: how_to_defeat_a_demon_king_in_ten_easy_steps
+        cover: rowe-standard-demon-king-original/1.webp
+  - id: rowe-standard-demon-king
+    name: Saga Press
+    notes: The second volume uses Saga Press’s preorder cover for January 2027.
+    books:
+      - volume: 1
+        title: How to Defeat a Demon King in Ten Easy Steps
+        cover: rowe-standard-demon-king/1.webp
+        sources:
+          Publisher: https://www.simonandschuster.com/books/How-to-Defeat-a-Demon-King-in-Ten-Easy-Steps/Andrew-Rowe/Error-Hero-Not-Found/9781668209448
+      - volume: 2
+        title: When the Gods Give You Lemons, Fight and Dethrone the Gods
+        cover: rowe-standard-demon-king/2.webp
+        sources:
+          Author: https://andrewkrowe.wordpress.com/wp-content/uploads/2026/06/godslemons_final_2.jpg
+          Publisher: https://www.simonandschuster.com/books/When-the-Gods-Give-You-Lemons-Fight-and-Dethrone-the-Gods/Andrew-Rowe/Error-Hero-Not-Found/9781668209455
+  - id: rowe-special-broken-binding
+    name: The Broken Binding
+    notes: The local assets isolate the front panels from the publisher’s jacket renderings. The first volume’s case uses the trade cover illustration.
+    books:
+      - volume: 1
+        title: How to Defeat a Demon King in Ten Easy Steps
+        cover: rowe-special-broken-binding/1.webp
+        sources:
+          Publisher: https://thebrokenbindingsub.com/products/how-to-defeat-a-demon-king-in-ten-easy-steps
+      - volume: 2
+        title: When the Gods Give You Lemons, Fight and Dethrone the Gods
+        cover: rowe-special-broken-binding/2.webp
+        sources:
+          Publisher: https://thebrokenbindingsub.com/products/when-the-gods-give-you-lemons-fight-and-dethrone-the-gods

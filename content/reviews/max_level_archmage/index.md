@@ -8,6 +8,7 @@ review: B
 weight: 21
 name: "New Life As A Max Level Archmage"
 links:
+    amazon: https://www.amazon.com/dp/B0GRCGCPMZ
     royal_road: https://www.royalroad.com/fiction/118891/new-life-as-a-max-level-archmage
 aliases: [/reviews/max_level_archmage]
 tags: [in-progress, isekai, litrpg, female-lead]

@@ -1,0 +1,37 @@
+series: Mother of Learning
+author: Domagoj Kurmaić
+reviewId: mother_of_learning
+editions:
+  - id: wraithmarked-mother-of-learning-hardcover
+    name: Wraithmarked Hardcover
+    sources:
+      Collection: https://wraithmarked.com/collections/all/mother-of-learning
+    books:
+      - volume: 2
+        title: "Mother of Learning: ARC 2"
+        cover: wraith-mz/mother-of-learning-2.webp
+        sources:
+          Edition: https://wraithmarked.com/products/mother-of-learning-arc-ii-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/MOL2-HC-1.webp?v=1786737802
+      - volume: 3
+        title: "Mother of Learning: ARC 3"
+        cover: wraith-mz/mother-of-learning-3.webp
+        sources:
+          Edition: https://wraithmarked.com/products/mother-of-learning-arc-3-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/MOL3-HC-1.webp?v=1786737399
+      - volume: 4
+        title: "Mother of Learning: ARC 4"
+        cover: wraith-mz/mother-of-learning-4.webp
+        sources:
+          Edition: https://wraithmarked.com/products/mother-of-learning-arc-4-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/MOL4-HC-1.webp?v=1786737373
+  - id: wraith-mother-of-learning-deluxe
+    name: Wraithmarked Deluxe
+    notes: The cover reveal shows Emity’s front jacket.
+    books:
+      - volume: 1
+        title: "Mother of Learning: ARC 1"
+        cover: wraith-mother-of-learning-deluxe/1.webp
+        sources:
+          Edition source: https://www.reddit.com/r/motheroflearning/comments/1u25o94/
+          Campaign: https://www.kickstarter.com/projects/wraithmarked/mol1dlx

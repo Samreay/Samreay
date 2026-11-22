@@ -1,0 +1,28 @@
+series: Manifestation
+author: Samuel Hinton
+reviewId: soul_relic
+editions:
+  - id: manifestation
+    idPrefix: soul_relic
+    sources:
+      Author’s books: https://cosmiccoding.com.au/#books
+    books:
+      - volume: 1
+        title: Soul Relic
+        rankedReviewId: soul_relic
+        cover: manifestation/1.webp
+      - volume: 2
+        title: Scion of Storms
+        cover: manifestation/2.webp
+      - volume: 3
+        title: Sanctuary
+        cover: manifestation/3.webp
+      - volume: 4
+        title: Shieldsmith
+        cover: manifestation/4.webp
+      - volume: 5
+        title: Siegebreaker
+        cover: manifestation/5.webp
+      - volume: 6
+        title: Sovereign
+        cover: manifestation/6.webp

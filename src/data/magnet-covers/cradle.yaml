@@ -1,0 +1,332 @@
+series: Cradle
+author: Will Wight
+reviewId: cradle
+editions:
+  - id: cradle-standard
+    name: Original ebook
+    notes: Will Wight’s archive supplies the original badge artwork for all twelve novels and the companion short-story collection.
+    sources:
+      Series page: https://www.willwight.com/cradle.html
+      Cover archive: https://www.willwight.com/uploads/9/0/7/1/9071768/old-cradle-covers3.zip
+    books:
+      - volume: 1
+        title: Unsouled
+        cover: cradle-standard/1.webp
+      - volume: 2
+        title: Soulsmith
+        cover: cradle-standard/2.webp
+      - volume: 3
+        title: Blackflame
+        cover: cradle-standard/3.webp
+      - volume: 4
+        title: Skysworn
+        cover: cradle-standard/4.webp
+      - volume: 5
+        title: Ghostwater
+        cover: cradle-standard/5.webp
+      - volume: 6
+        title: Underlord
+        cover: cradle-standard/6.webp
+      - volume: 7
+        title: Uncrowned
+        cover: cradle-standard/7.webp
+      - volume: 8
+        title: Wintersteel
+        cover: cradle-standard/8.webp
+      - volume: 9
+        title: Bloodline
+        cover: cradle-standard/9.webp
+      - volume: 10
+        title: Reaper
+        cover: cradle-standard/10.webp
+      - volume: 11
+        title: Dreadgod
+        cover: cradle-standard/11.webp
+      - volume: 12
+        title: Waybound
+        cover: cradle-standard/12.webp
+      - volume: 13
+        title: "Threshold: Stories from Cradle"
+        collection: true
+        cover: cradle-standard/threshold.webp
+  - id: cradle-special-tor
+    name: Tor UK
+    notes: Tor UK shows covers for all twelve novels and the companion collection in its series catalogue.
+    sources:
+      Pan Macmillan: https://www.panmacmillan.com/series/cradle/panmac106512
+    books:
+      - volume: 1
+        title: Unsouled
+        cover: cradle-special-tor/1.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/unsouled/9781037420221
+      - volume: 2
+        title: Soulsmith
+        cover: cradle-special-tor/2.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/soulsmith/9781037420283
+      - volume: 3
+        title: Blackflame
+        cover: cradle-special-tor/3.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/blackflame/9781037420290
+      - volume: 4
+        title: Skysworn
+        cover: cradle-special-tor/4.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/skysworn/9781037420306
+      - volume: 5
+        title: Ghostwater
+        cover: cradle-special-tor/5.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/ghostwater/9781037420313
+      - volume: 6
+        title: Underlord
+        cover: cradle-special-tor/6.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/underlord/9781037420320
+      - volume: 7
+        title: Uncrowned
+        cover: cradle-special-tor/7.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/uncrowned/9781037420337
+      - volume: 8
+        title: Wintersteel
+        cover: cradle-special-tor/8.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/wintersteel/9781037420344
+      - volume: 9
+        title: Bloodline
+        cover: cradle-special-tor/9.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/bloodline/9781037420351
+      - volume: 10
+        title: Reaper
+        cover: cradle-special-tor/10.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/reaper/9781037420368
+      - volume: 11
+        title: Dreadgod
+        cover: cradle-special-tor/11.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/dreadgod/9781037420375
+      - volume: 12
+        title: Waybound
+        cover: cradle-special-tor/12.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/waybound/9781037420382
+      - volume: 13
+        title: "Threshold: Stories from Cradle"
+        collection: true
+        cover: cradle-special-tor/13.webp
+        sources:
+          Source: https://www.panmacmillan.com/authors/will-wight/threshold/9781037420399
+  - id: cradle-special-omnibus
+    name: Digital collection
+    notes: The four collected digital editions bundle three novels each. Foundation keeps the existing Cradle selection and uses the matching ebook cover.
+    books:
+      - volume: 1
+        title: Foundation
+        rankedReviewId: cradle
+        omnibus: true
+        cover: cradle-special-omnibus/1.webp
+        sources:
+          Books 1–3: https://www.amazon.com/dp/B076G8DVN6
+          Cover artist: https://www.ashmackenzie.com/books
+      - volume: 2
+        title: Path of Gold
+        omnibus: true
+        cover: cradle-special-omnibus/2.webp
+        sources:
+          Books 4–6: https://www.amazon.com/dp/B0891YTJYR
+      - volume: 3
+        title: Rise of Lords
+        omnibus: true
+        cover: cradle-special-omnibus/3.webp
+        sources:
+          Books 7–9: https://www.amazon.com/dp/B09JRSQGGR
+      - volume: 4
+        title: Ascension
+        omnibus: true
+        cover: cradle-special-omnibus/4.webp
+        sources:
+          Books 10–12: https://www.amazon.com/dp/B0DD8R5JDL
+          Higher-resolution image: https://app.thestorygraph.com/books/a7686c84-6536-4ce7-942c-95b8716f6a7c
+  - id: cradle-special-anniversary-ebook
+    name: 10th Anniversary ebook
+    notes: Hidden Gnome’s anniversary ebook covers differ from its paperback designs.
+    sources:
+      Will Wight’s series page: https://www.willwight.com/cradle.html
+    books:
+      - volume: 1
+        title: Unsouled
+        cover: cradle-special-anniversary-ebook/1.webp
+        sources:
+          Source: https://multcolib.overdrive.com/media/12513921
+      - volume: 2
+        title: Soulsmith
+        cover: cradle-special-anniversary-ebook/2.webp
+        sources:
+          Source: https://dcl.overdrive.com/media/12512192
+      - volume: 3
+        title: Blackflame
+        cover: cradle-special-anniversary-ebook/3.webp
+        sources:
+          Source: https://metrolibrary.overdrive.com/media/12509097
+      - volume: 4
+        title: Skysworn
+        cover: cradle-special-anniversary-ebook/4.webp
+        sources:
+          Source: https://dcl.overdrive.com/media/12512137
+      - volume: 5
+        title: Ghostwater
+        cover: cradle-special-anniversary-ebook/5.webp
+        sources:
+          Source: https://santaclara.overdrive.com/media/12510098
+      - volume: 6
+        title: Underlord
+        cover: cradle-special-anniversary-ebook/6.webp
+        sources:
+          Source: https://metrolibrary.overdrive.com/media/12513880
+      - volume: 7
+        title: Uncrowned
+        cover: cradle-special-anniversary-ebook/7.webp
+        sources:
+          Source: https://lapl.overdrive.com/media/12513869
+      - volume: 8
+        title: Wintersteel
+        cover: cradle-special-anniversary-ebook/8.webp
+        sources:
+          Source: https://santaclara.overdrive.com/media/12514148
+      - volume: 9
+        title: Bloodline
+        cover: cradle-special-anniversary-ebook/9.webp
+        sources:
+          Source: https://www.amazon.com/dp/B08ZS19WWY
+      - volume: 10
+        title: Reaper
+        cover: cradle-special-anniversary-ebook/10.webp
+        sources:
+          Source: https://pls.overdrive.com/media/12511761
+      - volume: 11
+        title: Dreadgod
+        cover: cradle-special-anniversary-ebook/11.webp
+        sources:
+          Source: https://nypl.overdrive.com/media/12509659
+      - volume: 12
+        title: Waybound
+        cover: cradle-special-anniversary-ebook/12.webp
+        sources:
+          Source: https://pls.overdrive.com/media/12514002
+      - volume: 13
+        title: "Threshold: Stories from Cradle"
+        collection: true
+        cover: cradle-special-anniversary-ebook/13.webp
+        sources:
+          Source: https://ppld.overdrive.com/media/12513746
+  - id: cradle-special-anniversary-print
+    name: 10th Anniversary paperback
+    notes: Retail and distributor listings supplied separate paperback designs for books 1–6.
+    books:
+      - volume: 1
+        title: Unsouled
+        cover: cradle-special-anniversary-print/1.webp
+        sources:
+          Source: https://www.indigo.ca/products/unsouled
+      - volume: 2
+        title: Soulsmith
+        cover: cradle-special-anniversary-print/2.webp
+        sources:
+          Source: https://www.indigo.ca/products/soulsmith-3
+      - volume: 3
+        title: Blackflame
+        cover: cradle-special-anniversary-print/3.webp
+        sources:
+          Source: https://www.indigo.ca/products/blackflame-1
+      - volume: 4
+        title: Skysworn
+        cover: cradle-special-anniversary-print/4.webp
+        sources:
+          Source: https://www.raincoastgroup.com/item/9781970475067
+      - volume: 5
+        title: Ghostwater
+        cover: cradle-special-anniversary-print/5.webp
+        sources:
+          Source: https://www.raincoastgroup.com/item/9781970475074
+      - volume: 6
+        title: Underlord
+        cover: cradle-special-anniversary-print/6.webp
+        sources:
+          Source: https://www.raincoastgroup.com/item/9781970475081
+  - id: cradle-special-kickstarter
+    name: Kickstarter faux leather
+    notes: The local images isolate the faux-leather front from finished-book photos for books 1–3 and campaign renders for books 4–12 and Threshold. The preview sources for books 4–12 and Threshold provide 208–285 and 171 pixels of height, respectively.
+    sources:
+      Will Wight’s Kickstarter page: https://www.willwight.com/kickstarter.html
+    books:
+      - volume: 1
+        title: Unsouled
+        cover: cradle-special-kickstarter/1.webp
+        sources:
+          Source: https://www.ebay.com/itm/186847157209
+      - volume: 2
+        title: Soulsmith
+        cover: cradle-special-kickstarter/2.webp
+        sources:
+          Source: https://www.ebay.com/itm/186847157209
+      - volume: 3
+        title: Blackflame
+        cover: cradle-special-kickstarter/3.webp
+        sources:
+          Source: https://www.ebay.com/itm/186847157209
+      - volume: 4
+        title: Skysworn
+        cover: cradle-special-kickstarter/4.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-4-6-by-will-wight-special-editions
+      - volume: 5
+        title: Ghostwater
+        cover: cradle-special-kickstarter/5.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-4-6-by-will-wight-special-editions
+      - volume: 6
+        title: Underlord
+        cover: cradle-special-kickstarter/6.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-4-6-by-will-wight-special-editions
+      - volume: 7
+        title: Uncrowned
+        cover: cradle-special-kickstarter/7.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-7-9-by-will-wight-special-editions
+      - volume: 8
+        title: Wintersteel
+        cover: cradle-special-kickstarter/8.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-7-9-by-will-wight-special-editions
+      - volume: 9
+        title: Bloodline
+        cover: cradle-special-kickstarter/9.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-7-9-by-will-wight-special-editions
+      - volume: 10
+        title: Reaper
+        cover: cradle-special-kickstarter/10.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-10-12-by-will-wight-special-editions
+      - volume: 11
+        title: Dreadgod
+        cover: cradle-special-kickstarter/11.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-10-12-by-will-wight-special-editions
+      - volume: 12
+        title: Waybound
+        cover: cradle-special-kickstarter/12.webp
+        sources:
+          Source: https://www.kickstarter.com/projects/author-will-wight/cradle-books-10-12-by-will-wight-special-editions
+      - volume: 13
+        title: "Threshold: Stories from Cradle"
+        collection: true
+        cover: cradle-special-kickstarter/13.webp
+        sources:
+          Source: https://lazybookcollector.com/book/615273-threshold-wight-hidden-gnome-publishing-signed-numbered-edition/

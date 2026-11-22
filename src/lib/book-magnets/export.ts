@@ -85,7 +85,7 @@ export async function exportSheets(books: Book[], sheet: Layout, font: SpineFont
       const items = books.slice(page * sheet.capacity, (page + 1) * sheet.capacity);
       for (const [i, book] of items.entries()) {
         const cover = await loadCover(book);
-        try { drawSheetItem(ctx, i, sheet, cover, book.title, font.family, finish); }
+        try { drawSheetItem(ctx, i, sheet, cover, book, font.family, finish); }
         finally { cover.image.close(); }
       }
       drawSheetGuides(ctx, sheet, items.length);

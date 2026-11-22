@@ -1,0 +1,65 @@
+series: Dungeon Crawler Carl
+author: Matt Dinniman
+reviewId: dungeon_crawler_carl
+editions:
+  - id: carl-original
+    idPrefix: dungeon_crawler_carl
+    name: Original
+    sources:
+      Author: https://mattdinniman.com/Books/
+    books:
+      - volume: 1
+        title: Dungeon Crawler Carl
+        rankedReviewId: dungeon_crawler_carl
+        cover: carl-original/1.webp
+      - volume: 2
+        title: Carl's Doomsday Scenario
+        cover: carl-original/2.webp
+      - volume: 3
+        title: The Dungeon Anarchist's Cookbook
+        cover: carl-original/3.webp
+      - volume: 4
+        title: The Gate of the Feral Gods
+        cover: carl-original/4.webp
+      - volume: 5
+        title: The Butcher's Masquerade
+        cover: carl-original/5.webp
+      - volume: 6
+        title: The Eye of the Bedlam Bride
+        cover: carl-original/6.webp
+      - volume: 7
+        title: This Inevitable Ruin
+        cover: carl-original/7.webp
+      - volume: 8
+        title: A Parade of Horribles
+        cover: carl-original/8.webp
+  # Publisher TIFF originals use https://images.penguinrandomhouse.com/cover/tif/{isbn}.
+  - id: carl-print
+    name: Hardcover
+    sources:
+      Publisher: https://www.penguinrandomhouse.com/the-read-down/dungeon-crawler-carl-series/
+    books:
+      - volume: 1
+        title: Dungeon Crawler Carl
+        cover: carl-print/1.webp
+      - volume: 2
+        title: Carl's Doomsday Scenario
+        cover: carl-print/2.webp
+      - volume: 3
+        title: The Dungeon Anarchist's Cookbook
+        cover: carl-print/3.webp
+      - volume: 4
+        title: The Gate of the Feral Gods
+        cover: carl-print/4.webp
+      - volume: 5
+        title: The Butcher's Masquerade
+        cover: carl-print/5.webp
+      - volume: 6
+        title: The Eye of the Bedlam Bride
+        cover: carl-print/6.webp
+      - volume: 7
+        title: This Inevitable Ruin
+        cover: carl-print/7.webp
+      - volume: 8
+        title: A Parade of Horribles
+        cover: carl-print/8.webp

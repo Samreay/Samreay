@@ -1,0 +1,13 @@
+series: Wayward Children
+author: Seanan McGuire
+editions:
+  - id: wraithmarked-wayward-children-deluxe
+    name: Wraithmarked Illustrated Deluxe Omnibus
+    books:
+      - volume: 1
+        title: Wayward Children Vol. 1
+        omnibus: true
+        cover: wraith-mz/wayward-children.webp
+        sources:
+          Edition: https://wraithmarked.com/products/wayward-children-vol-1-deluxe-hardcover
+          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/WC1-DXBM-1.webp?v=1794931095

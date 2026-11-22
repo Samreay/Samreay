@@ -1,0 +1,14 @@
+series: Mage Errant
+author: John Bierce
+reviewId: mage_errant
+editions:
+  - id: wraithmarked-mage-errant-deluxe
+    name: Wraithmarked Illustrated Deluxe Omnibus
+    books:
+      - volume: 1
+        title: Mage Errant Vol. 1
+        omnibus: true
+        cover: wraith-mz/mage-errant.webp
+        sources:
+          Edition: https://mageerrant.backerkit.com/hosted_preorders/project_updates?page=2
+          Image: https://i.kickstarter.com/assets/053/747/082/6bd8a91ed6474b329f6d24621787b737_original.jpg?fit=scale-down&origin=ugc&q=92&sig=iNYWqdJGqUyCPFB7yxQ5ve%2B6TNdnJO%2F4ItfUg5ebkTo%3D&v=1778872887&width=700
