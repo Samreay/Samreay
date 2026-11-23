@@ -1,0 +1,160 @@
+---
+title: "Making miniature book magnets"
+description: "I 3D printed some of my favourite books for the fridge, complete with their own magnetic bookshelf."
+date: 2026-11-23
+categories: [blog]
+tags: [creative, writing]
+---
+
+import { Image } from 'astro:assets';
+import ModelDownload from '../../../src/components/ModelDownload.astro';
+import bookPrint from './array.jpg';
+import shelfPrint from './bookshelf.jpg';
+import magnetRetouch from './magnet-landscape-ai.webp';
+import glue from './glue.jpg';
+import fridge from './full.jpg';
+import shelfRetouch from './bookshelf-crop-ai.webp';
+import workshop from './workshop.webp';
+import videoPoster from './video-poster.webp?url';
+
+My fridge now has a tiny bookshelf, and my boys' artwork is held up by some of my favourite books. The idea came from this [Instagram reel by Mossy Burrow Creations](https://www.instagram.com/reel/DfhyWL4N-8v/).
+
+<div class="mx-auto my-8 max-w-2xl">
+  <div class="fancy_card horizontal mx-auto w-full md:w-1/2" id="instagram-reel-card">
+    <div class="card_translator">
+      <div class="card_rotator small_rot card_layer relative bg-gray-800">
+        <div class="card_layer block">
+          <div class="px-4 py-3 text-sm font-semibold">@mossyburrowcreations</div>
+          <div class="relative aspect-[4/5] overflow-hidden bg-black [container-type:inline-size]">
+            {/* The artwork starts 54px below the header. Hide the iframe scrollbar so it cannot shrink the 4:5 preview. */}
+            <iframe
+              class="pointer-events-none absolute left-0 block w-full border-0"
+              style={{ top: '-54px', height: 'calc(125cqw + 400px)' }}
+              src="https://www.instagram.com/reel/DfhyWL4N-8v/embed/"
+              title="Miniature book magnet reel preview"
+              loading="lazy"
+              scrolling="no"
+              tabIndex={-1}
+              aria-hidden="true"
+              inert
+            ></iframe>
+          </div>
+        </div>
+        <a
+          class="no-under absolute inset-0 rounded-xl focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-main-300"
+          href="https://www.instagram.com/reel/DfhyWL4N-8v/"
+          aria-label="Watch the Mossy Burrow Creations reel on Instagram"
+        ></a>
+        <div class="card_layer card_effect card_overlay_C"></div>
+        <div class="card_layer card_effect card_glare"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+Of course, I didn't just use someone else's design, because there was a big issue! No, it wasn't paying for a design, that's fair enough. See, I've got a newborn and a two-year-old in the house, and the idea of a magnet (or a dozen) held in place only by some glue and some paper... it's not good. I wanted the magnet sealed inside the plastic so not even God would be able to pry them out. And thus, this entire journey.
+
+## Making the covers
+
+A lot of the progression fantasy and LitRPG I read comes out as ebooks. I love ebooks, but this means authors generally only have the front cover available for me to take off Royal Road or Amazon. A tiny book still needs a spine and a back. The easiest way would have been to just ask AI to generate appropriate spines (and black backs), except the idea of feeding an author's cover art into GenAI is icky. Less icky is asking AI to write code, so I was happy to use AI coding tools to help write some JavaScript that picks colours from the cover and adds a bit of texture and lettering in the browser. It's nothing too fancy (and thus why there are options to pick colours manually).
+
+That turned into the [Book Magnet Workshop](/reviews/book-magnets/), where you can pick your books and download a sheet of full wraps to print. For me, this was two 8x10inch prints from Kmart, for a grand total of $8.
+
+<figure>
+  <a class="no-under block" href="/reviews/book-magnets/">
+    <Image
+      src={workshop}
+      width={1100}
+      widths={[640, 960, 1440, 1920]}
+      sizes="(max-width: 960px) calc(100vw - 2rem), 56rem"
+      class="w-full rounded-xl border border-gray-700"
+      alt="Open the Book Magnet Workshop, shown with a row of three print proofs for Manifestation, Cradle and Dungeon Crawler Carl."
+    />
+  </a>
+</figure>
+
+## Printing the books and shelf
+
+I modelled the book in Fusion 360, providing a cutout for some ceramic magnets I already had from years and years ago. Then I decided the books deserved a bookshelf of their own, so I modelled that too. I think the link may be view-only on my Fusion plan, so I've included both print files here.
+
+The book 3MF has filament changes for the white pages and a pause to drop in the magnet before the printer closes it up. I stacked two 18 × 3 mm ceramic discs ([like these ones](https://www.amazon.com.au/Grtard-Adhesive-0-7x0-12in-Workshop-Projects/dp/B0DFLS25YZ)) for a stronger hold, so the stack is 6 mm thick. The shelf file has its own pause for a rectangular 60 × 10 × 3 mm neodymium magnet, which I also had lying around. [These are the ones](https://www.amazon.com.au/Wukong-60x10x3mm-Magnetic-Adhesive-Whiteboard/dp/B0BTHMPNSD).
+
+<div class="mx-auto my-10 grid max-w-2xl gap-6 sm:grid-cols-2">
+  <ModelDownload name="Book" filename="Book.3mf" image={bookPrint} fusionUrl="https://a360.co/4AcvXdl" />
+  <ModelDownload name="Bookshelf" filename="Bookshelf.3mf" image={shelfPrint} fusionUrl="https://a360.co/4kw6QgM" />
+</div>
+
+<figure id="magnet-prototype" class="scroll-mt-24">
+  <Image
+    src={magnetRetouch}
+    width={896}
+    height={504}
+    fit="cover"
+    widths={[480, 896, 1440]}
+    sizes="(max-width: 960px) calc(100vw - 2rem), 56rem"
+    class="w-full rounded-xl"
+    alt="A prototype miniature book with white page layers and a round magnet visible in the centre recess."
+  />
+  <figcaption class="mx-auto mt-3 max-w-2xl text-center text-xs text-gray-300 italic">
+    The prototype had little wings on the spine because I forgot a tiny offset in Fusion (cos I'm dumb). The final print has a properly rounded spine, but I forgot to take a picture.
+  </figcaption>
+</figure>
+
+Once the books were printed, I cut the wraps out of the sheet from the workshop, creased the edges, glued em on and used some pegs to hold everything tight while it dried. Then I went to bed.
+
+<figure id="glue-photo" class="img-small w-4/5 scroll-mt-24">
+  <Image
+    src={glue}
+    width={512}
+    widths={[384, 512, 896]}
+    sizes="(max-width: 672px) calc(80vw - 1.6rem), 32rem"
+    class="w-full rounded-xl"
+    alt="Three wire pegs hold the bright blue Ends of Magic cover in place while the glue dries."
+  />
+</figure>
+
+## On the fridge
+
+In the morning I stuck the books on the fridge to keep dear Henry's artwork up.
+
+<figure>
+  <Image
+    src={fridge}
+    width={896}
+    widths={[480, 896, 1440]}
+    sizes="(max-width: 960px) calc(100vw - 2rem), 56rem"
+    class="w-full rounded-xl"
+    alt="Miniature book magnets holding up a drawing on the fridge."
+  />
+</figure>
+
+A few hours later the bookshelf was ready, so that went on the fridge too.
+
+<figure>
+  <Image
+    src={shelfRetouch}
+    width={896}
+    widths={[480, 896, 1333]}
+    sizes="(max-width: 960px) calc(100vw - 2rem), 56rem"
+    class="w-full rounded-xl"
+    alt="A miniature black bookshelf on the fridge, filled with book magnets standing spine-out."
+  />
+</figure>
+
+Both ends of the bookshelf are magnetic too, so the books stay put. Here's *Dungeon Crawler Carl* getting a spot at the end.
+
+<video
+  class="mx-auto my-10 block w-full max-w-4xl rounded-xl bg-black"
+  src="/blogs/book-magnets/dcc_video.mp4"
+  poster={videoPoster}
+  width="810"
+  height="1080"
+  preload="none"
+  controls
+  playsinline
+  aria-label="Dungeon Crawler Carl magnet on the miniature bookshelf"
+>
+  <a href="/blogs/book-magnets/dcc_video.mp4">Watch the bookshelf video</a>
+</video>
+
+Anyway, it was a fun Saturday diversion, and now I have the coolest magnets in town. Cool enough to share it with people, so good luck and have fun if you decide to make your own!

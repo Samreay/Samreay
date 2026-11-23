@@ -39,7 +39,7 @@ const books = await Promise.all([...curated, ...reviewed].map(async ({ source, o
   <main class="content">
     <header class="section-header pt-6">
       <h1>Book magnet workshop</h1>
-      <p>Choose your books and print a wrap for each magnet. Looking for your next read? I've got a <a class="under" href="/reviews/flowchart/">massive flowchart</a> for that.</p>
+      <p>3D models and magnets detailed in the <a class="under" href="/blogs/book-magnets/#printing-the-books-and-shelf">build guide</a>. And if you're looking for your next read, I've got a <a class="under" href="/reviews/flowchart/">massive flowchart</a> for that.</p>
     </header>
     <BookMagnets client:load {books} {rankedIds} />
     <noscript>Enable JavaScript to preview covers and generate print sheets.</noscript>

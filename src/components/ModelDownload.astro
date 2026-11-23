@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  name: string;
+  filename: string;
+  image: ImageMetadata;
+  fusionUrl: string;
+}
+
+const { name, filename, image, fusionUrl } = Astro.props;
+---
+
+<div class="min-w-0">
+  <div class="fancy_card horizontal">
+    <div class="card_translator">
+      <a
+        class="card_rotator small_rot card_layer no-under bg-gray-800 focus-visible:outline-2 focus-visible:outline-main-300"
+        href={`/blogs/book-magnets/${filename}`}
+        download={filename}
+      >
+        <div class="card_layer block">
+          <Image
+            src={image}
+            width={704}
+            height={396}
+            fit="cover"
+            widths={[352, 704]}
+            sizes="(max-width: 639px) calc(100vw - 2rem), 20.5rem"
+            class="block aspect-video w-full object-cover"
+            alt=""
+          />
+          <span class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-3">
+            <strong>{name}</strong>
+            <span class="text-sm font-medium text-main-300">Download 3MF <span aria-hidden="true">↓</span></span>
+          </span>
+        </div>
+        <div class="card_layer card_effect card_overlay_C"></div>
+        <div class="card_layer card_effect card_glare"></div>
+      </a>
+    </div>
+  </div>
+  <div class="mt-3 text-center">
+    <a href={fusionUrl}>View {name.toLowerCase()} in Fusion</a>
+  </div>
+</div>
