@@ -1,0 +1,99 @@
+series: The Wheel of Time
+author: Robert Jordan
+editions:
+  - id: the-wheel-of-time
+    name: Orbit UK paperback
+    books:
+      - volume: 0
+        title: New Spring
+        cover: the-wheel-of-time/0.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/new-spring
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356516998-original.jpg?v=1766127992
+      - volume: 1
+        title: The Eye of the World
+        cover: the-wheel-of-time/1.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/the-eye-of-the-world
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517001-original.jpg?v=1763466205
+      - volume: 2
+        title: The Great Hunt
+        cover: the-wheel-of-time/2.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/the-great-hunt
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517018-original.jpg?v=1768633042
+      - volume: 3
+        title: The Dragon Reborn
+        cover: the-wheel-of-time/3.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/the-dragon-reborn
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517025-original.jpg?v=1768459056
+      - volume: 4
+        title: The Shadow Rising
+        cover: the-wheel-of-time/4.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/the-shadow-rising
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517032-original.jpg?v=1768459063
+      - volume: 5
+        title: The Fires of Heaven
+        cover: the-wheel-of-time/5.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/the-fires-of-heaven
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517049-original.jpg?v=1767941166
+      - volume: 6
+        title: Lord of Chaos
+        cover: the-wheel-of-time/6.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/lord-of-chaos
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517056-original.jpg?v=1763466262
+      - volume: 7
+        title: A Crown of Swords
+        cover: the-wheel-of-time/7.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/a-crown-of-swords
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517063-original.jpg?v=1768459070
+      - volume: 8
+        title: The Path of Daggers
+        cover: the-wheel-of-time/8.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/the-path-of-daggers
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517070-original.jpg?v=1757044183
+      - volume: 9
+        title: Winter’s Heart
+        cover: the-wheel-of-time/9.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/winters-heart
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517087-original.jpg?v=1767941180
+      - volume: 10
+        title: Crossroads of Twilight
+        cover: the-wheel-of-time/10.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/crossroads-of-twilight
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517094-original.jpg?v=1768458958
+      - volume: 11
+        title: Knife of Dreams
+        cover: the-wheel-of-time/11.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/knife-of-dreams
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517100-original.jpg?v=1763466281
+      - volume: 12
+        title: The Gathering Storm
+        author: Robert Jordan and Brandon Sanderson
+        cover: the-wheel-of-time/12.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/the-gathering-storm
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517117-original.jpg?v=1768459077
+      - volume: 13
+        title: Towers of Midnight
+        author: Robert Jordan and Brandon Sanderson
+        cover: the-wheel-of-time/13.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/towers-of-midnight
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517124-original.jpg?v=1757470543
+      - volume: 14
+        title: A Memory of Light
+        author: Robert Jordan and Brandon Sanderson
+        cover: the-wheel-of-time/14.webp
+        sources:
+          Catalogue: https://store.orbit-books.co.uk/products/a-memory-of-light
+          Artwork: https://cdn.shopify.com/s/files/1/0595/2081/1186/products/9780356517131-original.jpg?v=1768459118

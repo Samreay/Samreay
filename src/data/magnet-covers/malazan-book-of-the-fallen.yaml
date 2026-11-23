@@ -1,0 +1,61 @@
+series: Malazan Book of the Fallen
+author: Steven Erikson
+editions:
+  - id: malazan-book-of-the-fallen
+    name: Transworld UK
+    notes: Covers from the publisher’s UK series catalogue span two jacket designs.
+    books:
+      - volume: 1
+        title: Gardens of the Moon
+        cover: malazan-book-of-the-fallen/1.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9781804995518/9781804995518-jacket-large.jpg
+      - volume: 2
+        title: Deadhouse Gates
+        cover: malazan-book-of-the-fallen/2.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9781804995556/9781804995556-jacket-large.jpg
+      - volume: 3
+        title: Memories of Ice
+        cover: malazan-book-of-the-fallen/3.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9781409083160/9781409083160-jacket-large.jpg
+      - volume: 4
+        title: House of Chains
+        cover: malazan-book-of-the-fallen/4.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9781409083191/9781409083191-jacket-large.jpg
+      - volume: 5
+        title: Midnight Tides
+        cover: malazan-book-of-the-fallen/5.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9781409083221/9781409083221-jacket-large.jpg
+      - volume: 6
+        title: The Bonehunters
+        cover: malazan-book-of-the-fallen/6.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9781409083252/9781409083252-jacket-large.jpg
+      - volume: 7
+        title: Reaper’s Gale
+        cover: malazan-book-of-the-fallen/7.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9781409083283/9781409083283-jacket-large.jpg
+      - volume: 9
+        title: Dust of Dreams
+        cover: malazan-book-of-the-fallen/9.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9780553813173/9780553813173-jacket-large.jpg
+      - volume: 10
+        title: The Crippled God
+        cover: malazan-book-of-the-fallen/10.webp
+        sources:
+          Catalogue: https://www.penguin.co.uk/series/MALAZ/the-malazan-book-of-the-fallen
+          Artwork: https://cdn.penguin.co.uk/dam-assets/books/9780553813180/9780553813180-jacket-large.jpg

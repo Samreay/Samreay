@@ -1,0 +1,24 @@
+series: The First Law
+author: Joe Abercrombie
+editions:
+  - id: the-first-law
+    name: Original UK covers
+    books:
+      - volume: 1
+        title: The Blade Itself
+        cover: the-first-law/1.webp
+        sources:
+          Catalogue: https://joeabercrombie.com/books/the-blade-itself/
+          Artwork: https://i0.wp.com/joeabercrombie.com/wp-content/uploads/2014/03/uk-orig-the-blade-itself.jpg
+      - volume: 2
+        title: Before They Are Hanged
+        cover: the-first-law/2.webp
+        sources:
+          Catalogue: https://joeabercrombie.com/books/before-they-are-hanged/
+          Artwork: https://i0.wp.com/joeabercrombie.com/wp-content/uploads/2014/03/uk-orig-before-they-are-hanged.jpg
+      - volume: 3
+        title: Last Argument of Kings
+        cover: the-first-law/3.webp
+        sources:
+          Catalogue: https://joeabercrombie.com/books/last-argument-of-kings/
+          Artwork: https://i0.wp.com/joeabercrombie.com/wp-content/uploads/2014/03/uk-orig-last-argument-of-kings.jpg

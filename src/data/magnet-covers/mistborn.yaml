@@ -1,0 +1,55 @@
+series: Mistborn
+author: Brandon Sanderson
+editions:
+  - id: mistborn
+    name: Tor covers
+    notes: Front covers cropped from the author’s book pages. Wax & Wayne is numbered 4–7 across the full saga.
+    books:
+      - volume: 1
+        title: The Final Empire
+        cover: mistborn/1.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-mistborn-saga-the-original-trilogy
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/2.png
+      - volume: 2
+        title: The Well of Ascension
+        cover: mistborn/2.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-mistborn-saga-the-original-trilogy
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_18.png
+      - volume: 3
+        title: The Hero of Ages
+        cover: mistborn/3.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-mistborn-saga-the-original-trilogy
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_19.png
+      - volume: 3.5
+        title: "Mistborn: Secret History"
+        cover: mistborn/3-5.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-mistborn-saga-the-original-trilogy
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_20.png
+      - volume: 4
+        title: The Alloy of Law
+        cover: mistborn/4.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-mistborn-saga-the-wax-wayne-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_1.png
+      - volume: 5
+        title: Shadows of Self
+        cover: mistborn/5.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-mistborn-saga-the-wax-wayne-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_21.png
+      - volume: 6
+        title: The Bands of Mourning
+        cover: mistborn/6.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-mistborn-saga-the-wax-wayne-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_22.png
+      - volume: 7
+        title: The Lost Metal
+        cover: mistborn/7.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-mistborn-saga-the-wax-wayne-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_23.png

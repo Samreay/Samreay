@@ -1,45 +1,3 @@
-series: Blood Over Bright Haven
-author: M. L. Wang
-editions:
-  - id: blood-over-bright-haven-wraithmarked
-    name: Wraithmarked Illustrated Deluxe Edition
-    books:
-      - volume: 1
-        title: Blood Over Bright Haven
-        cover: wraith-al/blood-over-bright-haven.webp
-        sources:
-          Campaign: https://www.kickstarter.com/projects/wraithmarked/brighthaven
-          Edition source: https://mlwangbooks.com/2025/04/01/deluxe-illustrated-edition-of-blood-over-bright-haven/
-          Image: https://brighthaven.backerkit.com/hosted_preorders/project_updates#845896
----
-series: Dracula
-author: Bram Stoker
-editions:
-  - id: dracula-wraithmarked
-    name: Wraithmarked Illustrated Deluxe Edition
-    books:
-      - volume: 1
-        title: Dracula
-        cover: wraith-al/dracula.webp
-        sources:
-          Campaign: https://www.kickstarter.com/projects/wraithmarked/wmdracula
-          Edition source: https://wmdracula.backerkit.com/hosted_preorders/project_updates?page=1
----
-series: Frankenstein
-author: Mary Shelley
-editions:
-  - id: frankenstein-wraithmarked
-    name: Wraithmarked Illustrated Deluxe Edition (1818 text)
-    notes: The jacket features Ashley Mackenzie’s illustration.
-    books:
-      - volume: 1
-        title: Frankenstein
-        cover: wraith-al/frankenstein.webp
-        sources:
-          Campaign: https://www.kickstarter.com/projects/wraithmarked/frankenstein-1818
-          Edition source: https://bsky.app/profile/ashmackenzie.bsky.social/post/3mxhkwnbce22c
-          Image: https://rarebindings.net/book/kickstarter/frankenstein-wraithmarked-illustrated-deluxe-edition-1818-text
----
 series: The Hitchhiker’s Guide to the Galaxy
 author: Douglas Adams
 editions:
@@ -54,32 +12,6 @@ editions:
         sources:
           Campaign: https://www.kickstarter.com/projects/wraithmarked/hitchhikers
           Edition source: https://rarebindings.net/book/kickstarter/the-ultimate-hitchhikers-guide-to-the-galaxy-wraithmarked-illustrated-deluxe-omnibus
-  - id: hitchhikers-guide-wraithmarked-case
-    name: Wraithmarked Illustrated Deluxe Omnibus Case
-    notes: Tom Kidd designed the hardcover case.
-    books:
-      - volume: 1
-        title: The Ultimate Hitchhiker’s Guide to the Galaxy
-        omnibus: true
-        cover: wraith-al/the-ultimate-hitchhikers-guide-to-the-galaxy-case.webp
-        sources:
-          Campaign: https://www.kickstarter.com/projects/wraithmarked/hitchhikers
-          Edition source: https://seedstage.vn/hitchhikers
----
-series: The Invisible Life of Addie LaRue
-author: V. E. Schwab
-editions:
-  - id: invisible-life-of-addie-larue-wraithmarked
-    name: Wraithmarked Full-Color Illustrated Deluxe Edition
-    notes: The campaign preview shows Rovina Cai’s jacket.
-    books:
-      - volume: 1
-        title: The Invisible Life of Addie LaRue
-        cover: wraith-al/the-invisible-life-of-addie-larue.webp
-        sources:
-          Campaign: https://www.kickstarter.com/projects/wraithmarked/addielarue
-          Edition source: https://wraithmarked.com/pages/campaign-progress
-          Image: https://wraithmarked.com/cdn/shop/files/ADDIE_5000x.webp?v=1793730896
 ---
 series: The Odyssey
 author: Homer
@@ -95,51 +27,6 @@ editions:
           Edition: https://www.reddit.com/r/Wraithmarked/comments/1uaze3w/the_odyssey_coming_late_july/
           Image: https://i.redd.it/z0mzyn5dhg8h1.jpeg
 ---
-series: The Sword of Kaigen
-author: M. L. Wang
-editions:
-  - id: wraithmarked-sword-of-kaigen-special
-    name: Wraithmarked SPFBO Special Edition
-    books:
-      - volume: 1
-        title: The Sword of Kaigen
-        cover: wraith-mz/sword-of-kaigen.webp
-        sources:
-          Edition: https://wraithmarked.com/products/the-sword-of-kaigen-special-edition
-          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/SPFBO1-SPE-1.webp?v=1786737269
-  - id: wraithmarked-sword-of-kaigen-2022
-    name: Wraithmarked 2022 Special Edition
-    notes: Felix Ortiz illustrated the first Kickstarter jacket.
-    books:
-      - volume: 1
-        title: The Sword of Kaigen
-        cover: wraith-mz/sword-of-kaigen-2022.webp
-        sources:
-          Edition: https://charami.com/2023/12/28/the-sword-of-kaigen-special-edition-review/
-          Image: https://i0.wp.com/charami.com/wp-content/uploads/2023/12/TSOK-05.jpeg?ssl=1
-  - id: wraithmarked-sword-of-kaigen-2022-case
-    name: Wraithmarked 2022 Foil Hardcover Case
-    books:
-      - volume: 1
-        title: The Sword of Kaigen
-        cover: wraith-mz/sword-of-kaigen-2022-case.webp
-        sources:
-          Edition: https://charami.com/2023/12/28/the-sword-of-kaigen-special-edition-review/
-          Image: https://i0.wp.com/charami.com/wp-content/uploads/2023/12/TSOK-09.jpeg?ssl=1
----
-series: The Veneziad
-author: G. B. Stewart
-editions:
-  - id: wraithmarked-veneziad-special
-    name: Wraithmarked Special Edition
-    books:
-      - volume: 1
-        title: The Veneziad
-        cover: wraith-mz/veneziad.webp
-        sources:
-          Edition: https://theveneziad.backerkit.com/hosted_preorders/project_updates?page=4
-          Image: https://i.kickstarter.com/assets/051/424/498/5f7fbc850d34011a4233ff8ab457b47a_original.jpg?fit=scale-down&origin=ugc&q=92&sig=Ko0VSYyX3ka9KoX0NrW9s7fuoAtd4OivbpVdqGueLq4%3D&v=1761577501&width=700
----
 series: The War of the Worlds
 author: H. G. Wells
 editions:
@@ -152,43 +39,3 @@ editions:
         sources:
           Edition: https://wraithmarked.com/products/the-war-of-the-worlds-illustrated-deluxe-edition
           Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/WOTW1-CLX-1.webp?v=1787337329
----
-series: When Swords Fall Silent
-author: Bryce O’Connor (ed.)
-editions:
-  - id: wraithmarked-when-swords-fall-silent-hardcover
-    name: Wraithmarked Hardcover
-    books:
-      - volume: 1
-        title: When Swords Fall Silent
-        cover: wraith-mz/when-swords-fall-silent.webp
-        sources:
-          Edition: https://wraithmarked.com/products/when-swords-fall-silent-hardcover
-          Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/WSFS-HC-1.webp?v=1786737478
----
-series: The Hunchback of Notre-Dame
-author: Victor Hugo
-editions:
-  - id: the-hunchback-of-notre-dame-wraithmarked
-    name: Wraithmarked Illustrated Deluxe
-    books:
-      - volume: 1
-        title: The Hunchback of Notre-Dame
-        cover: wraith-extra/the-hunchback-of-notre-dame.webp
-        sources:
-          Edition source: https://wraithmarked.com/cdn/shop/files/HOND.webp?v=1788267883
-          Publisher: https://hunchback.backerkit.com/hosted_preorders
----
-series: The Book of Remembrance
-author: Christopher Paolini
-editions:
-  - id: wraith-book-of-remembrance
-    name: Wraithmarked
-    notes: Shawn T. King designed the runic front of the leatherette hardcover.
-    books:
-      - volume: 1
-        title: The Book of Remembrance
-        cover: wraith-book-of-remembrance/1.webp
-        sources:
-          Edition source: https://www.reddit.com/r/Eragon/comments/1lcvc10/
-          Campaign: https://www.kickstarter.com/projects/wraithmarked/bookofremembrance

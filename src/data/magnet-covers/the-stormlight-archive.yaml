@@ -1,0 +1,49 @@
+series: The Stormlight Archive
+author: Brandon Sanderson
+editions:
+  - id: the-stormlight-archive
+    name: Tor covers
+    notes: Front covers cropped from the author’s book page.
+    books:
+      - volume: 1
+        title: The Way of Kings
+        cover: the-stormlight-archive/1.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-stormlight-archive-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/1.png
+      - volume: 2
+        title: Words of Radiance
+        cover: the-stormlight-archive/2.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-stormlight-archive-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_3.png
+      - volume: 2.5
+        title: Edgedancer
+        cover: the-stormlight-archive/2-5.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-stormlight-archive-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_4.png
+      - volume: 3
+        title: Oathbringer
+        cover: the-stormlight-archive/3.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-stormlight-archive-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_5.png
+      - volume: 3.5
+        title: Dawnshard
+        cover: the-stormlight-archive/3-5.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-stormlight-archive-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Dawnshard_Books_Page.png
+      - volume: 4
+        title: Rhythm of War
+        cover: the-stormlight-archive/4.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-stormlight-archive-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/Untitled_design_7.png
+      - volume: 5
+        title: Wind and Truth
+        cover: the-stormlight-archive/5.webp
+        sources:
+          Catalogue: https://www.brandonsanderson.com/pages/the-stormlight-archive-series
+          Artwork: https://www.brandonsanderson.com/cdn/shop/files/grounded_book_images_25.png

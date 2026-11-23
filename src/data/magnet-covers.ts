@@ -7,7 +7,7 @@ const url = z.string().url().regex(/^https?:\/\//i, 'Expected an HTTP or HTTPS s
 const sources = z.record(text, url).optional();
 
 const bookSchema = z.object({
-  volume: z.number().int().nonnegative(),
+  volume: z.number().nonnegative().multipleOf(0.5),
   part: z.number().int().positive().optional(),
   title: text,
   author: text.optional(),

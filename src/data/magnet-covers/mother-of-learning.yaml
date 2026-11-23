@@ -25,13 +25,3 @@ editions:
         sources:
           Edition: https://wraithmarked.com/products/mother-of-learning-arc-4-hardcover
           Image: https://cdn.shopify.com/s/files/1/0583/1258/9452/files/MOL4-HC-1.webp?v=1786737373
-  - id: wraith-mother-of-learning-deluxe
-    name: Wraithmarked Deluxe
-    notes: The cover reveal shows Emity’s front jacket.
-    books:
-      - volume: 1
-        title: "Mother of Learning: ARC 1"
-        cover: wraith-mother-of-learning-deluxe/1.webp
-        sources:
-          Edition source: https://www.reddit.com/r/motheroflearning/comments/1u25o94/
-          Campaign: https://www.kickstarter.com/projects/wraithmarked/mol1dlx

@@ -1,0 +1,24 @@
+series: The Age of Madness
+author: Joe Abercrombie
+editions:
+  - id: the-age-of-madness
+    name: UK hardcover
+    books:
+      - volume: 1
+        title: A Little Hatred
+        cover: the-age-of-madness/1.webp
+        sources:
+          Catalogue: https://joeabercrombie.com/books/a-little-hatred/
+          Artwork: https://i0.wp.com/joeabercrombie.com/wp-content/uploads/2019/04/LittleHatred_FINAL.jpg
+      - volume: 2
+        title: The Trouble with Peace
+        cover: the-age-of-madness/2.webp
+        sources:
+          Catalogue: https://joeabercrombie.com/books/the-trouble-with-peace/
+          Artwork: https://i0.wp.com/joeabercrombie.com/wp-content/uploads/2020/05/Trouble-with-Peace10_MEETING2-copy-scaled.jpg
+      - volume: 3
+        title: The Wisdom of Crowds
+        cover: the-age-of-madness/3.webp
+        sources:
+          Catalogue: https://joeabercrombie.com/books/the-wisdom-of-crowds/
+          Artwork: https://i0.wp.com/joeabercrombie.com/wp-content/uploads/2021/04/WofC-_NEW-scaled.jpg

@@ -35,30 +35,6 @@ editions:
         cover: rowe-standard-arcane-ascension/6.webp
         sources:
           Paperback: https://images-us.bookshop.org/ingram/9798280367388.jpg
-  - id: rowe-special-wraithmarked
-    name: Wraithmarked Deluxe
-    notes: Daniel Kamarudin illustrated the fronts. The official product images show the closed books. The local assets isolate and straighten the front panels. The book 3 asset comes from the campaign rendering.
-    sources:
-      Collection: https://wraithmarked.com/collections/arcane-ascension
-    books:
-      - volume: 1
-        title: Sufficiently Advanced Magic
-        cover: rowe-special-wraithmarked/1.webp
-        sources:
-          Publisher: https://wraithmarked.com/products/sufficiently-advanced-magic-deluxe-edition-hardcover
-          Campaign: https://www.kickstarter.com/projects/wxp/sufficiently-advanced-magic
-      - volume: 2
-        title: On the Shoulders of Titans
-        cover: rowe-special-wraithmarked/2.webp
-        sources:
-          Publisher: https://wraithmarked.com/products/on-the-shoulders-of-titans-deluxe-hardcover
-          Campaign: https://www.kickstarter.com/projects/wxp/aa2
-      - volume: 3
-        title: The Torch that Ignites the Stars
-        cover: rowe-special-wraithmarked/3.webp
-        sources:
-          Publisher rendering: https://arcane-ascension-3.backerkit.com/hosted_preorders
-          Campaign: https://www.kickstarter.com/projects/wxp/aa3
   - id: rowe-special-vault
     name: "Aethon: Vault Hardcover"
     notes: The Arcane Ascension review and its ranked workshop entry use Adam Cahoon’s cover for the July 2027 hardcover.
